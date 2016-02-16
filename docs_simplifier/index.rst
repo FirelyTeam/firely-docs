@@ -1,6 +1,7 @@
 .. SimplifierDocs documentation master file, created by
-   This file is the main page, pointing to the documentation
-   for the subprojects Simplifier, Forge, Spark and the .Net API
+   sphinx-quickstart on Tue Feb 09 09:25:44 2016.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
 Welcome to Simplifier's documentation!
 ==========================================
@@ -10,7 +11,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   docs_simplifier/index
+   simplifierIntro
+   simplifierFeatures
+   simplifierPricing
+   simplifierContact
 
 
 Indices and tables
