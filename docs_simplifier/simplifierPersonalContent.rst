@@ -12,7 +12,7 @@ In the tab Your projects on your Portal page you can find the button labeled Cre
 If you are in a project team you will see the Project Name and your role in the project. If you click on a project, the Project Page of this project will open. This is the same page as described in the "View existing FHIR Resources" section.
 
 Upload Resources
-^^^^^^^^^^^^^^^^
+""""""""""""""""
 If you have "Write" rights to a project you will see an Upload button at the top of the Project Page. 
 
 The following Upload options are available:
