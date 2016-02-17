@@ -12,7 +12,11 @@ Contents:
    :maxdepth: 2
 
    simplifierIntro
-   simplifierFeatures
+   simplifierBrowse
+   simplifierResources
+   simplifierPersonalContent
+   simplifierGithub
+   simplifierConnectors
    simplifierPricing
    simplifierContact
 
