@@ -1,5 +1,5 @@
-Simplifier Connectors
-=====================
+Connectors
+==========
 
 Simplifier allows users to create a connection to other applications. Think about sending a StructureDefinition to an Example generator, a TestScript resource to a server test application, a ValueSet to an terminology server etc.
 
@@ -35,9 +35,9 @@ Create a connector
 
    8. Once you have created your connector, the Simplifier administrator gets notified. The administrator can either approve the connector or turns it down. If your connector is approved, it will be available in the shop. 
 
+
 Use a connector
 ---------------
-
 Each connector specifies one or multiple resources is can be used with. You can see this in the shop or if you already subscribed, on your personal connector page. If you have subscribed to a connector, you can use the connector on each resource of the type specified there under the "connectors" tab.
 
  
