@@ -9,6 +9,7 @@ There are several things that you will likely do when you write a connector scri
 If you wish to fetch data from a server
 
 	.. code-block:: Javascript
+	
 		$.get(url).succes(function()
 		{
 			
@@ -22,6 +23,7 @@ If you wish to fetch data from a server
 To redirect to a different page, with a POST body payload:
 
 	.. code-block:: Javascript
+	
 		$.redirect(url, body);
 
 Place holders
