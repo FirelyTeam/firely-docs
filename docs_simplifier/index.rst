@@ -17,6 +17,7 @@ Contents:
    simplifierPersonalContent
    simplifierGithub
    simplifierConnectors
+   simplifierWriteConnector
    simplifierPricing
    simplifierContact
 
