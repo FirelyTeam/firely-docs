@@ -5,15 +5,22 @@ There are several things that you will likely do when you write a connector scri
 - JQuery.Redirect 1.0.1
 - Fhir.js
 
-
 If you wish to fetch data from a server
 	.. code-block:: Javascript
-	$.get("spark.furore.com/fhir/Patient/1").succes(function()
+	$.get(url).succes(function()
+	{
+		
+	});
+	
+	$.post(url, body).succes(function()
 	{
 		
 	});
 
-To redirect to a different page:
+To redirect to a different page, with a POST body payload:
+
+	.. code-block:: Javascript
+	$.redirect(url, body);
 
 Place holders
 -------------
