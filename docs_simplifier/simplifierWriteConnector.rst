@@ -2,6 +2,7 @@ Connector scripts
 =================
 
 There are several things that you will likely do when you write a connector script. And to make this as easy as possible, your script will have access to the following Javascript libraries:
+
 	- JQuery 1.7
 	- JQuery.Redirect 1.0.1
 	- Fhir.js
