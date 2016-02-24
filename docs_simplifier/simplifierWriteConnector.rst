@@ -9,20 +9,20 @@ There are several things that you will likely do when you write a connector scri
 If you wish to fetch data from a server
 
 	.. code-block:: Javascript
-	$.get(url).succes(function()
-	{
+		$.get(url).succes(function()
+		{
+			
+		});
 		
-	});
-	
-	$.post(url, body).succes(function()
-	{
-		
-	});
+		$.post(url, body).succes(function()
+		{
+			
+		});
 
 To redirect to a different page, with a POST body payload:
 
 	.. code-block:: Javascript
-	$.redirect(url, body);
+		$.redirect(url, body);
 
 Place holders
 -------------
