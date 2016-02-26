@@ -10,11 +10,12 @@ On this site you will find the documentation for various FHIR tools and APIs.
 The currently documented projects are:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :titlesonly:
 
    Simplifier <docs_simplifier/index>
-   The Forge profiling tool <http://simplifier.readthedocs.org/projects/forge>
-   The Spark server <http://simplifier.readthedocs.org/projects/spark>
-   The FHIR .Net API <http://simplifier.readthedocs.org/projects/fhirnetapi>
+   The Forge profiling tool <http://docs.simplifier.net/projects/forge>
+   The Spark server <http://docs.simplifier.net/projects/spark>
+   The FHIR .Net API <http://docs.simplifier.net/projects/fhirnetapi>
 
 
