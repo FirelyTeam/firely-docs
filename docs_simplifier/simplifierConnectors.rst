@@ -9,36 +9,35 @@ Subscribe to a connector
 If you want to make use of an already available connector, you can personally "subscribe" to one. To do this, please follow these steps:
 
    1. Log In on https://simplifier.net
-   2. Go To you portal, by clicking on "portal"in the menu, or go to the following link: https://www.simplifier.net/ui/User/Index
+   2. Go to your portal, by clicking on "Portal" in the menu, or go to the following link: https://www.simplifier.net/ui/User/Index
    3. Click on "Connectors" in the portal menu
-   4. Go to "shop" to find a list of connectors
+   4. Click on "Shop" to find a list of connectors
    5. Find the connector you want to use and click on "subscribe". 
 
 Create a connector
 ------------------
 
    1. Log In on https://simplifier.net
-   2. Go To you portal, by clicking on "portal"in the menu, or go to the following link: https://www.simplifier.net/ui/User/Index
+   2. Go to you portal, by clicking on "Portal" in the menu, or go to the following link: https://www.simplifier.net/ui/User/Index
    3. Click on "Connectors" in the portal menu
-   4. Go to "create/edit" 
-   5. Go to "create connector"
-   6. Fill in the metadata of your connector under the properties tab
-   7. Use the "Script" tab to write the actual Script. **Note:** You have to write your script using Javascript.
+   4. Click on "Create" 
+   5. Fill in the metadata of your connector under the properties tab
+   6. Use the "Script" tab to write the actual Script. **Note:** You have to write your script using Javascript.
 
       Example: 
 
       .. code-block:: Javascript
 
-       window.location.href = "http://example.com/createExample?profile={endpoint}&callbackurl={returnUrl}";
+       window.location.href = "http://example.com/createExample?profile=endpoint.Url&callbackurl=returnUrl";
 
       This script sends the FHIR endpoint of the resource to example.com. Example.com can then retrieves the profile and creates an example instance.
 
-   8. Once you have created your connector, the Simplifier administrator gets notified. The administrator can either approve the connector or turns it down. If your connector is approved, it will be available in the shop. 
+   7. Once you have created your connector, the Simplifier administrator gets notified. The administrator can either approve the connector or turns it down. If your connector is approved, it will be available in the shop. 
 
 
 Use a connector
 ---------------
-Each connector specifies one or multiple resources is can be used with. You can see this in the shop or if you already subscribed, on your personal connector page. If you have subscribed to a connector, you can use the connector on each resource of the type specified there under the "connectors" tab.
+Each connector specifies one or multiple resources that can be used with. You can see this in the shop or if you already subscribed, on your personal connector page. If you have subscribed to a connector, you can use the connector on each resource of the type specified there under the "connectors" tab.
 
  
 | Example: 
