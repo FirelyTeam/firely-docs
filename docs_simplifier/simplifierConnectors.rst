@@ -28,7 +28,7 @@ Create a connector
 
       .. code-block:: Javascript
 
-       window.location.href = "http://example.com/createExample?profile=endpoint.Url&callbackurl=returnUrl";
+       window.location.href = "http://example.com/createExample?profile="+simplifierServer.ResourceEndpoint+"&callbackurl="+returnUrl;
 
       This script sends the FHIR endpoint of the resource to example.com. Example.com can then retrieves the profile and creates an example instance.
 
