@@ -47,11 +47,10 @@ simplifierServer
 	
 		simplifierServer.ResourceEndpoint
 	
-	You will also have access to the resource in XML and Json in case of post calls to another server
+	You will also have access to the resource in Json in case of post calls to another server
 	
 	.. code-block:: Javascript
 	
-		simplifierServer.ResourceXml
 		simplifierServer.ResourceJson
 		
 	Since in essence it is a fhir.js client, simplifierServer also exposes all the methods implemented in fhir.js
