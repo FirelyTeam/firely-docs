@@ -14,7 +14,7 @@ The currently documented projects are:
    :titlesonly:
 
    Simplifier <docs_simplifier/index>
-   The Forge profiling tool <http://docs.simplifier.net/projects/forge>
+   The Forge profiling tool <http://docs.simplifier.net/projects/forge-docs>
    The Spark server <http://docs.simplifier.net/projects/spark>
    The FHIR .Net API <http://docs.simplifier.net/projects/fhirnetapi>
 
