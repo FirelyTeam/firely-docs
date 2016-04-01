@@ -25,8 +25,10 @@ If you choose to add resources from a FHIR server, you can do a simple GET or a 
 
 Examples:
 
-- To add a Patient resource with id "example" : ``http://example.org/fhir/Patient/example`` 
-- To add all Patient resources that conform to the DAF profile: ``http://example.org/fhir/Patient/?profile=http://hl7.org/fhir/StringDefinition/daf-patient``
+- To add a Patient resource with id "example" : 
+	``http://example.org/fhir/Patient/example`` 
+- To add all Patient resources that conform to the DAF profile: 
+	``http://example.org/fhir/Patient?profile=http://hl7.org/fhir/StringDefinition/daf-patient``
 
 If you add a batch of resources (via a bundle, a zip, or a search query) you can choose how to publish the resources that are part of the batch.
 The following options are available:
