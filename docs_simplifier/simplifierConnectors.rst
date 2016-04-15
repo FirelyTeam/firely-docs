@@ -35,21 +35,17 @@ You can also create a connector for your own personal use or for publication and
 
       This script sends the FHIR endpoint of the resource to example.com. Example.com then retrieves the profile and creates an example instance.
 
-   7. Once you are satisfied with your input, click on “Save”. The connector is then created and will be visible in the “Connectors” tab of your personal portal.  
+   7. Once you are satisfied with your input, click on “Save”. The connector is then created and will be visible in the “Connectors” tab of your personal portal.
    8.	To submit your connector for publication, open the connector from your "Connectors" tab and click on “Request Connector Publication” in the upper right.  Your connector will then be submitted for review by  the Simplifier administrator. Once the connector is approved it will be available in the shop for use by others. **Note**: The Simplifier Administrator reviews all connectors submitted for publication to ensure the quality and security of all content. 
 
 
 Use a connector
 ---------------
 Each connector specifies one or multiple resources that it can be used with. You can view this in the shop or, if you are already subscribed, in your personal connector portal page. Once you have subscribed to a connector, you can use the connector for every resource type specified for that resource.
- 
-| Example: 
-|
-| If you have subscribed to a resource which generates an example for StructureDefinitions, you can access that connector on each StructureDefinition.
-| Once you click on it, the connector sends a request to open this specific resource from Simplifier.
 
-
-
+Example: 
+If you have subscribed to a resource which generates an example for StructureDefinitions, you can access that connector on each StructureDefinition.
+Once you click on it, the connector sends a request to open this specific resource from Simplifier.
 
 
 
