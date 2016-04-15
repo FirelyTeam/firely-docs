@@ -1,19 +1,16 @@
-Manage your content
---------------------
-
 Personal Portal
 ^^^^^^^^^^^^^^^
 All your personal content is accessible through your personal portal. Through this portal you can create new projects, manage your existing projects, quickly access your favourite projects and publications, create or your connectors, shop for connectors, and view and edit your personal details.
 
 Projects
 ^^^^^^^^^^^^^^^
-In the tab Your projects on your Portal page you can find the button labeled Create New Project. Clicking this button will allow you to create a new project by entering a Display Name, Description, and Scope
+In the tab Your projects on your Portal page you can find the button labeled Create New Project. Clicking this button will allow you to create a new project by entering a Display Name, Description, and Scope.
 
-If you are in a project team you will see the Project Name and your role in the project. If you click on a project, the Project Page of this project will open. This is the same page as described in the "View existing FHIR Resources" section.
+If you are in a project team you will see the Project Name and your role in the project. If you click on a project, the Project Page for this project will open. This is the same page as described in the "View existing FHIR Resources" section.
 
 Add Resources
 """"""""""""""""
-If you have "Write" rights to a project you will see an Add button at the top of the Project Page. Here you can choose to upload a local file or fetch resource from another FHIR server.
+If you have "Write" rights to a project you will see an Add button at the top of the Project Page. Here you can choose to upload a local file or fetch a resource from another FHIR server.
 
 The following Upload options are available:
 
