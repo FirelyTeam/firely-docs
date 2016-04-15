@@ -7,7 +7,7 @@ There are several things that you will likely do when you write a connector scri
 	- JQuery.Redirect 1.0.1
 	- Fhir.js
 
-If you wish to fetch data from a server
+If you wish to fetch data from a server:
 
 	.. code-block:: Javascript
 	
