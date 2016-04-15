@@ -7,7 +7,7 @@ Introduction
 ------------
 On the Introduction tab you can find:
 
-* The Most Popular resources of the project
+* The Most Popular resources for the project
 * The number of Conformance Resources contained in the project
 * The number of Examples Resources contained in the project
 
@@ -17,9 +17,9 @@ On the Resources tab you can find all the Conformance and Example Resources for 
 This tab also offers a search and filter option. 
 
 You can filter Resources on their Published status (All/Yes/No) and their Publication Categories (Conformance Resource/Example Resource).
-If you select the Conformance Resource Publication Category, the filter pane will show more options. You can further specify the Conformance Resource Types into Structure Definition, Value Set, and Extension. 
+If you select the Conformance Resource Publication Category, the filter pane will show more options. You can further specify the Conformance Resource Types into StructureDefinition, ValueSet, and Extension. 
 
-If you select the type Structure Definition, the filter pane will show the option to search Core Base Types, allowing you to show all Resources of one or more specific Core Base Types.
+If you select the type StructureDefinition, the filter pane will show the option to search Core Base Types, allowing you to show all Resources of one or more specific Core Base Types.
 
 Members
 -------
