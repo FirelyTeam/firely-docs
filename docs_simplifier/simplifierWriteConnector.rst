@@ -56,7 +56,7 @@ simplifier
 	
 		simplifier.ResourceJson
 		
-	Since in essence it is a fhir.js client, simplifierServer also exposes all the methods implemented in fhir.js
+	Since in essence it is a fhir.js client, the simplifier client also exposes all other methods from in fhir.js like:
 	
 	.. code-block:: Javascript
 	
@@ -72,5 +72,5 @@ A simple redirect that provides the target location with the resource endpoint o
 
 	.. code-block:: Javascript
 	
-		window.location.href = "http://clinfhir.com/createExample?profile="+simplifierServer.ResourceEndpoint;
+		window.location.href = "http://clinfhir.com/createExample?profile="+simplifier.ResourceEndpoint;
 	
