@@ -7,7 +7,9 @@ There are several things that you will likely do when you write a connector scri
 	- JQuery.Redirect 1.0.1
 	- Fhir.js
 
-If you wish to fetch data from a server:
+Basic Ajax
+----------
+With JQuery, you have som basic AJAX methods to fetch or post data to servers. For example:
 
 	.. code-block:: Javascript
 	
@@ -29,8 +31,7 @@ To redirect to a different page, with a POST body payload:
 
 Helpers
 -------------
-
-You have access to several variables that will be filled in before your connector script is executed:
+To perform actual FHIR requests, you have access to several methods and variables that will be set by SIMPLIFIER before your connector script is executed:
 
 fhirServer
 	Wrapper of fhir.js client with a jQuery adapter. You will instantiate a new client by providing the base url and you will have
@@ -40,26 +41,36 @@ fhirServer
 	
 		var client = fhirServer("www.example.com");
 	
-simplifierServer
-	Wrapper of simplifhier client which hides the fhir.js client construction. When your connector is executed by a user, he will 	do that from the page that shows a resource. The FHIR endpoint of that resource can be accessed in the following manner:
+simplifier
+	This is a ready to use fhir.js client that connects to simplifier. When your connector is executed by a user, he will 	do that from the page that shows a resource. The FHIR endpoint of that resource can be accessed in the following manner:
 	
 	.. code-block:: Javascript
 	
-		simplifierServer.ResourceEndpoint
+		simplifier.ResourceEndpoint
 	
-	You will also have access to the resource in Json in case of post calls to another server
+	This allows you to send the fhir endpoint to another server, so that that server can fetch the resource that is displayed on the current page.
+	
+	You will also have access to the resource itself in Json in case of post calls to another server
 	
 	.. code-block:: Javascript
 	
-		simplifierServer.ResourceJson
+		simplifier.ResourceJson
 		
 	Since in essence it is a fhir.js client, simplifierServer also exposes all the methods implemented in fhir.js
 	
 	.. code-block:: Javascript
 	
-			simplifierServer.read(...)
+			simplifier.read(...)
 			
 returnUrl
 	This placeholder will contain the url of the page from where your connector script is executed.
 
-   
+
+Example scripts   
+---------------
+A simple redirect that provides the target location with the resource endpoint of the current page.
+
+	.. code-block:: Javascript
+	
+		window.location.href = "http://clinfhir.com/createExample?profile="+simplifierServer.ResourceEndpoint;
+	
