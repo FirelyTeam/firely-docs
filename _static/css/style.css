@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css");
+
+body {
+	color: #333;
+
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+/**
+ * Anchors
+ */
+a,
+a:visited {
+	color: #16a2c5;
+
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #0e6980;
+
+	text-decoration: underline;
+}
+
+a.icon-home,
+a.icon-home:hover {
+	background: url("https://www.simplifier.net/Content/img/simplifier.png") no-repeat;
+	background-size: contain;
+
+	margin-bottom: 0;
+
+	text-indent: 9999px;
+}
+
+/**
+ * Body
+ */
+.wy-nav-content {
+	background: #fff;
+}
+
+.wy-body-for-nav {
+	background-image: none;
+}
+
+.wy-nav-content-wrap {
+	background: #fff;
+}
+
+p,
+.wy-menu-vertical a {
+	font-size: 14px;
+}
+
+.wy-nav-content {
+	width: 100%;
+	max-width: 100%;
+}
+
+.wy-nav-side,
+.wy-menu-vertical a:hover {
+	background: #ededed !important;
+}
+
+.wy-side-nav-search {
+	background-color: #ededed;
+
+    border-bottom: 2px solid #e5c630;
+}
+
+.wy-side-nav-search input[type=text] {
+	border-radius: 0px;
+	border-color: #ccc;
+
+	font-size: 14px;
+
+	height: 36px;
+
+	padding: 7px 14px;
+}
+
+/**
+ * Buttons
+ */
+.btn {
+	box-shadow: none;
+
+	display: inline-block;
+
+	font-weight: 600;
+
+	margin-bottom: 0;
+}
+
+.btn-neutral, .btn-neutral:visited {
+	background-color: #16a2c5 !important;
+
+	border-color: none;
+
+	color: #fff !important;
+
+	text-decoration: none;
+}
+
+.btn-neutral:hover {
+	background-color: #117c97 !important;
+
+	border-color: #0d6277;
+
+	color: #fff;
+
+	text-decoration: none;
+}
+
+a.btn span.fa {
+	display: none;
+}
+
+/**
+ * Banner
+ */
+div.wy-menu.rst-pro,
+.rst-versions {
+	display: none !important;
+}
