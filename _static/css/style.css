@@ -128,8 +128,7 @@ a.btn span.fa {
 	display: none;
 }
 
-div.wy-menu.rst-pro,
-.rst-versions {
+div.wy-menu.rst-pro {
 	display: none !important;
 }
 
@@ -148,4 +147,34 @@ div.wy-menu.rst-pro,
 
 	border-top: 0px;
 	border-bottom: 0px;
+}
+
+.rst-versions {
+	background: #EDEDED;
+
+	border-top: solid 10px #EDEDED;
+}
+
+.rst-versions .rst-other-versions dd a {
+	color: #16a2c5;
+
+	padding: 6px 6px 6px 0;
+}
+
+.rst-versions .rst-current-version {
+	background-color: #7C7C7D;
+
+	color: #fff !important;
+}
+
+.rst-versions .rst-other-versions {
+	color: #333;
+}
+
+.rst-versions .rst-other-versions hr {
+	display: none;
+}
+
+.injected dd div {
+	padding: 6px 6px 6px 0 !important;
 }
