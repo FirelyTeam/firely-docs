@@ -19,6 +19,7 @@ Contents:
    simplifierGithub
    simplifierConnectors
    simplifierWriteConnector
+   simplifierIGeditor
    simplifierPricing
    simplifierContact
 
