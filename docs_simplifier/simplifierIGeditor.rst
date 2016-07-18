@@ -2,14 +2,18 @@ Implementation Guide Editor
 ===========================
 The implementation guide (IG) editor enables you to make implementation guides using the resources available in Simplifier.
 You can include your own project's Resources or those from others in your IG. 
-With the help of this markdown based editor you can easily construct a clear, good-looking and practicable IG. 
+With the help of this Markdown based editor you can easily construct a clear, good-looking and practicable IG. 
 An IG can be rendered in two formats, namely: a Two Level Menu and a Tree Table IG. 
 This page will elaborate further on how to use the IG editor.
 
 Create your first IG
 --------------------
 
-The IG editor is accessible through your personal portal. To get to the IG editor click on your User name on the top right, select portal and open the 'Implementation Guides' tab. This tab shows your IGs and gives you the option to browse, edit or delete them. Click the green button and provide a title to make a new IG. After this, the IG editor can be opened by clicking the edit button.
+The IG editor is accessible through your personal portal. 
+To get to the IG editor click on your User name on the top right, select portal and open the 'Implementation Guides' tab. 
+This tab shows your IGs and gives you the option to browse, edit or delete them. 
+Click the green button and provide a title to make a new IG. 
+After creating a new IG, the IG editor can be opened by clicking the edit button.
 
 IG editing
 ----------
@@ -20,19 +24,26 @@ The IG editor consist of three sections. The left section is the IG's tree table
 Tree table
 ^^^^^^^^^^
 
-The IG editor opens with the page of the root element. This page allows you to adjust the IG's title and select a IG rendering format. Moving your cursor over the elements in the tree table will bring out icons on the right site. These icons are used to edit the tree table and consist of the following functionalities:
+The IG editor opens with the page of the root element. This page allows you to adjust the IG's title and select an IG rendering format.
+Moving your cursor over the elements in the tree table will bring out icons on the right site. 
+These icons are used to edit the tree table and consist of the following functionalities:
 
 - add a base element
 - add a child element
-- edit elements name
+- edit element's name
 - delete element
 
-The root element has only the 'add a child element' icon. The root element title is adjusted by changing the title of the IG. Elements can be moved up or down the tree be selecting the element first and pressing the arrow up or arrow down key.
+The root element has only the 'add a child element' icon. 
+The root element name is adjusted by changing the title of the IG. 
+Elements can be moved up or down the tree be selecting the element first and pressing the arrow up or arrow down key.
 
 Editor
 ^^^^^^
 
-The mid section is used to compose the IG content. This editor is based on Markdown, which is a test-to-HTML conversion tool. It allows you to write using an easy-to-read, easy-to-write plain text format. The following link provide an overview of the Markdown features which can be used in this editor: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet.
+The mid-section is a Markdown based editor used to compose your IG content. 
+Markdown is a text-to-HTML conversion tool. 
+It allows you to write using an easy-to-read, easy-to-write plain text format. 
+The following link provides an overview of the Markdown features which can be used in this editor: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet.
 
 A short summation of frequently used features:
 
@@ -45,15 +56,18 @@ A short summation of frequently used features:
 IG editor features
 ^^^^^^^^^^^^^^^^^^
 
-The IG editor has features which allow you to include Simplifier content in your IG. These features work by using one of the following statements in the editor.
+The IG editor has features which allow you to include Simplifier content in your IG. 
+These features work by using one of the following statements in the editor.
 
- - {{tree:ProjectName/ResourceName}}		        - renders a tree structure as seen in the resource overview tab
+ - {{tree:ProjectName/ResourceName}}		    - renders a tree structure as seen in the resource overview tab
  - {{table:ProjectName/ResourceName}}			- renders a table as seen in the resource table tab
  - {{structure:ProjectName/ResourceName}}		- renders the resource in a newly defined tree (unfinished)
  - {{link:ProjectName/ResourceName}}			- provides a link to the specific resource page on Simplifier
 
-The statement is made up of 2 parts, namely: the kind of function and the location of the content in Simplifier. The location is based on the names of the project and resource. They can be found in the Simplifier URL after the hostname (``https://simplifier.net/``). 
-For example, if you want to include a profile on a Organization described at https://simplifier.net/DAF/daf-organization a correct statement would be `{{tree:DAF/daf-organization}}`. 
+The statement is made up of 2 parts, namely: the kind of function and the location of the content in Simplifier. 
+The location is based on the names of the project and resource. 
+They can be found in the Simplifier URL after the hostname (``https://simplifier.net/``). 
+For example, if you want to include a profile on a Organization described at https://simplifier.net/DAF/daf-organization a correct statement would be {{tree:DAF/daf-organization}}. 
 
 In addition, the index function can be used to provide an index within your IG. The following statements can be used.
 
