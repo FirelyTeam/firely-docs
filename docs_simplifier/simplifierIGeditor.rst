@@ -9,8 +9,7 @@ This page will elaborate further on how to use the IG editor.
 Create your first IG
 --------------------
 
-The IG editor is accessible through your personal portal. 
-To get to the IG editor click on your User name on the top right, select portal and open the 'Implementation Guides' tab. 
+To get to the IG editor go to your portal. To get there, click on your User name on the top right, select ``portal`` and open the ``Implementation Guides`` tab. 
 This tab shows your IGs and gives you the option to browse, edit or delete them. 
 Click the green button and provide a title to make a new IG. 
 After creating a new IG, the IG editor can be opened by clicking the edit button.
