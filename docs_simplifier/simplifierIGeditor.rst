@@ -57,23 +57,28 @@ A short summation of frequently used features:
 - Strikethrough uses two tildes. ``~~Scratch this.~~``
 
 IG editor features
-^^^^^^^^^^^^^^^^^^
+------------------
 
 The IG editor has features which allow you to include Simplifier content in your IG. 
-These features work by using statements written below in the editor. 
+These features work by using the statements written below in the editor. 
 After adding these statements in the editor refresh the page, by pressing Crtl + Enter or clicking the Refresh button, to make them visible in the preview section. 
 
 - {{tree:ProjectName/ResourceName}}		    - renders a tree structure as seen in the resource overview tab
 - {{table:ProjectName/ResourceName}}		- renders a table as seen in the resource table tab
 - {{structure:ProjectName/ResourceName}}	- renders the resource in a newly defined tree (unfinished)
 - {{link:ProjectName/ResourceName}}			- provides a link to the specific resource page on Simplifier
+- {{namingsystems:ProjectName}}				- lists all namespaces of a project in a table
 
 The statement is made up of 2 parts, namely: the kind of function and the location of the content in Simplifier. 
-The location is based on the names of the project and resource. 
+The location is based on the name of the project and the name of the resource. 
 They can be found in the Simplifier URL after the hostname (``https://simplifier.net/``). 
-For example, if you want to include a profile on a Organization described at https://simplifier.net/DAF/daf-organization a correct statement would be {{tree:DAF/daf-organization}}. 
+For example, if you want to include a profile on an Organization, as described at https://simplifier.net/DAF/daf-organization a correct statement would be {{tree:DAF/daf-organization}}. 
 
-Using the following statements an index can be added within the IG. 
+The following statements add an index within the IG. 
 
 - {{index:root}}	- gives an index of the entire IG 
 - {{index:current}} - gives an index of the current selected element
+
+
+
+
