@@ -16,7 +16,7 @@ Contents:
    simplifierBrowse
    simplifierResources
    simplifierPersonalContent
-   simplifierGithub
+   simplifierGitHub
    simplifierConnectors
    simplifierWriteConnector
    simplifierIGeditor
