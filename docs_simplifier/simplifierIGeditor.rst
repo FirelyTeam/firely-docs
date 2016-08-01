@@ -40,8 +40,8 @@ The root element has only the 'add a child element' icon.
 The root element name is adjusted by changing the title of the IG. 
 Elements can be moved up or down the tree be selecting the element first and pressing the arrow up or arrow down key.
 
-Editor
-^^^^^^
+Markdown 
+^^^^^^^^
 
 The midsection is a Markdown based editor used to compose your IG content. 
 Markdown is a text-to-HTML conversion tool. 
