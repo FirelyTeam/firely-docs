@@ -25,10 +25,12 @@ This page allows you to adjust the IG's title and select an IG rendering format.
 
 A Two Level Menu rendering will display your IG with the elements in tabs along the top of the page.
 
+
 .. image:: http://i32.photobucket.com/albums/d41/sdfgsdg1asdj/5.IGblog_zps3cloxvdy.png
 
 
 A Tree table rendering will display your IG with the elements in a format similar to the tree table with the elements and their hierarchy along the left side of the page.
+
 
 .. image:: http://i32.photobucket.com/albums/d41/sdfgsdg1asdj/0c898a190d7241b9a4e48e739a87af8f_zpszdeyzndo.jpg
 
