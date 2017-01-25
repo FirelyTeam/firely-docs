@@ -14,6 +14,6 @@ The currently documented projects are:
    :titlesonly:
 
    Simplifier - FHIR profile registry <docs_simplifier/index>
-   Forge - FHIR profile editor� <http://docs.simplifier.net/projects/forge-docs>
+   Forge - FHIR profile editor <http://docs.simplifier.net/projects/forge-docs>
    Spark - FHIR server <http://docs.simplifier.net/projects/spark-docs>
    FHIR .Net API <http://docs.simplifier.net/projects/fhirnetapi>
