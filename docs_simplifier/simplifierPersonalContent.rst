@@ -2,13 +2,13 @@ Personal Portal
 ^^^^^^^^^^^^^^^
 All your personal content is accessible through your personal portal. Through this portal you can create new projects, manage your existing projects, quickly access your favourite projects and publications, create or your connectors, shop for connectors, and view and edit your personal details.
 
-Projects
+Create a New Project
 ^^^^^^^^^^^^^^^
-In the tab Your projects on your Portal page you can find the button labeled Create New Project. Clicking this button will allow you to create a new project by entering a Display Name, Description, and Scope.
+In the Projects tabs on your Portal page you can find the button labeled Create New Project. Clicking this button will allow you to create a new project by entering a Display Name, Description, and Scope. Once the project has been created you can then customize project information, add resources, add members, and follow changes that are occurring in that project. 
 
-If you are in a project team you will see the Project Name and your role in the project. If you click on a project, the Project Page for this project will open. This is the same page as described in the "View existing FHIR Resources" section.
+The Introduction page of each of your projects has a section to add summary text about your project. This section services as an overview of your project. This is a good area to share information about your project with people that may be team members or viewing your project for the first time. 
 
-Add Resources
+Add a Resource
 """"""""""""""""
 If you have "Write" rights to a project you will see an Add button at the top of the Project Page. Here you can choose to upload a local file or fetch a resource from another FHIR server.
 
@@ -33,3 +33,15 @@ The following options are available:
 * Do not publish these resources automatically
 * Publish these resources when their status is "Active" (examples will always be published)
 * Publish all of them
+
+Add Members
+"""""""""""
+The Members tab displays a list of all the members with rights to that project. In this section you can search for existing Simplifier members to add to your project by typing a user name in and clicking the Add button. To invite non-Simplifier members to your project click on the Invite to Project button at the top of the Project page. This allows you to invite new members using their email address. An invitation is then sent to the user requesting that they create a Simplifier account to enable them access to your project.
+
+Along the top of the members tab you will find a summary of User information for your project. The number of users, the max user allowed for this project (in accordance with the type of plan you have) and the number of invitations you have pending.  
+
+Track Project Changes
+"""""""""""""""""""""
+On the Log tab you will find event tracking for your project. This log keeps a list of all changes made to resources within your project, along with the name of the person that made changes and the time the changes were made. 
+
+At the top of the screen you will find the Atom feed button. This allows you to subscribe to stay informed about any changes being made within your projects. 
