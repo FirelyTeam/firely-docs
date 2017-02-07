@@ -36,14 +36,6 @@ The following options are available:
 * Publish these resources when their status is "Active" (examples will always be published)
 * Publish all of them
 
-Search for Resources
-""""""""""""""""
-The ``Resources`` tab also offers a search and filter option.
-
-You can filter Resources on their Published status (All/Yes/No) and their Publication Categories (ConformanceResource/ExampleResource). If you select the ConformanceResource Publication Category, the filter pane will show more options. You can further specify the Conformance Resource Types into StructureDefinition, ValueSet, and Extension.
-
-If you select the type StructureDefinition the filter pane will show the option to search Core Base Types, allowing you to show all Resources of one or more specific Core Base Types.
-
 Add Members
 """""""""""
 The ``Members`` tab displays a list of all the members with rights to that project. In this section you can search for existing Simplifier members to add to your project by typing a user name in and clicking the ``+Add`` button. To invite non-Simplifier members to your project click on the ``Invite to Project`` option in the toolbar at the top of the Project page. This allows you to invite new members using their email address. An invitation is then sent to the user requesting that they create a Simplifier account to enable them access to your project.
