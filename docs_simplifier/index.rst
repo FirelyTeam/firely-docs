@@ -14,8 +14,8 @@ Contents:
 
    simplifierIntro
    simplifierPersonalContent
-   simplifierResources
    simplifierBrowse
+   simplifierResources
    simplifierGithub
    simplifierConnectors
    simplifierWriteConnector
