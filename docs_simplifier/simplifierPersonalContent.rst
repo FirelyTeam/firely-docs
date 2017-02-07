@@ -36,7 +36,9 @@ The following options are available:
 * Publish these resources when their status is "Active" (examples will always be published)
 * Publish all of them
 
-This tab also offers a search and filter option.
+Search for Resources
+""""""""""""""""
+The ``Resources`` tab also offers a search and filter option.
 
 You can filter Resources on their Published status (All/Yes/No) and their Publication Categories (ConformanceResource/ExampleResource). If you select the ConformanceResource Publication Category, the filter pane will show more options. You can further specify the Conformance Resource Types into StructureDefinition, ValueSet, and Extension.
 
