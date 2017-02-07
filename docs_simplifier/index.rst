@@ -13,9 +13,9 @@ Contents:
    :maxdepth: 2
 
    simplifierIntro
-   simplifierBrowse
-   simplifierResources
    simplifierPersonalContent
+   simplifierResources
+   simplifierBrowse
    simplifierGithub
    simplifierConnectors
    simplifierWriteConnector
