@@ -10,6 +10,8 @@ The ``Introduction`` page of each of your projects has a section to add summary 
 
 Add a Resource
 """"""""""""""""
+On the Resources tab you can find all the Conformance and Example Resources of the project. 
+
 If you have "Write" rights to a project you will see an option to ``+Add`` projects at the top of the Project Page. Here you can choose to upload a local file or fetch a resource from another FHIR server.
 
 The following Upload options are available:
@@ -33,6 +35,12 @@ The following options are available:
 * Do not publish these resources automatically
 * Publish these resources when their status is "Active" (examples will always be published)
 * Publish all of them
+
+This tab also offers a search and filter option.
+
+You can filter Resources on their Published status (All/Yes/No) and their Publication Categories (ConformanceResource/ExampleResource). If you select the ConformanceResource Publication Category, the filter pane will show more options. You can further specify the Conformance Resource Types into StructureDefinition, ValueSet, and Extension.
+
+If you select the type StructureDefinition the filter pane will show the option to search Core Base Types, allowing you to show all Resources of one or more specific Core Base Types.
 
 Add Members
 """""""""""
