@@ -10,7 +10,7 @@ The ``Introduction`` page of each of your projects has a section to add summary 
 
 Add a Resource
 """"""""""""""""
-On the Resources tab you can find all the Conformance and Example Resources of the project. 
+On the Resources tab you can find all the Conformance and Example Resources for the project. 
 
 If you have "Write" rights to a project you will see an option to ``+Add`` projects at the top of the Project Page. Here you can choose to upload a local file or fetch a resource from another FHIR server.
 
@@ -40,7 +40,7 @@ Add Members
 """""""""""
 The ``Members`` tab displays a list of all the members with rights to that project. In this section you can search for existing Simplifier members to add to your project by typing a user name in and clicking the ``+Add`` button. To invite non-Simplifier members to your project click on the ``Invite to Project`` option in the toolbar at the top of the Project page. This allows you to invite new members using their email address. An invitation is then sent to the user requesting that they create a Simplifier account to enable them access to your project.
 
-Along the top of the ``Members`` tab you will find a summary of User information for your project. The number of users, the max user allowed for this project (in accordance with the type of plan you have), and the number of invitations you have pending (the number of users who have a not yet accepted an invitation).  
+Along the top of the ``Members`` tab you will find a summary of User information for your project. The number of users, the max users allowed for this project (in accordance with the type of plan you have), and the number of invitations you have pending (the number of users who have a not yet accepted an invitation).  
 
 Track Project Changes
 """""""""""""""""""""
