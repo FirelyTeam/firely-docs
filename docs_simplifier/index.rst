@@ -23,4 +23,3 @@ Contents:
    simplifierWriteConnector
    simplifierPricing
    simplifierContact
-
