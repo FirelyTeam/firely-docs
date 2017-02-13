@@ -8,20 +8,20 @@ This page will elaborate further on getting started and how you can use the IG e
 
 Create your first IG
 --------------------
-You can access the IG editor via the Portal in your Simplifier account. To get there, log in to Simplifier and open the ``Implementation Guides`` tab in your ``Portal page``. This tab allows access to create IGs and edit existing IGs. To create a new IG click the green button ``+New Implementation Guide`` and provide a title for the IG. After creating a new IG, the IG editor can be opened by clicking the edit button. You also have the option to Browse or Delete your existing IGs. 
+You can access the IG editor via the Portal in your Simplifier account. To get there, log in to Simplifier and select the ``Implementation Guides`` tab from your ``Portal page``. From this tab you can do all of your editing for for IGs. You also have the option to Browse or Delete your existing IGs. To create a new IG click the green button ``+New Implementation Guide`` and provide a title for the IG. After creating a new IG, the IG editor can be opened by clicking the Edit button. 
 
-Editing an IG
--------------
-The IG editor consist of three sections. 
-The left section is the IG's tree table which is used to define the outline of your IG and navigate between the pages of the IG. The middle section is the actual editor. This is where you will add and edit content. 
-The right section is a preview of the selected page. 
+IG Editor Settings
+------------------
+The IG editor opens on the page of the root element. The IG Editor consist of three sections. On the left is the IG's tree table which is used to define the outline of your IG and navigate between the pages of the IG. The middle section is the actual editor. This is where you will add and edit content. The right section is where you will find a rendering of the selected page. 
+
 By way of dragging the section bars you can adjust the size of each section to customize your view.
 
-Tree table
-^^^^^^^^^^
+To adjust the settings of your IG click on the Settings icon. This brings you to a section that allows you to adjust the title, privacy, select an IG rendering format, and add and manage membership. 
 
-The IG editor opens in the page of the root element. 
-This page allows you to adjust the IG's title and select an IG rendering format. An IG can be rendered in two formats: a Two Level Menu format and a Tree Table format. 
+An IG can be rendered in two formats: a Two Level Menu format and a Tree Table format.
+
+Two Level Menu vs Tree table
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
 A Two Level Menu rendering will display your IG with the elements in tabs along the top of the page.
 
@@ -47,9 +47,12 @@ The root element has only the 'add a child element' icon.
 The root element name is adjusted by changing the title of the IG. 
 Elements can be moved up or down the tree be selecting the element first and pressing the arrow up or arrow down key.
 
+Add Members
+^^^^^^^^^^^
+You can adjust the settings of your IG to make it public or private (assuming you have the proper account). You can invite members to view or work on your IG by accessing the ``User Management`` tab from the Settings menu. The new members can be part of your Organizaion or non-Simplifier users. Here you can add members using their email address and adjust their role on the IG team. The options here are Admin, Writer, and Reader. 
+
 Markdown 
 ^^^^^^^^
-
 In the middle section is a Markdown based editor used to compose your IG content. 
 Markdown is a text-to-HTML conversion tool. 
 It allows you to write using an easy-to-read, easy-to-write plain text format. 
@@ -63,8 +66,7 @@ A short summary of frequently used features are as follows:
 - Adding Combined emphasis with ``**asterisks``` and ``_underscores_**``
 - Strikethrough uses two tildes. ``~~Scratch this.~~``
 
-IG editor features
-------------------
+
 
 The IG editor has features which allow you to include Simplifier content in your IG. 
 These features work by using the statements written below in the editor. 
@@ -85,4 +87,3 @@ The following statements add an index within the IG.
 
 - {{index:root}}	- gives an index of the entire IG 
 - {{index:current}} - gives an index of the current selected element
-
