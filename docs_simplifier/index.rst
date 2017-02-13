@@ -16,10 +16,11 @@ Contents:
    simplifierPersonalContent
    simplifierBrowse
    simplifierResources
-   simplifierGithub
+   simplifierIGeditor
+   simplifierPersonalContent  
+   simplifierGithub
    simplifierConnectors
    simplifierWriteConnector
-   simplifierIGeditor
    simplifierPricing
    simplifierContact
 
