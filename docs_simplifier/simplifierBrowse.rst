@@ -16,7 +16,7 @@ On the ``Introduction`` tab you can find:
 Resources
 ---------
 On the ``Resources`` tab you can find all the Conformance and Example Resources for the project.
-This tab also offers a search and filter option. You can filter your results to include of exclude certain Resource categories, Core base types, Example Resources type, FHIR status, and Workflow status. 
+This tab also offers a search and filter option. You can filter your results to include or exclude certain Resource categories, Core base types, Example Resources type, FHIR status, and Workflow status. 
  
 Members
 -------
@@ -24,5 +24,4 @@ On the ``Members`` tab you can find all project members and their role. This tab
 
 Log
 ---
-
 On the ``Log`` tab you can see all the issues that were reported publicly (or within the team if you are indeed a part of the project team) for this project. 
