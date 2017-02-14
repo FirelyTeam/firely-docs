@@ -17,7 +17,7 @@ Contents:
    simplifierBrowse
    simplifierResources
    simplifierIGeditor
-   simplifier-docs/docs_simplifier/organizationPortal.rst  
+   simplifierorganizationPortal  
    simplifierGithub
    simplifierConnectors
    simplifierWriteConnector
