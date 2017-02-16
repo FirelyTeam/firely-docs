@@ -18,6 +18,8 @@ By way of dragging the section bars you can adjust the size of each section to c
 
 To adjust the settings of your IG click on the Settings icon. This brings you to a section that allows you to adjust the title, privacy, select an IG rendering format, and add and manage membership. 
 
+.. image:: ./images/Settings.PNG   
+
 An IG can be rendered in two formats: a Two Level Menu format and a Tree Table format.
 
 Two Level Menu vs Tree table
@@ -50,6 +52,8 @@ Elements can be moved up or down the tree be selecting the element first and pre
 Add Members
 ^^^^^^^^^^^
 You can adjust the settings of your IG to make it public or private (assuming you have the proper account). You can invite members to view or work on your IG by accessing the ``User Management`` tab from the Settings menu. The new members can be part of your Organizaion or non-Simplifier users. Here you can add members using their email address and adjust their role on the IG team. The options here are Admin, Writer, and Reader. 
+
+.. image:: ./images/UserManagement.png   
 
 Markdown 
 ^^^^^^^^
