@@ -24,4 +24,6 @@ On the ``Members`` tab you can find all project members and their role. This tab
 
 Log
 ---
-On the ``Log`` tab you can see all the issues that were reported publicly (or within the team if you are indeed a part of the project team) for this project. 
+On the ``Log`` tab you can see all the changes that have been made to this project in the past. This is a good way to stay in touch with whats happening within your favorite projects. 
+
+To stay in informed in real time click the subscribe button in the top right. You do not have to be a member of a project to stay up to date on the latest developments. 
