@@ -16,6 +16,7 @@ Contents:
    simplifierPersonalContent
    simplifierBrowse
    simplifierResources
+   simplifierOrganizationPortal  
    simplifierIGeditor
    simplifierGithub
    simplifierConnectors
