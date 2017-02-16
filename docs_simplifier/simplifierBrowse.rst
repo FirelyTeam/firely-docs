@@ -26,4 +26,4 @@ Log
 ---
 On the ``Log`` tab you can see all the changes that have been made to this project in the past. This is a good way to stay in touch with whats happening within your favorite projects. 
 
-To stay in informed in real time click the subscribe button in the top right. You do not have to be a member of a project to stay up to date on the latest developments. 
+To stay informed in real time click the subscribe button in the top right. You do not have to be a member of a project to stay up to date on the latest developments. 
