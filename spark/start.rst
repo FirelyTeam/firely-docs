@@ -1,3 +1,6 @@
+Spark is one of the publically available test servers for FHIR. You can download the source code
+and install Spark on your own machine. This documentation describes how to do that.
+
 ===============
 Getting Started
 ===============
