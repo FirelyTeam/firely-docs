@@ -1,6 +1,6 @@
 .. SimplifierDocs documentation master file, created by
    This file is the main page, pointing to the documentation
-   for the subprojects Simplifier, Forge, Spark and the .Net API.
+   for the subprojects Simplifier, Forge, Spark, Vonk and the .Net API.
 
 Welcome to Simplifier's documentation site
 ==========================================
@@ -13,7 +13,7 @@ The currently documented projects are:
    :maxdepth: 1
    :titlesonly:
 
-   Simplifier - FHIR profile registry <docs_simplifier/index>
-   Forge - FHIR profile editor <http://docs.simplifier.net/projects/forge-docs>
-   Spark - FHIR server <http://docs.simplifier.net/projects/spark-docs>
-   FHIR .Net API <http://docs.simplifier.net/projects/fhirnetapi>
+   Simplifier - FHIR profile registry <simplifier/index>
+   Forge - FHIR profile editor <forge/index>
+   Spark - FHIR server <spark/index>
+   FHIR .Net API <fhirnetapi/index>
