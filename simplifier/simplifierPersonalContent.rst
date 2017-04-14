@@ -44,7 +44,12 @@ Add Members
 """""""""""
 The ``Members`` tab displays a list of all the members with rights to that project. In this section you can search for existing Simplifier members to add to your project by typing a user name in and clicking the ``+Add`` button. To invite non-Simplifier members to your project click on the ``Invite to Project`` option in the toolbar at the top of the Project page. This allows you to invite new members using their email address. An invitation is then sent to the user requesting that they create a Simplifier account to enable them access to your project.
 
-While adding new members to your project you have the option to assign “Read”, “Write”, or “Reader” rights to that user. This assigns their rights within that particular project and can be changed at any time should someone’s function change.
+While adding new members to your project you have the option to assign “Admin”, “Writer”, or “Reader” rights to that user. This assigns their rights within that particular project and can be changed at any time should someone’s function change. Users have the following rights within each role:
+
+- **Admin**- Has the rights to change anything within the project with the exception of project ownership.
+- **Writer**- Has the rights to add, change, and delete resources within the project.
+- **Reader**- Has the rights to view anything within the project but cannot make any addtions or changes. 
+
 
 Along the top of the ``Members`` tab you will find a summary of User information for your project. The number of users, the max users allowed for this project (in accordance with the type of plan you have), and the number of invitations you have pending (the number of users who have a not yet accepted an invitation).  
 
