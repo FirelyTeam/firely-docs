@@ -33,7 +33,7 @@ a:focus {
 
 a.icon-home,
 a.icon-home:hover {
-	background: url("https://www.simplifier.net/Content/img/simplifier.png") no-repeat;
+	background: url("https://www.simplifier.net/images/simplifier.png") no-repeat;
 	background-size: contain;
 
 	margin-bottom: 0;
