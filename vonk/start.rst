@@ -8,8 +8,7 @@ If you want to start using the standard Vonk server in your own Windows environm
 and run the server. |br|
 For non Windows systems, or if you want to use Docker for Windows, please look at the :ref:`use_docker` section.
 
-1.	Download the Vonk binaries and the license file from Simplifier.net
-	(link to binaries on Simplifier)
+1.	Download the Vonk binaries and the license file from `Simplifier.net <https://simplifier.net/ui/Info/Vonk>`_.
 	
 2.	Extract the downloaded files to a location on your system, for example: :code:`C:\Vonk`. We will call this the 
 	working directory.
