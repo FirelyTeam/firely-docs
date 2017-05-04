@@ -15,5 +15,5 @@ The currently documented projects are:
 
    Simplifier - FHIR profile registry <simplifier/index>
    Forge - FHIR profile editor <forge/index>
-   Spark - FHIR server <spark/index>
+   Vonk - FHIR server <vonk/index>
    FHIR .Net API <fhirnetapi/index>
