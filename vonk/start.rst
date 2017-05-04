@@ -33,6 +33,9 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 .. image:: ./images/localhost_home.PNG
   :align: center
 
+Please note that the third example query ``/Patient/example`` will only work if you first PUT a Patient with the id 'example'.
+You can get this `example from the specification <http://www.hl7.org/implement/standards/fhir/patient-example.json>`_.
+
 The :ref:`next section <configure>` explains how you can configure the Vonk server.
 
 
