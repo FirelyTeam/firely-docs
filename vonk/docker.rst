@@ -36,8 +36,11 @@ You will get a list that looks like:
 .. image:: ./images/docker1.PNG
 
 Navigate to your working directory for Vonk and run the container with this command:
+
 - in cmd.exe: ``docker run -d -p 8080:4080 --name vonk.server -v %CD%:/app/license -e "VONK_LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
-- in Powershell: ``docker run -d -p 8080:4080 --name vonk.server -v ${PWD}}:/app/license -e "VONK_LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
+
+- in Powershell: ``docker run -d -p 8080:4080 --name vonk.server -v ${PWD}:/app/license -e "VONK_LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
+
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the command above.
 
 .. important:: It looks like the command wants to retrieve your license file from a subdirectory called ``license``. This is a result
@@ -48,7 +51,7 @@ This will spin up a Vonk container. It maps the host port 8080 to the container 
 container the name vonk.server with the switch ``--name vonk.server``.
 Furthermore it mounts the current directory (where the license file resides) from the host to the container. Also it passes an environment
 variable ``VONK_LicenseFile`` to the container with the switch ``-e``.
-In this example the license file is called vonklicense.json. At last it will run the container in background mode with the switch ``-d``.
+In this example the license file is called vonk-trial-license.json. At last it will run the container in background mode with the switch ``-d``.
 
 To test whether the container is running correctly, type the command:|br|
 ``> docker ps``
@@ -84,13 +87,15 @@ Another way to spin up a Vonk container is to use a docker-compose file. The abo
        - "8080:4080"
      environment:
        - VONK_Repository=Memory
-       - VONK_LicenseFile=./license/vonklicense.json
+       - VONK_LicenseFile=./license/vonk-trial-license.json
      volumes:
        - .:/app/license
 
 
 Save the text above to a file in your working directory with the name ``docker-compose.memory.yml`` and then run the following command: |br|
 ``> docker-compose -f docker-compose.memory.yml up -d``
+
+If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
 .. image:: ./images/docker3.PNG
 
@@ -247,7 +252,7 @@ This section describes how to spin up a Vonk container and a MongoDB container u
      vonk-mongo-db:
        image: mongo
 
-Save the text above to a file in your working directory with the name ``docker-compose.mongodb.yml``. Make sure your Vonk license file is named ``vonklicense.json``
+Save the text above to a file in your working directory with the name ``docker-compose.mongodb.yml``. Make sure your Vonk license file is named ``vonk-trial-license.json``
 and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license).
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
