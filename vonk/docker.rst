@@ -74,19 +74,19 @@ Another way to spin up a Vonk container is to use a docker-compose file. The abo
 .. code-block:: yaml
    :linenos:
 
-  version: '3'
+   version: '3'
 
-  services:
+   services:
 
-    vonk-web:
-    image: simplifier/vonk
-    ports:
-      - "8080:4080"
-    environment:
-      - VONK_Repository=Memory
-      - VONK_LicenseFile=./license/vonklicense.json
-    volumes:
-      - .:/app/license
+     vonk-web:
+     image: simplifier/vonk
+     ports:
+       - "8080:4080"
+     environment:
+       - VONK_Repository=Memory
+       - VONK_LicenseFile=./license/vonklicense.json
+     volumes:
+       - .:/app/license
 
 
 Save the text above to a file in your working directory with the name ``docker-compose.memory.yml`` and then run the following command: |br|
@@ -109,40 +109,40 @@ We will use docker-compose to achieve this.
 .. code-block:: yaml
    :linenos:
 
-	version: '3'
-	 
-	services:
-	 
-		vonk-web:
-		image: simplifier/vonk
-		ports:
-			- "8080:4080"
-		environment:
-			- VONK_Repository=SQL
-			- VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=vonk-sqlserver-db,1433;User ID=vonk;Password=Tester01
-			- VONK_SqlDbOptions:SchemaName=vonk
-			- VONK_LicenseFile=./license/vonk-trial-license.json
-		volumes:
-			- .:/app/license
-			- script-volume:/app/data
-		 
-		vonk-sqlserver-db:
-		image: microsoft/mssql-server-linux
-		ports:
-			- "1433:1433"
-		environment:
-			- ACCEPT_EULA=Y
-			- SA_PASSWORD=SQLServerStrong(!)Password*
-			- dbName=VonkStu3
-			- dbPath=/var/opt/mssql/data/
-			- dbUsername=vonk
-			- dbPassword=Tester01
-		volumes:
-			- script-volume:/app/data
-		command: bash -c "sleep 10 && cat /app/data/install_vonkdb.sh | tr -d '\r' | sh &  /opt/mssql/bin/sqlservr.sh"
-		 
-	volumes:
-		script-volume:
+   version: '3'
+
+   services
+ 
+     vonk-web:
+     image: simplifier/vonk
+     ports:
+       - "8080:4080"
+     environment:
+       - VONK_Repository=SQL
+       - VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=vonk-sqlserver-db,1433;User ID=vonk;Password=Tester01
+       - VONK_SqlDbOptions:SchemaName=vonk
+       - VONK_LicenseFile=./license/vonk-trial-license.json
+     volumes:
+       - .:/app/license
+       - script-volume:/app/data
+ 
+     vonk-sqlserver-db:
+       image: microsoft/mssql-server-linux
+       ports:
+         - "1433:1433"
+       environment:
+         - ACCEPT_EULA=Y
+         - SA_PASSWORD=SQLServerStrong(!)Password*
+         - dbName=VonkStu3
+         - dbPath=/var/opt/mssql/data/
+         - dbUsername=vonk
+         - dbPassword=Tester01
+       volumes:
+         - script-volume:/app/data
+       command: bash -c "sleep 10 && cat /app/data/install_vonkdb.sh | tr -d '\r' | sh &  /opt/mssql/bin/sqlservr.sh"
+ 
+   volumes:
+     script-volume:
 	  
 Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver.yaml``. Make sure your Vonk license file is named
 ``vonk-trial-license.json`` and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license). 
@@ -172,23 +172,23 @@ To run the Vonk container we will use the following docker-compose file:
 .. code-block:: yaml
    :linenos:
 
-	version: '3'
+   version: '3'
+ 
+   services:
 	 
-	services:
-	 
-		vonk-web:
-		image: simplifier/vonk
-		ports:
-			- "8080:4080"
-		environment:
-			- VONK_Repository=SQL
-			- VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=my_host\sql2016;User ID=vonk;Password=Tester01
-			- VONK_SqlDbOptions:SchemaName=vonk
-			- VONK_LicenseFile=./license/vonk-trial-license.json
+     vonk-web:
+       image: simplifier/vonk
+       ports:
+         - "8080:4080"
+       environment:
+         - VONK_Repository=SQL
+         - VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=my_host\sql2016;User ID=vonk;Password=Tester01
+         - VONK_SqlDbOptions:SchemaName=vonk
+         - VONK_LicenseFile=./license/vonk-trial-license.json
 		volumes:
-			- .:/app/license
+         - .:/app/license
 		extra_hosts:
-			- "my_host:192.0.2.1"
+         - "my_host:192.0.2.1"
 
 Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver_host.yml``. Before we spin up the container we have
 to adjust the ``docker-compose.mssqlserver_host.yml``:
@@ -228,24 +228,24 @@ This section describes how to spin up a Vonk container and a MongoDB container u
 .. code-block:: yaml
    :linenos:
 
-	version: '3'
+   version: '3'
 	 
-	services:
+   services:
 	 
-	  vonk-web:
-		image: simplifier/vonk
-		environment:
-		  - VONK_Repository=MongoDb
-		  - VONK_MongoDbOptions:ConnectionString=mongodb://vonk-mongo-db/vonkstu3
-		  - VONK_MongoDbOptions:EntryCollection=vonkentries
-		  - VONK_LicenseFile=./license/vonk-trial-license.json
-		volumes:
-		  - .:/app/license
-		ports:
-		  - "8080:4080"
+     vonk-web:
+       image: simplifier/vonk
+       environment:
+         - VONK_Repository=MongoDb
+         - VONK_MongoDbOptions:ConnectionString=mongodb://vonk-mongo-db/vonkstu3
+         - VONK_MongoDbOptions:EntryCollection=vonkentries
+         - VONK_LicenseFile=./license/vonk-trial-license.json
+       volumes:
+         - .:/app/license
+       ports:
+         - "8080:4080"
 	 
-	  vonk-mongo-db:
-		image: mongo
+     vonk-mongo-db:
+       image: mongo
 
 Save the text above to a file in your working directory with the name ``docker-compose.mongodb.yml``. Make sure your Vonk license file is named ``vonklicense.json``
 and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license).
