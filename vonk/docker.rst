@@ -74,19 +74,19 @@ Another way to spin up a Vonk container is to use a docker-compose file. The abo
 .. code-block:: yaml
    :linenos:
 
-	version: '3'
- 
-	services:
- 
-		vonk-web:
-		image: simplifier/vonk
-		ports:
-			- "8080:4080"
-		environment:
-			- VONK_Repository=Memory
-			- VONK_LicenseFile=./license/vonklicense.json
-		volumes:
-			- .:/app/license
+  version: '3'
+
+  services:
+
+    vonk-web:
+    image: simplifier/vonk
+    ports:
+      - "8080:4080"
+    environment:
+      - VONK_Repository=Memory
+      - VONK_LicenseFile=./license/vonklicense.json
+    volumes:
+      - .:/app/license
 
 
 Save the text above to a file in your working directory with the name ``docker-compose.memory.yml`` and then run the following command: |br|
