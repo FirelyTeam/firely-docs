@@ -82,14 +82,14 @@ Another way to spin up a Vonk container is to use a docker-compose file. The abo
    services:
 
      vonk-web:
-     image: simplifier/vonk
-     ports:
-       - "8080:4080"
-     environment:
-       - VONK_Repository=Memory
-       - VONK_LicenseFile=./license/vonk-trial-license.json
-     volumes:
-       - .:/app/license
+       image: simplifier/vonk
+       ports:
+         - "8080:4080"
+       environment:
+         - VONK_Repository=Memory
+         - VONK_LicenseFile=./license/vonk-trial-license.json
+       volumes:
+         - .:/app/license
 
 
 Save the text above to a file in your working directory with the name ``docker-compose.memory.yml`` and then run the following command: |br|
@@ -119,17 +119,17 @@ We will use docker-compose to achieve this.
    services
  
      vonk-web:
-     image: simplifier/vonk
-     ports:
-       - "8080:4080"
-     environment:
-       - VONK_Repository=SQL
-       - VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=vonk-sqlserver-db,1433;User ID=vonk;Password=Tester01
-       - VONK_SqlDbOptions:SchemaName=vonk
-       - VONK_LicenseFile=./license/vonk-trial-license.json
-     volumes:
-       - .:/app/license
-       - script-volume:/app/data
+       image: simplifier/vonk
+       ports:
+         - "8080:4080"
+       environment:
+         - VONK_Repository=SQL
+         - VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=vonk-sqlserver-db,1433;User ID=vonk;Password=Tester01
+         - VONK_SqlDbOptions:SchemaName=vonk
+         - VONK_LicenseFile=./license/vonk-trial-license.json
+       volumes:
+         - .:/app/license
+         - script-volume:/app/data
  
      vonk-sqlserver-db:
        image: microsoft/mssql-server-linux
