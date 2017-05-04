@@ -116,7 +116,7 @@ We will use docker-compose to achieve this.
 
    version: '3'
 
-   services
+   services:
  
      vonk-web:
        image: simplifier/vonk
