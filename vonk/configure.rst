@@ -22,7 +22,7 @@ By default Vonk will run on port 4080 of your system. You can change the port se
 of the Vonk distribution:
 
 *	Navigate to the location where you extracted the Vonk files
-*	In a text editor open :code:`hosting.json` to find this setting::
+*	In a text editor open :code:`bin\hosting.json` to find this setting::
 
 	"urls": "http://*:4080"
 
@@ -39,7 +39,7 @@ Using MongoDB
 We assume you already have MongoDB installed. If not, please refer to the `MongoDB download <https://www.mongodb.com/download-center>`_ pages.
 
 *	Navigate to your Vonk working directory
-*	In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
+*	In a text editor open :code:`bin\appsettings.json` to find the ``Repository`` setting::
 
 	"Repository": "Memory",
 
@@ -56,7 +56,19 @@ We assume you already have MongoDB installed. If not, please refer to the `Mongo
 Using SQL server
 ^^^^^^^^^^^^^^^^
 
-*	In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
+*	To run Vonk on SQL Server you will need to prepare a database in an existing SQL Server instance. The version must be 2012 or newer, any edition will do.
+
+*	Open SQL Server Management Studio or some other tool to run a SQL script and connect it to your SQL Server instance.
+
+*	From the working directory open :code:`scripts\01-CreateDatabaseAndSchema.sql`
+
+*	In SQL Server Management Studio, in the menu select Query|SQLCMD Mode.
+
+*	In the script adjust the variable :code:`dbName` to your own liking.
+
+*	Run the script. You now have a database with the Vonk schema.
+
+*	In a text editor open :code:`bin\appsettings.json` to find the ``Repository`` setting::
 
 	"Repository": "Memory",
 
@@ -76,10 +88,10 @@ Changing from http to https
 If you need your server to run on https instead of http, follow these steps:
 
 *	Navigate to the location where you extracted the Vonk files.
-*	Open :code:`appsettings.json` in a text editor and find these settings::
+*	Open :code:`bin\appsettings.json` in a text editor and find these settings::
 
 		"UseHttps": "false",
-		"CertificateFile": "iis_dev.pfx",
+		"CertificateFile": "<your certificate file>.pfx",
 
 *	Change the setting for :code:`UseHttps` from ``false`` to ``true``
 *	Set :code:`CertificateFile` to the location of the `.pfx` file that contains the certificate for your site
@@ -93,10 +105,10 @@ If you need your server to run on https instead of http, follow these steps:
 *	Before starting the server, set an environment variabele on your system to contain the password of the `.pfx` file:
 
 	+ In Powershell run:|br| 
-	  ``> $env:VONK_vonk_certificate_password="my_password"``
+	  ``> $env:VONK_certificate_password="my_password"``
 	  |br| where `my_password` is the password for the `.pfx` file
 	+ or go to your `System`, open the `Advanced system settings` --> `Environment variables` and create a new variable
-	  with the name :code:`VONK_vonk_certificate_password` and the value set to your password
+	  with the name :code:`VONK_certificate_password` and the value set to your password
 
 
 ..
