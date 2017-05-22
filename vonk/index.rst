@@ -27,5 +27,7 @@ or support contract.
    configure
    docker
    docker_win
+   architecture
+   authentication
    contact
 .. add files here
