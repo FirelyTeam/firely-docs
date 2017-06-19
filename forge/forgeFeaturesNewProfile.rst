@@ -6,7 +6,7 @@ Forge enables you to create your own FHIR Profiles, based on one of the FHIR bas
 To open a base resource and start editing, you can select *New Profile* (or Ctrl + N) from the File menu. 
 This will open a window in which you can select one of the base Resources or DataTypes.
 
-.. |New profile base resource selection| image:: ./images/NewProfile.jpg
+.. |New profile base resource selection| image:: ./images/NewProfile.png
    :scale: 75%   
    :alt: New profile resource selection
    :align: middle
