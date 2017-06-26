@@ -58,7 +58,7 @@ The value must be equal to or strichter than the base value.
 	
 	
 *New Feature -* Inline constraints
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 FHIR allows you to constrain an element type by specifying a
 custom (external) datatype or resource profile. Forge has always allowed you to

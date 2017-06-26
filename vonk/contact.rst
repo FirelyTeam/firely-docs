@@ -1,4 +1,4 @@
-.. _contact:
+.. _vonk-contact:
 
 ==========
 Contact us

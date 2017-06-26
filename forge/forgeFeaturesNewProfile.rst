@@ -10,6 +10,7 @@ This will open a window in which you can select one of the base Resources or Dat
    :scale: 75%   
    :alt: New profile resource selection
    :align: middle
+
 |New profile base resource selection|
 
 If you selected the base Resource you need, you can start to create your own Profile based on this Resource. 

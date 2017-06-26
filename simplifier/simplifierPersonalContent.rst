@@ -3,13 +3,13 @@ Personal Portal
 All your personal content is accessible through your personal portal. Through this portal you can create new projects, manage your existing projects, quickly access your favourite projects and publications, create or your connectors, shop for connectors, and view and edit your personal details.
 
 Create a New Project
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 In the ``Projects`` tabs on your Portal page you can find the button labeled ``Create New Project``. Clicking this button will allow you to create a new project by entering a Display Name, Description, and Scope. Once the project has been created you can then customize project information, add resources, add members, and follow changes that are occurring in that project. 
 
 The ``Introduction`` page of each of your projects has a section to add summary text about your project. This section serves as an overview of your project. This is a good area to share information about your project with people that may be team members or viewing your project for the first time. 
 
 Add a Resource
-""""""""""""""""
+""""""""""""""
 On the Resources tab you can find all the Conformance and Example Resources for the project. 
 
 If you have "Write" rights to a project you will see an option to ``+Add`` projects at the top of the Project Page. Here you can choose to upload a local file or fetch a resource from another FHIR server.

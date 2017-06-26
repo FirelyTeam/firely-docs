@@ -24,6 +24,7 @@ The discriminator information can be provided in the `Element Properties` of the
    :scale: 75% 
    :alt: Slicing   
    :align: middle
+
 |Slicing|
 
 More information concerning slicing and discriminators can be found here: http://hl7.org/fhir/profiling.html.

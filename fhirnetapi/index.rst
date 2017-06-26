@@ -19,7 +19,7 @@ FHIR client!
 After those topics to get you started, we have added some pages that delve deeper into nice API features, such
 as parsing and serializing FHIR data, working with transactions, and using the ResourceIdentity functionality.
 
-Please look at the :ref:`contact` page for ways to ask questions, contribute to the API, or reach out to other
+Please look at the :ref:`api-contact` page for ways to ask questions, contribute to the API, or reach out to other
 .Net developers in the FHIR community.
 
 

@@ -61,7 +61,7 @@ The SMART Scopes are fully evaluated, and the Patient launch context is currentl
 The other standard launch contexts (Encounter, Location) will be added later on. 
 Using this functionality requires the setup of an OAuth2 provider and a web frontend application that will interactively route the user to the OAuth2 provider and then access Vonk on behalf of that user.
 Because of the volatile status and the complex setup of the environment, the SMART on FHIR authorization component is not in the public beta version of the Vonk FHIR Server.
-If you want to use this functionality in your organization, please :ref:`contact <contact>` us so we can provide guidance and process your feedback in the next implementation.
+If you want to use this functionality in your organization, please :ref:`contact <vonk-contact>` us so we can provide guidance and process your feedback in the next implementation.
 
 .. _OAuth2: https://oauth.net/2/
 .. _OAuth2 provider: https://en.wikipedia.org/wiki/List_of_OAuth_providers
