@@ -1,4 +1,4 @@
-.. _getting-started:
+.. _api-getting-started:
 
 ===============
 Getting Started

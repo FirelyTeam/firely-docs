@@ -18,6 +18,7 @@ On this page you can read how to change the settings.
 
 Changing the port number
 ------------------------
+
 By default Vonk will run on port 4080 of your system. You can change the port setting in the :code:`hosting.json` file that is part
 of the Vonk distribution:
 
@@ -31,6 +32,7 @@ of the Vonk distribution:
 
 Using a different repository
 ----------------------------
+
 The default setting for Vonk is to run in memory. You will probably want to change this to use your own database.
 You can use either a MongoDB or a SQL server database with Vonk.
 
@@ -85,6 +87,7 @@ Using SQL server
 
 Changing from http to https
 ---------------------------
+
 If you need your server to run on https instead of http, follow these steps:
 
 *	Navigate to the location where you extracted the Vonk files.
