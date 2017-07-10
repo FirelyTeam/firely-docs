@@ -11,7 +11,6 @@ The currently documented projects are:
 
 .. toctree::
    :maxdepth: 1
-   :titlesonly:
 
    Simplifier - FHIR profile registry <simplifier/index>
    Forge - FHIR profile editor <forge/index>

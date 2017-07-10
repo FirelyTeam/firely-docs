@@ -24,7 +24,7 @@ Please look at the :ref:`api-contact` page for ways to ask questions, contribute
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :hidden:
 
    start
