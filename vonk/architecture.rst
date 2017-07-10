@@ -3,8 +3,10 @@
 ============
 Architecture
 ============
+
 Pipeline and middleware components
 ----------------------------------
+
 Vonk is built upon ASP.NET Core and its modular setup of a pipeline of middleware_.
 It also leverages the `dependency injection`_ pattern that is central to ASP.NET Core.
 If you are not familiar with these concepts, please review them first.
@@ -19,12 +21,14 @@ These components are just regular ASP.Net Core Middleware components, except tha
 
 Adding custom middleware
 ^^^^^^^^^^^^^^^^^^^^^^^^
+
 Using Vonk FHIR Components you can add your own middleware anywhere in the pipeline. It can be standard ASP.NET Core middleware - having nothing to do with FHIR - or middleware acting on the IVonkContext,
 e.g. to implement a custom operation. Vonk also provides convenience methods to register your middleware as one that handles a FHIR interaction, 
 including attributes to declare for which interaction and which resource types your middleware should be invoked. 
 
 Repository interfaces
 ---------------------
+
 Many of the FHIR interactions require access to a repository of resources. E.g. ``create`` must be able to store a resource, whereas ``search`` must be able to query resources and retrieve the results.
 In Vonk, the middleware components that implement these interactions access the repository through interfaces. There are four different interfaces for different parts of the `FHIR RESTful API`_.
 
@@ -42,6 +46,7 @@ These interfaces enable you to implement a Vonk FHIR Facade. And they enable us 
 
 Search
 ^^^^^^
+
 The `FHIR RESTful Search`_ is the most complicated part of the `FHIR RESTful API`_. Vonk is capable of interpreting the search and translating it to small query-bits irrespective of the actual repository implementation.
 When implementing the ``ISearchRepository`` you get full control over which parameters you support and how you support them. 
 On the method ``ISearchRepository.Search()``, you just get the list of arguments that make up the search, as an ``IArgumentCollection``. If you decide to act on these raw arguments directly, you can.
@@ -56,6 +61,7 @@ The ``ResultShape`` method is called when an argument is recognized as a '`Searc
 
 Capabilities
 ------------
+
 A FHIR server has to express its capabilities in a CapabilityStatement, available on the ``/metadata`` endpoint. Vonk's capabilities are defined by the middleware components that make up its pipeline. 
 Every component knows what interaction it adds to the capabilities. Therefore, we keep that information close to the component itself. 
 Typically, every component has an implementation of :code:`IConformanceContributor`, in which it gets access to the :code:`IConformanceBuilder`. 
@@ -63,6 +69,7 @@ The latter provides methods to add information to the CapabilityStatement withou
 
 Current status
 --------------
+
 Currently we have implemented three different generic repository implementations and two different facades to existing systems. This has given us a fairly good idea of the strengths and weaknesses of this architecture and its interfaces.
 However, as we continue to expand on generic implementations (PostgreSQL, DocumentDB or MySQL are just some of the ideas) and guide more facade implementations we will further strengthen the interfaces and support methods.
 So they will still change over time. And we don't want to break your implementation on every update. Therefore the Vonk FHIR Components are not yet made publicly available on NuGet.
