@@ -8,4 +8,4 @@ https://www.simplifier.net/embed/render?id=[Name of your project]/[Name of your 
 
 For example, https://www.simplifier.net/embed/render?id=STU3DemoProject/nl-core-patient shows an example of embedded rendering of the nl-core-patient from a demo project of Nictiz.
 
-.. image:: ./images/ExampleEmbeddedRendering.png
+.. image:: ./images/ExampleEmbeddedRendering.PNG
