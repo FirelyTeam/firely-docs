@@ -10,7 +10,6 @@ For example, https://www.simplifier.net/embed/render?id=STU3DemoProject/nl-core-
 
 .. image:: ./images/ExampleEmbeddedRendering.PNG
 
-.. raw:: html
-    <iframe src="https://www.simplifier.net/embed/render?id=STU3DemoProject/nl-core-patient" height="345" width="100"></iframe>
+.. embed:: https://www.simplifier.net/embed/render?id=STU3DemoProject/nl-core-patient
     
 Note that this only works for public projects that are created by a user with an enterprise account.
