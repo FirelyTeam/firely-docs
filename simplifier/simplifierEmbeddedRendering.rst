@@ -9,3 +9,8 @@ https://www.simplifier.net/embed/render?id=[Name of your project]/[Name of your 
 For example, https://www.simplifier.net/embed/render?id=STU3DemoProject/nl-core-patient shows an example of embedded rendering of the nl-core-patient from a demo project of Nictiz.
 
 .. image:: ./images/ExampleEmbeddedRendering.PNG
+
+.. raw:: html
+    <iframe src="https://www.simplifier.net/embed/render?id=STU3DemoProject/nl-core-patient" height="345" width="100"></iframe>
+    
+Note that this only works for public projects that are created by a user with an enterprise account.
