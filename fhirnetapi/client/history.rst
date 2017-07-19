@@ -1,6 +1,5 @@
-==============================
 Retrieving resource history
-==============================
+---------------------------
 
 There are several ways to retrieve version history for resources with
 the FHIR client.

@@ -1,7 +1,5 @@
-========================
 Searching for resources
-========================
-
+-----------------------
 FHIR has extensive support for searching resources through the use of
 the REST interface. Describing all the possibilities is outside the
 scope of this document, but much more details can be found online in the

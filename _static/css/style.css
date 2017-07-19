@@ -90,6 +90,10 @@ p,
 	padding: 7px 14px;
 }
 
+.wy-breadcrumbs-api {
+	height: 50px;
+}
+
 /**
  * Buttons
  */

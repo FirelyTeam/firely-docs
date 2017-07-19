@@ -3,42 +3,29 @@ Working with REST
 =================
 
 In this section we explain the methods of the FhirClient that are in the
-Hl7.Fhir.Rest part of the API package.
+``Hl7.Fhir.Rest`` part of the API package.
 
-Creating a FhirClient
----------------------
+Add this ``using`` directive to your code:
 
-Before we can do any of the interactions explained in the next part, we
-have to create a new FhirClient. This is done by passing the url of the
-FHIR server's endpoint as a parameter to the constructor:
+.. code-block:: csharp
 
-.. code:: csharp
+	using Hl7.Fhir.Rest;
 
-    var client = new FhirClient("http://vonk.furore.com");
+The first topics in this chapter cover the settings of the FhirClient and the CRUD
+interactions you can perform with it. We will then give some examples of history
+and search interactions, and explain how to perform operations and transactions.
+There's also a section on helper methods for resource identities, and we end the
+chapter with other miscellaneous helpers in the ``Hl7.Fhir.Rest`` namespace.
 
-You'll create an instance of a client for every server you want to work
-with. Every call we'll do on this client will be for interactions
-with this server. Since resources may reference other resources on a different FHIR server,
-you'll have to inspect any references and direct them to the right FhirClient.
-Of course, if you're dealing with a single server within your organization or a single
-cloud-based FHIR server, you don't have to worry about this.
+.. toctree::
+   :maxdepth: 3
+   :hidden:
 
-There's a list of `publically available test 
-servers <http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for_testing>`__ you can use.
-
-FhirClient options
-^^^^^^^^^^^^^^^^^^
-To specify the preferred format --JSON or XML-- of the content to be used when communicating
-with the FHIR server, you can use the ``PreferredFormat`` attribute:
-
-.. code:: csharp
-
-    client.PreferredFormat = ResourceFormat.Json;
-
-The FHIR client will send all requests in the specified format. Servers
-are asked to return responses in the same format, but may choose
-to ignore that request.
-
-
+   client/setup
+   client/crud
 ..
-	.. include:: client-crud.rst
+   client/history
+   client/search
+   client/request-response
+   client/resource-identity
+
