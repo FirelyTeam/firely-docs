@@ -11,7 +11,7 @@ name in one go, using fluent notation:
 
 .. code-block:: csharp
 
-	pat.Name.Add(new HumanName().WithGiven("Christopher").WithGiven("C.H.").AndFamily("Brown"));
+	pat.Name.Add(new HumanName().WithGiven("Christopher").WithGiven("C.H.").AndFamily("Parks"));
 
 If you need to fill in more than the ``Given`` and ``Family`` fields, you could first construct
 a ``HumanName`` instance in this manner, and add to the fields later on. Or you could choose not

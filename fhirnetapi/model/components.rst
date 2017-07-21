@@ -1,3 +1,5 @@
+.. _components:
+
 Components
 ----------
 Resources can have elements with a subgroup of elements in them. These are called 'BackboneElements'
@@ -17,7 +19,7 @@ Code example, adding contact details to our Patient:
 
 	var contact = new Patient.ContactComponent();
 	contact.Name = new HumanName();
-	contact.Name.Family = "Brown";
+	contact.Name.Family = "Parks";
 	// setup other contact details
 
 	pat.Contact.Add(contact);

@@ -11,6 +11,11 @@ Creating a new Patient resource instance, and an instance of the Identifier data
 	var pat = new Patient();
 	var id = new Identifier();
 
+.. important:: When you are creating an instance of a resource or data type, lookup the
+	definition in the `FHIR specification <http://www.hl7.org/fhir>`__ to see which
+	elements are mandatory for that particular type.
+
+
 Class fields
 ^^^^^^^^^^^^
 The API classes have a field for each of the elements in the Resource or data type model.

@@ -16,7 +16,7 @@ see the possibilities and choose what suits your programming style best.
 	id.Value = "000-12-3456";
 	pat.Identifier.Add(id);
 	
-	var name =  new HumanName().WithGiven("Christopher").WithGiven("C.H.").AndFamily("Brown");
+	var name =  new HumanName().WithGiven("Christopher").WithGiven("C.H.").AndFamily("Parks");
 	name.Prefix = new string[] { "Mr." };
 	name.Use = HumanName.NameUse.Official;
 	
@@ -49,7 +49,7 @@ see the possibilities and choose what suits your programming style best.
 	var contact = new Patient.ContactComponent();
 	contact.Name = new HumanName();
 	contact.Name.Given = new string[] { "Susan" };
-	contact.Name.Family = "Brown";
+	contact.Name.Family = "Parks";
 	contact.Gender = AdministrativeGender.Female;
 	contact.Relationship.Add(new CodeableConcept("http://hl7.org/fhir/v2/0131", "N"));
 	contact.Telecom.Add(new ContactPoint(ContactPoint.ContactPointSystem.Phone, null, ""));

@@ -30,5 +30,7 @@ Add this ``using`` directive to your code:
    model/choice-properties
    model/initializers
    model/extensions
-   model/code-example
+   model/patient-example
+   model/bundles
+   model/bundle-example
 
