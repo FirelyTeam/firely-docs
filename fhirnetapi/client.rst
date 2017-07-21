@@ -15,7 +15,8 @@ The first topics in this chapter cover the settings of the FhirClient and the CR
 interactions you can perform with it. We will then give some examples of history
 and search interactions, and explain how to perform operations and transactions.
 There's also a section on helper methods for resource identities, and we end the
-chapter with other miscellaneous helpers in the ``Hl7.Fhir.Rest`` namespace.
+chapter with other miscellaneous methods and helpers in the ``Hl7.Fhir.Rest``
+namespace.
 
 .. toctree::
    :maxdepth: 3
@@ -23,9 +24,12 @@ chapter with other miscellaneous helpers in the ``Hl7.Fhir.Rest`` namespace.
 
    client/setup
    client/crud
-..
-   client/history
-   client/search
    client/request-response
+   client/history
+   client/paging
+..
+   client/search
    client/resource-identity
+   client/transactions
+
 

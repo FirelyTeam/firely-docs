@@ -1,3 +1,5 @@
+.. _searching:
+
 Searching for resources
 -----------------------
 FHIR has extensive support for searching resources through the use of
