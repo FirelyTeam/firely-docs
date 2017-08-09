@@ -1,6 +1,6 @@
 Organization Portal
 ^^^^^^^^^^^^^^^^^^^
-For our members with a Team plan there is now additional functionality to create and manage an organizational account within Simplifier. An Organization account allows you to create and share projects, resources, and Implementation Guides via your organization with others within and outside your organization. You can add members and adjust rights to the project.  
+For our members with a Enterprise plan there is the functionality to create and manage an organizational account within Simplifier. An Organization account allows you to create and share projects, resources, and Implementation Guides via your organization with others within and outside your organization. You can add members and adjust rights to the project.  
 
 Organization Settings
 ---------------------
