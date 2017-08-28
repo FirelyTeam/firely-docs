@@ -139,8 +139,7 @@ To change the level of logging, follow these steps:
 *	Change the setting for :code:`Default` from ``Error`` to the level you need, from the choice of
 	``Verbose``, ``Debug``, ``Information``, ``Warning``, ``Error`` and ``Fatal``.
 
-You can override the minimum log event level to include lower level events, or to specify a higher
-level with the ``Override`` setting for ``MinimumLevel``. You do this by specifying the namespace
+You can deviate from the default mimimum level for specific namespaces. You do this by specifying the namespace
 and the log event level you would like for this namespace, for example::
 
 	"MinimumLevel": {
@@ -158,10 +157,31 @@ Some additional namespaces you might want to log are:
 - ``Microsoft`` to log events from the Microsoft libraries
 - ``System`` to log events from the System libraries
 
+Please note that the namespaces are evaluated in order from top to bottom, so more generic 'catch all' namespaces should be at the bottom of the list. 
+So this will log events on ``Vonk.Repository.Sql`` on ``Information`` level::
+
+	"MinimumLevel": {
+		"Default": "Error",
+		"Override": {
+			"Vonk.Repository.Sql": "Information",
+			"Vonk": "Warning"
+		}
+	},
+
+But in this (purposefully incorrect) example the ``Warming`` level on the ``Vonk`` namespace will override the ``Information`` level on the ``Vonk.Repository.Sql`` namespace::
+
+	"MinimumLevel": {
+		"Default": "Error",
+		"Override": {
+			"Vonk": "Warning",
+			"Vonk.Repository.Sql": "Information"
+		}
+	},
+ 
 Changing the sink
 ^^^^^^^^^^^^^^^^^
 Another setting you can adjust is ``WriteTo``. This tells Serilog which sink(s) to log to.
-Serilog provides several sinks, and for Vonk you can use ``(Colored)Console``, ``RollingFile`` and ``Seq``.
+Serilog provides several sinks, and for Vonk you can use ``Console``, ``ColoredConsole``, ``RollingFile`` and ``Seq``.
 
 RollingFile
 ~~~~~~~~~~~
