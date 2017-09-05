@@ -29,5 +29,7 @@ or support contract.
    docker_win
    architecture
    authentication
+   administration_api
+   releasenotes
    contact
 .. add files here
