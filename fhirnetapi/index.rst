@@ -1,3 +1,4 @@
+=======
 Welcome 
 =======
 
@@ -6,10 +7,12 @@ FHIR <http://www.hl7.org/fhir>`__ on the Microsoft .NET platform.
 
 The library provides:
 
--  Class models for working with the FHIR data model using POCO's
--  A REST client for working with FHIR-compliant servers
--  Xml and Json parsers and serializers
--  Helper classes to work with the specification metadata, and generation of differentials
+- Class models for working with the FHIR data model using POCO's
+- A REST client for working with FHIR-compliant servers
+- Xml and Json parsers and serializers
+- Helper classes to work with the specification metadata, and generation of differentials
+- Validator to validate instances against profiles
+- A lightweight in-memory terminology server
 
 On these pages we provide you with the documentation you need to get up and running with the API.
 We'll first explain how the FHIR model is represented in the API and give you code examples to work with the model.
