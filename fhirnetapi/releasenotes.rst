@@ -35,6 +35,19 @@ Changes to both versions:
 - The enums in the generated code now also have an attribute on them with information about the codesystem, which can be retrieved using ``GetSystem()`` on any enum. Thanks brianpos!
 - Added a few specific ``[Serializable]`` attributes to make the POCOs serializable with the Microsoft Orleans serializer. Thanks alexmarchis!
 - Several improvements & bug fixes on the SnapshotGenerator
+- Fixed handling of non-fhir json files in the conformance directory.
+- Fixed ``eld-16`` constraint, which used an invalid regex escape ``(\_)``
+- Now using the new NuGet 3.3 ``<contentFiles>`` tag to replace the (failing) ``install.ps1``, so a) you'll get the new ``specification.zip`` transitively in dependent projects and b) the build action will be correctly set.
+
+DSTU2: 
+	• Fixed small errors in the generated ConstraintComponent properties, giving more correct validation results
+
+DSTU3:
+	• Fixes to the snapshot generator to create better ElementDefinition ids
+	• _sort parameter now uses STU3 format (_sort=a,-b,c) instead of modifier
+	• You can now set the preferred return to OperationOutcome. Thanks cknaap!
+	• You can now request the server to notify the client about unsupported search parameters. Thanks tstolker!
+
 
 Changes to the DSTU2 version:
 

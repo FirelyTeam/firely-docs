@@ -37,5 +37,6 @@ Please look at the :ref:`api-contact` page for ways to ask questions, contribute
    model
    client
    contact
+   releasenotes
 .. add files here, or in between
 
