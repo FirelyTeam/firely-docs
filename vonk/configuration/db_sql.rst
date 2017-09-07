@@ -23,7 +23,7 @@ In both cases:
             //"AutoUpdateConnectionString" : "set this to the same database as 'ConnectionString' but with credentials that can alter the database. If not set, defaults to the value of 'ConnectionString'"
         },
 
-*   The site `connectionstrings.com<https://www.connectionstrings.com/sqlconnection/`_ is useful for determining the correct connectionstring for your environment.
+*   The site `connectionstrings.com <https://www.connectionstrings.com/sqlconnection/>`_ is useful for determining the correct connectionstring for your environment.
 
 Have Vonk create your database
 """"""""""""""""""""""""""""""
@@ -43,7 +43,7 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
             "AutoUpdateDatabase": true
         },
 
-*   Set the ``SqlDbOptions`` under ``Administration`` for the Administration database likewise::
+*   Set the ``SqlDbOptions`` under ``Administration`` for the Administration database likewise:
     ::
 
         "Administration": {
@@ -72,7 +72,7 @@ Create a database and users by script, and have Vonk create the schema
 
 *   Run the script to create both the Vonk database and the Administration API database.
 
-*	From the working directory open :code:`data\01-CreateDBUser.sql`
+*	From the working directory open :code:`data\02-CreateDBUser.sql`
 
 *	In SQL Server Management Studio, in the menu select Query|SQLCMD Mode.
 
@@ -127,24 +127,30 @@ Create a database and users by script, and have Vonk create the schema
 
 Overview of permissions
 ^^^^^^^^^^^^^^^^^^^^^^^
-*   To run the AutoUpdateDatabase feature including creation of the databases:
+This paragraph lists the permissions needed to perform specific actions on the SQL database.
 
-    *   sysadmin
+*   To run the AutoUpdateDatabase feature, including creation of the databases:
+
+    *   **sysadmin**
 
 *   To run the AutoUpdateDatabase feature on an already created (but empty) database:
 
-    *   db_ddladmin
-        (equally for the normal Vonk database and the Administration database)
+    *   **db_ddladmin** |br|
+        (both for the normal Vonk database and the Administration database)
 
 *   To read/write resources:
 
-    *   db_datareader
-    *   db_datawriter
+    *   **db_datareader**
+    *   **db_datawriter**
 
 *   To execute the ResetDb feature:
 
-    *   db_ddladmin 
-        
-        only on the normal Vonk database for the user in the SqlDbOptions connectionstring.
+    *   **db_ddladmin** |br|
+        only on the normal Vonk database for the user in the SqlDbOptions connectionstring. |br|
         (no extra permissions are required for the user on the Administration database).
+
+
+.. |br| raw:: html
+
+   <br />
 

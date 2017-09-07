@@ -12,8 +12,8 @@ level or higher will be logged. By default, Vonk uses ``Error`` as the minimum l
 
 To change the level of logging, follow these steps:
 
-*	Navigate to the location where you extracted the Vonk files.
-*	Open :code:`bin\logsettings.json` in a text editor and find this settings::
+*	Navigate to your Vonk working directory.
+*	Open :code:`logsettings.json` in a text editor and find this settings::
 
 		"MinimumLevel": {
 			"Default": "Error",
@@ -72,8 +72,8 @@ For the ``RollingFile`` sink, you can specify the location of the log files with
 Please include the ``{Date}``, ``{Hour}`` or ``{HalfHour}`` placeholder, so Serilog can add date and time
 information to your filename.
 
-*	Navigate to the location where you extracted the Vonk files.
-*	Open :code:`bin\logsettings.json` in a text editor and find the ``WriteTo`` setting::
+*	Navigate to your Vonk working directory.
+*	Open :code:`logsettings.json` in a text editor and find the ``WriteTo`` setting::
 
 		"WriteTo": [
 			{ "Name": "ColoredConsole" },
@@ -104,8 +104,8 @@ Seq
 For the ``Seq`` sink, you can also specify arguments. One of them is the server URL for your
 Seq server:
 
-*	Navigate to the location where you extracted the Vonk files.
-*	Open :code:`bin\logsettings.json` in a text editor and find the ``Seq`` sink under the
+*	Navigate to your Vonk working directory.
+*	Open :code:`logsettings.json` in a text editor and find the ``Seq`` sink under the
 	``WriteTo`` setting::
 
 		"WriteTo": [
@@ -123,8 +123,8 @@ the ``MinimumLevel`` setting we discussed earlier, but rather a filter on the ev
 With this extra sink argument, you can for example log only a small portion of the events to the
 console, but all of them to the log file.
 
-*	Navigate to the location where you extracted the Vonk files.
-*	Open :code:`bin\logsettings.json` in a text editor and find the sink you want to set the
+*	Navigate to your Vonk working directory.
+*	Open :code:`logsettings.json` in a text editor and find the sink you want to set the
 	filter for under the ``WriteTo`` setting.
 *	Add the ``restrictedToMinimumLevel`` argument to the ``Args`` of the sink::
 

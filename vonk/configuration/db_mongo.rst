@@ -3,7 +3,7 @@ Using MongoDB
 We assume you already have MongoDB installed. If not, please refer to the `MongoDB download <https://www.mongodb.com/download-center>`_ pages.
 
 * Navigate to your Vonk working directory
-* In a text editor open :code:`bin\appsettings.json` to find the ``Repository`` setting::
+* In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
 
 	"Repository": "Memory",
 
