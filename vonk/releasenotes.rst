@@ -17,15 +17,14 @@ Release 0.3.0
 2. New features:
 
   #. :ref:`Custom Search Parameters <feature_customsp>`
+  #. Support for Subscriptions with rest-hook channel
   #. Preload resources from a zip.
   #. Reset database
-  #. Conditional create / update /delete
+  #. Conditional create / update / delete
   #. Support for the prefer header
   #. Validation on update / create (can be turned on/off)
-  #. Configure supported interactions (turn certain interactions on/off)
-  #. Support for Subscriptions with Webhook channel
   #. Restrict creates/updated to specific profiles.
-  
+  #. Configure supported interactions (turn certain interactions on/off)
 
 3. New search features:
 
