@@ -3,7 +3,7 @@
 Release notes Vonk
 ==================
 
-Release 2.8
+Release 0.3.0
 -----------
 
 1. Database changes
@@ -33,7 +33,6 @@ Release 2.8
   #. ``_type`` (search on system level)
   #. ``_list``
   #. ``_revinclude``
-  #. ``_elements``
 
 4. Enhancements
 
