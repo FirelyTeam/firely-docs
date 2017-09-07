@@ -21,7 +21,10 @@ You can control which search parameters are loaded at the startup of Vonk. You s
     ]
   },
 
-You can mix and repeat the sources; they will be read from top to bottom, overriding earlier search parameters with the same id.
-This also means that you can for example load all the search parameters from the specification and then override some of them with a different definition.
+You can mix and repeat the sources: 
+they will be read from top to bottom, where the first search parameter with a specific id will take precedence
+over later search parameters with the same id. |br|
+This means that if you want to override a search parameter from the specification with your own definition, you will
+need to put your own search parameter(s) higher in the list than the parameters from the specification.
 
 

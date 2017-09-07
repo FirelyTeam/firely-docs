@@ -16,7 +16,7 @@ Release 0.3.0
 
 2. New features:
 
-  #. :ref:`Custom Search Parameters <administration>`
+  #. :ref:`Custom Search Parameters <feature_customsp>`
   #. Preload resources from a zip.
   #. Reset database
   #. Conditional create / update /delete

@@ -1,7 +1,11 @@
 .. _feature_customsp:
 
 Using Custom Search Parameters
-==============================
+=============================
+
+.. |br| raw:: html
+
+   <br />
 
 .. include:: ../configuration/customsearchparameters.rst
 
@@ -9,6 +13,7 @@ Using Custom Search Parameters
 
 Limitations
 ^^^^^^^^^^^
+
 * Search parameters can NOT (yet) be posted to the /administration endpoint. 
 * If a search parameter cannot be parsed correctly, it will silently be ignored. Expect improvement of this in a later version.
 * Every search parameter has to have either:

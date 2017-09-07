@@ -78,6 +78,8 @@ If you need your server to run on https instead of http, follow these steps:
 
 .. include:: ./configuration/logsettings.rst
 
+.. include:: ./configuration/customsearchparameters.rst
+
 Using Environment variables
 ---------------------------
 All the settings in ``appsettings.json`` can be overridden by environment variables on your OS.
