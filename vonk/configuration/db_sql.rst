@@ -26,7 +26,7 @@ In both cases:
 *   The site `connectionstrings.com <https://www.connectionstrings.com/sqlconnection/>`_ is useful for determining the correct connectionstring for your environment.
 
 Have Vonk create your database
-""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This option is mainly for experimentation as it effectively requires sysadmin privileges for the connecting user.
 
@@ -60,7 +60,7 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
 *   Start Vonk. It will display in its log that it applied pending migrations. After that the database is created and set up with the correct schema.
 
 Create a database and users by script, and have Vonk create the schema
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *   Log into SQL Server as the Administrator user.
 
@@ -103,6 +103,7 @@ Create a database and users by script, and have Vonk create the schema
 
 *   Set the ``SqlDbOptions`` under ``Administration`` for the Administration database likewise:
     ::
+	
         "Administration" : {
             "Repository": "SQL",
             "SqlDbOptions": {
@@ -149,8 +150,4 @@ This paragraph lists the permissions needed to perform specific actions on the S
         only on the normal Vonk database for the user in the SqlDbOptions connectionstring. |br|
         (no extra permissions are required for the user on the Administration database).
 
-
-.. |br| raw:: html
-
-   <br />
 

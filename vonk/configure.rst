@@ -16,6 +16,11 @@ If you want to change the way Vonk logs its information, you can adjust :code:`l
 On this page you can read how to change the settings.
 
 
+.. |br| raw:: html
+
+   <br />
+
+
 Changing the port number
 ------------------------
 
@@ -114,6 +119,3 @@ Open a command prompt or Powershell, navigate to your working directory and run:
 
 
 
-.. |br| raw:: html
-
-   <br />
