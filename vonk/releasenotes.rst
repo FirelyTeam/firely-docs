@@ -1,10 +1,10 @@
-:: _releasenotes
+.. _releasenotes:
 
 Release notes Vonk
 ==================
 
 Release 0.3.0
------------
+-------------
 
 1. Database changes
 
@@ -53,6 +53,7 @@ Release 0.3.0
   #. Migrations for SQL Server (auto create database schema, also for the Administration API)
 
 6. Performance
+
   #. Added indexes to MongoDb and SQL Server implementations.
 
 
