@@ -29,5 +29,8 @@ or support contract.
    docker_win
    architecture
    authentication
+   features/customsearchparameters
+   administration_api
+   releasenotes
    contact
 .. add files here
