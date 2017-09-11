@@ -3,8 +3,23 @@
 Release notes Vonk
 ==================
 
-Release 0.3.0
--------------
+Release 0.3.2.0
+---------------
+
+1. Fix: _include and _revinclude could include too many resources.
+
+Release 0.3.1.0
+---------------
+
+1. IP address restricted access to Administration API functions.
+
+2. Fix on Subscriptions: 
+
+  #. Accept only Subscriptions with a channel of type rest-hook and the payload (if present) has a valid mimetype.
+  #. Set them from requested to active if they are accepted.
+
+Release 0.3.0.0
+---------------
 
 1. Database changes
 
