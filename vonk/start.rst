@@ -20,7 +20,7 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 	"LicenseFile": "vonk-trial-license.json",
 
 .. important:: the next step assumes you have a .Net Core environment installed. If not, please `download and install
-  <https://www.microsoft.com/net/download/core>`_ it before you continue.
+  <https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md>`_ **version 1.1.2** before you continue.
 
 5.	Open a command prompt or Powershell, navigate to the working directory and run:
 	:code:`> dotnet .\Vonk.Server.dll`
