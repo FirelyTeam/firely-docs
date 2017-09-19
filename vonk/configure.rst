@@ -110,7 +110,7 @@ environment variable::
 
 	VONK_Repository:SqlDbOptions:ConnectionString = <some connectionstring>
 
-
+.. include:: ./configuration/prevalidation.rst
 
 Running the server
 ------------------
