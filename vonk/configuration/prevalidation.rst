@@ -18,6 +18,7 @@ To enable this feature, set ``ValidateIncomingResources`` to ``true``.
 If you leave the list of AllowedProfiles empty, each resource will only be validated against the profiles from the FHIR specification itself.
 
 When you add canonical urls of StructureDefinitions to this list, Vonk will:
+
 * check whether the incoming resource has any of these profiles listed in it's meta.profile element
 * validate the resource against the profiles listed in it's meta.profile element.
 
