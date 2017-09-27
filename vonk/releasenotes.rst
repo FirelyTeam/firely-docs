@@ -3,6 +3,67 @@
 Release notes Vonk
 ==================
 
+Release 0.3.3.0
+---------------
+
+IMPORTANT: 
+
+.. attention:: We upgraded to .NET Core 2.0. For this release you have to install .NET Core Runtime 2.0, that you can download from `dot.net <https://www.microsoft.com/net/download/core#/runtime/>`_.
+
+Hosting
+^^^^^^^
+
+The options for enabling and configuring HTTPS have moved. They are now in appsettings.json, under 'Hosting':
+   ::
+
+    "Hosting": {
+      "HttpPort": 4080,
+      "HttpsPort": 4081, // Enable this to use https
+      "CertificateFile": "<your-certificate-file>.pfx", //Relevant when HttpsPort is present
+      "CertificatePassword" : "<cert-pass>" // Relevant when HttpsPort is present
+    },
+  
+   This means you have to adjust your environment variables for CertificateFile and CertificatePassword (if you had set them) to:
+   ::
+
+    VONK_Hosting:CertificateFile
+    VONK_Hosting:CertificatePassword
+
+   The setting 'UseHttps' is gone, in favour of Hosting:HttpsPort.
+
+Database
+^^^^^^^^
+
+There are no changes to the database structure.
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+1. Feature: Subscription is more heavily checked on create and update. If all checks pass, status is set to active. If not, the Subscription is not stored, and Vonk returns an OperationOutcome with the errors.
+
+  * Criteria must all be supported
+  * Endpoint must be absolute and a correct url
+  * Enddate is in the future
+  * Payload mimetype is supported
+
+2. Feature: use _elements on Search
+
+#. Feature: :ref:`load profiles from your Simplifier project <feature_artifactresolution>` at startup.
+
+#. Feature: Content-Length header is populated.
+
+#. Fix: PUT or POST on /metadata returned 200 OK, but now returns 405 Method not allowed.
+
+#. Fix: Sometimes an error message would appear twice in an OperationOutcome.
+
+#. Fix: _summary is not yet implemented, but was not reported as 'not supported' in the OperationOutcome. Now it is. (Soon we will actually implement _summary.)
+
+#. Fix: If-None-Exist header was also processed on an update, where it is only defined for a create. 
+
+#. Fix: Set Bundle.entry.search.mode to 'outcome' for an OperationOutcome in the search results.
+
+#. UI: Display software version on homepage.
+
 Release 0.3.2.0
 ---------------
 
