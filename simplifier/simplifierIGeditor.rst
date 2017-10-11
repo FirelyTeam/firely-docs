@@ -7,7 +7,11 @@ This page will elaborate further on getting started and how you can use the IG e
 
 Create your first IG
 --------------------
-You can access the IG editor via the Portal in your Simplifier account. To get there, log in to Simplifier and select the ``Implementation Guides`` tab from your ``Portal page``. From this tab you can do all of your editing for for IGs. You also have the option to Browse or Delete your existing IGs. To create a new IG click the green button ``+New Implementation Guide`` and provide a title for the IG. After creating a new IG, the IG editor can be opened by clicking the Edit button. 
+You can access the IG editor via the ``Guides`` tab in your project. In earlier versions of Simplifier, Implementation Guides were created from a user's portal, but this is no longer possible as Implementation Guides are linked to a specific project. Use the ``Create`` button to create a new Implementation Guide and provide a title for the IG. 
+
+.. image:: ./images/ImplementationGuides.PNG  
+
+Click on ``Browse`` or the Implementation Guide itself for a preview of the guide. Click on the ``Edit`` button to open the Implementation Guide in the IG editor. 
 
 IG Editor Settings
 ------------------
@@ -15,14 +19,15 @@ The IG editor opens on the page of the root element. The IG Editor consist of th
 
 By way of dragging the section bars you can adjust the size of each section to customize your view.
 
-To adjust the settings of your IG click on the Settings icon. This brings you to a section that allows you to adjust the title, privacy, select an IG rendering format, and add and manage membership. 
+To adjust the settings of your IG click on the Settings icon (the rightmost icon representing a gear wheel). This brings you to a section that allows you to adjust the title and privacy on the Settings tab, or select an IG rendering format and Stylesheet file on the Style tab. 
 
-.. image:: ./images/Settings.PNG   
+.. image:: ./images/IGeditor.PNG   
 
-An IG can be rendered in two formats: a Two Level Menu format and a Tree Table format.
 
 Two Level Menu vs Tree table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+
+An IG can be rendered in two formats: a Two Level Menu format and a Tree Table format.
 
 A Two Level Menu rendering will display your IG with the elements in tabs along the top of the page.
 
@@ -35,24 +40,11 @@ A Tree table rendering will display your IG with the elements in a format simila
 
 .. image:: http://i32.photobucket.com/albums/d41/sdfgsdg1asdj/0c898a190d7241b9a4e48e739a87af8f_zpszdeyzndo.jpg
 
+To add a new menu item to your Implementation Guide, use the ``+`` icons in the upper left corner of the IG editor. Click on either the ``add Child guide item`` icon to add a sub menu or on the ``add Sibling guide item`` icon to add a menu at the same level as the one you have selected. You can rename the items by either double clicking them or use the pencil icon in the icon bar. To delete a menu item, select it and click on the recycle bin icon. 
 
-Hovering your cursor over the elements in the tree table will display icons on the right site. 
-These icons are used to edit the tree table and consist of the following functionalities:
-
-- add a base element
-- add a child element
-- edit element's name
-- delete an element
-
-The root element has only the 'add a child element' icon. 
-The root element name is adjusted by changing the title of the IG. 
-Elements can be moved up or down the tree be selecting the element first and pressing the arrow up or arrow down key.
-
-Add Members
-^^^^^^^^^^^
-You can adjust the settings of your IG to make it public or private (assuming you have the proper account). You can invite members to view or work on your IG by accessing the ``User Management`` tab from the Settings menu. The new members can be part of your Organizaion or non-Simplifier users. Here you can add members using their email address and adjust their role on the IG team. The options here are Admin, Writer, and Reader. 
-
-.. image:: ./images/UserManagement.png   
+CSS-editor
+^^^^^^^^
+When you click on the icon on the left of the Settings icon, the CSS-editor will be opened. With this editor you can edit your Style Sheet to make overall changes in the overall look and feel of your IG. For example, you may change the color of the navigation bar to blue or add your own logo to it. It is also possible to reset your changes by going back to the original CSS or download the original CSS as a seperate file, so you can compare the differences with your own code.
 
 Markdown 
 ^^^^^^^^
