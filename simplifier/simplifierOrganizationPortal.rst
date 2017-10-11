@@ -1,12 +1,12 @@
 Organization Portal
 ^^^^^^^^^^^^^^^^^^^
-For our members with a Enterprise plan there is the functionality to create and manage an organizational account within Simplifier. An Organization account allows you to create and share projects, resources, and Implementation Guides via your organization with others within and outside your organization. You can add members and adjust rights to the project.  
+For our members with an Enterprise plan there is the functionality to create and manage an organizational account within Simplifier. An Organization account allows you to create and share projects, resources, and Implementation Guides via your organization with others within and outside your organization. You can add members and adjust rights to the project.  
 
 Organization Settings
 ---------------------
 Once you have made your account you can create and organize organizational project lists, create custom workflows, manage members, and follow your organization’s newsfeed. These settings can be accessed via the ``Maintenance`` dropdown once you are on your organization’s page.
 
-.. image:: ./images/organizationmaint.png
+.. image:: ./images/MaintenanceDropdown.PNG
     :align: center
     
  Custom Workflow
@@ -17,10 +17,12 @@ Custom workflows allows you to create statuses for your resources that fit your 
 * Active: This resource is ready for normal use.
 * Retired: This resource has been withdrawn or superseded and should no longer be used.
 
-To create a Custom Workflow select ``Custom Workflow`` from the ``Maintenance`` dropdown on your organization’s page. The statues that you make need to be mappable to the standard FHIR statues. If you are creating your own workflows be sure to create a workflow for each associated level of the FHIR hierarchy. This is necessary because the FHIR statues do not default into your custom list.
+To create a Custom Workflow select ``Custom Workflow`` from the ``Maintenance`` dropdown on your organization’s page. The statuses that you make need to be mappable to the standard FHIR statuses. If you are creating your own workflows be sure to create a workflow for each associated level of the FHIR hierarchy. This is necessary because the FHIR statuses do not default into your custom list.
 
-.. image:: ./images/CustomWorkflows.png
+.. image:: ./images/CustomWorkflow.PNG
     :align: center
+
+When you search for resources in Simplifier, the page with search results shows the Custom Workflow status next to the resource. You can click on the status to obtain an overview with the possible statuses and their explanations.
 
 Organization Project Lists
 --------------------------
