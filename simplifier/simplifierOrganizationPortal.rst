@@ -8,6 +8,7 @@ Once you have made your account you can create and organize organizational proje
 
 .. image:: ./images/MaintenanceDropdown.PNG
     :align: center
+    :scale: 50 %
     
  Custom Workflow
 -----------------
