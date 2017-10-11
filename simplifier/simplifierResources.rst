@@ -9,10 +9,15 @@ You can browse these resources easily from the Simplifier homepage or search for
 
 Once you have found the resource you are looking for select it to see further details. Within the resource’s page you can view which project that resource is a part of, the type, status (maturity level), versioning, and  different resource views. 
 
-While viewing resources you can display information in a few different ways.  The different views include:
+While viewing resources you can display information in a few different ways.  
 
-* Overview – This is a Logical view of the resource which includes Element names in the leftmost column followed by Flags, Cardinality, Type, and  Description & Constraints.
-* Details – This is an easy-to-read list per element of all the details of your profile. The specification refers to this as the dictionary. 
+Depending on the type of resource, the different views include:
+
+* Overview – This is either a preview (e.g. texts) or a Logical view (e.g. profiles) of the resource. The Logical view of a profile includes Element names in the leftmost column followed by Flags, Cardinality, Type, and  Description & Constraints.
+* Narrative - This is a preview of the narrative part of an example Resource, e.g. a Patient.
+* Details – This is an easy-to-read list per element of all the details of a profile. The specification refers to this as the dictionary. 
+* Mappings - This is a list of all the mappings specified in a profile.
 * Table – This is a simple table view of the resource.
 * XML & JSON – Respective views of resources in either XML or JSON formatting. 
 * History – On this tab you can view the difference between two versions of the same profile. This is a great feature for comparing and tracking changes.
+* Issues - On this tab users with a paid account can track issues. New issues can be created by clicking the ``New issue`` button. The issue list can be filtered on open, closed or your own issues. By clicking on an issue you can read the entire conversation and add a new comment.
