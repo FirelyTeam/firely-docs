@@ -10,7 +10,7 @@ You can browse these resources easily from the Simplifier homepage or search for
 Once you have found the resource you are looking for select it to see further details. Within the resource’s page you can view which project that resource is a part of, the type, status (maturity level), versioning, and  different resource views. 
 
 Available views
-===============
+"""""""""""""""
 While viewing resources you can display information in a few different ways.  
 
 Depending on the type of resource, the different views include:
@@ -25,7 +25,7 @@ Depending on the type of resource, the different views include:
 * Issues - On this tab users with a paid account can track issues. New issues can be created by clicking the ``New issue`` button. The issue list can be filtered on open, closed or your own issues. By clicking on an issue you can read the entire conversation and add a new comment.
 
 Update Resources
-================
+""""""""""""""""
 When you want to update your resource, there are several ways to do so. Choose one of the following options from the ``Update`` menu at the top of the Resource page:
 
 * Upload: Update by uploading a file (either XML or JSON)
@@ -33,6 +33,6 @@ When you want to update your resource, there are several ways to do so. Choose o
 * Edit: Update by editing the last version (opens a XML-editor where you can directly edit the XML code of your resource)
 
 Download Resources
-==================
+""""""""""""""""""
 You may also choose to download the resource and save a local copy on your computer. You can either choose to download the resource as a XML or JSON file or directly copy the XML or JSON code of the resource to your clipboard, so you can easily copy-paste it to another location.
 
