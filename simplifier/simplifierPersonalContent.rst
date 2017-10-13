@@ -47,6 +47,10 @@ The following options are available:
 * Publish these resources when their status is "Active" (examples will always be published)
 * Publish all of them
 
+Canonical Base
+""""""""""""""
+Project owners can now customize their canonical URLs to brand their projects. In the future, we will only see canonical URLs as valid if they match the canonical base URL of their project. To choose your URL go to your project and from the Options menu select Canonical Base URLs. Click on the Add URL button and then in the popup specify which base URL you would like to use. Make note that by choosing a canonical URL you are also certifying that it is within your rights to do so. 
+
 
 Add Members
 """""""""""
