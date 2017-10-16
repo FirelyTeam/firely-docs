@@ -20,7 +20,7 @@ or support contract.
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :hidden:
 
    start
@@ -29,7 +29,7 @@ or support contract.
    docker_win
    architecture
    authentication
-   features/customsearchparameters
+   features/features
    administration_api
    releasenotes
    contact

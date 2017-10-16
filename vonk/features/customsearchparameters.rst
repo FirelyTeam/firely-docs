@@ -11,8 +11,10 @@ Using Custom Search Parameters
 
 .. include:: ../administration/reindex.rst
 
+.. _feature_customsp_limitations:
+
 Limitations
-^^^^^^^^^^^
+-----------
 
 * Search parameters can NOT (yet) be posted to the /administration endpoint. 
 * If a search parameter cannot be parsed correctly, it will silently be ignored. Expect improvement of this in a later version.
