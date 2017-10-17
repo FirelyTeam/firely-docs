@@ -2,7 +2,7 @@
 Release notes
 =============
 
-0.92.5 (DSTU2) / 0.93.5 (STU3) (released 20170907)
+0.92.5 (DSTU2) / 0.93.5 (STU3) (released 20171017)
 ------------------
 
 Changes to both versions:
