@@ -12,6 +12,7 @@ You can call validate on three levels:
 #. :ref:`feature_validation_instance`
 
 Besides that you can configure Vonk to validate every incoming resource and even filter on specific profiles. See the section on :ref:`prevalidation`.
+In all cases, the :ref:`feature_validation_pre` is that Vonk must have access to all relevant StructureDefinitions.
 
 Validation has one :ref:`feature_validation_limitations`
 
@@ -57,6 +58,13 @@ Validate an instance from the database
     GET <vonk_endpoint>/<resourcetype>/<id>/$validate[?profile=<canonical-url-of-structuredefinition>]
 
 This time you can only use the (optional) profile parameter on the url to specify a StructureDefinition to validate against.
+
+.. _feature_validation_pre:
+
+Precondition
+------------
+
+Vonk must be aware of all the StructureDefinitions referenced directly or indirectly by a profile. Refer to the :ref:`administration_structuredefinition` for more information.
 
 .. _feature_validation_limitations:
 

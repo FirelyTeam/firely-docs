@@ -1,5 +1,7 @@
-Configuring Custom Search Parameters
-------------------------------------
+.. _configure_searchparameters:
+
+Configure Search Parameters
+---------------------------
 
 You can control which search parameters are loaded at the startup of Vonk. You specify that in the appsettings.json::
 
