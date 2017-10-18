@@ -50,7 +50,7 @@ simplifier
 	
 	This allows you to send the fhir endpoint to another server, so that that server can fetch the resource that is displayed on the current page.
 	
-	You will also have access to the resource itself in Json in case of post calls to another server
+	You will also have access to the resource itself in Json or XML in case of post calls to another server.
 	
 	.. code-block:: Javascript
 	
