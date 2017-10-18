@@ -14,6 +14,7 @@ Contents:
 
    simplifierIntro
    simplifierPersonalContent
+   simplifierShare
    simplifierProjects
    simplifierBrowse
    simplifierResources
