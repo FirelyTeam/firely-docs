@@ -26,5 +26,9 @@ This page shows your user profile as visible to other Simplifier users. It shows
 
 .. image:: ./images/UserProfile.PNG 
 
+Account Settings
+""""""""""""""""
+Here you can edit your personal details, password and settings for mail updates. The digest mail is a mail that informs you of bookmarked projects and resources that have changed recently. You can choose one of the following frequencies: daily, weekly, monthly or never. You can also visit your User Profile from this page by clicking on ``Preview profile``.
 
+.. image:: ./images/AccountSettings.PNG
 
