@@ -8,11 +8,11 @@ Personal Portal
 """""""""""""""
 All your personal content is accessible through your personal portal. The following tabs are available:
 
-* Projects: On this tab you can create new projects and/or manage your existing projects.
-* Bookmarks: Use this tab to quickly access your favourite projects and publications. You can bookmark projects or resources by using the ``Bookmark`` button at the top right corner of the Project or Resource page. 
-* Connectors: Here you can create and edit your connectors or shop for new connectors.
-* Organizations: This tab shows an overview of the organizations you are part of. You can access your organizations' portals from here or create a new organization if you have the rights to do so.
-* Implementation guides: In older versions of Simplifier, this was the place to create and edit implementation guides, but they are moved to projects. Old implementation guides that are not yet linked to a project can still be accessed here. If you want to have your guide moved to a project, please contact us by using the feedback button on the top right.
+* **Projects**: On this tab you can create new projects and/or manage your existing projects.
+* **Bookmarks**: Use this tab to quickly access your favourite projects and publications. You can bookmark projects or resources by using the ``Bookmark`` button at the top right corner of the Project or Resource page. 
+* **Connectors**: Here you can create and edit your connectors or shop for new connectors.
+* **Organizations**: This tab shows an overview of the organizations you are part of. You can access your organizations' portals from here or create a new organization if you have the rights to do so.
+* **Implementation guides**: In older versions of Simplifier, this was the place to create and edit implementation guides, but they are moved to projects. Old implementation guides that are not yet linked to a project can still be accessed here. If you want to have your guide moved to a project, please contact us by using the feedback button on the top right.
 
 Invites Page
 """"""""""""
