@@ -18,6 +18,7 @@ Contents:
    simplifierProjects
    simplifierBrowse
    simplifierResources
+   simplifierEndpoint
    simplifierEmbeddedRendering
    simplifierOrganizationPortal  
    simplifierIGeditor
