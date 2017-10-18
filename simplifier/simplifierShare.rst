@@ -16,6 +16,6 @@ When visiting the URL of a Share, you can choose to view either the XML code, JS
 
 Personal Shares
 """""""""""""""
-Through your personal menu (click on your avatar at the top right and select ``Shares``) you can access a list of all your Shares.
+Through your personal menu (click on your avatar at the top right and select ``Shares``) you can access a list of all your Shares. From here you can also quickly add a new Share by clicking the green ``New`` button.
 
 .. image:: ./images/SharesPage.PNG 
