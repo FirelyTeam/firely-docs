@@ -123,8 +123,8 @@ Release 0.3.0.0
 
 5. DevOps:
 
-  #. New :ref:`Administration API <administration>`
-  #. Enabled logging of the SQL statements issued by Vonk (see :ref:`configure <configure>`)
+  #. New :ref:`administration_api`
+  #. Enabled logging of the SQL statements issued by Vonk (see :ref:`configure_log`)
   #. Migrations for SQL Server (auto create database schema, also for the Administration API)
 
 6. Performance

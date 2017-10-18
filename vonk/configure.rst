@@ -1,6 +1,12 @@
-.. _configure:
+:orphan:
 
-===========================
+
+.. |br| raw:: html
+
+   <br />
+
+.. _configure_old:
+
 Configuring the Vonk server
 ===========================
 
@@ -11,15 +17,9 @@ The steps you followed to get started will provide you with a basic Vonk server,
 that runs on a standard port and keeps the data in memory.
 
 If you need to adjust the port, or want to use a MongoDB or SQL database, you can
-configure Vonk by adjusting the :code:`hosting.json` and :code:`appsettings.json` file.
+configure Vonk by adjusting the :code:`appsettings.json` file.
 If you want to change the way Vonk logs its information, you can adjust :code:`logsettings.json`.
 On this page you can read how to change the settings.
-
-
-.. |br| raw:: html
-
-   <br />
-
 
 Changing the port number
 ------------------------
@@ -45,6 +45,7 @@ If you need your server to run on https instead of http, follow these steps:
 
 *	Navigate to the location where you extracted the Vonk files.
 *	Open :code:`appsettings.json` in a text editor and find these settings:
+
     ::
 
 		"Hosting": {
@@ -81,11 +82,9 @@ You can use either a MongoDB or a SQL server database with Vonk.
 
 .. include:: ./configuration/db_sql.rst
 
-
-
 .. include:: ./configuration/logsettings.rst
 
-.. include:: ./configuration/customsearchparameters.rst
+.. include:: ./features/customsearchparameters.rst
 
 Using Environment variables
 ---------------------------
@@ -117,7 +116,7 @@ environment variable::
 
 	VONK_Repository:SqlDbOptions:ConnectionString = <some connectionstring>
 
-.. include:: ./configuration/prevalidation.rst
+.. include:: ./features/prevalidation.rst
 
 Running the server
 ------------------

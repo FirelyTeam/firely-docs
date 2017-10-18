@@ -1,3 +1,9 @@
+:orphan:
+
+.. This is a part of Using Custom Search Parameters.
+
+.. _reindex:
+
 Re-indexing for new or changed SearchParameters
 -----------------------------------------------
 
@@ -36,3 +42,18 @@ To fix that, you should re-index (repeat the extraction) for these parameters.
 
 	``exclude`` means that any existing index data for those search parameters will be erased.
 	You use this when you removed a search parameter.
+
+.. _reindex_configure:
+
+Configuration
+^^^^^^^^^^^^^
+
+Vonk will not re-index the resources in the database all at once, but in batches. The re-index operation will process all batches until all resources are re-indexed.
+You can control the size of the batches in the :ref:`configure_appsettings`.
+::
+
+    "ReindexOptions": {
+        "BatchSize": 100
+    },
+
+Use any integer value >= 1.

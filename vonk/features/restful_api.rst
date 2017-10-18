@@ -16,7 +16,7 @@ Only a few limitations apply.
 
 Vonk enables create-on-update: If you request an update and no resource exists for the given id, the provided resource will be created under the provided id.
 
-Vonk can reject a resource based on :ref:`prevalidation`.
+Vonk can reject a resource based on :ref:`feature_prevalidation`.
 
 .. _restful_crud_limitations:
 
@@ -30,7 +30,7 @@ Limitations
 Versioning
 ----------
 
-Vonk keeps a full version history of every resource, including the resources on the :ref:`administration`.
+Vonk keeps a full version history of every resource, including the resources on the :ref:`administration_api`.
 
 .. _restful_not_supported:
 
@@ -40,7 +40,7 @@ Search
 Search is supported as per the specification, with a few :ref:`restful_search_limitations`.
 
 In the default configuration the SearchParameters from the `FHIR specification <http://www.hl7.org/implement/standards/fhir/searchparameter-registry.html>`_ 
-are available. But you can :ref:`configure_searchparameters`. 
+are available. But Vonk also allows :ref:`feature_customsp`. 
 
 Chaining and reverse chaining is fully supported.
 
@@ -58,14 +58,23 @@ The following parameters and options are not yet supported:
 #. ``_query``
 #. ``_containedType``
 #. ``_filter``
-#. ``approx`` modifier on a quantity SearchParameter
-#. ``text`` modifier on a string SearchParameter
-#. ``above``, ``below``, ``in``, ``not-in`` modifiers on a token SearchParameter
+#. ``:approx`` modifier on a quantity SearchParameter
+#. ``:text`` modifier on a string SearchParameter
+#. ``:above``, ``:below``, ``:in``, ``:not-in`` modifiers on a token SearchParameter
+#. ``:recurse`` modifier on ``_include`` and ``_revinclude``.
 
 Furthermore:
 
 #. ``_sort`` is only implemented for the parameter ``_lastUpdated`` in order to support History.
 #. Whether a SearchParameter in a request is not implemented or has an error (e.g. in the format of the argument), it is always reported as 'not supported'.
+
+.. _restful_capabilities:
+
+Capabilities
+-------------
+
+On the Capabilities interaction (``<vonk-endpoint>/meteadata``) Vonk returns a CapabilityStatement that is built dynamically from the 
+supported ResourceTypes, SearchParameters and interactions. E.g. if you :ref:`configure_searchparameters`, the SearchParameters that are actually loaded appear in the CapabilityStatement.
 
 Not supported interactions
 --------------------------

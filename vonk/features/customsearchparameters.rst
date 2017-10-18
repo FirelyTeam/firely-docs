@@ -1,15 +1,20 @@
-.. _feature_customsp:
-
-Using Custom Search Parameters
-=============================
-
 .. |br| raw:: html
 
    <br />
 
-.. include:: ../configuration/customsearchparameters.rst
 
-.. include:: ../administration/reindex.rst
+.. _feature_customsp:
+
+Using Custom Search Parameters
+==============================
+
+.. include:: ./configuration/configure_searchparameters.rst
+
+.. include:: ./features/reindex.rst
+
+
+The SearchParameters that are loaded are automatically included in the CapabilityStatement in response to the :ref:`restful_capabilities` interaction.
+This implies that you can check the CapabilityStatement to see whether a specific SearchParameter was actually loaded.
 
 .. _feature_customsp_limitations:
 

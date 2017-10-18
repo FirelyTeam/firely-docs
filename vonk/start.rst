@@ -36,7 +36,21 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 Please note that the third example query ``/Patient/example`` will only work if you first PUT a Patient with the id 'example'.
 You can get this `example from the specification <http://www.hl7.org/implement/standards/fhir/patient-example.json>`_.
 
-The :ref:`next section <configure>` explains how you can configure the Vonk server.
+Configuration
+-------------
+
+The section :ref:`configure_vonk` explains how you can configure the Vonk server.
+
+.. _vonk_run:
+
+Running the server
+------------------
+
+When you have completed your configuration changes, you can run the server.
+Open a command prompt or Powershell, navigate to your working directory and run:
+::
+
+	> dotnet .\Vonk.Server.dll
 
 
 .. |br| raw:: html

@@ -26,7 +26,7 @@ Vonk reads the contents of the specification.zip when they are first needed. So 
 Admninistration API
 --------------------------
 
-The Administration repository for StructureDefinitions is managed through the :ref:`administration`. This API exposes a FHIR RESTful API endpoint for StructureDefinition. So you can GET, POST, PUT and DELETE StructureDefinitions on this endpoint.
+The Administration repository for StructureDefinitions is managed through the :ref:`administration_api`. This API exposes a FHIR RESTful API endpoint for StructureDefinition. So you can GET, POST, PUT and DELETE StructureDefinitions on this endpoint.
 
 Please be aware that StructureDefinitions have to have a unique canonical url, in their url element. If Vonk has access to two or more StructureDefinitions with the same canonical url, it is not defined which one will be used.
 You can use a conditional create to prevent this from happening.
@@ -41,6 +41,11 @@ To add a StructureDefinition to Vonk
 
 * In the body provide the StructureDefinition that you want to add.
 * The Content-Type header must match the format of the body (application/fhir+json or application/fhir+xml)
+
+If you prefer to assign your own logical id to e.g. StructureDefinition 'MyPatient', you can use an update:
+::
+
+    PUT <vonk-endpoint>/administration/StructureDefinition/MyPatient
 
 .. _administration_structuredefinition_simplifier:
 

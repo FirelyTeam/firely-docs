@@ -1,11 +1,13 @@
-Configuring log settings
-------------------------
+.. _configure_log:
+
+Log settings
+============
 
 Vonk uses `Serilog <https://serilog.net/>`__ for logging. You can adjust the way Vonk logs its information by changing
-the settings in ``logsettings.json``.
+the settings in ``logsettings.json``. Alternatively you can control :ref:`configure_envvar_log`.
 
 Changing the log event level
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------
 Serilog defines several levels of log events. From low to high, these are ``Verbose``, ``Debug``, ``Information``,
 ``Warning``, ``Error`` and ``Fatal``. You can set the minimum level you want to log, meaning that events for that
 level or higher will be logged. By default, Vonk uses ``Error`` as the minimum level of recording information.
@@ -62,12 +64,12 @@ But in this (purposefully incorrect) example the ``Warming`` level on the ``Vonk
 	},
  
 Changing the sink
-^^^^^^^^^^^^^^^^^
+-----------------
 Another setting you can adjust is ``WriteTo``. This tells Serilog which sink(s) to log to.
 Serilog provides several sinks, and for Vonk you can use ``Console``, ``ColoredConsole``, ``RollingFile`` and ``Seq``.
 
 RollingFile
-~~~~~~~~~~~
+^^^^^^^^^^^
 For the ``RollingFile`` sink, you can specify the location of the log files with the ``pathFormat`` argument.
 Please include the ``{Date}``, ``{Hour}`` or ``{HalfHour}`` placeholder, so Serilog can add date and time
 information to your filename.
@@ -100,7 +102,7 @@ This value can also be removed or changed, by providing the ``retainedFileCountL
 	},
 
 Seq
-~~~
+^^^
 For the ``Seq`` sink, you can also specify arguments. One of them is the server URL for your
 Seq server:
 
@@ -117,7 +119,7 @@ Seq server:
 * Change ``serverUrl`` to the URL of your Seq server
 
 All sinks
-~~~~~~~~~
+^^^^^^^^^
 For all sinks, you can set a restriction on the minimum log event level. This is not an override of
 the ``MinimumLevel`` setting we discussed earlier, but rather a filter on the events that are logged.
 With this extra sink argument, you can for example log only a small portion of the events to the

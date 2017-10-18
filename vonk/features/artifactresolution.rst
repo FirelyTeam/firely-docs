@@ -3,7 +3,7 @@
 Loading profiles from Simplifier
 ================================
 
-You can already POST or PUT StructureDefinitions to Vonk in the :ref:`Administration API <administration>` so it can use them for validation.
+You can already POST or PUT StructureDefinitions to Vonk in the :ref:`administration_api` so it can use them for validation.
 
 But if you have several StructureDefinitions in a Simplifier project, you can tell Vonk where to find them, and then issue the command to actually load them.
 

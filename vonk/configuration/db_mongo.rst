@@ -1,5 +1,11 @@
+.. |br| raw:: html
+
+   <br />
+
+.. _configure_mongodb:
+
 Using MongoDB
-^^^^^^^^^^^^^
+=============
 We assume you already have MongoDB installed. If not, please refer to the `MongoDB download <https://www.mongodb.com/download-center>`_ pages.
 
 * Navigate to your Vonk working directory
@@ -22,8 +28,10 @@ We assume you already have MongoDB installed. If not, please refer to the `Mongo
 * You can set SimulateTransactions to "true" if you want to experiment with `FHIR transactions <https://www.hl7.org/fhir/http.html#transaction>`_.
   MongoDB does not support real transactions across documents, so in case of an error already processed entries will NOT be rolled back. 
 
+.. _configure_mongodb_admin:
+
 Using MongoDB for the Administration API database
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=================================================
 This works the same as with the normal Vonk database, except that you:
 
 *   put the settings within the ``Administration`` section

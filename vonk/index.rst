@@ -1,3 +1,5 @@
+.. _vonk_index:
+
 Welcome to the Vonk server documentation
 =========================================
 
@@ -24,7 +26,7 @@ or support contract.
    :hidden:
 
    start
-   configure
+   configuration/configuration
    docker
    docker_win
    architecture
