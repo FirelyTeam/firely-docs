@@ -14,6 +14,7 @@ Contents:
 
    simplifierIntro
    simplifierPersonalContent
+   simplifierProjects
    simplifierBrowse
    simplifierResources
    simplifierEmbeddedRendering
