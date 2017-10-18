@@ -27,12 +27,11 @@ or support contract.
 
    start
    configuration/configuration
-   docker
-   docker_win
-   architecture
-   authentication
+   deployment/deployment
    features/features
    administration_api
+   architecture
+   authentication
    releasenotes
    contact
 .. add files here

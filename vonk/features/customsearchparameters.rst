@@ -8,9 +8,9 @@
 Using Custom Search Parameters
 ==============================
 
-.. include:: ./configuration/configure_searchparameters.rst
+.. include:: ../configuration/configure_searchparameters.rst
 
-.. include:: ./features/reindex.rst
+.. include:: ./reindex.rst
 
 
 The SearchParameters that are loaded are automatically included in the CapabilityStatement in response to the :ref:`restful_capabilities` interaction.
