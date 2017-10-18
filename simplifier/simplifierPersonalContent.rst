@@ -28,7 +28,7 @@ This page shows your user profile as visible to other Simplifier users. It shows
 
 Shares
 """"""
-Your Shares page shows a list of all your personal Shares. From here you can also make a new Share by clicking on the ``+New`` button on the right. The Shares feature is explained in more detail in the chapter on Share.
+Your Shares page shows a list of all your personal Shares. From here you can also make a new Share by clicking on the ``+New`` button on the right. The Share feature is explained in more detail in the chapter on Share.
 
 .. image:: ./images/SharesPage.PNG 
 
