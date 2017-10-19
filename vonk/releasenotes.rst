@@ -3,6 +3,42 @@
 Release notes Vonk
 ==================
 
+Release 0.4.0.1
+---------------
+
+Database
+^^^^^^^^
+
+#. Long URL's for absolute references are now supported, but that required a change of the SQL Server database structure.
+If you have AutoUpdateDatabase enabled, Vonk will automatically apply the changes. As always, perform a backup first if you have production data in the database.
+#. Datetime elements have a new serialization format in MongoDB. After installing this version, you will see warnings about indexes on these fields.
+Please perform :ref:`feature_customsp_reindex`, for all parameters with ``<vonk-endpoint>/administration/reindex/all``.
+You don't have to restart Vonk afterwards, but if you do, the warnings should be gone.
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+#. Fix: SearchParameters with a hyphen ('-', e.g. general-practitioner) were not recognized in (reverse) chains.
+#. Fix: CapabilityStatement is more complete, including (rev)includes and support for generic parameters besides the SearchParameters (like ``_count``). Also the SearchParameters now have their canonical url and a description.
+#. Improvement: :ref:`feature_preload` gives more informative warning messages.
+#. Fix: :ref:`feature_customsp_reindex` did not handle contained resources correctly. If you have used this feature on the 0.3.3 version, please apply it again with ``<vonk-endpoint>/administration/reindex/all`` to correct any errors.
+#. Improvement: :ref:`feature_artifactresolution` now also works for the Memory implementation.
+#. Improvements on :ref:`feature_validation`: 
+
+  * profile parameter can also be supplied on the url
+  * if validation is successful, an OperationOutcome is still returned
+  * it always returns 200, and not 422 if the resource could not be parsed
+
+7. Feature: support for Conditional Read, honouring if-modified-since and if-none-match headers.
+#. Fix: Allow for url's longer than 128 characters in Reference components.
+#. Fix: Allow for an id in a resource on a Create interaction (and ignore that id).
+#. Fix: Allow for an id in a resource on a Conditional Update interaction (and ignore that id).
+#. Fix: Include Last-Modified header on Capability interaction.
+#. Fix: Format Last-Modified header in `httpdate <https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1>`_ format.
+#. Fix: Include version in bundle.entry.fullUrl on the History interaction.
+#. Fix: Update ``_sort`` syntax from DSTU2 to STU3. Note: ``_sort`` is still only implemented for ``_lastUpdated``, mainly for the History interaction.
+#. Improvement: If the request comes from a browser, the response is sent with a Content-Type of application/xml, to allow the browser to render it natively. Note that most browsers only render the narrative if they receive xml.
+
 Release 0.3.3.0
 ---------------
 
