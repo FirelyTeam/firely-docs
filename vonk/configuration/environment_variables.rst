@@ -46,24 +46,25 @@ environment variable::
 
 	VONK_Repository:SqlDbOptions:ConnectionString = <some connectionstring>
 
-.. _configure_envvar_log:
 
-Log settings with Environment Variables
----------------------------------------
+.. .. _configure_envvar_log:
 
-You can control the :ref:`configure_log` with Environment Variables the same way as the :ref:`configure_envvar_appsettings` above. 
-The difference is in the prefix. For the log settings we use 'VONKLOG\_'.
+.. Log settings with Environment Variables
+.. ---------------------------------------
 
-logsettings.json::
+.. You can control the :ref:`configure_log` with Environment Variables the same way as the :ref:`configure_envvar_appsettings` above. 
+.. The difference is in the prefix. For the log settings we use 'VONKLOG\_'.
 
-    "Serilog": {
+.. logsettings.json::
+
+..    "Serilog": {
         "MinimumLevel": {
             "Override": {
                 "Vonk.Configuration": "Information",
 
-environment variable::
+.. environment variable::
 
-    VONKLOG_Serilog:MinimumLevel:Override:Vonk.Configuration = Information
+..    VONKLOG_Serilog:MinimumLevel:Override:Vonk.Configuration = Information
 
 .. _configure_envvar_windows:
 
