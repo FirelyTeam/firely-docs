@@ -25,6 +25,10 @@ This configuration is part of :ref:`configure_appsettings`.
     }
   },
 
+.. _configure_administration_repository:
+
+Choosing your storage
+---------------------
 
 #. ``Repository``: Choose which type of repository you want. Valid values are:
 
@@ -34,6 +38,12 @@ This configuration is part of :ref:`configure_appsettings`.
 
 #. ``MongoDbOptions``: Use these with ``"Repository": "MongoDb"``, see :ref:`configure_mongodb` for details.
 #. ``SqlDbOptions``: Use these with ``"Repository": "SQL"``, see :ref:`configure_sql` for details.
+
+.. _configure_administration_access:
+
+Limited access
+--------------
+
 #. ``Security``: You can restrict access to the operations listed in ``OperationsToBeSecured`` from only the IP addressess listed in ``AllowedNetworks``.
 
   * Operations that can be secured are:

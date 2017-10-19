@@ -9,11 +9,8 @@ Release 0.4.0.1
 Database
 ^^^^^^^^
 
-#. Long URL's for absolute references are now supported, but that required a change of the SQL Server database structure.
-If you have AutoUpdateDatabase enabled, Vonk will automatically apply the changes. As always, perform a backup first if you have production data in the database.
-#. Datetime elements have a new serialization format in MongoDB. After installing this version, you will see warnings about indexes on these fields.
-Please perform :ref:`feature_customsp_reindex`, for all parameters with ``<vonk-endpoint>/administration/reindex/all``.
-You don't have to restart Vonk afterwards, but if you do, the warnings should be gone.
+#. Long URL's for absolute references are now supported, but that required a change of the SQL Server database structure. If you have AutoUpdateDatabase enabled, Vonk will automatically apply the changes. As always, perform a backup first if you have production data in the database.
+#. Datetime elements have a new serialization format in MongoDB. After installing this version, you will see warnings about indexes on these fields. Please perform :ref:`feature_customsp_reindex`, for all parameters with ``<vonk-endpoint>/administration/reindex/all``. You don't have to restart Vonk afterwards, but if you do, the warnings should be gone.
 
 Features and fixes
 ^^^^^^^^^^^^^^^^^^
@@ -41,8 +38,6 @@ Features and fixes
 
 Release 0.3.3.0
 ---------------
-
-IMPORTANT: 
 
 .. attention:: We upgraded to .NET Core 2.0. For this release you have to install .NET Core Runtime 2.0, that you can download from `dot.net <https://www.microsoft.com/net/download/core#/runtime/>`_.
 

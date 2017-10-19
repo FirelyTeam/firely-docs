@@ -55,7 +55,7 @@ environment variable::
 .. You can control the :ref:`configure_log` with Environment Variables the same way as the :ref:`configure_envvar_appsettings` above. 
 .. The difference is in the prefix. For the log settings we use 'VONKLOG\_'.
 
-.. logsettings.json::
+.. logsettings.json
 
 ..    "Serilog": {
         "MinimumLevel": {

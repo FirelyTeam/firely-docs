@@ -13,11 +13,12 @@ To reset the database, execute:
 
 Vonk will return statuscode 200 if the operation succeeded. 
 
-If you are not permitted to perform the reset, Vonk will return statuscode 403.
+If you are :ref:`not permitted <configure_administration_access>` to perform the reset, Vonk will return statuscode 403.
 
 .. note:: On a large database this operation may take a while.
 
 An alternative, if you have direct access to the database server, is to delete the database altogether and have Vonk recreate it again.
+
 * If you run on SQL Server, see :ref:`configure_sql` for the ``AutoUpdateDatabase`` feature. 
 * If you run on MongoDB, Vonk will recreate the collection by default if it is not present.
 

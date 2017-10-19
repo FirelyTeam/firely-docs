@@ -20,7 +20,7 @@ To preload a set of resources, execute:
 
 Vonk will return statuscode 200 if the operation succeeded. 
 
-If you are not permitted to preload resources into the database, Vonk will return statuscode 403.
+If you are :ref:`not permitted <configure_administration_access>` to preload resources into the database, Vonk will return statuscode 403.
 
 .. note:: The operation can take quite long if the zip contains many resources. |br|
 	E.g. when uploading the `examples-json.zip <http://www.hl7.org/fhir/examples-json.zip>`__ from the specification, it took about a minute on MongoDb and about 7 minutes on SQL Server on a simple test server.

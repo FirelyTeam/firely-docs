@@ -39,7 +39,7 @@ License
     "LicenseFile": "vonk-trial-license.json",
 
 
-The :ref:`getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\) as path separators.
+The :ref:`getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\) as path separators.
 
 Repository
 ----------
@@ -93,7 +93,7 @@ http and https
         //"CertificatePassword" : "<cert-pass>" // Relevant when HttpsPort is present
     },
 
-
+Refer to :ref:`configure_hosting` for enabling https and adjusting port numbers.
 
 Validation
 ----------
@@ -118,6 +118,7 @@ Search and History
 
 
 The Search and History interactions return a bundle with results. Users can specify the number of results that they want to receive in one response with the ``_count`` parameter.
+
 * ``DefaultCount`` sets the number of results if the user has not specified a ``_count`` parameter.
 * ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Vonk from being overloaded.
 * ``DefaultCount`` should be less than or equal to ``MaxCount``.

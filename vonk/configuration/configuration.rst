@@ -17,7 +17,6 @@ If you want to change the way Vonk logs its information, you can adjust the :ref
 .. toctree::
    :maxdepth: 1
    :titlesonly:
-   :hidden:
 
    appsettings
    environment_variables

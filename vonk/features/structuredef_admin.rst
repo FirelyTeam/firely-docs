@@ -11,6 +11,7 @@ Vonk has access to StructureDefinitions in the following locations:
 
 #. All the StructureDefinitions from the FHIR Specification, distributed along with Vonk in the specification.zip. 
 #. The StructureDefinitions in the Administration repository. The contents of this repository can be managed by:
+
     #. Using the :ref:`administration_structuredefinition_api`
     #. Loading from :ref:`administration_structuredefinition_simplifier`
 
@@ -24,12 +25,14 @@ Vonk reads the contents of the specification.zip when they are first needed. So 
 .. _administration_structuredefinition_api:
 
 Administration API
---------------------------
+------------------
 
 The Administration repository for StructureDefinitions is managed through the :ref:`administration_api`. This API exposes a FHIR RESTful API endpoint for StructureDefinition. So you can GET, POST, PUT and DELETE StructureDefinitions on this endpoint.
 
 Please be aware that StructureDefinitions have to have a unique canonical url, in their url element. If Vonk has access to two or more StructureDefinitions with the same canonical url, it is not defined which one will be used.
 You can use a conditional create to prevent this from happening.
+
+If you are :ref:`not permitted <configure_administration_access>` to access the /StructureDefinition endpoint, Vonk will return statuscode 403.
 
 Example
 ^^^^^^^

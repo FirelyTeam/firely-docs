@@ -14,7 +14,7 @@ You can call validate on three levels:
 Besides that you can configure Vonk to validate every incoming resource and even filter on specific profiles. See the section on :ref:`feature_prevalidation`.
 In all cases, the :ref:`feature_validation_pre` is that Vonk must have access to all relevant StructureDefinitions.
 
-Validation has one :ref:`feature_validation_limitations`
+Validation has one :ref:`feature_validation_limitations`.
 
 .. _feature_validation_system:
 
@@ -28,6 +28,7 @@ There are two ways of calling $validate:
 
 #. With a Resource as body and optionally a profile parameter on the url.
 #. With a Parameters resource as body, having
+
     * a parameter element with the Resource to validate in the resource parameter;
     * (optionally) the profile to validate against in the profile parameter
 

@@ -20,8 +20,8 @@ Vonk can reject a resource based on :ref:`feature_prevalidation`.
 
 .. _restful_crud_limitations:
 
-Limitations
-^^^^^^^^^^^
+Limitations on CRUD
+^^^^^^^^^^^^^^^^^^^
 
 #. ``_summary`` is not yet supported.
 
@@ -48,8 +48,8 @@ Quantity search on UCUM quantities automatically converts units to a canonical f
 
 .. _restful_search_limitations:
 
-Limitations
-^^^^^^^^^^^
+Limitations on search
+^^^^^^^^^^^^^^^^^^^^^
 
 The following parameters and options are not yet supported:
 
@@ -67,14 +67,49 @@ Furthermore:
 
 #. ``_sort`` is only implemented for the parameter ``_lastUpdated`` in order to support History.
 #. Whether a SearchParameter in a request is not implemented or has an error (e.g. in the format of the argument), it is always reported as 'not supported'.
+#. Paging is supported, but it is not isolated from intermediate changes to resources.
+
+.. _restful_history:
+
+History
+-------
+
+History is supported as described in the specification, on the system, type and instance level.
+The ``_since`` and ``_count`` parameters are also supported.
+
+.. _restful_history_limitations:
+
+Limitations on history
+^^^^^^^^^^^^^^^^^^^^^^
+
+#. ``_at`` parameter is not yet supported.
+#. Paging is supported, but it is not isolated from intermediate changes to resources.
+
+.. _restful_batch:
+
+Batch
+-----
+
+Batch is fully supported. Although the specification does not allow references between resources in a Batch, Vonk can handle them.
+
+.. _restful_transaction:
+
+Transaction
+-----------
+
+Transactions are supported, with a single limitation:
+
+#. References between resources in the transaction can only point backwards. So if resource B references A, A must be created or updated before B. This implies that circular references are also not supported. 
 
 .. _restful_capabilities:
 
 Capabilities
--------------
+------------
 
-On the Capabilities interaction (``<vonk-endpoint>/meteadata``) Vonk returns a CapabilityStatement that is built dynamically from the 
+On the Capabilities interaction (``<vonk-endpoint>/metadata``) Vonk returns a CapabilityStatement that is built dynamically from the 
 supported ResourceTypes, SearchParameters and interactions. E.g. if you :ref:`feature_customsp_configure`, the SearchParameters that are actually loaded appear in the CapabilityStatement.
+
+.. _restful_notsupported:
 
 Not supported interactions
 --------------------------

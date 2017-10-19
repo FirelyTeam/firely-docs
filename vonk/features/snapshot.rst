@@ -10,7 +10,7 @@ You can invoke this operation with
 
     POST <vonk-endpoint>/StructureDefinition/$Snapshot
 
-* The body must contain the StructureDefinition that you want filled with a fresh snapshot. The StructureDefinition may contain an existing snapshot, it will then be overwritten.
+* The body must contain the StructureDefinition that you want filled with a fresh snapshot. The StructureDefinition may contain an existing snapshot, it will be ignored.
 * The Content-Type header must match the format of the body (application/fhir+json or application/fhir+xml)
 
 Vonk will return the same StructureDefinition, but with the snapshot element (re-)generated.

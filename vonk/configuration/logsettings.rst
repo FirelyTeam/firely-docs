@@ -5,6 +5,7 @@ Log settings
 
 Vonk uses `Serilog <https://serilog.net/>`__ for logging. You can adjust the way Vonk logs its information by changing
 the settings in ``logsettings.json``. 
+
 .. Alternatively you can control :ref:`configure_envvar_log`.
 
 Changing the log event level

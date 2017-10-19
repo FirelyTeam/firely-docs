@@ -13,7 +13,8 @@ Using Custom Search Parameters
 Configure Search Parameters
 ---------------------------
 
-You can control which search parameters are loaded at the startup of Vonk. You specify that in the appsettings.json::
+You can control which search parameters are loaded at the startup of Vonk. You specify that in the :ref:`configure_appsettings`:
+::
 
   "SearchParametersImportOptions": {
     "Enabled": true,
@@ -38,6 +39,8 @@ over later search parameters with the same id. |br|
 This means that if you want to override a search parameter from the specification with your own definition, you will
 need to put your own search parameter(s) higher in the list than the parameters from the specification.
 
+Note that in json you either use forward slashes (/) or double backward slashes (\\\\) as path separators.
+
 The SearchParameters that are loaded are automatically included in the CapabilityStatement in response to the :ref:`restful_capabilities` interaction.
 This implies that you can check the CapabilityStatement to see whether a specific SearchParameter was actually loaded.
 
@@ -54,6 +57,8 @@ search parameter, the index will contain superfluous data.
 To fix that, you should re-index (repeat the extraction) for these parameters.
 
 .. warning:: This is a possibly lengthy operation, so use it with care.
+
+.. warning:: During the re-index operation, search results may be unreliable.
 
 *	To re-index all resources for all search parameters, use:
 
@@ -76,11 +81,15 @@ To fix that, you should re-index (repeat the extraction) for these parameters.
 		include=Patient.name,Observation.code
 		exclude=Organization.name
 
-	``include`` means that resources will be re-indexed only for those search paramters.
+	``include`` means that resources will be re-indexed only for those search parameters.
 	You use this if you added or changed one or few search parameters.
 
 	``exclude`` means that any existing index data for those search parameters will be erased.
 	You use this when you removed a search parameter.
+
+  Remember to adjust the Content-Type header: ``application/x-www-form-urlencoded``.
+
+If you are :ref:`not permitted <configure_administration_access>` to perform the reindex, Vonk will return statuscode 403.
 
 .. _feature_customsp_reindex_configure:
 

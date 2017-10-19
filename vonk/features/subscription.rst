@@ -9,6 +9,8 @@ to the regular FHIR endpoint, it will be stored but not evaluated. Subscriptions
 
 Vonk currently only supports Subscriptions with a Channel of type rest-hook.
 
+If you are :ref:`not permitted <configure_administration_access>` to access the /Subscription endpoint, Vonk will return statuscode 403.
+
 See `Subscriptions in the specification <http://www.hl7.org/implement/standards/fhir/subscription.html>`_ for more background on Subscriptions.
 
 .. _subscription_configure:
