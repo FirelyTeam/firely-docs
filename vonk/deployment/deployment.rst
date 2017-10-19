@@ -2,10 +2,10 @@
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :hidden:
 
-   Binaries <getting_started>
+   Binaries <../start>
    Docker <docker>
 
 Vonk deployment options

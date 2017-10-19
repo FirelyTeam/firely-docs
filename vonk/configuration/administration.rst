@@ -38,7 +38,7 @@ This configuration is part of :ref:`configure_appsettings`.
 
   * Operations that can be secured are:
 
-    * ``reindex`` (see :ref:`feature_customsp`)
+    * ``reindex`` (see :ref:`feature_customsp_reindex`)
     * ``reset`` (see :ref:`feature_resetdb`)
     * ``preload`` (see :ref:`feature_preload`)
     * ``StructureDefinition``: all the read and write on /StructureDefinition (see :ref:`administration_structuredefinition`)

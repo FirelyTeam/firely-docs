@@ -11,16 +11,12 @@ Besides the regular FHIR endpoint, Vonk also exposes an Administration API. The 
 
 The following functions are available in the Administration API.
 
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-
-   features/structuredef_admin
-   features/customsearchparameters
-   features/subscription
-   features/reindex
-   features/resetdb
-   features/preload
+* :ref:`administration_structuredefinition`
+* :ref:`feature_subscription`
+* :ref:`feature_customsp_configure`
+* :ref:`feature_customsp_reindex`
+* :ref:`feature_resetdb`
+* :ref:`feature_preload`
 
 Configuration
 -------------

@@ -39,7 +39,7 @@ License
     "LicenseFile": "vonk-trial-license.json",
 
 
-The :ref:`getting-started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\) as path separators.
+The :ref:`getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\) as path separators.
 
 Repository
 ----------
