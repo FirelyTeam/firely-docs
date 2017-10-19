@@ -3,9 +3,9 @@
 Administration of StructureDefinitions
 =======================================
 
-Vonk must have access to all the StructureDefinitions that are referenced directly and indirectly by a profile in order to validate a resource claiming conformance to that profile.
+Vonk must have access to all the StructureDefinitions that are referenced directly and indirectly by a profile in order to perform :ref:`feature_validation` on a resource claiming conformance to that profile.
 
-Likewise it needs access to all the StructureDefinitions referenced by a StructureDefinition in a request to :ref:`feature_snapshot`.
+Likewise it needs access to all the StructureDefinitions referenced by a StructureDefinition in a request to do :ref:`feature_snapshot`.
 
 Vonk has access to StructureDefinitions in the following locations:
 
@@ -23,7 +23,7 @@ Vonk reads the contents of the specification.zip when they are first needed. So 
 
 .. _administration_structuredefinition_api:
 
-Admninistration API
+Administration API
 --------------------------
 
 The Administration repository for StructureDefinitions is managed through the :ref:`administration_api`. This API exposes a FHIR RESTful API endpoint for StructureDefinition. So you can GET, POST, PUT and DELETE StructureDefinitions on this endpoint.

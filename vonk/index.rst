@@ -23,6 +23,7 @@ or support contract.
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
    :hidden:
 
    start

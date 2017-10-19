@@ -31,7 +31,7 @@ We assume you already have MongoDB installed. If not, please refer to the `Mongo
 .. _configure_mongodb_admin:
 
 Using MongoDB for the Administration API database
-=================================================
+-------------------------------------------------
 This works the same as with the normal Vonk database, except that you:
 
 *   put the settings within the ``Administration`` section

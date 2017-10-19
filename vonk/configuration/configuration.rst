@@ -1,18 +1,3 @@
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   appsettings
-   environment_variables
-   administration
-   ../features/customsearchparameters
-   ../features/prevalidation
-   ../features/structuredef_admin
-   db_mongo
-   db_sql
-   hosting
-   logsettings
-
 .. _configure_vonk:
 
 Configuring the Vonk server
@@ -28,4 +13,20 @@ If you need to adjust the port, or want to use a MongoDB or SQL database, you ca
 configure Vonk by adjusting the :ref:`configure_appsettings`.
 
 If you want to change the way Vonk logs its information, you can adjust the :ref:`configure_log`.
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+   :hidden:
+
+   appsettings
+   environment_variables
+   administration
+   ../features/customsearchparameters
+   ../features/prevalidation
+   ../features/structuredef_admin
+   db_mongo
+   db_sql
+   hosting
+   logsettings
 

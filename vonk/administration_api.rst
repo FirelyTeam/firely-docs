@@ -8,6 +8,8 @@ Besides the regular FHIR endpoint, Vonk also exposes an Administration API. The 
 
    http(s)://<vonk-endpoint>/administration
 
+Functions
+---------
 
 The following functions are available in the Administration API.
 
