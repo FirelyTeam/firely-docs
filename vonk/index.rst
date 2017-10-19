@@ -1,3 +1,5 @@
+.. _vonk_index:
+
 Welcome to the Vonk server documentation
 =========================================
 
@@ -21,16 +23,16 @@ or support contract.
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
    :hidden:
 
    start
-   configure
-   docker
-   docker_win
+   configuration/configuration
+   deployment/deployment
+   features/features
+   administration_api
    architecture
    authentication
-   features/customsearchparameters
-   administration_api
    releasenotes
    contact
 .. add files here

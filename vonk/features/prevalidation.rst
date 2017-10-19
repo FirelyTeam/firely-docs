@@ -1,5 +1,7 @@
+.. _feature_prevalidation:
+
 Validating incoming resources
------------------------------
+=============================
 
 You can have Vonk validate all resources that are sent in for create or update. The setting to do that is like this:
 ::

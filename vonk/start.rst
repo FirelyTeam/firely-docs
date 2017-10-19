@@ -1,4 +1,4 @@
-.. _getting-started:
+.. _getting_started:
 
 ===============
 Getting Started
@@ -20,7 +20,7 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 	"LicenseFile": "vonk-trial-license.json",
 
 .. important:: the next step assumes you have a .Net Core environment installed. If not, please `download and install
-  <https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md>`_ **version 1.1.2** before you continue.
+  <https://www.microsoft.com/net/download/core#/runtime/>`_ **.NET Core Runtime 2.0.0** before you continue.
 
 5.	Open a command prompt or Powershell, navigate to the working directory and run:
 	:code:`> dotnet .\Vonk.Server.dll`
@@ -36,7 +36,21 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 Please note that the third example query ``/Patient/example`` will only work if you first PUT a Patient with the id 'example'.
 You can get this `example from the specification <http://www.hl7.org/implement/standards/fhir/patient-example.json>`_.
 
-The :ref:`next section <configure>` explains how you can configure the Vonk server.
+Configuration
+-------------
+
+The section :ref:`configure_vonk` explains how you can configure the Vonk server.
+
+.. _vonk_run:
+
+Running the server
+------------------
+
+When you have completed your configuration changes, you can run the server.
+Open a command prompt or Powershell, navigate to your working directory and run:
+::
+
+	> dotnet .\Vonk.Server.dll
 
 
 .. |br| raw:: html

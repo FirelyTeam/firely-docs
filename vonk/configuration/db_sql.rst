@@ -1,5 +1,11 @@
+.. |br| raw:: html
+
+   <br />
+   
+.. _configure_sql:
+
 Using SQL server
-^^^^^^^^^^^^^^^^
+================
 
 There are two ways to create the Vonk database on a SQL Server instance: Have Vonk create it for you entirely or create an empty database and users yourself and have Vonk create the schema (tables etc.).
 
@@ -26,7 +32,7 @@ In both cases:
 *   The site `connectionstrings.com <https://www.connectionstrings.com/sqlconnection/>`_ is useful for determining the correct connectionstring for your environment.
 
 Have Vonk create your database
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 This option is mainly for experimentation as it effectively requires sysadmin privileges for the connecting user.
 
@@ -60,7 +66,7 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
 *   Start Vonk. It will display in its log that it applied pending migrations. After that the database is created and set up with the correct schema.
 
 Create a database and users by script, and have Vonk create the schema
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------------------------------------
 
 *   Log into SQL Server as the Administrator user.
 
@@ -127,7 +133,7 @@ Create a database and users by script, and have Vonk create the schema
         }
 
 Overview of permissions
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 This paragraph lists the permissions needed to perform specific actions on the SQL database.
 
 *   To run the AutoUpdateDatabase feature, including creation of the databases:
