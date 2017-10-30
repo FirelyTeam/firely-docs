@@ -24,6 +24,11 @@ Limitations on CRUD
 ^^^^^^^^^^^^^^^^^^^
 
 #. ``_summary`` is not yet supported.
+#. Simultaneous conditional creates and updates are not entirely transactionally safe:
+   
+   * Two conditional updates may both result in a ``create``, although the result of one may be a match to the other.
+   * Two conditional creates may both succeed, although the result of one may be a match to the other.
+   * A conditional create and a simultaneous conditional update may both result in a ``create``, although the result of one may be a match to the other.
 
 .. _restful_versioning:
 
@@ -61,6 +66,7 @@ The following parameters and options are not yet supported:
 #. ``:approx`` modifier on a quantity SearchParameter
 #. ``:text`` modifier on a string SearchParameter
 #. ``:above``, ``:below``, ``:in``, ``:not-in`` modifiers on a token SearchParameter
+#. ``:above`` on a uri SearchParameter (``:below`` *is* supported)
 #. ``:recurse`` modifier on ``_include`` and ``_revinclude``.
 
 Furthermore:
