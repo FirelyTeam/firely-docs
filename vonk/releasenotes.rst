@@ -10,7 +10,7 @@ Database
 ^^^^^^^^
 
 #. Long URL's for absolute references are now supported, but that required a change of the SQL Server database structure. If you have AutoUpdateDatabase enabled, Vonk will automatically apply the changes. As always, perform a backup first if you have production data in the database.
-#. Datetime elements have a new serialization format in MongoDB. After installing this version, you will see warnings about indexes on these fields. Please perform :ref:`feature_customsp_reindex`, for all parameters with ``<vonk-endpoint>/administration/reindex/all``. You don't have to restart Vonk afterwards, but if you do, the warnings should be gone.
+#. Datetime elements have a new serialization format in MongoDB. After installing this version, you will see warnings about indexes on these fields. Please perform :ref:`feature_customsp_reindex`, for all parameters with ``<vonk-endpoint>/administration/reindex/all``. After the operation is complete, restart Vonk and the indexes will be created without errors.
 
 Features and fixes
 ^^^^^^^^^^^^^^^^^^
@@ -22,11 +22,11 @@ Features and fixes
 #. Improvement: :ref:`feature_artifactresolution` now also works for the Memory implementation.
 #. Improvements on :ref:`feature_validation`: 
 
-  * profile parameter can also be supplied on the url
-  * if validation is successful, an OperationOutcome is still returned
-  * it always returns 200, and not 422 if the resource could not be parsed
+   * profile parameter can also be supplied on the url
+   * if validation is successful, an OperationOutcome is still returned
+   * it always returns 200, and not 422 if the resource could not be parsed
 
-7. Feature: support for Conditional Read, honouring if-modified-since and if-none-match headers.
+#. Feature: support for Conditional Read, honouring if-modified-since and if-none-match headers.
 #. Fix: Allow for url's longer than 128 characters in Reference components.
 #. Fix: Allow for an id in a resource on a Create interaction (and ignore that id).
 #. Fix: Allow for an id in a resource on a Conditional Update interaction (and ignore that id).
@@ -70,29 +70,21 @@ There are no changes to the database structure.
 Features and fixes
 ^^^^^^^^^^^^^^^^^^
 
-1. Feature: Subscription is more heavily checked on create and update. If all checks pass, status is set to active. If not, the Subscription is not stored, and Vonk returns an OperationOutcome with the errors.
+#. Feature: Subscription is more heavily checked on create and update. If all checks pass, status is set to active. If not, the Subscription is not stored, and Vonk returns an OperationOutcome with the errors.
 
-  * Criteria must all be supported
-  * Endpoint must be absolute and a correct url
-  * Enddate is in the future
-  * Payload mimetype is supported
+   * Criteria must all be supported
+   * Endpoint must be absolute and a correct url
+   * Enddate is in the future
+   * Payload mimetype is supported
 
-2. Feature: use _elements on Search
-
+#. Feature: use _elements on Search
 #. Feature: :ref:`load profiles from your Simplifier project <feature_artifactresolution>` at startup.
-
 #. Feature: Content-Length header is populated.
-
 #. Fix: PUT or POST on /metadata returned 200 OK, but now returns 405 Method not allowed.
-
 #. Fix: Sometimes an error message would appear twice in an OperationOutcome.
-
 #. Fix: _summary is not yet implemented, but was not reported as 'not supported' in the OperationOutcome. Now it is. (Soon we will actually implement _summary.)
-
 #. Fix: If-None-Exist header was also processed on an update, where it is only defined for a create. 
-
 #. Fix: Set Bundle.entry.search.mode to 'outcome' for an OperationOutcome in the search results.
-
 #. UI: Display software version on homepage.
 
 Release 0.3.2.0
@@ -104,11 +96,10 @@ Release 0.3.1.0
 ---------------
 
 1. IP address restricted access to Administration API functions.
-
 2. Fix on Subscriptions: 
-
-  #. Accept only Subscriptions with a channel of type rest-hook and the payload (if present) has a valid mimetype.
-  #. Set them from requested to active if they are accepted.
+   
+   #. Accept only Subscriptions with a channel of type rest-hook and the payload (if present) has a valid mimetype.
+   #. Set them from requested to active if they are accepted.
 
 Release 0.3.0.0
 ---------------
