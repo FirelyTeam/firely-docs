@@ -25,5 +25,6 @@ Contents:
    simplifierGithub
    simplifierConnectors
    simplifierWriteConnector
+   simplifierMetadataExpressions
    simplifierPricing
    simplifierContact
