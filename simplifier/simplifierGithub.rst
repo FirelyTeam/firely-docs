@@ -32,14 +32,16 @@ The include/exclude feature allows users to specify what folders or file type th
 By default, everything is included. If some include statements are added, we will exclude everything by default. Simplifier import only xml, json, images and markdown file types. Comments are also supported using the "#" character.
 The syntax is the following:
 
-  #Include examples:
+Examples: 
+
+  **#Include examples:**
   
    **FHIR/IG/****
    
    ***.xml**
 
 
-  #Exclude examples:
+  **#Exclude examples:**
   
    **!FHIR/*.img**
    
