@@ -35,14 +35,11 @@ The syntax is the following:
   #Include examples:
   
    **FHIR/IG/****
-   
    ***.xml**
 
 
   #Exclude examples:
   
    **!FHIR/*.img**
-   
    **!*.cs**
-   
    **!FHIR/examples/***
