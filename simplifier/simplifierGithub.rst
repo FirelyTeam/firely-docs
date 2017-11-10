@@ -33,12 +33,14 @@ By default, everything is included. If some include statements are added, we wil
 The syntax is the following:
 
   #Include examples:
+  
    FHIR/IG/**
    
    *.xml
 
 
   #Exclude examples:
+  
    !FHIR/*.img
    
    !*.cs
