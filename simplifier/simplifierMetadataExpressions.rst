@@ -23,15 +23,11 @@ Example:
 
 The description of the Patient resource would now show all names of the patient, seperated by a comma. It is also possible to take the first name of the patient only by adding ``[0]`` behind the element. Another possibility is to merge collections from different elements by using the ``|`` character. So, to show the first given name and the first family name sperated by a comma, you would get something like:
 
-Example:
-
 .. code-block:: Javascript
 
    Patient.Description: (name[0].given[0] | name[0].family).glue(' ')
 
 Note that the ``|`` character could also function as an ``OR`` operator as Simplifier will only select the first item in a collection. For example, say you want to show the name of an organization, but if name is empty you want to show the (first) identifier. You could use the following code to do so:
-
-Example:
 
 .. code-block:: Javascript
 
