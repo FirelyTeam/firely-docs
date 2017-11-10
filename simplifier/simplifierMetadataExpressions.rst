@@ -2,10 +2,6 @@ Metadata Expressions
 ============================
 The metadata expressions editor enables you to define what Simplifier should display as Title and Description for your resources. To start editing the metadata expressions of your project, select ``Options`` and click on ``Edit Expressions for Metadata``.
 
-.. image:: ./images/OptionsMenu.PNG
-
-.. image:: ./images/MetadataEditor.PNG
-
 When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FHIR PATH expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used.
 
 As a convention, you must specify the resource type followed by the property (Title or Description) with a semicolon and the FHIR PATH expression based on which we extract the value.
