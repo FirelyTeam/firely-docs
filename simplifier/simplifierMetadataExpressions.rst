@@ -19,4 +19,4 @@ Example:
         **//Profile.Description: description**
         
         
-When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FHIR PATH expressions are missing, they are not correct or the value extracted is empty, Simplifier will fallback to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used.
+When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FHIR PATH expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used.
