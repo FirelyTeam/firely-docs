@@ -21,4 +21,8 @@ Fetch Updates
 -------------
 After the linking is performed, any updates on your resources in the GitHub repository will be sent automatically to Simplifier. Based on the the linking settings, resources from your Simplifier project will be updates/deleted/added from GitHub. 
 
+GitHub Sync
+-----------
 
+GitHub Include/Exclude
+----------------------
