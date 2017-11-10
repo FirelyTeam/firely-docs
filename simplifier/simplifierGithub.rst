@@ -34,15 +34,15 @@ The syntax is the following:
 
   #Include examples:
   
-   FHIR/IG/**
+   **FHIR/IG/****
    
-   *.xml
+   ***.xml**
 
 
   #Exclude examples:
   
-   !FHIR/*.img
+   **!FHIR/*.img**
    
-   !*.cs
+   **!*.cs**
    
-   !FHIR/examples/*
+   **!FHIR/examples/***
