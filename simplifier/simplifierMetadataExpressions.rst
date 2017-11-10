@@ -5,6 +5,7 @@ The metadata expressions editor enables you to define what Simplifier should dis
 Example:
 
         **Patient.Title: name | title**
+        
         **Profile.Description: description**
 
         
@@ -12,7 +13,9 @@ The editor support comments as well. The comments are identified by using the "#
 Example:
 
         **#defaults section**
+        
         **Observation.Title: title**
+        
         **//Profile.Description: description**
         
         
