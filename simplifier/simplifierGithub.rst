@@ -23,6 +23,21 @@ After the linking is performed, any updates on your resources in the GitHub repo
 
 GitHub Sync
 -----------
+GitHub Sync enables you to synchronize your Simplifier project with the linked GitHub repository. If you decided to skip the initial import after linking or you have old markdown, images or css files that up until recently were not supported by Simplifier, you are now able to have them in Simplifier as well using the sync process.
+
 
 GitHub Include/Exclude
 ----------------------
+The include/exclude feature allows users to specify what folders or file type they want to be fetched from GitHub into Simplifier. This goes as well for the folders or file type they want to be excluded from the import. You are able to specify these rules right after the initial link of the repository, before the initial import or later by accessing the GitHub->Change GitHub Settings menu option from the project page.
+By default, everything is included. If some include statements are added, we will exclude everything by default. Simplifier import only xml, json, images and markdown file types. Comments are also supported using the "#" character.
+The syntax is the following:
+
+  #Include examples:
+   FHIR/IG/**
+   *.xml
+
+
+  #Exclude examples:
+   !FHIR/*.img
+   !*.cs
+   !FHIR/examples/*
