@@ -3,7 +3,7 @@ Metadata Expressions
 The metadata expressions editor enables you to define what Simplifier should display as Title and Description for your resources. As a convention, you mush specify the resource type followed by the property (Title or Description) with a semicolon and the FHIR PATH expression based on which we extract the value.
 
 Example:
-    ```
+    ```json
         Patient.Title: name | title
         Profile.Description: description
     ```
