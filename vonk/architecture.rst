@@ -30,17 +30,15 @@ Repository interfaces
 ---------------------
 
 Many of the FHIR interactions require access to a repository of resources. E.g. ``create`` must be able to store a resource, whereas ``search`` must be able to query resources and retrieve the results.
-In Vonk, the middleware components that implement these interactions access the repository through interfaces. There are four different interfaces for different parts of the `FHIR RESTful API`_.
+In Vonk, the middleware components that implement these interactions access the repository through interfaces. There are two different interfaces for different parts of the `FHIR RESTful API`_.
 
 .. code-block:: csharp 
 
-    IResourceReadRepository     //for read and vread
-    IResourceChangeRepository   //for create and update
-    ISearchRepository           //for all types of search
-    IHistoryRepository          //for system -, type -, and instance history.
+    IChangeRepository           //for create, update and delete
+    ISearchRepository           //for all types of search, read and history
 
-In many scenarios, a custom implementation does not need to implement all the interactions. For example, many implementations will be read-only. 
-That is why these functionalities are split into the interfaces. You only need to implement the ones you actually support.
+In many scenarios, read-only access is sufficient, and you only need to implement the ISearchRepository.
+In that implementation you can choose which of the search parameters you want to support, and whether to expose versions and deleted resources.
 
 These interfaces enable you to implement a Vonk FHIR Facade. And they enable us to support database engines as diverse as MongoDB, SQL Server and in-memory.
 
