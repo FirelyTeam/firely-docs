@@ -3,6 +3,38 @@
 Release notes Vonk
 ==================
 
+Release 0.5.0.0
+---------------
+
+Database
+^^^^^^^^
+#. Long URI's for token and uri types are now supported, but that required a change of the SQL Server database structure. If you have AutoUpdateDatabase enabled (see :ref:`configure_sql`), Vonk will automatically apply the changes. As always, perform a backup first if you have production data in the database.
+#. To prevent duplicate resources in the database we have provided a unique index on the Entry table. This update does include a migration. It can happen that that during updating of your database it cannot apply the unique index, because there are duplicate keys in your database (which is not good). Our advise is to empty your database first (with ``<vonk-endpoint>/administration/reset``, then update Vonk with this new version and then run Vonk with ``AutoUpdateDatabase=true`` (for the normal and the administration databases).
+
+   If you run on production and encounter this problem, please contact our support. 
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+#. Feature: POST on _search is now supported
+#. Fix: Statuscode of ``<vonk-endpoint>/administration/preload`` has changed when zero resources are added. The statuscode is now 200 instead of 201.
+#. Fix: OPTIONS operation returns now the capability statement with statuscode 200.
+#. Fix: A search operation with a wrong syntax will now respond with statuscode 400 and an OperationOutcome. For example ``GET <vonk-endpoint>/Patient?birthdate<1974`` will respond with statuscode 400.
+#. Fix: A statuscode 501 could occur together with an OperationOutcome stating that the operation was successful. Not anymore.
+#. Improvement: In the configuration on :ref:`feature_artifactresolution` the section ``ArtifactResolutionOptions`` has changed to ``ResourceLoaderOptions`` and a new option has been introduced under that section named ``LoadAtStartup`` which, if set to true, will attempt to load the specified resource sets when you start Vonk
+#. Improvement: the Memory implementation now also supports ``SimulateTransactions``
+#. Improvement: the option ``SimulateTransactions`` in the configuration defaults to false now
+#. Feature: You can now add SearchParameters at runtime by POSTing them to the Administration API. You need to apply :ref:`feature_customsp_reindex` to evaluate them on existing resources.
+#. Fix: The batch operation with search entries now detects the correct interaction.
+#. Fix: ETag header is not sent anymore if it is not relevant. 
+#. Fix: Searching on a String SearchParameter in a MongoDB implementation could unexpectedly broaden to other string parameters.
+#. Fix: If Reference.reference is empty in a Resource, it is no longer filled with Vonks base address.
+#. Feature: Search operation now supports ``_summary``.
+#. Fix: Paging is enabled for the history interaction.
+#. Fix: Conditional updates won't create duplicate resources anymore when performing this action in parallel.
+#. Fix: Indexing of CodeableConcept has been enhanced. 
+#. Fix: Search on reference works now also for an absolute reference.
+#. Fix: Long uri's (larger than are 128 characters) are now supported for Token and Uri SearchParameters.
+
 Release 0.4.0.1
 ---------------
 
