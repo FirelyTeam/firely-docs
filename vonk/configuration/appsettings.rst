@@ -181,7 +181,7 @@ Getting conformance resources from Simplifier
 ---------------------------------------------
 ::
 
-    "ArtifactResolutionOptions": {
+    "ResourceLoaderOptions": {
         "Sets": [
         {
             "Uri": "FHIR endpoint for retrieving StructureDefinitions",
