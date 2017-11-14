@@ -16,4 +16,5 @@ Vonk can be deployed as:
 
    Binaries <../start>
    Docker <docker>
+   IIS <iis>
 
