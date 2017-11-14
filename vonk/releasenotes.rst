@@ -34,6 +34,8 @@ Features and fixes
 #. Fix: Indexing of CodeableConcept has been enhanced. 
 #. Fix: Search on reference works now also for an absolute reference.
 #. Fix: Long uri's (larger than are 128 characters) are now supported for Token and Uri SearchParameters.
+#. Improvement: The configuration of IP addresses in :ref:`configure_administration_access` has changed. The format is no longer a comma-separated string but a proper JSON array of strings.
+
 
 Release 0.4.0.1
 ---------------
