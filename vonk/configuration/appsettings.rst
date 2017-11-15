@@ -54,6 +54,15 @@ Repository
   #. SQL, for Microsoft SQL Server
   #. MongoDb
 
+Memory
+^^^^^^
+::
+
+    "MemoryOptions": {
+        "SimulateTransactions": "false"
+    },
+
+Refer to :ref:`configure_memory` for configuring the In-Memory storage.
 
 MongoDB
 ^^^^^^^
@@ -172,7 +181,7 @@ Getting conformance resources from Simplifier
 ---------------------------------------------
 ::
 
-    "ArtifactResolutionOptions": {
+    "ResourceLoaderOptions": {
         "Sets": [
         {
             "Uri": "FHIR endpoint for retrieving StructureDefinitions",

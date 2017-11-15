@@ -11,7 +11,7 @@ Configuration for setting the source of the StructureDefinitions
 ----------------------------------------------------------------
 ::
 
-  "ArtifactResolutionOptions": {
+  "ResourceLoaderOptions": {
     "Sets": [
       {
         "Uri": "FHIR endpoint for retrieving StructureDefinitions",
@@ -19,7 +19,8 @@ Configuration for setting the source of the StructureDefinitions
         "Password": "Password for the above user name"
       }
     ],
-    "BatchSize": 20
+    "BatchSize": 20,
+    "LoadAtStartup": false
   }
 
 * The Uri must point to a Simplifier project endpoint
@@ -30,9 +31,14 @@ Actually load the StructureDefinitions
 --------------------------------------
 
 It is often useful to reload the profiles, e.g. after you have finalized changes in your project.
-On the other hand you may not always want to load the profiles again at the startup of Vonk.
 Therefore you can instruct Vonk to actually load the profiles from the source(s) with a separate command:
 
 ::
 
   POST http(s)://<vonk-endpoint>/administration/importResources
+
+You can also instruct Vonk to load the StructureDefinitions at startup with the settings::
+
+  "ResourceLoaderOptions": {
+    "LoadAtStartup": true
+  }

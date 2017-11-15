@@ -24,6 +24,7 @@ If you want to change the way Vonk logs its information, you can adjust the :ref
    ../features/customsearchparameters
    ../features/prevalidation
    ../features/structuredef_admin
+   db_memory
    db_mongo
    db_sql
    hosting

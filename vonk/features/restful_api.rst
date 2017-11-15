@@ -72,7 +72,6 @@ The following parameters and options are not yet supported:
 Furthermore:
 
 #. ``_sort`` is only implemented for the parameter ``_lastUpdated`` in order to support History.
-#. Whether a SearchParameter in a request is not implemented or has an error (e.g. in the format of the argument), it is always reported as 'not supported'.
 #. Paging is supported, but it is not isolated from intermediate changes to resources.
 
 .. _restful_history:
