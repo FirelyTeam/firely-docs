@@ -159,6 +159,11 @@ Add Vonk Components
    #. Open Postman, and request ``http://localhost:50175/metadata``
    #. You get a CapabilityStatement, so you now officially have a FHIR Server running!
 
+You can get the result of the exercise at this step in the Github branch exercise/step2::
+
+    git checkout exercise/step2
+
+
 Reverse engineer the database model
 -----------------------------------
 
@@ -518,13 +523,19 @@ You can test the following scenarios:
 #. ``_revinclude``: ``http://localhost:5017/Patient?_revinclude=Observation:subject``
 #. combinations of the above
 
-Also you get support for read and validation by just adding the corresponding middlewares to the ASP.NET Core pipeline:
+Also you get support for read and validation by just adding the corresponding middlewares to the ASP.NET Core pipeline and the right services registrations:
 
 ::
 
     app
-        .UseVonkMinimal()
-        .UseSearch()
         .UseRead()
         .UseValidation()
         .UseInstanceValidation();
+
+
+::
+
+    services
+        .AddReadServices()
+        .AddInstanceValidationServices()
+        .AddValidationServices() 
