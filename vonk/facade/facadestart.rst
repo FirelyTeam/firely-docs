@@ -393,12 +393,19 @@ Then the gist of the implementation is to switch the querying based on the Resou
 Arrange the Dependency Injection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add the following classes to the IServiceCollection:
+Add the following classes to the IServiceCollection (directly in the Startup.ConfigureServices method or you can create an extension method for this called for example AddViSiServices):
 ::
 
     services.AddDbContext<ViSiContext>();
     services.AddSingleton<ResourceMapper>();
     services.AddScoped<ISearchRepository, ViSiRepository>();
+
+Register also the dependencies needed for search and specify the supported resource type like in the following code:
+
+::
+
+    services.AddSearchServices()
+        .AllowResourceTypes("Patient");
 
 .. _addSearchParameters:
 
@@ -439,6 +446,10 @@ Add the Search middleware to the ASP.NET Core pipeline, by using the ``IApplicat
 
 
 Now you can test that searching patients by ``_id`` works: ``GET http://localhost:5017/Patient?_id=1``
+
+You can get the exercise completed until this step in the Github branch exercise/step3::
+
+    git checkout exercise/step3
 
 Add support for the ViSiBloodPressure Observations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
