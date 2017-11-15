@@ -152,8 +152,6 @@ Add Vonk Components
 
    #. Then remove the App.Run statement.
 
-   [If you leave App.Run in there, you'll get a horrible exception on the first start. VonkToHttp should respond nicely to the httpResponse already provided by some middleware]
-
    #. Now you can run the project again, it should start without errors, and the log should look like this:
 
         .. image:: ./images/FirstVonkRun_Log.PNG
@@ -201,7 +199,7 @@ Create your first mapping
 #. Add usings for ``Vonk.Core.Common`` and ``Vonk.Facade.Starter.Models``
 #. Add a method to the class ``public IResource MapPatient(ViSiPatient source)``
 #. In this method, put code to create a FHIR Patient object, and fill it's elements with data from the ViSiPatient.
-#. Then return the created Patient object wrapped in a PocoResource.
+#. Then return the created Patient object as an IResource (you can use the extension method ``AsIResource``).
 
 .. attention::
 
@@ -390,6 +388,12 @@ Then the gist of the implementation is to switch the querying based on the Resou
 Arrange the Dependency Injection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Add the following classes to the IServiceCollection:
+::
+
+    services.AddDbContext<ViSiContext>();
+    services.AddSingleton<ResourceMapper>();
+    services.AddScoped<ISearchRepository, ViSiRepository>();
 
 
 Make the searchparameter known to Vonk
@@ -409,10 +413,11 @@ So here we need to make Vonk load the ``_id`` SearchParameter on the ``Resource`
         "Enabled": true,
         "Sets": [
             {
-                "Path": "<your project path>/searchparameters", //TODO: Make this relative
+                "Path": "<your project path>/searchparameters", //TODO: Can be a path relative to the .csproj directory
                 "Source": "Directory"
             }
         ]
     },
 
 #. Now start Vonk again and inspect the CapabilityStatement. It should contain the _id parameter on Patient.
+#. Test that search patient by _id works: ``GET http://localhost:5017/Patient?_id=1``
