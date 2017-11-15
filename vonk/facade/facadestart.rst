@@ -146,7 +146,6 @@ Add Vonk Components
    #. In the method Configure, before the App.Run statement add::
    
         app
-            .UseContext()
             .UseVonkMinimal()
         ;
 
@@ -215,6 +214,7 @@ Enabling search involves four major steps:
 #. getting a count and actual data from the database with that query, and map it to a SearchResult;
 #. get all the dependency injection right
 #. make the searchparameter known to Vonk
+#. configure the ASP.NET Core Pipeline
 
 Create a query
 ^^^^^^^^^^^^^^
@@ -421,7 +421,19 @@ So here we need to make Vonk load the ``_id`` SearchParameter on the ``Resource`
     },
 
 #. Now start Vonk again and inspect the CapabilityStatement. It should contain the _id parameter on Patient.
-#. Test that search patient by _id works: ``GET http://localhost:5017/Patient?_id=1``
+
+Configure the ASP.NET Core Pipeline
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the Search middleware to the ASP.NET Core pipeline, by using the ``IApplicationBuilder.UseSearch()`` extension method in the ``Configure`` method of Startup.cs:
+
+::
+
+    app
+        .UseVonkMinimal()
+        .UseSearch();
+
+
+Now you can test that searching patients by ``_id`` works: ``GET http://localhost:5017/Patient?_id=1``
 
 Add support for the ViSiBloodPressure Observations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -498,10 +510,21 @@ So you can add reverse chaining with the following code:
 Now you can test reverse chaining works: ``http://localhost:5017/Patient?_has:Observation:subject:_id=1``
 
 Get the goodies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------
 At this point you get out of the box support for ``_include``, ``_revinclude`` and combinations of search parameters.
 You can test the following scenarios:
 
 #. ``_include``: ``http://localhost:5017/Observation?_include=Observation:subject``
 #. ``_revinclude``: ``http://localhost:5017/Patient?_revinclude=Observation:subject``
 #. combinations of the above
+
+Also you get support for read and validation by just adding the corresponding middlewares to the ASP.NET Core pipeline:
+
+::
+
+    app
+        .UseVonkMinimal()
+        .UseSearch()
+        .UseRead()
+        .UseValidation()
+        .UseInstanceValidation();
