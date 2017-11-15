@@ -64,9 +64,13 @@ Create new project
 
 #. Open Visual Studio 2017
 #. File | New | Project
+
    #. ASP.NET Core Web Application
    #. Project name and directory at your liking; Next
-   #. .Net Core; ASP.NET Core 2.0 (image NewProject-1)
+   #. .Net Core; ASP.NET Core 2.0
+
+        .. image:: ./images/NewProject-1.PNG
+            :align: center
 #. Run your project with F5, and check whether it starts, an on what port.
 
 Adjust how your project is run
@@ -74,7 +78,8 @@ Adjust how your project is run
 
    #. Visual Studio loads the 'homepage' into your default browser when you start the project. Since that is not exactly useful for a FHIR RESTful server, you may disable this from the Project Properties:
 
-   [image: PreventBrowserLaunch]
+        .. image:: ./images/PreventBrowserLaunch.PNG
+            :align: center
 
    #. In this same window, alter the App URL to http://localhost:5017
       You can choose another port number, but this one is used throughout the text.
@@ -95,6 +100,7 @@ Vonk needs configuration settings, and maybe you do to. For ASP.NET Core project
 
       #. Remove the default ConnectionStrings section, but keep the outermost curly brackets
       #. Add the reference to your license file: ``"LicenseFile": "c:/vonk/vonk-trial-license"``
+      #. Add the ``SupportedInteractions`` section
 
 #. Open Startup.cs
 
@@ -150,7 +156,8 @@ Add Vonk Components
 
    #. Now you can run the project again, it should start without errors, and the log should look like this:
 
-   [image: FirstRun_Log]
+        .. image:: ./images/FirstVonkRun_Log.PNG
+            :align: center
 
    #. Open Postman, and request ``http://localhost:50175/metadata``
    #. You get a CapabilityStatement, so you now officially have a FHIR Server running!
@@ -174,7 +181,7 @@ Now it's time to create the EF model based on your existing database.
 
     Scaffold-DbContext "MultipleActiveResultSets=true;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=ViSi;Data Source=localhost" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
 
-    //For localdb: Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;
+    //For localdb: Server=(localdb)\mssqllocaldb;Database=ViSi;Trusted_Connection=True;
 
 
 The reverse engineer process created entity classes (Patient.cs & BloodPressure.cs) and a derived context (ViSiContext.cs) based on the schema of the existing database.
@@ -233,7 +240,7 @@ With every query-type goes a QueryFactory. In this case we start with PatientQue
 
 #. Now flesh out the ``PatientQueryFactory``::
 
-    public class PatientQueryFactory: RelationalQueryFactory<PatientQuery, ViSiPatient>
+    public class PatientQueryFactory: RelationalQueryFactory<ViSiPatient, PatientQuery>
     {}
 
 #. You have to provide a constructor. With this you tell Vonk for which resourcetype this QueryFactory is valid. 
@@ -266,7 +273,7 @@ With every query-type goes a QueryFactory. In this case we start with PatientQue
 
       #. RawValue
 
-   # By default the ``Filter`` method dispatches the call to a suitable overload of ``AddValueFilter``, based on the actual type of the ``value`` parameter.
+   #. By default the ``Filter`` method dispatches the call to a suitable overload of ``AddValueFilter``, based on the actual type of the ``value`` parameter.
      It is up to you to override the ones you support any parameters for.
 
 #. Override the method ``PatientQuery AddValueFilter(string parameterName, TokenValue value)`` to implement support for the ``_id`` parameter.
@@ -299,7 +306,7 @@ Get the data and map to FHIR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Getting the data happens in the implementation of the ``ISearchRepository``. It has only one method, ``Search``. 
-The Vonk.Facade.Relational package has an abstract implementation of it that you can use as a startingpoint. 
+The Vonk.Facade.Relational package has an abstract implementation of it that you can use as a starting point. 
 This implementation assumes that you can support searching for exactly one ResourceType at a time.
 Then the gist of the implementation is to switch the querying based on the ResourceType. The querying itself then looks pretty much the same for every type of resource.
 
@@ -314,7 +321,7 @@ Then the gist of the implementation is to switch the querying based on the Resou
         private readonly ViSiContext _visiContext;
         private readonly ResourceMapper _resourceMapper;
 
-        public ViSiRepository(QueryBuilderContext queryBuilderContext, ViSiContext visiContext, ResourceMapper resourceMapper) : base(queryBuilderContext)
+        public ViSiRepository(QueryContext queryContext, ViSiContext visiContext, ResourceMapper resourceMapper) : base(queryContext)
         {
             _visiContext = visiContext;
             _resourceMapper = resourceMapper;
@@ -360,7 +367,7 @@ Then the gist of the implementation is to switch the querying based on the Resou
 
         private async Task<SearchResult> SearchPatient(IArgumentCollection arguments, SearchOptions options)
         {
-            var query = _queryBuilderContext.CreateQuery(new PatientQueryFactory(_visiContext), arguments, options);
+            var query = _queryContext.CreateQuery(new PatientQueryFactory(_visiContext), arguments, options);
 
             var count = query.ExecuteCount(_visiContext);
             var patientResources = new List<IResource>();
