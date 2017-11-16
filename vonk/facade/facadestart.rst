@@ -373,7 +373,7 @@ Then the gist of the implementation is to switch the querying based on the Resou
         {
             var query = _queryContext.CreateQuery(new PatientQueryFactory(_visiContext), arguments, options);
 
-            var count = query.ExecuteCount(_visiContext);
+            var count = await query.ExecuteCount(_visiContext);
             var patientResources = new List<IResource>();
             if (count > 0)
             {
