@@ -49,7 +49,9 @@ Vonk needs configuration settings, and maybe you do to. For ASP.NET Core project
 
    * Remove the default ConnectionStrings section, but keep the outermost curly brackets
    * Add the reference to your license file: ``"LicenseFile": "c:/vonk/vonk-trial-license"``
-   * Add the ``SupportedInteractions`` section
+   * Add the ``SupportedInteractions`` section. Look into :ref:`configure_appsettings` to check what this section should contain. 
+     For now you only need ``"WholeSystemInteractions": "capabilities"``, but you may already add ``read`` and ``search`` also for convenience. 
+
 
 #. Open Startup.cs
 
