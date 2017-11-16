@@ -1,5 +1,5 @@
 Finalizing search
------------------
+=================
 
 In the previous steps you have created search support for the _id parameter on a Patient resource type.
 
@@ -102,4 +102,9 @@ Also you get support for read and validation by just adding the corresponding mi
     services
         .AddReadServices()
         .AddInstanceValidationServices()
-        .AddValidationServices() 
+        .AddValidationServices()
+
+The end?
+--------
+		
+This concludes the exercise. Please feel free to try out more options, and ask for help if you get stuck!

@@ -1,3 +1,5 @@
+Last steps to enable search
+===========================
 
 These are the last three steps for enabling search.
 
