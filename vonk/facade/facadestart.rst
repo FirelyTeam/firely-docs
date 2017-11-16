@@ -462,6 +462,7 @@ Follow similar steps as above to support ViSiBloodPressure:
 #. Create a BloodPressureQuery query class.
 #. Add a BPQueryFactory extending ``RelationalQueryFactory<ViSiBloodPressure, BloodPressureQuery>``.
 #. Implement support for the ``_id`` parameter by overriding ``public virtual BloodPressureQuery AddValueFilter(string parameterName, TokenValue value)``.
+#. Add support for the Observation resource type in the ``Startup`` class, ``ConfigureServices`` method, by sending the resource name as a parameter to the ``AllowResourceTypes`` call.
 
 Add support for chaining
 ^^^^^^^^^^^^^^^^^^^^^^^^
