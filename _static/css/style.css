@@ -33,7 +33,7 @@ a:focus {
 
 a.icon-home,
 a.icon-home:hover {
-	background: url("https://www.simplifier.net/images/simplifier.png") no-repeat;
+	background: url("https://www.simplifier.net/images/simplifier-logo.png") no-repeat;
 	background-size: contain;
 
 	margin-bottom: 0;
@@ -134,6 +134,7 @@ a.btn span.fa {
 
 div.wy-menu.rst-pro {
 	display: none !important;
+	visibility: hidden;
 }
 
 .wy-menu-vertical li.current {
