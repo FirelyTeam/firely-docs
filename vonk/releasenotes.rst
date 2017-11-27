@@ -3,6 +3,16 @@
 Release notes Vonk
 ==================
 
+Release 0.5.1.1
+---------------
+
+Facade
+^^^^^^
+
+We released the Facade libraries on `NuGet <https://www.nuget.org/packages?q=vonk>`_ along with :ref:`getting started documentation <facadestart>`.
+
+No features have been added to the Vonk FHIR Server.
+
 Release 0.5.0.0
 ---------------
 
@@ -20,6 +30,7 @@ Features and fixes
 #. Fix: OPTIONS operation returns now the capability statement with statuscode 200.
 #. Fix: A search operation with a wrong syntax will now respond with statuscode 400 and an OperationOutcome. For example ``GET <vonk-endpoint>/Patient?birthdate<1974`` will respond with statuscode 400.
 #. Fix: A statuscode 501 could occur together with an OperationOutcome stating that the operation was successful. Not anymore.
+#. Fix: An OperationOutcome stating success did not contain any issue element, which is nog valid. Solved. 
 #. Improvement: In the configuration on :ref:`feature_artifactresolution` the section ``ArtifactResolutionOptions`` has changed to ``ResourceLoaderOptions`` and a new option has been introduced under that section named ``LoadAtStartup`` which, if set to true, will attempt to load the specified resource sets when you start Vonk
 #. Improvement: the Memory implementation now also supports ``SimulateTransactions``
 #. Improvement: the option ``SimulateTransactions`` in the configuration defaults to false now
