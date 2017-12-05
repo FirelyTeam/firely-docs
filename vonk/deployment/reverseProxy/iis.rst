@@ -1,26 +1,8 @@
+.. _iis:
+
 ====================
 Deploy Vonk on IIS
 ====================
-
-Why
-------
-For ASP.NET Core 1.0 Microsoft suggested to always use another web server in front of Kestrel for public websites. 
-For ASP.NET Core 2.0, while this is not a hard contraint anymore there are still a series of advantages in doing so:
-
-- some scenarios like sharing the same IP and port by multiple applications are not yet supported in Kestrel
-
-- helps in limiting the exposed  surface area
-
-- provides an additional layer of configuration and defense 
-
-- provides process management for the ASP.NET Core application (ensuring it restarts after it crashes)
-
-- in some scenarios a certain web server already integrates very well
-
-- helps simplifying load balancing and SSL setup
-
-A common option on Windows is using IIS. That allows us to get benefits from both technologies at once.
-For a comparison of IIS and Kestrel features at the moment of this writing you can check https://stackify.com/kestrel-web-server-asp-net-core-kestrel-vs-iis/?utm_source=DNK-224416.
 
 Prerequisites
 -------------
@@ -48,19 +30,20 @@ Create Website in IIS
 #. In IIS Manager create a new website or a new application under existing IIS site. Fill the **Site name**, the **Binding** and link the **Physical path** to the folder created in the previous step, similar to the picture below. The bindings defined in IIS override any bindings set in the application  by calling either Listen or UseUrls. 
 
 
-.. image:: ../images/iis_create_website.PNG
+.. image:: ../../images/iis_create_website.PNG
   :align: center
 
 5. Edit the application pool to set the **.NET CLR VERSION** to **NO Managed Code**, similar to the picture below (we use  IIS as a reverse proxy, so it isn’t actually executing any .NET code). To edit the application pool, go to the **Application Pools** panel, right-click the website's app pool and select **Basic Settings...** from the popup menu.
 
-.. image:: ../images/iis_edit_application_pool.PNG
+.. image:: ../../images/iis_edit_application_pool.PNG
   :align: center
 
 
 Configuration
---------------------------
+-------------
 - You can use IISOptions to configure IISIntegration service options. You can read more about IISOptions at
   https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.iisoptions?view=aspnetcore-2.0.
+
 ::
 
   services.Configure<IISOptions>(options => 

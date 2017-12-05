@@ -16,5 +16,5 @@ Vonk can be deployed as:
 
    Binaries <../start>
    Docker <docker>
-   IIS <iis>
+   Deploy to a reverse proxy <reverseProxy/reverseProxy>
 
