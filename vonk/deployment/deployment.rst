@@ -10,11 +10,11 @@ Vonk can be deployed as:
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :titlesonly:
    :hidden:
 
    Binaries <../start>
    Docker <docker>
-   Deploy to a reverse proxy <reverseProxy/reverseProxy>
+   Deploy to a reverse proxy <reverseProxy/_reverseProxy>
 

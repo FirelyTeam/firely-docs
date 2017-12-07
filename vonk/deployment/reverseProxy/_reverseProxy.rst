@@ -29,7 +29,7 @@ A popular open source alternative is Nginx. For instruction on how to deploy Von
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :titlesonly:
    :hidden:
 

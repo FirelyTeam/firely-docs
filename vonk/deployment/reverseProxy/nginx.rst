@@ -16,7 +16,7 @@ Prerequisites
 
 #. Install .Net Core on the machine (see https://www.microsoft.com/net/learn/get-started/linuxubuntu)
 
-#. Install Nginx  `sudo apt-get install nginx`
+#. Install Nginx  :code:`sudo apt-get install nginx`
 
 Start Kestrel Vonk server
 -------------------------
@@ -51,10 +51,12 @@ Open it in a text editor, and replace the contents with the following:
         }
     }
 
-Now you can run the Vonk server 
+Now you can run the Vonk server.
 
 Configuration
 -------------
-To configure the Vonk server, you can use the appsettings.json file (see :ref:`configuration`).
-To configure Nginx you need add extra options to the /etc/nginx/sites-available/default or to the nginx.conf file.
-To monitor the application you can use systemd and create a service for starting, stopping and managing the process.
+- To configure the Vonk server, you can use the appsettings.json file (see :ref:`configure_vonk`).
+
+- To configure Nginx you need add extra options to the /etc/nginx/sites-available/default or to the nginx.conf file.
+
+- To monitor the application you can use systemd and create a service for starting, stopping and managing the process.
