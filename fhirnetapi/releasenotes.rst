@@ -2,6 +2,21 @@
 Release notes
 =============
 
+0.94.0 (DSTU2 and STU3) (released 20171207)
+------------------
+- #448, the FhirXmlSerializer/FhirJsonSerializer should now be instantiated, use of the static FhirSerializer class is obsoleted
+- #434, the API is no longer creating empty <meta> tags in the serialization
+- #420, the json parser no longer returns -1,-1 for positions on errors
+- #412, added support for read-through and cache invalidation to CachedArtifactSource
+- #355, the POCO parser is now using IElementNavigator as a source
+- #474, fixed a bug where the parser would not accept '01-01-01' as a date
+- #371, the validator will now complain when it encounters unsupported discriminator types
+- #426, when you tell the validator to not follow external references, it will no longer produce warnings that it cannot locate the external references.
+- #489, the validator would sometimes report incorrect indices in paths with repreating elements
+- #477, the location where the specification.zip is unpacked now includes the version in the name, thus avoiding conflicts when switchin branches between dstu2/stu3 at development time
+- #419, calling $everything with no parameters will no longer result in an incorrect http request.
+
+
 0.92.5 (DSTU2) / 0.93.5 (STU3) (released 20171017)
 ------------------
 
