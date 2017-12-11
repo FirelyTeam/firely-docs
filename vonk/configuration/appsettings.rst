@@ -116,11 +116,13 @@ Validation
 
 Refer to :ref:`feature_prevalidation`.
 
+.. _bundle_options:
+
 Search and History
 ------------------
 ::
 
-    "SearchOptions": {
+    "BundleOptions": {
         "DefaultCount": 10,
         "MaxCount": 50
     },

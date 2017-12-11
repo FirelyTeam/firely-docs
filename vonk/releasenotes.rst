@@ -3,6 +3,36 @@
 Release notes Vonk
 ==================
 
+Release 0.5.2.0
+---------------
+
+.. attention:: Configuration setting SearchOptions is renamed to BundleOptions.
+
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+#. Fix: When you specify LoadAtStartup in the :ref:`feature_artifactresolution`, an warning was displayed: "WRN No server base configured, skipping resource loading."
+#. Fix: `Conditional create <http://www.hl7.org/implement/standards/fhir/http.html#ccreate>`_ that matches an existing resource returned that resource instead of an OperationOutcome.
+#. Fix: _has, _type and _count were in the CapabilityStatement twice.
+#. Fix: _elements would affect the stored resource in the Memory implementation.
+#. Fix: Getting a resource with an invalid id (with special characters or over 64 characters) now returns a 404 instead of 501.
+#. Feature: :ref:`feature_customsp_reindex` now also re-indexes the Administration API database.
+#. Fix: modifier :above for parameter type Url now works on the MongoDB implementation.
+#. Fix: Vonk would search through inaccessible directories for the specification.zip.
+#. Fix: Subscription could not be posted if 'Database' was not one of the SearchParametersImportOptions.
+#. Fix: _(rev)include=* is not supported but was not reported as such.
+#. Fix: In a searchresult bundle, the references to other resources are now made absolute, refering to the Vonk server itself.
+#. Fix: :ref:`BundleOptions <bundle_options>` (previously: SearchOptions) settings were not evaluated.
+#. Fix: Different responses for invalid resources when you change ValidateIncomingResources setting (400 vs. 501)
+#. Fix: Better reporting of errors when there are invalid modifiers in the search.
+#. Fix: Creating a resource that would not fit MongoDB's document size resulted in an inappropriate error.
+#. Fix: There was no default sort order in the search, resulting in warnings from the SQL implementation. Added default sort on _lastUpdated (desc).
+#. Fix: Preliminary disposal of LocalTerminology server by the Validator.
+
+Facade
+^^^^^^
+#. Fix: _include/_revinclude on searchresults having contained resources triggered a NotImplementedException.
+
 Release 0.5.1.1
 ---------------
 
