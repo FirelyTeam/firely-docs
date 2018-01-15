@@ -51,6 +51,8 @@ Running on macOS
 ~~~~~~~~~~~~~~~~
 Though .NET Core is available natively on macOS, the GUI framework, `WPF <https://en.wikipedia.org/wiki/Windows_Presentation_Foundation>`_ is unfortunately not. However, it is possible to run Forge on macOS using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on macOS, here are the steps to get you started:
 
+#. Install XCode from the App Store.
+
 #. Open the terminal: ::
 
 	Open Launchpad, then type “Terminal” into the search field.
