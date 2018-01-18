@@ -26,5 +26,6 @@ Contents:
    simplifierConnectors
    simplifierWriteConnector
    simplifierMetadataExpressions
+   FHIRRegistry
    simplifierPricing
    simplifierContact
