@@ -5,6 +5,6 @@ The `FHIR registry <https://registry.fhir.org//>`_ enables you to search for pub
 * resourceType: search by resource type, (e.g. resourceType:Patient)
 * jurisdiction: search by jurisdiction code in a conformance resource (e.g. jurisdiction:US)
 
-Download the quick guide to the FHIR registry (pdf) to get started.
+Download the quick guide to the FHIR registry below to get started:
 
-:download:`pdf <QuickGuideFHIRregistry.pdf>`
+:download:`Quick guide to the FHIR registry (pdf) <QuickGuideFHIRregistry.pdf>`
