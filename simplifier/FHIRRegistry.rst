@@ -6,4 +6,5 @@ The `FHIR registry <https://registry.fhir.org//>`_ enables you to search for pub
 * jurisdiction: search by jurisdiction code in a conformance resource (e.g. jurisdiction:US)
 
 Download the quick guide to the FHIR registry (pdf) to get started.
-:download:`pdf <Quick guide to the fhir registry.pdf>`
+
+:download:`pdf <QuickGuideFHIRregistry.pdf>`
