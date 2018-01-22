@@ -69,10 +69,10 @@ Though .NET Core is available natively on macOS, the GUI framework, `WPF <https:
 #. Install Wine itself. This may take some time: ::
 
 	brew install wine
+	brew install cabextract
 
 #. Setup Wine to run .NET 4.6 applications, which is what Forge is built with: ::
 
-	test "$?BASH_VERSION" = "0" || eval 'setenv() { export "$1=$2"; }';                setenv PATH "/Applications/Wine Stable.app/Contents/Resources/start/bin:/Applications/Wine Stable.app/Contents/Resources/wine/bin:$PATH"; winehelp --clear
 	curl -O https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 	chmod +x winetricks
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 ./winetricks -q dotnet46
