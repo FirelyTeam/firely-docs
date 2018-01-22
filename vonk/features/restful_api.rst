@@ -37,7 +37,7 @@ Versioning
 
 Vonk keeps a full version history of every resource, including the resources on the :ref:`administration_api`.
 
-.. _restful_not_supported:
+.. _restful_search:
 
 Search
 ------

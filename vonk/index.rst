@@ -33,7 +33,6 @@ or support contract.
    administration_api
    facade/facadestart
    architecture
-   authentication
    releasenotes
    contact
 .. add files here

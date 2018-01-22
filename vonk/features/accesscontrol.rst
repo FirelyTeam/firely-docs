@@ -1,8 +1,9 @@
 .. _feature_accesscontrol:
 
-========================
 Access control and SMART
 ========================
+
+.. contents:: "Contents" :depth: 1 :local: 1
 
 .. _feature_accesscontrol_concepts:
 
@@ -119,12 +120,12 @@ In FHIR a `CompartmentDefinition <http://www.hl7.org/implement/standards/fhir/co
 
 An example is the `Patient CompartmentDefinition`_, where a Patient resource is the focus. One of the related resourcetypes is Observation. It's params are subject and performer, so it is in the compartment of a specific Patient if that Patient is either the subject or the performer of the Observation. FHIR defines CompartmentDefinitions for Patient, Encounter, RelatedPerson, Practitioner and Device. Although Vonk is functionally not limited to these five, the specification does not allow you to define your own. Vonk will use a CompartmentDefinition if:
 
-* the CompartmentDefinition is known to Vonk, either through :ref:`metadata_import` or the :ref:`administration_api`
+* the CompartmentDefinition is known to Vonk, see :ref:`conformance` for options to provide them.
 * the OAuth2 Token contains a claim with the same name as the CompartmentDefinition.code (but it may be lowercase).
 
 So the launch contexts mentioned in SMART on FHIR - 'patient' and 'encounter' - map to the CompartmentDefinitions for Patient and Encounter. For the launch context 'location', the specification has no matching CompartmentDefinition. 
 
-A CompartmentDefinition defines the relationships, but it becomes useful once you combine it with a way of specifying the actual focus resource. In SMART on FHIR, the launch context can do that, e.g. patient=123. As per the :ref:`explanation of this <Scopes and Launch Context>`, the value '123' is the value of the Patient.id. Together with the Patient CompartmentDefinition this defines a - what we call - Compartment in Vonk:
+A CompartmentDefinition defines the relationships, but it becomes useful once you combine it with a way of specifying the actual focus resource. In SMART on FHIR, the launch context can do that, e.g. patient=123. As per the SMART `Scopes and Launch Context`_, the value '123' is the value of the Patient.id. Together with the Patient CompartmentDefinition this defines a - what we call - Compartment in Vonk:
 
 * Patient with id '123'
 * And all resources that link to that patient according to the Patient CompartmentDefinition.
@@ -254,7 +255,15 @@ In this paragraph we will explain how Access Control Decisions are made for the 
 #. Delete: Allowed if the user can Read the current version of the resource, and has write access to the type of resource.
 #. History: Allowed on the resources that the user is allowed to Read the current versions of (although it is theoretically possible that an older version would not match the compartment). 
 
+Testing
+-------
 
+Testing the access control functionality is possible on a local instance of Vonk. It is not available for the `publicly hosted test server <http://vonk.furore.com>`_.
+
+You can test it using a dummy Identity Provider and Postman as a REST client. Please refer to these pages for instructions:
+
+* :ref:`feature_accesscontrol_idprovider`
+* :ref:`feature_accesscontrol_postman`
 
 .. _OAuth2: https://oauth.net/2/
 .. _OAuth2 provider: https://en.wikipedia.org/wiki/List_of_OAuth_providers
@@ -263,3 +272,4 @@ In this paragraph we will explain how Access Control Decisions are made for the 
 .. _Scopes and Launch Context: http://docs.smarthealthit.org/authorization/scopes-and-launch-context/
 .. _Patient CompartmentDefinition: http://www.hl7.org/implement/standards/fhir/compartmentdefinition-patient.html
 .. _ASP.NET Core Identity: https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity
+

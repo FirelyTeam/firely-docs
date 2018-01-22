@@ -20,4 +20,4 @@ Vonk will return the same StructureDefinition, but with the snapshot element (re
 Precondition
 ------------
 
-Vonk must be aware of all the other StructureDefinitions that are referred to by the StructureDefinition in the body of the request. Refer to the :ref:`administration_structuredefinition` for more information.
+Vonk must be aware of all the other StructureDefinitions that are referred to by the StructureDefinition in the body of the request. Refer to the :ref:`conformance` for more information.

@@ -8,19 +8,6 @@ In this exercise you will use Vonk FHIR Facade libraries to build an ASP.NET Cor
 
 The existing database contains two simple tables 'Patient' and 'BloodPressure'. In the exercise we refer to it as the 'ViSi' system, short for 'VitalSigns'.
 
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-
-   prepare
-   projectsetup
-   databasemodel
-   enablesearch_1
-   Next search step <enablesearch_2>
-   Last three search steps <enablesearch_3>
-   finalizesearch
-   
-
 Prerequisites
 =============
 
@@ -42,5 +29,18 @@ Prerequisites
    #. add SQL Server Management Studio from https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms
 
 * Postman, Fiddler or a similar tool to issue http requests and inspect the responses.
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   prepare
+   projectsetup
+   databasemodel
+   enablesearch_1
+   Next search step <enablesearch_2>
+   Last three search steps <enablesearch_3>
+   finalizesearch
+   accesscontrol_api
 
 

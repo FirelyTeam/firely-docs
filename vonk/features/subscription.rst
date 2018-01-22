@@ -23,9 +23,11 @@ You can control the period and the batchsize.
 ::
 
     "SubscriptionEvaluatorOptions": {
+        "Enabled" : true
         "RepeatPeriod": 20000,
         "SubscriptionBatchSize" : 1
     },
 
+* ``Enabled`` allows you to quickly enable or disable the evaluation of Subscriptions. Default value is 'false', which implies that Subscription evaluation is also off if this section is left out of the settings.
 * ``RepeatPeriod`` is expressed in milliseconds. In the example above the period is set to 20 seconds, meaning that after a change a subscriber will be notified in at most 20 seconds.
 * ``SubscriptionBatchSize`` is expressed in number of Subscriptions that is retrieved and evaluated at once. Default is 1, but you can set it higher if you have a lot of Subscriptions.

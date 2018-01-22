@@ -10,10 +10,6 @@ Using the In-Memory storage
 
 * If it is not already set to ``Memory``, do so now.
 
-* If you want to run , change the ``MongoDbOptions`` to reflect your settings::
-
-* If MongoDB does not have a database and/or collection by this name, Vonk will create it for you.
-
 * You can set SimulateTransactions to "true" if you want to experiment with `FHIR transactions <https://www.hl7.org/fhir/http.html#transaction>`_.
   The In-Memory implementation does not support real transactions, so in case of an error already processed entries will NOT be rolled back::
 

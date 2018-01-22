@@ -9,7 +9,7 @@ The :ref:`Access Control feature <feature_accesscontrol>` is also available to u
 Default implementation
 ======================
 
-The default implementation is described in feature_accesscontrol_. 
+The default implementation is described in :ref:`feature_accesscontrol`. 
 You just have to implement support for the search parameters used in defining the Compartment Filter. If a search parameter that is used for authorization is not implemented, Vonk will respond with a 401 Unauthorized.
 
 Alternative implementation

@@ -132,7 +132,7 @@ The Search and History interactions return a bundle with results. Users can spec
 
 * ``DefaultCount`` sets the number of results if the user has not specified a ``_count`` parameter.
 * ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Vonk from being overloaded.
-* ``DefaultCount`` should be less than or equal to ``MaxCount``.
+* ``DefaultCount`` should be less than or
 
 SearchParameters and other Conformance Resources
 ------------------------------------------------
@@ -151,7 +151,7 @@ SearchParameters and other Conformance Resources
         "BatchSize": 100
     },
 
-See :ref:`feature_customsp`.
+See :ref:`feature_customsp` and :ref:`conformance`.
 
 .. _disable_interactions:
 
@@ -194,4 +194,4 @@ Getting conformance resources from Simplifier
         "BatchSize": 20
     }
 
-See :ref:`feature_artifactresolution`.
+See :ref:`conformance`.

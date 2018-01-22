@@ -21,9 +21,8 @@ If you want to change the way Vonk logs its information, you can adjust the :ref
    appsettings
    environment_variables
    administration
-   ../features/customsearchparameters
+   ../features/conformanceresources
    ../features/prevalidation
-   ../features/structuredef_admin
    db_memory
    db_mongo
    db_sql
