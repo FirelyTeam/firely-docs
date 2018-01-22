@@ -9,7 +9,7 @@ Subscribe to a connector
 If you want to make use of an already available connector, you can personally "subscribe" to one. To do this, please follow these steps:
 
    1.	Go to https://simplifier.net.
-   2.	Log in to your portal by clicking the Log in button in the upper right corner, or go to the following link https://www.simplifier.net/ui/User/Index.
+   2.	Log in to your portal by clicking the Log in button in the upper right corner, or go to the `following link <https://simplifier.net/portal>`_.
    3.	Click on “Connectors” in the portal menu.
    4.	Click on “Shop” to see a list of available connectors.
    5.	Subscribe to the connector that’s right for you and click the “subscribe” button.
@@ -20,7 +20,7 @@ Create a connector
 You can also create a connector for your own personal use or for publication and use by others. Please follow these steps:
 
    1.	Go to https://simplifier.net.
-   2.	Log in to your portal by clicking the Log in button in the upper right corner, or go to the following link https://www.simplifier.net/ui/User/Index.
+   2.	Log in to your portal by clicking the Log in button in the upper right corner, or go to the `following link <https://simplifier.net/portal>`_.
    3.	Click on “Connectors” in the portal menu.
    4.	Click on “Create”.
    5.	Fill in the metadata for your connector under the "Properties" tab.
