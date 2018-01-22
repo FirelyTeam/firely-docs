@@ -6,7 +6,7 @@ Controlling the Conformance Resources
 Vonk uses `Conformance Resources <http://www.hl7.org/implement/standards/fhir/conformance-module.html>`_ along with some `Terminology Resources <http://www.hl7.org/implement/standards/fhir/terminology-module.html>`_ for various operations:
 
 * SearchParameter: For indexing resources and evaluating :ref:`search <restful_search>` interactions.
-* StructureDefinition: For :ref:`snapshot generation<feature_snapshot>`, and of course - along with ValueSet, CodeSystem and NamingSystem - for :ref:`validation <feature_validation>`.
+* StructureDefinition: For :ref:`snapshot generation<feature_snapshot>`, and of course -- along with ValueSet, CodeSystem and NamingSystem -- for :ref:`validation <feature_validation>`.
 * CompartmentDefinition: For :ref:`access control <feature_accesscontrol>`
 
 You can control the behaviour of Vonk for these interactions by loading resources of these types into Vonk. There are three ways of loading:

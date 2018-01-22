@@ -44,7 +44,7 @@ Choosing your storage
 Limited access
 --------------
 
-#. ``Security``: You can restrict access to the operations listed in ``OperationsToBeSecured`` from only the IP addressess listed in ``AllowedNetworks``.
+#. ``Security``: You can restrict access to the operations listed in ``OperationsToBeSecured`` from only the IP addresses listed in ``AllowedNetworks``.
 
   * Operations that can be secured are:
 
@@ -52,11 +52,13 @@ Limited access
     * ``reset`` (see :ref:`feature_resetdb`)
     * ``preload`` (see :ref:`feature_preload`)
     * Read / write on the Conformance resources of type:
+
       * ``StructureDefinition``
       * ``SearchParameter``
       * ``ValueSet``
       * ``CodeSystem``
       * ``CompartmentDefinition``
+
     * ``Subscription``: all the read and write on /Subscription (see :ref:`feature_subscription`)
 
-  * The AllowedNetworks have to be valid IP addresses, either IPv4 or IPv6, and masks are allowed.
+  * The ``AllowedNetworks`` have to be valid IP addresses, either IPv4 or IPv6, and masks are allowed.

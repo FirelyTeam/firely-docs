@@ -30,7 +30,7 @@ Administration
         }
     },
 
-The ``Administration`` section is to :ref:`configure_administration` and it's repository. 
+The ``Administration`` section is to :ref:`configure_administration` and its repository. 
 
 License
 -------
@@ -132,7 +132,7 @@ The Search and History interactions return a bundle with results. Users can spec
 
 * ``DefaultCount`` sets the number of results if the user has not specified a ``_count`` parameter.
 * ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Vonk from being overloaded.
-* ``DefaultCount`` should be less than or
+* ``DefaultCount`` should be less than or equal to ``MaxCount``
 
 SearchParameters and other Conformance Resources
 ------------------------------------------------
@@ -141,10 +141,10 @@ SearchParameters and other Conformance Resources
     "MetadataImportOptions": {
         "Enabled": true,
         "Sets": [
-        {
-            "Path": "",
-            "Source": "Api"
-        }
+          {
+              "Path": "",
+              "Source": "Api"
+          }
         ]
     },
     "ReindexOptions": {
@@ -158,8 +158,8 @@ See :ref:`feature_customsp` and :ref:`conformance`.
 Enable or disable interactions
 ------------------------------
 
-By default value ``SupportedInteractions`` contains all the interactions that are implemented in Vonk. 
-But you can disable interaction by removing them from these lists.
+By default, the value ``SupportedInteractions`` contains all the interactions that are implemented in Vonk. 
+But you can disable interactions by removing them from these lists.
 ::
 
     "SupportedInteractions": {
@@ -173,6 +173,7 @@ Subscriptions
 ::
 
     "SubscriptionEvaluatorOptions": {
+	    "Enabled": true,
         "RepeatPeriod": 20000,
         "SubscriptionBatchSize" : 1
     },

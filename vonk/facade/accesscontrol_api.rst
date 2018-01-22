@@ -22,16 +22,16 @@ The important interfaces and class are:
    :header: "Interface / Class", "Description"
    :widths: 20, 80
 
-   "IAuthorization", "Defines whether your are allowed to read or write a type of resource. Abstraction of the concept of a scope (like user/Observation.read) in SMART"
-   "ICompartment", "Confines the user to a compartment, expressed as a combination of a CompartmentDefinition and a search argument. Abstraction of the concept of a launch context (like patient=123) in SMART"
-   "IReadAuthorizer", "Calculates access control for a type of resource given an instance of IAuthorization and/or ICompartment"
-   "IWriteAuthorizer", "Calculates access control for writing a new (version of a) resource given an instance of IAuthorization and/or ICompartment"
-   "AuthorizationResult", "Return value of IReadAuthorizer and IWriteAuthorizer methods. It expresses whether you are authorized at all, and if so - under which conditions. These conditions are expressed as search arguments."
+   "IAuthorization", "Defines whether your are allowed to read or write a type of resource. |br| Abstraction of the concept of a scope (like user/Observation.read) in SMART"
+   "ICompartment", "Confines the user to a compartment, expressed as a combination of a |br| CompartmentDefinition and a search argument. |br| Abstraction of the concept of a launch context (like patient=123) in SMART"
+   "IReadAuthorizer", "Calculates access control for a type of resource given an instance of IAuthorization |br| and/or ICompartment"
+   "IWriteAuthorizer", "Calculates access control for writing a new (version of a) resource given an instance |br| of IAuthorization and/or ICompartment"
+   "AuthorizationResult", "Return value of IReadAuthorizer and IWriteAuthorizer methods. |br| It expresses whether you are authorized at all, and if so - under which conditions. |br| These conditions are expressed as search arguments."
 
 IReadAuthorizer
 ---------------
 
-Provides two methods to check authorizion for reading types of resources.
+Provides two methods to check authorization for reading types of resources.
 
 * AuthorizeRead
 * AuthorizeReadAnyType
@@ -52,3 +52,7 @@ Provides one method to assess whether the user is allowed to write a resource. I
 The 'serverBase' parameter is primarily provided because it is required to perform a search on the ISearchRepository interface. 
 The IAuthorization instance can be used to decide whether the user is allowed to write resources of the given resourcetype at all.
 The ICompartment can be used to search in the database whether the to-be-written resource is linked to the current compartment.
+
+.. |br| raw:: html
+
+   <br />

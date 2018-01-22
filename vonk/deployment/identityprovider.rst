@@ -6,14 +6,14 @@ Set up an Identity Provider
 About Identity Providers and Vonk
 ---------------------------------
 
-In order to use :ref:`feature_accesscontrol` you need an Identity Provider that can provide OAuth2 JWT Tokens with claims that conform to `SMART on FHIR`_. In a production scenario you typically already have such a provider. It could be the EHR system, the Active Directory or a provider set up specifically for let's say a Patient Portal. It is also very well possible that the provider handing the correct claims uses a federated OAuth2 provider to do the authentication.
+In order to use :ref:`feature_accesscontrol` you need an Identity Provider that can provide OAuth2 JWT Tokens with claims that conform to `SMART on FHIR`_. In a production scenario, you typically already have such a provider. It could be the EHR system, the Active Directory, or a provider set up specifically for let's say a Patient Portal. It is also very well possible that the provider handing the correct claims uses a federated OAuth2 provider to do the authentication.
 
 An Identity Provider for testing
 --------------------------------
 
-To allow you to test :ref:`feature_accesscontrol` we provide you with instructions to build and run an Identity Provider in which you can configure the neccessary clients, claims and users yourself to test different scenarios. The instructions are based on the excellent `IdentityServer4 project on GitHub <https://github.com/IdentityServer/IdentityServer4>`_ by Dominick Baier and Brock Allen. 
+To allow you to test :ref:`feature_accesscontrol`, we provide you with instructions to build and run an Identity Provider in which you can configure the necessary clients, claims and users yourself to test different scenarios. The instructions are based on the excellent `IdentityServer4 project on GitHub <https://github.com/IdentityServer/IdentityServer4>`_ by Dominick Baier and Brock Allen. 
 
-By default the configuration is such that you can test many different cases. Only if you wish to adjust the configuration that will require a bit of programming.
+By default, the configuration is such that you can test many different cases. If you wish to adjust the configuration, that will require a bit of programming.
 
 The Identity Provider is built in Microsoft .NET Core. Therefore it should also run cross-platform, just as Vonk itself. However, we did not try that. 
 
@@ -25,8 +25,8 @@ Instructions
 ------------
 
 #. Clone the project `Vonk.IdentityServer.Test from GitHub <https://github.com/furore-fhir/Vonk.IdentityServer.Test>`_
-#. Run the Powershell script .\scripts\GenerateSSLCertificate.ps1
-   This will generate an SSL Certificate in .\Vonk.IdentityServer.Test\ssl_cert.pfx, with the password 'cert-password'. This is preconfigured in Program.cs.
+#. Run the Powershell script .\\scripts\\GenerateSSLCertificate.ps1 |br|
+   This will generate an SSL Certificate in .\\Vonk.IdentityServer.Test\\ssl_cert.pfx, with the password |br| 'cert-password'. This is preconfigured in Program.cs.
 #. Open the solution Vonk.IdentityServer.Test.sln in Visual Studio
 #. Build the solution
 #. Run the Vonk.IdentityServer.Test project
@@ -34,7 +34,7 @@ Instructions
 
    You should see a page like this.
 
-   .. image:: \vonk\images\ac_identityprovider_startup.png
+   .. image:: ../images/ac_identityprovider_startup.png
 
 #. Also try https://localhost:5101 for the https connection. Your browser will ask you to make a security exception for the self-signed certificate. 
 #. Get the openid connect configuration at http://localhost:5000/.well-known/openid-configuration.
@@ -76,3 +76,7 @@ Bob
 You can add or alter users in Config.cs.
 
 .. _SMART on FHIR: http://docs.smarthealthit.org/
+
+.. |br| raw:: html
+
+   <br />

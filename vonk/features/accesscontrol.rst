@@ -3,7 +3,9 @@
 Access control and SMART
 ========================
 
-.. contents:: "Contents" :depth: 1 :local: 1
+.. contents:: Contents
+  :depth: 1
+  :local:
 
 .. _feature_accesscontrol_concepts:
 
@@ -14,8 +16,8 @@ It also presumes general knowledge about authentication and OAuth2.
 
 Access control generally consists of the following parts, which will be addressed one by one:
 
-- Identification: Who are you? - usually a user name, login, or some identifier.
-- Authentication: Proof your identification - usually with a password, a certificate or some other (combination of) secret(s) owned by you.
+- Identification: Who are you? -- usually a user name, login, or some identifier.
+- Authentication: Proof your identification -- usually with a password, a certificate or some other (combination of) secret(s) owned by you.
 - Authorization: What are you allowed to read or change based on your identification?
 - Access Control Engine: Enforce the authorization in the context of a specific request.
 
@@ -30,14 +32,14 @@ Vonk can then read the OAuth2 token and validate it with the OAuth2 provider. Th
 
 Authorization
 -------------
-Authorization in Vonk is by default based on `SMART on FHIR`_ and more specifically the `Scopes and Launch Context`_ defined by it. SMART specifies several claims that can be present in the OAuth2 token and their meaning. These are examples of scopes and launch contexts that are recognized by Vonk:
+Authorization in Vonk by default is based on `SMART on FHIR`_ and more specifically the `Scopes and Launch Context`_ defined by it. SMART specifies several claims that can be present in the OAuth2 token and their meaning. These are examples of scopes and launch contexts that are recognized by Vonk:
 
 * scope=user/Observation.read: the user is allowed to read Observation resources
 * scope=user/Encounter.write: the user is allowed to write Encounter resources
 * scope=user/\*.read: the user is allowed to read any type of resource
 * scope=user/\*.write: the user is allowed to write any type of resource
 * scope=[array of individual scopes]
-* patient=123: the user is allowed access to resources in the compartment of patient 123 - see Compartments.
+* patient=123: the user is allowed access to resources in the compartment of patient 123 -- see :ref:`feature_accesscontrol_compartment`.
 
 SMART on FHIR also defines scopes starting with 'patient/' instead of 'user/'. In Vonk these are evaluated equally. But with a scope of 'patient/' you are required to also have a 'patient=...' launch context to know to which patient the user connects.
 
@@ -74,7 +76,7 @@ Providing your own implementations is only possible with Vonk FHIR Facade or Com
 
 Configuration
 -------------
-You can control the way Access Control based on SMART on FHIR behaves with the SmartAuthorizationOptions::
+You can control the way Access Control based on SMART on FHIR behaves with the SmartAuthorizationOptions in ``appsettings.json``::
 
     "SmartAuthorizationOptions": {
       "Enabled": true,
@@ -102,14 +104,15 @@ You can control the way Access Control based on SMART on FHIR behaves with the S
       }
     }
 
-* Enabled: With this setting you can disable ('false') the authentication and authorization altogether. When it is enabled ('true'), it will also evaluate the other settings. The default value is 'false'. This implies that authorization is disabled if no SmartAuthorizationOptions section is in the settings.
+* Enabled: With this setting you can disable ('false') the authentication and authorization altogether. When it is enabled ('true'), Vonk will also evaluate the other settings. The default value is 'false'. This implies that authorization is disabled if no SmartAuthorizationOptions section is in the settings.
 * Filters: Defines how different launch contexts are translated to search arguments. See :ref:`feature_accesscontrol_compartment` for more background.
-    * FilterType: Both a launch context and a CompartmentDefinition are defined by a resourcetype. Use FilterType to define for which launch context and related CompartmentDefinition this Filter is appliccable.
+
+    * FilterType: Both a launch context and a CompartmentDefinition are defined by a resourcetype. Use FilterType to define for which launch context and related CompartmentDefinition this Filter is applicable.
     * FilterArgument: Translates the value of the launch context to a search argument. You can use any supported search parameter defined on FilterType. It should contain the name of the launch context enclosed in hashes (e.g. #patient#), which is substituted by the value of the claim.
 * Authority: The base url of your identity provider. See :ref:`feature_accesscontrol_idprovider` for more background.
 * Audience: Defines the name of this Vonk instance as it is known to the Identity Provider. Default is 'vonk'.
 * RequireHttpsToProvider: Token exchange with an Identity Provider should always happen over https. However, in a local testing scenario you may need to use http. Then you can set this to 'false'. The default value is 'true'. 
-* Protected: This setting controls which of the interactions actually require authentication. In the example values provided here, $validate is not in the TypeLevelInteractions. This means that you can use POST [base-url]/Patient/$validate without authorization. Since you only read Conformance resources with this interactions, this might make sense.
+* Protected: This setting controls which of the interactions actually require authentication. In the example values provided here, $validate is not in the TypeLevelInteractions. This means that you can use POST [base-url]/Patient/$validate without authorization. Since you only read Conformance resources with this interaction, this might make sense.
 
 .. _feature_accesscontrol_compartment:
 
@@ -118,14 +121,16 @@ Compartments
 
 In FHIR a `CompartmentDefinition <http://www.hl7.org/implement/standards/fhir/compartmentdefinition.html>`_ defines a set of resources 'around' a focus resource. For each type of resource that is linked to the focus resource, it defines the reference search parameters that connect the two together. The type of the focus-resource is in CompartmentDefinition.code, and the relations are in CompartmentDefinition.resource. The values for param in it can be read as a `reverse chain <http://www.hl7.org/implement/standards/fhir/search.html#has>`_.
 
-An example is the `Patient CompartmentDefinition`_, where a Patient resource is the focus. One of the related resourcetypes is Observation. It's params are subject and performer, so it is in the compartment of a specific Patient if that Patient is either the subject or the performer of the Observation. FHIR defines CompartmentDefinitions for Patient, Encounter, RelatedPerson, Practitioner and Device. Although Vonk is functionally not limited to these five, the specification does not allow you to define your own. Vonk will use a CompartmentDefinition if:
+An example is the `Patient CompartmentDefinition`_, where a Patient resource is the focus. One of the related resourcetypes is Observation. Its params are subject and performer, so it is in the compartment of a specific Patient if that Patient is either the subject or the performer of the Observation.
+
+FHIR defines CompartmentDefinitions for Patient, Encounter, RelatedPerson, Practitioner and Device. Although Vonk is functionally not limited to these five, the specification does not allow you to define your own. Vonk will use a CompartmentDefinition if:
 
 * the CompartmentDefinition is known to Vonk, see :ref:`conformance` for options to provide them.
 * the OAuth2 Token contains a claim with the same name as the CompartmentDefinition.code (but it may be lowercase).
 
-So the launch contexts mentioned in SMART on FHIR - 'patient' and 'encounter' - map to the CompartmentDefinitions for Patient and Encounter. For the launch context 'location', the specification has no matching CompartmentDefinition. 
+So the launch contexts mentioned in SMART on FHIR -- 'patient' and 'encounter' -- map to the CompartmentDefinitions for Patient and Encounter. For the launch context 'location', the specification has no matching CompartmentDefinition. 
 
-A CompartmentDefinition defines the relationships, but it becomes useful once you combine it with a way of specifying the actual focus resource. In SMART on FHIR, the launch context can do that, e.g. patient=123. As per the SMART `Scopes and Launch Context`_, the value '123' is the value of the Patient.id. Together with the Patient CompartmentDefinition this defines a - what we call - Compartment in Vonk:
+A CompartmentDefinition defines the relationships, but it becomes useful once you combine it with a way of specifying the actual focus resource. In SMART on FHIR, the launch context can do that, e.g. patient=123. As per the SMART `Scopes and Launch Context`_, the value '123' is the value of the Patient.id. Together with the Patient CompartmentDefinition this defines a -- what we call -- Compartment in Vonk:
 
 * Patient with id '123'
 * And all resources that link to that patient according to the Patient CompartmentDefinition.
@@ -160,14 +165,14 @@ But you can also take advantage of it and allow access only to the patients from
       ...
     ]
 
-In this example the claim is still called 'patient', although it contains an Identifier of a General Practitioner. This is because the CompartmentDefinition is selected by matching it's code to the name of the claim, regardless of the value the claim contains. 
+In this example the claim is still called 'patient', although it contains an Identifier of a General Practitioner. This is because the CompartmentDefinition is selected by matching its code to the name of the claim, regardless of the value the claim contains. 
 
 If multiple resources match the Compartment, that is no problem for Vonk. You can simply configure the Filters according to the business rules in your organization.
 
 Tokens
 ------
 
-A client application that wants to access data in Vonk on behalf of it's user, requests a token from the Identity Provider (configured as the Authority in the feature_accesscontrol_config_). The configuration of the Identity Provider determines which claims are *available* for a certain user, and also for the client application. The client app configuration determines which claims it *needs*. During the token request the user is usually redirected to the Identity Provider, logs in and is then asked whether the client app is allowed to receive the requested claims. The client app can not request any claims that are not available to that application. And it will never get any claims that are not available to the user. This flow is also explained in the `SMART App Authorization Guide`_. 
+A client application that wants to access data in Vonk on behalf of its user, requests a token from the Identity Provider (configured as the Authority in the :ref:`feature_accesscontrol_config`). The configuration of the Identity Provider determines which claims are *available* for a certain user, and also for the client application. The client app configuration determines which claims it *needs*. During the token request, the user is usually redirected to the Identity Provider, logs in and is then asked whether the client app is allowed to receive the requested claims. The client app cannot request any claims that are not available to that application. And it will never get any claims that are not available to the user. This flow is also explained in the `SMART App Authorization Guide`_. 
 
 The result of this flow should be a JSON Web Token (JWT) containing zero or more of the claims defined in SMART on FHIR. The claims can either be scopes or a launch context, as in the examples listed in :ref:`feature_accesscontrol_authorization`. This token is encoded as a string, and must be sent to Vonk in the Authorization header of the request.
 
@@ -217,7 +222,7 @@ In this paragraph we will explain how Access Control Decisions are made for the 
       :Compartment: Is applied to both Patient and link. In pseudo code: ``GET [base]/Patient?link:(Patient.identifier=456&Patient.identifier=123)&identifier=123`` In this case there will probably be no results.
 
 #. Read: Is evaluated as a Search, but implicitly you only specify the _type and _id search parameters.
-#. VRead: If user has can Read the current version of the resource, it is allowed to get the requested version as well.
+#. VRead: If a user can Read the current version of the resource, he is allowed to get the requested version as well.
 #. Create
 
    a. Create on the compartment type
