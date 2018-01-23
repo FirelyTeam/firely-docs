@@ -3,8 +3,10 @@
 =============================
 Deploy Vonk on Nginx on Linux
 =============================
+
 About Nginx
 -----------
+
 NGINX is a popular open source web server. It can act as a reverse proxy server for TCP, UDP, HTTP, HTTPS, SMTP, POP3, 
 and IMAP protocols, as well as a load balancer and a HTTP cache.
 You can find the documention for the Nginx server at https://nginx.org/en/docs/.
@@ -20,12 +22,14 @@ Prerequisites
 
 Start Kestrel Vonk server
 -------------------------
+
 Download the binaries for Vonk (see :ref:`getting_started`), open a terminal console and start the Vonk process by using:
 dotnet Vonk.Server.dll.
 You should be able to reach to home page at http://localhost:4080 (or a different port if you changed the default configurations)
 
 Configure Nginx as a reverse proxy
 ----------------------------------
+
 To configure Nginx as a reverse proxy to forward requests to our ASP.NET Core application, modify /etc/nginx/sites-available/default. 
 Open it in a text editor, and replace the contents with the following:
 
@@ -55,8 +59,9 @@ Now you can run the Vonk server.
 
 Configuration
 -------------
+
 - To configure the Vonk server, you can use the appsettings.json file (see :ref:`configure_vonk`).
 
-- To configure Nginx you need add extra options to the /etc/nginx/sites-available/default or to the nginx.conf file.
+- To configure Nginx you need to add extra options to the /etc/nginx/sites-available/default or to the nginx.conf file.
 
 - To monitor the application you can use systemd and create a service for starting, stopping and managing the process.

@@ -1,8 +1,8 @@
 .. _iis:
 
-====================
+==================
 Deploy Vonk on IIS
-====================
+==================
 
 Prerequisites
 -------------
@@ -18,14 +18,14 @@ Prerequisites
     :align: center   
 
 3. Choose a solution to deploy/move the application to the hosting system. 
-   Multiple alternative exist like Web Deploy, Xcopy, Robocopy or Powershell. 
+   Multiple alternatives exist like Web Deploy, Xcopy, Robocopy or Powershell. 
    One popular choice is using Web Deploy in Visual Studio. For using that you will need to install 
    Web Deploy on the hosting system. To install Web Deploy, you can use the Web Platform Installer 
    (https://www.microsoft.com/web/downloads/platform.aspx).
 
 4. Install the .NET Core Windows Server Hosting bundle on the hosting system. After installing it, you may need to do a “net stop was /y” and “net start w3svc” to ensure all the changes are picked up for IIS. The bundle installs the .NET Core Runtime, .NET Core Library, and the ASP.NET Core Module. ASP.NET Core Module (ANCM) allows you to run ASP.NET Core applictions using Kestrel behind IIS. For more information about ANCM check https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/aspnet-core-module
 
-5. Prepare binaries. You can either download the binaries for Vonk (see :ref:`getting_started`), or creating your own solution by building a facade.
+5. Prepare binaries. You can either download the binaries for Vonk (see :ref:`getting_started`), or create your own solution by building a facade.
    If you are deploying a Vonk facade, take the additional following prerequisites into consideration:
    
    - Make sure you use the **IISIntegration NuGet** package. You can install this as part of one of the metapackages (``Microsoft.AspNetCore`` and ``Microsoft.AspNetCore.All``) or independently  ``Microsoft.AspNetCore.Server.IISIntegration``. This is needed for the interoperability between Kestrel and ANCM.
