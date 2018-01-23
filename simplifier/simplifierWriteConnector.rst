@@ -9,7 +9,7 @@ There are several things that you will likely do when you write a connector scri
 
 Basic Ajax
 ----------
-With JQuery, you have som basic AJAX methods to fetch or post data to servers. For example:
+With JQuery, you have some basic AJAX methods to fetch or post data to servers. For example:
 
 	.. code-block:: Javascript
 	
