@@ -13,12 +13,12 @@ With JQuery, you have som basic AJAX methods to fetch or post data to servers. F
 
 	.. code-block:: Javascript
 	
-		$.get(url).succes(function()
+		$.get(url).success(function()
 		{
 			
 		});
 		
-		$.post(url, body).succes(function()
+		$.post(url, body).success(function()
 		{
 			
 		});
@@ -42,7 +42,7 @@ fhirServer
 		var client = fhirServer("www.example.com");
 	
 simplifier
-	This is a ready to use fhir.js client that connects to simplifier. When your connector is executed by a user, he will 	do that from the page that shows a resource. The FHIR endpoint of that resource can be accessed in the following manner:
+	This is a ready to use fhir.js client that connects to simplifier. When your connector is executed by a user, he will do that from the page that shows a resource. The FHIR endpoint of that resource can be accessed in the following manner:
 	
 	.. code-block:: Javascript
 	
@@ -50,7 +50,7 @@ simplifier
 	
 	This allows you to send the fhir endpoint to another server, so that that server can fetch the resource that is displayed on the current page.
 	
-	You will also have access to the resource itself in Json or XML in case of post calls to another server.
+	You will also have access to the resource itself in JSON or XML in case of post calls to another server.
 	
 	.. code-block:: Javascript
 	
