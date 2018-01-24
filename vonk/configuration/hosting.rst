@@ -47,9 +47,14 @@ If you need your server to run on https instead of http, follow these steps:
 *	Set the :code:`HttpsPort` to the port of your liking (standard https port is 443)
 *	Set :code:`CertificateFile` to the location of the `.pfx` file that contains the certificate for your site
 *	Set :code:`CertificatePassword` to the password for the certificate file.
-	NOTE: We recommend setting this value as an environment variable for security reasons::
-	
-		VONK_Hosting:CertificatePassword=<password>
+
+    ..	note::
+
+        We recommend setting this value as an environment variable for security reasons::
+
+	    	VONK_Hosting:CertificatePassword=<password>
+..
+
 
 	To set this:
 

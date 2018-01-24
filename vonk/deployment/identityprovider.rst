@@ -17,7 +17,9 @@ By default, the configuration is such that you can test many different cases. If
 
 The Identity Provider is built in Microsoft .NET Core. Therefore it should also run cross-platform, just as Vonk itself. However, we did not try that. 
 
-:note: The project below is provided for your convenience. It comes with no warranty and is not supported by Furore. 
+.. note::
+
+  The project below is provided for your convenience. It comes with no warranty and is not supported by Furore. 
 
 In order to get tokens from the Identity Provider you need an http client. We included instructions on :ref:`feature_accesscontrol_postman`.
 

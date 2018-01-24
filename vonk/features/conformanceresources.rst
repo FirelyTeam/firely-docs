@@ -45,9 +45,9 @@ Changes to the other types of resources have immediate effect.
 
 If you are :ref:`not permitted <configure_administration_access>` to access the endpoint for the resource you want to manage (e.g. ``[base]/administration/StructureDefinition``), Vonk will return statuscode 403.
 
-:attention: Please be aware that StructureDefinitions have to have a unique canonical url, in their url element. If Vonk has access to two or more StructureDefinitions with the same canonical url, it is not defined which one will be used. Conditional create is unfortunately not yet available on the /administration endpoint, so you have to check for this case by searching first.
+.. attention:: Please be aware that StructureDefinitions have to have a unique canonical url, in their url element. If Vonk has access to two or more StructureDefinitions with the same canonical url, it is not defined which one will be used. Conditional create is unfortunately not yet available on the /administration endpoint, so you have to check for this case by searching first.
 
-:note: You can also do the same interactions on the same resourcetypes on the normal Vonk FHIR interface ``https://[base]``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Vonk operates.
+.. note:: You can also do the same interactions on the same resourcetypes on the normal Vonk FHIR interface ``https://[base]``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Vonk operates.
 
 Example
 ^^^^^^^
