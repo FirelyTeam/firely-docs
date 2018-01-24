@@ -65,7 +65,7 @@ This time you can only use the (optional) profile parameter on the url to specif
 Precondition
 ------------
 
-Vonk must be aware of all the StructureDefinitions referenced directly or indirectly by a profile. Refer to the :ref:`administration_structuredefinition` for more information.
+Vonk must be aware of all the StructureDefinitions referenced directly or indirectly by a profile. Refer to the :ref:`conformance` for more information.
 
 .. _feature_validation_limitations:
 

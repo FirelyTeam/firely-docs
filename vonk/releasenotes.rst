@@ -3,6 +3,42 @@
 Release notes Vonk
 ==================
 
+Release 0.6.0.0
+---------------
+
+.. attention:: 
+
+   * SearchParametersImportOptions is renamed to :ref:`MetadataImportOptions<conformance_fromdisk>`.
+   * :ref:`Subscription <feature_subscription>` can now be disabled from the settings.
+
+Database
+^^^^^^^^
+#. The MongoDB implementation got a new index. It will be created automatically upon startup.
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+#. Feature: :ref:`Access control based on SMART on FHIR <feature_accesscontrol>`.
+#. Feature: Vonk can also load CompartmentDefinition resources. See :ref:`conformance` for instructions.
+#. Feature: ValueSet and CodeSystem resources can be loaded into the administration endpoint, and loaded from Simplifier. See :ref:`conformance` for instructions.
+#. Feature: Be lenient on trailing slashes in the url.
+#. Feature: OperationOutcome is now at the top of a Bundle result. For human readers this is easier to spot any errors or warnings.
+#. Fix: In the :ref:`settings for SQL Server <configure_sql>` it was possible to specify the name of the Schema to use for the Vonk tables. That was actually not evaluated, so we removed the option for it. It is fixed to 'vonk'.
+#. Fix: The OperationOutcome of the :ref:`Reset <feature_resetdb>` operation could state both an error and overall success.
+#. Fix: If you did not set the CertificatePassword in the appsettings, Vonk would report a warning even if the password was not needed.
+#. Fix: :ref:`Loading conformance resources <conformance_fromsimplifier>` in the SQL Server implementation could lead to an error.
+#. Fix: Clearer error messages if the body of the request is mandatory but empty.
+#. Fix: Clearer error message if the Content-Type is missing.
+#. Fix: GET on [base]/ would return the UI regardless of the Accept header. Now if you specify a FHIR mimetype in the Accept header, it will return the result of a system wide search.
+#. Fix: In rare circumstances a duplicate logical id could be created.
+#. Fix: GET [base]/metadat would return status code 200 (OK). But it should return a 400 and an OperationOutcome stating that 'metadat' is not a supported resourcetype.
+
+Documentation
+^^^^^^^^^^^^^
+
+#. We added documentation on using IIS or NGINX as reverse proxies for Vonk.
+#. We consolidated documentation on loading conformance resources into :ref:`conformance`.
+
 Release 0.5.2.0
 ---------------
 
@@ -11,7 +47,7 @@ Release 0.5.2.0
 
 Features and fixes
 ^^^^^^^^^^^^^^^^^^
-#. Fix: When you specify LoadAtStartup in the :ref:`feature_artifactresolution`, an warning was displayed: "WRN No server base configured, skipping resource loading."
+#. Fix: When you specify LoadAtStartup in the :ref:`ResourceLoaderOptions <conformance_fromsimplifier>`, an warning was displayed: "WRN No server base configured, skipping resource loading."
 #. Fix: `Conditional create <http://www.hl7.org/implement/standards/fhir/http.html#ccreate>`_ that matches an existing resource returned that resource instead of an OperationOutcome.
 #. Fix: _has, _type and _count were in the CapabilityStatement twice.
 #. Fix: _elements would affect the stored resource in the Memory implementation.
@@ -61,7 +97,7 @@ Features and fixes
 #. Fix: A search operation with a wrong syntax will now respond with statuscode 400 and an OperationOutcome. For example ``GET <vonk-endpoint>/Patient?birthdate<1974`` will respond with statuscode 400.
 #. Fix: A statuscode 501 could occur together with an OperationOutcome stating that the operation was successful. Not anymore.
 #. Fix: An OperationOutcome stating success did not contain any issue element, which is nog valid. Solved. 
-#. Improvement: In the configuration on :ref:`feature_artifactresolution` the section ``ArtifactResolutionOptions`` has changed to ``ResourceLoaderOptions`` and a new option has been introduced under that section named ``LoadAtStartup`` which, if set to true, will attempt to load the specified resource sets when you start Vonk
+#. Improvement: In the configuration on :ref:`conformance_fromsimplifier` the section ``ArtifactResolutionOptions`` has changed to ``ResourceLoaderOptions`` and a new option has been introduced under that section named ``LoadAtStartup`` which, if set to true, will attempt to load the specified resource sets when you start Vonk
 #. Improvement: the Memory implementation now also supports ``SimulateTransactions``
 #. Improvement: the option ``SimulateTransactions`` in the configuration defaults to false now
 #. Feature: You can now add SearchParameters at runtime by POSTing them to the Administration API. You need to apply :ref:`feature_customsp_reindex` to evaluate them on existing resources.
@@ -94,7 +130,7 @@ Features and fixes
 #. Fix: CapabilityStatement is more complete, including (rev)includes and support for generic parameters besides the SearchParameters (like ``_count``). Also the SearchParameters now have their canonical url and a description.
 #. Improvement: :ref:`feature_preload` gives more informative warning messages.
 #. Fix: :ref:`feature_customsp_reindex` did not handle contained resources correctly. If you have used this feature on the 0.3.3 version, please apply it again with ``<vonk-endpoint>/administration/reindex/all`` to correct any errors.
-#. Improvement: :ref:`feature_artifactresolution` now also works for the Memory implementation.
+#. Improvement: :ref:`Loading resources from Simplifier <conformance_fromsimplifier>` now also works for the Memory implementation.
 #. Improvements on :ref:`feature_validation`: 
 
    * profile parameter can also be supplied on the url
@@ -153,7 +189,7 @@ Features and fixes
    * Payload mimetype is supported
 
 #. Feature: use _elements on Search
-#. Feature: :ref:`load profiles from your Simplifier project <feature_artifactresolution>` at startup.
+#. Feature: :ref:`load profiles from your Simplifier project <conformance_fromsimplifier>` at startup.
 #. Feature: Content-Length header is populated.
 #. Fix: PUT or POST on /metadata returned 200 OK, but now returns 405 Method not allowed.
 #. Fix: Sometimes an error message would appear twice in an OperationOutcome.
