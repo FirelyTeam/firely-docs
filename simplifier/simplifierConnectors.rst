@@ -1,7 +1,7 @@
 Connectors
 ==========
 
-Simplifier allows users to create a connection to other applications and to pass resources on Simplifier to them. Think about sending a StructureDefinition to an Example generator, a TestScript resource to a server test application, a ValueSet to a terminology server etc.
+Simplifier allows users to create connector scripts: such scripts allow external web applications to open Simplifier's resources or call an external service and show the result in Simplfier. Think about sending a StructureDefinition to an examples generator, a TestScript resource to a server test application, a ValueSet to a terminology server etc.
 
 Subscribe to a connector
 ------------------------
