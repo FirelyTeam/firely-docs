@@ -5,7 +5,7 @@ Simplifier allows users to create connector scripts: such scripts allow external
 
 Subscribe to a connector
 ------------------------
-To make use of an already available connector, you can personally "subscribe" to one. To do this, please follow these steps:
+To make use of an already available connector, you need to personally "subscribe" to one. To do this, please follow these steps:
 
    1.	Go to https://simplifier.net.
    2.	Log in to your portal by clicking the Log in button in the upper right corner, or go to the `following link <https://simplifier.net/portal>`_.
@@ -13,6 +13,7 @@ To make use of an already available connector, you can personally "subscribe" to
    4.	Click on “Shop” to see a list of available connectors.
    5.	Subscribe to the connector that’s right for you and click the “subscribe” button.
 
+After you've subscribed to a connector, you can start using it - see below.
 
 Use a connector
 ---------------
