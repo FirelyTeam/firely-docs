@@ -263,7 +263,7 @@ In this paragraph we will explain how Access Control Decisions are made for the 
 Testing
 -------
 
-Testing the access control functionality is possible on a local instance of Vonk. It is not available for the `publicly hosted test server <http://vonk.furore.com>`_.
+Testing the access control functionality is possible on a local instance of Vonk. It is not available for the `publicly hosted test server <http://vonk.fire.ly>`_.
 
 You can test it using a dummy Identity Provider and Postman as a REST client. Please refer to these pages for instructions:
 

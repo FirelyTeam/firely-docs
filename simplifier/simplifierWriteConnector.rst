@@ -14,6 +14,7 @@ To create a connector your own personal use or for publication and use by others
       Example: 
 
       .. code-block:: Javascript
+
        // trivial connector that redirects the webpage to example.com with a parameter to the resource
        // the connector was used with
        window.location.href = "http://example.com/createExample?profile="+simplifierServer.ResourceEndpoint+"&callbackurl="+returnUrl;
@@ -117,7 +118,7 @@ AJAX connectors run a query on an external server and can use Simplifier to rend
             // sample connector that validates the patient resource
             // and uses Simplifier to render the outcome
             $.ajax({ 
-                url: 'https://vonk.furore.com/Patient/$validate', 
+                url: 'https://vonk.fire.ly/Patient/$validate', 
                 type: 'post', 
                 data: simplifier.ResourceJson, 
                 headers: { 

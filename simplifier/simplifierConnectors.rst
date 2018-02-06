@@ -19,8 +19,9 @@ Use a connector
 ---------------
 Each connector specifies one or multiple resources that it can be used with. You can view this in the shop or, if you are already subscribed, in your personal connector portal page. Once you have subscribed to a connector, you can use the connector for every resource type specified for that resource.
  
-| Example: 
-|
-| If you have subscribed to a resource which generates an example for StructureDefinitions, you can access that connector on each StructureDefinition.
-| Once you click on it, the connector sends a request to open this specific resource from Simplifier.
+	Example: 
+
+	If you have subscribed to a resource which generates an example for StructureDefinitions, you can access that connector on each StructureDefinition.
+	Once you click on it, the connector sends a request to open this specific resource from Simplifier.
+
 

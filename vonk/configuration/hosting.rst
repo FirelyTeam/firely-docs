@@ -53,6 +53,7 @@ If you need your server to run on https instead of http, follow these steps:
         We recommend setting this value as an environment variable for security reasons::
 
 	    	VONK_Hosting:CertificatePassword=<password>
+
 ..
 
 

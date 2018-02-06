@@ -36,7 +36,7 @@ Though .NET Core is available natively on Linux, the GUI framework, `WPF <https:
 
 	WINEPREFIX="$HOME/.forge7" WINEARCH=win32 winetricks -q dotnet46
 
-#. Download `Forge <https://fhir.furore.com/forge/>`_.
+#. Download `Forge <https://simplifier.net/forge/download>`_.
 
 #. Run Forge with: ::
 
@@ -77,7 +77,7 @@ Though .NET Core is available natively on macOS, the GUI framework, `WPF <https:
 	chmod +x winetricks
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 ./winetricks -q dotnet46
 	
-#. Download `setup.exe` from the `Forge download page <https://fhir.furore.com/forge>`_ and run it: ::
+#. Download `setup.exe` from the `Forge download page <https://simplifier.net/forge/download>`_ and run it: ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine $HOME/Downloads/setup.exe
 	

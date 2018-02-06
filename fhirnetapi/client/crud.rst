@@ -53,13 +53,13 @@ the ``FhirClient``).
 .. code:: csharp
 
 	// Read the current version of a Patient resource with technical id '31'
-	var location_A = new Uri("http://vonk.furore.com/Patient/31");
+	var location_A = new Uri("http://vonk.fire.ly/Patient/31");
 	var pat_A = client.Read<Patient>(location_A);
 	// or
 	var pat_A = client.Read<Patient>("Patient/31");
 	
 	// Read a specific version of a Patient resource with technical id '32' and version id '4'
-	var location_B = new Uri("http://vonk.furore.com/Patient/32/_history/4");
+	var location_B = new Uri("http://vonk.fire.ly/Patient/32/_history/4");
 	var pat_B = client.Read<Patient>(location_B);
 	// or
 	var pat_B = client.Read<Patient>("Patient/32/_history/4");
@@ -103,7 +103,7 @@ to allow you to delete based on a url or a resource instance:
 .. code:: csharp
 
     // Delete based on a url or resource location
-    var location = new Uri("http://vonk.furore.com/Patient/33");
+    var location = new Uri("http://vonk.fire.ly/Patient/33");
     client.Delete(location);
     // or
     client.Delete("Patient/33");
@@ -155,7 +155,7 @@ If no matches are found, the resource will be created. If one match is
 found, the server will not create the resource and will return an
 HTTP 200 (OK). In both cases ``created_pat_A`` will contain the resource
 that was sent back by the server, unless you set the FhirClient to ask for
-the :ref:`minimal representation <minimal>. When multiple resources match the
+the :ref:`minimal representation <minimal>`. When multiple resources match the
 conditions, the server will return an error.
 
 To perform a conditional ``Update``, the code is similar to that of the

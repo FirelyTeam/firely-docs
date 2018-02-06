@@ -48,8 +48,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SimplifierDocs'
-copyright = u'2016, Furore'
-author = u'Furore'
+copyright = u'2018, Firely'
+author = u'Firely'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -224,7 +224,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'SimplifierDocs.tex', u'SimplifierDocs Documentation',
-     u'Furore', 'manual'),
+     u'Firely', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

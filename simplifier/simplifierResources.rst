@@ -1,5 +1,5 @@
 Browse existing FHIR resources
-============================
+==============================
 Simplifier is a repository for FHIR resources. There are a multitude of resources that are available to the public including profiles, extensions, valuesets, dictionaries, mappings, examples and more. If these resources are listed as public then you can find them here. 
 
 You can browse these resources easily from the Simplifier homepage or search for more specific resources if you know what you are looking for. To search for a specific resource navigate to the search box at the top of the homepage and type the term in the search field. Once you have reached the page with your search results you have options to further filter your results to include or exclude results based on certain parameters. To limit your search results to resources select ``Resources`` from the Search Type options. You can apply other filters such as Resource Categories and Fhir Status here.

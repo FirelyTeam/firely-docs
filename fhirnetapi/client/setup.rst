@@ -7,7 +7,7 @@ FHIR server's endpoint as a parameter to the constructor:
 
 .. code:: csharp
 
-    var client = new FhirClient("http://vonk.furore.com");
+    var client = new FhirClient("http://vonk.fire.ly");
 
 The constructor method is overloaded, to enable you to use a URI instead of a string.
 As second parameter to the constructor, you can specify whether the client should

@@ -33,7 +33,7 @@ Open your command prompt and execute this command:
 
 You will get a list that looks like:
 
-.. image:: ../images/docker1.PNG
+.. image:: ../images/docker1.png
 
 Navigate to your working directory for Vonk and run the container with this command:
 
@@ -56,7 +56,7 @@ In this example the license file is called vonk-trial-license.json. At last it w
 To test whether the container is running correctly, type the command:|br|
 ``> docker ps``
 
-.. image:: ../images/docker2.PNG
+.. image:: ../images/docker2.png
 
 You can also take a look at the logs for Vonk with:|br|
 ``> docker logs vonk.server``
@@ -98,7 +98,7 @@ Save the text above to a file in your working directory with the name ``docker-c
 
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
-.. image:: ../images/docker3.PNG
+.. image:: ../images/docker3.png
 
 To stop the container, run: |br|
 ``> docker-compose -f docker-compose.memory.yml down``

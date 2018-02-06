@@ -19,7 +19,7 @@ The Identity Provider is built in Microsoft .NET Core. Therefore it should also 
 
 .. note::
 
-  The project below is provided for your convenience. It comes with no warranty and is not supported by Furore. 
+  The project below is provided for your convenience. It comes with no warranty and is not supported by Firely. 
 
 In order to get tokens from the Identity Provider you need an http client. We included instructions on :ref:`feature_accesscontrol_postman`.
 
