@@ -21,12 +21,12 @@ Git repository Vonk.Facade.Starter
 ----------------------------------
 
 This repository contains the completed exercise. It has several branches to checkout the solution at several stages of the exercise.
-You can find the repository at `Github <https://github.com/furore-fhir/Vonk.Facade.Starter>`_.
+You can find the repository at `Github <https://github.com/FirelyTeam/Vonk.Facade.Starter>`_.
 You are not allowed to push commits to this repository.
 
 Please clone branch exercise/step1::
 
-    git clone https://github.com/furore-fhir/Vonk.Facade.Starter.git -b exercise/step1
+    git clone https://github.com/FirelyTeam/Vonk.Facade.Starter.git -b exercise/step1
 
 Database
 --------

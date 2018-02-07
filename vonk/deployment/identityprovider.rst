@@ -26,7 +26,7 @@ In order to get tokens from the Identity Provider you need an http client. We in
 Instructions
 ------------
 
-#. Clone the project `Vonk.IdentityServer.Test from GitHub <https://github.com/furore-fhir/Vonk.IdentityServer.Test>`_
+#. Clone the project `Vonk.IdentityServer.Test from GitHub <https://github.com/FirelyTeam/Vonk.IdentityServer.Test>`_
 #. Run the Powershell script .\\scripts\\GenerateSSLCertificate.ps1 |br|
    This will generate an SSL Certificate in .\\Vonk.IdentityServer.Test\\ssl_cert.pfx, with the password |br| 'cert-password'. This is preconfigured in Program.cs.
 #. Open the solution Vonk.IdentityServer.Test.sln in Visual Studio

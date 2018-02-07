@@ -35,7 +35,7 @@ So here we need to make Vonk load the ``_id`` SearchParameter on the ``Resource`
 #. Open your appsettings.json file.
 #. Add this section, in line with the settings described above::
 
-    "SearchParametersImportOptions": {
+    "MetadataImportOptions": {
         "Enabled": true,
         "Sets": [
             {
@@ -45,7 +45,11 @@ So here we need to make Vonk load the ``_id`` SearchParameter on the ``Resource`
         ]
     },
 
-#. Now start Vonk again and inspect the CapabilityStatement. It should contain the _id parameter on Patient.
+  .. note::
+	
+	   For versions of the Vonk Facade prior to Vonk 0.6.0.0, this setting was called SearchParameterImportOptions
+
+7. Now start Vonk again and inspect the CapabilityStatement. It should contain the _id parameter on Patient.
 
 5. Configure the ASP.NET Core Pipeline
 --------------------------------------
