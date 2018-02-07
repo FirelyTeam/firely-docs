@@ -3,6 +3,10 @@
 Release notes Vonk
 ==================
 
+Release 0.6.1.0
+---------------
+Name change from Furore to Firely
+
 Release 0.6.0.0
 ---------------
 
