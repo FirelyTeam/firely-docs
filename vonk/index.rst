@@ -13,7 +13,7 @@ Vonk is the answer to the growing need for a stable server that can be used in a
 The community edition of Vonk is publically available at http://vonk.fire.ly. This edition is free to use and intended for
 testing and educational purposes only.
 
-.. image:: ./images/vonk_home.png
+.. image:: ./images/vonk_home.PNG
   :align: center
   
 On these pages we provide you with the documentation you need to get up and running with your own standard Vonk

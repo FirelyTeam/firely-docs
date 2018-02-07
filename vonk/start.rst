@@ -30,7 +30,7 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 6.	If you want to check if Vonk is running correctly, open a browser and go to :code:`localhost:4080`.
 	You should see a homepage similar to this:
    
-.. image:: ./images/localhost_home.png
+.. image:: ./images/localhost_home.PNG
   :align: center
 
 Please note that the third example query ``/Patient/example`` will only work if you first PUT a Patient with the id 'example'.
