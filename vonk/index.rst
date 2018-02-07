@@ -3,7 +3,7 @@
 Welcome to the Vonk server documentation
 =========================================
 
-Vonk is the Firely FHIR server and the successor to our Spark server. 
+Vonk is Firely's FHIR server and the successor to our Spark server. 
 
 .. The Spark server was intended to be
    a proof of concept implementation to test the HL7 FHIR specification and support the community during connectathons.
