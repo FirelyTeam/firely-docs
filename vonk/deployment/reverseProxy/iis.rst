@@ -66,3 +66,11 @@ Configuration
       ...
   });
 
+SQL 
+-------------
+In order to use the Sql Repository option in IIS you should make sure that the identity of the IIS application pool has rights to use the database considering the provided connection string. 
+To change the identity the application pool is using open IIS -> Application Pools -> select your application pool -> right click and select "Advanced Settings..."
+You should see something similar to the image below:
+
+.. image:: ../../images/iis_appPool_changeIdentity.PNG
+  :align: center
