@@ -8,6 +8,8 @@ Vonk can be deployed as:
 * Binaries, see :ref:`getting_started`
 * As Docker image, see :ref:`use_docker`
 
+In order to test the :ref:`feature_accesscontrol` you will need to :ref:`feature_accesscontrol_idprovider`.
+
 
 .. toctree::
    :maxdepth: 2
@@ -16,5 +18,7 @@ Vonk can be deployed as:
 
    Binaries <../start>
    Docker <docker>
-   Deploy to a reverse proxy <reverseProxy/reverseProxy>
+   Deploy to a reverse proxy <reverseProxy/_reverseProxy>
+   identityprovider
+   accesscontrol_postman
 

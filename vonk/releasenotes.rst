@@ -3,6 +3,122 @@
 Release notes Vonk
 ==================
 
+Release 0.6.1.0
+---------------
+Name change from Furore to Firely
+
+Release 0.6.0.0
+---------------
+
+.. attention:: 
+
+   * SearchParametersImportOptions is renamed to :ref:`MetadataImportOptions<conformance_fromdisk>`.
+   * :ref:`Subscription <feature_subscription>` can now be disabled from the settings.
+
+Database
+^^^^^^^^
+#. The MongoDB implementation got a new index. It will be created automatically upon startup.
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+#. Feature: :ref:`Access control based on SMART on FHIR <feature_accesscontrol>`.
+#. Feature: Vonk can also load CompartmentDefinition resources. See :ref:`conformance` for instructions.
+#. Feature: ValueSet and CodeSystem resources can be loaded into the administration endpoint, and loaded from Simplifier. See :ref:`conformance` for instructions.
+#. Feature: Be lenient on trailing slashes in the url.
+#. Feature: OperationOutcome is now at the top of a Bundle result. For human readers this is easier to spot any errors or warnings.
+#. Fix: In the :ref:`settings for SQL Server <configure_sql>` it was possible to specify the name of the Schema to use for the Vonk tables. That was actually not evaluated, so we removed the option for it. It is fixed to 'vonk'.
+#. Fix: The OperationOutcome of the :ref:`Reset <feature_resetdb>` operation could state both an error and overall success.
+#. Fix: If you did not set the CertificatePassword in the appsettings, Vonk would report a warning even if the password was not needed.
+#. Fix: :ref:`Loading conformance resources <conformance_fromsimplifier>` in the SQL Server implementation could lead to an error.
+#. Fix: Clearer error messages if the body of the request is mandatory but empty.
+#. Fix: Clearer error message if the Content-Type is missing.
+#. Fix: GET on [base]/ would return the UI regardless of the Accept header. Now if you specify a FHIR mimetype in the Accept header, it will return the result of a system wide search.
+#. Fix: In rare circumstances a duplicate logical id could be created.
+#. Fix: GET [base]/metadat would return status code 200 (OK). But it should return a 400 and an OperationOutcome stating that 'metadat' is not a supported resourcetype.
+
+Documentation
+^^^^^^^^^^^^^
+
+.. #. We added documentation on using IIS or NGINX as reverse proxies for Vonk.
+
+#. We consolidated documentation on loading conformance resources into :ref:`conformance`.
+
+Release 0.5.2.0
+---------------
+
+.. attention:: Configuration setting SearchOptions is renamed to BundleOptions.
+
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+#. Fix: When you specify LoadAtStartup in the :ref:`ResourceLoaderOptions <conformance_fromsimplifier>`, an warning was displayed: "WRN No server base configured, skipping resource loading."
+#. Fix: `Conditional create <http://www.hl7.org/implement/standards/fhir/http.html#ccreate>`_ that matches an existing resource returned that resource instead of an OperationOutcome.
+#. Fix: _has, _type and _count were in the CapabilityStatement twice.
+#. Fix: _elements would affect the stored resource in the Memory implementation.
+#. Fix: Getting a resource with an invalid id (with special characters or over 64 characters) now returns a 404 instead of 501.
+#. Feature: :ref:`feature_customsp_reindex` now also re-indexes the Administration API database.
+#. Fix: modifier :above for parameter type Url now works on the MongoDB implementation.
+#. Fix: Vonk would search through inaccessible directories for the specification.zip.
+#. Fix: Subscription could not be posted if 'Database' was not one of the SearchParametersImportOptions.
+#. Fix: _(rev)include=* is not supported but was not reported as such.
+#. Fix: In a searchresult bundle, the references to other resources are now made absolute, refering to the Vonk server itself.
+#. Fix: :ref:`BundleOptions <bundle_options>` (previously: SearchOptions) settings were not evaluated.
+#. Fix: Different responses for invalid resources when you change ValidateIncomingResources setting (400 vs. 501)
+#. Fix: Better reporting of errors when there are invalid modifiers in the search.
+#. Fix: Creating a resource that would not fit MongoDB's document size resulted in an inappropriate error.
+#. Fix: There was no default sort order in the search, resulting in warnings from the SQL implementation. Added default sort on _lastUpdated (desc).
+#. Fix: Preliminary disposal of LocalTerminology server by the Validator.
+
+Facade
+^^^^^^
+#. Fix: _include/_revinclude on searchresults having contained resources triggered a NotImplementedException.
+
+Release 0.5.1.1
+---------------
+
+Facade
+^^^^^^
+
+We released the Facade libraries on `NuGet <https://www.nuget.org/packages?q=vonk>`_ along with :ref:`getting started documentation <facadestart>`.
+
+No features have been added to the Vonk FHIR Server.
+
+Release 0.5.0.0
+---------------
+
+Database
+^^^^^^^^
+#. Long URI's for token and uri types are now supported, but that required a change of the SQL Server database structure. If you have AutoUpdateDatabase enabled (see :ref:`configure_sql`), Vonk will automatically apply the changes. As always, perform a backup first if you have production data in the database.
+#. To prevent duplicate resources in the database we have provided a unique index on the Entry table. This update does include a migration. It can happen that that during updating of your database it cannot apply the unique index, because there are duplicate keys in your database (which is not good). Our advise is to empty your database first (with ``<vonk-endpoint>/administration/reset``, then update Vonk with this new version and then run Vonk with ``AutoUpdateDatabase=true`` (for the normal and the administration databases).
+
+   If you run on production and encounter this problem, please contact our support. 
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+#. Feature: POST on _search is now supported
+#. Fix: Statuscode of ``<vonk-endpoint>/administration/preload`` has changed when zero resources are added. The statuscode is now 200 instead of 201.
+#. Fix: OPTIONS operation returns now the capability statement with statuscode 200.
+#. Fix: A search operation with a wrong syntax will now respond with statuscode 400 and an OperationOutcome. For example ``GET <vonk-endpoint>/Patient?birthdate<1974`` will respond with statuscode 400.
+#. Fix: A statuscode 501 could occur together with an OperationOutcome stating that the operation was successful. Not anymore.
+#. Fix: An OperationOutcome stating success did not contain any issue element, which is nog valid. Solved. 
+#. Improvement: In the configuration on :ref:`conformance_fromsimplifier` the section ``ArtifactResolutionOptions`` has changed to ``ResourceLoaderOptions`` and a new option has been introduced under that section named ``LoadAtStartup`` which, if set to true, will attempt to load the specified resource sets when you start Vonk
+#. Improvement: the Memory implementation now also supports ``SimulateTransactions``
+#. Improvement: the option ``SimulateTransactions`` in the configuration defaults to false now
+#. Feature: You can now add SearchParameters at runtime by POSTing them to the Administration API. You need to apply :ref:`feature_customsp_reindex` to evaluate them on existing resources.
+#. Fix: The batch operation with search entries now detects the correct interaction.
+#. Fix: ETag header is not sent anymore if it is not relevant. 
+#. Fix: Searching on a String SearchParameter in a MongoDB implementation could unexpectedly broaden to other string parameters.
+#. Fix: If Reference.reference is empty in a Resource, it is no longer filled with Vonks base address.
+#. Feature: Search operation now supports ``_summary``.
+#. Fix: Paging is enabled for the history interaction.
+#. Fix: Conditional updates won't create duplicate resources anymore when performing this action in parallel.
+#. Fix: Indexing of CodeableConcept has been enhanced. 
+#. Fix: Search on reference works now also for an absolute reference.
+#. Fix: Long uri's (larger than are 128 characters) are now supported for Token and Uri SearchParameters.
+#. Improvement: The configuration of IP addresses in :ref:`configure_administration_access` has changed. The format is no longer a comma-separated string but a proper JSON array of strings.
+
+
 Release 0.4.0.1
 ---------------
 
@@ -19,7 +135,7 @@ Features and fixes
 #. Fix: CapabilityStatement is more complete, including (rev)includes and support for generic parameters besides the SearchParameters (like ``_count``). Also the SearchParameters now have their canonical url and a description.
 #. Improvement: :ref:`feature_preload` gives more informative warning messages.
 #. Fix: :ref:`feature_customsp_reindex` did not handle contained resources correctly. If you have used this feature on the 0.3.3 version, please apply it again with ``<vonk-endpoint>/administration/reindex/all`` to correct any errors.
-#. Improvement: :ref:`feature_artifactresolution` now also works for the Memory implementation.
+#. Improvement: :ref:`Loading resources from Simplifier <conformance_fromsimplifier>` now also works for the Memory implementation.
 #. Improvements on :ref:`feature_validation`: 
 
    * profile parameter can also be supplied on the url
@@ -78,7 +194,7 @@ Features and fixes
    * Payload mimetype is supported
 
 #. Feature: use _elements on Search
-#. Feature: :ref:`load profiles from your Simplifier project <feature_artifactresolution>` at startup.
+#. Feature: :ref:`load profiles from your Simplifier project <conformance_fromsimplifier>` at startup.
 #. Feature: Content-Length header is populated.
 #. Fix: PUT or POST on /metadata returned 200 OK, but now returns 405 Method not allowed.
 #. Fix: Sometimes an error message would appear twice in an OperationOutcome.

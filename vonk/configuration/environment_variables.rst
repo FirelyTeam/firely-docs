@@ -15,6 +15,7 @@ Environment Variables for appsettings
 
 All the settings in :ref:`configure_appsettings` can be overridden by environment variables on your OS.
 This can be useful if you want to deploy Vonk to several machines, each having their own settings for certain options.
+For :ref:`use_docker` using environment variables in the docker-compose file is currently the only way to pass settings to the container.
 Or if you don't want  a database password in the ``appsettings.json`` file.
 
 The format for the environment variables is:
@@ -45,6 +46,28 @@ appsettings.json::
 environment variable::
 
 	VONK_Repository:SqlDbOptions:ConnectionString = <some connectionstring>
+
+Arrays in Environment Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sometimes the appsettings allow for an array of values, e.g. in the setting for ``AllowedProfiles`` in :ref:`feature_prevalidation`. You can address them by appending an extra colon and an index number.
+
+appsettings.json::
+
+  "Validation": {
+    "ValidateIncomingResources": "true",
+    "AllowedProfiles": 
+    [
+        http://hl7.org/fhir/StructureDefinition/daf-patient, 
+        http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance
+    ]
+  },
+
+environment variables::
+
+	VONK_Validation:ValidateIncomingResources=true
+	VONK_Validation:AllowedProfiles:0=http://hl7.org/fhir/StructureDefinition/daf-patient
+	VONK_Validati0n:AllowedProfiles:1=http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance
 
 
 .. .. _configure_envvar_log:

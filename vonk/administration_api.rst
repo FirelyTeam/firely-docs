@@ -13,9 +13,8 @@ Functions
 
 The following functions are available in the Administration API.
 
-* :ref:`administration_structuredefinition`
+* :ref:`conformance`
 * :ref:`feature_subscription`
-* :ref:`feature_customsp_configure`
 * :ref:`feature_customsp_reindex`
 * :ref:`feature_resetdb`
 * :ref:`feature_preload`

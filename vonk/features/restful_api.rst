@@ -37,7 +37,7 @@ Versioning
 
 Vonk keeps a full version history of every resource, including the resources on the :ref:`administration_api`.
 
-.. _restful_not_supported:
+.. _restful_search:
 
 Search
 ------
@@ -72,7 +72,6 @@ The following parameters and options are not yet supported:
 Furthermore:
 
 #. ``_sort`` is only implemented for the parameter ``_lastUpdated`` in order to support History.
-#. Whether a SearchParameter in a request is not implemented or has an error (e.g. in the format of the argument), it is always reported as 'not supported'.
 #. Paging is supported, but it is not isolated from intermediate changes to resources.
 
 .. _restful_history:
@@ -105,6 +104,7 @@ Transaction
 
 Transactions are supported, with a single limitation:
 
+#. Of the three storage implementations, only SQL Server truly supports transactions. On :ref:`MongoDB<configure_mongodb>` and :ref:`Memory<configure_memory>`, transaction support can be simulated at the FHIR level, but not be enforced on the database level.
 #. References between resources in the transaction can only point backwards. So if resource B references A, A must be created or updated before B. This implies that circular references are also not supported. 
 
 .. _restful_capabilities:

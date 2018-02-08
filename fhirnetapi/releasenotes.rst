@@ -2,8 +2,24 @@
 Release notes
 =============
 
+0.94.0 (DSTU2 and STU3) (released 20171207)
+-------------------------------------------
+
+- #448, the FhirXmlSerializer/FhirJsonSerializer should now be instantiated, use of the static FhirSerializer class is obsoleted
+- #434, the API is no longer creating empty <meta> tags in the serialization
+- #420, the json parser no longer returns -1,-1 for positions on errors
+- #412, added support for read-through and cache invalidation to CachedArtifactSource
+- #355, the POCO parser is now using IElementNavigator as a source
+- #474, fixed a bug where the parser would not accept '01-01-01' as a date
+- #371, the validator will now complain when it encounters unsupported discriminator types
+- #426, when you tell the validator to not follow external references, it will no longer produce warnings that it cannot locate the external references.
+- #489, the validator would sometimes report incorrect indices in paths with repreating elements
+- #477, the location where the specification.zip is unpacked now includes the version in the name, thus avoiding conflicts when switchin branches between dstu2/stu3 at development time
+- #419, calling $everything with no parameters will no longer result in an incorrect http request.
+
+
 0.92.5 (DSTU2) / 0.93.5 (STU3) (released 20171017)
-------------------
+--------------------------------------------------
 
 Changes to both versions:
 
@@ -61,13 +77,13 @@ Changes to the STU3 version:
 * You can now request the server to notify the client about unsupported search parameters. Thanks tstolker!
 
 0.90.6 (released 20160915)
--------------
+--------------------------
 
 * Fix: FhirClient will no longer always add `_summary=false` to search queries
 * Fix: FhirClient will not throw parse errors anymore if the server indicated a non-success status (i.e. a 406)
 
 0.90.5 (released 20160804)
----------
+--------------------------
 
 * Enhancement: Portable45 target includes support for validation, and no longer depends on Silverlight 5 SDK. Thanks Tilo!
 * Enhancement: Support for serialization where ``_summary=data`` (and automatically adds the Subsetted flag - temporarily adds the Tag then removes after serialization, if it wasn't there already)
@@ -102,7 +118,7 @@ Changes to the STU3 version:
 * And of course numerous bugfixes and code cleanups.
 
 0.90.4 (released 20160105)
------------
+--------------------------
 
 * Enhancement: Additional Extension methods for converting native types to/from FHIR types
 
@@ -116,7 +132,7 @@ Changes to the STU3 version:
 
 * Enhancement: Added the `SnapshotGenerator` class to turn differential representations of a StructureDefinition into a snapshot. Note: we're still working with the Java and HAPI people to get the snapshots 100% compatible. 
 * Breaking change: All `BackboneElement` derived classes are now named as found on [BackboneElement](http://hl7.org/fhir/backboneelement.html#summary) page in the specification, under the specializations heading.
-Usual fix for this will be removing the resource typename prefix from the classname, e.g. Bundle.BundleEntryComponent -> Bundle.EntryComponent
+  Usual fix for this will be removing the resource typename prefix from the classname, e.g. Bundle.BundleEntryComponent -> Bundle.EntryComponent
 * Fix: Elements are not serialized correctly in summary mode
 * Fix: Validate Operation does not work
 * Fix: DeepCopy does not work on Careplan f201
@@ -126,7 +142,7 @@ From this version on, the model is now code generated using T4 templates within 
 
 
 0.90.3 (released 20151201)
-------
+--------------------------
 
 * Enhancement: IConformanceResource now also exposes the xxxElement members. Thanks, wmrutten!
 * Enhancement: Parameters.GetSingleValue<> now accepts non-primtives as generic param. Thanks, yunwang!
@@ -153,7 +169,7 @@ From this version on, the model is now code generated using T4 templates within 
 
 
 0.90.0
------
+------
 
 * Updated the model to be compatible with DSTU2 (1.0.1)
 * Added support for comments in Json
@@ -163,7 +179,7 @@ From this version on, the model is now code generated using T4 templates within 
 
 
 0.50.2
------
+------
 
 * Many bug and stability fixes
 * ReturnFullResource will not only set the Prefer header, but will do a subsequent read if the server ignores the Prefer header.
@@ -185,13 +201,13 @@ From this version on, the model is now code generated using T4 templates within 
 
 
 0.20.1
--------
+------
 
 * Added support for async
 
 
 0.20.0
----------
+------
 
 * This is the new DSTU2 release
 * Supports the new DSTU2 resources and DSTU2 serialization
@@ -199,13 +215,15 @@ From this version on, the model is now code generated using T4 templates within 
 * Further alignment between the Java RM and HAPI
 * Support for using the DSTU2 Operation framework
 * Many API improvements, including:
+
  * deep compare (IsExactly) and deep copy (DeepCopy)
  * Collections will be created on-demand, so you can just do patient.Name.Add() without having to set patient.Name to a collection first
+
 * Note: support for .NET 4.0 has been dropped, we support .NET 4.5 and PCL 4.5
 
 
 0.11.1
-----------
+------
 
 * Project now contains two assemblies: a "lightweight" core assembly (available across all platforms) and an additional library with profile and validation support.
 * Added an XmlNs class with constants for all relevant xml namespaces used in FHIR
@@ -220,7 +238,7 @@ From this version on, the model is now code generated using T4 templates within 
 
 
 0.10.0
---------
+------
 
 
 * There's a new `FhirParser.ParseQueryFromUriParameters()` function to parse URL parameters into a FHIR `Query` resource
@@ -241,12 +259,14 @@ This release brings the .NET FHIR library up-to-date with the FHIR DSTU (0.8) ve
 
 * There is now *some* documentation
 * The `FhirClient` calls have been changed after feedback of the early users. The most important changes are:
- *	the `Read()` call now accepts relative and absolute uri's as a parameter, so you can now do, say, a `Read(obs.subject.Reference)`. This means however that the old calling syntax like `Read("4")` cannot be used anymore, you need to pass at least a correct relative path like `Read("Patient/4")`.
+
+ * The `Read()` call now accepts relative and absolute uri's as a parameter, so you can now do, say, a `Read(obs.subject.Reference)`. This means however that the old calling syntax like `Read("4")` cannot be used anymore, you need to pass at least a correct relative path like `Read("Patient/4")`.
  * Since the FHIR `create` and `update` operations don't return a body anymore, by default the return value of `Create()` and `Update()` will be an empty `ResourceEntry`. If you specify the `refresh` parameter however, the FHIR client will immediately issue a read, to get the latest updated version from the server.
  * The `Search()` signature has been simplified. You can now either use a very basic syntax (like `Search(new string[] {"name=john"})`), or switch to using the `Query` resource, which `Search()` now accepts as a (single) parameter as well.
+
 * The validator has been renamed to `FhirValidator` and now behaves like the standard .NET validators: it validates one level deep only. To validate an object and it's children (e.g. a Bundle and all its entries and all its nested components and contained resources), specify the new `recursive` parameter.
 * The validator will now validate the XHtml according to the restricted FHIR schema, so active content is disallowed. 
-*  The library now *incorporates* the 0.8 version of the Resources. This means that developers using the API's source distribution need only to compile the project to have all necessary parts, there is no longer a dependency on the Model assembly compiled as part of publication. Note too that the distribution contains the 0.8 resources *only* (so, no more `Appointment` resources, etc.).
+* The library now *incorporates* the 0.8 version of the Resources. This means that developers using the API's source distribution need only to compile the project to have all necessary parts, there is no longer a dependency on the Model assembly compiled as part of publication. Note too that the distribution contains the 0.8 resources *only* (so, no more `Appointment` resources, etc.).
 * The library no longer uses the .NET portable class libraries and is based on the normal .NET 4.0 profile. The portable class libraries proved still too unfinished to use comfortably. We've fallen back on conditional compiles for Windows Phone support. Cross-platform compilation has not been rigorously tested.
 * After being updated continuously over the past two years, the FHIR client needed a big refactoring. The code should be readable again.
 

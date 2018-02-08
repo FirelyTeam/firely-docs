@@ -30,7 +30,7 @@ Administration
         }
     },
 
-The ``Administration`` section is to :ref:`configure_administration` and it's repository. 
+The ``Administration`` section is to :ref:`configure_administration` and its repository. 
 
 License
 -------
@@ -54,6 +54,15 @@ Repository
   #. SQL, for Microsoft SQL Server
   #. MongoDb
 
+Memory
+^^^^^^
+::
+
+    "MemoryOptions": {
+        "SimulateTransactions": "false"
+    },
+
+Refer to :ref:`configure_memory` for configuring the In-Memory storage.
 
 MongoDB
 ^^^^^^^
@@ -107,11 +116,13 @@ Validation
 
 Refer to :ref:`feature_prevalidation`.
 
+.. _bundle_options:
+
 Search and History
 ------------------
 ::
 
-    "SearchOptions": {
+    "BundleOptions": {
         "DefaultCount": 10,
         "MaxCount": 50
     },
@@ -121,34 +132,34 @@ The Search and History interactions return a bundle with results. Users can spec
 
 * ``DefaultCount`` sets the number of results if the user has not specified a ``_count`` parameter.
 * ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Vonk from being overloaded.
-* ``DefaultCount`` should be less than or equal to ``MaxCount``.
+* ``DefaultCount`` should be less than or equal to ``MaxCount``
 
-SearchParameters
-----------------
+SearchParameters and other Conformance Resources
+------------------------------------------------
 ::
 
-    "SearchParametersImportOptions": {
+    "MetadataImportOptions": {
         "Enabled": true,
         "Sets": [
-        {
-            "Path": "",
-            "Source": "Api"
-        }
+          {
+              "Path": "",
+              "Source": "Api"
+          }
         ]
     },
     "ReindexOptions": {
         "BatchSize": 100
     },
 
-See :ref:`feature_customsp`.
+See :ref:`feature_customsp` and :ref:`conformance`.
 
 .. _disable_interactions:
 
 Enable or disable interactions
 ------------------------------
 
-By default value ``SupportedInteractions`` contains all the interactions that are implemented in Vonk. 
-But you can disable interaction by removing them from these lists.
+By default, the value ``SupportedInteractions`` contains all the interactions that are implemented in Vonk. 
+But you can disable interactions by removing them from these lists.
 ::
 
     "SupportedInteractions": {
@@ -162,6 +173,7 @@ Subscriptions
 ::
 
     "SubscriptionEvaluatorOptions": {
+	    "Enabled": true,
         "RepeatPeriod": 20000,
         "SubscriptionBatchSize" : 1
     },
@@ -172,7 +184,7 @@ Getting conformance resources from Simplifier
 ---------------------------------------------
 ::
 
-    "ArtifactResolutionOptions": {
+    "ResourceLoaderOptions": {
         "Sets": [
         {
             "Uri": "FHIR endpoint for retrieving StructureDefinitions",
@@ -183,4 +195,4 @@ Getting conformance resources from Simplifier
         "BatchSize": 20
     }
 
-See :ref:`feature_artifactresolution`.
+See :ref:`conformance`.
