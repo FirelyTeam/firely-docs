@@ -18,7 +18,7 @@ In order to test the :ref:`feature_accesscontrol` you will need to :ref:`feature
 
    Binaries <../start>
    Docker <docker>
-   Deploy to a reverse proxy <reverseProxy/_reverseProxy>
+   reverseProxy/reverseProxy
    identityprovider
    accesscontrol_postman
 

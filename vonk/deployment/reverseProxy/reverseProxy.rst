@@ -1,11 +1,3 @@
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
-   :hidden:
-
-   IIS <iis>
-   Nginx <nginx>
-
 .. _deploy_reverseProxy:
 
 ==============================
