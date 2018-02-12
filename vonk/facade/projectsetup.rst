@@ -52,24 +52,28 @@ Vonk needs configuration settings, and maybe you do to. For ASP.NET Core project
    * Add the ``SupportedInteractions`` section. Look into :ref:`configure_appsettings` to check what this section should contain. 
      For now you only need ``"WholeSystemInteractions": "capabilities"``, but you may already add ``read`` and ``search`` also for convenience. 
 
+#. Open Program.cs
 
-#. Open Startup.cs
+   * Adjust the building of the WebHost to enable more detailed logging and reading the appsettings::
 
-   * Add a constructor and configure reading the appsettings::
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+             .ConfigureLogging((hostingContext, logging) =>
+             {
+                 logging.SetMinimumLevel(LogLevel.Trace);
+             })
+            .ConfigureAppConfiguration((hostContext, config) =>
+            {
+                var hostingEnv = hostContext.HostingEnvironment;
+                config.Sources.Clear(); // Clear default sources
 
-        private readonly IConfigurationRoot _configurationRoot;
-
-        public Startup(IHostingEnvironment env)
-        {
-            _configurationRoot = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile(path: "appsettings.json", reloadOnChange: true, optional: true)
-                .Build();
-        }
-
-   * In ConfigureServices, register the ``IConfigurationRoot`` instance for use by other services (especially for Vonk)::
-
-        services.AddSingleton(_configurationRoot);
+                config
+                    .SetBasePath(hostContext.HostingEnvironment.ContentRootPath)
+                    .AddJsonFile(path: "appsettings.json", reloadOnChange: true, optional: true)
+                    .AddJsonFile(path: "appsettings.instance.json", reloadOnChange: true, optional: true); //Load instance specific settings. This file is intentionally not included in the Git repository.
+            })
+            .UseStartup<Startup>()
+                .Build(); 
 
 Add Vonk Components
 -------------------

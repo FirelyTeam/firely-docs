@@ -108,3 +108,5 @@ The end?
 --------
 		
 This concludes the exercise. Please feel free to try out more options, and ask for help if you get stuck!
+
+The next topic will show you how to integrate :ref:`Access Control<feature_accesscontrol>`.
