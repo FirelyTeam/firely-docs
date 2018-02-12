@@ -3,7 +3,7 @@
 Add Access Control to your Facade
 =================================
 
-If you have completed the exercise from :ref:`facade_start`, you can choose to integrate :ref:`feature_accesscontrol`.
+If you have completed the exercise from :ref:`facadestart`, you can choose to integrate :ref:`feature_accesscontrol`.
 Please refer to that section to read how this Access Control mechanism works. You will use it as-is in your facade.
 
 Add the required package
