@@ -70,10 +70,13 @@ Current status
 --------------
 
 Currently we have implemented three different generic repository implementations and two different facades to existing systems. This has given us a fairly good idea of the strengths and weaknesses of this architecture and its interfaces.
-However, as we continue to expand on generic implementations (PostgreSQL, DocumentDB or MySQL are just some of the ideas) and guide more facade implementations we will further strengthen the interfaces and support methods.
-So they will still change over time. And we don't want to break your implementation on every update. Therefore the Vonk FHIR Components are not yet made publicly available on NuGet.
 
-If you want to use the Vonk FHIR Components or Facade already, please :ref:`contact <vonk-contact>` us. We can then provide you with the necessary NuGet packages along with personal guidance to help you succeed with your implementation.
+Based on that experience we released :ref:`Vonk FHIR Facade<facadestart>` in September 2017.
+
+However, as we continue to expand on generic implementations (PostgreSQL, CosmosDB or MySQL are just some of the ideas) and guide more facade implementations we will further strengthen the interfaces and support methods.
+So they will still change over time. Especially the interfaces for the generic implementations. And we don't want to break your implementation on every update. Therefore the Vonk FHIR Components are not yet made publicly available on NuGet.
+
+If you want to use the Vonk FHIR Components already, please :ref:`contact <vonk-contact>` us. We can then provide you with the necessary NuGet packages along with personal guidance to help you succeed with your implementation.
 Also, we can then make sure that your implementation gets updated upon changes to the architecture or the interfaces. 
 And we will learn from your requirements and adapt Vonk where needed.
 
