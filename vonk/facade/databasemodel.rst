@@ -31,10 +31,51 @@ The reverse engineer process created entity classes (Patient.cs & BloodPressure.
 
 The entity classes are simple C# objects that represent the data you will be querying and saving. Later on you will use these classes to define your queries on and to map the resources from.
 
+Clean up generated code
+-----------------------
+
 * To avoid naming confusion with the FHIR Resourcetype Patient, rename both files and classes:
 
   * Patient => ViSiPatient
   * BloodPressure => ViSiBloodPressure
+
+* The Scaffold command puts your connectionstring in the ViSiContext class. That is not very configurable.
+
+  * Add a setting to the appsettings.json file::
+
+        "DbOptions" : { "ConnectionString" : "<paste your connection string from the code here>" },
+
+  * Add an options class directly under the project root to interpret this::
+
+        public class DbOptions
+        {
+            public string ConnectionString { get; set; }
+        }
+
+  * Make sure the options are registered for use in ConfigureServices::
+
+        var sp = services.BuildServiceProvider();
+        services.Configure<DbOptions>(sp.GetRequiredService<IConfiguration>().GetSection(nameof(DbOptions)));
+
+    (In the example solution you can find this in ViSiConfiguration.AddViSiServices())
+
+  * Use the options in your ViSiContext class::
+
+        private readonly IOptions<DbOptions> _dbOptionsAccessor;
+
+        public ViSiContext(IOptions<DbOptions> dbOptionsAccessor)
+        {
+            _dbOptionsAccessor = dbOptionsAccessor;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(_dbOptionsAccessor.Value.ConnectionString);
+            }
+        }
+
 
 Create your first mapping
 -------------------------

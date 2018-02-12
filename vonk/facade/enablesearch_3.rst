@@ -31,7 +31,7 @@ So here we need to make Vonk load the ``_id`` SearchParameter on the ``Resource`
 #. Download the FHIR Definitions in `JSON <http://www.hl7.org/implement/standards/fhir/definitions.json.zip>`_ or `XML <http://www.hl7.org/implement/standards/fhir/definitions.xml.zip>`_ from the FHIR Specification website.
 #. Extract the Bundle with all SearchParameters (search-parameters.json/xml) from it.
 #. Open the Bundle and isolate the SearchParameter on Resource._id (it is close to the top of the file).
-#. Save this resource in a separate file in your project, under ``.\searchparameters\Resource-id.json`` (or xml).
+#. Save this resource in a separate file in your project, under ``.\metadata\Resource-id.json`` (or xml).
 #. Open your appsettings.json file.
 #. Add this section, in line with the settings described above::
 
@@ -39,7 +39,7 @@ So here we need to make Vonk load the ``_id`` SearchParameter on the ``Resource`
         "Enabled": true,
         "Sets": [
             {
-                "Path": "<your project path>/searchparameters", //TODO: Can be a path relative to the .csproj directory
+                "Path": "<your project path>/metadata", //TODO: Can be a path relative to the .csproj directory
                 "Source": "Directory"
             }
         ]
