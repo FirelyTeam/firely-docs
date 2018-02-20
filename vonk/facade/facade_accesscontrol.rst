@@ -39,8 +39,32 @@ In the ``Startup.Configure`` method you need to add the middleware that comes wi
          .UseSmartAuthorization()
          ...
 
+Add CompartmentDefinition(s) to your metadata
+---------------------------------------------
+
+A CompartmentDefinition defines a set of resources that are linked to a specific resource and the reference search parameters that link them together. You can find more information on Compartments and access control `here <http://docs.simplifier.net/vonk/features/accesscontrol.html#compartments>`__. 
+
+Add a folder in your working directory where you can place metadata files (if you didn't do this earlier). Add your CompartmentDefinition(s) to this folder. You can download a CompartmentDefinition for Patient `here <https://github.com/FirelyTeam/Vonk.Facade.Starter/tree/master/metadata>`__. Copy this file to your metadata directory.
+
 Add the relevant settings
 -------------------------
+
+Configure the MetadataImportOptions in the ``appsettings.json`` file:: 
+
+   "MetadataImportOptions": {
+      "Enabled": true,
+
+      "Sets": [
+        {
+          "Path": "",
+          "Source": "Api"
+        },
+        {
+          "Path": "C:\\Path\\To\\Metadata",
+          "Source": "Directory"
+        }
+      ]    
+   }
 
 Configure the SmartAuthorizationOptions in the ``appsettings.json`` file. The options are described in :ref:`feature_accesscontrol_config` of Access Control.
 
