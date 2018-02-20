@@ -42,7 +42,7 @@ In the ``Startup.Configure`` method you need to add the middleware that comes wi
 Add CompartmentDefinition(s) to your metadata
 ---------------------------------------------
 
-A CompartmentDefinition defines a set of resources that are linked to a specific resource and the reference search parameters that link them together. You can find more information on Compartments and access control in :ref:`compartment` of Access Control.
+A CompartmentDefinition defines a set of resources that are linked to a specific resource and the reference search parameters that link them together. You can find more information on Compartments and access control in :ref:`feature_accesscontrol_compartment` of Access Control.
 
 Add a folder in your working directory where you can place metadata files (if you didn't do this earlier). Add your CompartmentDefinition(s) to this folder. You can download a CompartmentDefinition for Patient `here <https://github.com/FirelyTeam/Vonk.Facade.Starter/tree/master/metadata>`__. Copy this file to your metadata directory.
 
