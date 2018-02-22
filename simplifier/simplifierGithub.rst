@@ -48,3 +48,28 @@ Examples:
    **!*.cs**
    
    **!FHIR/examples/***
+
+
+
+Gitwebhook per Branch
+---------------------
+For our Team and Enterprise account users, we added the ability to filter files that are synced from GitHub. We followed the .gitignore logic, but expanded it slightly to work from a include perspective as well. After you've set up a GitHub link, you can specify rules to include or exclude certain files or folders from your GitHub repository.
+
+  **# Include all files under examples folder**
+  **resources/examples/***
+
+  **# Include all files and folders under staging**
+  **project/staging/****
+
+  **# Include all xml files:**
+  ***.xml**
+
+  **# Exclude all json files under temp folder:**
+
+  **!temp/*.json**
+
+Note that if you only use exclude patterns (starting with a exclamation mark !), Simplifier will assume you want to include everything but those filters.
+
+You can use the same globbing patterns you are used to in a .gitignore file.
+
+
