@@ -71,4 +71,8 @@ Note that if you only use exclude patterns (starting with a exclamation mark !),
 
 You can use the same globbing patterns you are used to in a .gitignore file.
 
+GitHub multiple branch linking
+------------------------------
+We have created a way of allowing multiple branches from the same repository in GitHub to link to different projects in Simplifier. The GitHub API only allows one link per repository, so we created a multiplexer on our side to handle this.
+
 
