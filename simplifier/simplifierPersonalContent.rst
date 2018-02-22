@@ -38,3 +38,6 @@ Here you can edit your personal details, password and settings for mail updates.
 
 .. image:: ./images/AccountSettings.PNG
 
+Reaching out to other users
+"""""""""""""""""""""""""""
+Would you like to collaborate with other users or reach out to users to ask question about their profiles? You can now contact a user directly by having Simplifier send a mail to that user on your behalf. Just visit the Simplifier member's user page and click Contact User by Email. We will send your contact details along with a message so that the other user can respond to you directly by mail if they want to.
