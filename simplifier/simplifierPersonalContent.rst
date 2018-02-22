@@ -26,6 +26,10 @@ This page shows your user profile as visible to other Simplifier users. It shows
 
 .. image:: ./images/UserProfile.PNG 
 
+You can now add your usual social media handles, like Facebook, Twitter, LinkedIn etc. to your user profile. We provide this for users that want to have the option of having other users contact them about their work on Simplifier.
+
+You can add these in your account settings, and you can view this directly from your own profile page. Your profile page can be found in the User Menu of your Portal dropdown.
+
 Shares
 """"""
 Your Shares page shows a list of all your personal Shares. From here you can also make a new Share by clicking on the ``+New`` button on the right. The Share feature is explained in more detail in the chapter on Share.
