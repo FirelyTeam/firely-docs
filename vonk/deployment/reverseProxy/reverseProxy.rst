@@ -35,3 +35,11 @@ With Nginx
 
 A popular open source alternative is Nginx. For instruction on how to deploy Vonk on Nginx see :ref:`nginx`
 
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+   :hidden:
+
+   IIS <iis>
+   Nginx <nginx>
+
