@@ -8,6 +8,7 @@ Contents:
 
    forgeIntro
    forgeInstall
+   forgeLaunch
    forgeFeatures
    forgeFeaturesNewProfile
    forgeFeaturesEditProfile
