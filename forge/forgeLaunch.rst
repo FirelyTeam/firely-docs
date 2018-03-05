@@ -14,9 +14,6 @@ Command line
 You can also start Forge from the command line.
 This allows you to launch Forge programmatically, from other applications.
 
-The ClickOnce installer deploys the application to a personalized AppData subfolder that is hard to locate.
-However you can open the installation folder via the Forge Options menu, command "Open application folder".
-
 You can launch the application from code in different ways:
 
 - directly, via the main executable Forge.exe  
@@ -26,20 +23,20 @@ You can launch the application from code in different ways:
   
 - indirectly, via the start menu shortcut  
   You can also launch the start menu shortcut created by the ClickOnce installer from code.
-  The start menu shortcut is always created in a fixed location with the following path:
-  
+  The start menu shortcut is always created in a fixed location with the following path: ::
+
 	%APPDATA%\Microsoft\Windows\Start Menu\Programs\Firely\Firely FHIR Tools\Forge for HL7 FHIR STU3.appref-ms
 
   Alternatively, you can create or generate an ".appref-ms" shortcut in a well-known location.
-  The shortcut is a single-line text file with the following contents:
-  	
+  The shortcut is a single-line text file with the following contents: ::
+
 	http://downloads.simplifier.net/forge/stu3/Forge.application#Forge.application, Culture=neutral, PublicKeyToken=d35f0fdbb3d5e195, processorArchitecture=msil
-	
+
 Command line arguments
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The main Forge executable accepts command line arguments.
-You can specify one or more documents to open:
+You can specify one or more documents to open: ::
 
 	Forge.exe [filePath] [filePath] [...]
 
@@ -47,7 +44,7 @@ The specified arguments must be fully qualified absolute file paths.
 After startup, Forge will try to load all the specified files, if they exist.
 
 If you launch Forge indirectly via the ".appref-ms" shortcut, then you can also specify a single (!) command line argument.
-For example:
+For example: ::
 
 	"%APPDATA%\Microsoft\Windows\Start Menu\Programs\Firely\Firely FHIR Tools\Forge for HL7 FHIR STU3.appref-ms" "C:\Profiles\MyPatient.xml"
 
