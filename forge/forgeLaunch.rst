@@ -13,15 +13,14 @@ Command line
 
 You can also start Forge from the command line.
 This allows you to launch Forge programmatically, from other applications.
-
 You can launch the application from code in different ways:
 
-- directly, via the main executable Forge.exe  
+- directly, via the main executable Forge.exe 
   First, you need to determine the installation folder that contains the main executable "Forge.exe".
   Unfortunately, the ClickOnce installer deploys the application to a personalized AppData subfolder that is hard to find.
   However you can locate the installation folder via the Forge Options menu, command "Open application folder".
   
-- indirectly, via the start menu shortcut  
+- indirectly, via the start menu shortcut 
   You can also launch the start menu shortcut created by the ClickOnce installer from code.
   The start menu shortcut is always created in a fixed location with the following path: ::
 
