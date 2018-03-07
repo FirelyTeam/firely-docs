@@ -67,27 +67,27 @@ environment variables::
 
 	VONK_Validation:ValidateIncomingResources=true
 	VONK_Validation:AllowedProfiles:0=http://hl7.org/fhir/StructureDefinition/daf-patient
-	VONK_Validati0n:AllowedProfiles:1=http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance
+	VONK_Validation:AllowedProfiles:1=http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance
 
 
-.. .. _configure_envvar_log:
+.. _configure_envvar_log:
 
-.. Log settings with Environment Variables
-.. ---------------------------------------
+Log settings with Environment Variables
+---------------------------------------
 
-.. You can control the :ref:`configure_log` with Environment Variables the same way as the :ref:`configure_envvar_appsettings` above. 
-.. The difference is in the prefix. For the log settings we use 'VONKLOG\_'.
+You can control the :ref:`configure_log` with Environment Variables the same way as the :ref:`configure_envvar_appsettings` above. 
+The difference is in the prefix. For the log settings we use 'VONKLOG\_'.
 
-.. logsettings.json
+logsettings.json
 
-..    "Serilog": {
+   "Serilog": {
         "MinimumLevel": {
             "Override": {
                 "Vonk.Configuration": "Information",
 
-.. environment variable::
+environment variable::
 
-..    VONKLOG_Serilog:MinimumLevel:Override:Vonk.Configuration = Information
+   VONKLOG_Serilog:MinimumLevel:Override:Vonk.Configuration = Information
 
 .. _configure_envvar_windows:
 

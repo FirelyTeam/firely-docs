@@ -6,7 +6,9 @@ Log settings
 Vonk uses `Serilog <https://serilog.net/>`__ for logging. You can adjust the way Vonk logs its information by changing
 the settings in ``logsettings.json``. 
 
-.. Alternatively you can control :ref:`configure_envvar_log`.
+Alternatively you can control :ref:`configure_envvar_log`.
+
+.. _configure_log_level:
 
 Changing the log event level
 ----------------------------
@@ -64,6 +66,8 @@ But in this (purposefully incorrect) example the ``Warming`` level on the ``Vonk
 			"Vonk.Repository.Sql": "Information"
 		}
 	},
+
+.. _configure_log_sinks:
  
 Changing the sink
 -----------------
@@ -138,3 +142,43 @@ console, but all of them to the log file.
 				"Args": { "restrictedToMinimumLevel": "Warning" }
 			},
 		],
+
+.. _configure_log_database:
+
+Database details
+----------------
+Whether you use MongoDB or SQL Server, you can have Vonk log in detail what happens towards your database. Just set the appropriate loglevel to 'Verbose'::
+
+	"MinimumLevel": {
+		"Default": "Error",
+		"Override": {
+			"Vonk.Repository.Sql": "Verbose",
+			"Vonk.Repository.MongoDb": "Verbose",
+			"Vonk": "Warning"
+		}
+	},
+
+If you do so you probably don't want all this detail in your console sink, so you can limit the level for that, see `All sinks`_ above.
+
+.. _configure_log_insights:
+
+Azure Application Insights
+--------------------------
+Vonk can also log to Azure Application Insights. What you need to do:
+
+#. Create an Application Insights instance on Azure.
+#. Get the InstrumentationKey from the Properties blade of this instance.
+#. Add the correct sink to the logsettings.json::
+
+		"WriteTo": [
+			{
+				"Name": "ApplicationInsightsTraces",
+				"Args": {
+					"instrumentationKey": "<the key you copied in step 2>", 
+					"restrictedToMinimumLevel": "Verbose" //Or a higher level
+				}
+			},
+		],
+
+#. This also enables Dependency Tracking for access to your database. This works for both SQL Server and MongoDB. And for the log sent to `Seq`_ if you enabled that.
+#. If you set the level for Application Insights to ``Verbose``, and combine that with `Database details`_, you get all the database commands right into Application Insights.

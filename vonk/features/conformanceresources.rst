@@ -39,13 +39,17 @@ The :ref:`administration_api` has a FHIR interface included, on the ``https://[b
 * (NamingSystem will be added soon)
 * CompartmentDefinition
 
-Changes to SearchParameter resources should be followed by a :ref:`re-index <feature_customsp_reindex>`. 
+Creates or updates of SearchParameter resources should be followed by a :ref:`re-index <feature_customsp_reindex>`. 
+
+Before you delete a SearchParameter, be sure to remove it from the index first, see the ``exclude`` parameter in :ref:`re-index <feature_customsp_reindex>`.
 
 Changes to the other types of resources have immediate effect.
 
 If you are :ref:`not permitted <configure_administration_access>` to access the endpoint for the resource you want to manage (e.g. ``[base]/administration/StructureDefinition``), Vonk will return statuscode 403.
 
-.. attention:: Please be aware that StructureDefinitions have to have a unique canonical url, in their url element. If Vonk has access to two or more StructureDefinitions with the same canonical url, it is not defined which one will be used. Conditional create is unfortunately not yet available on the /administration endpoint, so you have to check for this case by searching first.
+.. attention:: 
+   Please be aware that Conformance Resources have to have a unique canonical url, in their url element. Vonk does not allow you to POST two conformance resources with the same canonical url.
+   For SearchParameter resources, the combination of base and code must be unique.
 
 .. note:: You can also do the same interactions on the same resourcetypes on the normal Vonk FHIR interface ``https://[base]``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Vonk operates.
 
@@ -110,7 +114,7 @@ This implies that you can check the CapabilityStatement to see whether a specifi
 Load Conformance Resources from simplifier.net at startup
 ---------------------------------------------------------
 
-You are encouraged to manage and publish your profiles and related Conformance Resources on `simplifier.net <https://simplifier.net>`_. If you do that, you can have Vonk read those. This is currently possible for the resourcetypes StructureDefition, ValueSet and CodeSystem. You configure this in the :ref:`configure_appsettings`::
+You are encouraged to manage and publish your profiles and related Conformance Resources on `simplifier.net <https://simplifier.net>`_. If you do that, you can have Vonk read those. This is currently possible for the resourcetypes StructureDefition, SearchParameter, CompartmentDefinition, ValueSet and CodeSystem. You configure this in the :ref:`configure_appsettings`::
 
   "ResourceLoaderOptions": {
     "Sets": [

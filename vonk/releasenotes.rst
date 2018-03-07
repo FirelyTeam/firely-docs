@@ -3,6 +3,40 @@
 Release notes Vonk
 ==================
 
+Release 0.6.2.0
+---------------
+
+.. attention::
+
+  The loading of appsettings is more flexible. After installing a new version you can simply paste your previous appsettings.json in the Vonk directory. Vonk's default settings are now in appsettings.default.json. see :ref:`configure_appsettings` for details.
+
+Database
+^^^^^^^^
+No changes
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+#. Feature: Conditional References in :ref:`Transactions <restful_transaction>` are resolved.
+#. Feature: More flexible support for different serializers (preparing for ndjson in Bulkdata)
+#. Feature: Improved handling on missing settings or errors in the :ref:`configure_appsettings`.
+#. Feature: Improved :ref:`logging <configure_log>`, including Dependency Tracking on Azure Application Insights, see :ref:`configure_log_insights`
+#. Feature: SearchParameter and CompartmentDefinition are now also imported from :ref:`Simplifier <conformance_fromsimplifier>`, so both Simplifier import and the :ref:`Administration API <conformance_administration_api>` support the same set of conformance resources: StructureDefinition, SearchParameter, CompartmentDefinition, ValueSet and CodeSystem. See :ref:`Conformance resources<conformance>`.
+#. Feature: Loading of appsettings is more flexible, see :ref:`configure_appsettings`.
+#. Feature: Added documentation on running Vonk behind IIS or NGINX: :ref:`deploy_reverseProxy`.
+#. Performance: Improvement in speed of validation, especially relevant if you are :ref:`feature_prevalidation`.
+#. Fix: If you try to load a SearchParameter (see :ref:`conformance_fromdisk`) that cannot be parsed correctly, Vonk puts an error about that in the log.
+#. Fix: Results from _include and _revinclude are now marked with searchmode: Include (was incorrectly set to 'Match' before)
+#. Fix: _format as one of the parameters in a POST Search is correctly evaluated.
+#. Fix: No more errors in the log about a Session being closed before the request has finished 
+   ("Error closing the session. System.OperationCanceledException: The operation was canceled.")
+#. Fix: Subscription.status is evaluated correctly upon create or update on the Administration API
+#. Fix: Token search with only a system is supported (``Observation.code=somesystem|``)
+#. Fix: On validation errors like 'Cannot resolve reference Organization/Organization-example26"' are now suppressed since the validator is set not to follow these references.
+#. Fix: New Firely logo in SVG format - looks better
+#. Fix: Creating resources with duplicate canonical url's on the Administration API is prohibited, see :ref:`conformance`.
+#. Fix: If a Compartment filter is used on a parameter that is not implemented, Vonk will return an error, see :ref:`feature_accesscontrol_compartment`.
+
 Release 0.6.1.0
 ---------------
 Name change from Furore to Firely
