@@ -57,7 +57,7 @@ So this will log events on ``Vonk.Repository.Sql`` on ``Information`` level::
 		}
 	},
 
-But in this (purposefully incorrect) example the ``Warming`` level on the ``Vonk`` namespace will override the ``Information`` level on the ``Vonk.Repository.Sql`` namespace::
+But in this (purposefully incorrect) example the ``Warning`` level on the ``Vonk`` namespace will override the ``Information`` level on the ``Vonk.Repository.Sql`` namespace::
 
 	"MinimumLevel": {
 		"Default": "Error",

@@ -16,7 +16,7 @@ Changes to the settings require a restart of Vonk.
 Hierarchy of settings
 ---------------------
 
-Vonk reads it's settings from these sources, in this order:
+Vonk reads its settings from these sources, in this order:
 
 :appsettings.default.json: Installed with Vonk, contains default settings and a template setting if no sensible default is available.
 :appsettings.json: You can create this one for your own settings. Because it is not part of the Vonk distribution, it will not be overwritten by a next Vonk version.
@@ -91,7 +91,7 @@ License
     "LicenseFile": "vonk-trial-license.json",
 
 
-The :ref:`getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\) as path separators.
+The :ref:`getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\\\) as path separators.
 
 Repository
 ----------

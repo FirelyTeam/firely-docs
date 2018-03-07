@@ -104,7 +104,7 @@ over later resources with the same canonical url.
 This means that if you want to override a search parameter from the specification with your own definition, you will
 need to put your own search parameter(s) higher in the list than the parameters from the specification.
 
-Note that in json you either use forward slashes (/) or double backward slashes (\\\\) as path separators.
+Note that in json you either use forward slashes (/) or double backward slashes (\\\\\\) as path separators.
 
 The SearchParameters that are loaded are automatically included in the CapabilityStatement in response to the :ref:`restful_capabilities` interaction.
 This implies that you can check the CapabilityStatement to see whether a specific SearchParameter was actually loaded.
