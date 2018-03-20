@@ -1,7 +1,7 @@
 Embedded Rendering
 ==================
 
-Simplifier enables rendering of profiles as a tree, UML or table. Users with an enterprise account can also embed rendering in their own website by using the following URL and copying it into their own code. Note that this only works for public projects that are created by a user with an enterprise account.
+Simplifier enables rendering of profiles as a tree, XML or table. Users with an enterprise account can also embed rendering in their own website by using the following URL and copying it into their own code. Note that this only works for public projects that are created by a user with an enterprise account.
 
 `https://www.simplifier.net/embed/render?id=[Name of your project]/[Name of your resource]`
 
