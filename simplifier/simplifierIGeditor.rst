@@ -50,7 +50,7 @@ CSS-editor
 ----------
 When you click on the icon on the left of the Settings icon in the IG-editor, the CSS-editor will be opened. 
 
-.. image:: ./images/IGeditor.PNG
+.. image:: ./images/CSSeditor.PNG
 
 With this editor you can edit your Style Sheet to make overall changes in the overall look and feel of your IG. For example, you may change the color of the navigation bar to blue or add your own logo to it. It is also possible to reset your changes by going back to the original CSS or download the original CSS as a seperate file, so you can compare the differences with your own code.
 
@@ -143,21 +143,21 @@ The IG editor has features which allow you to include Simplifier content in your
 These features work by using the statements written below in the editor. 
 After adding these statements in the editor refresh the page, by pressing Crtl + Enter or clicking the Refresh button, to make them visible in the preview section. 
 
-- {{tree:ProjectName/ResourceName}}		    - renders a tree structure as seen in the resource overview tab
-- {{table:ProjectName/ResourceName}}		- renders a table as seen in the resource table tab
-- {{structure:ProjectName/ResourceName}}	- renders the resource in a newly defined tree (unfinished)
-- {{link:ProjectName/ResourceName}}			- provides a link to the specific resource page on Simplifier
-- {{namingsystems:ProjectName}}				- lists all namespaces of a project in a table
+- ``{{tree:ProjectName/ResourceName}}``		    - renders a tree structure as seen in the resource overview tab
+- ``{{table:ProjectName/ResourceName}}``		- renders a table as seen in the resource table tab
+- ``{{structure:ProjectName/ResourceName}}``	- renders the resource in a newly defined tree (unfinished)
+- ``{{link:ProjectName/ResourceName}}``			- provides a link to the specific resource page on Simplifier
+- ``{{namingsystems:ProjectName}}``				- lists all namespaces of a project in a table
 
 The statement is made up of 2 parts: the kind of function and the location of the content in Simplifier. 
 The location is based on the name of the project and the name of the resource. 
 They can be found in the Simplifier URL after the hostname (``https://simplifier.net/``). 
-For example, if you want to include a profile on an Organization, as described at https://simplifier.net/DAF/daf-organization a correct statement would be {{tree:DAF/daf-organization}}. 
+For example, if you want to include a profile on an Organization, as described at https://simplifier.net/DAF/daf-organization a correct statement would be ``{{tree:DAF/daf-organization}}``. 
 
 The following statements add an index within the IG. 
 
-- {{index:root}}	- gives an index of the entire IG 
-- {{index:current}} - gives an index of the current selected element
+- ``{{index:root}}``	- gives an index of the entire IG 
+- ``{{index:current}}`` - gives an index of the current selected element
 
 IG Storage
 ----------
