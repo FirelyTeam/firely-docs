@@ -50,7 +50,7 @@ CSS-editor
 ----------
 When you click on the icon on the left of the Settings icon in the IG-editor, the CSS-editor will be opened. 
 
-.. image:: ./images/CSSeditor.PNG
+.. image:: ./images/CSSeditor.png
 
 With this editor you can edit your Style Sheet to make overall changes in the overall look and feel of your IG. For example, you may change the color of the navigation bar to blue or add your own logo to it. It is also possible to reset your changes by going back to the original CSS or download the original CSS as a seperate file, so you can compare the differences with your own code.
 
