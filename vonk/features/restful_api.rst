@@ -51,6 +51,8 @@ Chaining and reverse chaining is fully supported.
 
 Quantity search on UCUM quantities automatically converts units to a canonical form. This means you can have kg in an Observation and search by lbs, or vice versa.
 
+`Compartment Search <http://www.hl7.org/implement/standards/fhir/search.html#2.21.1.2>`_ is supported.
+
 .. _restful_search_limitations:
 
 Limitations on search
