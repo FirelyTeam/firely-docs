@@ -24,17 +24,17 @@ Deployment
 #. Go to Azure (https://portal.azure.com)  and create a web app:
 
    .. image:: ../images/Azure_01_CreateWebApp.PNG
-   :align: center
+      :align: center
 
 #. Choose a name for the webapp, here we chose vonkserver. Fill in an existing resource group or create a new one and select Windows for the operation system (OS):
 
    .. image:: ../images/Azure_02_ChooseName.PNG
-   :align: center
+      :align: center
 
 #. Go to the section Deployment credentials and create a new username and password:
 
    .. image:: ../images/Azure_03_Credentials.PNG
-   :align: center
+      :align: center
 
 #. Open Powershell Command window and type the following:
    ``az webapp deployment source config-zip --resource-group vonkserver --name vonkserver --src vonk_distribution.zip``
@@ -51,4 +51,4 @@ In this example Vonk is using a memory repository. If you want to change it to a
 with the settings for either :ref:`SQL Server<configure_sql>` or :ref:`MongoDB<configure_mongodb>`. For example for MongoDB it will look like this:
 
 .. image:: ../images/Azure_04_Settings.PNG
-  :align: center
+   :align: center
