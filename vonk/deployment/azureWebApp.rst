@@ -11,9 +11,9 @@ Getting started
 Before you can run Vonk, you will need to download the Vonk binaries and request a license:
 
 	1. Go to the Simplifier website, login and download the Vonk binaries from https://simplifier.net/vonk/download
-	2. Also download from the same location the license file.
+	2. Download the trial license file from the same location.
  
-Futhermore you need an Azure subscription and a FTP client.
+Futhermore you need an Azure subscription and an FTP client.
 
 Deployment
 ----------
@@ -33,13 +33,13 @@ Deployment
    .. image:: ../images/Azure_03_Credentials.PNG
       :align: center
 
-#. Open a webbrowser and navigate to https://<webapp>.scm.azurewebsites.net/ZipDeploy and drag vonk_distribution.zip in the browser. 
+#. Open a webbrowser, navigate to ``https://<webapp>.scm.azurewebsites.net/ZipDeploy`` and drag vonk_distribution.zip into the browser window. 
    This will install the Vonk server as a Web App in Azure.
-   In our example the url is https://vonkserver.scm.azurewebsites.net/ZipDeploy
-#. Open an FTP client and connect to the ftp server with the credentials you created in step 3. The address of the ftp server can be found on the property page of the Web app.
+   In our example the url is ``https://vonkserver.scm.azurewebsites.net/ZipDeploy``
+#. Open an FTP client and connect to the ftp server with the credentials you created in step 3. The address of the ftp server can be found as the 'FTP HOST NAME' on the Properties page of the Web app.
 #. Upload the license file (vonk-trial-license.json) to site/wwwroot. Close the ftp connection.
 #. Restart the Web App in Azure
-#. Open a browser and go to the site https://vonkserver.azurewebsites.net/ . This will show the Vonk home page.
+#. Open a browser and go to the site ``https://vonkserver.azurewebsites.net/`` . This will show the Vonk home page.
 
 Change database
 ---------------
