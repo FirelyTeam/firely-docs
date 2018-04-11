@@ -92,8 +92,6 @@ Features and fixes
 Documentation
 ^^^^^^^^^^^^^
 
-.. #. We added documentation on using IIS or NGINX as reverse proxies for Vonk.
-
 #. We consolidated documentation on loading conformance resources into :ref:`conformance`.
 
 Release 0.5.2.0
