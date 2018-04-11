@@ -13,8 +13,6 @@ Before you can run Vonk, you will need to download the Vonk binaries and request
 	1. Go to the Simplifier website, login and download the Vonk binaries from https://simplifier.net/vonk/download
 	2. Download the trial license file from the same location.
  
-Futhermore you need an Azure subscription and an FTP client.
-
 Deployment
 ----------
 
@@ -28,17 +26,11 @@ Deployment
    .. image:: ../images/Azure_02_ChooseName.PNG
       :align: center
 
-#. Go to the section Deployment credentials and create a new username and password:
-
-   .. image:: ../images/Azure_03_Credentials.PNG
-      :align: center
-
+#. Add the trial license file (vonk-trial-license.json) to the vonk_distribution.zip by dragging the license file into the zipfile.
 #. Open a webbrowser, navigate to ``https://<webapp>.scm.azurewebsites.net/ZipDeploy`` and drag vonk_distribution.zip into the browser window. 
    This will install the Vonk server as a Web App in Azure.
    In our example the url is ``https://vonkserver.scm.azurewebsites.net/ZipDeploy``
-#. Open an FTP client and connect to the ftp server with the credentials you created in step 3. The address of the ftp server can be found as the 'FTP HOST NAME' on the Properties page of the Web app.
-#. Upload the license file (vonk-trial-license.json) to site/wwwroot. Close the ftp connection.
-#. Restart the Web App in Azure
+   This method of deployment does not work in Internet Explorer. It does works in Firefox, Chrome and Edge.
 #. Open a browser and go to the site ``https://vonkserver.azurewebsites.net/`` . This will show the Vonk home page.
 
 Change database
@@ -49,3 +41,8 @@ with the settings for either :ref:`SQL Server<configure_sql>` or :ref:`MongoDB<c
 
 .. image:: ../images/Azure_04_Settings.PNG
    :align: center
+
+More information
+----------------
+About Azure zip deployment: https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip#deploy-zip-file
+
