@@ -2,6 +2,25 @@
 Release notes
 =============
 
+0.95.0 (DSTU2, STU3 and R4) (released 20170412)
+------------------
+- Added support for R4 (warning: early alpha - client connectivity and parsing/serialization only)
+- Added a SnapshotSource resource resolver that creates snapshots on the fly
+- Added functionality to quickly harvest metadata from conformance resouces on a file system
+
+- #423 Internal references within contained resources are not validated properly
+- #474 Validation fails when start date is 0001-01-01
+- #477 ZipSource is extracting the content in a temp directory without a discriminator for the spec version
+- #479 Use search using POST
+- #454 Invoking an operation using GET (i.e. $everything) does not work with primitive type as parameters. 
+- #494 Directory Source - single threaded by default
+- #461 Check support for both types of extensions for regexes on primitive values (tracker GF#12665)
+- #510 Missing diff annotation on ElementDefinition.TypeRefComponent
+- #536 FhirClient.Transaction() method incorrectly POSTs to FHIR Base URl with trailing slash
+- #544 Date.ToDateTime failed to convert "1976-12-12"
+- #557 workaround for slice validation when discriminator is missing in slice
+- #571 Serialize to XDocument and JObject directly
+
 0.94.0 (DSTU2 and STU3) (released 20171207)
 -------------------------------------------
 
