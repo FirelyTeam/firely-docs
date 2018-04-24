@@ -70,3 +70,49 @@ On the ``Log`` tab you will find event tracking of a project. This log keeps a l
 At the top of the screen you will find the Atom feed button. This allows you to subscribe to stay informed about any changes being made within your projects. To utilize this feature, navigate to a project on Simplifier.net that you are interested in following. Once there click on the “Subscribe” button in the upper right hand corner and copy the link into a feed reader of your choice. You are then ready to start receiving updates. 
 
 .. image does not exist anymore... image:: http://i1084.photobucket.com/albums/j404/askfj/c2818dc0-e545-4b80-9f44-47973f2ced94_zps0mgbkvyn.png
+
+Backup and Synchronization
+""""""""""""""""""""""""""
+The Simplifier team has a solid backup process. We have continuous backup by our cloud storage provider. In addition, we perform a weekly manual backup.
+Please note that this is for emergency situations, and you should not require to depend or rely on that from a user perspective.
+
+Many of our customers want to have a possibility to backup whatever content they have on Simplifier (or more generally in the cloud for that matter). Here are some ways to make sure your data is regularly backed up:
+
+FHIR endpoint
+-------------
+Each Simplifier project has a :ref:`FHIR endpoint<simpl_endpoint>`. With this, you can get a specific resource from your project using any FHIR client. You can also get all resources from a specific resource type.
+
+*Future plans:* |br|
+We have plans to implement the FHIR “global search” endpoint where you can get all resources from all types.
+
+
+Zip Endpoint
+------------
+Simplifier has a ZIP API for every project. You can use GET or PUT https://simplifier.net/yourproject/api/zip to retrieve or update your project in zipped form.
+
+Download
+--------
+You can always download the current versions of all resources, including or excluding texts and images.
+Filepaths are preserved from GitHub and the regular upload. Resources that are initially uploaded through the fhir endpoint will have a persistent filename, but no absolute path.
+
+Client tool
+-----------
+We can provide a client tool called Torinox that allows easy and automated synchronization and backup. Torinox uses the simplifier ZIP API and was built to assist CI/CD scenarios.
+
+All you need is this command line syntax: ``fhir sync <projectname> -down``
+
+Please :ref:`contact us<simpl_contact>` if you’re interested in this tool.
+
+
+Atom feed
+---------
+If you want to automate backup on any updated file, you can use the atom feed of the project log to trigger your client backup.
+
+Webhook
+-------
+This is not implemented yet, but will be put on our roadmap if there is enough demand.
+
+
+.. |br| raw:: html
+
+   <br />

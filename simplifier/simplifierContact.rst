@@ -1,3 +1,5 @@
+.. _simpl_contact:
+
 Contact
 ========
 
