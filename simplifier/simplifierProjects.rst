@@ -88,7 +88,7 @@ We have plans to implement the FHIR “global search” endpoint where you can g
 
 Zip Endpoint
 ------------
-Simplifier has a ZIP API for every project. You can use GET or PUT https://simplifier.net/yourproject/api/zip to retrieve or update your project in zipped form.
+Simplifier has a ZIP API for every project. With an HTTP tool you can use ``GET or PUT https://simplifier.net/yourproject/api/zip`` to retrieve or update your project in zipped form.
 
 Download
 --------
