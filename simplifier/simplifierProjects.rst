@@ -76,7 +76,7 @@ Backup and Synchronization
 The Simplifier team has a solid backup process. We have continuous backup by our cloud storage provider. In addition, we perform a weekly manual backup.
 Please note that this is for emergency situations, and you should not require to depend or rely on that from a user perspective.
 
-Many of our customers want to have a possibility to backup whatever content they have on Simplifier (or more generally in the cloud for that matter). Here are some ways to make sure your data is regularly backed up:
+Customers may want to have a possibility to backup whatever content they have on Simplifier (or more generally in the cloud for that matter). Here are some ways to make sure your data is regularly backed up:
 
 FHIR endpoint
 -------------
