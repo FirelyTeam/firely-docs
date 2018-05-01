@@ -3,14 +3,20 @@
 Release notes Vonk
 ==================
 
-Release 0.6.3.0
+Release 0.6.4.0
 ---------------
 
 Database
 ^^^^^^^^
 
-#. A unique index is added to the Administration Database on SQL Server. :ref:`AutoUpdateDatabase <configure_sql>` will take care of this.
 #. Fix #8 below requires a :ref:`reindex/all <feature_customsp_reindex>`.
+
+Facade
+^^^^^^
+
+#. Release 0.6.4.0 is not released on NuGet, so the latest NuGet packages have version 0.6.2-beta. 
+   This release is targeted towards the Administration API and :ref:`feature_terminology`, both of which are not (yet) available in Facade implementations.
+   We are working on making the features of the Administration API available to Facade implementers in an easy way. 
 
 Features and fixes
 ^^^^^^^^^^^^^^^^^^
@@ -29,6 +35,7 @@ Features and fixes
 
    Refer to :ref:`conformance` for details.
 
+#. Feature: Experimental support for :ref:`feature_terminology` operations $validate-code, $expand, $lookup, $compose.
 #. Feature: Support for `Compartment Search <http://www.hl7.org/implement/standards/fhir/search.html#2.21.1.2>`_.
 #. Feature: Track timing of major dependencies in :ref:`Azure Application Insights <configure_log_insights>`.
 #. Feature: :ref:`configure_log` can be overridden in 4 levels, just as the appsettings. The logsettings.json file will not be overwritten anymore by a Vonk distribution.

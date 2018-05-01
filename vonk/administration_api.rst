@@ -18,6 +18,7 @@ The following functions are available in the Administration API.
 * :ref:`feature_customsp_reindex`
 * :ref:`feature_resetdb`
 * :ref:`feature_preload`
+* :ref:`feature_terminology`
 
 Configuration
 -------------
