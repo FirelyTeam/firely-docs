@@ -111,12 +111,27 @@ You are encouraged to manage and publish your profiles and related Conformance R
     ],
   }
 
-:Uri: must point to a Simplifier project endpoint
+:Uri: must point to a Simplifier project endpoint, see below on how to get this
 :UserName: your username, if you access a private Simplifier project
 :Password: password with the username
 :BatchSize: you normally don't need to change this parameter
 
 You can load from multiple Simplifier projects by adding them to the list.
+
+Get a FHIR endpoint for a Simplifier project
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Open the project of your choice on https://simplifier.net. There are two limitations:
+
+1. You must have access to the project (so either public or private but accessible to you)
+2. The project must be STU3
+
+Then on the overview page of the project click 'Endpoint' and copy the value you see there:
+
+   .. image:: ../images/simplifier-vonk-endpoint.png
+      :align: center   
+
+By default the endpoint is ``https://stu3.simplifier.net/<projectname>``
 
 .. _conformance_on_demand:
 
