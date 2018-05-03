@@ -12,7 +12,7 @@ Therefore we strongly advise you to uninstall the earlier DSTU-2 alpha release m
 
 Running on Linux
 ~~~~~~~~~~~~~~~~
-Though .NET Core is available natively on Linux, the GUI framework, `WPF <https://en.wikipedia.org/wiki/Windows_Presentation_Foundation>`_ is unfortunately not. However, it is possible to run Forge on Linux using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on Linux, here are the steps to get you started:
+Forge is written in .NET, and though .NET Core is available natively on Linux, the GUI framework, `WPF <https://en.wikipedia.org/wiki/Windows_Presentation_Foundation>`_ is unfortunately not. However, it is possible to run Forge on Linux using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on Linux, here are the steps to get you started:
 
 #. Install Wine 2.4 (later versions have issues running .NET). If you're using Ubuntu, copy/paste the following into the terminal: ::
 
@@ -49,7 +49,7 @@ Forge will install and launch. To run Forge again the next time, repeat the comm
 
 Running on macOS
 ~~~~~~~~~~~~~~~~
-Though .NET Core is available natively on macOS, the GUI framework, `WPF <https://en.wikipedia.org/wiki/Windows_Presentation_Foundation>`_ is unfortunately not. However, it is possible to run Forge on macOS using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on macOS, here are the steps to get you started:
+Forge is written in .NET, and though .NET Core is available natively on macOS, the GUI framework, `WPF <https://en.wikipedia.org/wiki/Windows_Presentation_Foundation>`_ is unfortunately not. However, it is possible to run Forge on macOS using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on macOS, here are the steps to get you started:
 
 #. Install XCode from the App Store.
 
