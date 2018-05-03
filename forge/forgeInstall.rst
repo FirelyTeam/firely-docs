@@ -53,9 +53,7 @@ Forge is written in .NET, and though .NET Core is available natively on macOS, t
 
 #. Install XCode from the App Store.
 
-#. Open the terminal: ::
-
-	Open Launchpad, then type “Terminal” into the search field.
+#. Open the terminal (you can do so via Launchpad)
 
 #. Install Homebrew by copy/pasting the following into the Terminal: ::
 
@@ -71,7 +69,7 @@ Forge is written in .NET, and though .NET Core is available natively on macOS, t
 	brew install wine
 	brew install cabextract
 
-#. Setup Wine to run .NET 4.6 applications, which is what Forge is built with: ::
+#. Setup Wine to run .NET 4.6 applications, which is what Forge is built with. This may take some time: ::
 
 	curl -O https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 	chmod +x winetricks
