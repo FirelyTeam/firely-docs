@@ -9,7 +9,7 @@ Release 0.6.4.0
 Database
 ^^^^^^^^
 
-#. Fix #8 below requires a :ref:`reindex/all <feature_customsp_reindex>`.
+#. Fix #9 below requires a :ref:`reindex/all <feature_customsp_reindex>`.
 
 Facade
 ^^^^^^
