@@ -59,10 +59,6 @@ Forge is written in .NET, and though .NET Core is available natively on macOS, t
 
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-#. Install ``XQuartz``. This is a prerequisite for Wine. This may take some time: ::
-
-	brew doctor
-	brew cask install xquartz
 
 #. Install ``Wine`` itself. This may take some time: ::
 
