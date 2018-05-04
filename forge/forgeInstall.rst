@@ -51,20 +51,20 @@ Running on macOS
 ~~~~~~~~~~~~~~~~
 Forge is written in .NET, and though .NET Core is available natively on macOS, the GUI framework, `WPF <https://en.wikipedia.org/wiki/Windows_Presentation_Foundation>`_ is unfortunately not. However, it is possible to run Forge on macOS using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on macOS, here are the steps to get you started:
 
-#. Install XCode from the App Store.
+#. Install ``XCode`` from the App Store.
 
-#. Open the terminal (you can do so via Launchpad)
+#. Open the ``Terminal`` (you can do so via Launchpad)
 
-#. Install Homebrew by copy/pasting the following into the Terminal: ::
+#. Install ``Homebrew`` by copy/pasting the following into the Terminal: ::
 
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-#. Install XQuartz. This is a prerequisite for Wine. This may take some time: ::
+#. Install ``XQuartz``. This is a prerequisite for Wine. This may take some time: ::
 
 	brew doctor
 	brew cask install xquartz
 
-#. Install Wine itself. This may take some time: ::
+#. Install ``Wine`` itself. This may take some time: ::
 
 	brew install wine
 	brew install cabextract
@@ -75,11 +75,21 @@ Forge is written in .NET, and though .NET Core is available natively on macOS, t
 	chmod +x winetricks
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 ./winetricks -q dotnet46
 	
-#. Download `setup.exe` from the `Forge download page <https://simplifier.net/forge/download>`_ and run it: ::
+#. Set a registry key to fix the rendering: ::
+
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine REG ADD HKCU\\SOFTWARE\\Microsoft\\Avalon.Graphics /v DisableHWAcceleration /t REG_DWORD /d 1
+	
+#. Improve font rendering. First, run the following: ::
+
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winecfg
+	
+#. Then in the ``Wine configuration`` window, go to the ``Graphics`` tab and set the ``Screen resolution`` to ``150`` dpi.
+	
+#. Download ``setup.exe`` from the `Forge download page <https://simplifier.net/forge/download>`_ and run it: ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine $HOME/Downloads/setup.exe
 	
-That's all - Forge will now install and run, should it all went successfully.
+That's all - Forge will now install and run.
 
 To run Forge again in the future, run the following in the terminal: ::
 
