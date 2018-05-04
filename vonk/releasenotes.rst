@@ -21,6 +21,58 @@ Security warnings
    This version changes the way conformance resources are loaded from zip files and/or directories at startup. They are no longer loaded only in memory, but are added to the Administration API's database.
    You will notice a delay at first startup, when Vonk is loading these resources into the database. See Feature #1 below.
 
+Release 0.6.4.0
+---------------
+
+Database
+^^^^^^^^
+
+#. Fix #9 below requires a :ref:`reindex/all <feature_customsp_reindex>`.
+
+Facade
+^^^^^^
+
+#. Release 0.6.4.0 is not released on NuGet, so the latest NuGet packages have version 0.6.2-beta. 
+   This release is targeted towards the Administration API and :ref:`feature_terminology`, both of which are not (yet) available in Facade implementations.
+   We are working on making the features of the Administration API available to Facade implementers in an easy way. 
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+#. Feature: Make all loaded conformance resources available through the Administration API. 
+   
+   Previously:
+
+   * Only SearchParameter and CompartmentDefinition resources could be loaded from ZIP files and directories;
+   * And those could not be read from the Administration API.
+   
+   Now:
+
+   * The same set of (conformance) resourcetypes can be read from all sources (ZIP, directory, Simplifier);
+   * They are all loaded into the Administration database and can be read and updated through the Administration API.
+
+   Refer to :ref:`conformance` for details.
+
+#. Feature: Experimental support for :ref:`feature_terminology` operations $validate-code, $expand, $lookup, $compose.
+#. Feature: Support for `Compartment Search <http://www.hl7.org/implement/standards/fhir/search.html#2.21.1.2>`_.
+#. Feature: Track timing of major dependencies in :ref:`Azure Application Insights <configure_log_insights>`.
+#. Feature: :ref:`configure_log` can be overridden in 4 levels, just as the appsettings. The logsettings.json file will not be overwritten anymore by a Vonk distribution.
+#. Fix: The check for :ref:`allowed profiles <feature_prevalidation>` is no longer applied to the Administration API. Previously setting AllowedProfiles to e.g. [http://mycompany.org/fhir/StructureDefinition/mycompany-patient] would prohibit you to actually create or update the related StructureDefinition in the Administration API.
+#. Fix: When posting any other resourcetype than the supported conformance resources to the Administration API, Vonk now returns a 501 (Not Implemented).
+#. Fix: Support search on Token with only a system (e.g. ``<base>/Observation?code=http://loinc.org|``)
+#. Fix: Support search on Token with a fixed system, e.g. ``<base>/Patient?gender=http://hl7.org/fhir/codesystem-administrative-gender.html|female``. This fix requires a :ref:`reindex/all <feature_customsp_reindex>`.
+#. Fix: Reindex could fail when a Reference Searchparameter has no targets.
+#. Fix: Vonk works as Data Server on `ClinFHIR <http://clinfhir.com>`_, with help of David Hay.
+#. Fix: Clearer error messages in the log on configuration errors.
+#. Fix: Loading conformance resources from disk in Docker.
+
+Documentation
+^^^^^^^^^^^^^
+
+#. We added documentation on :ref:`using IIS or NGINX as reverse proxies <deploy_reverseProxy>` for Vonk.
+#. We added documentation on running Vonk on Azure Web App Services.
+
+
 Release 0.6.2.0
 ---------------
 

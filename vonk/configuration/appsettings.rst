@@ -190,20 +190,20 @@ SearchParameters and other Conformance Resources
 ------------------------------------------------
 ::
 
-    "MetadataImportOptions": {
-        "Enabled": true,
-        "Sets": [
+    "AdministrationImportOptions": {
+        "ImportDirectory": "./vonk-import",
+        "ImportedDirectory": "./vonk-imported", //Do not place ImportedDirectory *under* ImportDirectory, since an import will recursively read all subdirectories.
+        "SimplifierProjects": [
           {
-              "Path": "",
-              "Source": "Api"
+            "Uri": "https://stu3.simplifier.net/<your-project>",
+            "UserName": "Simplifier user name",
+            "Password": "Password for the above user name",
+            "BatchSize": 20
           }
         ]
-    },
-    "ReindexOptions": {
-        "BatchSize": 100
-    },
+    }
 
-See :ref:`feature_customsp` and :ref:`conformance`.
+See :ref:`conformance` and :ref:`feature_customsp`.
 
 .. _disable_interactions:
 
