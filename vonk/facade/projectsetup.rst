@@ -51,7 +51,6 @@ Vonk needs configuration settings, and maybe you do to. For ASP.NET Core project
    * Add the reference to your license file: ``"LicenseFile": "c:/vonk/vonk-trial-license"``
    * Add the ``SupportedInteractions`` section. Look into :ref:`configure_appsettings` to check what this section should contain. 
      For now you only need ``"WholeSystemInteractions": "capabilities"``, but you may already add ``read`` and ``search`` also for convenience. 
-
 #. Open Program.cs
 
    * Adjust the building of the WebHost to enable more detailed logging and reading the appsettings::
@@ -111,7 +110,7 @@ Now you can run the project again, it should start without errors, and the log s
 .. image:: ./images/FirstVonkRun_Log.PNG
             :align: center
 
-To test if the server is running correctly, open Postman, or Fiddler, or use curl to request ``http://localhost:50175/metadata``
+To test if the server is running correctly, open Postman, or Fiddler, or use curl to request ``http://localhost:5017/metadata``
 
 If you get a CapabilityStatement as a result, you now officially have a FHIR Server running!
 
