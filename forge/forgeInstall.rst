@@ -51,7 +51,7 @@ Running on macOS
 ~~~~~~~~~~~~~~~~
 Forge is written in .NET, and though .NET Core is available natively on macOS, the GUI framework, `WPF <https://en.wikipedia.org/wiki/Windows_Presentation_Foundation>`_ is unfortunately not. However, it is possible to run Forge on macOS using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on macOS, here are the steps to get you started:
 
-#. Install ``XCode`` from the App Store.
+#. Install ``Xcode`` from the App Store.
 
 #. Open the ``Terminal`` (you can do so via Launchpad)
 
@@ -59,21 +59,13 @@ Forge is written in .NET, and though .NET Core is available natively on macOS, t
 
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-
 #. Install ``Wine`` itself. This may take some time: ::
 
-	brew install wine
-	brew install cabextract
+	brew install wine cabextract winetricks
 
 #. Setup Wine to run .NET 4.6 applications, which is what Forge is built with. This may take some time: ::
 
-	curl -O https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-	chmod +x winetricks
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 ./winetricks -q dotnet46
-	
-#. Set a registry key to fix the rendering: ::
-
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine REG ADD HKCU\\SOFTWARE\\Microsoft\\Avalon.Graphics /v DisableHWAcceleration /t REG_DWORD /d 1
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet46
 	
 #. Improve font rendering. First, run the following: ::
 
@@ -87,7 +79,6 @@ Forge is written in .NET, and though .NET Core is available natively on macOS, t
 	
 That's all - Forge will now install and run.
 
-To run Forge again in the future, run the following in the terminal: ::
+To run Forge again in the future, rerun the last command in the terminal: ::
 
-	test "$?BASH_VERSION" = "0" || eval 'setenv() { export "$1=$2"; }';                setenv PATH "/Applications/Wine Stable.app/Contents/Resources/start/bin:/Applications/Wine Stable.app/Contents/Resources/wine/bin:$PATH"; winehelp --clear
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine $HOME/Downloads/setup.exe
