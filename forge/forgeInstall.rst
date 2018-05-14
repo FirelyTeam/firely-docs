@@ -34,17 +34,17 @@ Forge is written in .NET, and though .NET Core is available natively on Linux, t
 
 #. Install .NET 4.6. Answer `yes` to installing `Gecko` and `no` to Mono: ::
 
-	WINEPREFIX="$HOME/.forge7" WINEARCH=win32 winetricks -q dotnet46
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet46
 
 #. Download `Forge <https://simplifier.net/forge/download>`_.
 
 #. Run Forge with: ::
 
-	WINEPREFIX="$HOME/.forge7" WINEARCH=win32 wine setup.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
 
 Forge will install and launch. To run Forge again the next time, repeat the command: ::
 
-	WINEPREFIX="$HOME/.forge7" WINEARCH=win32 wine setup.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
 
 
 Running on macOS
