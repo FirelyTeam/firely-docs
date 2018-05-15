@@ -77,8 +77,6 @@ Forge is written in .NET, and though .NET Core is available natively on macOS, t
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine $HOME/Downloads/setup.exe
 	
-#. Then in the ``Wine configuration`` window, go to the ``Graphics`` tab and set the ``Screen resolution`` to ``150`` dpi.
-
 That's all! To run Forge again in the future, rerun the last command in the terminal: ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine $HOME/Downloads/setup.exe
