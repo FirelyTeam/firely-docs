@@ -45,7 +45,7 @@ These interfaces enable you to implement a Vonk FHIR Facade. And they enable us 
 Search
 ^^^^^^
 
-The `FHIR RESTful Search`_ is the most complicated part of the `FHIR RESTful API`_. Vonk is capable of interpreting the search and translating it to small query-bits irrespective of the actual repository implementation.
+The `FHIR RESTful Search`_ is the most complex part of the `FHIR RESTful API`_. Vonk is capable of interpreting the search and translating it to small query-bits irrespective of the actual repository implementation.
 When implementing the ``ISearchRepository`` you get full control over which parameters you support and how you support them. 
 On the method ``ISearchRepository.Search()``, you just get the list of arguments that make up the search, as an ``IArgumentCollection``. If you decide to act on these raw arguments directly, you can.
 But if you want Vonk to interpret the search, you can use the ``QueryBuilderContext.CreateQuery`` method that will decompose the IArgumentCollection, interpret and validate every argument in it and then call into the 
