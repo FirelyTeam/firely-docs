@@ -104,7 +104,7 @@ You can control the way Access Control based on SMART on FHIR behaves with the S
       }
     }
 
-* Enabled: With this setting you can disable ('false') the authentication and authorization altogether. When it is enabled ('true'), Vonk will also evaluate the other settings. The default value is 'false'. This implies that authorization is disabled if no SmartAuthorizationOptions section is in the settings.
+* Enabled: With this setting you can disable ('false') the authentication and authorization altogether. When it is enabled ('true'), Vonk will also evaluate the other settings. The default value is 'false'. This implies that authorization is disabled as if no SmartAuthorizationOptions section is present in the settings.
 * Filters: Defines how different launch contexts are translated to search arguments. See :ref:`feature_accesscontrol_compartment` for more background.
 
     * FilterType: Both a launch context and a CompartmentDefinition are defined by a resourcetype. Use FilterType to define for which launch context and related CompartmentDefinition this Filter is applicable.
