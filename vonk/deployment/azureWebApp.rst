@@ -18,12 +18,12 @@ Deployment
 
 #. Go to Azure (https://portal.azure.com)  and create a web app:
 
-   .. image:: ../images/Azure_01_CreateWebApp.PNG
+   .. image:: ../images/Azure_01_CreateWebApp.png
       :align: center
 
 #. Choose a name for the webapp, here we chose vonkserver. Fill in an existing resource group or create a new one and select Windows for the operation system (OS):
 
-   .. image:: ../images/Azure_02_ChooseName.PNG
+   .. image:: ../images/Azure_02_ChooseName.png
       :align: center
 
 #. Add the trial license file (vonk-trial-license.json) to the vonk_distribution.zip by dragging the license file into the zipfile.
@@ -39,7 +39,7 @@ Change database
 In this example Vonk is using a memory repository. If you want to change it to another kind of repository then you could change that on the page Application Settings of the Web App. Here you can set :ref:`Environment Variables<configure_envvar>` 
 with the settings for either :ref:`SQL Server<configure_sql>` or :ref:`MongoDB<configure_mongodb>`. For example for MongoDB it will look like this:
 
-.. image:: ../images/Azure_04_Settings.PNG
+.. image:: ../images/Azure_04_Settings.png
    :align: center
 
 More information
