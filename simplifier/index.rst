@@ -1,7 +1,7 @@
 
-==========================================
+======================================
 Welcome to Simplifier's documentation!
-==========================================
+======================================
 
 Contents:
 
@@ -22,6 +22,7 @@ Contents:
    simplifierConnectors
    simplifierWriteConnector
    simplifierMetadataExpressions
+   simplifierVonk
    FHIRRegistry
    simplifierPricing
    simplifierContact

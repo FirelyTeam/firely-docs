@@ -43,7 +43,7 @@ Facade
 Features and fixes
 ^^^^^^^^^^^^^^^^^^
 
-#. Feature: Run Vonk from you Simplifier project! 
+#. Feature: Run Vonk from you Simplifier project! See :ref:`simplifier_vonk` for details.
 #. Feature: Vonk supports Microsoft Azure CosmosDB, see :ref:`configure_cosmosdb`.
             This required a few small changes to the MongoDB implementation (the share the drivers), so please reindex your MongoDB database: :ref:`reindex/all <feature_customsp_reindex>`.
 #. Feature: Configuration to restrict support for ResourceTypes, SearchParameters and CompartmentDefinitions, see :ref:`supportedmodel`.
