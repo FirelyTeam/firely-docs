@@ -41,6 +41,7 @@ This works the same as with the normal Vonk database, except that you:
 E.g.::
 
    "Administration": {
+	   "Repository": "MongoDB",
        "MongoDbOptions": {
            "ConnectionString": "mongodb://localhost/vonkstu3",
            "EntryCollection": "vonkadmin",

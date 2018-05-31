@@ -49,6 +49,7 @@ The process uses these locations on disk:
 The process follows these steps:
 
 #. Load the :ref:`conformance_specification_zip`, if they have not been loaded before.
+#. Load the :ref:`feature_errata`, if they have not been loaded before.
 #. :ref:`conformance_fromdisk`. After reading, the read files are appended with a timestamp and moved to the ImportedDirectory, and registered in the read history.
 #. :ref:`conformance_fromsimplifier`. After reading the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
 

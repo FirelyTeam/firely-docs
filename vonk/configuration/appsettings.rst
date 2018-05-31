@@ -41,7 +41,7 @@ If you install the binaries of an updated version of Vonk, you can:
 * copy the new binaries over the old ones, or
 * deploy the new version to a new directory and copy the appsettings.json over from the old version.
 
-In both cases, check the :ref:`releasenotes` to see if settings have changed, or new settings have been introduced.
+In both cases, check the :ref:`vonk_releasenotes` to see if settings have changed, or new settings have been introduced.
 If you want to adjust a changed / new setting, copy the relevant section from appsettings.default.json to your own appsettings.json and then adjust it.
 
 Commenting out sections
@@ -204,6 +204,26 @@ SearchParameters and other Conformance Resources
     }
 
 See :ref:`conformance` and :ref:`feature_customsp`.
+
+.. _supportedmodel:
+
+Restrict supported resources and SearchParameters
+-------------------------------------------------
+::
+
+   "SupportedModel": {
+     "RestrictToResources": [ "Patient", "Observation" ]
+     "RestrictToSearchParameters": ["Patient.active", "Observation.patient"]
+     "RestrictToCompartments": ["Patient"]
+   },
+
+By default, Vonk supports all ResourceTypes, SearchParameters and CompartmentDefinitions from the specification. They are loaded from the :ref:`specification.zip <conformance_specification_zip>`.
+If you want to limit support, you can do so with the configuration above. This is primarily targeted towards Facade builders, because they have to provide an implementation for everything that is supported. 
+
+Be aware that:
+
+* support for _type and _id cannot be disabled
+* the Administration API requires support for the 'url' SearchParameter on the conformance resourcetypes
 
 .. _disable_interactions:
 

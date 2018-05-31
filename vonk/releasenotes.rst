@@ -1,4 +1,4 @@
-.. _releasenotes:
+.. _vonk_releasenotes:
 
 Release notes Vonk
 ==================
@@ -20,6 +20,51 @@ Security warnings
 
    This version changes the way conformance resources are loaded from zip files and/or directories at startup. They are no longer loaded only in memory, but are added to the Administration API's database.
    You will notice a delay at first startup, when Vonk is loading these resources into the database. See Feature #1 below.
+
+.. _vonk_releasenotes_0650:
+
+Release 0.6.5.0
+---------------
+
+Database
+^^^^^^^^
+
+#. Feature 2 below requires a :ref:`reindex/all <feature_customsp_reindex>` if you run on MongoDB.
+#. Fix 14 requires a :ref:`reindex/searchparameters <feature_customsp_reindex>`, both on SQL Server and on MongoDB, but:
+   
+   * only if you were affected by this error
+   * just for the searchparameter Observation.combo-value-quantity
+
+Facade
+^^^^^^
+
+#. Release 0.6.5.0 is not released on NuGet, so the latest NuGet packages have version 0.6.2-beta. Keep an eye on it for the next release...
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+#. Feature: Run Vonk from you Simplifier project! 
+#. Feature: Vonk supports Microsoft Azure CosmosDB, see :ref:`configure_cosmosdb`.
+            This required a few small changes to the MongoDB implementation (the share the drivers), so please reindex your MongoDB database: :ref:`reindex/all <feature_customsp_reindex>`.
+#. Feature: Configuration to restrict support for ResourceTypes, SearchParameters and CompartmentDefinitions, see :ref:`supportedmodel`.
+#. Feature: Errata.zip: collection of corrected search parameters (e.g. that had a faulty expression in the FHIR Core specification), see :ref:`feature_errata`
+#. Upgrade: FHIR .NET API 0.95.0 (see :ref:`api_releasenotes_0950`)
+#. Fix: a search on _id:missing=true was not processed correctly.
+#. Fix: better distinction of reasons to reject updates (error codes 400 vs. 422, see `RESTful API specification <http://hl7.org/fhir/http.html#2.21.0.10.1>`_
+#. Fix: recognize _format=text/xml and return xml (instead of the default json)
+#. Fix: handling of the :not modifier in token searches (include resource that don't have a value at all).
+#. Fix: handling of the :not modifier in searches with choice arguments
+#. Fix: fullUrl in return bundles cannot be version specific.
+#. Fix: evaluate _count=0 correctly (it was ignored).
+#. Fix: correct error message on an invalid _include (now Vonk tells you which resourcetypes are considered for evaluating the used searchparameter).
+#. Fix: indexing of Observation.combo-value-quantity failed for UCUM code for Celcius. This fix requires a :ref:`reindex/all <feature_customsp_reindex>` on this searchparameter.
+#. Fix: total count in history bundle.
+#. Fix: on vonk.fire.ly we disabled validating all input, so you can now create or update resources also if the relevant profiles are not loaded 
+        (this was neccessary for Crucible, since it references US Core profiles, that are not present by default).
+#. Fix: timeout of Azure Web App on first startup of Vonk - Vonk's first startup takes some time due to import of the specification (see :ref:`conformance_specification_zip`). 
+        Since Azure Web Apps are allowed a startup time of about 3 minutes, it failed if the web app was on a low level service plan.
+        Vonk will now no longer await this import. It will finish startup quickly, but until the import is finished it will return a 423 'Locked' upon every request.
+#. Fix: improved logging on the import of conformance resources at startup (see :ref:`conformance_import`).
 
 Release 0.6.4.0
 ---------------

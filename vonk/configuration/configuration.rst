@@ -26,6 +26,7 @@ If you want to change the way Vonk logs its information, you can adjust the :ref
    db_memory
    db_mongo
    db_sql
+   db_cosmosdb
    hosting
    logsettings
 

@@ -1,9 +1,13 @@
+.. _api_releasenotes:
+
 =============
 Release notes
 =============
 
+.. _api_releasenotes_0950:
+
 0.95.0 (DSTU2, STU3 and R4) (released 20170412)
-------------------
+-----------------------------------------------
 - Added support for R4 (warning: early alpha - client connectivity and parsing/serialization only)
 - Added a SnapshotSource resource resolver that creates snapshots on the fly
 - Added functionality to quickly harvest metadata from conformance resouces on a file system
