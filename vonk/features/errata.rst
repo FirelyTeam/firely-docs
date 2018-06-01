@@ -11,4 +11,20 @@ This file is imported automatically during startup, as are other conformance res
 
 Currently the errata.zip file contains the following corrections:
 
-#. 
+clinical-patient
+	This parameter incorrectly specified that both Patient and Group were target resource types for the patient search parameter. |br|
+	For DeviceUseStatement-patient this was correct, so we created a separate file for this parameter, still listing the Group as a valid target type.
+
+search parameters with FhirPath expression .as(DateTime)
+	Several search parameters had an incorrect FhirPath expression using .as(DateTime) instead of .as(dateTime). As a result, Vonk 
+	could not index the fields correctly and searches on the dates would not work. The search parameters that were corrected are:
+	clinical-date, DeviceRequest-event-date, Observation-code-value-date, Observation-value-date and patient-death-date.
+
+Resource-[x]
+	The FhirPath library did not support polymorphism yet, so all the search parameters defined with an expression of Resource.[x] -- for example
+	Resource.meta.lastUpdated -- did not work correctly. We have changed the expression to just contain the [x] part -- for example meta.lastUpdated.
+
+
+.. |br| raw:: html
+
+   <br />

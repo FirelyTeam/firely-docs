@@ -45,7 +45,7 @@ Features and fixes
 
 #. Feature: Run Vonk from you Simplifier project! See :ref:`simplifier_vonk` for details.
 #. Feature: Vonk supports Microsoft Azure CosmosDB, see :ref:`configure_cosmosdb`.
-            This required a few small changes to the MongoDB implementation (the share the drivers), so please reindex your MongoDB database: :ref:`reindex/all <feature_customsp_reindex>`.
+   This required a few small changes to the MongoDB implementation (the share the drivers), so please reindex your MongoDB database: :ref:`reindex/all <feature_customsp_reindex>`.
 #. Feature: Configuration to restrict support for ResourceTypes, SearchParameters and CompartmentDefinitions, see :ref:`supportedmodel`.
 #. Feature: Errata.zip: collection of corrected search parameters (e.g. that had a faulty expression in the FHIR Core specification), see :ref:`feature_errata`
 #. Upgrade: FHIR .NET API 0.95.0 (see :ref:`api_releasenotes_0950`)
@@ -60,10 +60,10 @@ Features and fixes
 #. Fix: indexing of Observation.combo-value-quantity failed for UCUM code for Celcius. This fix requires a :ref:`reindex/all <feature_customsp_reindex>` on this searchparameter.
 #. Fix: total count in history bundle.
 #. Fix: on vonk.fire.ly we disabled validating all input, so you can now create or update resources also if the relevant profiles are not loaded 
-        (this was neccessary for Crucible, since it references US Core profiles, that are not present by default).
+   (this was neccessary for Crucible, since it references US Core profiles, that are not present by default).
 #. Fix: timeout of Azure Web App on first startup of Vonk - Vonk's first startup takes some time due to import of the specification (see :ref:`conformance_specification_zip`). 
-        Since Azure Web Apps are allowed a startup time of about 3 minutes, it failed if the web app was on a low level service plan.
-        Vonk will now no longer await this import. It will finish startup quickly, but until the import is finished it will return a 423 'Locked' upon every request.
+   Since Azure Web Apps are allowed a startup time of about 3 minutes, it failed if the web app was on a low level service plan.
+   Vonk will now no longer await this import. It will finish startup quickly, but until the import is finished it will return a 423 'Locked' upon every request.
 #. Fix: improved logging on the import of conformance resources at startup (see :ref:`conformance_import`).
 
 Release 0.6.4.0

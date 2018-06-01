@@ -51,7 +51,7 @@ The process follows these steps:
 #. Load the :ref:`conformance_specification_zip`, if they have not been loaded before.
 #. Load the :ref:`feature_errata`, if they have not been loaded before.
 #. :ref:`conformance_fromdisk`. After reading, the read files are appended with a timestamp and moved to the ImportedDirectory, and registered in the read history.
-#. :ref:`conformance_fromsimplifier`. After reading the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
+#. :ref:`conformance_fromsimplifier`. After reading, the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
 
 The read history keeps a record of files that have been read, with an MD5 hash of each.
 If you wish to force a renewed import of a specific file, you should:

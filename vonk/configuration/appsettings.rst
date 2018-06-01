@@ -252,19 +252,3 @@ Subscriptions
 
 See :ref:`feature_subscription`.
 
-Getting conformance resources from Simplifier
----------------------------------------------
-::
-
-    "ResourceLoaderOptions": {
-        "Sets": [
-        {
-            "Uri": "FHIR endpoint for retrieving StructureDefinitions",
-            "UserName": "UserName for retrieving the StructureDefinitions",
-            "Password": "Password for the above user name"
-        }
-        ],
-        "BatchSize": 20
-    }
-
-See :ref:`conformance`.

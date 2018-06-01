@@ -6,7 +6,7 @@
 
 Using Microsoft Azure CosmosDB
 ==============================
-You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are few limitations that we will work out later. They are listed below.
+You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are a few limitations that we will work out later. They are listed below.
 
 1. Create a CosmosDB account on Azure, see the `Quickstart Tutorial <https://docs.microsoft.com/en-us/azure/cosmos-db/>`_
 2. Make sure you choose the MongoDB API
@@ -72,7 +72,7 @@ You are advised to raise the limit to at least 5000 RU/s. See the `Microsoft doc
 Limitations
 -----------
 
-#. MongoDB implementation will try to remove indexes that Vonk no longer uses. But CosmosDB manages it's own indexes and will not allow removal of indexes. This leads to warnings like these, that you can safely ignore::
+#. MongoDB implementation will try to remove indexes that Vonk no longer uses. But CosmosDB manages its own indexes and will not allow removal of indexes. This leads to warnings like these, that you can safely ignore::
 
     2018-05-24 15:23:01.246 +02:00 [Vonk] [Information] [Machine: <machinename>] [ReqId: ] Dropping 12 unused indexes
     2018-05-24 15:23:01.251 +02:00 [Vonk] [Verbose] [Machine: <machinename>] [ReqId: ] Attempting to drop index with name type_1_res_id_1_ver_1
