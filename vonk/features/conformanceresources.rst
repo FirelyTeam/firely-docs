@@ -53,6 +53,10 @@ The process follows these steps:
 #. :ref:`conformance_fromdisk`. After reading, the read files are appended with a timestamp and moved to the ImportedDirectory, and registered in the read history.
 #. :ref:`conformance_fromsimplifier`. After reading, the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
 
+Loading the conformance resources from the various sources can take some time, 
+especially on first startup when the :ref:`conformance_specification_zip` have to be imported.
+During the import Vonk will respond with 423 'Locked' to every request to avoid storing or retrieving inconsistent data.
+
 The read history keeps a record of files that have been read, with an MD5 hash of each.
 If you wish to force a renewed import of a specific file, you should:
 
@@ -66,7 +70,8 @@ Default Conformance Resources
 
 Vonk comes with the specification.zip file from the HL7 FHIR API. It contains all the Conformance resources from the specification. These are loaded and used for validation and snapshot generation by default.  
 
-Some of the conformance resources (especially SearchParameters) contain errors in the core specification. You can override them by:
+Some of the conformance resources (especially SearchParameters) contain errors in the core specification. 
+We try to correct all errors in :ref:`feature_errata`. You can also override them yourself by:
 
 * updating them through the administration api, as described below;
 * providing an altered version in the ImportDirectory, with the same id and canonical url.
