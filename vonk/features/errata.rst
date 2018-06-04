@@ -20,9 +20,9 @@ search parameters with FhirPath expression .as(DateTime)
 	could not index the fields correctly and searches on the dates would not work. The search parameters that were corrected are:
 	clinical-date, DeviceRequest-event-date, Observation-code-value-date, Observation-value-date and patient-death-date.
 
-Resource-[x]
-	The FhirPath library did not support polymorphism yet, so all the search parameters defined with an expression of Resource.[x] -- for example
-	Resource.meta.lastUpdated -- did not work correctly. We have changed the expression to just contain the [x] part -- for example meta.lastUpdated.
+Resource.<xyz> expressions
+	The FhirPath library did not support polymorphism yet, so all the search parameters defined with an expression of Resource.<xyz> -- for example
+	Resource.meta.lastUpdated -- did not work correctly. We have changed the expression to have just the <xyz> part -- for example meta.lastUpdated.
 
 
 .. |br| raw:: html
