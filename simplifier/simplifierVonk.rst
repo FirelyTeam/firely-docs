@@ -15,7 +15,7 @@ Currently we only enabled this for Windows 10, using PowerShell. Later we will a
    
    .. image:: ./images/YellowButton_ShareDrive.PNG 
 
-#. Now in Simplifier, go to the project page of your project, drop down the Download button and click 'demo FHIR Server'
+#. Now in Simplifier, go to the project page of your project, drop down the Download button and click on 'demo FHIR Server'
 
    .. image:: ./images/YellowButton_DownloadFHIRServer.PNG 
 
