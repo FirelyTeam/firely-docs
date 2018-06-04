@@ -13,16 +13,16 @@ Currently we only enabled this for Windows 10, using PowerShell. Later we will a
 #. Open its settings (right click on the docker icon in the system tray and click 'Settings')
 #. Under shared drives, share your local drive.
    
-   .. image:: ./images/YellowButton_ShareDrive.PNG 
+   .. image:: ./images/YellowButton_ShareDrive.png 
 
-#. Now in Simplifier, go to the project page of your project, drop down the Download button and click on 'demo FHIR Server'
+#. Now in Simplifier, go to the project page of your project, drop down the Download button and click 'demo FHIR Server'
 
-   .. image:: ./images/YellowButton_DownloadFHIRServer.PNG 
+   .. image:: ./images/YellowButton_DownloadFHIRServer.png 
 
 #. This takes you to the 'Demo Project FHIR Server' page.
 #. Click the 'Download' button
 
-   .. image:: ./images/YellowButton_DownloadZip.PNG
+   .. image:: ./images/YellowButton_DownloadZip.png
 
 #. Unzip the downloaded file. For this explanation we choose to unzip to ``c:\programs\demo-VonkDockerServer``
 #. Open a PowerShell window
@@ -33,7 +33,7 @@ Currently we only enabled this for Windows 10, using PowerShell. Later we will a
 #. Navigate to the directory where you unzipped the download.
 #. Then run the script .\\start-vonk-server.ps1
 
-   .. image:: ./images/YellowButton_RunStart.PNG
+   .. image:: ./images/YellowButton_RunStart.png
 
 #. The script will:
 
