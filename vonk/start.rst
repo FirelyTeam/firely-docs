@@ -15,7 +15,7 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 
 3.	Put the license file in the working directory.
 
-4.	Rename ``appsettings.default.json`` to ``appsettings.json``.
+4.	Make a copy of ``appsettings.default.json`` and name it ``appsettings.json``.
 
 5.	Open ``appsettings.json`` and change the ``LicenseFile`` property to the name of your license file. For example::
 
