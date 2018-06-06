@@ -6,8 +6,9 @@ Release notes
 0.96.0 (DSTU2, STU3 and R4) (released 20170606)
 ------------------
 - #595 Added capability to harvest metadata directly from a stream
-- #524 Search paths no longer use [x] suffix in DSTU2
+- #524 Search paths no longer use ``[x]`` suffix in DSTU2
 - #556 Fixed threading issues in valueset expansion and snapshot generation when using the ``CachedResolver``
+- #577 ``FhirBoolean.value`` no longer has incorrect ``[BooleanPattern]`` in R4
 - #591 Added ``ignoreCase`` option for parsing to enums
 - #599 Fixed threading issue in FhirPath engine
 - #601 Made the ``DifferentialTreeConstructor`` class public
