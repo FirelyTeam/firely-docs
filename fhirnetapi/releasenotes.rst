@@ -3,6 +3,17 @@
 =============
 Release notes
 =============
+0.96.0 (DSTU2, STU3 and R4) (released 20170606)
+------------------
+- #595 Added capability to harvest metadata directly from a stream
+- #524 Search paths no longer use [x] suffix in DSTU2
+- #556 Fixed threading issues in valueset expansion and snapshot generation when using the ``CachedResolver``
+- #591 Added ``ignoreCase`` option for parsing to enums
+- #599 Fixed threading issue in FhirPath engine
+- #601 Made the ``DifferentialTreeConstructor`` class public
+- #606 FhirPath evaluator now support ``Resource`` and ``DomainResource`` as path roots
+- #612 Bugfix for snapshot generator
+- #614 Improved encoding for search parameters when doing POST-based search
 
 .. _api_releasenotes_0950:
 
@@ -27,7 +38,6 @@ Release notes
 
 0.94.0 (DSTU2 and STU3) (released 20171207)
 -------------------------------------------
-
 - #448, the FhirXmlSerializer/FhirJsonSerializer should now be instantiated, use of the static FhirSerializer class is obsoleted
 - #434, the API is no longer creating empty <meta> tags in the serialization
 - #420, the json parser no longer returns -1,-1 for positions on errors
