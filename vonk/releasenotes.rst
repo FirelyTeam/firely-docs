@@ -26,14 +26,14 @@ Security warnings
 Release 0.6.5.0
 ---------------
 
+.. attention::
+
+   2018-06-07: We updated the Database actions for 0.6.5.0, you should always perform a reindex, see right below.
+
 Database
 ^^^^^^^^
 
-#. Feature 2 below requires a :ref:`reindex/all <feature_customsp_reindex>` if you run on MongoDB.
-#. Fix 14 requires a :ref:`reindex/searchparameters <feature_customsp_reindex>`, both on SQL Server and on MongoDB, but:
-   
-   * only if you were affected by this error
-   * just for the searchparameter Observation.combo-value-quantity
+#. Feature 2, 4 and 14 below require a :ref:`reindex/all <feature_customsp_reindex>`, both for MongoDB and SQL Server.
 
 Facade
 ^^^^^^
