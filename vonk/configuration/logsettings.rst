@@ -3,8 +3,8 @@
 Log settings
 ============
 
-Vonk uses `Serilog <https://serilog.net/>`__ for logging. You can adjust the way Vonk logs its information by changing
-the settings in ``logsettings.json``. 
+Vonk uses `Serilog <https://serilog.net/>`__ for logging. The logging settings are controlled in json configuration files called ``logsettings(.*).json``. The files are read in a hierarchy, exactly like the :ref:`appsettings files <configure_levels>` are.
+Vonk comes with default settings in ``logsettings.default.json``. You can adjust the way Vonk logs its information by overriding these default settings in ``logsettings.json``. You need to create this ``logsettings.json`` yourself.
 
 Alternatively you can control :ref:`configure_envvar_log`.
 

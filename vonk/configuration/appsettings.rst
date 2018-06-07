@@ -3,7 +3,7 @@
 Vonk settings
 =============
 
-Vonk settings are controlled in json configuration files called appsettings(.*).json. The possible settings in these files are all the same and described below.
+Vonk settings are controlled in json configuration files called ``appsettings(.*).json``. The possible settings in these files are all the same and described below.
 The different files are read in a hierarchy so you can control settings on different levels. All appsettings files are in the Vonk distribution directory, next to vonk.server.dll. 
 We go through all the sections of this file and refer you to detailed pages on each of them.
 
@@ -21,15 +21,26 @@ Vonk reads its settings from these sources, in this order:
 :appsettings.default.json: Installed with Vonk, contains default settings and a template setting if no sensible default is available.
 :appsettings.json: You can create this one for your own settings. Because it is not part of the Vonk distribution, it will not be overwritten by a next Vonk version.
 :environment variables: See :ref:`configure_envvar`.
-:appsettings.instance.json: You can create this one to override settings for a specific instance of Vonk. It is not part of the Vonk distribution (especially useful if you run multiple instances on the same machine). 
+:appsettings.instance.json: You can create this one to override settings for a specific instance of Vonk. It is not part of the Vonk distribution.
+                            This file is especially useful if you run multiple instances on the same machine. 
 
 Settings lower in the list override the settings higher in te list. It works comparable to Cascading Style Sheets, if you're familiar with that.
+
+.. warning::
+
+   JSON settings files can have arrays in them. The configuration system can NOT merge arrays. 
+   So if you override an array value, you need to provide all the values that you want in the array.
+   In the Vonk settings this is relevant for e.g. Validation.AllowedProfiles. 
 
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After you installed Vonk (see :ref:`getting_started`), copy the appsettings.default.json to appsettings.json. 
-Adjust the new appsettings.json to your liking using the explanation below.
+After you installed Vonk (see :ref:`getting_started`), either:
+
+* copy the ``appsettings.default.json`` to ``appsettings.json`` and remove settings that you do not intend to alter, or
+* create an empty ``appsettings.json`` and copy individual parts from the ``appsettings.default.json`` if you wish to adjust them.
+
+Adjust the new ``appsettings.json`` to your liking using the explanation below.
 
 When running :ref:`Vonk on Docker<use_docker>` you probably want to adjust the settings using the Environment Variables.
 
@@ -42,7 +53,7 @@ If you install the binaries of an updated version of Vonk, you can:
 * deploy the new version to a new directory and copy the appsettings.json over from the old version.
 
 In both cases, check the :ref:`vonk_releasenotes` to see if settings have changed, or new settings have been introduced.
-If you want to adjust a changed / new setting, copy the relevant section from appsettings.default.json to your own appsettings.json and then adjust it.
+If you want to adjust a changed / new setting, copy the relevant section from ``appsettings.default.json`` to your own ``appsettings.json`` and then adjust it.
 
 Commenting out sections
 ^^^^^^^^^^^^^^^^^^^^^^^

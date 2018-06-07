@@ -15,11 +15,17 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 
 3.	Put the license file in the working directory.
 
-4.	Make a copy of ``appsettings.default.json`` and name it ``appsettings.json``.
+4.	In the working directory create a new JSON file and name it ``appsettings.json``. 
+	You will use this file for settings that you want to differ from the defaults in ``appsettings.default.json``.
+	For more background on how the settings are processed, see :ref:`configure_appsettings`
 
-5.	Open ``appsettings.json`` and change the ``LicenseFile`` property to the name of your license file. For example::
+5.	Open ``appsettings.json``, copy the ``LicenseFile`` setting from ``appsettings.default.json`` to it and change this property to the name of your license file. For example
 
-	"LicenseFile": "vonk-trial-license.json",
+	::
+
+		{
+    		  "LicenseFile": "vonk-trial-license.json",
+		},
 
 .. important:: the next step assumes you have a .Net Core environment installed. If not, please `download and install
   <https://www.microsoft.com/net/download/core#/runtime/>`_ **.NET Core Runtime 2.0.0** before you continue.
