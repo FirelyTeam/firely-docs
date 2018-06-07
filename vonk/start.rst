@@ -13,21 +13,23 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 2.	Extract the downloaded files to a location on your system, for example: :code:`C:\Vonk`. We will call this the 
 	working directory.
 
-3.	Put the license file in the	working directory.
+3.	Put the license file in the working directory.
 
-4.	Open ``appsettings.json`` and change the ``LicenseFile`` property to the name of your license file. For example::
+4.	Make a copy of ``appsettings.default.json`` and name it ``appsettings.json``.
+
+5.	Open ``appsettings.json`` and change the ``LicenseFile`` property to the name of your license file. For example::
 
 	"LicenseFile": "vonk-trial-license.json",
 
 .. important:: the next step assumes you have a .Net Core environment installed. If not, please `download and install
   <https://www.microsoft.com/net/download/core#/runtime/>`_ **.NET Core Runtime 2.0.0** before you continue.
 
-5.	Open a command prompt or Powershell, navigate to the working directory and run:
+6.	Open a command prompt or Powershell, navigate to the working directory and run:
 	:code:`> dotnet .\Vonk.Server.dll`
 
 	Vonk will then run on port 4080 of the system.
 	
-6.	If you want to check if Vonk is running correctly, open a browser and go to :code:`localhost:4080`.
+7.	If you want to check if Vonk is running correctly, open a browser and go to :code:`localhost:4080`.
 	You should see a homepage similar to this:
    
 .. image:: ./images/localhost_home.PNG
