@@ -22,6 +22,8 @@ The existing database contains two simple tables 'Patient' and 'BloodPressure'. 
    Next search step <enablesearch_2>
    Last three search steps <enablesearch_3>
    finalizesearch
+   enablechange_1
+   Final change steps <enablechange_2>
    facade_accesscontrol
    accesscontrol_api
 
