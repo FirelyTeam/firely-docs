@@ -81,10 +81,6 @@ Add Vonk Components
 
    * Run ``Install-Package Vonk.Core -IncludePrerelease``
    * Run ``Install-Package Vonk.Fhir.R3 -IncludePrerelease``
-   * Run ``Install-Package Hl7.Fhir.Specification.STU3 -IncludePrerelease``
-
-.. note:: ``Hl7.Fhir.Specification.STU3`` is already transitively included with ``Vonk.Core``, but NuGet fails to output the file ``specification.zip`` then. Therefore we need a direct reference as well.
-           Note that when you upgrade ``Vonk.Core`` in the future, you may need to upgrade ``Hl7.Fhir.Specification.STU3`` as well, to match the versions.
 
 2. Open Startup.cs
 
