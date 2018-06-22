@@ -1,3 +1,5 @@
+.. _enablechange:
+
 Enable changes to the repository
 ================================
 
