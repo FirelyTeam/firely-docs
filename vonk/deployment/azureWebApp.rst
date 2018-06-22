@@ -21,7 +21,7 @@ Deployment
    .. image:: ../images/Azure_01_CreateWebApp.png
       :align: center
 
-#. Choose a name for the webapp, here we chose vonkserver. Fill in an existing resource group or create a new one and select Windows for the operation system (OS):
+#. Choose a name for the webapp, we will use the placeholder <webapp>. Fill in an existing resource group or create a new one and select Windows for the operation system (OS):
 
    .. image:: ../images/Azure_02_ChooseName.png
       :align: center
@@ -29,9 +29,9 @@ Deployment
 #. Add the trial license file (vonk-trial-license.json) to the vonk_distribution.zip by dragging the license file into the zipfile.
 #. Open a webbrowser, navigate to ``https://<webapp>.scm.azurewebsites.net/ZipDeploy`` and drag vonk_distribution.zip into the browser window. 
    This will install the Vonk server as a Web App in Azure.
-   In our example the url is ``https://vonkserver.scm.azurewebsites.net/ZipDeploy``
+   In our example the url is ``https://<webapp>.scm.azurewebsites.net/ZipDeploy``
    This method of deployment does not work in Internet Explorer. It does works in Firefox, Chrome and Edge.
-#. Open a browser and go to the site ``https://vonkserver.azurewebsites.net/`` . This will show the Vonk home page.
+#. Open a browser and go to the site ``https://<webapp>.azurewebsites.net/`` . This will show the Vonk home page.
 
 Change database
 ---------------
