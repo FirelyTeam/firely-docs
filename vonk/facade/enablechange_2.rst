@@ -1,27 +1,7 @@
 Finalizing change repository
 ============================
 
-These are the last three steps for enabling changes.
-
-2. Map the FHIR data to the model
----------------------------------
-
-#. Add a method called ``MapVisiPatient`` to the ResourceMapper class, that takes a FHIR ``Patient`` and returns a ``ViSiPatient``.
-#. Implement the mapping from the FHIR object to the ViSiPatient model::
-
-        public ViSiPatient MapViSiPatient(IResource source)
-        {
-            var fhirPatient = (Patient)((PocoResource)source).InnerResource;
-            var visiPatient = new ViSiPatient();
- 
-            visiPatient.Id = int.Parse(source.Id);
-            visiPatient.PatientNumber = fhirPatient.Identifier.Find(i => (i.System == "http://mycompany.org/patientnumber")).Value;
-
-			// etc.
-
-            return visiPatient;
-        }
-
+These are the last two steps for enabling changes.
 
 3. Arrange the Dependency Injection
 -----------------------------------

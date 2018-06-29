@@ -7,12 +7,42 @@ In the previous steps you have created read and search support.
 The next part will walk you through enabling create, update and delete support.
 This will be done in four steps:
 
-1.	Implement the IResourceChangeRepository;
-2.	Map the FHIR resource to our database model;
+1.	Map the FHIR resource to our database model;
+2.	Implement the IResourceChangeRepository;
 3.	Arrange the Dependency Injection and configure the ASP.NET Core Pipeline
 4.  Indicate support in the appsettings file
 
-1. Implement the IResourceChangeRepository
+
+1. Map the FHIR data to the model
+---------------------------------
+
+For both the Create and Update interactions, we need to map our incoming FHIR data to the ViSi model. To do that, we will
+add new mapping methods to our ResourceMapper class.
+
+#. Add a method called ``MapVisiPatient`` to the ResourceMapper class, that takes a FHIR ``Patient`` and returns a ``ViSiPatient``.
+#. Implement the mapping from the FHIR object to the ViSiPatient model::
+
+        public ViSiPatient MapViSiPatient(IResource source)
+        {
+            var fhirPatient = (Patient)((PocoResource)source).InnerResource;
+            var visiPatient = new ViSiPatient();
+
+            if (source.Id != null)
+            {
+                if (!int.TryParse(source.Id, out int id))
+                    throw new VonkRepositoryException("Cannot map resource when Id is not integer");
+                visiPatient.Id = id;
+            } 
+            visiPatient.PatientNumber = fhirPatient.Identifier.Find(i => (i.System == "http://mycompany.org/patientnumber")).Value;
+
+			// etc.
+
+            return visiPatient;
+        }
+#. Fill in the rest of the code to map the data to non-nullable fields of the database, and any other fields you have data for.
+
+
+2. Implement the IResourceChangeRepository
 ------------------------------------------
 
 You are going to implement a repository that handles changes to your database. The interface for this is called ``IResourceChangeRepository``, which
@@ -62,39 +92,36 @@ Implementing Create
             await _visiContext.Patient.AddAsync(visiPatient);
             await _visiContext.SaveChangesAsync();
 
-            return input;
+            // return the new resource as it was stored by this server
+            return _resourceMapper.MapPatient(_visiContext.Patient.Last());
         }
 
-#.  For the ``Create`` and ``Update`` methods, you will also need to implement the ``NewId`` and ``NewVersion`` methods.
-    Since our ViSi repository does not handle versions, we will let that last method return null. For the ``NewId`` method,
-    we need to know what the last used id is, and increment this or return 1 when the collection is still empty::
+#.  For the ``Create`` and ``Update`` methods, you will also need to implement the ``NewId`` and ``NewVersion`` methods,
+    because Vonk will call them. For the ``NewId`` method, we will return null, since our ViSi database does not allow us
+    to create our own index value. Since our ViSi repository does not handle versions, we will let the ``NewVersion`` method
+    return null as well::
 
         public string NewId(string resourceType)
         {
-            int last_id;
-
-            switch (resourceType)
-            {
-                case "Patient":
-                    try
-                    {
-                        last_id = _visiContext.Patient.Last().Id;
-                        last_id++;
-                        return last_id.ToString();
-                    }
-                    catch (ArgumentNullException)
-                    {
-                        return "1";
-                    }
-                default:
-                    throw new NotImplementedException($"ResourceType {resourceType} is not supported.");
-            }
+            return null;
         }
+        
+        public string NewVersion(string resourceType, string resourceId)
+        {
+            return null;
+        }
+
 
 .. note::
 
-  For the ViSi repository we're using a simple incremental Id field, but you can implement this method any way that's
-  useful for your own repository. The public Vonk server for example generates a GUID in this method. 
+  For the ViSi repository we're using a null value, but you can implement this method any way that's
+  useful for your own repository. The public Vonk server for example generates a GUID in these methods.
+  
+At this point you can try running your server, and creating a new patient in the ViSi database.
+
+.. tip::
+  This is easiest to test if you retrieve an existing resource from the database first with your HTTP tool.
+  Then change some of the data in the resulting JSON or XML, and send that back to your Facade.
 
 Implementing Update
 ^^^^^^^^^^^^^^^^^^^
@@ -103,14 +130,14 @@ a resource to the collection, you will update the collection::
 
         private async Task<IResource> UpdatePatient(ResourceKey original, IResource update)
         {
-            var visiPatient = _resourceMapper.MapViSiPatient(update);
-			
             try
             {
-               _visiContext.Patient.Update(visiPatient);
+                var visiPatient = _resourceMapper.MapViSiPatient(update);
+
+                var result = _visiContext.Patient.Update(visiPatient);
                 await _visiContext.SaveChangesAsync();
 
-                return update;
+                return _resourceMapper.MapPatient(result.Entity);
             }
             catch (Exception ex)
             {
@@ -122,7 +149,8 @@ Implementing Delete
 ^^^^^^^^^^^^^^^^^^^
 Deleting a resource from the collection is done by first looking up the corresponding resource, and then removing
 it from the collection. Note that in the database used for this exercise cannot process the deletion of the Patient
-when there are still related Observations in the BloodPressure table, so we need to remove them as well.
+when there are still related Observations in the BloodPressure table, so we need to remove them as well or choose
+to throw an error.
 
 #. First, create a switch on resource type in the main ``Delete`` method again.
 #. Implement the ``DeletePatient``::
@@ -131,6 +159,7 @@ when there are still related Observations in the BloodPressure table, so we need
         {
             int toDelete_id = int.Parse(toDelete.ResourceId);
             var visiPatient = _visiContext.Patient.Find(toDelete_id);
+			
             var bpEntries = _visiContext.BloodPressure.Where(bp => bp.PatientId == toDelete_id);
             
             var result = _resourceMapper.MapPatient(visiPatient);
@@ -149,4 +178,4 @@ when there are still related Observations in the BloodPressure table, so we need
             return result;
         }
 
-The next steps will finalize the change repository, by implementing the mapping, and adding the correct dependency injection.
+The next steps will finalize the change repository, by adding the correct dependency injection.
