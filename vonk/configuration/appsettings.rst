@@ -197,6 +197,18 @@ The Search and History interactions return a bundle with results. Users can spec
 * ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Vonk from being overloaded.
 * ``DefaultCount`` should be less than or equal to ``MaxCount``
 
+.. _batch_options:
+
+Batch and transaction
+---------------------
+::
+
+    "BatchOptions": {
+        "MaxNumberOfEntries": 100
+    },
+
+This will limit the number of entries that are accepted in a single Batch or Transaction bundle.
+
 SearchParameters and other Conformance Resources
 ------------------------------------------------
 ::

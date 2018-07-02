@@ -32,7 +32,9 @@ or support contract.
    features/features
    administration_api
    facade/facadestart
+   components/components
    architecture
-   releasenotes
+   releasenotes/releasenotes
+   releasenotes/releasenotes_old
    contact
 .. add files here

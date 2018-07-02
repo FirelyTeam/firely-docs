@@ -100,6 +100,8 @@ Batch
 
 Batch is fully supported. Although the specification does not allow references between resources in a Batch, Vonk can handle them.
 
+You can limit the number of entries accepted in a single Transaction. See :ref:`batch_options`.
+
 .. _restful_transaction:
 
 Transaction
@@ -109,6 +111,8 @@ Transactions are supported, with a single limitation:
 
 #. Of the three storage implementations, only SQL Server truly supports transactions. On :ref:`MongoDB<configure_mongodb>` and :ref:`Memory<configure_memory>`, transaction support can be simulated at the FHIR level, but not be enforced on the database level.
 #. References between resources in the transaction can only point backwards. So if resource B references A, A must be created or updated before B. This implies that circular references are also not supported. 
+
+You can limit the number of entries accepted in a single Transaction. See :ref:`batch_options`.
 
 .. _restful_capabilities:
 
