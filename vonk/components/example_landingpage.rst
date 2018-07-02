@@ -83,7 +83,7 @@ Then add the static methods as prescribed:
 
 .. code-block:: csharp
 
-   public static IServiceCollection AddUIServices(this IServiceCollection services)
+   public static IServiceCollection AddUIServices(IServiceCollection services)
    {
       var thisAssembly = typeof(UIConfiguration).GetTypeInfo().Assembly;
       services
@@ -105,7 +105,7 @@ Then add the static methods as prescribed:
 
 .. code-block:: csharp
 
-   public static IApplicationBuilder UseUI(this IApplicationBuilder app)
+   public static IApplicationBuilder UseUI(IApplicationBuilder app)
    {
       var thisAssembly = typeof(UIConfiguration).GetTypeInfo().Assembly;
       var embeddedStaticFileProvider = new EmbeddedFileProvider(
@@ -130,7 +130,7 @@ Build this project in Release mode and copy the produced dll (located in <src>\b
 
 Go to the :ref:`configure_appsettings` of Vonk, and replace the namespace of the landingpage (``Vonk.DemoUI``) in the include of the PipelineOptions:
 
-.. code-block:: json
+.. code-block:: JavaScript
 
    "PipelineOptions": {
       "PluginDirectory": "./plugins",

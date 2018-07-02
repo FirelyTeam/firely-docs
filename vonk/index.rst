@@ -31,6 +31,7 @@ or support contract.
    deployment/deployment
    features/features
    administration_api
+   facade/facade
    facade/facadestart
    components/components
    architecture
