@@ -65,14 +65,22 @@ Configuration of the pipeline in Vonk FHIR Server is done with the PipelineOptio
     ]
   }
 
-:PluginDirectory: You can put plugins of your own (or third party) into this directory for Vonk to pick them up, without polluting the Vonk binaries directory itself. The directory in the default setting of ./plugins is not created upon install, you may do this yourself if you want to add a plugin.
-:Branches: A web application can branch into different paths, and Vonk has two by default:
+PluginDirectory:
+   You can put plugins of your own (or third party) into this directory for Vonk to pick them up, without polluting the Vonk binaries directory itself. The directory in the default setting of ./plugins is not created upon install, you may do this yourself if you want to add a plugin.
+Branches:
+   A web application can branch into different paths, and Vonk has two by default:
+
    * /: the root branch, where the main :ref:`restful` is hosted;
-   * /administration: where the :ref:`administration_api` is hosted. 
-   ``Branches`` contains a subdocument for each of the defined paths.
-   :Path: The path for this branch. This is the part after the base URL that Vonk is hosted on.
-   :Include: (Prefixes of) :ref:`vonk_components_configclass` that add services and middleware to Vonk.
-   :Exclude: (Prefixes of) :ref:`vonk_components_configclass` that may not be executed. ``Exclude`` overrides ``Include`` and is useful if you want to use all but one configuration classes from a namespace.
+   * /administration: where the :ref:`administration_api` is hosted.
+ 
+   ``Branches`` contains a subdocument for each of the defined paths:
+   
+   Path
+      The path for this branch. This is the part after the base URL that Vonk is hosted on.
+   Include
+      (Prefixes of) :ref:`vonk_components_configclass` that add services and middleware to Vonk.
+   Exclude
+      (Prefixes of) :ref:`vonk_components_configclass` that may not be executed. ``Exclude`` overrides ``Include`` and is useful if you want to use all but one configuration classes from a namespace.
 
 .. _vonk_components_configclass:
 
@@ -110,7 +118,7 @@ As you may have noticed, the methods resemble those in an ASP.NET Core Startup c
    * It is the only method in this class matching the first two requirements.
 
    This also means that you can give it a different name.
-   Beyond that you may add formal arguments for services that you need during configuration. You can only use services that are available from the ASP.NET Core hosting process, not any services you have added yourself earlier. Usual services to request are:
+   Beyond that, you may add formal arguments for services that you need during configuration. You can only use services that are available from the ASP.NET Core hosting process, not any services you have added yourself earlier. Usual services to request are:
 
    * IConfiguration  
    * IHostingEnvironment
@@ -123,22 +131,22 @@ As you may have noticed, the methods resemble those in an ASP.NET Core Startup c
    * It is the only method in this class matching the first two requirements.
 
    This also means that you can give it a different name.
-   Beyond that you may add formal arguments for services that you may need during configuration. Here you can use services that are available from the ASP.NET Core hosting process *and* any services you have added yourself earlier. For services in request scope please note that this method is not run in request scope.
+   Beyond that, you may add formal arguments for services that you may need during configuration. Here you can use services that are available from the ASP.NET Core hosting process *and* any services you have added yourself earlier. For services in request scope please note that this method is not run in request scope.
    These services will be injected automatically by Vonk.
 
-We provided an :ref:`example<vonk_components_landingpage>` of this, creating your own landing page.
+We provided an :ref:`example<vonk_components_landingpage>` of this: creating your own landing page.
 
 .. _vonk_components_log_detail:
 
 Detailed logging of loading components
 --------------------------------------
 
-If your component of any of the Vonk components appears not to be loaded correctly, you may inspect what happens in more detail in the log. See :ref:`configure_log` for where you can find the log file.
-You can vary the loglevel for ``Vonk.Core.Pluggability.VonkConfigurer`` to hide or reveil details.
+If your component or any of the Vonk components appears not to be loaded correctly, you may inspect what happens in more detail in the log. See :ref:`configure_log` for where you can find the log file.
+You can vary the log level for ``Vonk.Core.Pluggability.VonkConfigurer`` to hide or reveal details.
 
 .. _vonk_components_log_assemblies:
 
-On the ``Information`` level Vonk will tell you which assemblies are loaded and searched for ``VonkConfiguration`` attributes:
+On the ``Information`` level, Vonk will tell you which assemblies are loaded and searched for ``VonkConfiguration`` attributes:
 
 ::
 
@@ -243,7 +251,7 @@ This allows you to determine an appropriate order for your own configuration cla
 
 .. _vonk_components_log_includes:
 
-On the ``Verbose`` level Vonk will also tell you why each configuration class that is found is being included or excluded. An example:
+On the ``Verbose`` level, Vonk will also tell you why each configuration class that is found is being included or excluded. An example:
 
 ::
 

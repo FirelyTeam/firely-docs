@@ -7,7 +7,7 @@ Release notes
 .. _api_releasenotes_0960:
 
 0.96.0 (DSTU2, STU3 and R4) (released 20170606)
-------------------
+-----------------------------------------------
 - #595 Added capability to harvest metadata directly from a stream
 - #524 Search paths no longer use ``[x]`` suffix in DSTU2
 - #556 Fixed threading issues in valueset expansion and snapshot generation when using the ``CachedResolver``

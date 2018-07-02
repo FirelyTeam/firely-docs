@@ -126,7 +126,7 @@ The source file will then look like this:
 Deploy and Configure
 --------------------
 
-Build this project in Release mode and copy the produced dll (located in <src>\bin\Release\netcoreapp2.0) to the plugin directory of Vonk, as configured in the :ref:`PipelineOptions:PluginDirectory<vonk_components_config>`.
+Build this project in Release mode and copy the produced dll (located in <src>\\bin\\Release\\netcoreapp2.0) to the plugin directory of Vonk, as configured in the :ref:`PipelineOptions:PluginDirectory<vonk_components_config>`.
 
 Go to the :ref:`configure_appsettings` of Vonk, and replace the namespace of the landingpage (``Vonk.DemoUI``) in the include of the PipelineOptions:
 

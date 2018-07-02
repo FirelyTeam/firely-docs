@@ -15,9 +15,10 @@ Create your own server
 ^^^^^^^^^^^^^^^^^^^^^^
 
 In this setup you:
+
 - create a new ASP.NET Core Web Application
 - include Vonk NuGet packages
-- setup the neccessary Vonk services (usually a subset of the services that Vonk FHIR Server uses)
+- setup the necessary Vonk services (usually a subset of the services that Vonk FHIR Server uses)
 - implement your own repository
 
 This also allows you to include the Vonk components into a web application of your own that may offer more interfaces than just the FHIR RESTful API.
@@ -28,6 +29,7 @@ Provide a plugin to Vonk FHIR Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This leverages the capabilities of :ref:`vonk_components`. With this setup you:
+
 - create a new ASP.NET Core library
 - include Vonk NuGet packages
 - implement your own repository
