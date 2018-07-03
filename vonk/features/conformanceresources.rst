@@ -46,11 +46,15 @@ The process uses these locations on disk:
 * ImportedDirectory;
 * a read history in the file .vonk-import-history.json, written in ImportedDirectory.
 
+.. attention::
+
+   Please make sure that the Vonk process has write permission on the ImportedDirectory.
+
 The process follows these steps:
 
 #. Load the :ref:`conformance_specification_zip`, if they have not been loaded before.
 #. Load the :ref:`feature_errata`, if they have not been loaded before.
-#. :ref:`conformance_fromdisk`. After reading, the read files are appended with a timestamp and moved to the ImportedDirectory, and registered in the read history.
+#. :ref:`conformance_fromdisk`. After reading, the read files are registered in the read history.
 #. :ref:`conformance_fromsimplifier`. After reading, the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
 
 Loading the conformance resources from the various sources can take some time, 

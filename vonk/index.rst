@@ -31,8 +31,11 @@ or support contract.
    deployment/deployment
    features/features
    administration_api
+   facade/facade
    facade/facadestart
+   components/components
    architecture
-   releasenotes
+   releasenotes/releasenotes
+   releasenotes/releasenotes_old
    contact
 .. add files here
