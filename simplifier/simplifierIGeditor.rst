@@ -175,6 +175,6 @@ To Save your IG as a Resource, click on the ``Save`` button in the left pane of 
 Export your IG
 --------------
 
-Exporting your IG has never been easier. To use your IG outside of Simplifier just click
-on the Export button next to your IG in the Guides section of your project. 
+To use your IG outside of Simplifier, click on the Export button next to your IG in the Guides section of your project. 
 
+.. image:: ./images/igExport.png
