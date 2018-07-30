@@ -8,6 +8,10 @@ Using Microsoft Azure CosmosDB
 ==============================
 You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are a few limitations that we will work out later. They are listed below.
 
+.. attention::
+
+   You cannot use CosmosDb for the Vonk Administration database. Use :ref:`SQLite <configure_sqlite_admin>` instead.
+
 1. Create a CosmosDB account on Azure, see the `Quickstart Tutorial <https://docs.microsoft.com/en-us/azure/cosmos-db/>`_
 2. Make sure you choose the MongoDB API
 3. In the Azure Portal, open your CosmosDB account and go to the 'Connection Strings' blade. Copy the 'Primary Connection String' to your clipboard.
@@ -40,26 +44,13 @@ You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are 
 9. You can set SimulateTransactions to "true" if you want to experiment with `FHIR transactions <https://www.hl7.org/fhir/http.html#transaction>`_.
    Vonk does not utilize the CosmosDB way of supporting real transactions across documents, so in case of an error already processed entries will NOT be rolled back. 
 
-.. _configure_cosmosdb_admin:
+10. CosmosDB request throughput is limited by default. When you initiate a reindex operation with the default settings this limitation may yield errors.
+    Adjust the configuration to limit the parallelization::
 
-Using CosmosDB for the Administration API database
---------------------------------------------------
-This works the same as with the normal Vonk database, except that you:
-
-*   put the settings within the ``Administration`` section
-
-*   provide a different database name in the ConnectionString and/or a different EntryCollection
-
-E.g.::
-
-   "Administration": {
-	   "Repository": "MongoDB",
-       "MongoDbOptions": {
-           "ConnectionString": "<as in step 7>",
-           "EntryCollection": "vonkadmin",
-           "SimulateTransactions": "false"
-       }
-   }
+        "ReindexOptions": {
+            "BatchSize": 100,
+            "MaxDegreeOfParallelism": 10
+        },
 
 .. _configure_cosmosdb_limitations:
 
@@ -72,12 +63,21 @@ You are advised to raise the limit to at least 5000 RU/s. See the `Microsoft doc
 Limitations
 -----------
 
-#. MongoDB implementation will try to remove indexes that Vonk no longer uses. But CosmosDB manages its own indexes and will not allow removal of indexes. This leads to warnings like these, that you can safely ignore::
+#.  Request size for insertions to CosmosDB is limited to around 5 MB. Some bundles in the examples from the specification exceed that limit. Then you will get an error stating 'Request size too large'.
+    You can avoid this by limiting the size of incoming resources in the :ref:`SizeLimits <sizelimits_options>` setting.
+#.  The CosmosDB implementation of the MongoDB API is flawed on processing ``$not`` on arrays. This inhibits the use of these searches in Vonk:
+   
+    *   Using the ``:not`` modifier
+    *   Using ``:missing=true``
 
-    2018-05-24 15:23:01.246 +02:00 [Vonk] [Information] [Machine: <machinename>] [ReqId: ] Dropping 12 unused indexes
-    2018-05-24 15:23:01.251 +02:00 [Vonk] [Verbose] [Machine: <machinename>] [ReqId: ] Attempting to drop index with name type_1_res_id_1_ver_1
-    2018-05-24 15:23:01.259 +02:00 [Vonk] [Verbose] [Machine: <machinename>] [ReqId: ] "MongoDB" command: "{ \"dropIndexes\" : \"vonkentries\", \"index\" : \"type_1_res_id_1_ver_1\" }"
-    2018-05-24 15:23:01.386 +02:00 [Vonk] [Warning] [Machine: <machinename>] [ReqId: ] Could not drop index "type_1_res_id_1_ver_1" because: "Invalid index name: type_1_res_id_1_ver_1" - ERROR CODE: 9
+#.  CosmosDB in its default configuration (and on the CosmosDB emulator) is fairly limited in its throughput. 
+	If you encounter its limits, the Vonk log will contain errors stating 'Request rate is large'. 
+    This is likely to happen upon :ref:`reindexing <feature_customsp_reindex>` or when using :ref:`Vonkloader <vonkloader_index>`.
+    Solutions are:
 
-#. Request size for insertions to CosmosDB is limited to around 5 MB. Some bundles in the examples from the specification exceed that limit. Then you will get an error stating 'Request size too large'.
-#. :ref:`Reindexing<feature_customsp_reindex>` does not work, since CosmosDB does not support one of the MongoDB operations we use for it.
+    *   Enlarge the throughput (requestunits) of CosmosDB
+    *   Lower the load
+
+    	*	on Reindexing, lower the MaxDegreeOfParallelism, see :ref:`this warning <reindex_cosmosdb_warning>`
+	    *	with Vonkloader, lower the value of the -parallel parameter. 
+

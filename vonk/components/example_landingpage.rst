@@ -103,6 +103,7 @@ Then add the static methods as prescribed:
       return services;
    }
 
+
 .. code-block:: csharp
 
    public static IApplicationBuilder UseUI(IApplicationBuilder app)
@@ -110,7 +111,7 @@ Then add the static methods as prescribed:
       var thisAssembly = typeof(UIConfiguration).GetTypeInfo().Assembly;
       var embeddedStaticFileProvider = new EmbeddedFileProvider(
          thisAssembly,
-         $"{thisAssembly.GetName().Name}.wwwroot"
+         "wwwroot"
       );
 
       app.UseStaticFiles(new StaticFileOptions() { FileProvider = embeddedStaticFileProvider });

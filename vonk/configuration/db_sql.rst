@@ -29,9 +29,47 @@ In both cases:
             //"AutoUpdateConnectionString" : "set this to the same database as 'ConnectionString' but with credentials that can alter the database. If not set, defaults to the value of 'ConnectionString'"
         },
 
+*   Find the section called ``PipelineOptions``. Make sure it contains the SQL repository in the root path for Vonk Data::
+
+        "PipelineOptions" : 
+        {
+            "Branches" : [
+                "/" : { 
+                    "Include" : [
+                        "Vonk.Repository.Sql"
+                        //...
+                    ]
+                }
+            ]
+        }
+
 *   The site `connectionstrings.com <https://www.connectionstrings.com/sqlconnection/>`_ is useful for determining the correct connectionstring for your environment.
 
 *   If you will only use Windows Accounts, you can use the (default) Authentication Mode, which is Windows Authentication Mode. But if you also want to use SQL Server accounts, you have to run it in Mixed Mode. Refer to `Authentication in SQL Server <https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/authentication-in-sql-server>`_ for more information.
+
+*   Although :ref:`deprecated<sql_admin_deprecated>`, you can still use SQL Server for Administration Data as well::
+
+        "Administration": {
+            "Repository": "SQL",
+            "SqlDbOptions": {
+                "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=VonkStu3;Data Source=Server\Instance;MultipleActiveResultSets=true",
+                "SchemaName": "vonk",
+                "AutoUpdateDatabase": true
+            }
+        },
+        //...
+        "PipelineOptions" : 
+        {
+            "Branches" : [
+                "/administration" : { 
+                    "Include" : [
+                        "Vonk.Repository.Sql"
+                        //...
+                    ]
+                }
+            ]
+        }
+
 
 Have Vonk create your database
 ------------------------------
@@ -158,4 +196,10 @@ This paragraph lists the permissions needed to perform specific actions on the S
         only on the normal Vonk database for the user in the SqlDbOptions connectionstring. |br|
         (no extra permissions are required for the user on the Administration database).
 
+.. _sql_admin_deprecated:
 
+SQL Server deprecated as storage for Vonk Administration
+--------------------------------------------------------
+
+Per Vonk version 0.8.0, you are encouraged to run Vonk Administration on :ref:`SQLite<configure_sqlite>` and no longer on SQL Server.
+Refer to :ref:`sqlite_admin_reasons` for more background.

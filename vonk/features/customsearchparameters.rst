@@ -27,11 +27,29 @@ search parameter, the index will contain superfluous data.
 
 To fix that, you should re-index (repeat the extraction) for these parameters.
 
-.. warning:: This is a possibly lengthy operation, so use it with care.
+In short, both reindex operations below will:
 
-.. warning:: During the re-index operation, search results may be unreliable.
+*	Return an Operation Outcome stating that the reindex procedure was started successfully. 
+*	Run the actual reindex asynchronously, using a configured number of threads, thereby using most of the hardware resources available to Vonk.
+*	Block any other requests for the duration of the reindex.
+*	Log progress in the log.
 
-*	To re-index all resources for all search parameters, use:
+.. warning:: This is a possibly lengthy operation, so use it with care. 
+	
+	*	Always try the reindex on a representative (sub)set of your data in a test environment to.
+	*	Always make a backup of your data before performing a reindex.
+
+.. warning:: During the re-index operation, all other operations ar blocked and responded to with responsecode 423 - Locked.
+
+Rebuild the whole search index
+------------------------------
+
+This is only needed if we changed something very significant to the way Vonk searches, like
+
+*	The way values are extracted for all or many searchparameters.
+*	The structure in which Vonk stores the search index.
+
+To re-index all resources for all search parameters, use:
 
 	::
 	
@@ -39,7 +57,16 @@ To fix that, you should re-index (repeat the extraction) for these parameters.
 
 	This will delete any previously indexed data and extract it again from the resources.
 
-*	To re-index all resources for certain search parameters, use:
+Rebuild the search index for specific searchparameters
+------------------------------------------------------
+
+This is needed if:
+
+*	The definition (usually the ``expression``) of a searchparameter has changed.
+*	A searchparameter was added.
+*	A searchparameter was removed and you want the search index to be tidy and not have this parameter in it anymore. 
+
+To re-index all resources for certain search parameters, use:
 
 	::
 	
@@ -58,7 +85,7 @@ To fix that, you should re-index (repeat the extraction) for these parameters.
 	``exclude`` means that any existing index data for those search parameters will be erased.
 	You use this when you removed a search parameter.
 
-  Remember to adjust the Content-Type header: ``application/x-www-form-urlencoded``.
+   Remember to adjust the Content-Type header: ``application/x-www-form-urlencoded``.
 
 If you are :ref:`not permitted <configure_administration_access>` to perform the reindex, Vonk will return statuscode 403.
 
@@ -68,14 +95,27 @@ Re-index Configuration
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Vonk will not re-index the resources in the database all at once, but in batches. The re-index operation will process all batches until all resources are re-indexed.
-You can control the size of the batches in the :ref:`configure_appsettings`.
+You can control the size of the batches in the :ref:`configure_appsettings`. 
+Besides that you can also control how many threads run in parallel to speed up the reindex process. The configured value is a maximum, since Vonk will also be limited by the available computing resources.
 ::
 
     "ReindexOptions": {
-        "BatchSize": 100
+        "BatchSize": 100,
+		  "MaxDegreeOfParallelism": 10
     },
 
 Use any integer value >= 1.
+
+.. _reindex_cosmosdb_warning:
+
+.. warning::
+
+	CosmosDB in its default configuration (and on the CosmosDB emulator) is fairly limited in its throughput. 
+	If you encounter errors stating 'Request rate is large', you will have to:
+
+	*	lower the MaxDegreeOfParallelism, 
+	*	restart Vonk 
+	*	and start a the reindex operation again.
 
 .. _feature_customsp_limitations:
 
