@@ -19,13 +19,13 @@ You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are 
 4. Now on your own machine, navigate to your Vonk working directory
 5. In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
 
-	"Repository": "Memory",
+	"Repository": "Sqlite",
 
-6. Change the setting to ``MongoDB`` (Yes, we have no separate setting yet for CosmosDB - that might change in the future)
+6. Change the setting to ``CosmosDb``
 
-7. If you have your own database in CosmosDB already, change the ``MongoDbOptions`` to reflect your settings::
+7. If you have your own database in CosmosDB already, change the ``CosmosDbOptions`` to reflect your settings::
 
-        "MongoDbOptions": {
+        "CosmosDbOptions": {
             "ConnectionString": "<see below>",
             "EntryCollection": "vonkentries",
             "SimulateTransactions": "false"

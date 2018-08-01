@@ -42,7 +42,7 @@ After you installed Vonk (see :ref:`getting_started`), either:
 
 Adjust the new ``appsettings.json`` to your liking using the explanation below.
 
-When running :ref:`Vonk on Docker<use_docker>` you probably want to adjust the settings using the Environment Variables.
+When running :ref:`Vonk on Docker<use_docker>` you probably want to adjust the settings using the :ref:`Environment Variables<configure_envvar>`.
 
 Settings after update
 ^^^^^^^^^^^^^^^^^^^^^
@@ -61,7 +61,7 @@ Commenting out sections
 JSON formally has no notion of comments. But the configuration system of ASP.Net Core (and hence Vonk) accepts double slashes just fine::
 
     "Administration": {
-        "Repository": "Memory", //SQL / MongoDb
+        "Repository": "SQLite", //Memory / SQL / MongoDb
         "SqlDbOptions": {
             "ConnectionString": "connectionstring to your Vonk Admin SQL Server database (SQL2012 or newer); Set MultipleActiveResultSets=True",
             "SchemaName": "vonkadmin",
@@ -121,14 +121,17 @@ Repository
 ----------
 ::
 
-    "Repository": "Memory", //SQL / MongoDb
+    "Repository": "SQLite", //Memory / SQL / MongoDb / CosmosDb
 
 
 #. ``Repository``: Choose which type of repository you want. Valid values are:
 
   #. Memory
   #. SQL, for Microsoft SQL Server
+  #. SQLite
   #. MongoDb
+  #. CosmosDb
+
 
 Memory
 ^^^^^^
@@ -178,6 +181,17 @@ SQLite
 
 
 Refer to :ref:`configure_sqlite` for configuring access to your SQLite Server databases.
+
+CosmosDb
+^^^^^^^^
+::
+
+    "CosmosDbOptions": {
+        "ConnectionString": "mongodb://<password>@<server>:10255/vonk?ssl=true&replicaSet=globaldb",
+        "EntryCollection": "vonkentries"
+    },
+
+Refer to :ref:`configure_cosmosdb` for configuring access to your CosmosDb databases.
 
 http and https
 --------------
@@ -234,6 +248,11 @@ Batch and transaction
 
 This will limit the number of entries that are accepted in a single Batch or Transaction bundle.
 
+.. note::
+
+  This setting has been moved to the ``SizeLimits`` setting as of Vonk version 0.7.1, and the logs will show a warning that it
+  is deprecated when you still have it in your appsettings file.
+ 
 .. _sizelimits_options:
 
 Protect against large input
@@ -250,7 +269,7 @@ Protect against large input
 * ``MaxBatchSize`` sets the maximum size of a batch or transaction bundle. 
   (Note that a POST http(s)://<vonk-endpoint>/Bundle will be limited by MaxResourceSize, since the bundle must be processed as a whole then.)
 * ``MaxBatchEntries`` limits the number of entries that is allowed in a batch or transaction bundle.
-* The values for ``MaxResourceSize`` and ``MaxBatchSize`` can be expressed in b (bytes, the default), kB (kilobytes), KiB (kibibytes), MB (megabytes), or MiB (mibibytes).
+* The values for ``MaxResourceSize`` and ``MaxBatchSize`` can be expressed in b (bytes, the default), kB (kilobytes), KiB (kibibytes), MB (megabytes), or MiB (mebibytes).
   Do not put a space between the amount and the unit.
 
 

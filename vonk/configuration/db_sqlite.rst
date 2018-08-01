@@ -20,7 +20,7 @@ You may find one of the other repositories a better fit then. You can safely use
 Prefer SQLite for Vonk Administration
 -------------------------------------
 
-Until Vonk version 0.7.0 you could use any of the storage engines for both Vonk Data and Vonk Administration. Starting with Vonk 0.8.0 you are encouraged to use SQLite for Vonk Administration.
+Until Vonk version 0.7.0 you could use any of the storage engines for both Vonk Data and Vonk Administration. Starting with Vonk 0.7.1 you are encouraged to use SQLite for Vonk Administration.
 Over time we will deprecate support for running Vonk Administration on the SQL Server, MongoDb and Memory storage engines.
 For Vonk Data you can of course still use the storage engine of your preference. 
 
@@ -53,7 +53,7 @@ Settings for using SQLite for Vonk Data
             "AutoUpdateDatabase": true
         },
 
-    Vonk will create the database *file* but make sure the *directory* already exists.
+    Vonk will create the database *file*, but please make sure the *directory* already exists.
 
 *   Find the section called ``PipelineOptions``. Make sure it contains the SQLite repository in the root path::
 
@@ -62,7 +62,7 @@ Settings for using SQLite for Vonk Data
             "Branches" : [
                 "/" : {
                     "Include" : [
-                        "Vonk.Repository.SQLite"
+                        "Vonk.Repository.SQLite.SqliteVonkConfiguration"
                         //...
                     ]
                 },
@@ -86,7 +86,7 @@ Settings for using SQLite for Vonk Administration
             }
         }
 
-    Vonk will create the database *file* but make sure the *directory* already exists.
+    Vonk will create the database *file*, but please make sure the *directory* already exists.
 
 *   Find the section called ``PipelineOptions``. Make sure it contains the SQLite repository in the administration path::
 
@@ -98,7 +98,7 @@ Settings for using SQLite for Vonk Administration
                 },
                 "/administration" : {
                     "Include" : [
-                        "Vonk.Repository.SQLite"
+                        "Vonk.Repository.SQLite.SqliteAdministrationConfiguration"
                         //...
                     ]
                 }

@@ -17,9 +17,9 @@ Release 0.7.1.0
 
 .. attention::
 
-   Issue nr. 8 requires a reindex/searchparameters with ``include=Resource._id,Resource._lastUpdated,Resource._tag``. 
+   Fix nr. 8 requires a reindex/searchparameters with ``include=Resource._id,Resource._lastUpdated,Resource._tag``. 
    Please review :ref:`feature_customsp_reindex` on how to perform a reindex and the cautions that go with it.
-   Also note the changes to reindexing in issue nr. 1.
+   Also note the changes to reindexing in fix nr. 1.
 
 Database
 ^^^^^^^^
@@ -27,7 +27,7 @@ Database
 #. We added support for SQLite! See :ref:`configure_sqlite` for details.
 #. We also made SQLite the default setting for both the main Vonk database and the :ref:`administration_api`.
 #. With the introduction of SQLite we advise running the Administration API on SQLite. In the future we will probably deprecate running the Administration API on any of the other databases.
-#. Support for CosmosDB is expanded. Though there are a :ref:`few limitations <configure_cosmosdb_limitations>`.
+#. Support for CosmosDB is expanded, though there are a :ref:`few limitations <configure_cosmosdb_limitations>`.
 
 Facade
 ^^^^^^
@@ -37,9 +37,9 @@ Facade
 Features and fixes
 ^^^^^^^^^^^^^^^^^^
 
-#. We sped up :ref:`feature_customsp_reindex`. The request will be responded upon immediately, while Vonk starts the actual reindex asynchronously and with many threads in parallel.
+#. We sped up :ref:`feature_customsp_reindex`. The request will be responded to immediately, while Vonk starts the actual reindex asynchronously and with many threads in parallel.
    Users are guarded against unreliable results by blocking other requests for the duration of the reindex.
-   Reindexing is still not to be taken lightly. It is a very heavy operation that may take very long to complete.
+   Reindexing is still not to be taken lightly. It is a **very heavy** operation that may take very long to complete.
    See :ref:`feature_customsp_reindex` for details. 
 #. A really large bundle could lead Vonk (or more specifically: the validator in Vonk) to a StackOverflow. You can now set :ref:`limits <sizelimits_options>` to the size of incoming data to avoid this.
 #. :ref:`Reindexing <feature_customsp_reindex>` is supported on CosmosDB, but it is less optimized than on MongoDB.

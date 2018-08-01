@@ -16,7 +16,7 @@ In both cases:
 
 *	In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
 
-	"Repository": "Memory",
+	"Repository": "SQLite",
 
 *	Change the setting to ``SQL``
 
@@ -36,7 +36,7 @@ In both cases:
             "Branches" : [
                 "/" : { 
                     "Include" : [
-                        "Vonk.Repository.Sql"
+                        "Vonk.Repository.Sql.SqlVonkConfiguration"
                         //...
                     ]
                 }
@@ -63,7 +63,7 @@ In both cases:
             "Branches" : [
                 "/administration" : { 
                     "Include" : [
-                        "Vonk.Repository.Sql"
+                        "Vonk.Repository.Sql.SqlAdministrationConfiguration"
                         //...
                     ]
                 }
@@ -201,5 +201,5 @@ This paragraph lists the permissions needed to perform specific actions on the S
 SQL Server deprecated as storage for Vonk Administration
 --------------------------------------------------------
 
-Per Vonk version 0.8.0, you are encouraged to run Vonk Administration on :ref:`SQLite<configure_sqlite>` and no longer on SQL Server.
+As of Vonk version 0.7.1, you are encouraged to run Vonk Administration on :ref:`SQLite<configure_sqlite>` and no longer on SQL Server.
 Refer to :ref:`sqlite_admin_reasons` for more background.

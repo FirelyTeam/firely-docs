@@ -34,12 +34,12 @@ In short, both reindex operations below will:
 *	Block any other requests for the duration of the reindex.
 *	Log progress in the log.
 
-.. warning:: This is a possibly lengthy operation, so use it with care. 
+.. caution:: This is a possibly lengthy operation, so use it with care. 
 	
 	*	Always try the reindex on a representative (sub)set of your data in a test environment to.
 	*	Always make a backup of your data before performing a reindex.
 
-.. warning:: During the re-index operation, all other operations ar blocked and responded to with responsecode 423 - Locked.
+.. warning:: During the re-index operation, all other operations are blocked and responded to with response code '423 - Locked'.
 
 Rebuild the whole search index
 ------------------------------
@@ -101,7 +101,7 @@ Besides that you can also control how many threads run in parallel to speed up t
 
     "ReindexOptions": {
         "BatchSize": 100,
-		  "MaxDegreeOfParallelism": 10
+        "MaxDegreeOfParallelism": 10
     },
 
 Use any integer value >= 1.
