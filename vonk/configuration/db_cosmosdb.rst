@@ -44,21 +44,21 @@ You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are 
 9. You can set SimulateTransactions to "true" if you want to experiment with `FHIR transactions <https://www.hl7.org/fhir/http.html#transaction>`_.
    Vonk does not utilize the CosmosDB way of supporting real transactions across documents, so in case of an error already processed entries will NOT be rolled back. 
 
-10. CosmosDB request throughput is limited by default. When you initiate a reindex operation with the default settings this limitation may yield errors.
-    Adjust the configuration to limit the parallelization::
-
-        "ReindexOptions": {
-            "BatchSize": 100,
-            "MaxDegreeOfParallelism": 10
-        },
-
 .. _configure_cosmosdb_limitations:
 
 CosmosDB Request Units
 ----------------------
 
-If you upload a lot of data in a short time (as is done on :ref:`initial import of conformance resources <conformance_fromdisk>`), you quickly exceed the default maximum of 1000 Request Units / second.
-You are advised to raise the limit to at least 5000 RU/s. See the `Microsoft documentation <https://docs.microsoft.com/en-us/azure/cosmos-db/set-throughput#provision-throughput-by-using-azure-portal>`_ for instructions.
+If you upload a lot of data in a short time (as is done on :ref:`reindexing <feature_customsp_reindex>`), you quickly exceed the default maximum of 1000 Request Units / second.
+If you encounter its limits, the Vonk log will contain errors stating 'Request rate is large'. 
+This is likely to happen upon :ref:`reindexing <feature_customsp_reindex>` or when using :ref:`Vonkloader <vonkloader_index>`.
+Solutions are:
+
+*   Raise the limit to at least 5000 RU/s. See the `Microsoft documentation <https://docs.microsoft.com/en-us/azure/cosmos-db/set-throughput#provision-throughput-by-using-azure-portal>`_ for instructions.
+*   Lower the load
+
+    *	on Reindexing, lower the MaxDegreeOfParallelism, see :ref:`this warning <reindex_cosmosdb_warning>`
+    *	with Vonkloader, lower the value of the -parallel parameter. 
 
 Limitations
 -----------
@@ -70,14 +70,4 @@ Limitations
     *   Using the ``:not`` modifier
     *   Using ``:missing=true``
 
-#.  CosmosDB in its default configuration (and on the CosmosDB emulator) is fairly limited in its throughput. 
-	If you encounter its limits, the Vonk log will contain errors stating 'Request rate is large'. 
-    This is likely to happen upon :ref:`reindexing <feature_customsp_reindex>` or when using :ref:`Vonkloader <vonkloader_index>`.
-    Solutions are:
-
-    *   Enlarge the throughput (requestunits) of CosmosDB
-    *   Lower the load
-
-    	*	on Reindexing, lower the MaxDegreeOfParallelism, see :ref:`this warning <reindex_cosmosdb_warning>`
-	    *	with Vonkloader, lower the value of the -parallel parameter. 
 
