@@ -111,7 +111,7 @@ Then add the static methods as prescribed:
       var thisAssembly = typeof(UIConfiguration).GetTypeInfo().Assembly;
       var embeddedStaticFileProvider = new EmbeddedFileProvider(
          thisAssembly,
-         "wwwroot"
+         thisAssembly.GetName().Name + ".wwwroot"
       );
 
       app.UseStaticFiles(new StaticFileOptions() { FileProvider = embeddedStaticFileProvider });
