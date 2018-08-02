@@ -75,7 +75,7 @@ GitHub multiple branch linking
 ------------------------------
 We have created a way of allowing multiple branches from the same repository in GitHub to link to different projects in Simplifier. The GitHub API only allows one link per repository, so we created a multiplexer on our side to handle this.
 
-GitHub webhook to manage an Implementation Guides
+GitHub webhook to manage Implementation Guides
 -----------------------------------------------------------------------------------
 The GitHub webhook allows managing your Implementation Guide, without using the editor itself. Your GitHub repository should contain an ImplementationGuide resource, which states the structure of the IG and refers to all the included pages. These pages should be in the repository as well. 
 
