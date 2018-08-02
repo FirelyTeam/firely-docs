@@ -42,7 +42,7 @@ After you installed Vonk (see :ref:`getting_started`), either:
 
 Adjust the new ``appsettings.json`` to your liking using the explanation below.
 
-When running :ref:`Vonk on Docker<use_docker>` you probably want to adjust the settings using the Environment Variables.
+When running :ref:`Vonk on Docker<use_docker>` you probably want to adjust the settings using the :ref:`Environment Variables<configure_envvar>`.
 
 Settings after update
 ^^^^^^^^^^^^^^^^^^^^^
@@ -61,7 +61,7 @@ Commenting out sections
 JSON formally has no notion of comments. But the configuration system of ASP.Net Core (and hence Vonk) accepts double slashes just fine::
 
     "Administration": {
-        "Repository": "Memory", //SQL / MongoDb
+        "Repository": "SQLite", //Memory / SQL / MongoDb
         "SqlDbOptions": {
             "ConnectionString": "connectionstring to your Vonk Admin SQL Server database (SQL2012 or newer); Set MultipleActiveResultSets=True",
             "SchemaName": "vonkadmin",
@@ -71,12 +71,21 @@ JSON formally has no notion of comments. But the configuration system of ASP.Net
 
 This will ignore the AutoUpdateConnectionString.
 
+.. _log_configuration:
+
+Log of your configuration
+-------------------------
+
+Because the hierarchy of settings can be overwhelming, Vonk logs the resulting configuration. 
+To enable that, the loglevel for ``Vonk.Server`` must be ``Information`` or more detailed. That is set for you by default in ``appsettings.default.json``.
+Refer to :ref:`configure_log` for information on setting log levels.
+
 Administration
 --------------
 ::
 
     "Administration": {
-        "Repository": "Memory", //SQL / MongoDb
+        "Repository": "SQLite", //Memory / SQL / MongoDb are other options, but SQLite is advised.
         "MongoDbOptions": {
             "ConnectionString": "mongodb://localhost/vonkadmin",
             "EntryCollection": "vonkentries"
@@ -86,6 +95,10 @@ Administration
             "SchemaName": "vonkadmin",
             "AutoUpdateDatabase": true
             //"AutoUpdateConnectionString" : "set this to the same database as 'ConnectionString' but with credentials that can alter the database. If not set, defaults to the value of 'ConnectionString'"
+        },
+       "SQLiteDbOptions": {
+            "ConnectionString": "Data Source=./data/vonkadmin.db",
+            "AutoUpdateDatabase": true
         },
         "Security": {
         "AllowedNetworks": [ "::1" ], // i.e.: ["127.0.0.1", "::1" (ipv6 localhost), "10.1.50.0/24", "10.5.3.0/24", "31.161.91.98"]
@@ -108,14 +121,17 @@ Repository
 ----------
 ::
 
-    "Repository": "Memory", //SQL / MongoDb
+    "Repository": "SQLite", //Memory / SQL / MongoDb / CosmosDb
 
 
 #. ``Repository``: Choose which type of repository you want. Valid values are:
 
   #. Memory
   #. SQL, for Microsoft SQL Server
+  #. SQLite
   #. MongoDb
+  #. CosmosDb
+
 
 Memory
 ^^^^^^
@@ -153,6 +169,29 @@ SQL
 
 
 Refer to :ref:`configure_sql` for configuring access to your SQL Server databases.
+
+SQLite
+^^^^^^
+::
+
+    "SQLiteDbOptions": {
+        "ConnectionString": "Data Source=./data/vonkdata.db",
+        "AutoUpdateDatabase": true
+    },
+
+
+Refer to :ref:`configure_sqlite` for configuring access to your SQLite Server databases.
+
+CosmosDb
+^^^^^^^^
+::
+
+    "CosmosDbOptions": {
+        "ConnectionString": "mongodb://<password>@<server>:10255/vonk?ssl=true&replicaSet=globaldb",
+        "EntryCollection": "vonkentries"
+    },
+
+Refer to :ref:`configure_cosmosdb` for configuring access to your CosmosDb databases.
 
 http and https
 --------------
@@ -208,6 +247,31 @@ Batch and transaction
     },
 
 This will limit the number of entries that are accepted in a single Batch or Transaction bundle.
+
+.. note::
+
+  This setting has been moved to the ``SizeLimits`` setting as of Vonk version 0.7.1, and the logs will show a warning that it
+  is deprecated when you still have it in your appsettings file.
+ 
+.. _sizelimits_options:
+
+Protect against large input
+---------------------------
+::
+
+    "SizeLimits": {
+        "MaxResourceSize": 1MiB,
+        "MaxBatchSize": 5MiB,
+        "MaxBatchEntries": 150
+    },
+
+* ``MaxResourceSize`` sets the maximum size of a resource that is sent in a create or update.
+* ``MaxBatchSize`` sets the maximum size of a batch or transaction bundle. 
+  (Note that a POST http(s)://<vonk-endpoint>/Bundle will be limited by MaxResourceSize, since the bundle must be processed as a whole then.)
+* ``MaxBatchEntries`` limits the number of entries that is allowed in a batch or transaction bundle.
+* The values for ``MaxResourceSize`` and ``MaxBatchSize`` can be expressed in b (bytes, the default), kB (kilobytes), KiB (kibibytes), MB (megabytes), or MiB (mebibytes).
+  Do not put a space between the amount and the unit.
+
 
 SearchParameters and other Conformance Resources
 ------------------------------------------------

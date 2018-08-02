@@ -32,3 +32,11 @@ E.g.::
            "SimulateTransactions": "false"
        }
    }
+
+.. warning::
+
+   Using the In-Memory storage for the administration layer will cause Vonk to load the specification files on each startup.
+   This takes several minutes, and Vonk will respond with a '423 - Locked' error to all requests during that time. As of version
+   0.7.1 we have implemented support for SQLite, which we recommend to use instead of the In-Memory storage. See :ref:`sqlite_admin_reasons`
+   for more information.
+

@@ -16,7 +16,7 @@ In both cases:
 
 *	In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
 
-	"Repository": "Memory",
+	"Repository": "SQLite",
 
 *	Change the setting to ``SQL``
 
@@ -29,9 +29,47 @@ In both cases:
             //"AutoUpdateConnectionString" : "set this to the same database as 'ConnectionString' but with credentials that can alter the database. If not set, defaults to the value of 'ConnectionString'"
         },
 
+*   Find the section called ``PipelineOptions``. Make sure it contains the SQL repository in the root path for Vonk Data::
+
+        "PipelineOptions" : 
+        {
+            "Branches" : [
+                "/" : { 
+                    "Include" : [
+                        "Vonk.Repository.Sql.SqlVonkConfiguration"
+                        //...
+                    ]
+                }
+            ]
+        }
+
 *   The site `connectionstrings.com <https://www.connectionstrings.com/sqlconnection/>`_ is useful for determining the correct connectionstring for your environment.
 
 *   If you will only use Windows Accounts, you can use the (default) Authentication Mode, which is Windows Authentication Mode. But if you also want to use SQL Server accounts, you have to run it in Mixed Mode. Refer to `Authentication in SQL Server <https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/authentication-in-sql-server>`_ for more information.
+
+*   Although we encourage you to use :ref:`SQLite for Vonk Administration <sqlite_admin_reasons>`, you can still use SQL Server for Vonk Administration as well::
+
+        "Administration": {
+            "Repository": "SQL",
+            "SqlDbOptions": {
+                "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=VonkStu3;Data Source=Server\Instance;MultipleActiveResultSets=true",
+                "SchemaName": "vonk",
+                "AutoUpdateDatabase": true
+            }
+        },
+        //...
+        "PipelineOptions" : 
+        {
+            "Branches" : [
+                "/administration" : { 
+                    "Include" : [
+                        "Vonk.Repository.Sql.SqlAdministrationConfiguration"
+                        //...
+                    ]
+                }
+            ]
+        }
+
 
 Have Vonk create your database
 ------------------------------
@@ -157,5 +195,3 @@ This paragraph lists the permissions needed to perform specific actions on the S
     *   **db_ddladmin** |br|
         only on the normal Vonk database for the user in the SqlDbOptions connectionstring. |br|
         (no extra permissions are required for the user on the Administration database).
-
-

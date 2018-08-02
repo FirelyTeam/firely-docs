@@ -10,6 +10,47 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_0710:
+
+Release 0.7.1.0
+---------------
+
+.. attention::
+
+   Fix nr. 8 requires a reindex/searchparameters with ``include=Resource._id,Resource._lastUpdated,Resource._tag``. 
+   Please review :ref:`feature_customsp_reindex` on how to perform a reindex and the cautions that go with it.
+   Also note the changes to reindexing in fix nr. 1.
+
+Database
+^^^^^^^^
+
+#. We added support for SQLite! See :ref:`configure_sqlite` for details.
+#. We also made SQLite the default setting for both the main Vonk database and the :ref:`administration_api`.
+#. With the introduction of SQLite we advise running the Administration API on SQLite. In the future we will probably deprecate running the Administration API on any of the other databases.
+#. Support for CosmosDB is expanded, though there are a :ref:`few limitations <configure_cosmosdb_limitations>`.
+
+Facade
+^^^^^^
+
+#. If you rejected the value for the _id searchparameter in your repository, Vonk would report an InternalServerError. Now it reports the actual message of your ArgumentException.
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+#. We sped up :ref:`feature_customsp_reindex`. The request will be responded to immediately, while Vonk starts the actual reindex asynchronously and with many threads in parallel.
+   Users are guarded against unreliable results by blocking other requests for the duration of the reindex.
+   Reindexing is still not to be taken lightly. It is a **very heavy** operation that may take very long to complete.
+   See :ref:`feature_customsp_reindex` for details. 
+#. A really large bundle could lead Vonk (or more specifically: the validator in Vonk) to a StackOverflow. You can now set :ref:`limits <sizelimits_options>` to the size of incoming data to avoid this.
+#. :ref:`Reindexing <feature_customsp_reindex>` is supported on CosmosDB, but it is less optimized than on MongoDB.
+#. Using _include or _revinclude would yield an OperationOutcome if there are no search results to include anything on. Fixed that to return 404 as it should.
+#. Using the :not modifier could return false positives. 
+#. A batch or transaction with an entry having a value for IfModifiedSince would fail.
+#. History could not be retrieved for a deleted resource. Now it can.
+#. :ref:`Reindex <feature_customsp_reindex>` would ignore the generic searchparameters defined on Resource (_id, _lastUpdated, _tag). Because id and lastUpdated are also stored apart from the search index, this was really only a problem for _tag.
+   If you rely on the _tag searchparameter you need to reindex **just for the searchparameter ``Resource._tag``**.
+#. Vonk logs its configuration at startup. See :ref:`log_configuration` for details.
+
 .. _vonk_releasenotes_0700:
 
 Release 0.7.0.0
@@ -64,6 +105,7 @@ Release 0.6.5.0
 
    This version changes the way conformance resources are loaded from zip files and/or directories at startup. They are no longer loaded only in memory, but are added to the Administration API's database.
    You will notice a delay at first startup, when Vonk is loading these resources into the database. See Feature #1 below.
+
 .. attention::
 
    2018-06-07: We updated the Database actions for 0.6.5.0, you should always perform a reindex, see right below.
