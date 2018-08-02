@@ -87,8 +87,8 @@ To get started, you should have created a project and have an established webhoo
 
 -	Your project will now contain all these files. Locate the ImplementationGuide resource.
 
--	Click on Update followed by Edit: Update by editing in IG editor.
-This will convert the ImplementationGuide resource to a Simplifier Implementation Guide.
+-	Click on Update followed by Edit: Update by editing in IG editor. This will convert the ImplementationGuide resource to a Simplifier Implementation Guide.
+
  .. image:: ./images/ConvertIG.png
  
 -	Choose the desired convert settings of your Implementation Guide.
