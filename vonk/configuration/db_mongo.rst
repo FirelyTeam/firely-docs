@@ -46,7 +46,7 @@ We assume you already have MongoDB installed. If not, please refer to the `Mongo
 
 Using MongoDB for the Administration API database
 -------------------------------------------------
-Although :ref:`deprecated<mongodb_admin_deprecated>`, you can still use MongoDB for Administration Data as well.
+Although we encourage you to use :ref:`SQLite for Vonk Administration <sqlite_admin_reasons>`, you can still use MongoDB for Vonk Administration as well.
 
 This works the same as with the normal Vonk database, except that you:
 
@@ -77,10 +77,3 @@ This works the same as with the normal Vonk database, except that you:
             ]
         }
    
-.. _mongodb_admin_deprecated:
-
-MongoDB deprecated as storage for Vonk Administration
------------------------------------------------------
-
-As of Vonk version 0.7.1, you are encouraged to run Vonk Administration on :ref:`SQLite<configure_sqlite>` and no longer on MongoDB.
-Refer to :ref:`sqlite_admin_reasons` for more background.

@@ -36,13 +36,13 @@ In short, both reindex operations below will:
 
 .. caution:: This is a possibly lengthy operation, so use it with care. 
 	
-	*	Always try the reindex on a representative (sub)set of your data in a test environment to.
+	*	Always try the reindex on a representative (sub)set of your data in a test environment to assess how long the operation may take in the production environment.
 	*	Always make a backup of your data before performing a reindex.
 
 .. warning:: During the re-index operation, all other operations are blocked and responded to with response code '423 - Locked'.
 
 Rebuild the whole search index
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is only needed if we changed something very significant to the way Vonk searches, like
 
@@ -58,7 +58,7 @@ To re-index all resources for all search parameters, use:
 	This will delete any previously indexed data and extract it again from the resources.
 
 Rebuild the search index for specific searchparameters
-------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is needed if:
 
