@@ -75,4 +75,18 @@ GitHub multiple branch linking
 ------------------------------
 We have created a way of allowing multiple branches from the same repository in GitHub to link to different projects in Simplifier. The GitHub API only allows one link per repository, so we created a multiplexer on our side to handle this.
 
+GitHub webhook to manage an Implementation Guides
+-----------------------------------------------------------------------------------
+The GitHub webhook allows managing your Implementation Guide, without using the editor itself. Your GitHub repository should contain an ImplementationGuide resource, which states the structure of the IG and refers to all the included pages. These pages should be in the repository as well. 
 
+To get started, you should have created a project and have an established webhook to your GitHub repository.
+1)	Create an ImplementationGuide resource. Or download an ImplementationGuide resource from a Simplifier project together with all the belonging content (.md pages and images for example)
+2)	Push the resources to your GitHub repository.
+3)	Your project will now contain all these files. Locate the ImplementationGuide resource.
+4)	Click on Update followed by Edit: Update by editing in IG editor.
+This will convert the ImplementationGuide resource to a Simplifier Implementation Guide.
+ .. image:: ./images/ConvertIG.png
+5)	Choose the desired convert settings of your IG.
+6)	The Implementation Guide editor will now open. You will also find the Implementation Guide in the Guides tab of your project.
+
+From now on, you can edit the ImplementationGuide resource and its pages from within your GitHub repository. Your changes will be automatically pushed to Simplifier and your online Implementation Guide.
