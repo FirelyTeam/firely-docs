@@ -181,11 +181,8 @@ To use your IG outside of Simplifier, click on the Export button next to your IG
 
 Manage your IG using GitHub
 ---------------------------
-The GitHub webhook allows managing your Implementation Guide, without using the editor itself. You can find more information on how to set this up in the `GitHub integration documentation_`.
+The GitHub webhook allows managing your Implementation Guide, without using the editor itself. You can find more information on how to set this up in the `GitHub integration documentation__`.
 
 
-.. _GitHub integration documentation: http://docs.simplifier.net/simplifier/simplifierGithub.html#github-webhook-to-manage-an-implementation-guides 
-
-
-
+.. __GitHub integration documentation: http://docs.simplifier.net/simplifier/simplifierGithub.html#github-webhook-to-manage-an-implementation-guides 
 
