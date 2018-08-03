@@ -10,14 +10,14 @@ Contents:
 
    simplifierIntro
    simplifierPersonalContent
-   simplifierShare
-   simplifierProjects
    simplifierBrowse
    simplifierResources
+   simplifierProjects
    simplifierEndpoint
    simplifierEmbeddedRendering
    simplifierOrganizationPortal  
    simplifierIGeditor
+   simplifierShare
    simplifierGithub
    simplifierConnectors
    simplifierWriteConnector
