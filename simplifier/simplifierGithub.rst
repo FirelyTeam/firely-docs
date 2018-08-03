@@ -76,22 +76,22 @@ GitHub multiple branch linking
 We have created a way of allowing multiple branches from the same repository in GitHub to link to different projects in Simplifier. The GitHub API only allows one link per repository, so we created a multiplexer on our side to handle this.
 
 GitHub webhook to manage Implementation Guides
------------------------------------------------------------------------------------
-The GitHub webhook allows managing your Implementation Guide, without using the editor itself. Your GitHub repository should contain an ImplementationGuide resource, which states the structure of the IG and refers to all the included pages. These pages should be in the repository as well. 
+----------------------------------------------
+The GitHub webhook allows you to edit your Implementation Guide without using the editor itself. Your GitHub repository can contain an IG resource which states the structure of the IG and refers to all the included pages (also in the same repository).
 
-To get started, you should have created a project and have an established webhook to your GitHub repository.
+To get started, you create a project and `establish a webhook <#github-linking>`_ to your GitHub repository.
 
--	Create an ImplementationGuide resource. Or download an ImplementationGuide resource from a Simplifier project together with all the belonging content (.md pages and images for example)
+-	Create an ImplementationGuide resource, or download an ImplementationGuide resource from a Simplifier project together with all the belonging content (.md pages, images, etc.)
 
 - Push the resources to your GitHub repository.
 
--	Your project will now contain all these files. Locate the ImplementationGuide resource.
+-	Your Simplifier project will now contain all these files. Locate the ImplementationGuide resource.
 
--	Click on Update followed by Edit: Update by editing in IG editor. This will convert the ImplementationGuide resource to a Simplifier Implementation Guide.
+-	Click on ``Update`` followed by ``Edit: Update by editing in IG editor``. This will convert the ImplementationGuide resource to a Simplifier IG.
 
  .. image:: ./images/ConvertIG.png
  
--	Choose the desired convert settings of your Implementation Guide.
--	The Implementation Guide editor will now open. You will also find the Implementation Guide in the Guides tab of your project.
+-	Choose the desired conversion settings of your IG.
+-	The Implementation Guide editor will now open with your IG - leave it as-is. You will also find the IG in the Guides tab of your project.
 
 From now on, you can edit the ImplementationGuide resource and its pages from within your GitHub repository. Your changes will be automatically pushed to Simplifier and your online Implementation Guide.
