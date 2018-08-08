@@ -23,5 +23,4 @@ Contents:
    simplifierMetadataExpressions
    simplifierVonk
    FHIRRegistry
-   simplifierPricing
    simplifierContact
