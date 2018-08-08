@@ -40,6 +40,10 @@ Log
 ---
 On the ``Log`` tab you can see all the changes that have been made to this project in the past. This is a good way to stay in touch with whats happening within your favorite projects. 
 
+Issues
+------
+On the ``Issues` tab you can leave your issues regarding the project. Note that this tab is not visible in all projects. The Issue Tracker is a paid functionality that allows project members to collect feedback from other project members or (depending on the project settings) other Simplifier users.
+
 Milestones
 ----------
 The ``Milestones`` tab shows all released versions of a project. Project members may use this beta functionality to release project versions containing (a selection of) resources as a package. 
