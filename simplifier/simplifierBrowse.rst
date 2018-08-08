@@ -8,18 +8,29 @@ A recent addition to the search feature is the ability to search by organization
 
 Your search results are now RESTful, meaning that you can send your search results exactly as you have edited them to another using the URL. The person that you are sending the results to will receive the search results just as you have filtered them. 
 
+Each project contains a couple of tabs depending on the settings of the project and your role in the project. The tabs described below are visible for each user in each Simplifier project. The other tabs will be explained in the following sections.
+
 Introduction
 ------------
 On the ``Introduction`` tab you can find:
 
-* A Project summary as added by the project owners
-* The Most Popular resources for the project
-* Table summarizing the contents of the project (Total number of StructureDefinitions, ValueSets, etc.)
+- A Project summary as added by the project owners
+- A summary table describing the contents of the project:
+ - Total number of resources per resource type
+ - Total number of examples per resource type
+- The canonical base URLs supported in the project
+- The workflow statuses supported in the project
+
+When clicking on a resource type in the summary table (e.g. profiles) you navigate to the ``Resources`` tab, where the resources will be filtered on the selected resource type.
 
 Resources
 ---------
 On the ``Resources`` tab you can find all the Conformance and Example Resources for the project.
 This tab also offers a search and filter option. You can filter your results to include or exclude certain Resource categories, Core base types, Example Resources type, FHIR status, and Workflow status. 
+ 
+Guides
+------
+The ``Guides`` tab shows all Implementation Guides for this project built in Simplifier. Click on the Guide or hit the ``Browse`` button to go to the Implementation Guide. 
  
 Members
 -------
@@ -28,5 +39,9 @@ On the ``Members`` tab you can find all project members and their role. This tab
 Log
 ---
 On the ``Log`` tab you can see all the changes that have been made to this project in the past. This is a good way to stay in touch with whats happening within your favorite projects. 
+
+Milestones
+----------
+The ``Milestones`` tab shows all released versions of a project. Project members may use this beta functionality to release project versions containing (a selection of) resources as a package. 
 
 To stay informed in real time click the subscribe button in the top right. You do not have to be a member of a project to stay up to date on the latest developments. 
