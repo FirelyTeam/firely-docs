@@ -22,5 +22,6 @@ Contents:
    simplifierConnectors
    simplifierMetadataExpressions
    simplifierVonk
+   simplifierBackupAndSynchronization
    FHIRRegistry
    simplifierContact
