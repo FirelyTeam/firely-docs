@@ -20,7 +20,6 @@ Contents:
    simplifierShare
    simplifierGithub
    simplifierConnectors
-   simplifierWriteConnector
    simplifierMetadataExpressions
    simplifierVonk
    FHIRRegistry
