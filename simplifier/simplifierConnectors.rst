@@ -25,7 +25,7 @@ Each connector specifies one or multiple resources that it can be used with. You
 	Once you click on it, the connector sends a request to open this specific resource from Simplifier.
 
 Connector scripts
-=================
+-----------------
 
 To create a connector your own personal use or for publication and use by others, follow these steps:
 
