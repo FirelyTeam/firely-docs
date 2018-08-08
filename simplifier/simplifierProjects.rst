@@ -9,6 +9,7 @@ Project Settings
 You can always change your project settings by clicking on the ``Settings`` button in the right upper corner. There are a couple of options in the Settings menu, which will be explained below.
 
 *Properties*
+
 Here you can edit the following properties: 
 - The title and subtitle of your project
 - The FHIR version (DSTU2 or STU3)
@@ -17,24 +18,31 @@ Here you can edit the following properties:
 - Publishing project resources to the FHIR registry (registry.fhir.org)
 
 *Project url*
+
 Here you can edit the URL key to your project on Simplifier, which is by default the name of your project. Be careful editing the URL key in a later stadium as it will break all existing links to your project.
 
 *Documentation url*
+
 If you have any external documentation on your project, you can add the link here.
 
 *Avatar*
+
 Choose this option to add your company logo or just any cool picture you like!
 
 *Workflow*
+
 Here you can select one of the custom workflows of your organization to use it in your project. The workflows are configured and mapped to the FHIR workflow add the organizational level.
 
 *Canonical base urls*
+
 Project owners can customize their base canonical URLs to brand their projects. Canonical URLs of resources will only be valid if they match the canonical base URL of their project. Make note that by choosing a canonical URL you are also certifying that it is within your rights to do so. 
 
 *Import log*
+
 Use this option to retrieve a log with all uploads to your project. 
 
 *Administration*
+
 This option is only available for project members with an admin role. Use this option if you want to delete your project or if you want to change its visibility to either public or private.
 
 Add a Resource
