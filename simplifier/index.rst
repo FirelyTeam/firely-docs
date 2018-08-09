@@ -15,11 +15,11 @@ Contents:
    simplifierProjects
    simplifierOrganizationPortal
    simplifierEndpoint
+   simplifierGithub
+   simplifierBackupAndSynchronization
    simplifierConnectors
    simplifierEmbeddedRendering
    simplifierIGeditor
-   simplifierBackupAndSynchronization
-   simplifierGithub
    simplifierVonk
    FHIRRegistry
    simplifierContact
