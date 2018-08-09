@@ -1,4 +1,4 @@
-Simplifier projects
+Projects
 ^^^^^^^^^^^^^^^^^^^
 Simplifier organizes all content (e.g. resources and Implementation Guides) in projects. A project can be used to share all your FHIR resources and documentation with the community as well as to collaborate with other project members.
 
