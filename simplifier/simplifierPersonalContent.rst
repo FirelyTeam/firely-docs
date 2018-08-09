@@ -32,7 +32,7 @@ You can add these in your account settings, and you can view this directly from 
 
 Snippets
 """"""""
-Your Snippets page shows a list of all your personal `Snippets <#sharing-resources-with-snippet>`_. From here you can also make a new Snippet by clicking on the ``+New`` button on the right.
+Your Snippets page shows a list of all your personal `Snippets <simplifierResources.html#sharing-resources-with-snippet>`_. From here you can also make a new Snippet by clicking on the ``+New`` button on the right.
 
 .. image:: ./images/MySnippets.PNG 
 
