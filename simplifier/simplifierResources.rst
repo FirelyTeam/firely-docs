@@ -1,17 +1,10 @@
-Browse existing FHIR resources
-==============================
-Simplifier is a repository for FHIR resources. There are a multitude of resources that are available to the public including profiles, extensions, valuesets, dictionaries, mappings, examples and more. If these resources are listed as public then you can find them here. 
+Resources
+=========
+Simplifier is a repository for FHIR resources. There are a multitude of resources that are available to the public including profiles, extensions, valuesets, dictionaries, mappings, examples and more. 
 
-You can browse these resources easily from the Simplifier homepage or search for more specific resources if you know what you are looking for. To search for a specific resource navigate to the search box at the top of the homepage and type the term in the search field. Once you have reached the page with your search results you have options to further filter your results to include or exclude results based on certain parameters. To limit your search results to resources select ``Resources`` from the Search Type options. You can apply other filters such as Resource Categories and Fhir Status here.
-
-.. image:: ./images/Resourcessearch.PNG
-  :align: center
-
-Once you have found the resource you are looking for select it to see further details. Within the resource’s page you can view which project that resource is a part of, the type, status (maturity level), versioning, and  different resource views. 
-
-Available views
-"""""""""""""""
-While viewing resources you can display information in a few different ways.  
+Resource page
+"""""""""""""
+You can visit the page of a resource by selecting the resource from your search results or the ``Resources`` tab in your project, or following the direct link to the resource. While viewing resources you can display information in a few different ways.  
 
 Depending on the type of resource, the different views include:
 
@@ -36,3 +29,6 @@ Download Resources
 """"""""""""""""""
 You may also choose to download the resource and save a local copy on your computer. You can either choose to download the resource as a XML or JSON file or directly copy the XML or JSON code of the resource to your clipboard, so you can easily copy-paste it to another location.
 
+Add Resources
+"""""""""""""
+Go to your Project page to `add new resources <simplifierProjects.html#add-resources-to-your-project>`_ to your project.
