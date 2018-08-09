@@ -2,7 +2,7 @@ Projects
 ^^^^^^^^^^^^^^^^^^^
 Simplifier organizes all content (e.g. resources and Implementation Guides) in projects. A project can be used to share all your FHIR resources and documentation with the community as well as to collaborate with other project members.
 
-Project tabs
+Project page
 """"""""""""
 Each project contains a couple of tabs depending on the settings of the project and your role in the project. The tabs described below are visible for each user in each Simplifier project.
 
