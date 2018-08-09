@@ -2,7 +2,7 @@
 
 Endpoint
 ^^^^^^^^
-The endpoint of a project or resource can be used to either search for resources in Simplifier or to read, search, add and update resources in a FHIR client. System wide searches and history searches are also supported. To retrieve the endpoint of a project or resource in Simplifier click on ``API`` in the top right menu when visiting either the `project <simplifierProjects.html#project-page>`_ project or `resource <simplifierResources.html#resource-page>`_ page.
+The endpoint of a project or resource can be used to either search for resources in Simplifier or to read, search, add and update resources in a FHIR client. System wide searches and history searches are also supported. To retrieve the endpoint of a project or resource in Simplifier click on ``API`` in the top right menu when visiting either the `project <simplifierProjects.html#project-page>`_ or `resource <simplifierResources.html#resource-page>`_ page.
 
 Project FHIR API
 """"""""""""""""
