@@ -28,11 +28,11 @@ This tab also offers a search and filter option. You can filter your results to 
  
 Guides
 ------
-The ``Guides`` tab shows all Implementation Guides for this project built in Simplifier. Click on the Guide or hit the ``Browse`` button to go to the Implementation Guide. 
+The ``Guides`` tab shows all Implementation Guides for this project built in Simplifier. Click on the Guide or hit the ``Browse`` button to go to the Implementation Guide. Use the `IG-editor <simplifierIGeditor.html#implementation-guide-editor>`_ to create and edit Implementation Guides.
  
 Members
 -------
-On the ``Members`` tab you can find all project members and their role. This tab also offers a search option, allowing you to search for other members using their full name or username.
+On the ``Members`` tab you can find all project members and their role. This tab also offers a search option, allowing you to search for other members using their full name or username. Depending on your role in the project you can `add project members <simplifierProjects.html#add-project-members>`_ here.
 
 Log
 ---
@@ -40,7 +40,7 @@ On the ``Log`` tab you can see all the changes that have been made to this proje
 
 Issues
 ------
-On the ``Issues` tab you can leave your issues regarding the project. Note that this tab is not visible in all projects. The Issue Tracker is a paid functionality that allows project members to collect feedback from other project members or (depending on the project settings) other Simplifier users.
+On the ``Issues`` tab you can leave your issues regarding the project. Note that this tab is not visible in all projects. The `Issue Tracker <simplifierProjects.html#issue-tracker>`_ is a paid functionality that allows project members to collect feedback from other project members or (depending on the project settings) other Simplifier users.
 
 Milestones
 ----------
@@ -65,7 +65,7 @@ Here you can edit the following properties:
 - The FHIR version (DSTU2 or STU3)
 - The scope of your project (core, international, national, institute, regional or test). As choosing the right scope will make it easier for others to find your project, please use test for all test projects and test projects only.
 - Issue tracking by project members and other Simplifier users
-- Publishing project resources to the FHIR registry (registry.fhir.org)
+- Publishing project resources to the `FHIR registry <FHIRRegistry.html#fhir-registry>`_ (registry.fhir.org)
 
 Project url
 -----------
