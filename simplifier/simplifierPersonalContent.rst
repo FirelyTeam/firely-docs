@@ -30,11 +30,11 @@ You can now add your usual social media handles, like Facebook, Twitter, LinkedI
 
 You can add these in your account settings, and you can view this directly from your own profile page. Your profile page can be found in the User Menu of your Portal dropdown.
 
-Shares
-""""""
-Your Shares page shows a list of all your personal Shares. From here you can also make a new Share by clicking on the ``+New`` button on the right. The Share feature is explained in more detail in the chapter on Share.
+Snippets
+""""""""
+Your Snippets page shows a list of all your personal `Snippets <simplifierShare.html#sharing-resources-with-snippet>`_. From here you can also make a new Snippet by clicking on the ``+New`` button on the right.
 
-.. image:: ./images/SharesPage.PNG 
+.. image:: ./images/MySnippets.PNG 
 
 Account Settings and Mail Digest
 """"""""""""""""""""""""""""""""
