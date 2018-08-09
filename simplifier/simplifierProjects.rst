@@ -32,7 +32,7 @@ The ``Guides`` tab shows all Implementation Guides for this project built in Sim
  
 Members
 -------
-On the ``Members`` tab you can find all project members and their role. This tab also offers a search option, allowing you to search for other members using their full name or username. Depending on your role in the project you can `add project members <simplifierProjects.html#add-project-members>`_ here.
+On the ``Members`` tab you can find all project members and their role. This tab also offers a search option, allowing you to search for other members using their full name or username. Depending on your role in the project you can `add project members <simplifierProjects.html#id1>`_ here.
 
 Log
 ---
@@ -40,7 +40,7 @@ On the ``Log`` tab you can see all the changes that have been made to this proje
 
 Issues
 ------
-On the ``Issues`` tab you can leave your issues regarding the project. Note that this tab is not visible in all projects. The `Issue Tracker <simplifierProjects.html#issue-tracker>`_ is a paid functionality that allows project members to collect feedback from other project members or (depending on the project settings) other Simplifier users.
+On the ``Issues`` tab you can leave your issues regarding the project. Note that this tab is not visible in all projects. The `Issue Tracker <simplifierProjects.html#id2>`_ is a paid functionality that allows project members to collect feedback from other project members or (depending on the project settings) other Simplifier users.
 
 Milestones
 ----------
