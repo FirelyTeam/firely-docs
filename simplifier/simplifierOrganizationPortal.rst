@@ -1,5 +1,5 @@
-Organization Portal
-^^^^^^^^^^^^^^^^^^^
+Organizations
+^^^^^^^^^^^^^
 For our members with an Enterprise plan there is the functionality to create and manage an organizational account within Simplifier. An Organization account allows you to create and share projects, resources, and Implementation Guides via your organization with others within and outside your organization. You can add members and adjust rights to the project.  
 
 Organization Settings
@@ -10,7 +10,14 @@ Once you have made your account you can create and organize organizational proje
     :align: center
     :scale: 50 %
     
- Custom Workflow
+Organization Portal
+-------------------
+Your organization portal is a landing page for your organization that is visible to the outside world. On your portal you can add a logo, information about your organization and news feeds. Your organization portal also shows a list of your organization's projects.
+
+.. image:: ./images/OrganizationPortal.PNG
+    :align: center
+
+Custom Workflow
 -----------------
 Custom workflows allows you to create statuses for your resources that fit your needs. You can use this to communicate to your organization team, in your own language, the progress of any given resource. This is in addition to the standard FHIR workflows of “Draft”, “Active”, and “Retired”. The FHIR workflows cover the following statues:
 
