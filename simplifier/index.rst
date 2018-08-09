@@ -9,19 +9,17 @@ Contents:
    :maxdepth: 2
 
    simplifierIntro
-   simplifierPersonalContent
    simplifierBrowse
+   simplifierPersonalContent
    simplifierResources
    simplifierProjects
+   simplifierOrganizationPortal
    simplifierEndpoint
-   simplifierEmbeddedRendering
-   simplifierOrganizationPortal  
-   simplifierIGeditor
-   simplifierShare
-   simplifierGithub
    simplifierConnectors
-   simplifierMetadataExpressions
-   simplifierVonk
+   simplifierEmbeddedRendering
+   simplifierIGeditor
    simplifierBackupAndSynchronization
+   simplifierGithub
+   simplifierVonk
    FHIRRegistry
    simplifierContact
