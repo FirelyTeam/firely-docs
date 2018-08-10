@@ -10,6 +10,18 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_0711:
+
+Release 0.7.1.1
+---------------
+
+Fix
+^^^
+
+Spinning up a Docker container would crash the container because there was no data directory for SQlite (the default repository). This has been 
+solved now: Vonk will create the data directory when it does not exist. 
+
+
 .. _vonk_releasenotes_0710:
 
 Release 0.7.1.0
