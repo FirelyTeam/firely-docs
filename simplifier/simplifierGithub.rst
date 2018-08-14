@@ -1,15 +1,16 @@
 GitHub integration
 ==================
 The GitHub integration enables you to link Simplier projects to GitHub repositories. When linking the project with the repository, the
-resources from the repository are fetched and added to your Simplifier project.
-This page will elaborate further on how to perform the linking.
+resources from the repository are fetched and added to your Simplifier project. The GitHub integration is part of the paid account plans of Simplifier. This page will elaborate further on how to perform the linking.
 
 GitHub Linking
 --------------
-You can link a repository in GitHub to your Simplifier project by going to your project and selecting the "Link to GitHub Repository" button under the Options menu.
+In order to perfom the inital setup link of a GitHub repository to a Simplifier project, the user needs to have admin rights in GitHub and Simplifier.
+You can link a repository in GitHub to your Simplifier project by going to your project and selecting the "Link to GitHub Repository" button under the Options menu. 
+
 You will be redirected to the GitHub login or, if you are already logged in to GitHub, straight to the page where you will be asked to authorize that Simplifier can access your repository.
 
-Once this step is complete, you will be directed back to Simplifier, where Simplifier will ask you which repository you want to link and which branch within that repository.
+Once this step is complete, you will be directed back to Simplifier, where Simplifier will ask you which repository you want to link and which branch within that repository. 
 
 To link an Organization GitHub repository after an already made link, you should go to your Organization on GitHub -> Settings Tab -> Third-party access -> and press the "Remove Restrictions" button. Now you should see the repositories from that organization when you try to link a GitHub Repository.
 
