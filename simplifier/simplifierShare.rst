@@ -16,6 +16,6 @@ When visiting the URL of a Snippet, you can choose to view either the XML code, 
 
 Personal Snippets
 """""""""""""""
-Through your personal menu (click on your avatar at the top right and select ``Snippets``) you can access a list of all your Snippets. From here you can also quickly add a new Snippet by clicking the green ``+New`` button.
+Through your  `personal menu <simplifierPersonalContent.html#personal-menu>`_ (click on your avatar at the top right and select ``Snippets``) you can access a list of all your Snippets. From here you can also quickly add a new Snippet by clicking the green ``+New`` button.
 
 .. image:: ./images/MySnippets.PNG 

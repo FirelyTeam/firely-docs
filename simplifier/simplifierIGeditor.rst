@@ -179,6 +179,18 @@ To use your IG outside of Simplifier, click on the Export button next to your IG
 
 .. image:: ./images/igExport.png
 
+Convert ImplementationGuide resource to a Simplifier webbased IG
+----------------------------------------------------------------
+An ImplementationGuide resource can be converted to a Simplifier webbased IG. This comes in handy if you for example accidently deleted your IG or if you want to duplicate your IG in another project.
+
+- Make sure that the project contains the ImplementationGuide resource and all the belonging content (.md pages, images, etc.)
+
+-	Locate the an ImplementationGuide resource. 
+
+-	Click on ``Update`` followed by ``Edit: Update by editing in IG editor``. This will convert the ImplementationGuide resource to a Simplifier IG. 
+
+- Follow the configuration steps and locate the IG in the Guides tab.
+
 Manage your IG using GitHub
 ---------------------------
 The GitHub webhook allows managing your Implementation Guide, without using the editor itself. You can find more information on how to set this up in the `GitHub integration documentation`_.

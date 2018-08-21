@@ -260,8 +260,8 @@ Protect against large input
 ::
 
     "SizeLimits": {
-        "MaxResourceSize": 1MiB,
-        "MaxBatchSize": 5MiB,
+        "MaxResourceSize": "1MiB",
+        "MaxBatchSize": "5MiB",
         "MaxBatchEntries": 150
     },
 
