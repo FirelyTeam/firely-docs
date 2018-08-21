@@ -6,9 +6,9 @@ Find other Simplifier users
 ---------------------------
 When you visit the ``Members`` tab on a project page, you see which Simplifier users are involved in the project. By clicking on a project member, you will navigate to his or her `user profile <simplifierPersonalContent.html#user-profile>`_. Here you can find more information about this user, such as his or her activity on Simplifier and other projects this user is involved in. You can also get in touch with this user by using his or her contact details or sending a direct message.
 
-RESTful search
---------------
-To explore existing organizations, projects and resources simply type a search phrase into the ``Search`` field at the top of the Simplifier homepage. This search allows you to browse through publicly available organizations, resources and projects. Once you reach the page with your search results you will notice that you have a few options to further specify your results. In the left hand menu you will find options to limit the results to Organizations, Projects or Resources.
+Search existing content
+-----------------------
+To explore existing resources, projects and organizations simply type a search phrase into the ``Search`` field at the top of the Simplifier homepage. This search allows you to browse through publicly available organizations, resources and projects. Once you reach the page with your search results you will notice that you have a few options to further specify your results. In the left hand menu you will find options to limit the results to Organizations, Projects or Resources.
 
 Your search results are RESTful, meaning that you can send your search results exactly as you have edited them to another using the URL. The person that you are sending the results to will receive the search results just as you have filtered them.
 
