@@ -23,6 +23,7 @@ FHIR resources can be used in a flexible way. The definition of a resource descr
 How to create resources
 -----------------------
 There are several ways to create resource instances: handcode them or use a tool with an interactive user-interface. The following (free) tools support the creation of FHIR resources:
+
 - SMART FRED: An intuitive online tool that allows you to create resource instances (examples).
 - Forge: A user-friendly profile editor that offers a convenient way to create StructureDefinitions (e.g. profiles and extensions) and logical models.
 - ClinFHIR: An online tool with multiple helpful modules. The Scenario Builder allows you to create clinical scenarios and resource instances. With the Logical Modeller you can create LogicalModels and generate StructureDefinitions (profiles) based on these models. In addition, there are modules to build extensions, CodeSystems and ValueSets.
