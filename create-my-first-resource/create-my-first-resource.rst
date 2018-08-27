@@ -1,7 +1,7 @@
 Create my first resource
 ===========================
 
-Congratulations! You are now officialy becoming a FHIR geek. Welcome to the club! On this page we will explain how you can create FHIR resources. First, we will explain the different kinds of resources that are known to FHIR. Next, we will explain which tools come in handy when creating a FHIR resource and how to use them. Finally, we will take you through the process of creating, validating and publishing your very first FHIR resource.
+Congratulations! You are now officialy becoming a real FHIR geek. Welcome to the club! On this page we will explain how you can create FHIR resources. First, we will explain the different kinds of resources that are known to FHIR. Next, we will explain which tools come in handy when creating a FHIR resource and how to use them. Finally, we will take you through the process of creating, validating and publishing your very first FHIR resource.
 
 FHIR resources 
 --------------
