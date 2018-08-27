@@ -45,6 +45,7 @@ Forge
 ClinFHIR
 ^^^^^^^^
 Visit `ClinFHIR <http://clinfhir.com/>`_. and select one of the following modules:
+
 1. Scenario Builder - Choose this option to build a clinical scenario. Click ``New Scenario`` to add a new scenario. Click ``Add Resource`` to add a resource. Select a core resource type or search for an existing profile. Your resource will be added to the list in the ``List`` tab. Depending on your choice, you will see the element tree of a selected resource based on the core resource or the selected profile. Click on an element and its data type to add data. For a visual view of the resources in your scenario and their relations, open the ``Graph`` tab.
 2. Logical Modeller - You can use this module to create LogicalModels and StructureDefinitions (profiles). Choose ``New Model`` to create a new LogicalModel. You can either start with a blank model or copy all elements from a base resource. Click ``Add Element`` to add elements to your tree model or select an element and click ``Edit Element`` to edit them. Go to the ``Export`` tab and choose ``Generate Profile`` to generate a profile based on your LogicalModel. Note that this only makes sense when it conforms to the rules of a base resource.
 3. Extension Definition Builder - Extensions are a special kind of StructureDefinition that can be used to extend your profile with additional elements that are not part of the base resource. Open the Extension Definition Builder to create extensions. Select ``New Extension Definition`` and provide the name, URL and cardinality of your extension. Choose ``Add element`` to add one or more elements to your extension.
@@ -130,6 +131,7 @@ Follow the next steps to publish your resource(s) to Simplifier:
 2. Create a project (click on your avatar and select ``Portal`` to go to your personal portal, next click ``Create`` in the ``Projects`` tab)
 3. Go to your project
 4. Select ``Upload`` and choose one of the following options:
+
     a. Upload file - select the resource from a file stored on your computer or select a zip file to add multiple resources at once
     b. Fetch from URL - get your resource(s) from a FHIR server (note: you can either upload a Bundle as is or split the resources in the Bundle to add multiple resources in one run)
     c. Copy/Paste - copy/paste the XML or JSON code of your resource (note: a Bundle resource will be uploaded as is and will not be splitted)
