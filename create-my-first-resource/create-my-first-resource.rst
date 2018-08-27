@@ -132,9 +132,9 @@ Follow the next steps to publish your resource(s) to Simplifier:
 3. Go to your project
 4. Select ``Upload`` and choose one of the following options:
 
-    a. Upload file - select the resource from a file stored on your computer or select a zip file to add multiple resources at once
-    b. Fetch from URL - get your resource(s) from a FHIR server (note: you can either upload a Bundle as is or split the resources in the Bundle to add multiple resources in one run)
-    c. Copy/Paste - copy/paste the XML or JSON code of your resource (note: a Bundle resource will be uploaded as is and will not be splitted)
+    a) Upload file - select the resource from a file stored on your computer or select a zip file to add multiple resources at once
+    b) Fetch from URL - get your resource(s) from a FHIR server (note: you can either upload a Bundle as is or split the resources in the Bundle to add multiple resources in one run)
+    c) Copy/Paste - copy/paste the XML or JSON code of your resource (note: a Bundle resource will be uploaded as is and will not be splitted)
 
 Or export your resource(s) to Simplifier from Forge:
 
