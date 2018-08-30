@@ -76,6 +76,21 @@ Providing your own implementations is only possible with Vonk FHIR Facade or Com
 
 Configuration
 -------------
+You will need to add the Smart component to the Vonk pipeline. See :ref:`vonk_components` for more information. In ``appsettings.json``, locate the pipeline
+configuration in the ``PipelineOptions`` section, or copy that section from ``appsettings.default.json``::
+
+	"PipelineOptions": {
+	  "PluginDirectory": "./plugins",
+	  "Branches": [
+		{
+		  "Path": "/",
+		  "Include": [
+			"Vonk.Core",
+			"Vonk.Fhir.R3",
+			...
+
+Add ``Vonk.Smart`` to the list of included components. When you restart Vonk, the Smart service will be added to the pipeline.
+
 You can control the way Access Control based on SMART on FHIR behaves with the SmartAuthorizationOptions in ``appsettings.json``::
 
     "SmartAuthorizationOptions": {
