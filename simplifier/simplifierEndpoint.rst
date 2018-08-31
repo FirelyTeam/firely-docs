@@ -48,7 +48,8 @@ Donwloading or uploading your project works with a GET or a PUT at https://api.s
 
 ::
   
-  GET https://api.simplifier.net/yourproject/zip
+  GET https://api.simplifier.net/<yourproject>/zip
+  
   Header:
   Authorization: Bearer <access_token> 
 
