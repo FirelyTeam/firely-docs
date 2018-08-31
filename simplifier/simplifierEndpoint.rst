@@ -43,7 +43,7 @@ First retrieve a JWT token from Simplifier. This works with a POST at https://ap
        "Password": "your password"
     }
     
-Donwloading or uploading your project works with a GET or a PUT at https://api.simplifier.net/<project>/zip with a authorization header that includes your retrieved token as shown below. The token is valid for 8 hours.
+Downloading or uploading your project works with a GET or a PUT at https://api.simplifier.net/<project>/zip with an authorization header that includes your retrieved token as shown below. The token is valid for 8 hours.
 
 ::
   
