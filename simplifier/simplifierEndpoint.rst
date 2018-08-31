@@ -2,7 +2,10 @@
 
 API
 ^^^^^^^^
-The endpoint of a project or resource can be used to either search for resources in Simplifier or to read, search, add and update resources in a FHIR client. System wide searches and history searches are also supported. To retrieve the endpoint of a project or resource in Simplifier click on ``API`` in the top right menu when visiting either the `project <simplifierProjects.html#project-page>`_ or `resource <simplifierResources.html#resource-page>`_ page.
+The endpoint of a project or resource can be used to either search for resources in Simplifier or to read, search, add and update resources in a FHIR client. System wide searches and history searches are also supported. To retrieve the endpoint of a project or resource in Simplifier click on ``API`` in the top right menu when visiting either the `project <simplifierProjects.html#project-page>`_ or `resource <simplifierResources.html#resource-page>`_ page. The below image shows the location.
+
+.. image:: ./ProjectApiCompleteScreen.png
+
 
 Project FHIR API
 """"""""""""""""
@@ -18,9 +21,33 @@ On the resource page, you can retrieve the FHIR endpoint of your resource. You w
 
 Project ZIP API
 """""""""""""""
-The project ZIP API is available at project level. You can use the ZIP endpoint for synchronization. With an HTTP tool you can use GET or PUT https://simplifier.net/yourproject/api/zip to retrieve or update your project in zipped form.
+The project ZIP API is available at project level. You can use the ZIP endpoint for synchronization. With an HTTP tool you can use GET or PUT https://api.simplifier.net/<project>/zip to retrieve or update your project in zipped form.
 
-.. image:: ./images/ProjectZIPEndpoint.PNG 
+.. image:: ./images/ProjectZipApi.png
+
+JWT authentication
+------------------
+The ZIP endpoint is available for Simplifier users based on JWT authentication. 
+
+First retrieve a JWT token from Simplifier. This works with a POST at https://api.simplifier.net/token with your account details in the message body in JSON format. Header should be Content-Type: application/json
+
+** POST https://api.simplifier.net/token 
+** Header:
+  ** Content-Type: application/json
+
+
+** Body:
+.. code-block:: JSON
+    {
+       "Email": "youremail@example.com",
+       "Password": "your password"
+    }
+    
+Donwloading or uploading your project works with a GET or a PUT at https://api.simplifier.net/<project>/zip with a authorization header that includes your retrieved token as shown below. The token is valid for 8 hours.
+
+** GET https://api.simplifier.net/yourproject/zip
+** Header:
+   ** Authorization: Bearer <access_token> 
 
 Simplifier FHIR API
 """""""""""""""""""
