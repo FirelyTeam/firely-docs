@@ -4,7 +4,7 @@ API
 ^^^^^^^^
 The endpoint of a project or resource can be used to either search for resources in Simplifier or to read, search, add and update resources in a FHIR client. System wide searches and history searches are also supported. To retrieve the endpoint of a project or resource in Simplifier click on ``API`` in the top right menu when visiting either the `project <simplifierProjects.html#project-page>`_ or `resource <simplifierResources.html#resource-page>`_ page. The below image shows the location.
 
-.. image:: ./ProjectApiCompleteScreen.png
+.. image:: ./ProjectApicCmpleteScreen.png
 
 
 Project FHIR API
@@ -31,13 +31,14 @@ The ZIP endpoint is available for Simplifier users based on JWT authentication.
 
 First retrieve a JWT token from Simplifier. This works with a POST at https://api.simplifier.net/token with your account details in the message body in JSON format. Header should be Content-Type: application/json
 
-** POST https://api.simplifier.net/token 
-** Header:
-  ** Content-Type: application/json
+::
+  
+  POST https://api.simplifier.net/token 
+  
+  Header:
+  Content-Type: application/json
 
-
-** Body:
-.. code-block:: JSON
+  Body:
     {
        "Email": "youremail@example.com",
        "Password": "your password"
@@ -45,9 +46,11 @@ First retrieve a JWT token from Simplifier. This works with a POST at https://ap
     
 Donwloading or uploading your project works with a GET or a PUT at https://api.simplifier.net/<project>/zip with a authorization header that includes your retrieved token as shown below. The token is valid for 8 hours.
 
-** GET https://api.simplifier.net/yourproject/zip
-** Header:
-   ** Authorization: Bearer <access_token> 
+::
+  
+  GET https://api.simplifier.net/yourproject/zip
+  Header:
+  Authorization: Bearer <access_token> 
 
 Simplifier FHIR API
 """""""""""""""""""
