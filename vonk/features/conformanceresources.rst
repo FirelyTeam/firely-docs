@@ -155,6 +155,7 @@ Therefore you can instruct Vonk to actually load the profiles from the source(s)
 
   POST http(s)://<vonk-endpoint>/administration/importResources
 
+The operation will return an OperationOutcome resource, containing details about the number of resources created and updated, as well as any errors that occurred.
 Please note that this will also respect the history of already read files, and not read them again.
 
 .. _conformance_administration_api:

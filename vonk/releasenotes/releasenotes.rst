@@ -10,6 +10,37 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_0720:
+
+Release 0.7.2.0
+---------------
+
+Database
+^^^^^^^^
+
+#. Fixes 2 and 3 require a reindex for specific searchparameters, if these parameters are relevant to you.
+
+Features and fixes
+^^^^^^^^^^^^^^^^^^
+
+#. Fix: Reject a search containing a modifier that is incorrect or not supported.
+#. Fix: The definition for searchparameter Encounter.length was unclear. We added the correct definition from FHIR R4 to the errata.zip, so it works for STU3 as well.
+   If this is relevant for you, you may want to reindex for this searchparameter. See :ref:`feature_customsp_reindex_specific`), just for 'Encounter.length'.
+#. Fix: Error "Unable to index for element of type 'base64Binary'". This type of element is now correctly indexed. 
+   One known searchparameter that encounters this type is Device.udi-carrier. If this is relevant to you, you may want to reindex for this searchparameter. See See :ref:`feature_customsp_reindex_specific`), just for 'Device.udi-carrier'.
+#. Fix: Validation would fail on references between contained resources. See also :ref:`api_releasenotes_0950` #423.
+#. Fix: E-tag was missing from the response on a delete interaction.
+#. Fix: An invalid mimetype in the _format parameter (like _format=application/foobar) returned responsecode 400 instead of 415.
+#. Fix: If a subscription errors upon execution, not only set the status to error, but also state the reason in Subscription.error for the user to inspect.
+#. Fix: Reject a request for handling a batch that contains internal references.
+#. Fix: Search on /Observation?value-string:missing=false did not work. As did the missing modifier on other searchparameters on value[x] elements.
+#. Feature: After /administration/importResources (see :ref:`conformance_on_demand`), return an OperationOutcome detailing the results of the operation.
+#. Feature: Upon usage of a wrong value for _summary, state the possible, correct values in the OperationOutcome.
+#. Feature: Allow for multiple deletes with a Conditional Delete, see :ref:`restful_crud`.
+#. Feature: The version of Vonk is included in the log file, at startup.
+#. Configuration: Add Vonk.Smart to the PipelineOptions by default, so the user only needs to set the SmartAuthorizationOptions.Enabled to true.
+#. Upgrade: We upgraded to the latest C# driver for MongoDb (from 2.4.4 to 2.7.0).
+
 .. _vonk_releasenotes_0711:
 
 Release 0.7.1.1
