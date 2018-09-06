@@ -77,7 +77,7 @@ Log of your configuration
 -------------------------
 
 Because the hierarchy of settings can be overwhelming, Vonk logs the resulting configuration. 
-To enable that, the loglevel for ``Vonk.Server`` must be ``Information`` or more detailed. That is set for you by default in ``appsettings.default.json``.
+To enable that, the loglevel for ``Vonk.Server`` must be ``Information`` or more detailed. That is set for you by default in ``logsettings.default.json``.
 Refer to :ref:`configure_log` for information on setting log levels.
 
 Administration
@@ -332,7 +332,7 @@ Subscriptions
 ::
 
     "SubscriptionEvaluatorOptions": {
-	    "Enabled": true,
+        "Enabled": true,
         "RepeatPeriod": 20000,
         "SubscriptionBatchSize" : 1
     },
@@ -343,8 +343,48 @@ FHIR Capabilities
 -----------------
 ::
 
-    "FhirCapabilities": {
-	    "ConditionalDelete": Single //Multiple
-    },
+  "FhirCapabilities": {
+    "ConditionalDeleteOptions": {
+      "ConditionalDeleteType": "Single", // Single or Multiple,
+      "ConditionalDeleteMaxItems": 1
+    }
+  },
 
 See :ref:`restful_crud`.
+
+
+Configuring the Vonk Pipeline
+-----------------------------
+
+You can add your own components to the Vonk pipeline, or control which of the standard Vonk components
+are used for your Vonk server, by changing the ``PipelineOptions``.
+::
+
+  "PipelineOptions": {
+    "PluginDirectory": "./plugins",
+    "Branches": [
+      {
+        "Path": "/",
+        "Include": [
+          "Vonk.Core",
+          "Vonk.Fhir.R3",
+          // etc.
+        ],
+        "Exclude": [
+        ]
+      },
+      {
+        "Path": "/administration",
+        "Include": [
+          "Vonk.Core",
+          "Vonk.Fhir.R3",
+          // etc.
+        ],
+        "Exclude": [
+          "Vonk.Core.Operations"
+        ]
+      }
+    ]
+  }
+
+See :ref:`vonk_components` for more information and an example custom component.
