@@ -10,6 +10,16 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_0721:
+
+Release 0.7.2.1
+---------------
+
+Fix
+^^^
+
+#. Delete on /administration was broken.
+
 .. _vonk_releasenotes_0720:
 
 Release 0.7.2.0
