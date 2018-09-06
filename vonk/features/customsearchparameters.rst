@@ -41,6 +41,8 @@ In short, both reindex operations below will:
 
 .. warning:: During the re-index operation, all other operations are blocked and responded to with response code '423 - Locked'.
 
+.. _feature_customsp_reindex_all:
+
 Rebuild the whole search index
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -56,6 +58,8 @@ To re-index all resources for all search parameters, use:
 		POST http(s)://<vonk-endpoint>/administration/reindex/all
 
 	This will delete any previously indexed data and extract it again from the resources.
+
+.. _feature_customsp_reindex_specific:
 
 Rebuild the search index for specific searchparameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

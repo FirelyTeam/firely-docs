@@ -18,6 +18,24 @@ Vonk enables create-on-update: If you request an update and no resource exists f
 
 Vonk can reject a resource based on :ref:`feature_prevalidation`.
 
+.. _restful_crud_configuration:
+
+Configuration
+^^^^^^^^^^^^^
+
+A conditional delete interaction may match multiple resources. You can configure the server to delete all matches, or reject the operation (effectively only allowing single matches to be deleted).
+Allowing multiple deletes requires support for transactions on the database (SQL Server or SQLite). 
+If you allow for Multiple deletes, you have to specify a maximum number of resources that can be deleted at once, to save you from accidentally deleting too many resources.
+
+::
+
+    "FhirCapabilities": {
+        "ConditionalDeleteOptions": {
+        "ConditionalDeleteType": "Single", // Single or Multiple,
+        "ConditionalDeleteMaxItems": 1
+        }
+    }
+
 .. _restful_crud_limitations:
 
 Limitations on CRUD

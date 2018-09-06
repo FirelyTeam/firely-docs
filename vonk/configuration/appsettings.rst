@@ -339,3 +339,12 @@ Subscriptions
 
 See :ref:`feature_subscription`.
 
+FHIR Capabilities
+-----------------
+::
+
+    "FhirCapabilities": {
+	    "ConditionalDelete": Single //Multiple
+    },
+
+See :ref:`restful_crud`.
