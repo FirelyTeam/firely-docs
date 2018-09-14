@@ -1,8 +1,8 @@
 .. _FHIR-parsing:
 
-======================
+=========================
 Parsing and serialization
-======================
+=========================
 
 The .NET API makes it easy to work with XML and Json-based FHIR data. There are two approaches for getting data in and out of your application:
 
@@ -21,7 +21,7 @@ However, there are several reasons the POCO-based approach may not work for you:
 
 The second approach, using the ``ElementModel`` abstraction, has been designed to work with these usecases. In fact, the POCO parsers are built on top of the more low-level ``ElementModel`` classes.
 
-The rest of this section describes working with the POCO parsers and serializers, more information on the ``ElementModel`` parsers can be found HERE.
+The rest of this section describes working with the POCO parsers and serializers, more information on the ``ElementModel`` parsers can be found at :ref:`elementmodel-intro`.
 
 Parsing with POCOs
 ------------------
@@ -96,8 +96,8 @@ summary forms by passing the ``summary`` parameter to any of the serialization m
 
     var xml = serializer.SerializeToString(b, summary: Fhir.Rest.SummaryType.Text);
 
-Working with incorrect data
----------------------------
+POCO's and parsing incorrect data
+---------------------------------
 
 The POCO parsers are pretty strict about what data they will accept: since the data read and parsed must fit the POCO structure there is little room in allowing incorrect FHIR data. It is possible to allow a bit of flexibility however, which is controlled by passing a `ParserSettings` instance to the constructor of the xml or json parser:
 
@@ -106,7 +106,7 @@ The POCO parsers are pretty strict about what data they will accept: since the d
     var parser = new FhirXmlParser(new ParserSettings { AcceptUnknownMembers = true, 
         AllowUnrecognizedEnums = true });
 
-`AcceptUnknownMembers` will ensure the parser does not throw an exception when an instance of FHIR data contains an unknown (or incorrectly spelled) property. This is particularly useful when you want to make sure that your software will be able to read data from newer FHIR versions: for normative parts of the FHIR specification, all existing properties will remain unchanged, but newer versions of FHIR might add new members. By settings this property to ``true``, you can make sure your older software can still read newer data. There is, however, no way to read the unrecognized data.
+``AcceptUnknownMembers`` will ensure the parser does not throw an exception when an instance of FHIR data contains an unknown (or incorrectly spelled) property. This is particularly useful when you want to make sure that your software will be able to read data from newer FHIR versions: for normative parts of the FHIR specification, all existing properties will remain unchanged, but newer versions of FHIR might add new members. By settings this property to ``true``, you can make sure your older software can still read newer data. There is, however, no way to read the unrecognized data.
 
 The same is true for ``AllowUnrecognizedEnums``. When the parser turns a coded value (say Patient.gender) into an ``enum``, the parser will allow values that are not part of the enumeration, and can therefore not be turned into an enumerated value. This means that the property will return a null value - you can, however, get to the 'unrecognized' value using the ``ObjectValue`` backing field, as demonstrated in the code below:
 
@@ -119,19 +119,11 @@ The same is true for ``AllowUnrecognizedEnums``. When the parser turns a coded v
     Assert.AreEqual("superman", p.GenderElement.ObjectValue);    // but you can query the backing value
 
 
-.. toctree::
+.. toctree::   
    :maxdepth: 3
    :hidden:
 
-   model/classes
-   model/datatypes
-   model/lists
-   model/components
-   model/enumerations
-   model/choice-properties
-   model/initializers
-   model/extensions
-   model/patient-example
-   model/bundles
-   model/bundle-example
+   parsing/intro-to-elementmodel
+   parsing/isourcenode
+
 

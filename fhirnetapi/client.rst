@@ -27,9 +27,7 @@ namespace.
    client/request-response
    client/history
    client/paging
-..
    client/search
    client/resource-identity
-   client/transactions
 
 
