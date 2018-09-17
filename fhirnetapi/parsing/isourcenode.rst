@@ -1,3 +1,5 @@
+.. _isourcenode:
+
 ========================
 Working with ISourceNode
 ========================
@@ -62,7 +64,7 @@ The FHIR parsers available (currently for the FHIR Xml and Json formats) impleme
 * ``Parse()``, to parse data from a string.
 * ``Create()``, to turn XElements, XDocuments or JObjects into an ``ISourceNode``
 
-All methods optionally take a ``settings`` parameter and return an ``ISourceNode``, which reprents the root of the data read. By default, parsing errors thrown as exceptions, but all parsers implement ``IExceptionSource`` to alter this behaviour. See :ref:`errorhandling` for more information.
+All methods optionally take a ``settings`` parameter and return an ``ISourceNode``, which reprents the root of the data read. 
 
 Here is an example parsing a string of xml and then quering some of its data:
 
@@ -94,3 +96,9 @@ It is also possible to construct an in-memory tree with data "by hand", using th
                 SourceNode.Valued("value", "world!"))));
 
 Note that by using the C# ``using static Hl7.Fhir.ElementModel.SourceNode;`` this example could be make quite a bit shorter. 
+
+Handling parse errors
+---------------------
+By default, parsing errors thrown as exceptions, but all parsers implement ``IExceptionSource`` to alter this behaviour. See :ref:`errorhandling` for more information. 
+
+The parsers try to parse the source `lazily`, so in order to detect all parse errors, one would have to do a complete visit of the tree, including forcing a read of the primitive data by getting the ``Text`` property. There is a convenience method ``VisitAll()`` that does exactly this. Additionally, there is a metehod ``VisitAndCatch()`` that will traverse the whole tree, returning a list of parsing errors and warnings.

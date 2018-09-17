@@ -125,5 +125,6 @@ The same is true for ``AllowUnrecognizedEnums``. When the parser turns a coded v
 
    parsing/intro-to-elementmodel
    parsing/isourcenode
+   parsing/itypedelement
 
 
