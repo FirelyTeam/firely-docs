@@ -2,6 +2,8 @@
 Working with ITypedElement
 ==========================
 
+.. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
+
 The main difference between ``ISourceNode`` (see :ref:`isourcenode`) and ``ITypedElement`` is the presence of type information: metadata coming from the FHIR specification about which elements exist for a given version of FHIR, whether they repeat, what the type of each element is, etcetera. Type information is necessary for many operations on data, most notably serialization, running FhirPath statements and doing validation. As such, it is more common to work with ``ITypedElement`` than it is to work with ``ISourceNode``. However, as one could imagine, in cases where type information is not necessary, ``ISourceNode`` is more performant and has a smaller memory footprint.
 
 This is what ``ITypedElement`` looks like:
@@ -52,9 +54,12 @@ Note that ``Location`` is exactly the same on both interfaces - every part of th
 
 The API offers a set of extension methods on top of ``ITypedElement`` (like ``Visit()`` and ``Descendants()``) to make it easier to select subtrees and process the data in the tree.
 
-How to get an ITypedElement
----------------------------
-To an ``ITypedElement`` you can call ``ToTypedElement()`` on either a POCO or on an ``ISourceNode``. In the last case, the API needs to associate type information which each node in the ``ISourceNode`` tree. To make this possible, the caller needs to supply type information:
+Obtaining an ITypedElement
+--------------------------
+The API enables you to turn data in POCO or ``ISourceNode`` form into an ``ITypedElement`` by calling the ``ToTypedElement()`` extension method.
+
+In the first case, the POCO has all additional type information available (being based on a strongly-typed object model), and simply surface this through the ``ITypedElement`` interface.
+In the second case, the API needs an external source of type information to associate type information to the untyped nodes in the ``ISourceNode`` tree. The ``ToTypedElement`` method on ``ISourceNode`` looks like this:
 
 .. code-block:: csharp
 
@@ -62,17 +67,27 @@ To an ``ITypedElement`` you can call ``ToTypedElement()`` on either a POCO or on
         IStructureDefinitionSummaryProvider provider, string type = null, 
         TypedElementSettings settings = null);
 
-Type information (which can change from FHIR version to FHIR version) is supplied by any source implementing ``IStructureDefinitionSummaryProvider``. Currently, the API supplies two implementations of this interface:
+Notice that the ``provider`` parameter is used to pass in type information structured by the ``IStructureDefinitionSummaryProvider`` interface. Currently, the API supplies two implementations of this interface:
 
-* The ``PocoStructureDefinitionSummaryProvider``, which obtains type information from 
+* The ``PocoStructureDefinitionSummaryProvider``, which obtains type information from pre-compiled POCO classes. This is very similar to calling ``ToTypedElement()`` on a POCO, but this method does not require the caller to have data present in POCOs.
+* The ``StructureDefinitionSummaryProvider``, which obtains type information from ``StructureDefinitions`` provided with the core specification and additional Implementation Guides and packages. The constructor for this provider needs a reference to an ``IResourceResolver``, which is the subsystem used to get access to FHIR's metadata resources (like ``StructureDefinition``). See :ref:`specification-sources` for more information about ``IResourceResolver``..
+
+This is a complete example showing how to turn the ``patientNode`` from the last section into a ``ITypedElement`` by using external metadata providers:
+
+.. code-block:: csharp
+
+    ISourceNode patientNode = ...
+    IResourceResolver zipSource = ZipSource.CreateValidationSource();
+    ITypedElement patientRootElement = patientNode.ToTypedElement(zipSource);
+    ITypedElement activeElement = patientRootElement.Children("active").First();
+    Assert.AreEqual("boolean", activeElement.Type);
 
 Compatibility with ``IElementNavigator``
 ----------------------------------------
+Previous versions of the API defined and used the precursor to ``ITypedElement``, called ``IElementNavigator``. Though functionally the same, ``ITypedElement`` is stateless, whereas ``IElementNavigator`` was not. To aid in parallellization, we have chosen to obsolete the stateful ``IElementNavigator`` in favor of ``ITypedElement``. At this moment, not all parts of the API have been rewritten (yet) to use the new ``ITypedElement`` and we expect the same is true for current users of the API. To aid in migration from one concept to the other, the API provides a set of adapters to turn ``IElementNavigators`` into ``ITypedElements`` and vice versa. These can be constructed by simply calling ``ToElementNavigator()`` on a ``ITypedElement`` or ``ToTypedElement()`` on an ``IElementNavigator``. The compiler will emit messages about this interface being obsolete to stimulate migration to the new paradigm.
 
 Handling structural type errors
 -------------------------------
 While traversing the ITypedElement tree, the implementations will try to associate type information from the specification with the data encountered. If this fails, errors are b default thrown as exceptions, but the all underlying implementations of ITypedElement implement ``IExceptionSource`` to alter this behaviour. See :ref:`errorhandling` for more information. 
 
 Detecting type errors is done `lazily`, so in order to detect all errors, one would have to do a complete visit of the tree, including forcing a read of the primitive data by getting the ``Value`` property. There is a convenience method ``VisitAll()`` that does exactly this. Additionally, there is a metehod ``VisitAndCatch()`` that will traverse the whole tree, returning a list of errors and warnings.
-
-

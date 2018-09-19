@@ -4,5 +4,4 @@
 Handling errors
 ===============
 
-
-To be written.
+We are truly sorry, but this documentation still needs to be written.
