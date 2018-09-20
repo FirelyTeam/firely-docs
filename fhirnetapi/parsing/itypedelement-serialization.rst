@@ -2,6 +2,8 @@
 Serializing ``ITypedElement`` data
 ==================================
 
+.. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
+
 The API provides functionality to turn ``ITypedElement`` data into XML and JSON formats using the following set of extension methods:
 
 .. csv-table:: Serialization to different outputs

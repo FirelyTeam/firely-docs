@@ -1,7 +1,7 @@
 .. _isourcenode:
 
 ========================
-Working with ISourceNode
+Parsing with ISourceNode
 ========================
 
 .. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
@@ -54,8 +54,8 @@ Some of the more subtle point illustrated here are:
 
 The API offers a set of extension methods on top of ``ISourceNode`` (like ``Visit()`` and ``Descendants()``) to make it easier to select subtrees and process the data in the tree.
 
-Parsing using ISourceNode
--------------------------
+Parsing
+-------
 The FHIR parsers available (currently for the FHIR Xml and Json formats) implement the ``ISourceNode`` interface and can be found in the ``Hl7.Fhir.Serialization`` assembly. The parsers are not created directly, instead there are two sets of factory methods, one for each serialization format: ``FhrXmlNode`` and ``FhirJsonNode``. The factory methods are:
 
 * ``Read()``, to read data directly from an ``XmlReader`` or ``JsonReader``.

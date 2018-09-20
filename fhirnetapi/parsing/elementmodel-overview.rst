@@ -1,8 +1,10 @@
 ========================
-ElementModel Cheat Sheet
+ElementModel Summary
 ========================
 
-Below you will find a summary of all conversions described in the last sections. I'll just have to create a decent image from this sketch on my whiteboard.
+.. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
 
-.. image:: ../images/elementmodel-overview.jpg
+The interfaces and methods described in this section are summarized in the picture below. Note that there are more conversions possible than shown (e.g. reading from an ``XmlReader`` is not explicitly depicted), and the API may be extended to support formats other than XML and JSON by the time you read this.
+
+.. image:: ../images/elementmodel-overview.png
     :align: center
