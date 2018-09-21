@@ -21,10 +21,10 @@ Available parameters are: ::
         load no more than x resources, default is all the resources in the zip
     -parallel:
         how many requests are sent in parallel, default is 10
-    -collectionHandling: AsIs / Split / Batch
+    -collectionHandling: AsIs / Split / Transaction
         AsIs: send a collection Bundle as is (to /Bundle)
         Split: send each of the Bundle.resource's from a collection Bundle separately (STU3 only)
-        Batch: convert the collection Bundle to a batch Bundle and send it to the server base address (STU3 only)
+        Transaction: convert the collection Bundle to a transaction Bundle and send it to the server base address (STU3 only)
     -allowCreate
         if a resource has no id, issue a create. Default: ignore resources without id.
 
