@@ -31,7 +31,7 @@ appsettings.json::
 
 environment variable::
 
-	VONK_Repository = SQL
+	VONK_Repository=SQL
 
 To access an embedded value, using the ':' separator:
 
@@ -45,7 +45,7 @@ appsettings.json::
 
 environment variable::
 
-	VONK_Repository:SqlDbOptions:ConnectionString = <some connectionstring>
+	VONK_Repository:SqlDbOptions:ConnectionString=<some connectionstring>
 
 To access an array item, use 0-based indexing::
 
@@ -92,7 +92,7 @@ logsettings.json
 
 environment variable::
 
-   VONKLOG_Serilog:MinimumLevel:Override:Vonk.Configuration = Information
+   VONKLOG_Serilog:MinimumLevel:Override:Vonk.Configuration=Information
 
 .. _configure_envvar_windows:
 
