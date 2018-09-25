@@ -3,10 +3,17 @@
 =============
 Release notes
 =============
+.. _api_releasenotes_0961:
+
+0.96.1 (Just R4) (released 20180925)
+-----------------------------------------------
+- R4-only release with all changes to the spec included upto the September ballot release.
+
+Note: There are no new packages for other versions, since we did not add any new functionality.
 
 .. _api_releasenotes_0960:
 
-0.96.0 (DSTU2, STU3 and R4) (released 20170606)
+0.96.0 (DSTU2, STU3 and R4) (released 20180606)
 -----------------------------------------------
 - #595 Added capability to harvest metadata directly from a stream
 - #524 Search paths no longer use ``[x]`` suffix in DSTU2
@@ -21,7 +28,7 @@ Release notes
 
 .. _api_releasenotes_0950:
 
-0.95.0 (DSTU2, STU3 and R4) (released 20170412)
+0.95.0 (DSTU2, STU3 and R4) (released 20180412)
 -----------------------------------------------
 - Added support for R4 (warning: early alpha - client connectivity and parsing/serialization only)
 - Added a SnapshotSource resource resolver that creates snapshots on the fly
