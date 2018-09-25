@@ -33,7 +33,7 @@ environment variable::
 
 	VONK_Repository = SQL
 
-And with an embedded value, by using the ':' separator.
+To access an embedded value, using the ':' separator:
 
 appsettings.json::
 
@@ -46,6 +46,11 @@ appsettings.json::
 environment variable::
 
 	VONK_Repository:SqlDbOptions:ConnectionString = <some connectionstring>
+
+To access an array item, use 0-based indexing::
+
+	VONK_PipelineOptions:Branches:0:Exclude:0=Vonk.Repository.Memory
+	VONK_PipelineOptions:Branches:0:Exclude:1=Vonk.Repository.Sql
 
 Arrays in Environment Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
