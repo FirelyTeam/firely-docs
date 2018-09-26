@@ -5,10 +5,7 @@ When you want to start working in Forge, you will first need to open a profile f
 When you select an item from your recent documents, Forge will automatically open its associated profile folder. 
 In any other case click `Open Profile Folder...` and select your working directory. 
 
-.. |Open profile folder| image:: ./images/OpenFolder.PNG
-   :scale: 75%   
-   :alt: Open profile folder
-   :align: middle
+.. image:: ./images/OpenFolder.PNG
 
 Note that although Forge allows you to select any folder, it would be a very bad idea to select a general folder like "C:/Documents" as your profile folder.
 If you don't have a specific folder for your project, please create one. For example, let's open my profile folder called MyForgeProject.
@@ -16,17 +13,11 @@ By default subdirectories are not included. Select this option to include all su
 This may be convenient if you want to organize your profiles in separate folders, but still want to be able to edit them in the same project.
 On the other hand, if you have a subdirectory containing old versions of your profiles, it would be better to ignore the subdirectory.
 
-.. |Select profile folder| image:: ./images/SelectFolder.PNG
-   :scale: 75%   
-   :alt: Select profile folder
-   :align: middle
+.. image:: ./images/SelectFolder.PNG
 
 Click `Select Folder` to open your folder. Now Forge will show you all profiles and extensions contained in your folder.
 
-.. |Folder content| image:: ./images/SessionExplorer.PNG
-   :scale: 75%   
-   :alt: Folder content
-   :align: middle
+.. image:: ./images/SessionExplorer.PNG
 
 When there's a lot of content in your folder, you may want to use one of the available filters to filter on structure type (e.g. StructureDefinition), category (e.g. profile or extension) or resource type (e.g. Patient ).
 
