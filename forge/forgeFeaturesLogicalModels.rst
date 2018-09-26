@@ -1,4 +1,4 @@
-*New Feature -* Logical Models
+Logical Models
 ==============================
 
 Forge also supports the authoring of Logical Models. A logical model represents an abstract data model that is not derived from one of the core FHIR resources or datatype.
