@@ -1,4 +1,4 @@
-*New Feature -* Derived Profiles 
+Derived Profiles 
 ================================
 
 With the new release of Forge 14.7 you now have the ability to create a profile on top of another, existing profile, a.k.a.  “derived” profile. This will enable you and your organization to benefit from the existing profiles and to further customize those profiles to your specific needs. For example, take an organization that would like to begin working  with a national profile that is derived from a Core Resource.  That organization would like to utilize the changes that were made  to the Core Resource, the national profile, and then further customize that profile to reflect organization specific needs. With the new version of Forge you can now begin work directly on that national profile! This saves time and effort that you would spend recreating all the changes to the Core Resource to reflect the changes to the national profile and then further adding your organizational constraints.
