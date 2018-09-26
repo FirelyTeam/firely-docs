@@ -50,12 +50,8 @@ An extension containing more elements is called a complex extension.
 Elements can be added and removed from the extension profile with the use of the Add and Remove buttons. 
 Added elements will be placed a level lower than the selected element. 
 
-
 .. image:: ./images/ExtensionProfiling.jpg
-   :alt: Profile extension
-   :scale: 75%
 
-  
 Add the extension to the profile
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Note that to add extensions, they need to be available in your profile folder. So you will either need to create your own extension and save it to your profile folder or download an existing extension to your profile folder.
@@ -64,12 +60,7 @@ Then, click the paperclip icon with the name ``Extend`` which is shown in the to
 Forge shows the extensions that are available in your profile folder. 
 
 .. image:: ./images/SelectExtension.PNG
-   :alt: Profile extension
-   :scale: 75%
 
 Note that you can only select extensions that are compatible with your context (e.g. when extending an AdverseEvent resource you can only select an extension that has this resource as a context). By default, incompatible extensions are listed in grey, but you can also filter on compatible extensions by checking the check box.
 
 .. image:: ./images/SelectExtensionFilter.PNG
-   :alt: Profile extension
-   :scale: 75%
-
