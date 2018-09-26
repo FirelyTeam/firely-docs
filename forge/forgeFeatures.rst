@@ -12,5 +12,7 @@ With Forge you can:
 * Define Bindings
 * Define Extensions
 * Define Slices
+* Define Derived Profiles
+* Define Logical Models
 
 All these features will be described in more detail in the following sections.
