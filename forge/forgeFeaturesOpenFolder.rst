@@ -6,7 +6,8 @@ When you select an item from your recent documents, Forge will automatically ope
 In any other case click ``Open Profile Folder...`` and select your working directory. 
 
 .. image:: ./images/OpenFolder.PNG
-
+   :scale: 75%   
+   
 Note that although Forge allows you to select any folder, it would be a very bad idea to select a general folder like "C:/Documents" as your profile folder.
 If you don't have a specific folder for your project, please create one. For example, let's open my profile folder called MyForgeProject.
 By default subdirectories are not included. Select this option to include all subdirectories of the selected folder. 
