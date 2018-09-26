@@ -3,7 +3,7 @@ Open a profile folder
 
 When you want to start working in Forge, you will first need to open a profile folder (i.e. the working directory containing your profiles).
 When you select an item from your recent documents, Forge will automatically open its associated profile folder. 
-In any other case click `Open Profile Folder...` and select your working directory. 
+In any other case click ``Open Profile Folder...`` and select your working directory. 
 
 .. image:: ./images/OpenFolder.PNG
 
@@ -15,19 +15,19 @@ On the other hand, if you have a subdirectory containing old versions of your pr
 
 .. image:: ./images/SelectFolder.PNG
 
-Click `Select Folder` to open your folder. Now Forge will show you all profiles and extensions contained in your folder.
+Click ``Select Folder`` to open your folder. Now Forge will show you all profiles and extensions contained in your folder.
 
 .. image:: ./images/SessionExplorer.PNG
 
 When there's a lot of content in your folder, you may want to use one of the available filters to filter on structure type (e.g. StructureDefinition), category (e.g. profile or extension) or resource type (e.g. Patient ).
 
-You can also switch views. By default the `List` view is shown, showing all content in the folder and all its subdirectories (when these are included).
-The `Folders` view allows you to browse the subdirectories one by one as if you're using your file explorer.
+You can also switch views. By default the ``List`` view is shown, showing all content in the folder and all its subdirectories (when these are included).
+The ``Folders`` view allows you to browse the subdirectories one by one as if you're using your file explorer.
 
-Select one of the structure definitions from the content list and choose `Open` to open it in Forge.
-Choose `New` to add new structure definitions to your project. Note that they will not be saved automatically. 
+Select one of the structure definitions from the content list and choose ``Open`` to open it in Forge.
+Choose ``New`` to add new structure definitions to your project. Note that they will not be saved automatically. 
 To add a newly created structure definition to your project, select `Save` and save it to your profile folder.
-Use the `Refresh` button to update the content list. 
+Use the ``Refresh`` button to update the content list. 
 
 In the Session Explorer, you can choose `Open` to open another profile folder. Note that this will not automatically close your current profile folder.
-To close a profile folder, select the folder in the Session Explorer and select `Close`. Or select a single item in your project to close.
+To close a profile folder, select the folder in the Session Explorer and select ``Close``. Or select a single item in your project to close.
