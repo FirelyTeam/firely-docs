@@ -10,6 +10,7 @@ Contents:
    forgeInstall
    forgeLaunch
    forgeFeatures
+   forgeOpenFolder
    forgeFeaturesNewProfile
    forgeFeaturesEditProfile
    forgeFeaturesConstraints
