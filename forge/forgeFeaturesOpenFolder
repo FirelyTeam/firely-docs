@@ -5,7 +5,7 @@ When you want to start working in Forge, you will first need to open a profile f
 When you select an item from your recent documents, Forge will automatically open its associated profile folder. 
 In any other case click `Open Profile Folder...` and select your working directory. 
 
-.. |Open profile folder| image:: ./images/OpenFolder.jpg
+.. |Open profile folder| image:: ./images/OpenFolder.PNG
    :scale: 75%   
    :alt: Open profile folder
    :align: middle
@@ -16,14 +16,14 @@ By default subdirectories are not included. Select this option to include all su
 This may be convenient if you want to organize your profiles in separate folders, but still want to be able to edit them in the same project.
 On the other hand, if you have a subdirectory containing old versions of your profiles, it would be better to ignore the subdirectory.
 
-.. |Select profile folder| image:: ./images/SelectFolder.jpg
+.. |Select profile folder| image:: ./images/SelectFolder.PNG
    :scale: 75%   
    :alt: Select profile folder
    :align: middle
 
 Click `Select Folder` to open your folder. Now Forge will show you all profiles and extensions contained in your folder.
 
-.. |Folder content| image:: ./images/SessionExplorer.jpg
+.. |Folder content| image:: ./images/SessionExplorer.PNG
    :scale: 75%   
    :alt: Folder content
    :align: middle
