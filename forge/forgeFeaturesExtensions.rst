@@ -2,8 +2,6 @@
 Define extensions
 -----------------
 Within Forge you can extend your profiles or elements with extensions created by yourself or others. 
-The easiest way is to first open or create a new extension in your session explorer alongside your current profile. 
-Forge is then able to assist in linking the extension to your profile.   
 
 Extension registry
 ^^^^^^^^^^^^^^^^^^
@@ -16,7 +14,7 @@ For example, extending a Patient profile with the place of birth can be done wit
 New extension 
 ^^^^^^^^^^^^^
 If you cannot find an already defined extension you can make your own. 
-Go to ``New`` and click ``New Extension`` (or Ctrl + E) to create a new extension. 
+From your profile folder, go to ``New`` and click ``New Extension`` (or Ctrl + E) to create a new extension. 
 Forge shows warning messages in the lower section of the your screen highlighting the need to provide context information for this new extension. 
 Provide this information in ``Properties`` tab of the extension. 
 ``Context Type`` indicates if the extension extends a Resource, Datatype, Mapping or another Extension. 
@@ -60,26 +58,18 @@ Added elements will be placed a level lower than the selected element.
   
 Add the extension to the profile
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Note that to add extensions, they need to be available in your profile folder. So you will either need to create your own extension and save it to your profile folder or download an existing extension to your profile folder.
 Select the element in the Element Tree of your profile where you want to add the extension. 
 Then, click the paperclip icon with the name ``Extend`` which is shown in the tool section above the element tree. 
-Forge shows a warning highlighting that the extension element is empty and it should be associated with an extension definition. 
-Select the newly made extension element and click the dropdown menu in the ``Element Properties`` section under Extension. 
-All extensions in your session explorer will be available in the dropdown menu. 
-Click the desired extension definition. 
-If you do not have the extension available in Forge it is also possible to provide the canonical URL of the exention here.
-  
-.. |ExtensionAddBefore| image:: ./images/ExtensionAddBefore.jpg
-   :alt: Linking the extension
+Forge shows the extensions that are available in your profile folder. 
+
+.. image:: ./images/SelectExtension.PNG
+   :alt: Profile extension
    :scale: 75%
-   :align: middle
-.. |ExtensionAddAfter| image:: ./images/ExtensionAddAfter.jpg
-   :alt: Linked extension
+
+Note that you can only select extensions that are compatible with your context (e.g. when extending an AdverseEvent resource you can only select an extension that has this resource as a context). By default, incompatible extensions are listed in grey, but you can also filter on compatible extensions by checking the check box.
+
+.. image:: ./images/SelectExtensionFilter.PNG
+   :alt: Profile extension
    :scale: 75%
-   :align: middle
-   
-====================== ===================
-|ExtensionAddBefore|   |ExtensionAddAfter|
-====================== ===================
-Select the extension   Linked extension
-====================== ===================  
 
