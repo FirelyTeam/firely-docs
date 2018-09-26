@@ -5,6 +5,7 @@ Forge is the user-friendly editor for creating and editing profiles that enables
 
 With Forge you can:
 
+* Open profile folders
 * Create new Profiles
 * Edit existing Profiles
 * Define Constraints
