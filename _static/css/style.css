@@ -59,8 +59,13 @@ a.icon-home:hover {
 p,
 .wy-menu-vertical a {
 	font-size: 14px;
+	color: #16a2c5;
 }
 
+.wy-menu-vertical a:hover, a:focus {
+	color: #0e6980;
+
+}
 .wy-nav-content {
 	max-width: 800px;
 	width: 100%;
@@ -152,6 +157,14 @@ div.wy-menu.rst-pro {
 
 	border-top: 0px;
 	border-bottom: 0px;
+}
+
+.wy-menu-vertical li.toctree-l2 a:hover {
+	background: #d9d9d9 !important;
+}
+
+.wy-menu-vertical li.toctree-l3 > a:hover {
+	background: #ededed !important;
 }
 
 .rst-versions {
