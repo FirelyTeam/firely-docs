@@ -10,6 +10,19 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_0730:
+
+Release 0.7.3.0
+---------------
+
+Fix
+^^^
+#. Search on /administration/Subscription was broken
+#. Neater termination of the Subscription evaluation process upon Vonk shutdown
+#. A Bundle of type batch is now rejected if it contains internal references.
+#. Urls in the narrative (href and src) are also updated to the actual location on the server.
+#. A system wide search on compartment returns 403, explaining that that is too costly. 
+
 .. _vonk_releasenotes_0721:
 
 Release 0.7.2.1
