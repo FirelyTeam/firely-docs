@@ -44,6 +44,10 @@ a.icon-home:hover {
 /**
  * Body
  */
+ p {
+	font-size: 14px;
+}
+
 .wy-nav-content {
 	background: #fff;
 }
@@ -56,7 +60,6 @@ a.icon-home:hover {
 	background: #fff;
 }
 
-p,
 .wy-menu-vertical a {
 	font-size: 14px;
 	color: #16a2c5;
