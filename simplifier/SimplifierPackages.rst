@@ -27,18 +27,40 @@ Switch to the ``Files`` tab to see the content of the package.
 
 Publish packages
 ^^^^^^^^^^^^^^^^
-Visit the ``Packages`` tab of your project and click on ``Create`` > ``Create new package`` to create a new package. Provide a name, version number, description and release notes for your package. Note that the name of your package should include at least one dot. 
+Visit the ``Packages`` tab of your project and click on ``Create`` > ``Create new package`` to create a new package. Provide a name, version number, description and release notes for your package. Note that the name of your package should include at least one dot. Indicate if your package is a prelease package or not and click ``Create`` to publish your package. 
+To create a new version of an existing package, click on ``Create`` and select ``Create new version for..`` followed by the name of your package. Add the required information and click ``Create`` to publish the new version of your package.
 
-.. image:: ./images/Packages_files.PNG
+.. image:: ./images/CreatePackage.PNG
   :align: center
-
-create new version
-
+  
 Dependencies
 -----------------------
+...
 
-.. image:: ./images/Resourcessearch.PNG
+View dependencies
+^^^^^^^^^^^^^^^^^
+Visit the ``Dependencies`` tab of any Simplifier project to see a list of its package dependencies as well as indirect dependencies. Click on the name of one of the listed packages to see the details of this package. This will show the information as explained in the View Packages section.
+
+.. image:: ./images/PackageDependencies.PNG
   :align: center
+
+Add dependencies
+^^^^^^^^^^^^^^^^
+Visit the ``Dependencies`` tab to add dependencies to your project. There are two ways to do so. One way is to browse Simplifier for existing packages and add them to your project. The other way is to directly edit the JSON code.
+
+Click ``Manage`` to search for existing dependencies. Type a search string in the search box and select a package and its version from the search results. Click ``Add`` to add the package to your project. When you are finished adding packages click ``Save`` to save the changes to your project.
+
+.. image:: ./images/ManagePackageDependencies.PNG
+  :align: center
+
+Click ``Edit`` to directly edit the JSON code and add the packages and their version to ``dependencies``.
+
+.. image:: ./images/EditPackageDependencies.PNG
+  :align: center
+
+Remove dependencies
+^^^^^^^^^^^^^^^^^^^
+To remove dependencies from your project, you could either select ``Manage`` or 
 
 Torinox
 -----------------------
