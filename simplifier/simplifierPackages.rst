@@ -10,6 +10,7 @@ View packages
 Visit the ``Packages`` tab of any Simplifier project to see which packages are available in this project. For more information about a package and its content, click on the name of the package. 
 
 The ``Introduction`` page will give you an overview of the package:
+
 * Install instructions; shows the command you need to install the package, click on the blue copy icon to copy it to your clipboard. Click on Torinox or NPM to switch to your preferred tooling.
 * Release notes; shows the release notes given by the author of the package.
 * Dependencies; shows the dependencies to other packages.
