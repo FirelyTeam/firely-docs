@@ -15,6 +15,7 @@ Contents:
    simplifierProjects
    simplifierOrganizationPortal
    simplifierEndpoint
+   simplifierPackages
    simplifierGithub
    simplifierBackupAndSynchronization
    simplifierConnectors
