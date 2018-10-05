@@ -18,7 +18,7 @@ This interface exposes serialization-level, untyped instance data of a single re
         IEnumerable<ISourceNode> Children(string name = null);
     }
 
-The interface represents a single node in the tree. Each node has a name, and a location (as a dot separated list of paths leading to the current node). The property ``Text`` contains the node"s primitive data (if any).  
+The interface represents a single node in the tree. Each node has a name, and a location (as a dot separated list of paths leading to the current node). The property ``Text`` contains the node's primitive data (if any).  
 
 Note that the name of the node is often, but not always, the same as the name of the element in the FHIR specification. The two may differ if the element has a choice of types (e.g. ``Observation.value``). In this case, the name of of the source node is suffixed by the type, exactly as it would be in the serialized form. For the root of the tree, the name is the same as the type of the resource present in the instance.
 
@@ -71,7 +71,7 @@ Here is an example parsing a string of xml and then quering some of its data:
     var xml = "<Patient xmlns="http://hl7.org/fhir"><identifier>" +
         "<use value="official" /></identifier></Patient>";
     var patientNode = FhirXmlNode.Parse(xml);
-    var use = patientNode.Childen("identifier").Chldren("use").First();
+    var use = patientNode.Children("identifier").Children("use").First();
     Assert.AreEqual("official", use.Text);
     Assert.AreEqual("Patient.identifier[0].use[0]", use.Location);
 
@@ -99,4 +99,4 @@ Handling parse errors
 ---------------------
 By default, parsing errors thrown as exceptions, but all parsers implement ``IExceptionSource`` to alter this behaviour. See :ref:`errorhandling` for more information. 
 
-The parsers try to parse the source `lazily`, so in order to detect all parse errors, one would have to do a complete visit of the tree, including forcing a read of the primitive data by getting the ``Text`` property. There is a convenience method ``VisitAll()`` that does exactly this. Additionally, there is a metehod ``VisitAndCatch()`` that will traverse the whole tree, returning a list of parsing errors and warnings.
+The parsers try to parse the source `lazily`, so in order to detect all parse errors, one would have to do a complete visit of the tree, including forcing a read of the primitive data by getting the ``Text`` property. There is a convenience method ``VisitAll()`` that does exactly this. Additionally, there is a method ``VisitAndCatch()`` that will traverse the whole tree, returning a list of parsing errors and warnings.

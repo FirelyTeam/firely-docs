@@ -88,6 +88,6 @@ Previous versions of the API defined and used the precursor to ``ITypedElement``
 
 Handling structural type errors
 -------------------------------
-While traversing the ITypedElement tree, the implementations will try to associate type information from the specification with the data encountered. If this fails, errors are b default thrown as exceptions, but the all underlying implementations of ITypedElement implement ``IExceptionSource`` to alter this behaviour. See :ref:`errorhandling` for more information. 
+While traversing the ITypedElement tree, the implementations will try to associate type information from the specification with the data encountered. If this fails, errors are by default thrown as exceptions, but the all underlying implementations of ITypedElement implement ``IExceptionSource`` to alter this behaviour. See :ref:`errorhandling` for more information. 
 
 Detecting type errors is done `lazily`, so in order to detect all errors, one would have to do a complete visit of the tree, including forcing a read of the primitive data by getting the ``Value`` property. There is a convenience method ``VisitAll()`` that does exactly this. Additionally, there is a metehod ``VisitAndCatch()`` that will traverse the whole tree, returning a list of errors and warnings.
