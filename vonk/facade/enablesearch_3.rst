@@ -49,7 +49,15 @@ So here we need to make Vonk load the ``_id`` SearchParameter on the ``Resource`
 	
 	   For versions of the Vonk Facade prior to Vonk 0.6.0.0, this setting was called SearchParameterImportOptions
 
-7. Now start Vonk again and inspect the CapabilityStatement. It should contain the _id parameter on Patient.
+7. Add the search and read interaction to the ``SupportedInteractions``::
+
+	"SupportedInteractions": {
+		"InstanceLevelInteractions": "read",
+		"TypeLevelInteractions": "search",
+		"WholeSystemInteractions": "capabilities, search"
+	},
+
+8. Now start Vonk again and inspect the CapabilityStatement. It should contain the _id parameter on Patient.
 
 5. Configure the ASP.NET Core Pipeline
 --------------------------------------
