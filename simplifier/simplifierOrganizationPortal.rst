@@ -41,8 +41,7 @@ of your project maintenance is where you need to create and maintain organizatio
 
 Newsfeed
 --------
-Via the ``News`` section of your project portal you can stay up to date about recent developments within the project. This can
-also be used to communicate to the outside world about new developments within the project. Once you have finalized resources or finished an Implementation guide this is a great place to create an article announcing the changes.
+The ``News`` section of your Organization can be used to communicate to the outside world about new developments within the project. Once you have finalized resources or finished an Implementation guide this is a great place to create an article announcing the changes.
 
 
 
