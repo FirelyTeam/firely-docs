@@ -4,7 +4,7 @@
 Yellow Button - Vonk for your Simplifier project
 ================================================
 
-Yellow Button is an easy way to run an instance of Vonk FHIR Server that is aware of all the profiles, search parameters and other (conformance) resource that are part of a Simplifier project. That can be a project of your own or for instance a project with national profiles.
+Yellow Button is an easy way to run an instance of Vonk FHIR Server that is aware of all the profiles, search parameters and other (conformance) resources that are part of a Simplifier project. That can be a project of your own or for instance a project with national profiles.
 
 Prerequisites
 -------------
@@ -19,14 +19,14 @@ If you still need to install Docker for Windows, please read :ref:`docker_win` f
 Getting the server
 ------------------
 
-Go to `Simplifier`_ and open the project page of the project that has the profiles that are relevant to you. Here we took the US-Core project. Note that is has to be an *STU3* project.
+Go to `Simplifier`_ and open the project page of the project that has the profiles that are relevant to you. For our example we took the US-Core project. Note that is has to be an *STU3* project.
 
-On the project page, click the Download button, an in the dropdown menu that appears, click 'US-Core FHIR Server' (the name here will reflect the name of the project). It is shown in the image below with the yellow marked menu item. The light blue marking shows you where to check whether this is a FHIR STU3 project.
+On the project page, click the Download button, and in the dropdown menu that appears, click 'US-Core FHIR Server' (the name here will reflect the name of the project). It is shown in the image below with the menu item marked in yellow. The light blue marking shows you where to check whether this is a FHIR STU3 project.
 
 .. image:: ../images/yellow_SimplifierDownload.PNG
   :align: left
 
-When you click the menu item, Simplifier takes you to a page with instructions. It also includes a link to this documentation page, since we can host more detailed instructions here in the documentation than on the Simplifier site.
+When you click the menu item, Simplifier takes you to a page with instructions. It also includes a link to this documentation page, since we can host more detailed instructions here than on the Simplifier site.
 
 .. image:: ../images/yellow_SimplifierInstructions.PNG
   :align: left
@@ -39,7 +39,7 @@ Click the yellow / orange Download button and you will download a zip file named
 Running the server
 ------------------
 
-Open Windows Powershell (or Windows Powershell ISE if you prefer). Windows Powershell by default does not allow you to run scripts that you downloaded from the internet. To make sure you allow the server script to run, first tell Powershell that that is allright::
+Open Windows Powershell (or Windows Powershell ISE if you prefer). Windows Powershell by default does not allow you to run scripts that you downloaded from the internet. To make sure you allow the server script to run, first tell Powershell that that is all right::
 
     > Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
@@ -54,7 +54,7 @@ Powershell will probably still ask for confirmation before running the script. T
 
 .. image:: ../images/yellow_Powershell_SecurityWarning.png
 
-The script will pull images from the Docker hub as necessary, and then start the Vonk FHIR Server. Vonk will load all the conformance resources from the core specification, and from your project into its Administration database. You can read :ref:`conformance` if you want to know more about this. Since this may take some time, you see a progress bar. Vonk is allowed to finish this task in at most 6 minutes.
+The script will pull images from the Docker hub as necessary, and then start the Vonk FHIR Server. Vonk will load all the conformance resources from the core specification, and from your project into its Administration database. You can read :ref:`conformance` if you want to know more about this. Since this may take some time, you will see a progress bar. Vonk is allowed to finish this task in at most 6 minutes.
 
 .. image:: ../images/yellow_ScriptProgress.PNG
   :align: left
@@ -72,10 +72,11 @@ Error messages
 1. Docker is not running
     ::
 
-        error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.39/containers/json: open //./pipe/docker_engine: The system cannot find the file specified. In the default daemon configuration on Windows, the docker client must be run elevated to connect. This error may also indicate that the docker daemon is not running.
+        error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.39/containers/json: open //./pipe/docker_engine: The system cannot find the file specified. 
+        In the default daemon configuration on Windows, the docker client must be run elevated to connect. This error may also indicate that the docker daemon is not running.
         Docker is not running, now exiting the script. See https://docs.docker.com/docker-for-windows/install/ for more information.
 
-    Solution: The problem is exactly as stated: your Docker on Windows is probably not running. Start it from the Windows Start menu and try again.
+    Solution: The problem is exactly as stated -- your Docker for Windows is probably not running. Start it from the Windows Start menu and try again.
 
 
 2. Mount failed
@@ -105,11 +106,11 @@ Still no luck? Please contact us on vonk@fire.ly. Please include:
 Using the server
 ----------------
 
-You can check whether your profiles are indeed present in the server by requesting them from the Administration endpoint. In this example we search for the US-Core profiles::
+When your Vonk server is running, you can check whether your profiles are indeed present in the server by requesting them from the Administration endpoint. In this example we search for the US-Core profiles::
 
     GET http://127.0.0.1:8080/administration/StructureDefinition?url:below=http://hl7.org/fhir/us/core
 
-Please note that any Conformance resources that influence the behaviour of Vonk - such as the Validation - must be managed on the Administration API and not the regular FHIR endpoint. See :ref:`administration_api` for more background.
+Please note that any Conformance resources that influence the behaviour of Vonk -- such as the Validation -- must be managed on the Administration API and not the regular FHIR endpoint. See :ref:`administration_api` for more background.
 
 If the project you created the server off of contains any *example* resources, they will be available at the normal FHIR endpoint::
 
@@ -119,6 +120,7 @@ Your project in progress
 ------------------------
 
 You created the Vonk FHIR Server off of a Simplifier project. That project may evolve. Either because it is your own and you improve your profiles, or because the maintainer of the project applies changes. Vonk is connected to the Simplifier project. This means that you can update the conformance resource in Vonk from the contents of the project by:
+
 - invoking importResources::
 
     POST http://127.0.0.1:8080/administration/importResources
