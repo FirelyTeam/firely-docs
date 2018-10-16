@@ -43,28 +43,52 @@ Open Windows Powershell (or Windows Powershell ISE if you prefer). Windows Power
 
     > Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
-You can be more restrictive, setting it to ``RemoteSigned``, but then Powershell will ask you confirmation for each run. See `Documentation on ExecutionPolicy`_ for more background.
+You can be more restrictive by setting it to ``RemoteSigned``. See `Documentation on ExecutionPolicy`_ for more background.
 
 Now go to the folder where you unpacked the zip, and run the script ./start-vonk-server.ps1::
 
     > cd c:\data\yellowbutton\us-core-VonkDockerServer
     > .\start-vonk-server.ps1
 
-A common error that you may encounter at this point is::
+Powershell will probably still ask for confirmation before running the script. Type 'R' to allow it to run:
 
-    error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.39/containers/json: open //./pipe/docker_engine: The system cannot find the file specified. In the default daemon configuration on Windows, the docker client must be run elevated to connect. This error may also indicate that the docker daemon is not running.
-    Docker is not running, now exiting the script. See https://docs.docker.com/docker-for-windows/install/ for more information.
+.. image:: ../images/yellow_Powershell_SecurityWarning.png
 
-The problem is exactly as stated: your Docker on Windows is probably not running. Start it from the Windows Start menu and try again.
-
-The script will pull images from the Docker hub as necessary, and then start the Vonk FHIR Server. Vonk will load all the conformance resources from the core specification, and from your project into its Administration database. You can read :ref:`conformance` if you want to know more about this. Since this may take some time, you see a progress bar. Vonk is allowed to finish this task in at most 3 minutes.
+The script will pull images from the Docker hub as necessary, and then start the Vonk FHIR Server. Vonk will load all the conformance resources from the core specification, and from your project into its Administration database. You can read :ref:`conformance` if you want to know more about this. Since this may take some time, you see a progress bar. Vonk is allowed to finish this task in at most 6 minutes.
 
 .. image:: ../images/yellow_ScriptProgress.PNG
   :align: left
 
-As soon as Vonk is ready, the script will finish and it will open your browser on the endpoint of vonk: http://127.0.0.1:8080/, showing the landing page. For further use of the Vonk RESTful API you will want to use an API testing tool like Postman.
+As soon as Vonk is ready, the script will finish and it will open your browser on the endpoint of Vonk: http://127.0.0.1:8080/, showing the landing page. For further use of the Vonk RESTful API you will want to use an API testing tool like Postman.
 
-If the script does not finish in due time, there are a couple of things to check:
+If the script does not finish in due time, please check the Common errors and mistakes below.
+
+Common errors and mistakes
+--------------------------
+
+Error messages
+^^^^^^^^^^^^^^
+
+1. Docker is not running
+    ::
+
+        error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.39/containers/json: open //./pipe/docker_engine: The system cannot find the file specified. In the default daemon configuration on Windows, the docker client must be run elevated to connect. This error may also indicate that the docker daemon is not running.
+        Docker is not running, now exiting the script. See https://docs.docker.com/docker-for-windows/install/ for more information.
+
+    Solution: The problem is exactly as stated: your Docker on Windows is probably not running. Start it from the Windows Start menu and try again.
+
+
+2. Mount failed
+    ::
+
+        ERROR: for vonk-web  Cannot start service vonk-web: error while creating mount source path '/host_mnt/c/data/yellowbutton/us-core-VonkDockerServer/license': mkdir /host_mnt/c: file exists
+
+    .. image:: ../images/yellow_DockerMountError.png
+
+    Solution: This may happen at subsequent starts of the Vonk container. It appears to be an error in Docker for Windows. But it may be fixed by resetting the credentials for Drive Sharing in Docker for Windows (even if you did not change your password). See :ref:`docker_win_shared_drives` for more information.
+
+Configuration checks
+^^^^^^^^^^^^^^^^^^^^
 
 1. Is Docker for Windows configured to run *Linux* containers and not Windows containers? Check the `Docker switching Container type`_ documentation on this if needed.
 2. Did you enable Shared Drives on Docker for Windows? Yellow Button needs this to provide the license file to the Docker container. See :ref:`docker_win_shared_drives` for more information.
@@ -81,13 +105,13 @@ Still no luck? Please contact us on vonk@fire.ly. Please include:
 Using the server
 ----------------
 
-You can check whether your profiles are indeed present in the server by requesting them from the Administration endpoint::
+You can check whether your profiles are indeed present in the server by requesting them from the Administration endpoint. In this example we search for the US-Core profiles::
 
     GET http://127.0.0.1:8080/administration/StructureDefinition?url:below=http://hl7.org/fhir/us/core
 
 Please note that any Conformance resources that influence the behaviour of Vonk - such as the Validation - must be managed on the Administration API and not the regular FHIR endpoint. See :ref:`administration_api` for more background.
 
-If the project you created the server off contains any example resources, they will be available at the normal FHIR endpoint::
+If the project you created the server off of contains any *example* resources, they will be available at the normal FHIR endpoint::
 
     GET http://127.0.0.1:8080/<more specific search if you want>
 
