@@ -88,6 +88,15 @@ Error messages
 
     Solution: This may happen at subsequent starts of the Vonk container. It appears to be an error in Docker for Windows. But it may be fixed by resetting the credentials for Drive Sharing in Docker for Windows (even if you did not change your password). See :ref:`docker_win_shared_drives` for more information.
 
+3. Network failed
+    ::
+
+        ERROR: for vonk-web  Cannot start service vonk-web: driver failed programming external connectivity on endpoint ...
+
+    .. image:: ../images/yellow_PortmappingError.png
+
+    Solution: This is an issue reported as `Issue 1967 on Docker for Windows`_. It can be solved by restarting Docker on Windows. 
+
 Configuration checks
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -142,3 +151,5 @@ Yellow Button is an easy way to get started with Vonk FHIR Server. But there are
 .. _Docker Advanced Settings: https://docs.docker.com/docker-for-windows/#advanced
 
 .. _Documentation on ExecutionPolicy: http://go.microsoft.com/fwlink/?LinkID=135170
+
+.. _Issue 1967 on Docker for Windows: https://github.com/docker/for-win/issues/1967
