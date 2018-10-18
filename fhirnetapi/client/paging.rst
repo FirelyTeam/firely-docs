@@ -21,10 +21,10 @@ chosen direction in the Bundle you provide.
     {
         // Do something with the entries in the result Bundle
 		
-		// retrieve the next page of results
+        // retrieve the next page of results
         result = client.Continue(result);
     }
 
-	// go to the last page with the direction filled in:
-	var last_page = client.Continue(result, PageDirection.Last);
+    // go to the last page with the direction filled in:
+    var last_page = client.Continue(result, PageDirection.Last);
 

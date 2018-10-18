@@ -24,6 +24,9 @@ see the possibilities and choose what suits your programming style best.
 	nickname.Use = HumanName.NameUse.Nickname;
 	nickname.GivenElement.Add(new FhirString("Chris"));
 	
+	pat.Name.Add(name);
+	pat.Name.Add(nickname);
+	
 	pat.Gender = AdministrativeGender.Male;
 	
 	pat.BirthDate = "1983-04-23";
@@ -45,6 +48,7 @@ see the possibilities and choose what suits your programming style best.
 		PostalCode = "48104",
 		Country = "USA"
 	};
+	pat.Address.Add(address);
 	
 	var contact = new Patient.ContactComponent();
 	contact.Name = new HumanName();
