@@ -23,10 +23,10 @@ Before you can run Vonk, you will need to pull the Docker Vonk container and req
 3. Create a working directory for Vonk and place the license file there.
 
 
-Running a Docker Vonk in Memory mode
+Running a Docker Vonk in SQLite mode
 ------------------------------------
 
-The easiest way to run a Docker Vonk container is to run Vonk in memory repository mode. This is also the default mode.
+The easiest way to run a Docker Vonk container is to run Vonk in SQLite repository mode. This is also the default mode.
 
 Open your command prompt and execute this command:
 ``> docker images simplifier/vonk``
@@ -72,7 +72,7 @@ To stop the container just type:|br|
 
 Spinning with a docker-compose file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Another way to spin up a Vonk container is to use a docker-compose file. The above example can also be established by the following ``docker-compose.memory.yml``:
+Another way to spin up a Vonk container is to use a docker-compose file. The above example can also be established by the following ``docker-compose-sqlite.yml``:
 
 .. code-block:: yaml
    :linenos:
@@ -86,23 +86,27 @@ Another way to spin up a Vonk container is to use a docker-compose file. The abo
        ports:
          - "8080:4080"
        environment:
-         - VONK_Repository=Memory
-         - VONK_Administration:Repository=Memory
+         - VONK_Repository=SQLite
+         - VONK_Administration:Repository=SQLite
          - VONK_LicenseFile=./license/vonk-trial-license.json
        volumes:
          - .:/app/license
 
 
-Save the text above to a file in your working directory with the name ``docker-compose.memory.yml`` and then run the following command: |br|
-``> docker-compose -f docker-compose.memory.yml up -d``
+Save the text above to a file in your working directory with the name ``docker-compose.sqlite.yml`` and then run the following command: |br|
+``> docker-compose -f docker-compose.sqlite.yml up -d``
 
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
 .. image:: ../images/docker3.PNG
 
 To stop the container, run: |br|
-``> docker-compose -f docker-compose.memory.yml down``
+``> docker-compose -f docker-compose.sqlite.yml down``
 
+.. note::
+
+    Strictly the settings for ``VONK_Repository`` and ``VONK_Administration`` are not needed here, since SQLite is the default setting. The settings are included to show where to configure the type of database to use.
+    Much more information on that topic is in the paragraphs below.
 
 Running Docker with a SQL Server container
 ------------------------------------------
