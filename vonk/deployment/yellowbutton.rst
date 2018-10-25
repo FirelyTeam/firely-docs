@@ -23,17 +23,17 @@ Go to `Simplifier`_ and open the project page of the project that has the profil
 
 On the project page, click the Download button, and in the dropdown menu that appears, click 'US-Core FHIR Server' (the name here will reflect the name of the project). It is shown in the image below with the menu item marked in yellow. The light blue marking shows you where to check whether this is a FHIR STU3 project.
 
-.. image:: ../images/yellow_SimplifierDownload.PNG
+.. image:: ../images/yellow_SimplifierDownload.png
   :align: left
 
 When you click the menu item, Simplifier takes you to a page with instructions. It also includes a link to this documentation page, since we can host more detailed instructions here than on the Simplifier site.
 
-.. image:: ../images/yellow_SimplifierInstructions.PNG
+.. image:: ../images/yellow_SimplifierInstructions.png
   :align: left
 
 Click the yellow / orange Download button and you will download a zip file named after the server you are installing. Here it is ``us-core-VonkDockerServer.zip``. Save it and unpack it in a folder on your harddrive. I unpacked it to ``c:\data\yellowbutton\us-core-VonkDockerServer``.
 
-.. image:: ../images/yellow_ZipExtract.PNG
+.. image:: ../images/yellow_ZipExtract.png
   :align: left
 
 Running the server
@@ -56,7 +56,7 @@ Powershell will probably still ask for confirmation before running the script. T
 
 The script will pull images from the Docker hub as necessary, and then start the Vonk FHIR Server. Vonk will load all the conformance resources from the core specification, and from your project into its Administration database. You can read :ref:`conformance` if you want to know more about this. Since this may take some time, you will see a progress bar. Vonk is allowed to finish this task in at most 6 minutes.
 
-.. image:: ../images/yellow_ScriptProgress.PNG
+.. image:: ../images/yellow_ScriptProgress.png
   :align: left
 
 As soon as Vonk is ready, the script will finish and it will open your browser on the endpoint of Vonk: http://127.0.0.1:8080/, showing the landing page. For further use of the Vonk RESTful API you will want to use an API testing tool like Postman.
