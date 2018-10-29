@@ -16,6 +16,11 @@ In all cases, the :ref:`feature_validation_pre` is that Vonk must have access to
 
 Validation has one :ref:`feature_validation_limitations`.
 
+.. note::
+
+    The very first validation call will take a considerable amount of time, typically around 5 seconds. This is because Vonk maintains a cache of validation information, and on the first call that cache is still empty.
+    Subsequent calls are much faster.
+
 .. _feature_validation_system:
 
 Validate on the system level

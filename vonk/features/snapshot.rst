@@ -15,6 +15,11 @@ You can invoke this operation with
 
 Vonk will return the same StructureDefinition, but with the snapshot element (re-)generated.
 
+.. note::
+
+    The very first call to $snapshot will take a considerable amount of time, typically around 5 seconds. This is because Vonk maintains a cache of StructureDefinition information, and on the first call that cache is still empty.
+    Subsequent calls are much faster.
+
 .. _feature_snapshot_pre:
 
 Precondition
