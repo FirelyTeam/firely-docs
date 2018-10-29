@@ -10,7 +10,7 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
-.. _vonk_releasenotes_0730:
+.. _vonk_releasenotes_0740:
 
 Release 0.7.4.0
 ---------------
