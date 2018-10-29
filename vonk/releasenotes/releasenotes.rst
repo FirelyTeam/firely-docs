@@ -12,6 +12,33 @@ Release notes Vonk
 
 .. _vonk_releasenotes_0730:
 
+Release 0.7.4.0
+---------------
+
+Database
+^^^^^^^^
+
+#. The index definitions for SQL Server have been updated for improved performance. This should be handled automatically when you start Vonk 0.7.4 and have :ref:`AutoUpdateDatabase <configure_sql>` enabled.
+
+Fix
+^^^
+
+#. Posting a resource with an invalid content-type to the regular FHIR endpoint should result in HTTP 415 and not HTTP 400.
+#. Warning 'End method "PocoResourceVisitor.VisitByType", could not cast entity to PocoResource.' in the log was incorrect.
+#. When running Administration API on SQLite and Vonk on SQL Server, update or delete would fail.
+#. Handle quantity with very low precision (e.g. '3 times per year' - 3|http://unitsofmeasure.org|/a).
+#. POST to <vonk_base>/Administration/* with another Content-Type than application/json or application/xml results in HTTP 500.
+
+Feature
+^^^^^^^
+
+#. Support forward references in a :ref:`Transaction bundle <restful_transaction>`. Previously Vonk would only process references back to resources higher up in the bundle.
+#. Performance of Validation and Snapshot Generation has improved by approximately 10 times...
+#. ... and correctness has improved as well.
+#. Administration API also support the NamingSystem resource.
+
+.. _vonk_releasenotes_0730:
+
 Release 0.7.3.0
 ---------------
 
