@@ -24,7 +24,7 @@ Vonk reads its settings from these sources, in this order:
 :appsettings.instance.json: You can create this one to override settings for a specific instance of Vonk. It is not part of the Vonk distribution.
                             This file is especially useful if you run multiple instances on the same machine. 
 
-Settings lower in the list override the settings higher in te list. It works comparable to Cascading Style Sheets, if you're familiar with that.
+Settings lower in the list override the settings higher in the list (think CSS, if you're familiar with that).
 
 .. warning::
 
