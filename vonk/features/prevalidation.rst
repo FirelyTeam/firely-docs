@@ -25,6 +25,7 @@ When you add canonical urls of StructureDefinitions to this list, Vonk will:
 * validate the resource against the profiles listed in its meta.profile element.
 
 So in the example above, Vonk will only allow resources that conform to either the DAF Patient profile or the DAF AllergyIntolerance profile.
-Note that the resource has to contain that profile in its meta.profile element. Vonk will *not* try to validate against all the allowed profiles to see whether the resource conforms to any of them.
+
+Note that the resource has to declare conformance to the profile in its ``meta.profile`` element. Vonk will *not* try to validate a resource against all the ``Validation.AllowedProfiles`` to see whether the resource conforms to any of them, only those that the resource claims conformance to.
 
 If you set ``ValidateIncomingResources`` to ``false``, the only restriction to incoming resources is that they can be parsed correctly.
