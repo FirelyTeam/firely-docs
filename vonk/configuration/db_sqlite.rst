@@ -34,8 +34,8 @@ Vonk Administration poses very limited stress on its storage engine, therefore S
 *   Readymade database: In the other storage engines, the conformance resources from the specification had to be :ref:`imported<conformance_import>` before Vonk could start. This would take a couple of minutes.
     Because SQLite is file based, we can run the import process for you and provide you with a readymade Administration database.
 
-*   Runs with Facades: Maybe the most important feature. If you build a Vonk FHIR Facade, it will not provide support for hosting conformance resources. 
-    With Vonk Administration on SQLite it has its own storage and you can use Vonk Administration out of the box. This enables e.g. validation against your custom resources (that can be imported from your Simplifier project), subscriptions and other use cases.
+*   Runs with Facades: perhaps the most important feature. If you build a Vonk FHIR Facade, the facade will not provide support for hosting conformance resources. 
+    With Vonk Administration on SQLite the facade has its own storage and you can use Vonk Administration out of the box. This enables e.g. validation against your custom resources (that can be imported from your Simplifier project), subscriptions, and other use cases.
 
 .. _configure_sqlite_data:
 
