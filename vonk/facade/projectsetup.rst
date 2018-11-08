@@ -16,7 +16,7 @@ Create new project
    * Project name and directory at your liking; Next
    * .Net Core; ASP.NET Core 2.0
 
-        .. image:: ./images/NewProject-1.PNG
+        .. image:: ./images/NewProject-1.png
             :align: center
 #. Run your project with F5, and check whether it starts, an on what port.
 
@@ -25,7 +25,7 @@ Adjust how your project is run
 
 #. Visual Studio loads the 'homepage' into your default browser when you start the project. Since that is not exactly useful for a FHIR RESTful server, you may disable this from the Project Properties:
 
-.. image:: ./images/PreventBrowserLaunch.PNG
+.. image:: ./images/PreventBrowserLaunch.png
    :align: center
 
 #. In this same window, alter the App URL to http://localhost:5017
@@ -109,7 +109,7 @@ Add Vonk Components
 
 Now you can run the project again, it should start without errors, and the log should look like this:
 
-.. image:: ./images/FirstVonkRun_Log.PNG
+.. image:: ./images/FirstVonkRun_Log.png
             :align: center
 
 To test if the server is running correctly, open Postman, or Fiddler, or use curl to request ``http://localhost:5017/metadata``

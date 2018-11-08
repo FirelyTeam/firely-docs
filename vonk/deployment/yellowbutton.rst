@@ -19,7 +19,7 @@ If you still need to install Docker for Windows, please read :ref:`docker_win` f
 Getting the server
 ------------------
 
-Go to `Simplifier`_ and open the project page of the project that has the profiles that are relevant to you. For our example we took the US-Core project. Note that is has to be an *STU3* project.
+Go to `Simplifier`_ and open the project page of the project that has the profiles that are relevant to you. For our example we took the US-Core project. Note that it has to be an *STU3* project.
 
 On the project page, click the Download button, and in the dropdown menu that appears, click 'US-Core FHIR Server' (the name here will reflect the name of the project). It is shown in the image below with the menu item marked in yellow. The light blue marking shows you where to check whether this is a FHIR STU3 project.
 
@@ -43,7 +43,7 @@ Open Windows Powershell (or Windows Powershell ISE if you prefer). Windows Power
 
     > Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
-You can be more restrictive by setting it to ``RemoteSigned``. See `Documentation on ExecutionPolicy`_ for more background.
+You can be more restrictive by setting it to ``RemoteSigned``. See `Documentation on ExecutionPolicy`_ for more information.
 
 Now go to the folder where you unpacked the zip, and run the script ./start-vonk-server.ps1::
 
@@ -142,7 +142,7 @@ You created the Vonk FHIR Server off of a Simplifier project. That project may e
 Further steps
 -------------
 
-Yellow Button is an easy way to get started with Vonk FHIR Server. But there are many other :ref:`deployment` options for the server. Besides that you can add your own plugins with :ref:`vonk_components`, or build a :ref:`vonk_facade` with Vonk. 
+Yellow Button is an easy way to get started with Vonk FHIR Server. But there are many other :ref:`deployment options <deployment>` for the server. Besides that you can add your own plugins with :ref:`vonk_components`, or build a :ref:`vonk_facade` with Vonk. 
 
 .. _Simplifier: https://simplifier.net
 

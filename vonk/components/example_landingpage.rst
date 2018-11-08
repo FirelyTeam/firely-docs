@@ -1,6 +1,6 @@
 .. _vonk_components_landingpage:
 
-Vonk FHIR Components example - new landing page
+Vonk FHIR Components example - Create a new landing page
 ===============================================
 
 As a minimal example of how to use Vonk FHIR Components we will show you how to create a library with your own landing page, and use it to replace the landing page that is provided by Vonk.
