@@ -1,9 +1,13 @@
 .. _vonk_components_landingpage:
 
 Vonk FHIR Components example - Create a new landing page
-===============================================
+========================================================
 
 As a minimal example of how to use Vonk FHIR Components we will show you how to create a library with your own landing page, and use it to replace the landing page that is provided by Vonk.
+The landing page is the webpage you see when you access Vonk's endpoint with a browser. By default it looks like this:
+
+.. image:: ../images/localhost_home.png
+   :width: 150pt
 
 Create a new ASP.NET Core web application
 -----------------------------------------
