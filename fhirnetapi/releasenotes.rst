@@ -3,6 +3,38 @@
 =============
 Release notes
 =============
+.. _api_releasenotes_1.0.0:
+
+1.0.0 (DSTU2, STU3) (final version to be released 201812)
+---------------------------------------------------------
+
+This large release fixes about 80 issues - but more importantely introduces a completely new parsing/serialization subsystem that
+allows you to work without POCOs and also is more strictly following the serialization rules for XML and Json. This means you will
+get parse errors on instances that where (incorrectly) accepted as correct by the older versions of the API. More information on
+the new parsing subsystem can be found in `the documentation <http://docs.simplifier.net/fhirnetapi/parsing.html>`__. Please note that
+we have strived to keep the exsiting top-level POCO-parsing API intact - your projects should still compile without problems.
+
+- #248 Json output can now be formatted
+- #356 Parsing/serialization subsystem replaced to support working without using the generated POCO classes.
+- #400 ``TransactionBuiler.Delete`` would cause "Invalid resource URL" in some circumstances.
+- #433 Made the interface of all settings-related classes consistent across the whole API surface.
+- #483 Introduction of ``IErrorSource`` to facilitate forwarding of errors and warnings between components of the API.
+- #538 ``Summary=true`` still let some non-issummary fields through
+- #569 Prefer header was not set on PUT
+- #593 Fix .ttinclude file to prevent generating errors in some build environments.
+- #619 Snapshot Generator ignores multiple codings with only display value
+- #627 ``ToFhirDateTime()`` produced dateTimes without timezones when input DateTime.Kind was ``Unspecified``
+- #639 Target platforms are now 4.5, Netstandard 1.1, Netstandard 2.0
+- #642 SnapshotGenerator does not expand custom element profile on Reference
+- #657 Json Serializer was losing accuracy on serializing DatetimeOffset (last 4 digits in ticks)
+- #663 Faster generation of property getters/setters with reflection emit
+- #670 ``DifferentialTreeConstructor`` can now be used publicly to turn sparse differentials into full trees
+- #676 Speed-up of serializers when running in Debug mode
+- #684 ``DirectorySource`` can now retrieve summary data given a specific filename
+- #696 ``SummaryGenerator`` now also extracts the extension context
+- #704 Replaced uses of .NET ``DateTime`` with ``DateTimeOffset`` everywhere in the public API surface.
+- Build scripts changed because of migration to Azure DevOps from AppVeyor
+
 .. _api_releasenotes_0961:
 
 0.96.1 (Just R4) (released 20180925)
@@ -175,7 +207,7 @@ Changes to the STU3 version:
   public static string ToFhirId(this System.Guid me)
 
 * Enhancement: Added the `SnapshotGenerator` class to turn differential representations of a StructureDefinition into a snapshot. Note: we're still working with the Java and HAPI people to get the snapshots 100% compatible. 
-* Breaking change: All `BackboneElement` derived classes are now named as found on [BackboneElement](http://hl7.org/fhir/backboneelement.html#summary) page in the specification, under the specializations heading.
+* Breaking change: All `BackboneElement` derived classes are now named as found on `BackboneElement <http://hl7.org/fhir/backboneelement.html#summary>`__ page in the specification, under the specializations heading.
   Usual fix for this will be removing the resource typename prefix from the classname, e.g. Bundle.BundleEntryComponent -> Bundle.EntryComponent
 * Fix: Elements are not serialized correctly in summary mode
 * Fix: Validate Operation does not work
