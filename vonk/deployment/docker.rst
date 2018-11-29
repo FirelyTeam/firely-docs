@@ -96,7 +96,7 @@ Another way to spin up a Vonk container is to use a docker-compose file. The abo
 Save the text above to a file in your working directory with the name ``docker-compose.sqlite.yml`` and then run the following command: |br|
 ``> docker-compose -f docker-compose.sqlite.yml up -d``
 
-If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
+If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above - but make sure to keep ``./license`` as that maps to a Docker volume inside the container.
 
 .. image:: ../images/docker3.png
 
