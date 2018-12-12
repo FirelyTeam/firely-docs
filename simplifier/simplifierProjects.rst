@@ -61,6 +61,7 @@ You can always change your project settings by clicking on the ``Settings`` butt
 Properties
 ----------
 Here you can edit the following properties: 
+
 - The title and subtitle of your project
 - The FHIR version (DSTU2 or STU3)
 - The scope of your project (core, international, national, institute, regional or test). As choosing the right scope will make it easier for others to find your project, please use test for all test projects and test projects only.
