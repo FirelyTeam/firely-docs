@@ -5,7 +5,38 @@ Release notes
 =============
 .. _api_releasenotes_1.0.0:
 
-1.0.0 (DSTU2, STU3) (final version to be released 201812)
+1.1.0 (DSTU2, STU3) (final version to be released 20190128)
+-----------------------------------------------------------
+
+This is a minor release.
+
+### New functionality
+
+- #180 We added a method to rerieve a contained resource on the parent resource by url.
+- #460 Add support for _elements on the POCO serializer
+- #731 FhirDateTime.ToDateTimeOffset() now asks you to pass in a TimeSpan - previously UTC was assumed.
+- #578 DirectorySource will now resolve a specific version of a conformance resource if the canonical is versioned.
+- #726 Add type-less overload for the POCO Parse() methods to mean "expect any resource type".
+- #773 Added new FhirPath functions to support new invariants in R4.
+
+### Bugfixes
+
+- #339 The Patient search parameter for some resources had an incorrect target list in ModelInfo
+- #553 The namespace of the internal Sprache parser in the FhirPath assembly has been moved to a new namespace to avoid conflicts when also using the external assembly.
+- #559 The LocalTerminologyService no longer throws an exception when there is no code at all passed to it.
+- #561 The FhirPath compiler keeps a cache of recently encountered expressions. Multi-threaded access to it has been sped up.
+- #624 Validator will now give a warning instead of an error if the display in a code is different from the one in the codesystem.
+- #718 Corrected '|' or "or" in invariants in DSTU2/STU3.
+- #732 Json serialization no preserves significant digits.
+- #746 ModelInfo.IsCoreModelTypeUri did not handle relative urls well.
+- #754 Roundtripping patient.ToTypedElement().ToPoco<Patient>() failed.
+- #755 Arguments to FhirClient.Search() with a key/value pair without value would throw an exception.
+- #793 Element and Backbone element were handled differently in the ClassMappings that feed the parsers.
+- #794 GetResourceFormatFromContentType would throw a null reference exception when the content-type had non-alphanumeric characters.
+
+.. _api_releasenotes_1.0.0:
+
+1.0.0 (DSTU2, STU3) (20181217)
 ---------------------------------------------------------
 
 This large release fixes about 80 issues - but more importantely introduces a completely new parsing/serialization subsystem that
