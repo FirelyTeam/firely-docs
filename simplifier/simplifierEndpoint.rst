@@ -57,3 +57,21 @@ Simplifier FHIR API
 Using the global Simplifier FHIR API, users can search for all resources in Simplifier. For example, the request ``GET https//stu3.simplifier.net/open/Patient`` can be used to retrieve all (STU3) Patient resources from Simplifier. The global Simplifier endpoint of your resource is available at the resource page. Using the global endpoint resources have a globally unique GUID here.
 
 .. image:: ./images/ResourceGlobalEndpoint.PNG
+
+
+Implemented Parameters
+====================
+Search parameters:
+* url 
+* kind - accepted value is "logical", the rest of the values will return non-logical model resources (distinguish between profiles and logical models)
+* type
+* status
+* publisher
+* description - will look at the publication description used in Simplifier (set either manually by user or generated automatically using the fhir path metadata expressions written in project settings)
+* jurisdiction
+* _sort - only default "lastUpdated" is implemented
+* _count
+* _summary - default value is "false"
+
+
+
