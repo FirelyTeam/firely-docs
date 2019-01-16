@@ -79,7 +79,7 @@ kind           token       (primitive-type | complex-type | resource | logical) 
                            (So this parameter will distinguish between |br|
                            profiles and logical models)
 description    string      Will look at the publication description used in |br|           StructureDefinition.description
-                           Simplifier (set either manually by user or generated|br| 
+                           Simplifier (set either manually by user or generated |br| 
                            automatically using the FHIRpath metadata expressions |br|
                            written in project settings), not the description |br|
                            value inside the Confromance Resources. |br|                
