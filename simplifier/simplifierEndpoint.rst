@@ -64,25 +64,25 @@ Search Parameters
 It is possible to use search parameters and search result parameter to filter the results from Simplifier. All parameters, with the exception of 'description', follow the STU3 FHIR specification. The following parameters are implemented:
 
 
-==========   ==========  =====================================================  ===========================
-Name         Type        Description                                            Expression
-==========   ==========  =====================================================  ===========================
-url          uri         The uri that identifies the structure definition       StructureDefinition.url
-type         token       Type defined or constrained by this structure          StructureDefinition.type
-status       token       The current status of the structure definition         StructureDefinition.status
-publisher    string      Name of the publisher of the structure definition      StructureDefinition.publisher
-jurisdiction token       Intended jurisdiction for the structure definition     StructureDefinition.jurisdiction
-kind         token       (primitive-type | complex-type | resource | logical)   StructureDefinition.jurisdiction
-                         Only accepted value is "logical", the rest of the 
-                         values will return non-logical model resources. 
-                         (So this parameter will distinguish between 
-                         profiles and logical models)
-description  string      Will look at the publication description used in       StructureDefinition.description
-                         Simplifier (set either manually by user or generated 
-                         automatically using the FHIRpath metadata expressions 
-                         written in project settings), not the description 
-                         value inside the Confromance Resources.                 
-============ ==========  =====================================================  ===========================
+=============  ==========  =====================================================  ================================
+Name           Type        Description                                            Expression
+=============  ==========  =====================================================  ================================
+url            uri         The uri that identifies the structure definition       StructureDefinition.url
+type           token       Type defined or constrained by this structure          StructureDefinition.type
+status         token       The current status of the structure definition         StructureDefinition.status
+publisher      string      Name of the publisher of the structure definition      StructureDefinition.publisher
+jurisdiction   token       Intended jurisdiction for the structure definition     StructureDefinition.jurisdiction
+kind           token       (primitive-type | complex-type | resource | logical)   StructureDefinition.kind
+                           Only accepted value is "logical", the rest of the 
+                           values will return non-logical model resources. 
+                           (So this parameter will distinguish between 
+                           profiles and logical models)
+description    string      Will look at the publication description used in       StructureDefinition.description
+                           Simplifier (set either manually by user or generated 
+                           automatically using the FHIRpath metadata expressions 
+                           written in project settings), not the description 
+                           value inside the Confromance Resources.                 
+=============  ==========  =====================================================  ================================
   
 
   
