@@ -65,25 +65,25 @@ It is possible to use search parameters and search result parameter to filter th
 
 Search paramters
 
-=============  ==========  =====================================================  ================================
-Name           Type        Description                                            Expression
-=============  ==========  =====================================================  ================================
-url            uri         The uri that identifies the structure definition       StructureDefinition.url
-type           token       Type defined or constrained by this structure          StructureDefinition.type
-status         token       The current status of the structure definition         StructureDefinition.status
-publisher      string      Name of the publisher of the structure definition      StructureDefinition.publisher
-jurisdiction   token       Intended jurisdiction for the structure definition     StructureDefinition.jurisdiction
-kind           token       (primitive-type | complex-type | resource | logical)   StructureDefinition.kind
-                           Only accepted value is "logical", the rest of the 
-                           values will return non-logical model resources. 
-                           (So this parameter will distinguish between 
+=============  ==========  =============================================================   ================================
+Name           Type        Description                                                     Expression
+=============  ==========  =============================================================   ================================
+url            uri         The uri that identifies the structure definition                StructureDefinition.url
+type           token       Type defined or constrained by this structure                   StructureDefinition.type
+status         token       The current status of the structure definition                  StructureDefinition.status
+publisher      string      Name of the publisher of the structure definition               StructureDefinition.publisher
+jurisdiction   token       Intended jurisdiction for the structure definition              StructureDefinition.jurisdiction
+kind           token       (primitive-type | complex-type | resource | logical) |br|       StructureDefinition.kind
+                           Only accepted value is "logical", the rest of the |br|
+                           values will return non-logical model resources. |br|
+                           (So this parameter will distinguish between |br|
                            profiles and logical models)
-description    string      Will look at the publication description used in       StructureDefinition.description
-                           Simplifier (set either manually by user or generated 
-                           automatically using the FHIRpath metadata expressions 
-                           written in project settings), not the description 
-                           value inside the Confromance Resources.                 
-=============  ==========  =====================================================  ================================
+description    string      Will look at the publication description used in |br|           StructureDefinition.description
+                           Simplifier (set either manually by user or generated|br| 
+                           automatically using the FHIRpath metadata expressions |br|
+                           written in project settings), not the description |br|
+                           value inside the Confromance Resources. |br|                
+=============  ==========  =============================================================   ================================
 
 Search result parameters
 
@@ -96,3 +96,7 @@ _count         Default value is "false". The parameter _count is defined as a hi
 _summary       The _summary parameter requests the server to return
                a subset of the resource. 
 =============  ============================================================================================    
+
+.. |br| raw:: html
+
+   <br />
