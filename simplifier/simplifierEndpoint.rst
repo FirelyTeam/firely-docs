@@ -72,7 +72,16 @@ type         token       Type defined or constrained by this structure          
 status       token       The current status of the structure definition         StructureDefinition.status
 publisher    string      Name of the publisher of the structure definition      StructureDefinition.publisher
 jurisdiction token       Intended jurisdiction for the structure definition     StructureDefinition.jurisdiction
-kind         token       (primitive-type | complex-type | resource | logical) Only accepted value is "logical", the rest of the values will return non-logical model resources. (So this parameter will distinguish between profiles and logical models)  StructureDefinition.jurisdiction
+kind         token       (primitive-type | complex-type | resource | logical)   StructureDefinition.jurisdiction
+                         Only accepted value is "logical", the rest of the 
+                         values will return non-logical model resources. 
+                         (So this parameter will distinguish between 
+                         profiles and logical models)
+description  string      Will look at the publication description used in       StructureDefinition.description
+                         Simplifier (set either manually by user or generated 
+                         automatically using the FHIRpath metadata expressions 
+                         written in project settings), not the description 
+                         value inside the Confromance Resources.                 
 ============ ==========  =====================================================  ===========================
   
 
