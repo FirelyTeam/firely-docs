@@ -69,6 +69,7 @@ Name  Type  Description  Expression
 ====  ====  ===========  ==========
 url   uri   The uri that identifies the structure definition  StructureDefinition.url
 type  token Type defined or constrained by this structure  StructureDefinition.type
+====  ====  ===========  ==========
   
 .. list-table:: Search Parameters
    :widths: 25 25 50
