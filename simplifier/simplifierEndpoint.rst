@@ -60,7 +60,7 @@ Using the global Simplifier FHIR API, users can search for all resources in Simp
 
 
 Search Parameters 
-=====================
+-----------------
 It is possible to use search parameters and search result parameter to filter the results from Simplifier. All parameters, with the exception of 'description', follow the STU3 FHIR specification. The following parameters are implemented:
 
 
