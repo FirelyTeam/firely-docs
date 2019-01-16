@@ -64,6 +64,7 @@ Search Parameters
 It is possible to use search parameters and search result parameter to filter the results from Simplifier. All parameters, with the exception of 'description', follow the STU3 FHIR specification. The following parameters are implemented:
 
 Search paramters
+
 =============  ==========  =====================================================  ================================
 Name           Type        Description                                            Expression
 =============  ==========  =====================================================  ================================
@@ -84,7 +85,8 @@ description    string      Will look at the publication description used in     
                            value inside the Confromance Resources.                 
 =============  ==========  =====================================================  ================================
 
-Search result parameters:
+Search result parameters
+
 =============  ==========================================================================  
 Name           Description                                           
 =============  ==========================================================================  
