@@ -87,13 +87,12 @@ description    string      Will look at the publication description used in     
 
 Search result parameters
 
-=============  ==========================================================================  
+=============  ============================================================================================    
 Name           Description                                           
-=============  ==========================================================================  
+=============  ============================================================================================    
 _sort          Only default "lastUpdated" is implemented.     
-_count         Default value is "false". The parameter _count is
-                defined as a hint to Simplifier regarding how many 
-                resources should be returned in a single page.       
+_count         Default value is "false". The parameter _count is defined as a hint to 
+               Simplifier regarding how many resources should be returned in a single page.       
 _summary       The _summary parameter requests the server to return
-               a subset of the resource. It can contain one of the following values:
-=============  ==========================================================================  
+               a subset of the resource. 
+=============  ============================================================================================    
