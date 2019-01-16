@@ -54,24 +54,64 @@ Downloading or uploading your project works with a GET or a PUT at https://api.s
 
 Simplifier FHIR API
 """""""""""""""""""
-Using the global Simplifier FHIR API, users can search for all resources in Simplifier. For example, the request ``GET https//stu3.simplifier.net/open/Patient`` can be used to retrieve all (STU3) Patient resources from Simplifier. The global Simplifier endpoint of your resource is available at the resource page. Using the global endpoint resources have a globally unique GUID here.
+Using the global Simplifier FHIR API, users can search for all resources in Simplifier. For example, the request ``GET https//stu3.simplifier.net/open/Patient`` can be used to retrieve all (STU3) Patient resources from Simplifier. The global Simplifier endpoint of your resource is available at the resource page beneath the API icon. All resources have a globally unique GUID.
 
 .. image:: ./images/ResourceGlobalEndpoint.PNG
 
 
-Implemented Parameters
-====================
-Search parameters:
-* url 
-* kind - accepted value is "logical", the rest of the values will return non-logical model resources (distinguish between profiles and logical models)
-* type
-* status
-* publisher
-* description - will look at the publication description used in Simplifier (set either manually by user or generated automatically using the fhir path metadata expressions written in project settings)
-* jurisdiction
-* _sort - only default "lastUpdated" is implemented
-* _count
-* _summary - default value is "false"
+Search Parameters 
+=====================
+It is possible to use search parameters and search result parameter to filter the results from Simplifier. All parameters, with the exception of 'description', follow the STU3 FHIR specification. The following parameters are implemented:
 
 
+.. list-table:: Search Parameters
+   :widths: 25 25 50
+   :header-rows: 1
 
+   * - Name
+     - Type
+     - Desciption
+     - Expression
+   * - url
+     - uri
+     - The uri that identifies the structure definition
+     - StructureDefinition.url
+   * - type
+     - token
+     - Type defined or constrained by this structure
+     - StructureDefinition.type
+   * - status
+     - token
+     - The current status of the structure definition
+     - StructureDefinition.status
+   * - publisher
+     - string
+     - Name of the publisher of the structure definition
+     - StructureDefinition.publisher
+   * - jurisdiction
+     - token
+     - Intended jurisdiction for the structure definition
+     - StructureDefinition.jurisdiction
+   * - kind
+     - token
+     - (primitive-type | complex-type | resource | logical) Only accepted value is "logical", the rest of the values will return non-logical model resources. (So this parameter will distinguish between profiles and logical models)
+     - StructureDefinition.kind
+   * - description
+     - string
+     - Will look at the publication description used in Simplifier (set either manually by user or generated automatically using the FHIRpath metadata expressions written in project settings), not the description value inside the Confromance Resources.	
+     - StructureDefinition.description
+     
+.. list-table:: Search Result Parameters
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Name
+     - Desciption
+   * - _sort
+     - Only default "lastUpdated" is implemented.
+   * - _count
+     - Default value is "false". The parameter _count is defined as a hint to Simplifier regarding how many resources should be returned in a single page. 
+     - 
+   * - _summary
+     - The _summary parameter requests the server to return a subset of the resource. It can contain one of the following values:
+ 
