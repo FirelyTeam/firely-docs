@@ -63,7 +63,7 @@ Search Parameters
 -----------------
 It is possible to use search parameters and search result parameter to filter the results from Simplifier. All parameters, with the exception of 'description', follow the STU3 FHIR specification. The following parameters are implemented:
 
-
+Search paramters
 =============  ==========  =====================================================  ================================
 Name           Type        Description                                            Expression
 =============  ==========  =====================================================  ================================
@@ -83,33 +83,15 @@ description    string      Will look at the publication description used in     
                            written in project settings), not the description 
                            value inside the Confromance Resources.                 
 =============  ==========  =====================================================  ================================
-  
 
-  
-   * - jurisdiction
-     - token
-     - Intended jurisdiction for the structure definition
-     - StructureDefinition.jurisdiction
-   * - kind
-     - token
-     - (primitive-type | complex-type | resource | logical) Only accepted value is "logical", the rest of the values will return non-logical model resources. (So this parameter will distinguish between profiles and logical models)
-     - StructureDefinition.kind
-   * - description
-     - string
-     - Will look at the publication description used in Simplifier (set either manually by user or generated automatically using the FHIRpath metadata expressions written in project settings), not the description value inside the Confromance Resources.	
-     - StructureDefinition.description
-     
-.. list-table:: Search Result Parameters
-   :widths: 25 25 50
-   :header-rows: 1
-
-   * - Name
-     - Desciption
-   * - _sort
-     - Only default "lastUpdated" is implemented.
-   * - _count
-     - Default value is "false". The parameter _count is defined as a hint to Simplifier regarding how many resources should be returned in a single page. 
-     - 
-   * - _summary
-     - The _summary parameter requests the server to return a subset of the resource. It can contain one of the following values:
- 
+Search result parameters:
+=============  ==========================================================================  
+Name           Description                                           
+=============  ==========================================================================  
+_sort          Only default "lastUpdated" is implemented.     
+_count         Default value is "false". The parameter _count is
+                defined as a hint to Simplifier regarding how many 
+                resources should be returned in a single page.       
+_summary       The _summary parameter requests the server to return
+               a subset of the resource. It can contain one of the following values:
+=============  ==========================================================================  
