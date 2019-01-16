@@ -64,37 +64,19 @@ Search Parameters
 It is possible to use search parameters and search result parameter to filter the results from Simplifier. All parameters, with the exception of 'description', follow the STU3 FHIR specification. The following parameters are implemented:
 
 
-====  =====  =====================================================  ==========
-Name  Type   Description                                            Expression
-====  =====  =====================================================  ==========
-url   uri    The uri that identifies the structure definition       StructureDefinition.url
-type  token  Type defined or constrained by this structure          StructureDefinition.type
-====  =====  =====================================================  ==========
+==========   ==========  =====================================================  ===========================
+Name         Type        Description                                            Expression
+==========   ==========  =====================================================  ===========================
+url          uri         The uri that identifies the structure definition       StructureDefinition.url
+type         token       Type defined or constrained by this structure          StructureDefinition.type
+status       token       The current status of the structure definition         StructureDefinition.status
+publisher    string      Name of the publisher of the structure definition      StructureDefinition.publisher
+jurisdiction token       Intended jurisdiction for the structure definition     StructureDefinition.jurisdiction
+kind         token       (primitive-type | complex-type | resource | logical) Only accepted value is "logical", the rest of the values will return non-logical model resources. (So this parameter will distinguish between profiles and logical models)  StructureDefinition.jurisdiction
+============ ==========  =====================================================  ===========================
   
-.. list-table:: Search Parameters
-   :widths: 25 25 50
-   :header-rows: 1
 
-   * - Name
-     - Type
-     - Desciption
-     - Expression
-   * - url
-     - uri
-     - The uri that identifies the structure definition
-     - StructureDefinition.url
-   * - type
-     - token
-     - Type defined or constrained by this structure
-     - StructureDefinition.type
-   * - status
-     - token
-     - The current status of the structure definition
-     - StructureDefinition.status
-   * - publisher
-     - string
-     - Name of the publisher of the structure definition
-     - StructureDefinition.publisher
+  
    * - jurisdiction
      - token
      - Intended jurisdiction for the structure definition
