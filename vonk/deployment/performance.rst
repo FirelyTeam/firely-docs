@@ -19,24 +19,24 @@ Repository
 ~~~~~~~~~~
 
 #. Memory: Memory is only meant for quick tests, and for use in unittests. Do not use it in any serious scenario.
-#. SQLite: SQLite is mainly used for the Administration database of Vonk. You can also use it for the main database. Deployment is very easy because of the zero footprint of the driver, but be aware of its limits. Vonk must have very fast access to the database file, so effectively it has to be on a local disk. Multithreading does work, but does not scale as well as with a normal database server.
+#. SQLite: SQLite is mainly used for the Administration database of Vonk, but you can also use it for the main database. Deployment is very easy because of the zero footprint of the driver, but be aware of its limits. Vonk must have very fast access to the database file, so effectively it has to be on a local disk. Multithreading does work, but does not scale as well as other databases.
 #. SQL Server: Performance tuning of SQL Server is a topic on its own. Vonk manages the tables it needs, and the indexes on top of it are optimized for the way Vonk queries them.
-#. MongoDB: Performance tuning of MongoDB is a topic on its own. Vonk manages the collections it needs, and the indexes on top of it are optimized for the way Vonk queries them. MongoDB is used in our own performance test, see below.
+#. MongoDB: Performance tuning of MongoDB is, as well, a topic on its own. Vonk manages the collections it needs, and the indexes on top of it are optimized for the way Vonk queries them. MongoDB is used in our own performance tests, see below.
 
 Prevalidation
 ~~~~~~~~~~~~~
 
-By default, a resource that is sent to Vonk is fully validated against its StructureDefinition. This requires extra processing and thus extra time. But you can disable full validation if needed, with the :ref:`ValidateIncomingResources <feature_prevalidation>` setting. We have no test yet in place to time the difference caused by this setting.
+By default, a resource that is sent to Vonk is fully validated against its StructureDefinition. This requires extra processing and thus extra time. But you can disable full validation if needed, with the :ref:`ValidateIncomingResources <feature_prevalidation>` setting. We have no tests in place yet to time the difference caused by this setting.
 
 Search Parameters
 ~~~~~~~~~~~~~~~~~
 
-When a resource is sent to Vonk for storage, Vonk indexes the resource for all the search parameters that are applicable to the resource. The more search parameters are known to Vonk, the more resources will be used for indexing. Both time for the indexing processing and storage for storing the values for each search parameter. This also increases the size of the index tables and indexes, and therefore querying times. So if you know you will use only part of the predefined search parameters you can choose to delete the others from the Administration API. See :ref:`conformance` and :ref:`supportedmodel`.
+When a resource is sent to Vonk for storage, Vonk indexes the resource for all the search parameters that are applicable to the resource. The more search parameters are known to Vonk, the more resources will be used for indexing - both time (for the indexing processing) and storage (for storing the values of each search parameter). This also increases the size of the index tables and indexes, and therefore querying times. Thus, if you know you will only use a portion of the predefined search parameters you can choose to delete the others from the Administration API - see :ref:`conformance` and :ref:`supportedmodel`.
 
 Pipeline
 ~~~~~~~~
 
-Vonk is made up of a pipeline of components. You can leave out any component that you don't need. So if you don't need conditional processing (create, update, delete), just exclude them from the pipeline. Excluded components are not loaded and thus never executed. See :ref:`settings_pipeline`.
+Vonk is made up of a pipeline of components. You can leave out any component that you don't need - so if you don't need conditional processing (create, update, delete), just exclude them from the pipeline. Excluded components are not loaded and thus never executed - see :ref:`settings_pipeline`.
 
 Platform
 ^^^^^^^^
@@ -45,16 +45,16 @@ Vonk can run on Windows, Linux and MacOS. Directly or in a Docker container. On 
 
 Besides the way Vonk is deployed, the way the database is deployed is an important factor. Vonk needs a very low latency connection between the Vonk process(es) and the database server. If you have configured :ref:`configure_log_insights`, the calls to the database are recorded as separate dependencies so you can check whether this may be a bottleneck.
 
-Vonk is optimized for multithreaded processing. This means that it will benefit from extra processing cores, either in the same machine (multi core processor) or by adding additional machines (and thus processors). 
+Vonk is optimized for multithreaded processing. This means that it will fully benefit from extra processing cores, either in the same machine (multi core processor) or by adding additional machines (and thus processors). 
 
-Vonk is fully stateless, so no data about connections is saved between requests. First of all this helps in scaling out, since you don't need thread affinity. On top of that this limits the memory requirements of Vonk.
+Vonk is fully stateless, so no data about connections is saved between requests. First of all this helps in scaling out, since you don't need thread affinity. On top of that this reduces the memory requirements of Vonk.
 
 Usage patterns
 ^^^^^^^^^^^^^^
 
 How will Vonk be used in your environment? 
 
-#. Mostly for querying or rather for creating and updating resources?
+#. Mostly for querying, or rather for creating and updating resources?
    Altering resources requires more processing than reading them. Also see the comment on indexing and search parameters above.
 #. How is the distribution of values in the resources that you query on?
    E.g. if you use only a few types of resources, query them just by tag and the resources have only about 5 different tags, calculating the number of results will take a lot of time. Using more finegrained distributed values to query on solves this.
@@ -66,7 +66,7 @@ How will Vonk be used in your environment?
 Testing performance yourself
 ----------------------------
 
-Because of all the variables mentioned above the best way to find out whether Vonk's performance is sufficient for your use is: Test it yourself.
+Because of all the variables mentioned above the best way to find out whether Vonk's performance is sufficient for your use is: test it yourself.
 
 We provide an evaluation license that you can use for any testing, including performance testing. See :ref:`getting_started`.
 
@@ -86,16 +86,18 @@ What to measure?
 There are essentially two questions that you can investigate:
 
 #. Given this deployment, (mix of) requests and an expected request rate, what are the response times?
-#. Given this deployment and (mix of) requests, how many requests can Vonk handle before it starts returning time-outs?
+#. Given this deployment and (a mix of) requests, how many requests can Vonk handle before it starts returning time-outs?
 
-Besides response times more insight can be gained by measuring the load on the server (processor / memory usage, disk and network latency, for both the Vonk Server and the database server).
+Besides response times more insight can be gained by measuring the load on the server (processor / memory usage, disk and network latency, for both the Vonk Server and the database server) as well as the machine you are generating the requests from (to ensure that is not bottlenecked).
+
+Always make sure to use at least 2 separate machines for testing: one for Vonk, and a separate one for generating the requests. Testing Vonk on the same machine as you're generating requests from will make Vonk compete with the load testing tool for resources which'll hamper the legitimacy of the test results.
 
 Based on the answers you can retry with different parameters (e.g. add/remove hardware) to get a sense of the requirements for real use deployment.
 
 Data
 ^^^^
 
-Performance testing is best done with data as realistic to your situation as possible. So if you happen to have historic data that you can transform to FHIR Resources, that is the best data to test with.
+Performance testing is best done with data as realistic to your situation as possible. So if you happen to have historic data that you can transform to FHIR resources, that is the best data to test with.
 
 But if you don't have data of your own, you can use synthesized data. We use data from the Synthea project for our own tests. And we provide :ref:`VonkLoader<vonkloader_index>` to upload the collection bundles from Synthea to Vonk (or any FHIR Server for that matter). 
 
@@ -118,8 +120,8 @@ Vonk performance test setup
 
    #. Repository: MongoDB, both for Administration and for the main database.
    #. Prevalidation: off
-   #. Search parameters: Support all types of resources and all search parameters from the FHIR Specification.
-   #. Pipeline: Load all available components except authorization.
+   #. Search parameters: support all types of resources and all search parameters from the FHIR specification.
+   #. Pipeline: load all available components except authorization.
 
 #. Platform
 
@@ -145,17 +147,17 @@ Vonk performance test setup
 
 #. Test framework
 
-   #. Locust for defining and running tests.
+   #. Locust for defining and running tests
    #. Telegraf agents for collection metrics
-   #. Influx DB for storing results
+   #. InfluxDB for storing results
    #. Grafana for displaying results
 
 Test results
 ^^^^^^^^^^^^
 
-#. Upload: Is not properly timed yet.
-#. General test: Has a 75 percentile of response times around 200 ms.
+#. Upload: not properly timed yet.
+#. General test: 75 percentile of response times around 200 ms.
    Note that the responses on queries with '_revinclude' contain over 30 resources on average, sometimes over 100.
-#. Page through all CarePlan resources: Has a 75 percentile of response times around 110 ms.
+#. Page through all CarePlan resources: 75 percentile of response times around 110 ms.
 #. Delete patients: Is not properly timed yet.
 
