@@ -25,7 +25,8 @@ Available parameters are: ::
         AsIs: send a collection Bundle as is (to /Bundle)
         Split: send each of the Bundle.resource's from a collection Bundle separately (STU3 only)
         Transaction: convert the collection Bundle to a transaction Bundle and send it to the server base address (STU3 only)
-    -forcePutInTransaction: resources in collections that have no id get one and are turned into a PUT entry in the transaction. By default they are turned into a POST. Only useful in combination with -collectionHandling:Transaction
+    -forcePutInTransaction: resources in collections that have no id get one and are turned into a PUT entry in the transaction.
+        By default they are turned into a POST. Only useful in combination with -collectionHandling:Transaction
 
 
 See also ``vonkloader --help`` on running the tool.
