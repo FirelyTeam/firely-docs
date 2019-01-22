@@ -25,12 +25,11 @@ Available parameters are: ::
         AsIs: send a collection Bundle as is (to /Bundle)
         Split: send each of the Bundle.resource's from a collection Bundle separately (STU3 only)
         Transaction: convert the collection Bundle to a transaction Bundle and send it to the server base address (STU3 only)
-    -allowCreate
-        if a resource has no id, issue a create. Default: ignore resources without id.
+    -forcePutInTransaction: resources in collections that have no id get one and are turned into a PUT entry in the transaction. By default they are turned into a POST. Only useful in combination with -collectionHandling:Transaction
 
 
 See also ``vonkloader --help`` on running the tool.
 
 Example: ::
 
-    vonkloader -file:examples-json-stu3.zip -server:http://localhost:4080 -allowCreate
+    vonkloader -file:examples-json-stu3.zip -server:http://localhost:4080
