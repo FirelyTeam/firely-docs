@@ -112,10 +112,19 @@ License
 -------
 ::
 
-    "LicenseFile": "vonk-trial-license.json",
+    "License": {
+        "LicenseFile": "vonk-trial-license.json",
+        "RequestInfoFile": "./.vonk-request-info.json",
+        "WriteRequestInfoFileInterval": 15 // in minutes
+    }
 
 
 The :ref:`getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\\\) as path separators.
+
+Other settings: 
+
+* ``RequestInfoFile`` sets the location of the file with request information. This file will be used in feauture releases.
+* ``WriteRequestInfoFileInterval`` sets the time interval (in minutes) to write the RequestInfoFile.
 
 Repository
 ----------
