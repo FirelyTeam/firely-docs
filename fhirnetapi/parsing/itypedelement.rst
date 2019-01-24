@@ -24,7 +24,7 @@ This is what ``ITypedElement`` looks like:
 
 Just like ``ISourceNode``, the interface represents a single node in the tree, has a name and a location and you can enumerate its children using ``Children()``.
 
-Unlike ``ISourceNode`` however, there is type information available by looking at the ``InstanceType`` and ``Definition`` properties. As a consequence, the ``Name`` property now returns the actually defined name of the element in the specification, so for choice types the element would not include the type suffix. For example,  ``Observation.valueQuantity`` in an ``ISourceNode`` would turn into ``Observation.value`` in ``ITypedElement``.
+Unlike ``ISourceNode`` however, type information is available by looking at the ``InstanceType`` and ``Definition`` properties. As a consequence, the ``Name`` property now returns the actually defined name of the element in the specification, so for choice types the element would not include the type suffix. For example,  ``Observation.valueQuantity`` in an ``ISourceNode`` would turn into ``Observation.value`` in ``ITypedElement``.
 
 Similarly, the primitive value of the node (if any) is now of type object, and returns the value of the primitive, represented as a native .NET value. The following table lists the mapping between the encountered FHIR primitive and the .NET type used to represent the value:
 
