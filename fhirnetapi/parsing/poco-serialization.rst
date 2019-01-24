@@ -8,7 +8,7 @@ Serialization, unsurprisingly, turns a given POCO back into Json or XML, and is 
 * ``Serialize`` - writes the POCO to an XmlWriter
 * ``SerializeToDocument`` - turns the POCO into an ``XDocument`` or ``JObject``
 
-Continuing the previous example, we could change some value in the parsed Patient and then serializing out again:
+Continuing the previous example, we can change some value in the parsed Patient and then serialize it back out:
 
 .. code-block:: csharp
 
