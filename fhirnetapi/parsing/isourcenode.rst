@@ -68,8 +68,8 @@ Here is an example parsing a string of xml and then quering some of its data:
 
 .. code-block:: csharp
 
-    var xml = "<Patient xmlns="http://hl7.org/fhir"><identifier>" +
-        "<use value="official" /></identifier></Patient>";
+    var xml = "<Patient xmlns=\"http://hl7.org/fhir\"><identifier>" +
+        "<use value=\"official\" /></identifier></Patient>";
     var patientNode = FhirXmlNode.Parse(xml);
     var use = patientNode.Children("identifier").Children("use").First();
     Assert.AreEqual("official", use.Text);
