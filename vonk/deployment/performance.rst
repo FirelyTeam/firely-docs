@@ -18,7 +18,7 @@ Vonk can be run as self contained FHIR Server or as a Facade on top of an existi
 Repository 
 ~~~~~~~~~~
 
-#. Memory: Memory is only meant for quick tests, and for use in unittests. Do not use it in any serious scenario.
+#. Memory: Memory is only meant for quick tests, and for use in unittests. Do not use it in any serious scenario, much less for performance critical scenarios.
 #. SQLite: SQLite is mainly used for the Administration database of Vonk, but you can also use it for the main database. Deployment is very easy because of the zero footprint of the driver, but be aware of its limits. Vonk must have very fast access to the database file, so effectively it has to be on a local disk. Multithreading does work, but does not scale as well as other databases.
 #. SQL Server: Performance tuning of SQL Server is a topic on its own. Vonk manages the tables it needs, and the indexes on top of it are optimized for the way Vonk queries them.
 #. MongoDB: Performance tuning of MongoDB is, as well, a topic on its own. Vonk manages the collections it needs, and the indexes on top of it are optimized for the way Vonk queries them. MongoDB is used in our own performance tests, see below.
@@ -159,5 +159,6 @@ Test results
 #. General test: 75 percentile of response times around 200 ms.
    Note that the responses on queries with '_revinclude' contain over 30 resources on average, sometimes over 100.
 #. Page through all CarePlan resources: 75 percentile of response times around 110 ms.
-#. Delete patients: Is not properly timed yet.
+#. Delete patients: This test always runs with 40 concurrent users, and 75 percentile of response times are around 350ms.
+   Note that in Vonk a delete is essentially an update, since all old versions are retained. 
 
