@@ -272,7 +272,6 @@ Protect against large input
 * The values for ``MaxResourceSize`` and ``MaxBatchSize`` can be expressed in b (bytes, the default), kB (kilobytes), KiB (kibibytes), MB (megabytes), or MiB (mebibytes).
   Do not put a space between the amount and the unit.
 
-
 SearchParameters and other Conformance Resources
 ------------------------------------------------
 ::
@@ -352,6 +351,7 @@ FHIR Capabilities
 
 See :ref:`restful_crud`.
 
+.. _settings_pipeline:
 
 Configuring the Vonk Pipeline
 -----------------------------
