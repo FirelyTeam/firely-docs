@@ -37,9 +37,9 @@ You will get a list that looks like:
 
 Navigate to your working directory for Vonk and run the container with this command:
 
-- in cmd.exe: ``docker run -d -p 8080:4080 --name vonk.server -v %CD%:/app/license -e "VONK_LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
+- in cmd.exe: ``docker run -d -p 8080:4080 --name vonk.server -v %CD%:/app/license -e "VONK_License:LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
 
-- in Powershell: ``docker run -d -p 8080:4080 --name vonk.server -v ${PWD}:/app/license -e "VONK_LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
+- in Powershell: ``docker run -d -p 8080:4080 --name vonk.server -v ${PWD}:/app/license -e "VONK_License:LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
 
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the command above.
 
@@ -50,7 +50,7 @@ If your license file has a different name, use that name instead of ``vonk-trial
 This will spin up a Vonk container. It maps the host port 8080 to the container port 4080 with the switch ``-p 8080:4080``. It will give the
 container the name vonk.server with the switch ``--name vonk.server``.
 Furthermore it mounts the current directory (where the license file resides) from the host to the container. Also it passes an environment
-variable ``VONK_LicenseFile`` to the container with the switch ``-e``.
+variable ``VONK_License:LicenseFile`` to the container with the switch ``-e``.
 In this example the license file is called vonk-trial-license.json. At last it will run the container in background mode with the switch ``-d``.
 
 To test whether the container is running correctly, type the command:|br|
@@ -88,7 +88,7 @@ Another way to spin up a Vonk container is to use a docker-compose file. The abo
        environment:
          - VONK_Repository=SQLite
          - VONK_Administration:Repository=SQLite
-         - VONK_LicenseFile=./license/vonk-trial-license.json
+         - VONK_License:LicenseFile=./license/vonk-trial-license.json
        volumes:
          - .:/app/license
 
@@ -140,7 +140,7 @@ We will use docker-compose to achieve this.
          - VONK_Administration:SqlDbOptions:SchemaName=vonkadmin
          - VONK_Administration:SqlDbOptions:AutoUpdateDatabase=true
          - VONK_Administration:SqlDbOptions:AutoUpdateConnectionString=Initial Catalog=VonkAdmin;Data Source=vonk-sqlserver-db,1433;User ID=sa;Password=SQLServerStrong(!)Password*
-         - VONK_LicenseFile=./license/vonk-trial-license.json
+         - VONK_License:LicenseFile=./license/vonk-trial-license.json
        volumes:
          - .:/app/license
          - script-volume:/app/data
@@ -213,7 +213,7 @@ To run the Vonk container we will use the following docker-compose file:
          - VONK_Administration:SqlDbOptions:SchemaName=vonkadmin
          - VONK_Administration:SqlDbOptions:AutoUpdateDatabase=true
          - VONK_Administration:SqlDbOptions:AutoUpdateConnectionString=Database=VonkAdmin;Server=<myServerName\myInstanceName>;User ID=<DLLUser>;Password=<myPassword>
-         - VONK_LicenseFile=./license/vonk-trial-license.json
+         - VONK_License:LicenseFile=./license/vonk-trial-license.json
        volumes:
          - .:/app/license
        extra_hosts:
@@ -270,7 +270,7 @@ This section describes how to spin up a Vonk container and a MongoDB container u
          - VONK_Administration:Repository=MongoDb
          - VONK_Administration:MongoDbOptions:ConnectionString=mongodb://vonk-mongo-db/vonkadmin
          - VONK_Administration:MongoDbOptions:EntryCollection=vonkentries
-         - VONK_LicenseFile=./license/vonk-trial-license.json
+         - VONK_License:LicenseFile=./license/vonk-trial-license.json
        volumes:
          - .:/app/license
        ports:
