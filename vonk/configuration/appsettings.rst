@@ -126,7 +126,7 @@ The :ref:`getting_started` explains how to obtain a licensefile for Vonk. Once y
 Other settings: 
 
 * ``RequestInfoFile`` sets the location of the file with request information. This file will be used in feauture releases.
-* ``WriteRequestInfoFileInterval`` sets the time interval (in minutes) to write the RequestInfoFile.
+* ``WriteRequestInfoFileInterval`` sets the time interval (in minutes) to write aggregate information about processed requests to the RequestInfoFile.
 
 Repository
 ----------
