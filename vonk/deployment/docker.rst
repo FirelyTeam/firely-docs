@@ -26,7 +26,7 @@ Before you can run Vonk, you will need to pull the Docker Vonk container and req
 Running a Docker Vonk in SQLite mode
 ------------------------------------
 
-The easiest way to run a Docker Vonk container is to run Vonk in SQLite repository mode. This is also the default mode.
+The easiest and the default way to run a Docker Vonk container is to run Vonk in SQLite repository mode. Note that this is not the most performant mode - see MongoDB and SQL Server options below for that.
 
 Open your command prompt and execute this command:
 ``> docker images simplifier/vonk``
