@@ -59,11 +59,14 @@ The Vonk ``SmartContextMiddleware`` component extracts the claims defined by SMA
 SMART on FHIR defines launch contexts for Patient, Encounter and Location, extendible with others if needed. 
 If a request is done with a Patient launch context, and the user is allowed to see other resource types as well, these other resource types are restricted by the `Patient CompartmentDefinition`_.
 
-Other forms of Authentication
------------------------------
-If you build your own server with Vonk FHIR Components you can add other middleware to provide authentication in a form that suits your needs. 
-One example could be that you want to integrate Vonk FHIR Components into an ASP.NET Core web application that already uses `ASP.NET Core Identity`_. 
+.. _accesscontrol_custom_authentication:
+
+Custom Authentication
+---------------------
+You may build a plugin with custom middleware to provide authentication in a form that suits your needs. 
+One example could be that you want to integrate `ASP.NET Core Identity`_ into Vonk.  
 Then you don't need the OAuth2 middleware, but instead can use the Identity framework to authenticate your users.
+See :ref:`vonk_components_customauthorization` for more details.
 
 Other forms of Authorization
 ----------------------------

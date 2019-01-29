@@ -24,6 +24,8 @@ Vonk FHIR Components allows you to put components of your own into that pipeline
    components_configclasses
    components_log
    components_classes
+   components_plugintemplate
+   components_directhttp
    Example: Create a new Landing Page <example_landingpage>
    Example: $document <example_documentoperation>
 

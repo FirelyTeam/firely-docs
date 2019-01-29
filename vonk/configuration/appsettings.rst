@@ -108,6 +108,8 @@ Administration
 
 The ``Administration`` section is to :ref:`configure_administration` and its repository. 
 
+.. _configure_license:
+
 License
 -------
 ::
