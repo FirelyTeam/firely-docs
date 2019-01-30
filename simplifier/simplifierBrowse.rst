@@ -4,7 +4,7 @@ Simplifier content is organized at four levels: Users, Resources, Projects and O
 
 Find other Simplifier users
 ---------------------------
-When you visit the ``Members`` tab on a `Project page <simplifierProjects.html#project-page>`_, you see which Simplifier users are involved in the project. By clicking on a project member, you will navigate to his or her `user profile <simplifierPersonalContent.html#user-profile>`_. Here you can find more information about this user, such as his or her activity on Simplifier and other projects this user is involved in. You can also get in touch with this user by using his or her contact details or sending a direct message.
+When you visit the ``Members`` tab on a `project page <simplifierProjects.html#project-page>`_, you see which Simplifier users are involved in the project. By clicking on a project member, you will navigate to his or her `user profile <simplifierPersonalContent.html#user-profile>`_. Here you can find more information about this user, such as his or her activity on Simplifier and other projects this user is involved in. You can also get in touch with this user by using his or her contact details or sending a direct message.
 
 Search existing content
 -----------------------
