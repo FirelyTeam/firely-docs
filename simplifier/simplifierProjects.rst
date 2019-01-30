@@ -42,9 +42,17 @@ Issues
 ------
 On the ``Issues`` tab you can leave your issues regarding the project. Note that this tab is not visible in all projects. The `Issue Tracker <simplifierProjects.html#id2>`_ is a paid functionality that allows project members to collect feedback from other project members or (depending on the project settings) other Simplifier users.
 
-Milestones
+Dependencies
+------------
+Currently references to other profiles are resolved by latest version. By adding package dependencies, references will be resolved in those packages. This gives you much better versioning control over the resources you include.
+
+Currently this only works for downloaded packages. In the next release it will work for snapshot generation, validation and link generation.
+
+Packages
 ----------
-The ``Milestones`` tab shows all released versions of a project. Project members may use this beta functionality to release project versions containing (a selection of) resources as a package. 
+The ``Packages`` tab shows all released versions of a project. Project members may use this beta functionality to release project versions containing (a selection of) resources as a package. 
+`Packages <simplifierPackages.html#package-management>`_  are now public BETA. We encourage you to try them out. But you should not use them for production environments yet. 
+
 
 Bookmarks
 """""""""
