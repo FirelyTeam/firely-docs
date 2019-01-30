@@ -9,7 +9,6 @@ You can visit the page of a resource by selecting the resource from your search 
 Depending on the type of resource, the different views include:
 
 * **Overview** – This is either a preview (e.g. texts) or a Logical view (e.g. profiles) of the resource. The Logical view of a profile includes Element names in the leftmost column followed by Flags, Cardinality, Type, and  Description & Constraints.
-* **Narrative** - This is a preview of the narrative part of an example Resource, e.g. a Patient.
 * **Details** – This is an easy-to-read list per element of all the details of a profile. The specification refers to this as the dictionary. 
 * **Mappings** - This is a list of all the mappings specified in a profile.
 * **Table** – This is a simple table view of the resource.
@@ -23,7 +22,8 @@ When you want to update your resource, there are several ways to do so. Choose o
 
 * **Upload**: Update by uploading a file (either XML or JSON)
 * **Fetch**: Update by fetching from a different FHIR server (provide a GET request to the server where your resource is located)
-* **Edit**: Update by editing the last version (opens a XML-editor where you can directly edit the XML code of your resource)
+* **Edit**: Update by editing the last version (opens a XML-editor in a small window where you can directly edit the XML code of your resource)
+* **Editor**: Update by editing the last version (opens a stand-alone full screen XML-editor in a different tab where you can directly edit the XML code of your resource)
 
 Download Resources
 """"""""""""""""""
@@ -57,9 +57,9 @@ Through your  `personal menu <simplifierPersonalContent.html#personal-portal>`_ 
 
 Metadata Expressions
 """"""""""""""""""""
-The metadata expressions editor enables you to define what Simplifier should display as Title and Description for your resources. To start editing the metadata expressions of your project, select ``Options`` and click on ``Edit Expressions for Metadata``.
+The metadata expressions editor enables you to define what Simplifier should display as Title and Description for your resources. To start editing the metadata expressions of your project, select ``Settings`` and click on ``Metadata Expressions``.
 
-When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FHIR PATH expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used.
+In the default tab you can see the default expressions used by Simplifier. You can add your customized expressions in the editor window. If your FHIR PATH expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used.
 
 As a convention, you must specify the resource type followed by the property (Title or Description) with a semicolon and the FHIR PATH expression based on which we extract the value.
 
