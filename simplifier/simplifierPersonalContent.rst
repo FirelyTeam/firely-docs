@@ -1,6 +1,6 @@
 Users
 ^^^^^^^^^^^^^
-Click on your avatar in the top right corner to access your personal menu. From here you can access your personal portal, invites page, user profile, shares page, organization portal(s) and account settings.
+Click on your avatar in the top right corner to access your personal menu. From here you can access your personal portal, invites page, user profile, snippets page, organization portal(s) and account settings.
 
 .. image:: ./images/UserMenu.PNG 
 
@@ -36,9 +36,17 @@ Your Snippets page shows a list of all your personal `Snippets <simplifierResour
 
 .. image:: ./images/MySnippets.PNG 
 
-Account Settings and Mail Digest
+Account Settings
 """"""""""""""""""""""""""""""""
-Here you can edit your personal details, password and settings for mail updates. The digest mail is a mail that informs you of bookmarked projects and resources that have changed recently. You can choose one of the following frequencies: daily, weekly, monthly or never. You can also visit your User Profile from this page by clicking on ``Preview profile``.
+Here you can edit your account settings. You can also visit your User Profile from this page by clicking on ``Profile`` in the upper right corner.
+
+* **Avatar**: Upload an image and save it as your avatar. Your avatar will be visible in your user profile. 
+* **Personal details**: Edit your personal details here: email, display name and a description, which will appear in your user profile. 
+* **Mail updates**: Choose your settings for mail updates. The digest mail is a mail that informs you of bookmarked projects and resources that have changed recently. You can choose one of the following frequencies: daily, weekly, monthly or never. 
+* **Change password**: This is where you can change your Simplifier password.
+* **Social media**: Add social media like Twitter or LinkedIn. Your social media will appear in your user profile, so other Simplifier users can find you.
+* **Licenses**: Lists your Simplifier licenses.
+* **Features**: Shows which Simplifier features are active based on your account and license.
 
 .. image:: ./images/AccountSettings.PNG
 
