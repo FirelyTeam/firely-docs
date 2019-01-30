@@ -15,7 +15,7 @@ We have plans to implement the FHIR “global search” endpoint where you can g
 
 Zip Endpoint
 ------------
-Simplifier has a ZIP API for every project. With an HTTP tool you can use ``GET or PUT https://simplifier.net/yourproject/api/zip`` to retrieve or update your project in zipped form.
+Simplifier has a ZIP API for every project. With an HTTP tool you can use ``GET`` or ``PUT https://simplifier.net/yourproject/api/zip`` to retrieve or update your project in zipped form.
 
 Download
 --------
@@ -28,8 +28,8 @@ We can provide a client tool called Torinox that allows easy and automated synch
 
 All you need is this command line syntax: ``fhir sync <projectname> -down``
 
-Please :ref:`contact us<simpl_contact>` if you’re interested in this tool.
-
+`Download it
+<https://simplifier.net/downloads/torinox>`_ free.
 
 Atom feed
 ---------
