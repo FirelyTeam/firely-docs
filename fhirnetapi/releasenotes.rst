@@ -5,9 +5,20 @@ Release notes
 =============
 .. _api_releasenotes_1.0.0:
 
-1.1.0 (DSTU2, STU3) (final version to be released 20190128)
------------------------------------------------------------
+1.1.1 (DSTU2, STU3) (released 20190130)
+---------------------------------------
+Hotfix release
 
+- #817 Setting an empty Meta object breaks Json Serialization
+- Fix: Added PermissiveParsing setting to ParserSettings
+- Fix: Setting primitives to null AND using extensions would crash ITypedElement.Value
+
+Note: Since 1.0, the parsers are more strict than before in what they accept as input. To disable this behaviour, set PermissiveParsing to 'true'
+in the ParserSettings which can be passed to the Json/Xml POCO parsers.
+
+
+1.1.0 (DSTU2, STU3) (beta - final version to be released 20190128)
+------------------------------------------------------------------
 This is a minor release.
 
 ### New functionality
