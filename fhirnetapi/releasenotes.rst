@@ -5,6 +5,13 @@ Release notes
 =============
 .. _api_releasenotes_1.0.0:
 
+1.1.2 (DSTU2, STU3) (released 20190131)
+---------------------------------------
+Hotfix release
+
+- Fix: v2-tables.xml of specification.zip contained an invalid codesystem (id =v2-0550)
+
+
 1.1.1 (DSTU2, STU3) (released 20190130)
 ---------------------------------------
 Hotfix release
