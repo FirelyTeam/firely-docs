@@ -10,6 +10,58 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+
+.. _vonk_releasenotes_110:
+
+Release 1.1.0
+-------------
+
+.. attention::
+   
+   New security issues have been identified by Microsoft. See the :ref:`vonk_securitynotes` for details.
+
+.. attention::
+
+   The setting for the location of the license file has moved. It was in the top level setting ``LicenseFile``. It still has the same name, but it has moved into the section ``License``. See :ref:`configure_license` for details.
+
+.. attention::
+
+   This version of Vonk is upgraded to the Hl7.Fhir.API version 1.1.1. Plugin- and Facade builders will transitively get this dependency through the Vonk.Core package.
+
+Database
+^^^^^^^^
+
+No changes have been made to any of the database implementations.
+
+Feature
+^^^^^^^
+
+#. Vonk will count the number of requests that it processes. See :ref:`configure_license` for settings on that. Because of this change, the ``LicenseFile`` setting has moved from the top level to under ``License``.
+#. The plugin folder (:ref:`settings_pipeline`) may now contain subfolders. Plugins will be read from all underlying folders.
+#. Vonk supports If-Match on update. See `Managing Resource Contention <http://hl7.org/fhir/http.html#concurrency>`_ in the specification for details.
+#. Plugins may return non-FHIR content. See :ref:`vonk_components_directhttp`.
+#. This feature may also be used for :ref:`accesscontrol_custom_authentication`.
+#. A :ref:`vonk_components_plugintemplate` is added to the documentation.
+#. A documentation page on performance is added: :ref:`vonk_performance`.
+#. Upgrade of the Hl7.Fhir.API library to 1.1. See the API releasenotes for :ref:`api_releasenotes_1.1.0`.
+
+Fix
+^^^
+
+#. Transaction: forward references from one resource to another in a Transaction were not correctly resolved.
+#. When you set ValidateIncomingResources to true, Vonk no longer accepts resources with extensions that are unknown to it. This is now also reflected in the CapabilityStatement.acceptUnknown.
+#. The links in a bundle response (``Bundle.link``) were relative links. Now they are absolute links.
+#. HTTP 500 instead of an OO was returned when trying to update a subscription with an invalid request status.
+#. If an error is found in a SearchParameter in the Administration database, Vonk logs the (canonical) url of that SearchParameter for easier reference.
+#. Transaction: Response bundle contained versioned fullUrls. We changed that to unversioned urls.
+#. Bundles: Response bundles with an OperationOutcome contained a versioned fullUrl for the entry containing the OperationOutcome. We changed that to an unversioned url. 
+#. Deleting a resource from the Administration API that does not exist would lead to an internal server error.
+
+Supported Plugins
+^^^^^^^^^^^^^^^^^
+
+#. Several fixes have been done on the `Document plugin <https://github.com/FirelyTeam/Vonk.Plugin.DocumentOperation>`_.
+
 .. _vonk_releasenotes_100:
 
 Release 1.0.0
@@ -197,185 +249,7 @@ Features and fixes
 #. Fix: When you use accents or Chinese characters in the url for a search, Vonk gives an error.
 #. Fix: A reverse chained search on MongoDb sometimes failed with an Internal Server Error. 
 
-.. _vonk_releasenotes_0650:
 
-Release 0.6.5.0
----------------
-
-.. attention::
-
-   This version changes the way conformance resources are loaded from zip files and/or directories at startup. They are no longer loaded only in memory, but are added to the Administration API's database.
-   You will notice a delay at first startup, when Vonk is loading these resources into the database. See Feature #1 below.
-
-.. attention::
-
-   2018-06-07: We updated the Database actions for 0.6.5.0, you should always perform a reindex, see right below.
-
-Database
-^^^^^^^^
-
-#. Feature 2, 4 and 14 below require a :ref:`reindex/all <feature_customsp_reindex>`, both for MongoDB and SQL Server.
-
-Facade
-^^^^^^
-
-#. Release 0.6.5.0 is not released on NuGet, so the latest NuGet packages have version 0.6.2-beta. Keep an eye on it for the next release...
-
-Features and fixes
-^^^^^^^^^^^^^^^^^^
-
-#. Feature: Run Vonk from you Simplifier project! See :ref:`simplifier_vonk` for details.
-#. Feature: Vonk supports Microsoft Azure CosmosDB, see :ref:`configure_cosmosdb`.
-   This required a few small changes to the MongoDB implementation (the share the drivers), so please reindex your MongoDB database: :ref:`reindex/all <feature_customsp_reindex>`.
-#. Feature: Configuration to restrict support for ResourceTypes, SearchParameters and CompartmentDefinitions, see :ref:`supportedmodel`.
-#. Feature: Errata.zip: collection of corrected search parameters (e.g. that had a faulty expression in the FHIR Core specification), see :ref:`feature_errata`
-#. Upgrade: FHIR .NET API 0.95.0 (see :ref:`api_releasenotes_0950`)
-#. Fix: a search on _id:missing=true was not processed correctly.
-#. Fix: better distinction of reasons to reject updates (error codes 400 vs. 422, see `RESTful API specification <http://hl7.org/fhir/http.html#2.21.0.10.1>`_
-#. Fix: recognize _format=text/xml and return xml (instead of the default json)
-#. Fix: handling of the :not modifier in token searches (include resource that don't have a value at all).
-#. Fix: handling of the :not modifier in searches with choice arguments
-#. Fix: fullUrl in return bundles cannot be version specific.
-#. Fix: evaluate _count=0 correctly (it was ignored).
-#. Fix: correct error message on an invalid _include (now Vonk tells you which resourcetypes are considered for evaluating the used searchparameter).
-#. Fix: indexing of Observation.combo-value-quantity failed for UCUM code for Celcius. This fix requires a :ref:`reindex/all <feature_customsp_reindex>` on this searchparameter.
-#. Fix: total count in history bundle.
-#. Fix: on vonk.fire.ly we disabled validating all input, so you can now create or update resources also if the relevant profiles are not loaded 
-   (this was neccessary for Crucible, since it references US Core profiles, that are not present by default).
-#. Fix: timeout of Azure Web App on first startup of Vonk - Vonk's first startup takes some time due to import of the specification (see :ref:`conformance_specification_zip`). 
-   Since Azure Web Apps are allowed a startup time of about 3 minutes, it failed if the web app was on a low level service plan.
-   Vonk will now no longer await this import. It will finish startup quickly, but until the import is finished it will return a 423 'Locked' upon every request.
-#. Fix: improved logging on the import of conformance resources at startup (see :ref:`conformance_import`).
-
-Release 0.6.4.0
----------------
-
-.. attention::
-
-   This version changes the way conformance resources are loaded from zip files and/or directories at startup. They are no longer loaded only in memory, but are added to the Administration API's database.
-   You will notice a delay at first startup, when Vonk is loading these resources into the database. See Feature #1 below.
-
-Database
-^^^^^^^^
-
-#. Fix #9 below requires a :ref:`reindex/all <feature_customsp_reindex>`.
-
-Facade
-^^^^^^
-
-#. Release 0.6.4.0 is not released on NuGet, so the latest NuGet packages have version 0.6.2-beta. 
-   This release is targeted towards the Administration API and :ref:`feature_terminology`, both of which are not (yet) available in Facade implementations.
-   We are working on making the features of the Administration API available to Facade implementers in an easy way. 
-
-Features and fixes
-^^^^^^^^^^^^^^^^^^
-
-#. Feature: Make all loaded conformance resources available through the Administration API. 
-   
-   Previously:
-
-   * Only SearchParameter and CompartmentDefinition resources could be loaded from ZIP files and directories;
-   * And those could not be read from the Administration API.
-   
-   Now:
-
-   * The same set of (conformance) resourcetypes can be read from all sources (ZIP, directory, Simplifier);
-   * They are all loaded into the Administration database and can be read and updated through the Administration API.
-
-   Refer to :ref:`conformance` for details.
-
-#. Feature: Experimental support for :ref:`feature_terminology` operations $validate-code, $expand, $lookup, $compose.
-#. Feature: Support for `Compartment Search <http://www.hl7.org/implement/standards/fhir/search.html#2.21.1.2>`_.
-#. Feature: Track timing of major dependencies in :ref:`Azure Application Insights <configure_log_insights>`.
-#. Feature: :ref:`configure_log` can be overridden in 4 levels, just as the appsettings. The logsettings.json file will not be overwritten anymore by a Vonk distribution.
-#. Fix: The check for :ref:`allowed profiles <feature_prevalidation>` is no longer applied to the Administration API. Previously setting AllowedProfiles to e.g. [http://mycompany.org/fhir/StructureDefinition/mycompany-patient] would prohibit you to actually create or update the related StructureDefinition in the Administration API.
-#. Fix: When posting any other resourcetype than the supported conformance resources to the Administration API, Vonk now returns a 501 (Not Implemented).
-#. Fix: Support search on Token with only a system (e.g. ``<base>/Observation?code=http://loinc.org|``)
-#. Fix: Support search on Token with a fixed system, e.g. ``<base>/Patient?gender=http://hl7.org/fhir/codesystem-administrative-gender.html|female``. This fix requires a :ref:`reindex/all <feature_customsp_reindex>`.
-#. Fix: Reindex could fail when a Reference Searchparameter has no targets.
-#. Fix: Vonk works as Data Server on `ClinFHIR <http://clinfhir.com>`_, with help of David Hay.
-#. Fix: Clearer error messages in the log on configuration errors.
-#. Fix: Loading conformance resources from disk in Docker.
-
-Documentation
-^^^^^^^^^^^^^
-
-#. We added documentation on :ref:`using IIS or NGINX as reverse proxies <deploy_reverseProxy>` for Vonk.
-#. We added documentation on running Vonk on Azure Web App Services.
-
-
-Release 0.6.2.0
----------------
-
-.. attention::
-
-  The loading of appsettings is more flexible. After installing a new version you can simply paste your previous appsettings.json in the Vonk directory. Vonk's default settings are now in appsettings.default.json. see :ref:`configure_appsettings` for details.
-
-Database
-^^^^^^^^
-No changes
-
-Features and fixes
-^^^^^^^^^^^^^^^^^^
-
-#. Feature: Conditional References in :ref:`Transactions <restful_transaction>` are resolved.
-#. Feature: More flexible support for different serializers (preparing for ndjson in Bulkdata)
-#. Feature: Improved handling on missing settings or errors in the :ref:`configure_appsettings`.
-#. Feature: Improved :ref:`logging <configure_log>`, including Dependency Tracking on Azure Application Insights, see :ref:`configure_log_insights`
-#. Feature: SearchParameter and CompartmentDefinition are now also imported from :ref:`Simplifier <conformance_fromsimplifier>`, so both Simplifier import and the :ref:`Administration API <conformance_administration_api>` support the same set of conformance resources: StructureDefinition, SearchParameter, CompartmentDefinition, ValueSet and CodeSystem. See :ref:`Conformance resources<conformance>`.
-#. Feature: Loading of appsettings is more flexible, see :ref:`configure_appsettings`.
-#. Feature: Added documentation on running Vonk behind IIS or NGINX: :ref:`deploy_reverseProxy`.
-#. Performance: Improvement in speed of validation, especially relevant if you are :ref:`feature_prevalidation`.
-#. Fix: If you try to load a SearchParameter (see :ref:`conformance_fromdisk`) that cannot be parsed correctly, Vonk puts an error about that in the log.
-#. Fix: Results from _include and _revinclude are now marked with searchmode: Include (was incorrectly set to 'Match' before)
-#. Fix: _format as one of the parameters in a POST Search is correctly evaluated.
-#. Fix: No more errors in the log about a Session being closed before the request has finished 
-   ("Error closing the session. System.OperationCanceledException: The operation was canceled.")
-#. Fix: Subscription.status is evaluated correctly upon create or update on the Administration API
-#. Fix: Token search with only a system is supported (``Observation.code=somesystem|``)
-#. Fix: On validation errors like 'Cannot resolve reference Organization/Organization-example26"' are now suppressed since the validator is set not to follow these references.
-#. Fix: New Firely logo in SVG format - looks better
-#. Fix: Creating resources with duplicate canonical url's on the Administration API is prohibited, see :ref:`conformance`.
-#. Fix: If a Compartment filter is used on a parameter that is not implemented, Vonk will return an error, see :ref:`feature_accesscontrol_compartment`.
-
-Release 0.6.1.0
----------------
-Name change from Furore to Firely
-
-Release 0.6.0.0
----------------
-
-.. attention:: 
-
-   * SearchParametersImportOptions is renamed to :ref:`MetadataImportOptions<conformance_fromdisk>`.
-   * :ref:`Subscription <feature_subscription>` can now be disabled from the settings.
-
-Database
-^^^^^^^^
-#. The MongoDB implementation got a new index. It will be created automatically upon startup.
-
-Features and fixes
-^^^^^^^^^^^^^^^^^^
-
-#. Feature: :ref:`Access control based on SMART on FHIR <feature_accesscontrol>`.
-#. Feature: Vonk can also load CompartmentDefinition resources. See :ref:`conformance` for instructions.
-#. Feature: ValueSet and CodeSystem resources can be loaded into the administration endpoint, and loaded from Simplifier. See :ref:`conformance` for instructions.
-#. Feature: Be lenient on trailing slashes in the url.
-#. Feature: OperationOutcome is now at the top of a Bundle result. For human readers this is easier to spot any errors or warnings.
-#. Fix: In the :ref:`settings for SQL Server <configure_sql>` it was possible to specify the name of the Schema to use for the Vonk tables. That was actually not evaluated, so we removed the option for it. It is fixed to 'vonk'.
-#. Fix: The OperationOutcome of the :ref:`Reset <feature_resetdb>` operation could state both an error and overall success.
-#. Fix: If you did not set the CertificatePassword in the appsettings, Vonk would report a warning even if the password was not needed.
-#. Fix: :ref:`Loading conformance resources <conformance_fromsimplifier>` in the SQL Server implementation could lead to an error.
-#. Fix: Clearer error messages if the body of the request is mandatory but empty.
-#. Fix: Clearer error message if the Content-Type is missing.
-#. Fix: GET on [base]/ would return the UI regardless of the Accept header. Now if you specify a FHIR mimetype in the Accept header, it will return the result of a system wide search.
-#. Fix: In rare circumstances a duplicate logical id could be created.
-#. Fix: GET [base]/metadat would return status code 200 (OK). But it should return a 400 and an OperationOutcome stating that 'metadat' is not a supported resourcetype.
-
-Documentation
-^^^^^^^^^^^^^
-
-#. We consolidated documentation on loading conformance resources into :ref:`conformance`.
 
 
 

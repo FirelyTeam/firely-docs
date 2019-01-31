@@ -3,7 +3,7 @@
 =============
 Release notes
 =============
-.. _api_releasenotes_1.0.0:
+.. _api_releasenotes_1.1.0:
 
 1.1.2 (DSTU2, STU3) (released 20190131)
 ---------------------------------------
