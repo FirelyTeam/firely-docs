@@ -3,6 +3,17 @@
 Security notifications for Vonk
 ===============================
 
+January 2019
+------------
+
+Microsoft has published two Security Advisories regarding ASP.NET Core:
+
+   * If you run Vonk behind Internet Information Server (IIS), you may be vulnerable to "Microsoft Security Advisory CVE-2019-0548: ASP.NET Core Denial Of Service Vulnerability".
+     Refer to the related `Github issue #335 <https://github.com/aspnet/Announcements/issues/335>`_ for details and the fix.
+   * When using older versions of some of the ASP.NET Core packages you may be vulnerable to "Microsoft Security Advisory CVE-2019-0564: ASP.NET Core Denial of Service Vulnerability".
+     Refer to the related `Github issue #334 <https://github.com/aspnet/Announcements/issues/334>`_ for details.
+     Vonk FHIR Server up until version 1.1.0 uses versions of the packages involved that are not affected (older than the vulnerable versions). In a future version we will upgrade beyond the vulnerable version upto secure versions. No action is required by the administrator of Vonk.
+
 April 2018
 ----------
 

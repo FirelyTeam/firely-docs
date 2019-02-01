@@ -12,7 +12,7 @@ IVonkContext
 
 :purpose: IVonkContext is the Vonk-specific counterpart to HttpContext from ASP.NET Core. It contains an IVonkRequest and IVonkResponse object that allow you to get information from the request and set results in the response, both in Vonk terms.  
 
-Have ``IVonkContext`` injected in the method where you need it. Use a `configuration class <vonk_components_configclass>`_ to call this method from the pipeline and have the actual context injected. 
+Have ``IVonkContext`` injected in the method where you need it. Use a `configuration class <vonk_components_configclass>`_ to call this method from the pipeline and have the actual context injected. A more complete template is found at :ref:`vonk_components_plugintemplate`.
 
 .. code-block:: csharp
 
@@ -32,7 +32,7 @@ Have ``IVonkContext`` injected in the method where you need it. Use a `configura
       }
    }
 
-If you also need access to the raw ``HttpContext``, you can create a normal ASP.NET Core Middleware class and access the IVonkContext with the extension method ``Vonk()`` on ``HttpRequest``.
+If you also need access to the raw ``HttpContext``, you can create a normal ASP.NET Core Middleware class and access the IVonkContext with the extension method ``Vonk()`` on ``HttpRequest``. A more complete template is found at :ref:`vonk_components_directhttp`.
 
 .. code-block:: csharp
 
@@ -206,6 +206,8 @@ If your operation provides a response, you should:
 #. Add an issue if something is wrong.
 
 If you just listen in on the pipeline, you can check the values of the response. Besides that, the `InteractionHandlerAttribute`_ allows you to filter on the ``HttpStatus`` of the response.
+
+.. _components_interactionhandler:
 
 InteractionHandlerAttribute
 ---------------------------
