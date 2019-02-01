@@ -60,11 +60,19 @@ To stay informed in real time click the ``Bookmark`` button in the top right. Yo
 
 Create a project
 """"""""""""""""
-In the Projects tabs on your Portal page you can find the button labeled ``Create``. Clicking this button will allow you to create a new project by entering a Display Name, Description, and Scope. Once the project has been created you can then customize project information, add resources, add members, and follow changes that are occurring in that project.
+In the Projects tabs on your Portal page you can find the button labeled ``Create``. 
+
+.. image:: ./images/PersonalPortal.png 
+
+Clicking this button will allow you to create a new project by entering a Display Name, Description, and Scope. Once the project has been created you can then customize project information, add resources, add members, and follow changes that are occurring in that project.
+
+.. image:: ./images/CreateProject.png 
 
 Project Settings
 """"""""""""""""
 You can always change your project settings by clicking on the ``Settings`` button in the right upper corner. There are a couple of options in the Settings menu, which will be explained below.
+
+.. image:: ./images/ProjectSettings.png 
 
 Properties
 ----------
@@ -73,8 +81,11 @@ Here you can edit the following properties:
 - The title and subtitle of your project
 - The FHIR version (DSTU2 or STU3)
 - The scope of your project (core, international, national, institute, regional or test). As choosing the right scope will make it easier for others to find your project, please use test for all test projects and test projects only.
-- Issue tracking by project members and other Simplifier users
-- Publishing project resources to the `FHIR registry <FHIRRegistry.html#fhir-registry>`_ (registry.fhir.org)
+- Issue tracking by project members and other Simplifier users:
+	- Turn issues on or off for this project (when activated the issues tab will be visible on the project page depending on the user's role)
+	- With the issues visibility setting you can chose whether issues are visible to all Simplifier users or project members only. 
+	- With the community issues setting you can chose whether all Simplifier users or only project members can create or respond to issues.
+- Publishing project resources to the `FHIR registry <FHIRRegistry.html#fhir-registry>`_ (registry.fhir.org). Note that this setting is only available in public projects. Private projects and test projects are excluded from the registry.
 
 Project url
 -----------
@@ -104,11 +115,15 @@ Administration
 --------------
 This option is only available for project members with an admin role. Use this option if you want to delete your project or if you want to change its visibility to either public or private.
 
+Score
+-----
+This beta functionality scores your project based on some predefined quality criteria.
+
 Add resources to your project
 """""""""""""""""""""""""""""
 On the Resources tab you can find all the Conformance and Example Resources for the project. 
 
-If you have "Write" rights to a project you will see an option to ``+Upload`` resources at the top of the Project Page. Here you can choose one of the following options: 
+If you have "Write" rights to a project you will see an option to ``Upload`` resources at the top of the Project Page. Here you can choose one of the following options: 
 
 *1. Upload a local file*
 
@@ -144,7 +159,7 @@ The following options are available:
 
 Add project members
 """""""""""""""""""
-The ``Members`` tab displays a list of all the members with rights to that project. In this section you can invite Simplifier and non-Simplifier members to your project by clicking the ``+Invite User`` button and typing in an emailaddress. 
+The ``Members`` tab displays a list of all the members with rights to that project. In this section you can invite Simplifier and non-Simplifier members to your project by clicking the ``Invite User`` button and typing in an emailaddress. 
 
 When adding new members to your project you have the option to assign “Admin”, “Writer”, or “Reader” rights to that user. This assigns their rights within that particular project and can be changed at any time should someone’s function change. Users have the following rights within each role:
 
@@ -161,10 +176,10 @@ Track Project Changes
 """""""""""""""""""""
 On the ``Log`` tab you will find event tracking of a project. This log keeps a list of all changes made to resources within the project, along with the name of the person that made changes and the time the changes were made. 
 
-At the top of the screen you will find the Atom feed button. This allows you to subscribe to stay informed about any changes being made within your projects. To utilize this feature, navigate to a project on Simplifier.net that you are interested in following. Once there click on the “Subscribe” button in the upper right hand corner and copy the link into a feed reader of your choice. You are then ready to start receiving updates. 
+At the top of the screen you will find the Atom feed button. This allows you to subscribe to stay informed about any changes being made within your projects. To utilize this feature, navigate to a project on Simplifier.net that you are interested in following. Once there click on the ``Subscribe`` button in the upper right hand corner and copy the link into a feed reader of your choice. You are then ready to start receiving updates. 
 
 .. image does not exist anymore... image:: http://i1084.photobucket.com/albums/j404/askfj/c2818dc0-e545-4b80-9f44-47973f2ced94_zps0mgbkvyn.png
 
 Issue Tracker
 """""""""""""
-Would you like to capture feedback about your resources from users? The Issue tracker option is a great way to do this. If you go to the ``Options`` dropdown and then select Edit Project Properties. You will see the option to Enable Issues at the bottom of your screen. By selecting the On option, you enable the issue tracking feature of your project. There are two additional options that display once you have turned the Issue tracking on. You have the option to limit Issue visibility to project members or make them publicly visible. The issues that are reported by the community can also be limited to be viable only to your projects member or visible to the public. These issues can either be reported at a resource level or at a project level. At the project level you will see issues that are project specific and issues from all the resources in that project on the ``Issues`` tab.
+Would you like to capture feedback about your resources from users? The Issue tracker option is a great way to do this. If you go to the ``Settings`` dropdown menu and then select ``Properties``. You will see the option to Enable Issues at the bottom of your screen. By selecting the On option, you enable the issue tracking feature of your project. There are two additional options that display once you have turned the Issue tracking on. You have the option to limit Issue visibility to project members or make them publicly visible. The issues that are reported by the community can also be limited to be viable only to your projects member or visible to the public. These issues can either be reported at a resource level or at a project level. At the project level you will see issues that are project specific and issues from all the resources in that project on the ``Issues`` tab.
