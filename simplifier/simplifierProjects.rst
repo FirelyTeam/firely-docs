@@ -62,17 +62,17 @@ Create a project
 """"""""""""""""
 In the Projects tabs on your Portal page you can find the button labeled ``Create``. 
 
-.. image:: ./images/PersonalPortal.png 
+.. image:: ./images/PersonalPortal.PNG
 
 Clicking this button will allow you to create a new project by entering a Display Name, Description, and Scope. Once the project has been created you can then customize project information, add resources, add members, and follow changes that are occurring in that project.
 
-.. image:: ./images/CreateProject.png 
+.. image:: ./images/CreateProject.PNG 
 
 Project Settings
 """"""""""""""""
 You can always change your project settings by clicking on the ``Settings`` button in the right upper corner. There are a couple of options in the Settings menu, which will be explained below.
 
-.. image:: ./images/ProjectSettings.png 
+.. image:: ./images/ProjectSettings.PNG
 
 Properties
 ----------
