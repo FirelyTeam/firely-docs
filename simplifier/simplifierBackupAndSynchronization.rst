@@ -24,7 +24,7 @@ Filepaths are preserved from GitHub and the regular upload. Resources that are i
 
 Client tool
 -----------
-We can provide a client tool called Torinox that allows easy and automated synchronization and backup. `Torinox <simplifierPackages.html#torinox >`_ uses the simplifier ZIP API and was built to assist CI/CD scenarios.
+We can provide a client tool called Torinox that allows easy and automated synchronization and backup. `Torinox <simplifierPackages.html#torinox>`_ uses the simplifier ZIP API and was built to assist CI/CD scenarios.
 
 All you need is this command line syntax: ``fhir sync <projectname> -down``
 
