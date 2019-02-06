@@ -73,7 +73,7 @@ Before you install Torinox, make sure you have `dotnet core 2.1 SDK <https://www
 
 That's it, you're all set! Run ``fhir -?`` to see which functions are available. Here below are a couple of examples in Torinox.
 
-.. image:: ./images/Torinox.PNG
+.. image:: ./images/Torinox.png
   :align: center
 
 Install packages
