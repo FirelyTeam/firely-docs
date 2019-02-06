@@ -4,8 +4,6 @@
 Introduction to ElementModel
 ============================
 
-.. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
-
 While most developers will be most comfortable with using .NET POCOs to work with FHIR data, the .NET API itself largely uses the ElementModel classes to read and manipulate data. These classes enable the API to work independently of FHIR versions (e.g. DSTU2, STU3, R4, etc), and can even work with incorrect data. In addition, these classes make it simple to traverse data and obtain type information about the data without the need for .NET reflection.
 
 The ElementModel interfaces

@@ -2,8 +2,6 @@
 Writing your own ``ITypedElement`` implementation
 =================================================
 
-.. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
-
 The components that make up the parsing and serialization stack of the .NET framework are designed to be composed to be provide flexibility for different usecases and make it easy to add additional behaviour. You could build a pipeline converting XML to JSON by starting out with the `FhirXmlNode` (implementing `ISourceNode`), calling ``ToTypedElement()`` on it (effectively wrapping it in an internal implementation of `ITypedElement` called `TypedElement`). This is then again wrapped by the `FhirJsonBuilder` class, which turns the output into JSON.
 
 This pipeline can be extended by custom implementations of both interfaces, and the API already contains a few extra's out of the box:

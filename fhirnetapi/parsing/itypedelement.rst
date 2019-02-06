@@ -2,8 +2,6 @@
 Working with ITypedElement
 ==========================
 
-.. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
-
 The main difference between ``ISourceNode`` (see :ref:`isourcenode`) and ``ITypedElement`` is the presence of type information: metadata coming from the FHIR specification about which elements exist for a given version of FHIR, whether they repeat, what the type of each element is, etcetera. Type information is necessary for many operations on data, most notably serialization, running FhirPath statements and doing validation. As such, it is more common to work with ``ITypedElement`` than it is to work with ``ISourceNode``. However, as one could imagine, in cases where type information is not necessary, ``ISourceNode`` is more performant and has a smaller memory footprint.
 
 This is what ``ITypedElement`` looks like:

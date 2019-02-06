@@ -4,8 +4,6 @@
 Parsing with ISourceNode
 ========================
 
-.. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
-
 This interface exposes serialization-level, untyped instance data of a single resource at a level that abstracts away the specific details of the underlying representation (e.g. xml and json) and is shown below:
 
 .. code-block:: csharp
