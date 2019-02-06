@@ -6,13 +6,13 @@ resources from the repository are fetched and added to your Simplifier project. 
 GitHub Linking
 --------------
 In order to perfom the inital setup link of a GitHub repository to a Simplifier project, the user needs to have admin rights in GitHub and Simplifier.
-You can link a repository in GitHub to your Simplifier project by going to your project and selecting the "Link to GitHub Repository" button under the Options menu. 
+You can link a repository in GitHub to your Simplifier project by going to your project and selecting the ``Link repository`` button under the ``Options`` menu. 
 
 You will be redirected to the GitHub login or, if you are already logged in to GitHub, straight to the page where you will be asked to authorize that Simplifier can access your repository.
 
 Once this step is complete, you will be directed back to Simplifier, where Simplifier will ask you which repository you want to link and which branch within that repository. 
 
-To link an Organization GitHub repository after an already made link, you should go to your Organization on GitHub -> Settings Tab -> Third-party access -> and press the "Remove Restrictions" button. Now you should see the repositories from that organization when you try to link a GitHub Repository.
+To link an Organization GitHub repository after an already made link, you should edit your Organization settings in GitHub. Log in to GitHub and go to the Settings tab in your Organization. Press the ``Remove Restrictions`` button under third-party access. Now you should see the repositories from that organization when you try to link a GitHub Repository.
 
 Settings
 --------
@@ -29,7 +29,7 @@ GitHub Sync enables you to synchronize your Simplifier project with the linked G
 
 GitHub Include/Exclude
 ----------------------
-The include/exclude feature allows users to specify the folders or file types that should be fetched from GitHub into Simplifier. This also applies to the folders or file types that you would like to be excluded from the import. You are able to specify these rules right after the initial link to the repository, before the initial import or later by accessing the GitHub -> Change GitHub Settings menu option from the project page.
+The include/exclude feature allows users to specify the folders or file types that should be fetched from GitHub into Simplifier. This also applies to the folders or file types that you would like to be excluded from the import. You are able to specify these rules right after the initial link to the repository, before the initial import or later by accessing the ``Settings`` option from the ``Github`` dropdown menu on the project page.
 By default, everything is included. If include statements are added then everything else (not included in your include statement) will be excluded by default. Simplifier only imports xml, json, images, and markdown file types. Comments are also supported using the "#" character.
 The syntax is the following:
 
