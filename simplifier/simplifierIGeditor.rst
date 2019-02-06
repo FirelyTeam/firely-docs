@@ -28,21 +28,22 @@ To adjust the settings of your IG click on the Settings icon (the rightmost icon
 .. image:: ./images/IGeditor.PNG   
 
 
-Two Level Menu vs Tree table
+Formatting style
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
-An IG can be rendered in two formats: a Two Level Menu format and a Tree Table format.
+An IG can be rendered in one of three formats: a Tree table, Two Level Menu or HL7 Ballot format.
+
+A Tree table rendering will display your IG with the elements in a format similar to the tree table with the elements and their hierarchy along the left side of the page.
+
+.. image:: http://i32.photobucket.com/albums/d41/sdfgsdg1asdj/0c898a190d7241b9a4e48e739a87af8f_zpszdeyzndo.jpg
+
 
 A Two Level Menu rendering will display your IG with the elements in tabs along the top of the page.
-
 
 .. image:: http://i32.photobucket.com/albums/d41/sdfgsdg1asdj/5.IGblog_zps3cloxvdy.png
 
 
-A Tree table rendering will display your IG with the elements in a format similar to the tree table with the elements and their hierarchy along the left side of the page.
-
-
-.. image:: http://i32.photobucket.com/albums/d41/sdfgsdg1asdj/0c898a190d7241b9a4e48e739a87af8f_zpszdeyzndo.jpg
+A HL7 Ballot rendering will display your IG with the elements in tabs along the top of the page similar to the Two Level Menu rendering, but in the style of a HL7 Ballot IG.
 
 To add a new menu item to your Implementation Guide, use the ``+`` icons in the upper left corner of the IG editor. Click on either the ``add Child guide item`` icon to add a sub menu or on the ``add Sibling guide item`` icon to add a menu at the same level as the one you have selected. You can rename the items by either double clicking them or use the pencil icon in the icon bar. To delete a menu item, select it and click on the recycle bin icon. 
 
