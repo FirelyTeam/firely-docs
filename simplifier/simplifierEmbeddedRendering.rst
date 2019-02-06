@@ -15,6 +15,6 @@ Below you see the result. You could adjust the height and width of the iframe as
 
 .. raw:: html    
 
-   <iframe src="https://www.simplifier.net/embed/render?id=nictizstu3-zib2017/nl-core-patient" height="345px" width="100%"></iframe>
+   <iframe src="//www.simplifier.net/embed/render?id=nictizstu3-zib2017/nl-core-patient" height="345px" width="100%"></iframe>
  
 
