@@ -4,7 +4,7 @@ For our members with an Enterprise plan there is the functionality to create and
 
 Organization Settings
 ---------------------
-Once you have made your account you can create and organize organizational project lists, create custom workflows, manage members, and follow your organization’s newsfeed. These settings can be accessed via the ``Settings`` dropdown once you are on your organization’s page. The quickest way to visit your organization's page is to select it from the ``Organizations`` tab in your `personal portal <simplifierPersonalContent.html#personal-portal>`.
+Once you have made your account you can create and organize organizational project lists, create custom workflows, manage members, and follow your organization’s newsfeed. These settings can be accessed via the ``Settings`` dropdown once you are on your organization’s page. The quickest way to visit your organization's page is to select it from the ``Organizations`` tab in your `personal portal <simplifierPersonalContent.html#personal-portal>`
 
 .. image:: ./images/OrganizationSettings.PNG
     :align: center
