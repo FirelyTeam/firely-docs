@@ -5,6 +5,12 @@ Release notes
 =============
 .. _api_releasenotes_1.1.0:
 
+1.1.3 (DSTU2, STU3) (released 20190213)
+---------------------------------------
+Hotfix release
+
+- Fix: ParserSettings.PermissiveParsing was not copied in Clone() and constructor
+
 1.1.2 (DSTU2, STU3) (released 20190131)
 ---------------------------------------
 Hotfix release
