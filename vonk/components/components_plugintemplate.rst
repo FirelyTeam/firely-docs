@@ -32,7 +32,7 @@ You can use the following code as a template for a plugin:
             //do something with the request
             //write something to the response
             response.Payload = new F.Patient{Id = "pat1"}.ToIResource();
-            response.StatusCode = 200;
+            response.HttpResult = 200;
          }
       }
 
