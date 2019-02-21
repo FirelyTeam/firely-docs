@@ -5,6 +5,28 @@ Release notes
 =============
 .. _api_releasenotes_1.1.0:
 
+1.2.0-beta1 (DSTU2, STU3, R4) (released 20190220)
+-------------------------------------------------
+This first beta of 1.2 includes support for FHIR version R4! In the coming period we will investigate the performance of this release and take the last bugs out (if there are any :) ). We will probably release a second beta, or if we are real confident about this beta1, we will create a final release 1.2.0. 
+ 
+- Fix: #750 The WebResolver should allow clients to configure custom ParserSettings for de-serialization
+- Fix: #748 The DirectorySource should allow clients to configure ParserSettings for de-serialization
+- Fix: #863 ParserSettings.Clone() does not copy PermissiveParsing
+- #846 Enable cross-platform development 
+- Fix: #814 Empty contained block leads to `NullReferenceException` 
+- Fix: #824 Type-slice shortcut for choices in R4 does not yet work 
+- Added: #853 R4 Snapshot Generator 
+- Fix: #854 ElementDefinition.Base component #854
+- Fix: #864 Validation of References to contained resources where there are multiple potential types, and the contained resource is not the first one targeted.
+- Fix: #827 [Snapshot Generator] Child constraints are not included in snapshot when constraining a .value element
+- Fix: #820 Fixed IgnoreUnknownElements naming inconsistency
+- Improvement: #821 Better error reporting by always mentioning the context of the error
+- Fix: #725 Debugger display doesn't work as the property has been renamed
+- Fix: #817 Setting an empty Meta object breaks Json Serialization
+- Fix: #756 Validation issue with text.div
+- Fix: #807 FhirPath indexOf returns -1 instead of empty.
+
+
 1.1.3 (DSTU2, STU3) (released 20190213)
 ---------------------------------------
 Hotfix release
