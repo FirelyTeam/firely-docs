@@ -7,9 +7,7 @@ Release notes
 
 1.2.0-beta1 (DSTU2, STU3, R4) (released 20190220)
 -------------------------------------------------
-The first beta version of R4! In the coming period we will investigate the performance of this release and take the last bugs out (if 
-there are any :) ). We will probably release a second beta, or if we are real confident about this beta1, we will create a final 
-release 1.2.0. 
+This first beta of 1.2 includes support for FHIR version R4! In the coming period we will investigate the performance of this release and take the last bugs out (if there are any :) ). We will probably release a second beta, or if we are real confident about this beta1, we will create a final release 1.2.0. 
  
 - Fix: #750 The WebResolver should allow clients to configure custom ParserSettings for de-serialization
 - Fix: #748 The DirectorySource should allow clients to configure ParserSettings for de-serialization
@@ -26,7 +24,7 @@ release 1.2.0.
 - Fix: #725 Debugger display doesn't work as the property has been renamed
 - Fix: #817 Setting an empty Meta object breaks Json Serialization
 - Fix: #756 Validation issue with text.div
-- Fix: #807 FhirPath indexOf returned as a "ConstantValue".
+- Fix: #807 FhirPath indexOf returns -1 instead of empty.
 
 
 1.1.3 (DSTU2, STU3) (released 20190213)
