@@ -3,7 +3,17 @@
 =============
 Release notes
 =============
-.. _api_releasenotes_1.1.0:
+
+.. _api_releasenotes_1.2.0-beta2:
+
+1.2.0-beta2 (DSTU2, STU3, R4) (released 20190228)
+-------------------------------------------------
+Because of a mistake in creating the release of 1.2.0-beta1 for STU3, this beta1 release was not correct. The other 1.2.0-beta1 releases (DSTU2 and
+R4) were properly released. In STU3 you got a `System.MissingFieldException` during parsing a resource from xml to poco. This has been fixed now.
+
+- Fix: Parsing of the primitive type decimal is done better now. 
+
+.. _api_releasenotes_1.2.0-beta1:
 
 1.2.0-beta1 (DSTU2, STU3, R4) (released 20190220)
 -------------------------------------------------
@@ -26,6 +36,7 @@ This first beta of 1.2 includes support for FHIR version R4! In the coming perio
 - Fix: #756 Validation issue with text.div
 - Fix: #807 FhirPath indexOf returns -1 instead of empty.
 
+.. _api_releasenotes_1.1.3:
 
 1.1.3 (DSTU2, STU3) (released 20190213)
 ---------------------------------------
@@ -33,12 +44,15 @@ Hotfix release
 
 - Fix: ParserSettings.PermissiveParsing was not copied in Clone() and constructor
 
+.. _api_releasenotes_1.1.2:
+
 1.1.2 (DSTU2, STU3) (released 20190131)
 ---------------------------------------
 Hotfix release
 
 - Fix: v2-tables.xml of specification.zip contained an invalid codesystem (id =v2-0550)
 
+.. _api_releasenotes_1.1.1:
 
 1.1.1 (DSTU2, STU3) (released 20190130)
 ---------------------------------------
@@ -51,6 +65,7 @@ Hotfix release
 Note: Since 1.0, the parsers are more strict than before in what they accept as input. To disable this behaviour, set PermissiveParsing to 'true'
 in the ParserSettings which can be passed to the Json/Xml POCO parsers.
 
+.. _api_releasenotes_1.1.0:
 
 1.1.0 (DSTU2, STU3) (beta - final version to be released 20190128)
 ------------------------------------------------------------------
