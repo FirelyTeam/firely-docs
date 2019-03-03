@@ -40,26 +40,18 @@ Clean up generated code
   * BloodPressure => ViSiBloodPressure
 
 * The Scaffold command puts your connectionstring in the ViSiContext class. That is not very configurable.
+  Later in the exercise, we will add it as 'DbOptions' to the appsettings.json file in :ref:`configure_facade`.
 
-  * Add a setting to the appsettings.json file::
-
-        "DbOptions" : { "ConnectionString" : "<paste your connection string from the code here>" },
-
-  * Add an options class directly under the project root to interpret this::
+  * Rename the default Class1 class to DbOptions, and add this to interpret the setting::
 
         public class DbOptions
         {
             public string ConnectionString { get; set; }
         }
 
-  * Make sure the options are registered for use in ConfigureServices::
+  * Remove the empty constructors from the ViSiContext class
 
-        var sp = services.BuildServiceProvider();
-        services.Configure<DbOptions>(sp.GetRequiredService<IConfiguration>().GetSection(nameof(DbOptions)));
-
-    (In the example solution you can find this in ViSiConfiguration.AddViSiServices())
-
-  * Use the options in your ViSiContext class::
+  * Use the options in your ViSiContext class, by adding::
 
         private readonly IOptions<DbOptions> _dbOptionsAccessor;
 
@@ -67,6 +59,8 @@ Clean up generated code
         {
             _dbOptionsAccessor = dbOptionsAccessor;
         }
+
+  * Change the existing ``OnConfiguring`` method that contains the connectionstring to::
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -80,15 +74,29 @@ Clean up generated code
 Create your first mapping
 -------------------------
 
-#. Add a project folder Repository.
-#. Add a new class ``ResourceMapper``
-#. Add usings for ``Vonk.Core.Common`` and ``Vonk.Facade.Starter.Models``
+#. Add a new class ``ResourceMapper`` to the project
+#. Add usings for ``Vonk.Core.Common``, for ``Hl7.Fhir.Model`` and for ``<your project>.Models``
 #. Add a method to the class ``public IResource MapPatient(ViSiPatient source)``
-#. In this method, put code to create a FHIR Patient object, and fill it's elements with data from the ViSiPatient.
-#. Then return the created Patient object as an IResource (you can use the extension method ``AsIResource``).
+#. In this method, put code to create a FHIR Patient object, and fill its elements with data from the ViSiPatient:
+
+   .. code-block:: c#
+
+     var patient = new Patient
+     {
+         Id = source.Id.ToString(),
+         BirthDate = new FhirDateTime(new DateTimeOffset(source.DateOfBirth)).ToString()
+     }
+     patient.Identifier.Add(new Identifier("http://mycompany.org/patientnumber",
+                                           source.PatientNumber));
+     // etc.
+
+  For more examples of filling the elements, see the FHIR API documentation: :ref:`FHIR-model`.
+
+5. Then return the created Patient object as an IResource (you can use the extension method ``ToIResource``)::
+
+    return patient.ToIResource();
 
 .. attention::
 
     ``IResource`` is an abstraction from actual Resource objects as they are known to specific versions of the Hl7.Fhir.Net API.
     Currently the only implementation is PocoResource, but this area is likely to change in the future to support multiple versions of FHIR and possibly resources that are not valid.
-
