@@ -119,15 +119,7 @@ Implementing Create
   For the ViSi repository we're using a null value, but you can implement this method any way that's
   useful for your own repository. The public Vonk server for example generates a GUID in these methods.
 
-* Add support for the interactions to the SupportedModel section of the Vonk appsettings::
-
-    "SupportedInteractions": {
-      "InstanceLevelInteractions": "read, update, delete",
-      "TypeLevelInteractions": "search, create",
-      "WholeSystemInteractions": "capabilities, search"
-    },
-
-At this point you can build your project again, copy the dll to the Vonk plugin repository and try to create a new patient in the ViSi database.
+At this point you can skip ahead to :ref:`config_change_repo`, if you want to try and create a new patient in the ViSi database.
 
 .. tip::
   This is easiest to test if you retrieve an existing resource from the database first with your HTTP tool.
@@ -188,6 +180,29 @@ to throw an error.
             return result;
         }
 
+.. _config_change_repo:
+
+3. Configure the service and Vonk Server
+----------------------------------------
+
+Just like with the search repository, you will need to add your change repository as service to the pipeline.
+Also, you will need to indicate support for the CRUD interactions in your Vonk appsettings.
+
+* In your project, go to the ViSiConfiguration class, and add this line to add an IResourceChangeRepository to
+  the pipeline::
+
+    services.AddScoped<IResourceChangeRepository, ViSiChangeRepository>();
+
+* Add support for the interactions to the SupportedModel section of the Vonk appsettings::
+
+    "SupportedInteractions": {
+      "InstanceLevelInteractions": "read, update, delete",
+      "TypeLevelInteractions": "search, create",
+      "WholeSystemInteractions": "capabilities, search"
+    },
+
+You can now build your project, copy the dll to the Vonk plugins folder and run Vonk to test the new interactions
+on your Facade.
 
 The end?
 --------
