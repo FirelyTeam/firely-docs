@@ -96,10 +96,7 @@ Vonk can read SearchParameter and CompartmentDefinition resources from a directo
   },
 
 :ImportDirectory: All files and zip files will be read, and any conformance resources in them will be imported.
-:ImportedDirectory: Every file and zip file that is read, is moved to this directory. This directory will also contain the read history in the .vonk-import-history.json file.
-
-.. attention::
-   Do not place the ImportedDirectory under ImportDirectory, since Vonk reads all zip files and regular files from the ImportDirectory *and* its subdirectories. 
+:ImportedDirectory: This directory will contain the read history in the .vonk-import-history.json file. Please note, that this information is stored directly in the administration database when running on SQlite.
 
 Note that in json you either use forward slashes (/) or double backward slashes (\\\\) as path separators.
 
