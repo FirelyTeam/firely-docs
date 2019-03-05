@@ -100,3 +100,14 @@ _summary       The _summary parameter requests the server to return
 .. |br| raw:: html
 
    <br />
+
+Examples
+
+* type
+  GET https://stu3.simplifier.net/<yourproject>/Patient
+  
+* description
+  GET https://stu3.simplifier.net/<yourproject>/StructureDefinition?description:contains=<searchedterm>
+
+* _summary
+  GET https://stu3.simplifier.net/<yourproject>/StructureDefinition?_summary=true
