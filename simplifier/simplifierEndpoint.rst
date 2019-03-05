@@ -104,13 +104,19 @@ _summary       The _summary parameter requests the server to return
 Examples
 
 * type |br|
+
 ::
+
   GET https://stu3.simplifier.net/<yourproject>/Patient
   
 * description |br|
+
 ::
+
   GET https://stu3.simplifier.net/<yourproject>/StructureDefinition?description:contains=<searchedterm>
 
 * _summary |br|
+
 ::
+
   GET https://stu3.simplifier.net/<yourproject>/StructureDefinition?_summary=true
