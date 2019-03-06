@@ -4,7 +4,7 @@
 Contact us
 ==========
 
-We actively monitor the `issues <https://github.com/ewoutkramer/fhir-net-api/issues>`__ 
+We actively monitor the `issues <https://github.com/FirelyTeam/fhir-net-api/issues>`__ 
 coming in through the GitHub repository.
 You are welcome to register your bugs and feature suggestions there!
 
