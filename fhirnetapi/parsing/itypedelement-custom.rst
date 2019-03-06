@@ -9,4 +9,4 @@ This pipeline can be extended by custom implementations of both interfaces, and 
 * The ``MaskingNode``, which wraps another ``ITypedElement`` and which represents a tree pruned to just the nodes marked with `isSummary <http://hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.isSummary>`_. It could also be extended to mask out data based on the user's authorization. 
 * The ``ScopedNode``, which tracks parent/child relationships and keeps track of the nearest "parent resource" (amonst other things) while traversing the tree. This information is used by both the validator and the FhirPath evaluation engine.
 
-The `MaskingNode source code <https://github.com/ewoutkramer/fhir-net-api/blob/develop/src/Hl7.Fhir.ElementModel/MaskingNode.cs>`_ is an excellent place to start exploring the possibilities provided by the framework.
+The `MaskingNode source code <https://github.com/FirelyTeam/fhir-net-api/blob/develop/src/Hl7.Fhir.ElementModel/MaskingNode.cs>`_ is an excellent place to start exploring the possibilities provided by the framework.
