@@ -5,7 +5,7 @@ Prerequisites and Preparations
 
 * Experience with programming ASP.NET (Core) libraries.
 * Basic understanding of the `FHIR RESTful API <http://hl7.org/fhir/http.html>`_ and FHIR servers.
-* Visual Studio 2017
+* Visual Studio 2017 or newer
 
    #. get a free community edition at https://www.visualstudio.com/downloads/
    #. be sure to select the components for C# ASP.NET Core web development

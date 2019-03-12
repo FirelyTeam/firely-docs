@@ -40,7 +40,7 @@ Clean up generated code
   * BloodPressure => ViSiBloodPressure
 
 * The Scaffold command puts your connectionstring in the ViSiContext class. That is not very configurable.
-  Later in the exercise, we will add it as 'DbOptions' to the appsettings.json file in :ref:`configure_facade`.
+  Later in the exercise, we will add it as 'DbOptions' to the appsettings.instance.json file in :ref:`configure_facade`.
 
   * Rename the default Class1 class to DbOptions, and add this to interpret the setting::
 
@@ -75,7 +75,7 @@ Create your first mapping
 -------------------------
 
 #. Add a new class ``ResourceMapper`` to the project
-#. Add usings for ``Vonk.Core.Common``, for ``Hl7.Fhir.Model`` and for ``<your project>.Models``
+#. Add usings for ``Vonk.Core.Common``, for ``Hl7.Fhir.Model``, for ``Hl7.Fhir.Support`` and for ``<your project>.Models``
 #. Add a method to the class ``public IResource MapPatient(ViSiPatient source)``
 #. In this method, put code to create a FHIR Patient object, and fill its elements with data from the ViSiPatient:
 
@@ -84,7 +84,7 @@ Create your first mapping
      var patient = new Patient
      {
          Id = source.Id.ToString(),
-         BirthDate = new FhirDateTime(new DateTimeOffset(source.DateOfBirth)).ToString()
+         BirthDate = new DateTimeOffset(source.DateOfBirth).ToFhirDateTime()
      }
      patient.Identifier.Add(new Identifier("http://mycompany.org/patientnumber",
                                            source.PatientNumber));
@@ -96,7 +96,5 @@ Create your first mapping
 
     return patient.ToIResource();
 
-.. attention::
-
-    ``IResource`` is an abstraction from actual Resource objects as they are known to specific versions of the Hl7.Fhir.Net API.
-    Currently the only implementation is PocoResource, but this area is likely to change in the future to support multiple versions of FHIR and possibly resources that are not valid.
+..
+  TODO: add reference to Important classes from components documentation when IResource is explained there

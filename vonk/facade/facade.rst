@@ -22,6 +22,7 @@ some hands-on experience with a Facade solution.
    enablesearch_1
    Next search step <enablesearch_2>
    finalizesearch
+   debugging
    finalizeproject
    enablechange_1
    accesscontrol_api

@@ -7,7 +7,7 @@ The best way to get experience in developing a Vonk FHIR Facade is by following 
 This exercise builds a facade on a simple relational database, by creating a plugin and inserting that into the Vonk pipeline.
 
 
-Using a Vonk Facade allows you to open up legacy systems to the FHIR ecosystem, segregate your logical data storage, or even add a whole new database backend.
+Using a Vonk Facade allows you to open up legacy systems to the FHIR ecosystem, or add a whole new database backend.
 
 In this exercise you will use Vonk FHIR Facade libraries to build an ASP.NET Core library implementing a FHIR RESTful API on top of an existing database.
 

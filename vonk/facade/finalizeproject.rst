@@ -6,11 +6,12 @@ Add support for the ViSiBloodPressure Observations
 
 First, follow similar steps as above to support ViSiBloodPressure:
 
-#. Add a mapping method in the ResourceMapper class to map from a ViSiBloodPressure to an IResource.
+#. Add a mapping method in the ResourceMapper class to map from a ViSiBloodPressure to a FHIR Observation resource,
+   and return that as an IResource.
 #. Create a BloodPressureQuery query class.
 #. Add a BPQueryFactory extending ``RelationalQueryFactory<ViSiBloodPressure, BloodPressureQuery>``.
 #. Implement support for the ``_id`` parameter by overriding ``public virtual BloodPressureQuery AddValueFilter(string parameterName, TokenValue value)``.
-#. Add the Observation type to the ``SupportedModel`` section in Vonk's appsettings.json: ``"RestrictToResources": [ "Patient", "Observation" ]``
+#. Add the Observation type to the ``SupportedModel`` section in Vonk's appsettings.instance.json: ``"RestrictToResources": [ "Patient", "Observation" ]``
 
 When you have completed these steps, build your project again and copy the dll to your Vonk plugins folder.
 After you (re)start Vonk, you will be able to request an Observation through your Facade:
@@ -53,6 +54,10 @@ Searching on chained parameters involves the following steps:
                 return base.AddValueFilter(parameterName, value);
             }
 
+        .. note::
+          patIds is of type IQueryable, so the resulting BloodPressureQuery will still be executed as
+          a single command to the database.
+
     #. Add support for the ``Observation.subject`` search parameter in the Vonk appsettings similar to how we did it for ``_id``.
 
 At this point you should be able to search for ``GET http://localhost:4080/Observation?subject:Patient._id=1``
@@ -65,20 +70,22 @@ overload receiving a ``ReferenceFromValue``.
 The ``ReferenceFromValue`` type has a ``Source`` property filled in with the source of the search parameter. It also has an extension method ``CreateQuery`` that given the corresponding ``RelationalQueryFactory`` implementation can generate
 the query to obtain resources referenced by the reverse chaining.
 
-So you can add reverse chaining with the following code:
+So you can add reverse chaining with the following code::
 
-::
-
-    public override PatientQuery AddValueFilter(string parameterName, ReferenceFromValue value)
+    public class PatientQueryFactory
     {
-        if (parameterName == "subject" && value.Source == "Observation")
-        {
-            var obsQuery = value.CreateQuery(new BPQueryFactory(OnContext));
-            var obsIds = obsQuery.Execute(OnContext).Select(bp => bp.PatientId);
 
-            return PredicateQuery(p => obsIds.Contains(p.Id));
+        public override PatientQuery AddValueFilter(string parameterName, ReferenceFromValue value)
+        {
+            if (parameterName == "subject" && value.Source == "Observation")
+            {
+                var obsQuery = value.CreateQuery(new BPQueryFactory(OnContext));
+                var obsIds = obsQuery.Execute(OnContext).Select(bp => bp.PatientId);
+
+                return PredicateQuery(p => obsIds.Contains(p.Id));
+            }
+            return base.AddValueFilter(parameterName, value);
         }
-        return base.AddValueFilter(parameterName, value);
     }
 
 .. note::

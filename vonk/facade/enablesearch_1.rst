@@ -69,7 +69,7 @@ It is up to you to override the ones you support any parameters for.
 
   The ``_id`` parameter must be matched against the ViSiPatient.Id property. So we have to:
 
-  * Parse the Token.Code to a long (ViSiPatient.Id is of type long)
+  * Parse the Token.Code to an integer (ViSiPatient.Id is of type int)
   * Create a query with a predicate on ViSiPatient.Id.
 
     This is how:
@@ -78,7 +78,7 @@ It is up to you to override the ones you support any parameters for.
 
      if (parameterName == "_id")
      {
-         if (!long.TryParse(value.Code, out long patientId))
+         if (!int.TryParse(value.Code, out int patientId))
          {
              throw new ArgumentException("Patient Id must be an integer value.");
          }
@@ -88,6 +88,11 @@ It is up to you to override the ones you support any parameters for.
          }
      }
      return base.AddValueFilter(parameterName, value);
+
+.. note::
+  The ``ArgumentException`` in this code will automatically result in setting the argument status to error, so the Vonk
+  server will send a response with an error code and OperationOutcome. See the information about the ``IArgumentCollection``
+  and ``IArgument`` classes in :ref:`components_classes`.
 
 That's it for now, we will add support for another parameter later.
 

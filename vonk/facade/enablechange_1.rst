@@ -40,7 +40,7 @@ add new mapping methods to our ResourceMapper class.
             return visiPatient;
         }
 
-* Where it says 'etc.', fill in the rest of the code to map the data to non-nullable fields of the database, and any other fields you have data for.
+* Where it says 'etc.', fill in the rest of the code to map the data to required fields of the database, and any other fields you have data for.
 
 
 2. Implement the IResourceChangeRepository
@@ -191,7 +191,7 @@ Also, you will need to indicate support for the CRUD interactions in your Vonk a
 * In your project, go to the ViSiConfiguration class, and add this line to add an IResourceChangeRepository to
   the pipeline::
 
-    services.AddScoped<IResourceChangeRepository, ViSiChangeRepository>();
+    services.TryAddScoped<IResourceChangeRepository, ViSiChangeRepository>();
 
 * Add support for the interactions to the SupportedModel section of the Vonk appsettings::
 

@@ -3,7 +3,7 @@
 Starting your project
 ---------------------
 
-In this step, you will create and setup your project to start building the facade.
+In this step, you will create and set up your project to start building the facade.
 
 Create new project
 ^^^^^^^^^^^^^^^^^^
