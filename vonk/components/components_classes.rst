@@ -5,6 +5,81 @@ Important classes and interfaces
 
 If you want to develop a plugin for Vonk FHIR Server, there are a couple of classes that you will probably interact with. This page lists those classes, with an explanation of each.
 
+.. _classes_iresource:
+
+IResource
+---------
+
+:namespace: Vonk.Core.Common
+
+:purpose: IResource is the abstraction for all FHIR resources in Vonk. It is used in the request and the response, and thereby all through the pipeline.
+It allows you to program against resources in different Fhir.NET API (the Resource class is defined in each version separately), as well as against resources that do not even have a POCO implementation.
+
+.. code-block:: csharp
+
+    /// <summary>
+    /// Abstraction of a resource in some format. Specifies the properties of a Resource that Vonk needs to read and maintain.
+    /// <para>Future: may be extended with Tags and Labels.</para>
+    /// </summary>
+    public interface IResource : ISourceNode
+    {
+        /// <summary>
+        /// Type of resource, e.g. Patient or AllergyIntolerance.
+        /// </summary>
+        string Type { get; }
+
+        /// <summary>
+        /// Logical identity of resource, e.g. 'example' or 'e3f5b0b8-4570-4e4c-b597-e6523aff3a19'. Does not contain the resourcetype.
+        /// Refers to Resource.id
+        /// IResource is immutable, so to update this, use resourceWithNewId = this.SetId(), from IResourceExtensions.
+        /// In the context of a repository, consider IResourceChangeRepository.EnsureMeta().
+        /// </summary>
+        string Id { get; }
+
+        /// <summary>
+        /// Version of resource. Refers to Resource.meta.versionId.
+        /// IResource is immutable, so to update this, use resourceWithNewVersion = this.SetVersion(), from IResourceExtensions.
+        /// In the context of a repository, consider IResourceChangeRepository.EnsureMeta().
+        /// </summary>
+        string Version { get; }
+
+        /// <summary>
+        /// When was the resource last updated?
+        /// Refers to Resource.meta.lastUpdated.
+        /// IResource is immutable, so to update this, use resourceWithNewLastUpdated = this.SetLastUpdated(DateTimeOffset) from IResourceExtensions.
+        /// In the context of a repository, consider IResourceChangeRepository.EnsureMeta().
+        /// </summary>
+        DateTimeOffset? LastUpdated { get; }
+
+        /// <summary>
+        /// Is this a contained resource, or a container resource?
+        /// A resource is a container resource if it is not contained. Even if it has no contained resources embedded.
+        /// </summary>
+        ResourceContained Contained { get; }
+
+        /// <summary>
+        /// Direct access to contained resources, if any. Prefer to return an empty list otherwise.
+        /// Refers to DomainResource.contained.
+        /// </summary>
+        IEnumerable<IResource> ContainedResources { get; }
+   }
+
+If you work with a POCO, you can use the extension method ToIResource() from Vonk.Fhir.R3 to adapt it to an IResource:
+
+.. code-block:: csharp
+
+   var patientPoco = new Patient(); //Requires Hl7.Fhir.Model
+   var resource = patientPoco.ToIResource();
+
+IResource is immutable, so changes will always result in a new instance. Changes can usually be applied with extension methods on ISourceNode, found in Vonk.Core.ElementModel.ISourceNodeExtensions. There are also several extension methods specifically for IResource in Vonk.Core.Common.IResourceExtensions:
+
+.. code-block:: csharp
+
+   var updatedResource = oldResource.Add(SourceNode.Valued("someElement", "someValue");
+   //Continue with updatedResource, since oldResource will not have the change.
+
+.. _classes_ivonkcontext:
+
 IVonkContext
 ------------
 
@@ -77,6 +152,8 @@ And because you frequently need the parts instead of the context itself, there i
 
    public (IVonkRequest request, IArgumentCollection args, IVonkResponse respons) Parts(this IVonkContext vonkContext)
 
+.. _classes_ivonkrequest:
+
 IVonkRequest
 ------------
 
@@ -94,7 +171,7 @@ You can access the current ``IVonkRequest`` through the `IVonkContext`_. Its pro
       string Method { get; }
       string CustomOperation { get; }
       VonkInteraction Interaction { get; }
-      RequestPayload Payload { get; }
+      RequestPayload Payload { get; set; }
    }
 
 ``Path`` and ``Method`` relate directly to the equivalents on HttpContext. ``Interaction`` tells you which of the FHIR RESTful interactions was called. ``CustomOperation`` is only filled if one of the custom operations was invoked, like e.g. ``$validate``. All of these can be filtered by the `InteractionHandlerAttribute`_, so you typically don't need to inspect them manually.
@@ -137,6 +214,19 @@ GetRequiredPayload is useful if your code expects the payload to be present. It 
       // do something with the resource.
    }
 
+If you want to **change** the payload, assign a whole new one. Generally you would want to change something to the old payload. But IResource is immutable, so changes to it yield a new instance. That leads to this pattern
+
+.. code-block:: csharp
+
+   if (request.TryGetPayload(response, out var resource)
+   {
+      //Explicit typing of variables for clarity, normally you would use 'var'.
+      ISourceNode updatedNode = resource.Add(SourceNode.Valued("someElement", "someValue");
+      IResource updatedResource = updatedNode.ToIResource();
+      request.Payload = updatedResource.ToPayload();
+   }
+
+.. _classes_iargument:
 
 IArgumentCollection, IArgument
 ------------------------------
@@ -182,6 +272,8 @@ Useful extension methods:
 
 Vonk has a lot of issues predefined in ``Vonk.Core.Support.VonkIssues``.
 
+.. _classes_ivonkresponse:
+
 IVonkResponse
 -------------
 
@@ -208,6 +300,8 @@ If your operation provides a response, you should:
 If you just listen in on the pipeline, you can check the values of the response. Besides that, the `InteractionHandlerAttribute`_ allows you to filter on the ``HttpStatus`` of the response.
 
 .. _components_interactionhandler:
+
+.. _classes_interactionhandlerattribute:
 
 InteractionHandlerAttribute
 ---------------------------

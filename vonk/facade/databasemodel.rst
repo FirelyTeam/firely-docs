@@ -90,5 +90,5 @@ Create your first mapping
 .. attention::
 
     ``IResource`` is an abstraction from actual Resource objects as they are known to specific versions of the Hl7.Fhir.Net API.
-    Currently the only implementation is PocoResource, but this area is likely to change in the future to support multiple versions of FHIR and possibly resources that are not valid.
+    See :ref:`classes_iresource`.
 

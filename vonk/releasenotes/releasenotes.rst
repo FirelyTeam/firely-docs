@@ -11,6 +11,97 @@ Release notes Vonk
    security_notes
 
 
+.. _vonk_releasenotes_200-beta:
+
+Release 2.0.0-beta
+------------------
+
+We have refactored Vonk internally to accomodate future changes. There are only minor functional changes to the FHIR Server.
+Facade and Plugin builders must be aware of a few interface changes, most notably to the IResource interface. 
+
+This release a *beta* release because of the many internal changes, and because we expect to include a few more in the final release. 
+Have a go with it in your test environment to see whether you encounter any trouble. We also encourage you to build your plugin and/or facade against it to prepare for code changes upon the final release.
+
+You can still access the latest final release (1.1.0):
+
+* Binaries: through the `Simplifier downloads page <https://simplifier.net/downloads/vonk>`_, choose 'List previous versions'.
+* Docker: ``docker pull simplifier/vonk:1.1.0``
+* NuGet: ``<PackageReference Include="Vonk.Core" Version="1.1.0" />``
+
+Database
+^^^^^^^^
+
+No changes have been made to any of the database implementations.
+
+Fix
+^^^
+
+#. The :ref:`$validate <feature_validation>` operation processes the profile parameter.
+#. If an update brings a resource 'back to life', Vonk returns statuscode 201 (previously it returned 200). 
+#. On an initial Administration Import of specification.zip, Vonk found an error in valueset.xml. This file was fixed in the specification.zip that comes with Fhir.NET API 1.1.2.
+#. Transaction: references within the transaction are automatically changed to the id's the referenced resources get from Vonk when processing the transaction. This did not happen for references inside extensions. It does now. 
+#. Administration Import: an Internal Server Error could be triggered with a zip file with nested directories in it.
+
+   * NB: Directories in your zip are still not supported because of `Fhir.NET API issue #883 <https://github.com/FirelyTeam/fhir-net-api/issues/883>`_, but Vonk will not error on it anymore.
+
+#. Search: The entry.fullUrl for an OperationOutcome in a Search bundle had a relative url.
+#. Search: Processed _elements and _summary arguments were not reported in the selflink of the bundle (or any of the paging links).
+#. Search: The selflink will include a _count parameter, even if it was not part of the request and hence the default value for _count from the :ref:`BundleOptions <bundle_options>` was applied.
+#. Search on :exact with an escaped comma (e.g. ``/Patient?name:exact=value1\,value2``) was executed as a choice. Now the escape is recognized, and the argument processed as one term.
+
+Feature
+^^^^^^^
+
+#. Upgraded Fhir.NET API to version 1.1.2, see its :ref:`release notes <api_releasenotes_1.1.2>`.
+#. The Vonk Administration API now allows for StructureMap and GraphDefinition resources to be loaded.
+#. The opening page of Vonk (and the only UI part of it) is updated. It no longer contains links that you can only execute with Postman, and it has a button that shows you the CapabilityStatement.
+#. We published our custom operations on `Simplifier <https://simplifier.net/vonk-resources>`_! And integrated those links into the CapabilityStatement.
+#. You can now access older versions of the Vonk binaries through the Simplifier downloads. (This was already possible for the Docker images and NuGet packages through their respective hubs).
+#. `Vonk.IdentityServer.Test <https://github.com/FirelyTeam/Vonk.IdentityServer.Test/>`_ and `Vonk.Facade.Starter <https://github.com/FirelyTeam/Vonk.Facade.Starter>`_ have been integrated into the Continuous Integration system.
+#. In JSON, the order of the output has changed:
+   
+   #. If id and/or meta elements were added by Vonk (on a create or update), they will appear at the end of the resource.
+
+Plugin and Facade API
+^^^^^^^^^^^^^^^^^^^^^
+
+#. IResource interface and related classes have had several changes. If you encounter problems with adapting your code, please contact us.
+
+   * It derives from the ISourceNode interface from the Fhir.NET API.
+   * Change and Currency are properties that were only relevant in the repository domain, and not in the rest of the pipeline. They have been deprecated. 
+     You can access the values still with resource.GetChangeIndicator() and resource.GetCurrencyIndicator(). This is implemented with Annotations on the ISourceNode. 
+     All of Vonk's own implementations retain those annotations, but if the relevant annotation is somehow missing, default values are returned (ResourceChange.NotSet resp. ResourceCurrency.Current).
+   * The Navigator property is obsolete. The type of it (IElementNavigator) is obsolete in the Fhir.NET API. To run FhirPath you provide type information and run the FhirPath over an ITypedElement::
+
+      //Have IStructureDefinitionSummaryProvider _schemaProvider injected in the constructor.
+      var typed = resource.ToTypedElement(_schemaProvider);
+      var matchingElements = typed.Select('your-fhirpath-expression'); 
+
+   * Id, Version and LastUpdated can no longer be set directly on the IResource instance. IResource has become **immutable** (just like ISourceNode). The alternatives are::
+
+      var resourceWithNewId = resource.SetId("newId");
+      var resourceWithNewVersion = resource.SetVersion("newVersion");
+      var resourceWithNewLastUpdated = resource.SetLastUpdated(DateTimeOffset.UtcNow);
+
+   * Because the IChangeRepository is responsible for creating new id's and versions, we also included extensions methods on it to update all three fields at once::
+
+      var updatedeResource =changeRepository.EnsureMeta(resource, KeepExisting.Id / Version / LastUpdated);
+      var updatedResource = changeRepository.FreshMeta(resource); //replaces all three
+
+#. The PocoResource class is obsolete. To go from a POCO (like an instance of the Patient class) to an IResource, use the ToIResource() extension method found in Vonk.Fhir.R3.
+#. The PocoResourceVisitor class is obsolete. Visiting can more effectively be done on an ITypedElement::
+
+   //Have IStructureDefinitionSummaryProvider _schemaProvider injected in the constructor.
+   var typed = resource.ToTypedElement(_schemaProvider);
+   typed.Visit((depth, element) => {//do what you want with element});
+
+#. SearchOptions has changed:
+
+   * Properties Count and Offset have been removed.
+   * Instead, use _count and _skip arguments in the IArgumentCollection provided to the SearchRepository.Search method if you need to.
+
+#. We have created a template for a plugin on `GitHub <https://github.com/FirelyTeam/Vonk.Plugin.Template>`_. Fetch it for a quick start of your plugin.
+
 .. _vonk_releasenotes_110:
 
 Release 1.1.0
