@@ -99,6 +99,8 @@ the order of inclusion, and adds to the services. For background information, se
         ]
       },
 
+  * Remove the PipelineOptions from appsettings.default.json, because of the warning mentioned on the :ref:`configure_levels`.
+
 Test your work
 --------------
 Proceed to the next section to test your Facade, and for some helpful tips about debugging your code.
