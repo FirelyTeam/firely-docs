@@ -3,7 +3,7 @@
 Welcome to the Vonk server documentation
 =========================================
 
-Vonk is Firely's FHIR server and the successor to our Spark server. 
+Vonk is Firely's FHIR server and the successor to our Spark server.
 
 .. The Spark server was intended to be
    a proof of concept implementation to test the HL7 FHIR specification and support the community during connectathons.
@@ -15,7 +15,7 @@ testing and educational purposes only.
 
 .. image:: ./images/vonk_home.png
   :align: center
-  
+
 On these pages we provide you with the documentation you need to get up and running with your own standard Vonk
 installation, as well as information on how to contact us when you have additional needs, such as a custom implementation
 or support contract.
@@ -32,7 +32,6 @@ or support contract.
    features/features
    administration_api
    facade/facade
-   facade/facadestart
    components/components
    architecture
    releasenotes/releasenotes

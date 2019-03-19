@@ -2,111 +2,105 @@ Finalizing search
 =================
 
 In the previous steps you have created search support for the _id parameter on a Patient resource type.
+In order to test if your Facade implementation works correctly, you will need to perform a couple of steps:
 
-Add support for the ViSiBloodPressure Observations
---------------------------------------------------
+#. Create a configuration class for the ASP .Net Core pipeline
+#. Plug the Facade into the Vonk Server
+#. Configure the Vonk Server to use your repository
 
-Follow similar steps as above to support ViSiBloodPressure:
+1. Add configuration class
+--------------------------
 
-#. Add a mapping method in the ResourceMapper class to map from a 
-   ViSiBloodPressure to an IResource.
-#. Create a BloodPressureQuery query class.
-#. Add a BPQueryFactory extending ``RelationalQueryFactory<ViSiBloodPressure, BloodPressureQuery>``.
-#. Implement support for the ``_id`` parameter by overriding ``public virtual BloodPressureQuery AddValueFilter(string parameterName, TokenValue value)``.
-#. Add support for the Observation resource type in the ``Startup`` class, ``ConfigureServices`` method, by sending the resource name as a parameter to the ``AllowResourceTypes`` call.
+To add your repository service to the Vonk pipeline, you will need to add a configuration class that sets
+the order of inclusion, and adds to the services. For background information, see :ref:`vonk_components_configclass`.
 
-Add support for chaining
-^^^^^^^^^^^^^^^^^^^^^^^^
-To add support for searching on ``Observation?subject:Patient._id`` we need to override the ``AddValueFilter`` 
-overload receiving a ``ReferenceToValue`` parameter in the query factory for BloodPressure (BPQueryFactory). 
+* Add a static class to your project called ``ViSiConfiguration``
+* Add the following code to it::
 
-The ``ReferenceToValue`` type contains the possible ``Targets`` for the chain search parameter as parsed from the query string.
-We are currently interested only on the Patient type so we can restrict the implementation to that target.
-The ``ReferenceToValue`` type also has an extension method ``CreateQuery`` that expects an implementation of the ``RelationalQueryFactory`` 
-of the referenced target. This will generate the query to obtain the resources referenced by it.
-
-Searching on chained parameters involves the following steps:
-
-    #. Retrieve all patients ids based on the chained parameter. 
-       You can use the ``ReferenceToValue.CreateQuery`` extension method 
-       to get the query and run the query with its ``Execute`` method.
-    #. Create a  ``PredicateQuery`` with the condition that ``ViSiBloodPressure.PatientId`` is included in the ids retrieved at the previous step.
-
-        The final code should look similar to this:
-
-        ::
-
-            public override BloodPressureQuery AddValueFilter(string parameterName, ReferenceToValue value)
-            {
-                if (parameterName == "subject" && value.Targets.Contains("Patient"))
-                {
-                    var patientQuery = value.CreateQuery(new PatientQueryFactory(OnContext));
-                    var patIds = patientQuery.Execute(OnContext).Select(p => p.Id);
-
-                    return PredicateQuery(bp => patIds.Contains(bp.PatientId));
-                }
-                return base.AddValueFilter(parameterName, value);
-            }
-
-    #. Load the definition for the ``Observation.subject`` search parameter in Vonk similar to how we did it for ``_id``. Check :ref:`addSearchParameters`.
-
-At this point you should be able to search for ``GET http://localhost:5017/Observation?subject:Patient._id=1``
-
-Add support for reverse chaining
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Adding support for ``Patient?_has:Observation:subject:_id=1`` is similar. You just need to use the  ``AddValueFilter`` 
-overload receiving a ``ReferenceFromValue``. 
-
-The ``ReferenceFromValue`` type has a ``Source`` property filled in with the source of the search parameter. It also has an extension method ``CreateQuery`` that given the corresponding ``RelationalQueryFactory`` implementation can generate 
-the query to obtain resources referenced by the reverse chaining.
-
-So you can add reverse chaining with the following code:
-
-::
-
-    public override PatientQuery AddValueFilter(string parameterName, ReferenceFromValue value)
+    [VonkConfiguration(order: 240)]
+    public static class ViSiConfiguration
     {
-        if (parameterName == "subject" && value.Source == "Observation")
+        public static IServiceCollection AddViSiServices(this IServiceCollection services, IConfiguration configuration)
         {
-            var obsQuery = value.CreateQuery(new BPQueryFactory(OnContext));
-            var obsIds = obsQuery.Execute(OnContext).Select(bp => bp.PatientId);
+            services.AddDbContext<ViSiContext>();
+            services.TryAddSingleton<ResourceMapper>();
+            services.TryAddScoped<ISearchRepository, ViSiRepository>();
 
-            return PredicateQuery(p => obsIds.Contains(p.Id));
+            services.Configure<DbOptions>(configuration.GetSection(nameof(DbOptions)));
+            return services;
         }
-        return base.AddValueFilter(parameterName, value);
     }
 
-Now you can test reverse chaining works: ``http://localhost:5017/Patient?_has:Observation:subject:_id=1``
+2. Create your Facade plugin
+----------------------------
 
-Get the goodies
----------------
-At this point you get out of the box support for ``_include``, ``_revinclude`` and combinations of search parameters.
-You can test the following scenarios:
+* First, build your project
+* Find the resulting dll and copy that to the ``plugins`` folder in the working directory of your Vonk server
 
-#. ``_include``: ``http://localhost:5017/Observation?_include=Observation:subject``
-#. ``_revinclude``: ``http://localhost:5017/Patient?_revinclude=Observation:subject``
-#. combinations of the above
+.. note::
+  If your Vonk working directory does not contain a plugins folder yet, you can create one. Within it, you can
+  create subfolders, which can be useful if you work with multiple plugins.
 
-Also you get support for read and validation by just adding the corresponding middlewares to the ASP.NET Core pipeline and the right services registrations:
+  You can also configure the name and location of this folder with the ``PipelineOptions.PluginDirectory`` setting
+  in the appsettings file.
 
-::
+.. _configure_facade:
 
-    app
-        .UseRead()
-        .UseValidation()
-        .UseInstanceValidation();
+3. Configure your Vonk Facade
+-----------------------------
 
+* Create an appsettings.instance.json file in your Vonk working directory.
 
-::
+  .. tip::
+    See :ref:`configure_appsettings` for more information about the hierarchy of the ``appsettings(.*).json``
+    files and the settings that can be configured.
 
-    services
-        .AddReadServices()
-        .AddInstanceValidationServices()
-        .AddValidationServices()
+* Add a setting for the connectionstring to the appsettings.instance.json file::
 
-The end?
---------
-		
-This concludes the exercise. Please feel free to try out more options, and ask for help if you get stuck!
+      "DbOptions" : { "ConnectionString" : "<paste the connection string to your ViSi database here>" },
 
-The next topic will show you how to enable :ref:`Create, Update and Delete<enablechange>` interactions.
+* Add the ``SupportedInteractions`` section. You can look at :ref:`disable_interactions` to check what this section should contain.
+  For now you only need ``"WholeSystemInteractions": "capabilities"``, ``"InstanceLevelInteractions": "read"`` and
+  ``"TypeLevelInteractions": "search"``:
+  ::
+
+    "SupportedInteractions": {
+        "InstanceLevelInteractions": "read",
+        "TypeLevelInteractions": "search",
+        "WholeSystemInteractions": "capabilities, search"
+    },
+
+* Add the ``SupportedModel`` section to indicate which resource types and search parameters you support in your Facade
+  implementation::
+
+    "SupportedModel": {
+      "RestrictToResources": [ "Patient" ]
+      "RestrictToSearchParameters": ["Resource._id"]
+    },
+
+* You will need to add your repository to the Vonk pipeline, and remove the existing repository implementations.
+  The standard settings for the pipeline configuration can be found in the appsettings.default.json file, or see
+  :ref:`vonk_components_config` for an example.
+
+  * Copy the PipelineOptions section to your appsettings.instance.json file
+  * To the ``Include`` part of the branch with ``"Path":"/"`` add your namespace, and remove the Vonk.Repository.* lines from it:
+
+    ::
+
+      {
+        "Path": "/",
+        "Include": [
+          "Vonk.Core",
+          "Vonk.Fhir.R3",
+          "Vonk.Subscriptions",
+          "Vonk.Smart",
+          "Vonk.UI.Demo",
+          "ViSiProject"  // fill in (a prefix of) the namespace of your project here
+        ]
+      },
+
+  * Remove the PipelineOptions from appsettings.default.json, because of the warning mentioned on the :ref:`configure_levels`.
+
+Test your work
+--------------
+Proceed to the next section to test your Facade, and for some helpful tips about debugging your code.

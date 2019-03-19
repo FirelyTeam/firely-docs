@@ -32,6 +32,10 @@ Settings lower in the list override the settings higher in the list (think CSS, 
    So if you override an array value, you need to provide all the values that you want in the array.
    In the Vonk settings this is relevant for e.g. Validation.AllowedProfiles. 
 
+   Even worse, if on a lower level the array has more items, you will still inherit those extra items. 
+   This is particularly a problem in the :ref:`PipelineOptions <settings_pipeline>`.
+   In that case, simply remove the whole array from appsettings.default.json (and repeat that when you install a new version of Vonk).
+
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -397,5 +401,7 @@ are used for your Vonk server, by changing the ``PipelineOptions``.
       }
     ]
   }
+
+Please note the warning on merging arrays in :ref:`configure_levels`.
 
 See :ref:`vonk_components` for more information and an example custom component.
