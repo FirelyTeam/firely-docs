@@ -65,6 +65,10 @@ Feature
 Plugin and Facade API
 ^^^^^^^^^^^^^^^^^^^^^
 
+.. attention::
+   
+   There is a bug in RelationalQuery in Vonk.Facade.Relational. If you use this for your own facade, please wait with updating it until we provide a hotfix for this.
+
 #. IResource interface and related classes have had several changes. If you encounter problems with adapting your code, please contact us.
 
    * It derives from the ISourceNode interface from the Fhir.NET API.
