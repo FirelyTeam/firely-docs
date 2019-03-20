@@ -91,9 +91,9 @@ Plugin and Facade API
 #. The PocoResource class is obsolete. To go from a POCO (like an instance of the Patient class) to an IResource, use the ToIResource() extension method found in Vonk.Fhir.R3.
 #. The PocoResourceVisitor class is obsolete. Visiting can more effectively be done on an ITypedElement::
 
-   //Have IStructureDefinitionSummaryProvider _schemaProvider injected in the constructor.
-   var typed = resource.ToTypedElement(_schemaProvider);
-   typed.Visit((depth, element) => {//do what you want with element});
+      //Have IStructureDefinitionSummaryProvider _schemaProvider injected in the constructor.
+      var typed = resource.ToTypedElement(_schemaProvider);
+      typed.Visit((depth, element) => {//do what you want with element});
 
 #. SearchOptions has changed:
 

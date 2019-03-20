@@ -13,7 +13,7 @@ IResource
 :namespace: Vonk.Core.Common
 
 :purpose: IResource is the abstraction for all FHIR resources in Vonk. It is used in the request and the response, and thereby all through the pipeline.
-It allows you to program against resources in different Fhir.NET API (the Resource class is defined in each version separately), as well as against resources that do not even have a POCO implementation.
+          It allows you to program against resources in different Fhir.NET API (the Resource class is defined in each version separately), as well as against resources that do not even have a POCO implementation.
 
 .. code-block:: csharp
 
