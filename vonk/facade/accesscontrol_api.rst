@@ -6,15 +6,8 @@ Access Control in Facade and Components
 
 The :ref:`Access Control feature <feature_accesscontrol>` is also available to users of a Vonk FHIR Facade or Vonk FHIR Components. You can use the default implementation based on SMART on FHIR, or provide an implementation of your own.
 
-Default implementation
-======================
-
-The default implementation is described in :ref:`feature_accesscontrol`. 
-You just have to implement support for the search parameters used in defining the Compartment Filter. If a search parameter that is used for authorization is not implemented, Vonk will respond with a 401 Unauthorized.
-Refer to :ref:`facade_accesscontrol` for an example on how to integrate this into your facade.
-
-Alternative implementation
-==========================
+Access control implementation
+=============================
 
 The access control engine is programmed using interfaces for which you can provide your own implementation. Because we think the model behind SMART on FHIR covers many cases, these interfaces are loosely modelled after it.
 The important interfaces and class are:
@@ -50,7 +43,7 @@ IWriteAuthorizer
 ----------------
 
 Provides one method to assess whether the user is allowed to write a resource. Input is again IAuthorization and ICompartment, but also IResource - the resource that is to be written - and an Uri called 'serverBase'.
-The 'serverBase' parameter is primarily provided because it is required to perform a search on the ISearchRepository interface. 
+The 'serverBase' parameter is primarily provided because it is required to perform a search on the ISearchRepository interface.
 The IAuthorization instance can be used to decide whether the user is allowed to write resources of the given resourcetype at all.
 The ICompartment can be used to search in the database whether the to-be-written resource is linked to the current compartment.
 
