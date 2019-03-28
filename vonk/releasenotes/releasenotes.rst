@@ -13,6 +13,16 @@ Release notes Vonk
 
 .. _vonk_releasenotes_200-beta:
 
+Release 2.0.0-beta2
+-------------------
+
+Fix
+^^^
+
+* Fixed RelationalQuery in Vonk.Facade.Relational, so Vonk.Facade.Starter can be used again.
+
+.. _vonk_releasenotes_200-beta:
+
 Release 2.0.0-beta
 ------------------
 
@@ -64,10 +74,6 @@ Feature
 
 Plugin and Facade API
 ^^^^^^^^^^^^^^^^^^^^^
-
-.. attention::
-   
-   There is a bug in RelationalQuery in Vonk.Facade.Relational. If you use this for your own facade, please wait with updating it until we provide a hotfix for this.
 
 #. IResource interface and related classes have had several changes. If you encounter problems with adapting your code, please contact us.
 
