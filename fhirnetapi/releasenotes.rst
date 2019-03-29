@@ -7,13 +7,16 @@ Release notes
 1.2.0 (DSTU2, STU3, R4) (released 20190329)
 -------------------------------------------
 
-### New Functionality
+New Functionality
+~~~~~~~~~~~~~~~~~
 - Support for R4 final (4.0.0)
 - #748 You can now set the ParserSettings used by the DirectorySource
 - #756 Type-aware validations can now also be run by the POCO parser
 - #924 Performance improvements
 
-### Bugfixes
+Bugfixes
+~~~~~~~~~~~~
+
 - #907 Transaction code documentation was wrong
 - #833 FhirClient.Read would return null when server not responding
 - #896 StructureDefinitionElementDefinitionSummaryGenerator would not always derive IsRequired correctly
