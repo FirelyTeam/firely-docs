@@ -3,6 +3,27 @@
 =============
 Release notes
 =============
+.. _api_releasenotes_1.2.0:
+1.2.0 (DSTU2, STU3, R4) (released 20190329)
+-------------------------------------------
+
+### New Functionality
+- Support for R4 final (4.0.0)
+- #748 You can now set the ParserSettings used by the DirectorySource
+- #756 Type-aware validations can now also be run by the POCO parser
+- #924 Performance improvements
+
+### Bugfixes
+- #907 Transaction code documentation was wrong
+- #833 FhirClient.Read would return null when server not responding
+- #896 StructureDefinitionElementDefinitionSummaryGenerator would not always derive IsRequired correctly
+- #889 Additional rules will get confused by hybrid typed trees
+- #888 TypedElementToSourceNodeAdapter should return ISourceNode annotation
+- #872 Quantity now binds to <code>, not <unit>
+
+Note: The parsing subsystem now catches way more error in the FHIR xml/json syntax. Since this would
+raise errors in instances that previously parsed without problems, this feature is turned off by default.
+Turn it on by setting ParserSettings.PermissiveParsing to "false".
 
 .. _api_releasenotes_1.2.0-beta2:
 
