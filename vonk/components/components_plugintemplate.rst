@@ -3,7 +3,7 @@
 Template for a plugin
 =====================
 
-.. Attention::
+.. attention::
 
 A complete template for a Vonk plugin can be found on `Github <https://github.com/FirelyTeam/Vonk.Plugin.ExampleOperation>`_. It covers all details on how to create a custom operation and use Vonk services internally.
 
