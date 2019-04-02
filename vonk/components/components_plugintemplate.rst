@@ -6,7 +6,7 @@ Template for a plugin
 .. attention::
 
    A complete template for a Vonk plugin can be found on `Github     <https://github.com/FirelyTeam/Vonk.Plugin.ExampleOperation>`_. 
-   It covers all details on how to create a custom operation and    use Vonk services internally.
+   It covers all details on how to create a custom operation and how to use Vonk services internally.
 
 A regular Vonk plugin acts on the IVonkContext and its IVonkRequest and IVonkResponse properties.
 
