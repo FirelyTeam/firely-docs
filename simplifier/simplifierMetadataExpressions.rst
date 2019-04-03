@@ -62,6 +62,7 @@ In case a property (Title, Description, UrlKey, Workflow or FilePath) should use
 Example:
 
 .. code-block:: Javascript
-      Resource.Filepath: url
-       
+
+   Resource.FilePath: url
+
 For more information on how to use FHIR PATH, visit the following link to the FHIR PATH specification: http://hl7.org/fhirpath/
