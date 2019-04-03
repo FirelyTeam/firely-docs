@@ -1,10 +1,10 @@
 Metadata Expressions
 ============================
-The metadata expressions editor enables you to define what Simplifier should display as Title and Description for your resources. To start editing the metadata expressions of your project, select ``Options`` and click on ``Edit Expressions for Metadata``.
+The metadata expressions editor enables you to define what Simplifier should display as Title, Description, UrlKey, Workflow or FilePath for your resources. To start editing the metadata expressions of your project, select ``Options`` and click on ``Edit Expressions for Metadata``.
 
-When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FHIR PATH expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used.
+When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FHIR PATH expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used. Workflow and FilePath don't have a default expression. For Filepath in this case, if the extracted value is empty or missing, the fallback will be the original/generated  filepath of the uploaded file.
 
-As a convention, you must specify the resource type followed by the property (Title or Description) with a semicolon and the FHIR PATH expression based on which we extract the value.
+As a convention, you must specify the resource type followed by the property (Title, Description, UrlKey, Workflow or FilePath) with a semicolon and the FHIR PATH expression based on which we extract the value.
 
 Example:
 
@@ -55,5 +55,13 @@ Example:
         Observation.Title: code.text
         //Profiles
         Profile.Description: description
+        
+Special attention must be paid to the FilePath property. Since the filepath of the file is used for matching files in Simplifier, uniqueness is necessary. The extracted value for FilePath using MDEP must be unique within the project. Otherwise fallback will be used or new filepath will be generated. In case the project is linked to a Github repository and there is a FhirPath expression specified for FilePath in the MDEP screen, the resulted value must match the filepath of the file in Github. If the filepath doesn't match, the linking is broken and file will not be synched anymore.
+
+In case a property (Title, Description, UrlKey, Workflow or FilePath) should use the same FhirPath expression for all resource types, the generic Resource can be used.
+Example:
+
+.. code-block:: Javascript
+      Resource.Filepath: url
        
 For more information on how to use FHIR PATH, visit the following link to the FHIR PATH specification: http://hl7.org/fhirpath/
