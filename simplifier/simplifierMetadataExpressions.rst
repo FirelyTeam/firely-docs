@@ -71,7 +71,7 @@ Example:
 
 .. code-block:: Javascript
 
-   Resource.FilePath: url
+   Resource.FilePath: extension(http://organization.org/filepath-extension).value
 
 
 **Workflow**
@@ -81,8 +81,7 @@ Example:
 
 .. code-block:: Javascript
 
-   StructureDefinition.Workflow: url
-
+   StructureDefinition.Workflow: extension(http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm).value
 
 
 For more information on how to use FHIR PATH, visit the following link to the FHIR PATH specification: http://hl7.org/fhirpath/
