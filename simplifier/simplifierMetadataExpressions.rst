@@ -74,7 +74,7 @@ Example:
    Resource.FilePath: url
 
 
-**Workflow**'
+**Workflow**
 
 Workflow property is populated using FhirPath expression for extracting from the extension of the resource. The extracted workflow key will be used to identify the coresponding workflow status from the custom workflow selected within the project in Simplifier.
 Example:
