@@ -60,7 +60,9 @@ Example:
 **FilePath**
 
 Special attention must be paid to the FilePath property. Since the filepath of the file is used for matching files in Simplifier, uniqueness is necessary. The extracted value for FilePath using metadata expression must be unique within the project. Otherwise fallback will be used or new filepath will be generated. 
-<aside class="notice">In case the project is linked to a Github repository and there is a FhirPath expression specified for FilePath in the metadata expressions screen, the resulted value must match the filepath of the file in Github. If the filepath doesn't match, the linking is broken and file will not be synched anymore.</aside>
+<aside class="notice">
+In case the project is linked to a Github repository and there is a FhirPath expression specified for FilePath in the metadata expressions screen, the resulted value must match the filepath of the file in Github. If the filepath doesn't match, the linking is broken and file will not be synched anymore.
+</aside>
 
 In case a property (Title, Description, UrlKey, Workflow or FilePath) should use the same FhirPath expression for all resource types, the generic Resource can be used. 
 Example:
@@ -71,4 +73,6 @@ Example:
 
 
 **Workflow**
+
+
 For more information on how to use FHIR PATH, visit the following link to the FHIR PATH specification: http://hl7.org/fhirpath/
