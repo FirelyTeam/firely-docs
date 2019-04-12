@@ -27,7 +27,7 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
     }
 
 .. important:: the next step assumes you have a .Net Core environment installed. If not, please `download and install
-  <https://www.microsoft.com/net/download/core#/runtime/>`_ **.NET Core Runtime 2.0.0** before you continue.
+  <https://www.microsoft.com/net/download/core#/runtime/>`_ **.NET Core Runtime 2.1.10 or higher** before you continue.
 
 6.	Open a command prompt or Powershell, navigate to the working directory and run:
 	:code:`> dotnet .\Vonk.Server.dll`
