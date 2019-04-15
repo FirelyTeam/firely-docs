@@ -10,6 +10,7 @@ Vonk FHIR Server offers many features as defined in the FHIR Specification and b
    restful_api
    accesscontrol
    customoperations
+   customresources
    terminology
    prevalidation
    customsearchparameters

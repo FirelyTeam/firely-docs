@@ -10,8 +10,61 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_200:
 
-.. _vonk_releasenotes_200-beta:
+Release 2.0.0 final
+-------------------
+
+This is the final release of version 2.0.0, so the -beta is off.
+If you directly upgrade from version 1.1, please also review all the 2.0.0-beta and -beta2 release notes below.
+
+.. attention::
+
+   We upgraded the version of .NET Core used to 2.2. Please get the latest 2.2.x runtime from the `.NET download site <https://www.microsoft.com/net/download/core#/runtime/>`_. The update was needed for several security patches and speed improvements.
+
+.. attention::
+
+   The structure of the Validation section in the settings has changed. See :ref:`feature_prevalidation` for details.
+
+.. attention::
+
+   This version of Vonk is upgraded to the Hl7.Fhir.API version 1.2.0. Plugin- and Facade builders will transitively get this dependency through the Vonk.Core package.
+
+Database
+^^^^^^^^
+
+No changes have been made to any of the database implementations.
+
+Fix
+^^^
+
+#. When you created a StructureDefinition for a new resourcetype on /administration, the corresponding endpoint was not enabled. 
+#. Vonk does not update references in a transaction when a conditional create is used for an existing resource.
+#. Paths in PipelineOptions would interfere if one was the prefix of the other.
+#. Indexing a HumanName with no values but just extensions failed.
+#. The selflink in a bundle did not contain the sort parameters. In this version the selflink always contains a sort and a count parameter, even if they were not in the request and the default values have been applied.
+#. The import of conformance resources from specification.zip yielded warnings on .sch files.
+#. Errors introduced in the 2.0.0-beta versions:
+   
+   #. Syntax errors in the XML or JSON payload yielded an exception, now they are reported with an OperationOutcome upon parsing.
+   #. $expand and other terminology operations caused a NullReference exception.
+   #. _element did not include the mandatory elements.
+
+Feature
+^^^^^^^
+
+#. Vonk supports Custom Resources. See :ref:`feature_customresources`.
+#. Operation :ref:`feature_meta` is now supported, to quickly get the tags, security labels and profiles of a resource.
+#. /metadata, retrieving the CapabilityStatement performs a lot better (just the initial call for a specific Accept-Type takes a bit longer).
+#. Validation can be controlled more detailed. Choose the strictness of parsing independent of the level of validation. With this, the settings section 'Validation' has also changed. See :ref:`feature_prevalidation`. 
+
+Plugin and Facade API
+^^^^^^^^^^^^^^^^^^^^^
+
+#. We upgraded the embedded Fhir.Net API to version 1.2, see its :ref:`release notes <api_releasenotes_1.2.0>`.
+#. Together with the upgrade to .NET Core 2.2, several libraries were updated as well. Most notably Microsoft.EntityFrameworkCore.*, to 2.0.1.
+
+.. _vonk_releasenotes_200-beta2:
 
 Release 2.0.0-beta2
 -------------------
