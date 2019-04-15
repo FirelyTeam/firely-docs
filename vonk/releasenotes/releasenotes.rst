@@ -29,7 +29,7 @@ Release 2.0.0-beta
 We have refactored Vonk internally to accomodate future changes. There are only minor functional changes to the FHIR Server.
 Facade and Plugin builders must be aware of a few interface changes, most notably to the IResource interface. 
 
-This release a *beta* release because of the many internal changes, and because we expect to include a few more in the final release. 
+This release is a *beta* release because of the many internal changes, and because we expect to include a few more in the final release. 
 Have a go with it in your test environment to see whether you encounter any trouble. We also encourage you to build your plugin and/or facade against it to prepare for code changes upon the final release.
 
 You can still access the latest final release (1.1.0):
@@ -95,7 +95,7 @@ Plugin and Facade API
 
    * Because the IChangeRepository is responsible for creating new id's and versions, we also included extensions methods on it to update all three fields at once::
 
-      var updatedeResource =changeRepository.EnsureMeta(resource, KeepExisting.Id / Version / LastUpdated);
+      var updatedeResource = changeRepository.EnsureMeta(resource, KeepExisting.Id / Version / LastUpdated);
       var updatedResource = changeRepository.FreshMeta(resource); //replaces all three
 
 #. The PocoResource class is obsolete. To go from a POCO (like an instance of the Patient class) to an IResource, use the ToIResource() extension method found in Vonk.Fhir.R3.
