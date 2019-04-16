@@ -3,6 +3,16 @@
 =============
 Release notes
 =============
+.. _api_releasenotes_1.2.1:
+1.2.1 (STU3, R4) (released 20190416)
+-------------------------------------------
+The fix for issue #889 should have been in version 1.2.0, but it was not because of a merge error. In this hotfix (1.2.1) we corrected this mistake 
+and added the fix for issue #889.
+
+Bugfixes
+~~~~~~~~~~~~
+- #889 Additional rules will get confused by hybrid typed trees
+
 .. _api_releasenotes_1.2.0:
 1.2.0 (DSTU2, STU3, R4) (released 20190329)
 -------------------------------------------
