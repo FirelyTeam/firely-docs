@@ -62,7 +62,7 @@ Plugin and Facade API
 ^^^^^^^^^^^^^^^^^^^^^
 
 #. We upgraded the embedded Fhir.Net API to version 1.2, see its :ref:`release notes <api_releasenotes_1.2.0>`.
-#. Together with the upgrade to .NET Core 2.2, several libraries were updated as well. Most notably Microsoft.EntityFrameworkCore.*, to 2.0.1.
+#. Together with the upgrade to .NET Core 2.2, several libraries were updated as well. Most notably Microsoft.EntityFrameworkCore.*, to 2.2.3.
 
 .. _vonk_releasenotes_200-beta2:
 
