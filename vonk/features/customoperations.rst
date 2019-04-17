@@ -10,6 +10,7 @@ Custom Operations
 
    validation
    snapshot
+   meta
 
 The FHIR Specification `operations framework`_ allows for the definition of custom operations and defines how to offer them in the `FHIR RESTful API`_. Vonk offers two custom operations out of the box.
 

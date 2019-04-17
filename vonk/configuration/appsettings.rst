@@ -225,10 +225,11 @@ Validation
 ----------
 ::
 
-    "Validation": {
-        "ValidateIncomingResources": "true",
-        "AllowedProfiles": []
-    },
+  "Validation": {
+    "Parsing": "Permissive", // Permissive / Strict
+    "Level": "Off", // Off / Core / Full
+    "AllowedProfiles": []
+  },
 
 
 Refer to :ref:`feature_prevalidation`.
