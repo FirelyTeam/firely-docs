@@ -25,7 +25,7 @@ Just like any resourcetype, the definition for a custom resource is formalized a
   
 This also means that a Logical Model as-is cannot be used as the definition of a custom resourcetype.
 
-Examples of these can be found in the specification: each resourcetype is defined this way. The easiest way to get started is with the definition of Basic (in `xml <https://www.hl7.org/fhir/STU3/basic.profile.xml.html>`_ or `json <https://www.hl7.org/fhir/STU3/basic.profile.json.html>`_, and adjust that:
+Examples of these can be found in the specification: each resourcetype is defined this way. The easiest way to get started is with the definition of Basic (in `xml <https://www.hl7.org/fhir/STU3/basic.profile.xml.html>`_ or `json <https://www.hl7.org/fhir/STU3/basic.profile.json.html>`_), and adjust that:
 
 #. Choose a name for the type, let's say 'Foo'.
 #. Choose a url for the type. In STU3 this has to start with http://hl7.org/fhir/StructureDefinition/ (constraint sdf-7), so http://hl7.org/fhir/StructureDefinition/Foo makes sense.
@@ -36,7 +36,7 @@ Examples of these can be found in the specification: each resourcetype is define
 
 If you have created the StructureDefinition, register it in Vonk using any of the methods mentioned in :ref:`conformance`. As an example we will issue an update interaction on the Administration API::
 
-   ``PUT <base-url>/administration/StructureDefinition/Foo``
+   PUT <base-url>/administration/StructureDefinition/Foo
 
 By using an update we can choose the id and hence the location of this StructureDefinition. Vonk does this by default for all the resourcetypes defined by the specification as well.
 
