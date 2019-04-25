@@ -12,11 +12,11 @@ To install, go to `simplifier.net/downloads <https://simplifier.net/downloads>`_
 
 To see all commands that Torinox can run type:
 
-`
+::
     > fhir ?
-`
 
-Contents:
+Contents
+--------
 
 .. toctree::
    :maxdepth: 1

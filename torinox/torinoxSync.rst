@@ -6,14 +6,14 @@ You can keep a local folder in sync with a project in Simplifier by using the To
 For that Torinox uses the zip api endpoint of Simplifier.
 
 In order to sync with a project in Simplifier, you have to be logged in. 
-::
-    simplifier login
+Read more on this here: `Login with Torinox into Simplifier`_.
 
 Synchronization has several options.
 
 Download
 --------
-To download the latest content of a Simplifier project to a local folder, use the ``--down`` flag: ::
+To download the latest content of a Simplifier project to a local folder, use the ``--down`` flag: 
+::
     > fhir sync --down
 
 This will update all files in your current folder that are newer or missing.
@@ -31,11 +31,12 @@ This will show each individual file that is being synchronized. This works both 
 
 Bidirectional
 -------------
-You can synchronize both ways using a combination of the ``--up`` and ``--down`` flag: ::
-
+You can synchronize both ways using a combination of the ``--up`` and ``--down`` flag: 
+::
     > fhir sync --up --down
 
-or, using short flags: ::
+or, using short flags: 
+::
     > fhir sync -ud
 
     
