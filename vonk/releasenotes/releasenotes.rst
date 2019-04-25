@@ -10,6 +10,16 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_201:
+
+Release 2.0.1 hotfix
+--------------------
+
+Fix
+^^^
+
+* Supported Interactions were not checked for custom operations. In the `appsettings.json` the custom operations, like $meta, were ignored. This has been fixed now.
+
 .. _vonk_releasenotes_200:
 
 Release 2.0.0 final
