@@ -1,7 +1,7 @@
 Login with Torinox intoSimplifier 
 ========================
 Several api endpoints in Simplifier require you to login first.
-The TOrinox FHIR command line tool `fhir`_ gives you access to most of these endpoinds:
+The TOrinox FHIR command line tool ``fhir`` gives you access to most of these endpoinds:
 
 - packages api
 - zip upload and download api
@@ -9,10 +9,9 @@ The TOrinox FHIR command line tool `fhir`_ gives you access to most of these end
 - writing (post and put) to private fhir endpoinds
 
 In order to login with Torinox use the `login`_ command:
-
-`
+::
   > fhir login
-`_
+
 After this you must provide your credentials: email address and password. Login uses standard JWT practices so that your 
 credentials are sent safely over the wire only once and so that sequentual requests are done with a token, so that your 
 credentials don't have to be stored locally.

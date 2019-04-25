@@ -19,7 +19,7 @@ To see all commands that Torinox can run type:
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    torinoxSync
    torinoxLogin
