@@ -16,4 +16,5 @@ The currently documented projects are:
    Forge - FHIR profile editor <forge/index>
    Vonk - FHIR server <vonk/index>
    VonkLoader - bulk upload resources to any FHIR server <vonkloader/index>
+   Torinox - A cross platform FHIR command line tool <torinox/index>
    FHIR .Net API <fhirnetapi/index>
