@@ -6,13 +6,21 @@ Getting Started
 
 It's easy to start using the FHIR .Net API in your solution: just add the right NuGet package!
 
+Install via .nuspec
+-------------------
+
+    dotnet add package Hl7.Fhir.R4
+
+
+Install via Visual Studio
+-------------------------
 Open your project, or start a new one and go to the NuGet Package Manager.
 The current official version of the FHIR specification is R4, but you might be developing for one
 of the previous versions. For each version of the specification, there is a corresponding library.
 
 For R4, you will need the Hl7.Fhir.R4 package:
 
-1.	Choose Tools --> NuGet Package Manager --> Manage NuGet Packages for Solution...
+1.	Choose Tools 🠮 NuGet Package Manager 🠮 Manage NuGet Packages for Solution...
 
 2.	Click on Browse, and type fhir into the search field.
 
