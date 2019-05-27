@@ -30,7 +30,7 @@ Deployment
 #. Open a webbrowser, navigate to ``https://<webapp>.scm.azurewebsites.net/ZipDeploy`` and drag vonk_distribution.zip into the browser window. 
    This will install the Vonk server as a Web App in Azure.
    In our example the url is ``https://<webapp>.scm.azurewebsites.net/ZipDeploy``
-   This method of deployment does not work in Internet Explorer. It does works in Firefox, Chrome and Edge.
+   This method of deployment does not work in Internet Explorer. It does work in Firefox, Chrome and Edge.
 #. Open a browser and go to the site ``https://<webapp>.azurewebsites.net/`` . This will show the Vonk home page.
 
 Change database
