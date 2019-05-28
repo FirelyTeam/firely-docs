@@ -2,12 +2,12 @@ Click once installer
 ====================
 Running on Windows
 ~~~~~~~~~~~~~~~~~~
-Forge is deployed using a `ClickOnce <https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-security-and-deployment?view=vs-2019>` installer. 
+Forge is deployed using a `ClickOnce <https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-security-and-deployment?view=vs-2019>`_ installer. 
 You can download and install the application without requiring administrator permissions (except .NET FW, see below).
 The application automatically detects and installs updates when you start the application. 
 After installation of a new release, you will again receive automatic update notifications on application startup.
 
-Forge is based on the `Microsoft .NET Framework <https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet>' version 4.7.2 and `WPF <https://visualstudio.microsoft.com/vs/features/wpf/>`_.
+Forge is based on the `Microsoft .NET Framework <https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet>_` version 4.7.2 and `WPF <https://visualstudio.microsoft.com/vs/features/wpf/>`_.
 The ClickOnce installer will download and install the .NET Framework 4.7.2 on demand, if not already available.
 
 **Warning!** Installing or updating the .NET Framework requires administrator permissions.
