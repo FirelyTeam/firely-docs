@@ -19,7 +19,7 @@ Running on Linux
 The .NET Framework and WPF support only the Windows operating system. However, it is possible to run Forge on Linux using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on Linux, here are the steps to get you started:
 
 
-#. Download and install the latest version of Wine (4.0.1) from https://wiki.winehq.org/Download
+#. Download and install the latest version of `Wine <https://wiki.winehq.org/Download>`_ (4.0.1).  
 
 #. Install winetricks: ::
 
@@ -27,7 +27,7 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 	chmod +x winetricks
 	sudo mv winetricks /usr/local/bin
 
-#. Install .NET 4.7.2. This step may take 5-10 minutes to complete.
+#. Install .NET 4.7.2. This step may take 5-10 minutes to complete.  
    Answer `yes` to installing `Gecko` and `no` to Mono. ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet472
@@ -64,7 +64,7 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 
 	brew install wine cabextract winetricks
 
-#. Install .NET 4.7.2. This step may take 5-10 minutes to complete.
+#. Install .NET 4.7.2. This step may take 5-10 minutes to complete.  
    Answer `yes` to installing `Gecko` and `no` to Mono. ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet472
