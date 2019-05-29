@@ -19,17 +19,7 @@ Running on Linux
 The .NET Framework and WPF support only the Windows operating system. However, it is possible to run Forge on Linux using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on Linux, here are the steps to get you started:
 
 
-#. Install Wine 2.4 (later versions have issues running .NET). If you're using Ubuntu, copy/paste the following into the terminal: ::
-
-	curl -O https://dl.winehq.org/wine-builds/ubuntu/pool/main/wine-staging-amd64_2.4.0-3~zesty_amd64.deb
-	curl -O https://dl.winehq.org/wine-builds/ubuntu/pool/main/wine-staging-compat_2.4.0-3~zesty_amd64.deb
-	curl -O https://dl.winehq.org/wine-builds/ubuntu/pool/main/wine-staging-compat_2.4.0-3~zesty_i386.deb
-	curl -O https://dl.winehq.org/wine-builds/ubuntu/pool/main/wine-staging-dev_2.4.0-3~zesty_amd64.deb
-	curl -O https://dl.winehq.org/wine-builds/ubuntu/pool/main/wine-staging_2.4.0-3~zesty_amd64.deb
-	curl -O https://dl.winehq.org/wine-builds/ubuntu/pool/main/wine-staging_2.4.0-3~zesty_i386.deb
-	curl -O https://dl.winehq.org/wine-builds/ubuntu/pool/main/winehq-staging_2.4.0-3~zesty_amd64.deb
-	curl -O https://dl.winehq.org/wine-builds/ubuntu/pool/main/winehq-staging_2.4.0-3~zesty_i386.deb
-	sudo dpkg -i *.deb
+#. Download and install the latest version of Wine (4.0.1) from https://wiki.winehq.org/Download
 
 #. Install winetricks: ::
 
@@ -37,14 +27,16 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 	chmod +x winetricks
 	sudo mv winetricks /usr/local/bin
 
-#. Install .NET 4.7.2. This may take some time.
+#. Install .NET 4.7.2. This step may take 5-10 minutes to complete.
    Answer `yes` to installing `Gecko` and `no` to Mono. ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet472
+	
+#. Install core fonts: ::
 
-#. Download `Forge <https://simplifier.net/forge/download>`_.
+    WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks corefonts
 
-#. Run Forge with: ::
+#. Download and run the `Forge <https://simplifier.net/forge/download>`_ setup package: ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
 
@@ -52,7 +44,7 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 
    To run Forge again the next time, repeat the command: ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine Forge-R4.exe
 
 
 Running on macOS
@@ -72,10 +64,14 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 
 	brew install wine cabextract winetricks
 
-#. Install .NET 4.7.2. This may take some time.
+#. Install .NET 4.7.2. This step may take 5-10 minutes to complete.
    Answer `yes` to installing `Gecko` and `no` to Mono. ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet472
+	
+#. Install core fonts ::
+
+    WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks corefonts
 	
 #. Improve font rendering. First, run the following: ::
 
@@ -83,12 +79,12 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 	
 #. Then in the ``Wine configuration`` window, go to the ``Graphics`` tab and set the ``Screen resolution`` to ``150`` dpi.
 	
-#. Download ``setup.exe`` from the `Forge download page <https://simplifier.net/forge/download>`_ and run it: ::
+#. Download and run the `Forge <https://simplifier.net/forge/download>`_ setup package: ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine $HOME/Downloads/setup.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
 	
 #. Ready!
 
    To run Forge again in the future, rerun the last command in the terminal: ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine $HOME/Downloads/setup.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine Forge-R4.exe
