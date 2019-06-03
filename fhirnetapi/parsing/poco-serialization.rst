@@ -16,7 +16,13 @@ Continuing the previous example, we can change some value in the parsed Patient 
     var serializer = new FhirXmlSerializer();
     var xmlText = serializer.SerializeToString(parsedPatient);
     
-Note that creating a new ``FhirXmlSerializer`` (or ``FhirXmlParser``) is cheap. The constructor for the ``FhirXmlSerializer`` and ``FhirJsonSerializer`` take a single parameter to change settings, most notably to 'pretty print' your output.
+Note that creating a new ``FhirXmlSerializer`` (or ``FhirXmlParser``) is cheap. The constructor for the ``FhirXmlSerializer`` and ``FhirJsonSerializer`` take a single parameter to change settings, most notably to 'pretty print' your output:
+
+.. code-block:: csharp
+
+    var serializer = new FhirJsonSerializer(new SerializerSettings() {
+        Pretty = true
+    });
 
 Summaries
 ---------
