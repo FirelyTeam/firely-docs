@@ -52,8 +52,6 @@ Running on macOS
 The .NET Framework and WPF support only the Windows operating system. However, it is possible to run Forge on macOS using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on macOS, here are the steps to get you started:
 
 
-#. Install ``Xcode`` from the App Store.
-
 #. Open the ``Terminal`` (you can do so via Launchpad)
 
 #. Install ``Homebrew`` by copy/pasting the following into the Terminal: ::
@@ -74,9 +72,11 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 	
 #. Then in the ``Wine configuration`` window, go to the ``Graphics`` tab and set the ``Screen resolution`` to ``150`` dpi.
 	
-#. Download and run the `Forge <https://simplifier.net/forge/download>`_ setup package: ::
+#. Download the `Forge <https://simplifier.net/forge/download>`_ setup package.  
+   Move ``setup.exe`` to your ``Applications`` folder and rename to ``Forge-R4.exe`` (or ``Forge-STU3.exe``, depending on your version).  
+   Then execute the downloaded file to install the application: ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine Forge-R4.exe
 	
 #. Ready!
 
