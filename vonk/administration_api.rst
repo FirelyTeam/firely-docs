@@ -29,7 +29,7 @@ Database
 --------
 
 The Administration API uses a database separately from the main 'Vonk Data' database. Historically, SQL Server, MongoDB and Memory are supported as databases for the Administration API.
-|br| As of Vonk version 0.7.1 SQLite is advised for this, and we have made that the default configuration. See :ref:`configure_sqlite` on how to configure for this.
+|br| As of Vonk version 0.7.1, SQLite is advised for this, and we have made that the default configuration. See :ref:`configure_sqlite` on how to configure for this.
 
 
 
