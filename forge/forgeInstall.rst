@@ -44,7 +44,7 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 
    To run Forge again the next time, repeat the command: ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine Forge-R4.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
 
 
 Running on macOS
@@ -62,7 +62,7 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 
 	brew install wine cabextract winetricks
 
-#. Install .NET 4.7.2. This step may take 5-10 minutes to complete.  
+#. Install .NET 4.7.2. This step may take 5-10 minutes to complete. ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet472
 	
