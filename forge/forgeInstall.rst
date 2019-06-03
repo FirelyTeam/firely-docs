@@ -72,7 +72,8 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 	
 #. Then in the ``Wine configuration`` window, go to the ``Graphics`` tab and set the ``Screen resolution`` to ``150`` dpi.
 	
-#. Download the `Forge <https://simplifier.net/forge/download>`_ setup package.  
+#. Download the `Forge <https://simplifier.net/forge/download>`_ setup package from Simplifier.  
+
    Move ``setup.exe`` to your ``Applications`` folder and rename to ``Forge-R4.exe`` (or ``Forge-STU3.exe``, depending on your version).  
    Then execute the downloaded file to install the application: ::
 
