@@ -4,7 +4,7 @@
 Getting Started
 ===============
 
-It's easy to start using the FHIR .Net API in your solution: just add the right NuGet package!
+It's easy to start using the FHIR .Net API in your solution: start with the `right NuGet package <https://www.nuget.org/profiles/firely>`_.
 
 Install via .nuspec
 -------------------
