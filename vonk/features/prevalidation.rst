@@ -62,7 +62,7 @@ Note that the resource has to declare conformance to the profile in its ``meta.p
 Upgrading from < 2.0
 --------------------
 
-Previous to version 2.0.0, the setting was ``"ValidateIncomingResources":"true" // or false``. To corresponding settings since version 2.0.0 are:
+Previous to version 2.0.0, the setting was ``"ValidateIncomingResources":"true" // or false``. The corresponding settings since version 2.0.0 are:
 
 * true / no AllowedProfiles => ``"Level":"Core"``
 * true / with AllowedProfiles => ``"Level":"Full"``, keep the AllowedProfiles as it is.
