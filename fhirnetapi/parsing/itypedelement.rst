@@ -68,7 +68,7 @@ In the second case, the API needs an external source of type information to asso
 Notice that the ``provider`` parameter is used to pass in type information structured by the ``IStructureDefinitionSummaryProvider`` interface. Currently, the API supplies two implementations of this interface:
 
 * The ``PocoStructureDefinitionSummaryProvider``, which obtains type information from pre-compiled POCO classes. This is very similar to calling ``ToTypedElement()`` on a POCO, but this method does not require the caller to have data present in POCOs.
-* The ``StructureDefinitionSummaryProvider``, which obtains type information from ``StructureDefinitions`` provided with the core specification and additional Implementation Guides and packages. The constructor for this provider needs a reference to an ``IResourceResolver``, which is the subsystem used to get access to FHIR's metadata resources (like ``StructureDefinition``). See :ref:`specification-sources` for more information about ``IResourceResolver``..
+* The ``StructureDefinitionSummaryProvider``, which obtains type information from ``StructureDefinitions`` provided with the core specification and additional Implementation Guides and packages. The constructor for this provider needs a reference to an ``IResourceResolver``, which is the subsystem used to get access to FHIR's metadata resources (like ``StructureDefinition``). See :ref:`specification-sources` for more information about ``IResourceResolver``.
 
 This is a complete example showing how to turn the ``patientNode`` from the last section into a ``ITypedElement`` by using external metadata providers:
 
