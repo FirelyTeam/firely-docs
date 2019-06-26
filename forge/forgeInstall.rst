@@ -62,9 +62,13 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 
 	brew install wine cabextract winetricks
 
-#. Install .NET 4.7.2. This step may take 5-10 minutes to complete. ::
+#. Install .NET Framework. This step may take 5-10 minutes to complete. ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet472
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet48
+	
+#. Install necessary fonts. ::
+
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks corefonts
 	
 #. Improve font rendering. First, run the following: ::
 
@@ -90,8 +94,3 @@ Known issues
 
 #. On some systems, having an active secondary display will cause application rendering issues (e.g. gray window).  
    Please try to detach/disable secondary screen before starting the application.
-
-#. The application requires access to core fonts for rendering the UI.  
-   If Forge crashes during startup, try to install core fonts ::
-
-    WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks corefonts
