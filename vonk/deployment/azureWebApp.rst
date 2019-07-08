@@ -27,7 +27,7 @@ Deployment
       :align: center
 
 #. Add the trial license file (vonk-trial-license.json) to the vonk_distribution.zip by dragging the license file into the zipfile.
-#. Open a webbrowser, navigate to ``https://<webapp>.scm.azurewebsites.net/ZipDeploy`` and drag vonk_distribution.zip into the browser window. 
+#. Open a webbrowser, navigate to ``https://<webapp>.scm.azurewebsites.net/ZipDeployUI`` and drag vonk_distribution.zip into the browser window. 
    This will install the Vonk server as a Web App in Azure.
    In our example the url is ``https://<webapp>.scm.azurewebsites.net/ZipDeploy``
    This method of deployment does not work in Internet Explorer. It does work in Firefox, Chrome and Edge.
