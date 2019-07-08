@@ -27,10 +27,10 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 	chmod +x winetricks
 	sudo mv winetricks /usr/local/bin
 
-#. Install .NET 4.7.2. This step may take 5-10 minutes to complete.  
+#. Install .NET 4.8. This step may take 5-10 minutes to complete.  
    Answer `yes` to installing `Gecko` and `no` to Mono. ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet472
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 winetricks -q dotnet48
 	
 #. Install core fonts: ::
 
@@ -39,6 +39,8 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 #. Download and run the `Forge <https://simplifier.net/forge/download>`_ setup package: ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
+
+#. The ClickOnce installer will erronously say that .NET 4.7.2 isn't installed, when it is (4.8 is a superset). Hit 'Install' - it'll think about installing it for a moment, then realise that it doesn't need to and proceed to launc Forge.
 
 #. Ready!
 
@@ -82,6 +84,8 @@ The .NET Framework and WPF support only the Windows operating system. However, i
    Then execute the downloaded file to install the application: ::
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine Forge-R4.exe
+	
+   The ClickOnce installer will erronously say that .NET 4.7.2 isn't installed, when it is (4.8 is a superset). Hit 'Install' - it'll think about installing it for a moment, then realise that it doesn't need to and proceed to launc Forge.
 	
 #. Ready!
 
