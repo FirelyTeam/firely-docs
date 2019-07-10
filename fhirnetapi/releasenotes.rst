@@ -3,6 +3,52 @@
 =============
 Release notes
 =============
+.. _api_releasenotes_1.3.0:
+1.3.0 (STU3, R4) (released 20190710)
+
+Bugfixes
+~~~~~~~~
+* 447/791 Disabled incorrect invariant rng-2 on Range datatype.
+* 594 Suppressed useless information and warnings about non matching slices when slicing succeeds.
+* 659 WebRequest task stays alive and holds connection after TimeoutException is thrown.
+* 865 Validator accepted instant types without timezone
+* 880 DirectorySource should not only detect but also report duplicate file names.
+* 883 ZipSource is not handling files in subdirectories.
+* 889 Annotated Additional Validation Rules would get confused by hybrid typed/untyped ITypedElement trees
+* 895 DirectorySource should internally expand specified content directory to a full path to make matching reliable.
+* 913 NavigatorStreamFactory (and thus DirectorySource) threw lots of caught exceptions, causing slow-down of directory scanning.
+* 930 Summary and _elements now include non-mandatory children of mandatory top-level elements
+* 933 Binding validation now returns success when validating a an non-bindeable instance
+* 936 Internal ITypedElement implementation of Location property differed from the one in ElementNode.
+* 941 The settings parameter was ignored for the xml and json serializer
+* 965 Snapshotgenerator for R4 will now make typeref.(target)Profile replace base, not merge.
+* 1002 Validation still enforced that contained resources cannot have text in R4.
+* 1003 _sort did not allow the use of underscore search parameters.
+* 1013 FhirClient threw incorrect kind of Exception when reading a non-FHIR body.
+
+New Functionality
+~~~~~~~~~~~~~~~~~
+* 293 There is now a setting to ensure serialized files always end with newline
+* 631 FhirClient gives a more informative error message when encountering an unparseable LastModified header
+* 632 Improve validation of coded elements with null flavours
+* 748/749 Expose ParserSettings and ExceptionNotificationHandler from Resource resolvers
+* 750 Add ParserSettings to WebResolver
+* 790/1016 ElementNode will now let you insert and delete nodes
+* 890 NavigatorStream can now also return resources without an Id
+* 892 ArtifactSummaryGenerator will now return error summaries together with file information
+* 904 ArtifactSummary should indicate which entries are Bundles.
+* 917 Validator now accepts custom resources
+* 929 FhirClient now has support for "async" operations needed for bulk data.
+* 938 Added factory methods on ElementNode to create primitive nodes implementing ITypedElement.
+* 944 FhirUrl now implements IStringValue.
+* 958 Allow Issue properties to be modified
+* 959 FunctionCallExpression nodes can now be used without a Focus expression
+* 992 Errors on FhirPath invariants now display structure definition and key for debugging purposes.
+* 995 Re-enabled support for slicing by "pattern".
+
+Note: Active development of DSTU2 has stopped, the included DSTU2 1.3 update is there to retain binary 
+compatibility with the newer shared assemblies but has none of the new features.
+
 .. _api_releasenotes_1.2.1:
 1.2.1 (STU3, R4) (released 20190416)
 -------------------------------------------
