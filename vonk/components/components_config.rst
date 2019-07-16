@@ -57,3 +57,8 @@ Branches:
    Exclude
       (Prefixes of) :ref:`vonk_components_configclass` that may not be executed. ``Exclude`` overrides ``Include`` and is useful if you want to use all but one configuration class from a namespace.
 
+Allow an operation to be called
+-------------------------------
+
+Vonk has a quick setting to :ref:`disable_interactions`, in the section ``SupportedInteractions``. If you implement a custom operation in your plugin, you should also add the name of the custom operation to this setting, at the right level.
+Let's assume you implement a method ``$foo`` on resourcetypes. Then you would need to add ``$foo`` to ``SupportedInteractions:TypeLevelInteractions``.

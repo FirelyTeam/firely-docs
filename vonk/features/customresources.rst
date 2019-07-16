@@ -56,3 +56,8 @@ All the operations on specification-defined resourcetypes are also available for
 * Validation: Custom Resources can not be validated. This implies that :ref:`feature_prevalidation` cannot be used in conjunction with Custom Resources.
 
 We expect to remove this limitation in a future version of Vonk.
+
+Search parameters on a custom resource
+--------------------------------------
+
+In Vonk you can define your own custom search parameters on any type of resource (see :ref:`feature_customsp`). This includes Custom Resources. Just use the type name of the Custom Resource in the SearchParameter.base.

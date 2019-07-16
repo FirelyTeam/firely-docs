@@ -31,8 +31,8 @@ If you allow for multiple deletes, you have to specify a maximum number of resou
 
     "FhirCapabilities": {
         "ConditionalDeleteOptions": {
-        "ConditionalDeleteType": "Single", // Single or Multiple,
-        "ConditionalDeleteMaxItems": 1
+            "ConditionalDeleteType": "Single", // Single or Multiple,
+            "ConditionalDeleteMaxItems": 1
         }
     }
 

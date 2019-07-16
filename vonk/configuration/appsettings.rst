@@ -30,11 +30,21 @@ Settings lower in the list override the settings higher in the list (think CSS, 
 
    JSON settings files can have arrays in them. The configuration system can NOT merge arrays. 
    So if you override an array value, you need to provide all the values that you want in the array.
-   In the Vonk settings this is relevant for e.g. Validation.AllowedProfiles. 
+   In the Vonk settings this is relevant for e.g. Validation.AllowedProfiles and for the PipelineOptions. 
 
-   Even worse, if on a lower level the array has more items, you will still inherit those extra items. 
-   This is particularly a problem in the :ref:`PipelineOptions <settings_pipeline>`.
-   In that case, simply remove the whole array from appsettings.default.json (and repeat that when you install a new version of Vonk).
+.. note::
+   By default in ASP.NET Core, if on a lower level the array has more items, you will still inherit those extra items.
+   We fixed this in Vonk, an array will always overwrite the complete base array. 
+   To nullify an array, add the value with an array with just an empty string in it::
+
+     "PipelineOptions": {
+       "Branches": [
+         {
+           "Path": "myroot",
+           "Exclude": [""]
+         } 
+       ]
+     }
 
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -342,6 +352,8 @@ But you can disable interactions by removing them from these lists.
         "WholeSystemInteractions": "capabilities, batch, transaction, history, search, $validate"
     },
 
+If you implement a custom operation in a plugin, you should also add the name of that operation at the correct level. E.g. add ``$convert`` to ``TypeLevelInteractions`` to allow ``<base>/<resourcetype>/$convert``.
+
 Subscriptions
 -------------
 ::
@@ -353,6 +365,8 @@ Subscriptions
     },
 
 See :ref:`feature_subscription`.
+
+.. _fhir_capabilities:
 
 FHIR Capabilities
 -----------------

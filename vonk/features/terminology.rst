@@ -3,6 +3,8 @@
 Terminology
 ===========
 
+.. caution:: Terminology operations in Vonk 3.0.0-beta1 only work for STU3. We intend to provide more elaborate terminology support by integrating with a full Terminology Server, including support for R4 in the near future.
+
 Vonk provides limited support for these Terminology operations:
 
 * $validate-code

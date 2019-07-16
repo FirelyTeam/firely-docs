@@ -20,6 +20,8 @@ You can control which search parameters are known to Vonk. This is managed in th
 Re-indexing for new or changed SearchParameters
 -----------------------------------------------
 
+.. caution:: In Vonk 3.0.0-beta1 re-indexing only works for STU3. Expect it to be enabled for R4 in the next beta.
+
 Vonk extracts values from resources based on the available search parameters upon create or update.
 This means that if you already had resources in your database before adding a custom search parameter, 
 those resources will not be indexed for that parameter. If you on the other hand removed a previously used 

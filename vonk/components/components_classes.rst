@@ -133,7 +133,7 @@ If you also need access to the raw ``HttpContext``, you can create a normal ASP.
       }
    }
 
-IVonkContext has three major parts, that are explained below:
+IVonkContext has three major parts, that are explained below. The ``InformationModel`` tells you the FHIR version for which the request was made.
 
 .. code-block:: csharp
 
@@ -144,6 +144,8 @@ IVonkContext has three major parts, that are explained below:
       IArgumentCollection: Arguments{get;}
 
       IVonkResponse Response {get;}
+
+      string InformationModel {get;}
    }
 
 And because you frequently need the parts instead of the context itself, there is an extension method on ``IVonkContext``:
@@ -301,10 +303,13 @@ If you just listen in on the pipeline, you can check the values of the response.
 
 .. _components_interactionhandler:
 
+Interaction Handling
+--------------------
+
 .. _classes_interactionhandlerattribute:
 
 InteractionHandlerAttribute
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :namespace: Vonk.Core.Pluggability
 
@@ -320,10 +325,16 @@ Without any arguments, the method will be called for every possible interaction.
 You can specify different filters, and combine them at will:
 
 * Specific interaction(s): ``[InteractionHandler(Interaction = VonkInteraction.type_create | VonkInteraction.instance_update)]``
+* Specific FHIR version(s) of the request: ``[InteractionHandler(InformationModel = VonkConstants.Model.FhirR4)]``
 * Specific resource type(s): ``[InteractionHandler(AcceptedTypes = new["Patient", "Observation"])]``
 * Specific custom operation: ``[InteractionHandler(Interaction = VonkInteraction.all_custom, CustomOperation = "myCustomOperation")]``. Note that the ``$`` that is used on the url is not included in the name of the custom operation here.
 * Specific http method: ``[InteractionHandler(Method = "POST")]``
 * Specific statuscode(s) on the response: ``[InteractionHandler(StatusCode = new[]{200, 201})]``
+
+.. _classes_interactionhandlerfluent:
+
+InteractionHandler fluent interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Because ``InteractionHandler`` is an attribute, you can only use constant values. If that is not what you want, you can use the fluent interface in the `configuration class <vonk_components_configclass>`_ instead. The code below shows the same filters as above, although you typically would not use all of them together (e.g. the ``PUT`` excludes ``type_create``).
 
@@ -335,6 +346,7 @@ Because ``InteractionHandler`` is an attribute, you can only use constant values
       {
          return app
             .OnInteraction(VonkInteraction.type_create | VonkInteraction.instance_update)
+            .AndInformationModel(VonkConstants.Model.FhirR4)
             .AndResourceTypes(new[] {"Patient", "Observation"})
             .AndStatusCodes(new[] {200, 201})
             .AndMethod("PUT")

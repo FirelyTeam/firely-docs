@@ -3,6 +3,8 @@
 Subscriptions
 =============
 
+.. caution:: Subscriptions in Vonk 3.0.0-beta1 only works for STU3. Expect support for R4 this to be added in a future release.
+
 Subscriptions can be managed in the :ref:`administration_api`, on the ``/administration/Subscription`` endpoint. If you post a Subscription
 to the regular FHIR endpoint, it will be stored but not evaluated. Subscriptions posted to the
 ``/administration`` endpoint will be processed and evaluated for each POST/PUT to the server.
