@@ -67,10 +67,10 @@ PluginDirectory.Branches:
       (Prefixes of) :ref:`vonk_components_configclass` that may not be executed. ``Exclude`` overrides ``Include`` and is useful if you want to use all but one configuration class from a namespace.
 
 SupportedInteractions:
-  A comma-separated list of all interactions Vonk should enable on ``[base]/[type]/[id] (InstanceLevelInteractions)``, ``[base]/[type] (TypeLevelInteractions)``, and ``[base] (WholeSystemInteractions)`` levels. Vonk will use this list to enable/disable supported interctions and reflect it in ``/metadata`` accordingly.
+  A comma-separated list of all interactions Vonk should enable on ``[base]/[type]/[id]`` (InstanceLevelInteractions), ``[base]/[type]`` (TypeLevelInteractions), and ``[base]`` (WholeSystemInteractions) levels. Vonk will use this list to enable/disable supported interctions and reflect it in ``/metadata`` accordingly.
   
   If you'd like to limit what operations your Vonk supports, remove them from this list.
   
-  If you've added a custom pipeline component that enables a new interaction, make sure to load the plugin (see `PluginDirectory` above) and enable the interaction in this list. For example, if you've added the `Vonk.Plugin.ConvertOperation` $convert plugin in ``PipelineOptions.Branches.Include``, make sure to enable the operation ``$convert`` as well: ::
+  If you've added a custom pipeline component that enables a new interaction, make sure to load the plugin (see ``PluginDirectory`` above) and enable the interaction in this list. For example, if you've added the ``Vonk.Plugin.ConvertOperation`` $convert plugin in ``PipelineOptions.Branches.Include``, make sure to enable the operation ``$convert`` as well: ::
   
   "WholeSystemInteractions": "$convert, capabilities, batch, transaction, history, search, compartment_system_search, $validate"
