@@ -22,6 +22,10 @@ Vonk 3.0.0 is a major upgrade that incorporates handling FHIR R4. This runs in t
    If you have overridden the PipelineOptions in your own settings, you should review the new additions to it in the appsettings.default.json.
    In particular we added ``Vonk.Fhir.R4`` that is needed to support FHIR R4.
 
+.. attention::
+
+   MacOS: you may need to clean your temp folder from previous specification.zip expansions. Find the location of the temp folder by running ``echo $TMPDIR``.
+
 Database
 ^^^^^^^^
 
