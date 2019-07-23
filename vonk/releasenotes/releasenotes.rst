@@ -85,6 +85,7 @@ Fix
    #. $lookup did not support the ``coding`` parameter
    #. $expand did not fill in the expansion element.
    #. Operations were not listed in the CapabilityStatement.
+   #. Namespace changed to Vonk.Plugins.Terminology, and adjusted accordingly in the default PipelineOptions.
 
 #. A SearchParameter of type token did not work on an element of type string, e.g. CodeSystem.version.
 #. Search with POST was broken.
