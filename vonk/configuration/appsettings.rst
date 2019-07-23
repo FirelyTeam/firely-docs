@@ -45,6 +45,8 @@ Settings lower in the list override the settings higher in the list (think CSS, 
          } 
        ]
      }
+   
+   This also means you cannot override a single array element with an environment variable. (Which was tricky anyway - relying on the exact number and order of items in the original array.)
 
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

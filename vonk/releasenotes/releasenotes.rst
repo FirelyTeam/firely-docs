@@ -90,7 +90,9 @@ Fix
 #. A SearchParameter of type token did not work on an element of type string, e.g. CodeSystem.version.
 #. Search with POST was broken.
 #. If a long running task is active (responsecode 423, see :ref:`conformance_import` and :ref:`feature_customsp_reindex`), the OperationOutcome reporting that will now hide issues stating that all the arguments were not supported (since that is not the cause of the error).
-#. Overriding an array in the settings was hard - it would still inherit part of the base setting if the base array was longer. We changed this: an array will always overwrite the complete base array. See :ref:`configure_levels`.
+#. Overriding an array in the settings was hard - it would still inherit part of the base setting if the base array was longer. 
+   We changed this: an array will always overwrite the complete base array.
+   Note that this may trick you if you currently override a single array element with an environment variable. See :ref:`configure_levels`.
 #. The element ``meta.source`` cannot be changed on subsequent updates to a resource (R4 specific)
 #. SearchParameter ``StructureDefinition.ext-context`` yielded many errors in the log because the definition of the fhirpath in the specification is not correct. We provided a corrected version in errataFhir40.zip (see :ref:`feature_errata`).
 #. :ref:`disable_interactions` was not evaluated for custom operations.
