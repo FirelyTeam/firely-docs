@@ -7,6 +7,12 @@ Vonk supports most of the features in the `FHIR RESTful API <http://www.hl7.org/
 
 .. _restful_crud:
 
+FHIR Versions
+-------------
+
+All the operations below can be called for FHIR STU3 or FHIR R4. Vonk supports the fhirVersion mimetype parameter for that purpose. 
+See :ref:`feature_multiversion` for more information.
+
 Create, read, update, delete
 ----------------------------
 
@@ -116,21 +122,21 @@ Limitations on history
 Batch
 -----
 
-Batch is fully supported. Although the specification does not allow references between resources in a Batch, Vonk can handle them.
+Batch is fully supported.
 
-You can limit the number of entries accepted in a single Transaction. See :ref:`batch_options`.
+You can limit the number of entries accepted in a single batch. See :ref:`batch_options`.
 
 .. _restful_transaction:
 
 Transaction
 -----------
 
-Transactions are supported, with a single limitation:
+Transactions are supported, with these limitations:
 
-#. Of the three storage implementations, only SQL Server truly supports transactions. On :ref:`MongoDB<configure_mongodb>` and :ref:`Memory<configure_memory>`, transaction support can be simulated at the FHIR level, but not be enforced on the database level.
+#. Of the three storage implementations, only SQL Server and SQLite truly support transactions. On :ref:`MongoDB<configure_mongodb>` and :ref:`Memory<configure_memory>`, transaction support can be simulated at the FHIR level, but not be enforced on the database level.
 #. References between resources in the transaction can point backwards or forwards. Only circular references are not supported. 
 
-You can limit the number of entries accepted in a single Transaction. See :ref:`batch_options`.
+You can limit the number of entries accepted in a single transaction. See :ref:`batch_options`.
 
 .. _restful_capabilities:
 
