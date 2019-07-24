@@ -19,7 +19,7 @@ No matter which method you use, all Conformance resources are persisted in the A
 
 .. attention::
    
-   Please be aware that Conformance Resources have to have a **unique canonical url**, in their url element. Vonk does not allow you to POST two conformance resources with the same canonical url.
+   Please be aware that Conformance Resources have to have a **unique canonical url** within the FHIR Version they are loaded, in their url element. Vonk does not allow you to POST two conformance resources with the same canonical url.
    For SearchParameter resources, the combination of base and code must be unique.
 
 .. attention::
@@ -29,6 +29,10 @@ No matter which method you use, all Conformance resources are persisted in the A
    Before you delete a SearchParameter, be sure to remove it from the index first, see the ``exclude`` parameter in :ref:`re-index <feature_customsp_reindex>`.
 
    Changes to the other types of resources have immediate effect.
+
+.. attention::
+
+   A StructureDefinition can only be posted in the context of a FHIR Version that matches the StructureDefinition.fhirVersion. See :ref:`feature_multiversion`. 
 
 .. toctree::
    :maxdepth: 3
@@ -50,12 +54,14 @@ The process uses these locations on disk:
 
    Please make sure that the Vonk process has write permission on the ImportedDirectory.
 
-The process follows these steps:
+The process follows these steps for each FHIR version (currently STU3 and R4)
 
 #. Load the :ref:`conformance_specification_zip`, if they have not been loaded before.
 #. Load the :ref:`feature_errata`, if they have not been loaded before.
-#. :ref:`conformance_fromdisk`. After reading, the read files are registered in the read history.
-#. :ref:`conformance_fromsimplifier`. After reading, the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
+#. And then, currently just for STU3:
+  
+   #. :ref:`conformance_fromdisk`. After reading, the read files are registered in the read history.
+   #. :ref:`conformance_fromsimplifier`. After reading, the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
 
 Loading the conformance resources from the various sources can take some time, 
 especially on first startup when the :ref:`conformance_specification_zip` have to be imported.

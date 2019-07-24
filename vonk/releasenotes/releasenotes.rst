@@ -10,6 +10,147 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_300-beta1:
+
+Release 3.0.0-beta1
+--------------------
+
+Vonk 3.0.0 is a major upgrade that incorporates handling FHIR R4. This runs in the same server core as FHIR STU3. See :ref:`feature_multiversion` for background info.
+
+.. attention::
+
+   If you have overridden the PipelineOptions in your own settings, you should review the new additions to it in the appsettings.default.json.
+   In particular we added ``Vonk.Fhir.R4`` that is needed to support FHIR R4.
+
+.. attention::
+
+   MacOS: you may need to clean your temp folder from previous specification.zip expansions. Find the location of the temp folder by running ``echo $TMPDIR``.
+
+Database
+^^^^^^^^
+
+#. SQL Server, SQLite: 
+
+   #. vonk.entry got a new column 'InformationModel', set to 'Fhir3.0' for existing resources.
+   #. vonk.ref got a new column 'Version'. 
+   #. Database indexes have been updated accordingly.
+
+   Vonk will automatically update both the Administration and the Data databases when you run Vonk 3.0.0.
+
+#. MongoDb / CosmosDb: 
+
+   #. The documents in the vonkentries collection got a new element im (for InformationModel), set to 'Fhir3.0' for existing resources. 
+   #. The documents in the vonkentries collection got a new element ref.ver (for Version). 
+   #. Database indexes have been updated accordingly. 
+
+#. MongoDb / CosmosDb: Got a light mechanism of applying changes to the document structure. A single document is added to the collection for that, containing ``VonkVersion`` and ``LatestMigration``.
+#. MongoDb: The default name for the main database was changed from 'vonkstu3' to 'vonkdata'. 
+   If you want to continue using an existing 'vonkstu3' database, override ``MongoDbOption:DatabaseName``, see :ref:`configure_levels`.
+
+Feature
+^^^^^^^
+
+#. Support for FHIR R4 next to FHIR STU3. Vonk will choose the correct handling based on the fhirVersion parameter in the mimetype. 
+   The mimetype is read from the Accept header and (for POST/PUT) the Content-Type header. See :ref:`feature_multiversion` for background info.
+#. Upgrade to HL7.Fhir.Net API 1.3, see its :ref:`releasenotes <api_releasenotes_1.3.0>`.
+#. Administration API imports both STU3 and R4 conformance resources, see :ref:`conformance`
+
+   #. Note: :ref:`Terminology operations <feature_terminology>` are still only available for STU3.
+   #. Note: :ref:`Subscriptions <feature_subscription>` are still only available for STU3.
+
+#. Conditional delete on the Administration API. It works just as on the root, see :ref:`restful_crud`.
+#. Defining a custom SearchParameter on a :ref:`Custom ResourceType <feature_customresources>` is now possible.
+#. Canonical uris are now recognized when searching on references (`specification <http://www.hl7.org/implement/standards/fhir/search.html#versions>`_)
+#. Vonk calls ``UseIISIntegration`` for better integration with IIS (if present).
+
+Fix
+^^^
+
+#. In the settings, PipelineOptions.Branch.Path for the root had to be ``/``. Now you can choose your own base (like e.g. ``/fhir``)
+#. $meta:
+   
+   #. enabled on history endpoint (e.g. ``/Patient/123/_history/v1``)
+   #. disabled on type and system level
+   #. returned empty Parameters resource if resource had no ``meta.profile``, now returns the resources ``meta`` element.
+   #. when called on a non-existing resource, returns 404 (was: empty Parameters resource)
+   #. added to the CapabilityStatement
+
+#. History on non-existing resource returned OperationOutcome instead of 404.
+#. The setting for SupportedInteractions was not enforced for custom operations.
+#. CapabilityStatement.name is updated from ``Vonk beta conformance`` to ``Vonk FHIR Server <version> CapabilityStatement``.
+#. :ref:`feature_terminology`:
+
+   #. $lookup did not work on GET /CodeSystem
+   #. $lookup did not support the ``coding`` parameter
+   #. $expand did not fill in the expansion element.
+   #. Operations were not listed in the CapabilityStatement.
+   #. Namespace changed to Vonk.Plugins.Terminology, and adjusted accordingly in the default PipelineOptions.
+
+#. A SearchParameter of type token did not work on an element of type string, e.g. CodeSystem.version.
+#. Search with POST was broken.
+#. If a long running task is active (responsecode 423, see :ref:`conformance_import` and :ref:`feature_customsp_reindex`), the OperationOutcome reporting that will now hide issues stating that all the arguments were not supported (since that is not the cause of the error).
+#. Overriding an array in the settings was hard - it would still inherit part of the base setting if the base array was longer. 
+   We changed this: an array will always overwrite the complete base array.
+   Note that this may trick you if you currently override a single array element with an environment variable. See :ref:`configure_levels`.
+#. The element ``meta.source`` cannot be changed on subsequent updates to a resource (R4 specific)
+#. SearchParameter ``StructureDefinition.ext-context`` yielded many errors in the log because the definition of the fhirpath in the specification is not correct. We provided a corrected version in errataFhir40.zip (see :ref:`feature_errata`).
+#. :ref:`disable_interactions` was not evaluated for custom operations.
+#. Delete of an instance accepted searchparameters on the url.
+#. Transactions: references to other resources in the transaction were not updated if the resource being referenced was in the transaction as an update (PUT).
+   (this error was introduced in 2.0.0).
+
+Plugin and Facade API
+^^^^^^^^^^^^^^^^^^^^^
+
+#. A new NuGet package is introduced: Vonk.Fhir.R4.
+#. ``VonkConstants`` moved to the namespace ``Vonk.Core.Common`` (was: ``Vonk.Core.Context``)
+#. ``IResource.Navigator`` element is removed (was already obsolete). Instead: Turn it into an ``ITypedElement`` and use that for navigation with FhirPath.
+#. ``InformationModel`` element is added to 
+   
+   #. ``IResource``: the model in which the resource is defined (``VonkConstants.Model.FhirR3`` or ``VonkConstants.Model.FhirR4``)
+   #. ``IVonkContext``: the model that was specified in the Accept header
+   #. ``IModelService``: the model for which this service is valid (implementations are available for R3 and R4)
+   #. ``VonkInteraction`` attribute: to allow you to specify that an operation is only valid for a specific FHIR version.
+      This can also be done in the fluent interface with the new method ``AndInformationModel``. See :ref:`components_interactionhandler`
+
+#. Dependency injection: if there are implementations of an interface for R3 and R4, the dependency injection in Vonk will automatically inject the correct one based on the InformationModel in the request.
+#. ``FhirPropertyIndexBuilder`` is moved to Vonk.Fhir.R3 (and was already marked obsolete - avoid using it)
+#. Implementations of the following that are heavily dependent upon version specific Hl7.Fhir libraries have been implemented in both Vonk.Fhir.R3 and Vonk.Fhir.R4. 
+
+   #. ``IModelService``
+   #. ``IStructureDefinitionSummaryProvider`` (to add type information to an ``IResource`` and turn it into an ``ITypedElement``)
+   #. ``ValidationService``
+
+#. ``IConformanceContributor`` is changed to ``ICapabilityStatementContributor``. The methods on it have changed slightly as well because internally they now work on a version-independent model. Please review your IConformanceContributor implementations.
+
+Examples
+^^^^^^^^
+
+#. Document plugin: 
+   
+   #. `Document Bundle does not contain an identifier <https://github.com/FirelyTeam/Vonk.Plugin.DocumentOperation/issues/27>`_
+   #. `Missing unit test for custom resources <https://github.com/FirelyTeam/Vonk.Plugin.DocumentOperation/issues/29>`_
+   #. Upgraded to Vonk 2.0.0 libraries (no, not yet 3.0.0-beta1)
+
+#. Facade example
+
+   #. Added support for searching directly on a reference from Observation to Patient (e.g. ``/Observation?patient=Patient/3``).
+   #. Fixed support for _revinclude of Observation on Patient (e.g. ``/Patient?_revinclude:Observation:subject:Patient``).
+   #. Upgraded to Vonk 2.0.0 libraries (no, not yet 3.0.0-beta1)
+
+#. Plugin example
+
+   #. Added examples for pre- and post handlers.
+
+Known to-dos
+^^^^^^^^^^^^
+
+#. :ref:`feature_customsp_reindex`: does not work for R4 yet.
+#. :ref:`feature_preload`: does not work for R4 yet.
+#. :ref:`feature_subscription`: do not work for R4 yet.
+#. :ref:`feature_terminology`: operations do not work for R4.
+#. During :ref:`conformance_import`: Files in the import directory and Simplifier projects are only imported for R3.
+
 .. _vonk_releasenotes_201:
 
 Release 2.0.1 hotfix
