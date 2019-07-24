@@ -47,7 +47,6 @@ If you allow for multiple deletes, you have to specify a maximum number of resou
 Limitations on CRUD
 ^^^^^^^^^^^^^^^^^^^
 
-#. ``_summary`` is not yet supported.
 #. Simultaneous conditional creates and updates are not entirely transactionally safe:
    
    * Two conditional updates may both result in a ``create``, although the result of one may be a match to the other.

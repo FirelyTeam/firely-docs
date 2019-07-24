@@ -2,6 +2,18 @@ Projects
 ^^^^^^^^^^^^^^^^^^^
 Simplifier organizes all content (e.g. resources and Implementation Guides) in projects. A project can be used to share all your FHIR resources and documentation with the community as well as to collaborate with other project members.
 
+Open your project
+"""""""""""""""""
+For an overview of your projects, go to your `personal portal <simplifierPersonalContent.html>`_ by clicking on your avatar in the top right corner.
+
+.. image:: ./images/UserMenu.PNG 
+
+The Projects tabs lists all projects you are involved in, either because you created the project yourself (making you the owner of the project) or because you are invited to the project as a project member.
+
+.. image:: ./images/PersonalPortal.PNG
+
+Click on the title of a project to open its project page.
+
 Project page
 """"""""""""
 Each project contains a couple of tabs depending on the settings of the project and your role in the project. The tabs described below are visible for each user in each Simplifier project.
