@@ -400,6 +400,7 @@ are used for your Vonk server, by changing the ``PipelineOptions``.
         "Include": [
           "Vonk.Core",
           "Vonk.Fhir.R3",
+          "Vonk.Fhir.R4",
           // etc.
         ],
         "Exclude": [
@@ -410,6 +411,7 @@ are used for your Vonk server, by changing the ``PipelineOptions``.
         "Include": [
           "Vonk.Core",
           "Vonk.Fhir.R3",
+          "Vonk.Fhir.R4",
           // etc.
         ],
         "Exclude": [

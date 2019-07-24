@@ -44,6 +44,12 @@ IResource
         string Version { get; }
 
         /// <summary>
+        /// Model that the resource was defined in. 
+        /// Common models are the different versions of FHIR, defined in <see cref="VonkConstants.Model"/>
+        /// </summary>
+        string InformationModel { get; }
+
+        /// <summary>
         /// When was the resource last updated?
         /// Refers to Resource.meta.lastUpdated.
         /// IResource is immutable, so to update this, use resourceWithNewLastUpdated = this.SetLastUpdated(DateTimeOffset) from IResourceExtensions.

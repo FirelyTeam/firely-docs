@@ -9,7 +9,13 @@ Requests
 --------
 
 The FHIR Specification explains the mimetype parameter that distinguishes one FHIR version from another in the paragraph on the `FHIR Version parameter <http://hl7.org/fhir/R4/http.html#version-parameter>`_.
-Vonk uses this approach to let you choose the model for your request.
+Vonk uses this approach to let you choose the model for your request. Below are examples on how to use the fhirVersion parameter and how in influences the behaviour of Vonk. 
+Accepted values for the parameter are:
+
+* fhirVersion=3.0, for FHIR STU3
+* fhirVersion=4.0, for FHIR R4
+
+The examples below explain the behaviour with STU3, but if you replace fhirVersion with 4.0, it works exactly the same on R4. 
 
 .. note:: 
    If you do not specify a fhirVersion parameter, Vonk will use fhirVersion=3.0 (STU3) as a default. This way the behaviour is compatible with previous versions of Vonk
@@ -17,6 +23,14 @@ Vonk uses this approach to let you choose the model for your request.
 
       GET <base>/Patient
       Accept=application/fhir+json; fhirVersion=3.0
+
+.. note:: 
+   If you use both an Accept header and a Content-Type header, the fhirVersion parameter for both must be the same. So this would be *invalid*
+   ::
+
+      POST <base>/Patient
+      Accept=application/fhir+json; fhirVersion=3.0
+      Content-Type=application/fhir+json; fhirVersion=4.0
 
 Search for all Patients in STU3. In Vonk this means Patient resources that were also stored as STU3. There is no automatic conversion of resources that were stored as R4 to the STU3 format (or vice versa).::
 

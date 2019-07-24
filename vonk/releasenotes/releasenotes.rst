@@ -29,10 +29,9 @@ Vonk 3.0.0 is a major upgrade that incorporates handling FHIR R4. This runs in t
 Database
 ^^^^^^^^
 
-#. All databases: got a new field 'InformationModel'
 #. SQL Server, SQLite: 
 
-   #. vonk.entry got a new column 'InformationModel'.
+   #. vonk.entry got a new column 'InformationModel', set to 'Fhir3.0' for existing resources.
    #. vonk.ref got a new column 'Version'. 
    #. Database indexes have been updated accordingly.
 
@@ -40,7 +39,7 @@ Database
 
 #. MongoDb / CosmosDb: 
 
-   #. The documents in the vonkentries collection got a new element im (for InformationModel). 
+   #. The documents in the vonkentries collection got a new element im (for InformationModel), set to 'Fhir3.0' for existing resources. 
    #. The documents in the vonkentries collection got a new element ref.ver (for Version). 
    #. Database indexes have been updated accordingly. 
 
