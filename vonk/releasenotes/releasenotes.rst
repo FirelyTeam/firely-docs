@@ -151,6 +151,28 @@ Known to-dos
 #. :ref:`feature_terminology`: operations do not work for R4.
 #. During :ref:`conformance_import`: Files in the import directory and Simplifier projects are only imported for R3.
 
+.. _vonk_releasenotes_210:
+
+Release 2.1.0
+--------------------
+
+Database
+^^^^^^^^
+
+#. SQL Server: Improved concurrent throughput.
+
+Features
+^^^^^^^^
+
+#. Upgrade to HL7.Fhir.Net API 1.3, see its :ref:`releasenotes <api_releasenotes_1.3.0>`.
+#. Vonk calls ``UseIISIntegration`` for better integration with IIS (if present).
+
+Fix
+^^^
+
+#. Transactions: references to other resources in the transaction were not updated if the resource being referenced was in the transaction as an update (PUT).
+   (this error was introduced in 2.0.0).
+
 .. _vonk_releasenotes_201:
 
 Release 2.0.1 hotfix
@@ -159,7 +181,7 @@ Release 2.0.1 hotfix
 Fix
 ^^^
 
-* Supported Interactions were not checked for custom operations. In the `appsettings.json` the custom operations, like $meta, were ignored. This has been fixed now.
+#. Supported Interactions were not checked for custom operations. In the `appsettings.json` the custom operations, like $meta, were ignored. This has been fixed now.
 
 .. _vonk_releasenotes_200:
 
