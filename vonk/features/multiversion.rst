@@ -18,11 +18,7 @@ Accepted values for the parameter are:
 The examples below explain the behaviour with STU3, but if you replace fhirVersion with 4.0, it works exactly the same on R4. 
 
 .. note:: 
-   If you do not specify a fhirVersion parameter, Vonk will use fhirVersion=3.0 (STU3) as a default. This way the behaviour is compatible with previous versions of Vonk
-   ::
-
-      GET <base>/Patient
-      Accept=application/fhir+json; fhirVersion=3.0
+   If you do not specify a fhirVersion parameter, Vonk will use fhirVersion=3.0 (STU3) as a default. This way the behaviour is compatible with previous versions of Vonk.
 
 .. note:: 
    If you use both an Accept header and a Content-Type header, the fhirVersion parameter for both must be the same. So this would be *invalid*
@@ -34,10 +30,15 @@ The examples below explain the behaviour with STU3, but if you replace fhirVersi
 
 Search for all Patients in STU3. In Vonk this means Patient resources that were also stored as STU3. There is no automatic conversion of resources that were stored as R4 to the STU3 format (or vice versa).::
 
+      GET <base>/Patient
+      Accept=application/fhir+json; fhirVersion=3.0
+
+Search for Patients with the name 'Fred' in STU3. The searchparameters used in the query must be valid in STU3.::
+
    GET <base>/Patient?name=Fred
    Accept=application/fhir+json; fhirVersion=3.0
 
-Search for Patients with the name 'Fred' in STU3. The searchparameters used in the query must be valid in STU3.::
+Create a Patient resource in STU3. This will only be retrievable when accessed with STU3.::
 
    POST <base>/Patient
    Content-Type=application/fhir+json; fhirVersion=3.0
@@ -45,15 +46,13 @@ Search for Patients with the name 'Fred' in STU3. The searchparameters used in t
 
    {<valid Patient JSON body>}
 
-Create a Patient resource in STU3. This will only be retrievable when accessed with STU3.::
+Update a Patient resource in STU3.::
 
    PUT <base>/Patient/123
    Content-Type=application/fhir+json; fhirVersion=3.0
    Accept=application/fhir+json; fhirVersion=3.0
 
    {<valid Patient JSON body with id: 123>}
-
-Update a Patient resource in STU3.
 
 #. If no resource with this id existed before: it will be created with this id. (This was already always the behaviour of Vonk.)
 #. If a resource with this id existed before, in STU3: update it.
