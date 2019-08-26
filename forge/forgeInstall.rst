@@ -19,7 +19,7 @@ Running on Linux
 The .NET Framework and WPF support only the Windows operating system. However, it is possible to run Forge on Linux using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on Linux, here are the steps to get you started:
 
 
-#. Download and install the latest version of `Wine <https://wiki.winehq.org/Download>`_ (4.0.1).  
+#. Download and install the latest version of `Wine <https://wiki.winehq.org/Download>`_ (4.0.2).  
 
 #. Install winetricks: ::
 
