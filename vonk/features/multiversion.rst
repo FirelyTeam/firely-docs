@@ -21,24 +21,24 @@ The examples below explain the behaviour with STU3, but if you replace fhirVersi
    If you do not specify a fhirVersion parameter, Vonk will use fhirVersion=3.0 (STU3) as a default. This way the behaviour is compatible with previous versions of Vonk.
 
 .. note:: 
-   If you use both an Accept header and a Content-Type header, the fhirVersion parameter for both must be the same. So this would be *invalid*
+   If you use both an Accept header and a Content-Type header, the fhirVersion parameter for both must be the same. So this would be *invalid*:
    ::
 
       POST <base>/Patient
       Accept=application/fhir+json; fhirVersion=3.0
       Content-Type=application/fhir+json; fhirVersion=4.0
 
-Search for all Patients in STU3. In Vonk this means Patient resources that were also stored as STU3. There is no automatic conversion of resources that were stored as R4 to the STU3 format (or vice versa).::
+Search for all Patients in STU3. In Vonk this means Patient resources that were also stored as STU3. There is no automatic conversion of resources that were stored as R4 to the STU3 format (or vice versa). ::
 
       GET <base>/Patient
       Accept=application/fhir+json; fhirVersion=3.0
 
-Search for Patients with the name 'Fred' in STU3. The searchparameters used in the query must be valid in STU3.::
+Search for Patients with the name 'Fred' in STU3. The search parameters used in the query must be valid in STU3. ::
 
    GET <base>/Patient?name=Fred
    Accept=application/fhir+json; fhirVersion=3.0
 
-Create a Patient resource in STU3. This will only be retrievable when accessed with STU3.::
+Create a Patient resource in STU3. This will only be retrievable when accessed with STU3: ::
 
    POST <base>/Patient
    Content-Type=application/fhir+json; fhirVersion=3.0
