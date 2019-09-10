@@ -6,7 +6,7 @@ In this step you will start mapping the existing database model to FHIR resource
 Reverse engineer the database model
 -----------------------------------
 
-To use EF Core, install the package for the database provider(s) you want to target. This walkthrough uses SQL Server. For a list of
+To use `EF Core <https://docs.microsoft.com/en-us/ef/core/>`_, install the package for the database provider(s) you want to target. This walkthrough uses SQL Server. For a list of
 available providers see Database Providers.
 
 * Tools > NuGet Package Manager > Package Manager Console
