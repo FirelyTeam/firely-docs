@@ -53,6 +53,10 @@ Limitations on CRUD
    * Two conditional creates may both succeed, although the result of one may be a match to the other.
    * A conditional create and a simultaneous conditional update may both result in a ``create``, although the result of one may be a match to the other.
 
+#. Parameter ``_pretty`` is not yet supported.
+#. A Conditional update still implements STU3 behaviour when one match is found and an id is provided. It ignores that id. 
+   R4 specifies that if the provided id and the id in the matching resource do not match, the server should return an error.
+
 .. _restful_versioning:
 
 Versioning
@@ -94,6 +98,7 @@ The following parameters and options are not yet supported:
 #. ``:above`` on a uri SearchParameter (``:below`` *is* supported)
 #. ``:recurse`` modifier on ``_include`` and ``_revinclude``
 #. ``*`` wildcard on ``_include`` and ``_revinclude``
+#. ``_pretty``
 
 Furthermore:
 
@@ -153,3 +158,6 @@ Not supported interactions
 These interactions are not yet supported by Vonk:
 
 #. patch
+#. HEAD
+
+Besides that, Vonk does not yet return the ``date`` header as specified in `HTTP return values <http://hl7.org/fhir/R4/http.html#return>`_
