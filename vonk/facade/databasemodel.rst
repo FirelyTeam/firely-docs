@@ -87,7 +87,7 @@ Create your first mapping
      {
          Id = source.Id.ToString(),
          BirthDate = source.DateOfBirth.ToFhirDate()
-     }
+     };
      patient.Identifier.Add(new Identifier("http://mycompany.org/patientnumber",
                                            source.PatientNumber));
      // etc.
