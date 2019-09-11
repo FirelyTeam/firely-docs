@@ -22,12 +22,14 @@ Now it's time to create the EF model based on your existing database.
 * Run the following command to create a model from the existing database. Adjust the Data source to your instance of SQL Server. If you receive an error stating The term 'Scaffold-DbContext' is not recognized as the name of a cmdlet, then close and reopen Visual Studio.::
 
     Scaffold-DbContext "MultipleActiveResultSets=true;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=ViSi;Data Source=localhost" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
-
     //For localdb: Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=ViSi;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
     //For SQLEXPRESS: Scaffold-DBContext "Data Source=(local)\SQLEXPRESS;Initial Catalog=ViSi;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+    
+You can also generate the scaffolding using the `EF CLI tools <https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet>`_ which are crossplatform: ::
 
+    dotnet ef dbcontext scaffold "MultipleActiveResultSets=true;Server=tcp:.;User ID=SA;Password=<enter your password here>;Connect Timeout=5;Integrated Security=false;Persist Security Info=False;Initial Catalog=ViSi;Data Source=localhost" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
 
-The reverse engineer process created entity classes (Patient.cs & BloodPressure.cs) and a derived context (ViSiContext.cs) based on the schema of the existing database.
+The reverse engineer process creates entity classes (Patient.cs & BloodPressure.cs) and a derived context (ViSiContext.cs) based on the schema of the existing database.
 
 The entity classes are simple C# objects that represent the data you will be querying and saving. Later on you will use these classes to define your queries on and to map the resources from.
 
