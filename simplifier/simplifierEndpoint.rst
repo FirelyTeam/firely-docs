@@ -54,7 +54,7 @@ Downloading or uploading your project works with a GET or a PUT at https://api.s
 
 Simplifier FHIR API
 """""""""""""""""""
-Using the global Simplifier FHIR API, users can search for all resources in Simplifier. For example, the request ``GET https//stu3.simplifier.net/open/Patient`` can be used to retrieve all (STU3) Patient resources from Simplifier. The global Simplifier endpoint of your resource is available at the resource page beneath the API icon. All resources have a globally unique GUID.
+Using the global Simplifier FHIR API, users can search for all resources in Simplifier. For example, the request ``GET https://stu3.simplifier.net/open/Patient`` can be used to retrieve all (STU3) Patient resources from Simplifier. The global Simplifier endpoint of your resource is available at the resource page beneath the API icon. All resources have a globally unique GUID.
 
 .. image:: ./images/ResourceGlobalEndpoint.PNG
 
