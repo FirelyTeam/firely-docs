@@ -78,6 +78,6 @@ Limitation
 -----------
 
 #. The mode parameter is not yet supported.
-#. Implicit ValueSets from a CodeSystem are not supported - create explicit ones instead.
+#. Implicit ValueSets (ones that use the .filter property) are not supported - create explicit ones instead (without the .filter property).
 
 .. _`$validate`: http://www.hl7.org/implement/standards/fhir/resource-operations.html#validate
