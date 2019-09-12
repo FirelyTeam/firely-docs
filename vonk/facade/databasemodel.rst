@@ -27,7 +27,7 @@ Now it's time to create the EF model based on your existing database.
     
 You can also generate the scaffolding using the `EF CLI tools <https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet>`_ which are crossplatform: ::
 
-    dotnet ef dbcontext scaffold "MultipleActiveResultSets=true;Server=tcp:.;User ID=SA;Password=<enter your password here>;Connect Timeout=5;Integrated Security=false;Persist Security Info=False;Initial Catalog=ViSi;Data Source=localhost" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
+    dotnet ef dbcontext scaffold "User ID=SA;Password=<enter your password here>;MultipleActiveResultSets=true;Server=tcp:.;Connect Timeout=5;Integrated Security=false;Persist Security Info=False;Initial Catalog=ViSi;Data Source=localhost" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
 
 The reverse engineer process creates entity classes (Patient.cs & BloodPressure.cs) and a derived context (ViSiContext.cs) based on the schema of the existing database.
 
