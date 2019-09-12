@@ -9,7 +9,7 @@ The Vonk.Facade.Relational package has an abstract implementation of it that you
 This implementation assumes that you can support searching for exactly one ResourceType at a time.
 The gist of the implementation is to switch the querying based on the ResourceType. The querying itself then looks pretty much the same for every type of resource.
 
-* Add the new class ViSiRepository to the project::
+* Add the new class ViSiRepository to the root of the project::
 
     public class ViSiRepository : SearchRepository
 
