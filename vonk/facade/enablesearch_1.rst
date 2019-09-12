@@ -57,7 +57,7 @@ Each of the searchparameters in the search request triggers a call to the ``Filt
 ``parameterName`` and ``IFilterValue`` as its arguments.
 
 The ``parameterName`` is the searchparameter as it was used in the search url. This name corresponds with the code field in a `SearchParameter <https://www.hl7.org/fhir/searchparameter.html>`_ resource.
-The ``IFilterValue value`` is one of 10 possible implementations, one for each type of SearchParameter. See :ref:`parameter_types`
+The ``IFilterValue value`` is one of 10 possible implementations, one for `each type of SearchParameter <http://hl7.org/fhir/search.html#ptypes>`_. See :ref:`parameter_types`
 for a short description of these possibilities.
 
 By default the ``Filter`` method dispatches the call to a suitable overload of ``AddValueFilter``, based on the actual type of the ``value`` parameter.
@@ -101,8 +101,7 @@ IFilterValue implementations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are 10 possible implementations you can use as value for the IFilterValue parameter in the Query.
-The first 7 are the general search parameter types: StringValue, DateTimeValue, TokenValue, NumberValue,
-QuantityValue, UriValue and ReferenceValue.
+The first 7 are the `general search parameter types <http://hl7.org/fhir/search.html#ptypes>`_: StringValue, DateTimeValue, TokenValue, NumberValue, QuantityValue, UriValue and ReferenceValue.
 
 Besides that there are two special values for chaining and reverse chaining:
 ReferenceToValue and ReferenceFromValue.
