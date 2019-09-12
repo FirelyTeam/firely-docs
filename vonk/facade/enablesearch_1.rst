@@ -56,7 +56,7 @@ Handling the search request
 Each of the searchparameters in the search request triggers a call to the ``Filter`` method. This method takes a
 ``parameterName`` and ``IFilterValue`` as its arguments.
 
-The ``parametername`` is the searchparameter as it was used in the search url. This name corresponds with the code field in a SearchParameter resource.
+The ``parameterName`` is the searchparameter as it was used in the search url. This name corresponds with the code field in a SearchParameter resource.
 The ``IFilterValue value`` is one of 10 possible implementations, one for each type of SearchParameter. See :ref:`parameter_types`
 for a short description of these possibilities.
 
