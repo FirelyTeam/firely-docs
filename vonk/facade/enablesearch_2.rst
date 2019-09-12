@@ -13,7 +13,7 @@ The gist of the implementation is to switch the querying based on the ResourceTy
 
     public class ViSiRepository : SearchRepository
 
-* You have to provide a constructor that gets a QueryBuilderContext. We'll get to that later.
+* You have to provide a constructor that gets a QueryContext. We'll get to that later.
   Apart from that you will need your DbContext (ViSiContext) to query on, and the ResourceMapper to perform the mapping of the results.
   So put all of that in the constructor:
 
