@@ -32,7 +32,7 @@ In this exercise we start with resource type Patient, and will create a ``Patien
 Because PatientQuery has no specific content of its own, we will include both in one file.
 
 * Add a new class ``PatientQueryFactory`` to the root of the project
-* Add using statements for ``Vonk.Facade.Relational`` and for ``<your project>.Models``
+* Add using statements for ``Vonk.Facade.Relational``, ``Microsoft.EntityFrameworkCore``, and ``<your project>.Models``
 * Above the actual ``PatientQueryFactory`` class insert the ``PatientQuery`` class::
 
     public class PatientQuery: RelationalQuery<ViSiPatient>
