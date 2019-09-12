@@ -25,8 +25,7 @@ Because this is a quite common case, Vonk provides a basis for it in the package
 Adding classes for the query
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You usually create a query-type per ResourceType. The Query object is used to capture the elements of the search that are provided to the QueryFactory.
-For each query-type you will need a QueryFactory.
+You usually create a query class per ResourceType. The Query object is used to capture the elements of the search that are provided to the QueryFactory.
 
 In this exercise we start with resource type Patient, and will create a ``PatientQuery`` and ``PatientQueryFactory`` class.
 Because PatientQuery has no specific content of its own, we will include both in one file.
