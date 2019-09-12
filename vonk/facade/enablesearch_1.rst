@@ -63,7 +63,7 @@ for a short description of these possibilities.
 By default the ``Filter`` method dispatches the call to a suitable overload of ``AddValueFilter``, based on the actual type of the ``value`` parameter.
 It is up to you to override the ones you support any parameters for.
 
-* Override the method ``PatientQuery AddValueFilter(string parameterName, TokenValue value)`` to implement support for the ``_id`` parameter, which
+* Override the method ``PatientQuery AddValueFilter(string parameterName, TokenValue value)`` in the ``PatientQueryFactory`` class to implement support for the ``_id`` parameter, which
   is a token type parameter.
 
   The ``_id`` parameter must be matched against the ViSiPatient.Id property. So we have to:
