@@ -75,7 +75,7 @@ the order of inclusion, and adds to the services. For background information, se
 
     "SupportedModel": {
       "RestrictToResources": [ "Patient" ],
-      "RestrictToSearchParameters": ["Resource._id"]
+      "RestrictToSearchParameters": ["Resource._id", "StructureDefinition.url"]
     },
 
 * You will need to add your repository to the Vonk pipeline, and remove the existing repository implementations.
