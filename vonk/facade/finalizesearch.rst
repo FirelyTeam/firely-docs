@@ -67,7 +67,7 @@ the order of inclusion, and adds to the services. For background information, se
     "SupportedInteractions": {
         "InstanceLevelInteractions": "read",
         "TypeLevelInteractions": "search",
-        "WholeSystemInteractions": "capabilities, search"
+        "WholeSystemInteractions": "capabilities"
     },
 
 * Add the ``SupportedModel`` section to indicate which resource types and search parameters you support in your Facade
