@@ -74,7 +74,7 @@ the order of inclusion, and adds to the services. For background information, se
   implementation::
 
     "SupportedModel": {
-      "RestrictToResources": [ "Patient" ]
+      "RestrictToResources": [ "Patient" ],
       "RestrictToSearchParameters": ["Resource._id"]
     },
 
