@@ -4,7 +4,7 @@ Finalizing search
 In the previous steps you have created search support for the _id parameter on a Patient resource type.
 In order to test if your Facade implementation works correctly, you will need to perform a couple of steps:
 
-#. Create a configuration class for the ASP .Net Core pipeline
+#. Create a configuration class for the `ASP .Net Core pipeline <https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-2.2>`_
 #. Plug the Facade into the Vonk Server
 #. Configure the Vonk Server to use your repository
 
