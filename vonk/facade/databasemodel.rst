@@ -76,7 +76,7 @@ Clean up generated code
 Create your first mapping
 -------------------------
 
-#. Add a new class ``ResourceMapper`` to the project
+#. Add a new ``public`` class ``ResourceMapper`` to the project
 #. Add usings for ``Vonk.Core.Common``, for ``Hl7.Fhir.Model``, for ``Hl7.Fhir.Support`` and for ``<your project>.Models``
 #. Add a method to the class ``public IResource MapPatient(ViSiPatient source)``
 #. In this method, put code to create a FHIR Patient object, and fill its elements with data from the ViSiPatient:
