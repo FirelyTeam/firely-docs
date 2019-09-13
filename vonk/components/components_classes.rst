@@ -246,7 +246,7 @@ IArgumentCollection, IArgument
 The ``IVonkContext.Arguments`` property contains all the arguments from the request, from the various places:
 
 #. The path segments: /Patient/123/_history/v1 will translate to three arguments, _type, _id and _version.
-#. The query parameters: ?name=Fred&active=true will translate to two arguments, identifier and active.
+#. The query parameters: ?name=Fred&active=true will translate to two arguments, name and active.
 #. The headers: 
    
    #.   If-None-Exists = identifier=abc&active=true will translate to two arguments, identifier and active.   
