@@ -8,7 +8,7 @@ September 2019
 
 Updates regarding previous Security Advisories:
 
-   * Please upgrade the ASP.NET Core runtime to at least version 2.2.7, from `https://dotnet.microsoft.com/download#/runtime/`_. 
+   * Please upgrade the ASP.NET Core runtime to at least version 2.2.7, from the `runtimes download page <https://dotnet.microsoft.com/download#/runtime/>`_. 
      This solves:
 
         * `#334 <https://github.com/aspnet/Announcements/issues/334>`_
