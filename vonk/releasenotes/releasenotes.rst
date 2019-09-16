@@ -32,7 +32,7 @@ Feature
 #. :ref:`feature_customsp_reindex` works for R4 also. Issue a reindex with a fhirVersion parameter in the Accept header, and it will be executed for the SearchParameters defined for that FHIR version.
 #. Allow for non-hl7 prefixed canonical urls for conformance resources (since sdf-7 is lifted). See :ref:`feature_customresources`.
 #. Custom Resources can be validated, both individually and as part of a bundle. See :ref:`feature_customresources`.
-#. If the Accept header lacks a fhirVersion parameter, it will fall back to the fhirVersion parameter of the Content-Type header and vice versia.
+#. If the Accept header lacks a :ref:`fhirVersion parameter <feature_multiversion>`, it will fall back to the fhirVersion parameter of the Content-Type header and vice versa.
    If both are missing, Vonk will default to STU3.
 
 Fix
