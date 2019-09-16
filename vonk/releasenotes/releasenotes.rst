@@ -22,7 +22,7 @@ Release 3.0.0-beta2
 Database
 ^^^^^^^^
 
-Note the changes in :ref:`3.0.0-beta1 <vonk_releasenotes_300beta1>`, but there are no new changes in beta2.
+Note the changes in :ref:`3.0.0-beta1 <vonk_releasenotes_300-beta1>`, but there are no new changes in beta2.
 
 Feature
 ^^^^^^^
