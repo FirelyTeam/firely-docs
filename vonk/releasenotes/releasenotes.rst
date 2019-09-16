@@ -27,8 +27,8 @@ Note the changes in :ref:`3.0.0-beta1 <vonk_releasenotes_300beta1>`, but there a
 Feature
 ^^^^^^^
 
-#. Subscription works for R4 also. Note that a Subscription will only be activated for resource changes in the same FHIR version as the Subscription itself.
-#. Administration Import of files and directories works for R4 also. Use a directoryname that ends with ``.R4`` for R4 conformance resources.
+#. :ref:`feature_subscription` works for R4 also. Note that a Subscription will only be activated for resource changes in the same FHIR version as the Subscription itself.
+#. :ref:`conformance_fromdisk` works for R4 also. Use a directoryname that ends with ``.R4`` for R4 conformance resources.
 #. :ref:`feature_customsp_reindex` works for R4 also. Issue a reindex with a fhirVersion parameter in the Accept header, and it will be executed for the SearchParameters defined for that FHIR version.
 #. Allow for non-hl7 prefixed canonical urls for conformance resources (since sdf-7 is lifted). See :ref:`feature_customresources`.
 #. Custom Resources can be validated, both individually and as part of a bundle. See :ref:`feature_customresources`.

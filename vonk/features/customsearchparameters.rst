@@ -41,7 +41,7 @@ In short, both reindex operations below will:
 
 .. warning:: During the re-index operation, all other operations are blocked and responded to with response code '423 - Locked'.
 
-Reindesing and FHIR versions
+Reindexing and FHIR versions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Reindexing is also controlled by the fhirVersion parameter (see :ref:`feature_multiversion`) in the Accept header. It will then reindex only for SearchParameters and resources *in that FHIR version*.

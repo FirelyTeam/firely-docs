@@ -54,7 +54,7 @@ To test whether you can actually use the endpoint associated with your custom re
 Now use your favorite editor to create a resource that conforms to the Foo StructureDefinition. And then create it on Vonk: ``POST <base-url>/Foo``.
 
 All the operations on specification-defined resourcetypes are also available for custom resources. You can also use them in a batch or transaction bundle. 
-Custom Resources can also be validated. This implies that :ref:`feature_prevalidation` can be used in conjunction with Custom Resources.
+Custom Resources can also be validated. This also means that :ref:`feature_prevalidation` can be used in conjunction with Custom Resources.
 
 Search parameters on a custom resource
 --------------------------------------
