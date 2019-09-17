@@ -36,19 +36,6 @@ or with the ability to set break points in your code and debugging it:
 Now, whenever you click to start debugging, Vonk will start from your project and your project dll will be automatically
 built to the Vonk plugins directory.
 
-Disabling ApplicationInsights
------------------------------
-In case you have ApplicationInsights turning up in your ``Debug Console`` and it's not desired, you can restrict it to errors only in your ``logsettings.json`` (:ref:`configure_log`): ::
-
-      {
-        "Name": "ApplicationInsightsTraces",
-        "Args": {
-          "restrictedToMinimumLevel": "Error",
-          "instrumentationKey": "your-instrumentationkey"
-        }
-      }
-
-
 Next part of the exercise
 -------------------------
 You can proceed to the next section to add support for Observations as well.
