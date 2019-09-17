@@ -40,6 +40,11 @@ Clean up generated code
 
   * Patient => ViSiPatient
   * BloodPressure => ViSiBloodPressure
+  
+  In `ViSiContext.cs`, ensure that the EF objects mapping our class to the database table are correct: ::
+  
+        public virtual DbSet<ViSiBloodPressure> BloodPressure { get; set; }
+        public virtual DbSet<ViSiPatient> Patient { get; set; }
 
 * The Scaffold command puts your connectionstring in the ViSiContext class. That is not very configurable.
   Later in the exercise, we will add it as 'DbOptions' to the appsettings.instance.json file in :ref:`configure_facade`.
