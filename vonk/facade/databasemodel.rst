@@ -41,7 +41,7 @@ Clean up generated code
   * Patient => ViSiPatient
   * BloodPressure => ViSiBloodPressure
   
-  In `ViSiContext.cs`, ensure that the EF objects mapping our class to the database table are correct: ::
+  In `ViSiContext.cs`, ensure that the EF objects mapping our class to the database table are correct and without prefixes (since it's just our local classes that have them): ::
   
         public virtual DbSet<ViSiBloodPressure> BloodPressure { get; set; }
         public virtual DbSet<ViSiPatient> Patient { get; set; }
