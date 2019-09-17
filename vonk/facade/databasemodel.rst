@@ -99,7 +99,7 @@ Create your first mapping
 
   For more examples of filling the elements, see the FHIR API documentation: :ref:`FHIR-model`.
 
-5. Then return the created Patient object as an IResource (you can use the extension method ``ToIResource``)::
+5. Then return the created Patient object as an IResource with ``patient.ToIResource()``::
 
     ``IResource`` is an abstraction from actual Resource objects as they are known to specific versions of the Hl7.Fhir.Net API.
     See :ref:`classes_iresource`.
