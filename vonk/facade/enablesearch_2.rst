@@ -60,7 +60,7 @@ The gist of the implementation is to switch the querying based on the ResourceTy
 * Now we moved the problem to ``SearchPatient``, so this method needs to be implemented.
   The pattern here is:
 
-   #. Create a query - a PatientQuery in this case.
+   #. Create a query - in this case, a PatientQuery via PatientQueryFactory.
    #. Execute the query against the DbContext (our _visiContext) to get a count of matches.
    #. Execute the query against the DbContext to get the current page of results.
    #. Map the results using the _resourceMapper
