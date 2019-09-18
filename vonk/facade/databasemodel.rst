@@ -9,7 +9,7 @@ Reverse engineer the database model
 To use `EF Core <https://docs.microsoft.com/en-us/ef/core/>`_, install the package for the database provider(s) you want to target. This walkthrough uses SQL Server. For a list of
 available providers see Database Providers.
 
-* Tools > NuGet Package Manager > Package Manager Console
+* Tools ➡️ NuGet Package Manager ➡️ Package Manager Console
 * Run ``Install-Package Microsoft.EntityFrameworkCore.SqlServer``
 
 We will be using some Entity Framework Tools to create a model from the database. So we will install the tools package as well:
@@ -18,7 +18,7 @@ We will be using some Entity Framework Tools to create a model from the database
 
 Now it's time to create the EF model based on your existing database.
 
-* Tools –> NuGet Package Manager –> Package Manager Console
+* Tools ➡️ NuGet Package Manager ➡️ Package Manager Console
 * Run the following command to create a model from the existing database. Adjust the Data source to your instance of SQL Server. If you receive an error stating The term 'Scaffold-DbContext' is not recognized as the name of a cmdlet, then close and reopen Visual Studio.::
 
     Scaffold-DbContext "MultipleActiveResultSets=true;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=ViSi;Data Source=localhost" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
@@ -38,8 +38,8 @@ Clean up generated code
 
 * To avoid naming confusion with the FHIR Resourcetype Patient, rename both files and classes:
 
-  * Patient => ViSiPatient
-  * BloodPressure => ViSiBloodPressure
+  * Patient ➡️ ViSiPatient
+  * BloodPressure ➡️ ViSiBloodPressure
   
   In `ViSiContext.cs`, ensure that the EF objects mapping our class to the database table are correct and without prefixes (since it's just our local classes that have them): ::
   
