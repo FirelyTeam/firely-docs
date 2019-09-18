@@ -3,7 +3,7 @@ Enable Search
 
 Enabling search involves two major steps:
 
-#. Creating a query based on the bits and pieces in the search url
+#. Creating a query to the database based on the bits and pieces in the search url
 #. Getting a count and actual data from the database with that query, and map it to a SearchResult
 
 The next paragraphs will walk you through these steps.
