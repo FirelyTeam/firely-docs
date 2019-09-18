@@ -17,8 +17,8 @@ This leverages the capabilities of :ref:`vonk_components`. With this setup you:
 
 - create a new ASP.NET Core library
 - include Vonk NuGet packages
-- implement your own repository
-- configure the PipelineOptions to use your library instead of Vonk's own repository
+- implement your own repository backend to interface with your data store (can be SQL server or any other medium)
+- configure the PipelineOptions to use your library instead of Vonk's own repository implementation
 - configure the PipelineOptions to limit the components to those that are supported by your repository implementation.
 
 The benefit of using this approach is that you automatically get to use all of Vonk's configuration, logging,
@@ -41,6 +41,6 @@ In this setup you:
 - create a new ASP.NET Core Web Application
 - include Vonk NuGet packages
 - set up the necessary Vonk services (usually a subset of the services that Vonk FHIR Server uses)
-- implement your own repository
+- implement your own repository backend
 
 This also allows you to include the Vonk components into a web application of your own that may offer more interfaces than just the FHIR RESTful API.
