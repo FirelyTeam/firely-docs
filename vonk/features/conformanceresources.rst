@@ -101,7 +101,8 @@ Vonk can read SearchParameter and CompartmentDefinition resources from a directo
     "ImportedDirectory": "<path to the directory where imported files are moved to, default ./vonk-imported>"
   },
 
-:ImportDirectory: All files and zip files will be read, and any conformance resources in them will be imported.
+:ImportDirectory: All files and zip files will be read, and any conformance resources in them will be imported. By default, STU3 is assumed. 
+                  If you have R4 conformance resources, place them in a sibling directory with the same name with ``.R4`` appended. 
 :ImportedDirectory: This directory will contain the read history in the .vonk-import-history.json file. Please note, that this information is stored directly in the administration database when running on SQlite.
 
 Note that in json you either use forward slashes (/) or double backward slashes (\\\\) as path separators.

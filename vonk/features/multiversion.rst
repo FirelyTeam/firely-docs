@@ -15,6 +15,8 @@ Accepted values for the parameter are:
 * fhirVersion=3.0, for FHIR STU3
 * fhirVersion=4.0, for FHIR R4
 
+You can add the fhirVersion to the Accept and/or the Content-Type header. If you specify it on both, the fhirVersion parameters have to be the same.
+
 The examples below explain the behaviour with STU3, but if you replace fhirVersion with 4.0, it works exactly the same on R4. 
 
 .. note:: 

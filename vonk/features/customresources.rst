@@ -29,6 +29,7 @@ Examples of these can be found in the specification: each resourcetype is define
 
 #. Choose a name for the type, let's say 'Foo'.
 #. Choose a url for the type. In STU3 this has to start with http://hl7.org/fhir/StructureDefinition/ (constraint sdf-7), so http://hl7.org/fhir/StructureDefinition/Foo makes sense.
+   Note that in R4 you are encouraged to use a url in a domain that you control and *not* within hl7.org.
 #. Make sure the id, name and type elements align with the name 'Foo'.
 #. Adjust the description
 #. Make sure all the elements in the differential start with 'Foo.' 
@@ -37,6 +38,7 @@ Examples of these can be found in the specification: each resourcetype is define
 If you have created the StructureDefinition, register it in Vonk using any of the methods mentioned in :ref:`conformance`. As an example we will issue an update interaction on the Administration API::
 
    PUT <base-url>/administration/StructureDefinition/Foo
+   Content-Type=application/fhir+json; fhirVersion=3.0
 
 By using an update we can choose the id and hence the location of this StructureDefinition. Vonk does this by default for all the resourcetypes defined by the specification as well.
 
@@ -51,11 +53,8 @@ To test whether you can actually use the endpoint associated with your custom re
 
 Now use your favorite editor to create a resource that conforms to the Foo StructureDefinition. And then create it on Vonk: ``POST <base-url>/Foo``.
 
-All the operations on specification-defined resourcetypes are also available for custom resources. You can also use them in a batch or transaction bundle. There is one limitation however:
-
-* Validation: Custom Resources can not be validated. This implies that :ref:`feature_prevalidation` cannot be used in conjunction with Custom Resources.
-
-We expect to remove this limitation in a future version of Vonk.
+All the operations on specification-defined resourcetypes are also available for custom resources. You can also use them in a batch or transaction bundle. 
+Custom Resources can also be validated. This also means that :ref:`feature_prevalidation` can be used in conjunction with Custom Resources.
 
 Search parameters on a custom resource
 --------------------------------------

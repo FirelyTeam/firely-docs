@@ -20,8 +20,6 @@ You can control which search parameters are known to Vonk. This is managed in th
 Re-indexing for new or changed SearchParameters
 -----------------------------------------------
 
-.. caution:: In Vonk 3.0.0-beta1 re-indexing only works for STU3. Expect it to be enabled for R4 in the next beta.
-
 Vonk extracts values from resources based on the available search parameters upon create or update.
 This means that if you already had resources in your database before adding a custom search parameter, 
 those resources will not be indexed for that parameter. If you on the other hand removed a previously used 
@@ -43,6 +41,12 @@ In short, both reindex operations below will:
 
 .. warning:: During the re-index operation, all other operations are blocked and responded to with response code '423 - Locked'.
 
+Reindexing and FHIR versions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Reindexing is also controlled by the fhirVersion parameter (see :ref:`feature_multiversion`) in the Accept header. It will then reindex only for SearchParameters and resources *in that FHIR version*.
+So for a full reindex of everything you may need to issue the command twice, once for each fhirVersion.
+
 .. _feature_customsp_reindex_all:
 
 Rebuild the whole search index
@@ -58,8 +62,9 @@ To re-index all resources for all search parameters, use:
 	::
 	
 		POST http(s)://<vonk-endpoint>/administration/reindex/all
+		Accept=application/fhir+json (or xml); fhirVersion=3.0 (or 4.0)
 
-	This will delete any previously indexed data and extract it again from the resources.
+This will delete any previously indexed data and extract it again from the resources.
 
 .. _feature_customsp_reindex_specific:
 
@@ -77,21 +82,23 @@ To re-index all resources for certain search parameters, use:
 	::
 	
 		POST http(s)://<vonk-endpoint>administration/reindex/searchparameters
+		Accept=application/fhir+json (or xml); fhirVersion=3.0 (or 4.0)
 
-	In the body of the POST, you put the parameters to actually re-index as form parameters:
+In the body of the POST, you put the parameters to actually re-index as form parameters:
 
 	::
 	
 		include=Patient.name,Observation.code
 		exclude=Organization.name
 
-	``include`` means that resources will be re-indexed only for those search parameters.
-	You use this if you added or changed one or few search parameters.
+``include`` means that resources will be re-indexed only for those search parameters.
+You use this if you added or changed one or few search parameters.
 
-	``exclude`` means that any existing index data for those search parameters will be erased.
-	You use this when you removed a search parameter.
+``exclude`` means that any existing index data for those search parameters will be erased.
+You use this when you removed a search parameter.
 
-   Remember to adjust the Content-Type header: ``application/x-www-form-urlencoded``.
+Remember to adjust the Content-Type header: ``application/x-www-form-urlencoded``.
+
 
 If you are :ref:`not permitted <configure_administration_access>` to perform the reindex, Vonk will return statuscode 403.
 

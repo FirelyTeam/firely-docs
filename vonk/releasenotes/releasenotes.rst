@@ -10,7 +10,63 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_300-beta2:
+
+Release 3.0.0-beta2
+--------------------
+
+.. attention::
+
+   We updated the :ref:`vonk_securitynotes`.
+
+Database
+^^^^^^^^
+
+Note the changes in :ref:`3.0.0-beta1 <vonk_releasenotes_300-beta1>`, but there are no new changes in beta2.
+
+Feature
+^^^^^^^
+
+#. :ref:`feature_subscription` works for R4 also. Note that a Subscription will only be activated for resource changes in the same FHIR version as the Subscription itself.
+#. :ref:`conformance_fromdisk` works for R4 also. Use a directoryname that ends with ``.R4`` for R4 conformance resources.
+#. :ref:`feature_customsp_reindex` works for R4 also. Issue a reindex with a fhirVersion parameter in the Accept header, and it will be executed for the SearchParameters defined for that FHIR version.
+#. Allow for non-hl7 prefixed canonical urls for conformance resources (since sdf-7 is lifted). See :ref:`feature_customresources`.
+#. Custom Resources can be validated, both individually and as part of a bundle. See :ref:`feature_customresources`.
+#. If the Accept header lacks a :ref:`fhirVersion parameter <feature_multiversion>`, it will fall back to the fhirVersion parameter of the Content-Type header and vice versa.
+   If both are missing, Vonk will default to STU3.
+
+Fix
+^^^
+
+#. _include did not work for R4.
+#. _include gave a 500 responsecode if a resource contains absolute references.
+#. A resource with unknown elements could result in an uncaught ``Hl7.Fhir.ElementModel.StructuralTypeException``.
+#. The homepage stated that Vonk was only for STU3. Fixed that.
+#. Bundle.timestamp element (new in R4) was not populated in bundles returned from Search and History operations.
+#. Some operations could return an OperationOutcome with an issue *and* a success message.
+#. Better error message if a resource without any meta.profile is not accepted by :ref:`feature_prevalidation`.
+#. Requesting an invalid FHIR version resulted in a ArgumentNullException.
+
+Plugin and Facade API
+^^^^^^^^^^^^^^^^^^^^^
+
+#. NuGet package ``Vonk.Fhir.R4`` had a dependency on Vonk.Administration.API, but the latter is not published. We removed the dependency.
+#. ``IResourceExtensions.UpdateMetadata`` did not update the id of the resource.
+#. ``VonkOutcome.RemoveIssue()`` method has been removed.
+
 .. _vonk_releasenotes_300-beta1:
+
+Examples
+^^^^^^^^
+
+#. Plugin example (`Vonk.Plugin.ExampleOperation <https://github.com/FirelyTeam/Vonk.Plugin.ExampleOperation>`_):
+
+   #. Added an example of middleware directly interacting with the ``HttpContext`` (instead of just the ``VonkContext``), see the file `VonkPluginMiddleware.cs <https://github.com/FirelyTeam/Vonk.Plugin.ExampleOperation/blob/master/Vonk.Plugin.ExampleOperation/VonkPluginMiddleware.cs>`_ 
+   #. CapabilityStatementBuilder was not called.
+
+#. DocumentOperation (`Vonk.Plugin.DocumentOperation <https://github.com/FirelyTeam/Vonk.Plugin.DocumentOperation>`_):
+
+   #. Composition ID was not determined correctly when using POST.
 
 Release 3.0.0-beta1
 --------------------
