@@ -26,8 +26,10 @@ On the ``Introduction`` page of a project you can find:
 
 - A summary text as added by the project owners
 - A summary table describing the contents of the project:
- - Total number of resources per resource type
- - Total number of examples per resource type
+
+	+ Number of resources per resource type
+	+ Number of examples per resource
+
 - The canonical base URLs supported in the project
 - The workflow statuses supported in the project
 
