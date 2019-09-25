@@ -18,13 +18,13 @@ You can control the behaviour of Vonk for these interactions by loading resource
 No matter which method you use, all Conformance resources are persisted in the Administration API database (see :ref:`configure_administration` for configuring that database), and available through the Administration API endpoint (``<vonk-endpoint>/administration``)
 
 .. attention::
-   
+
    Please be aware that Conformance Resources have to have a **unique canonical url** within the FHIR Version they are loaded, in their url element. Vonk does not allow you to POST two conformance resources with the same canonical url.
    For SearchParameter resources, the combination of base and code must be unique.
 
 .. attention::
-   
-   Creates or updates of **SearchParameter** resources should be followed by a :ref:`re-index <feature_customsp_reindex>`. 
+
+   Creates or updates of **SearchParameter** resources should be followed by a :ref:`re-index <feature_customsp_reindex>`.
 
    Before you delete a SearchParameter, be sure to remove it from the index first, see the ``exclude`` parameter in :ref:`re-index <feature_customsp_reindex>`.
 
@@ -32,7 +32,7 @@ No matter which method you use, all Conformance resources are persisted in the A
 
 .. attention::
 
-   A StructureDefinition can only be posted in the context of a FHIR Version that matches the StructureDefinition.fhirVersion. See :ref:`feature_multiversion`. 
+   A StructureDefinition can only be posted in the context of a FHIR Version that matches the StructureDefinition.fhirVersion. See :ref:`feature_multiversion`.
 
 .. toctree::
    :maxdepth: 3
@@ -42,7 +42,7 @@ No matter which method you use, all Conformance resources are persisted in the A
 Import of Conformance Resources
 -------------------------------
 
-The import process of conformance resources runs on every startup of Vonk, and :ref:`on demand<conformance_on_demand>`. 
+The import process of conformance resources runs on every startup of Vonk, and :ref:`on demand<conformance_on_demand>`.
 
 The process uses these locations on disk:
 
@@ -59,11 +59,11 @@ The process follows these steps for each FHIR version (currently STU3 and R4)
 #. Load the :ref:`conformance_specification_zip`, if they have not been loaded before.
 #. Load the :ref:`feature_errata`, if they have not been loaded before.
 #. And then, currently just for STU3:
-  
+
    #. :ref:`conformance_fromdisk`. After reading, the read files are registered in the read history.
    #. :ref:`conformance_fromsimplifier`. After reading, the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
 
-Loading the conformance resources from the various sources can take some time, 
+Loading the conformance resources from the various sources can take some time,
 especially on first startup when the :ref:`conformance_specification_zip` have to be imported.
 During the import Vonk will respond with 423 'Locked' to every request to avoid storing or retrieving inconsistent data.
 
@@ -78,16 +78,16 @@ If you wish to force a renewed import of a specific file, you should:
 Default Conformance Resources
 -----------------------------
 
-Vonk comes with the specification.zip file from the HL7 FHIR API. It contains all the Conformance resources from the specification. These are loaded and used for validation and snapshot generation by default.  
+Vonk comes with the specification.zip file from the HL7 FHIR API. It contains all the Conformance resources from the specification. These are loaded and used for validation and snapshot generation by default.
 
-Some of the conformance resources (especially SearchParameters) contain errors in the core specification. 
+Some of the conformance resources (especially SearchParameters) contain errors in the core specification.
 We try to correct all errors in :ref:`feature_errata`. You can also override them yourself by:
 
 * updating them through the administration api, as described below;
 * providing an altered version in the ImportDirectory, with the same id and canonical url.
 
 .. attention::
-   The Core Specification provides almost 4000 Conformance Resources. Depending on the machine it may take a few minutes to load and index them. 
+   The Core Specification provides almost 4000 Conformance Resources. Depending on the machine it may take a few minutes to load and index them.
 
 .. _conformance_fromdisk:
 
@@ -101,8 +101,8 @@ Vonk can read SearchParameter and CompartmentDefinition resources from a directo
     "ImportedDirectory": "<path to the directory where imported files are moved to, default ./vonk-imported>"
   },
 
-:ImportDirectory: All files and zip files will be read, and any conformance resources in them will be imported. By default, STU3 is assumed. 
-                  If you have R4 conformance resources, place them in a sibling directory with the same name with ``.R4`` appended. 
+:ImportDirectory: All files and zip files will be read, and any conformance resources in them will be imported. By default, STU3 is assumed.
+                  If you have R4 conformance resources, place them in a sibling directory that has the same name as your "ImportDirectory" with ``.R4`` appended to it -- so for example ``./vonk-import.R4``.
 :ImportedDirectory: This directory will contain the read history in the .vonk-import-history.json file. Please note, that this information is stored directly in the administration database when running on SQlite.
 
 Note that in json you either use forward slashes (/) or double backward slashes (\\\\) as path separators.
@@ -143,7 +143,7 @@ Open the project of your choice on https://simplifier.net. There are two limitat
 Then on the overview page of the project click 'Endpoint' and copy the value you see there:
 
    .. image:: ../images/simplifier-vonk-endpoint.png
-      :align: center   
+      :align: center
 
 By default the endpoint is ``https://stu3.simplifier.net/<projectname>``
 
@@ -194,4 +194,3 @@ If you prefer to assign your own logical id to e.g. StructureDefinition 'MyPatie
 ::
 
     PUT <vonk-endpoint>/administration/StructureDefinition/MyPatient
-
