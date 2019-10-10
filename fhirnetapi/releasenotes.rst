@@ -3,10 +3,7 @@
 Release notes
 =============
 
-.. important::
-
-The release notes are moved to `fhir-net-api/releases <https://github.com/FirelyTeam/fhir-net-api/releases>`_ 
-
+.. important:: The release notes are moved to `fhir-net-api/releases <https://github.com/FirelyTeam/fhir-net-api/releases>`_ 
 
 .. _api_releasenotes_1.3.0:
 1.3.0 (STU3, R4) (released 20190710)
