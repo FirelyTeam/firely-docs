@@ -1,10 +1,16 @@
 .. _api_releasenotes:
-
 =============
 Release notes
 =============
+
+.. important::
+
+The release notes are moved to `fhir-net-api/releases <https://github.com/FirelyTeam/fhir-net-api/releases>`_ 
+
+
 .. _api_releasenotes_1.3.0:
 1.3.0 (STU3, R4) (released 20190710)
+------------------------------------
 
 Bugfixes
 ~~~~~~~~
@@ -51,7 +57,7 @@ compatibility with the newer shared assemblies but has none of the new features.
 
 .. _api_releasenotes_1.2.1:
 1.2.1 (STU3, R4) (released 20190416)
--------------------------------------------
+------------------------------------
 The fix for issue #889 should have been in version 1.2.0, but it was not because of a merge error. In this hotfix (1.2.1) we corrected this mistake 
 and added the fix for issue #889.
 
