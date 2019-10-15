@@ -10,6 +10,66 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _vonk_releasenotes_300:
+
+Release 3.0.0
+-------------
+
+Database
+^^^^^^^^
+
+Please also note the changes in :ref:`3.0.0-beta1 <vonk_releasenotes_300-beta1>`
+
+#. SQL Server: SQL script '20190919000000_Cluster_Indexes_On_EntryId.sql' (found in the /data folder of the Vonk distribution) must be applied to existing Vonk SQL databases (both to the admin and to the data repositories) 
+
+   .. attention::
+
+      Vonk 3.0.0 (using SQL server) will not start unless this script has been applied to the databases. Please note that running the script can take considerable time, especially for large databases.
+
+Feature
+^^^^^^^
+#. Information model (= FHIR version) settings
+
+   #. Although Vonk now supports multiple information models (STU3 and R4) simultaneously, an unused model can be disabled (see :ref:`settings_pipeline`)
+   #. You can set the default (or fallback) information model (previously: STU3), which is used when Vonk can not determine the information model from context (see :ref:`information_model`)
+   #. You can map a path or a subdomain to a specific information model (see :ref:`information_model`), mitigating the need to specify it explicitly in a request
+
+#. Vonk now uses Fhir .NET API 1.4.0
+#. Several performance enhancements have been made for SQL server and IIS setups
+#. Added R4-style `Conditional Update <https://www.hl7.org/fhir/http.html#cond-update>`_ to both R3 and R4
+
+Fix
+^^^
+
+#. Circular references within resources are now detected, cancelling validation for now. We will re-enable validation for these resources when the API has been updated
+#. An $expand using incorrect data returned a 500 (instead of the correct 400)
+#. Vonk now returns a 406 (Not Acceptable) when the Accept header contains an unsupported format
+#. Deletes did not work for R4
+
+#. Search parameters
+
+   #. Search parameters were read twice (at startup and upon the first request)
+   #. Search parameter 'CommunicationRequest.occurrence' did not function correctly
+
+#. _history
+
+   #. _history was not usable in a multi information model setup
+   #. The resulting Bundle.entry in an STU3 _history response contained the unallowed response field
+   #. Added Bundle.entry.response to the R4 _history entry
+
+#. Batches
+
+   #. Valid entries in batches also containing invalid entries were not processed
+   #. Duplicate fullUrls are no longer accepted in a batch request, which previously led to a processing error
+   #. An R4 transaction resulted in STU3 entries
+   #. Transactional errors did not include fullUrl
+
+Plugin and Facade API
+^^^^^^^^^^^^^^^^^^^^^
+
+#. Improved the message you get when the sorting/shaping operator is not implemented by your facade
+#. VonkOutcome (and VonkIssue) has been simplified
+
 .. _vonk_releasenotes_300-beta2:
 
 Release 3.0.0-beta2
