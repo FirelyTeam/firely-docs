@@ -114,7 +114,7 @@ To use only a single version you set the ``Default`` information model in :ref:`
 Running different versions on different endpoints
 -------------------------------------------------
 
-To assign endpoints to different versions, create a mapping in :ref:`information_model`. Use the ``Mode`` switch to select either a path or a subdomain mapping, assigning your endpoints in the ``Map`` array. Mapped endpoints will only accept the version you have specified. The web service root ('/') will still accept all supported versions.
+To assign endpoints to different versions, create a mapping in :ref:`information_model`. Use the ``Mode`` switch to select either a path or a subdomain mapping, assigning your endpoints in the ``Map`` array. Mapped endpoints will only accept the version you have specified. The web service root ('/' and '/administration/') will still accept all supported versions.
 
 Assigning an endpoint to a FHIR version is exactly equivalent to adding that particular ``fhirVersion`` MIME parameter to every single request sent to that endpoint. So using these settings:
 ::   
@@ -134,16 +134,25 @@ The call
    GET http://myserver.org/Patient
    Accept=application/fhir+json; fhirVersion=3.0
 
-is equivalent to
-::
+   is equivalent to
+
    GET http://myserver.org/R3/Patient
 
 and the call
 ::
    GET http://myserver.org/Patient (defaults to R4)
 
-is equivalent to
-::
+   is equivalent to
+
    GET http://myserver.org/R4/Patient
+
+and the administration call
+::
+   GET http://myserver.org/administration/StructureDefinition (defaults to R4)
+
+   is equivalent to
+
+   GET http://myserver.org/administration/R4/StructureDefinition (/R4 is a postfix to '/administration')
+
 
 As you can see, on a mapped endpoint it is never necessary to use a FHIR ``_format`` parameter or a ``fhirVersion`` MIME parameter in a ``Content-Type`` or ``Accept`` header.

@@ -34,14 +34,14 @@ Feature
    #. You can set the default (or fallback) information model (previously: STU3), which is used when Vonk can not determine the information model from context (see :ref:`information_model`)
    #. You can map a path or a subdomain to a specific information model (see :ref:`information_model`), mitigating the need to specify it explicitly in a request
 
-#. Vonk now uses Fhir .NET API 1.4.0
+#. Vonk now uses :ref:`FHIR .NET API 1.4.0 <api_releasenotes_1.4.0>`
 #. Several performance enhancements have been made for SQL server and IIS setups
-#. Added R4-style `Conditional Update <https://www.hl7.org/fhir/http.html#cond-update>`_ to both R3 and R4
+#. Added R4-style `Conditional Update <https://www.hl7.org/fhir/http.html#cond-update>`_ to both STU3 and R4
 
 Fix
 ^^^
 
-#. Circular references within resources are now detected, cancelling validation for now. We will re-enable validation for these resources when the API has been updated
+#. Circular references within resources are now detected, cancelling validation for now. We will re-enable validation for these resources when the FHIR .NET API has been updated
 #. An $expand using incorrect data returned a 500 (instead of the correct 400)
 #. Vonk now returns a 406 (Not Acceptable) when the Accept header contains an unsupported format
 #. Deletes did not work for R4
@@ -49,7 +49,7 @@ Fix
 #. Search parameters
 
    #. Search parameters were read twice (at startup and upon the first request)
-   #. Search parameter 'CommunicationRequest.occurrence' did not function correctly
+   #. Search parameter 'CommunicationRequest.occurrence' is not correctly specified in the specification. We provide a correct version.
 
 #. _history
 
