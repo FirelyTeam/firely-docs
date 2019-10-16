@@ -14,6 +14,7 @@ Configuration of the pipeline in Vonk FHIR Server is done with ``PipelineOptions
         "Include": [
           "Vonk.Core",
           "Vonk.Fhir.R3",
+          "Vonk.Fhir.R4",
           "Vonk.Repository.Sql.SqlVonkConfiguration",
           "Vonk.Repository.Sqlite.SqliteVonkConfiguration",
           "Vonk.Repository.MongoDb.MongoDbVonkConfiguration",
@@ -29,6 +30,7 @@ Configuration of the pipeline in Vonk FHIR Server is done with ``PipelineOptions
         "Include": [
           "Vonk.Core",
           "Vonk.Fhir.R3",
+          "Vonk.Fhir.R4",
           "Vonk.Repository.Sql.SqlAdministrationConfiguration",
           "Vonk.Repository.Sqlite.SqliteAdministrationConfiguration",
           "Vonk.Repository.MongoDb.MongoDbAdminConfiguration",

@@ -7,7 +7,7 @@
 Preloading a set of resources
 =============================
 
-.. caution:: Preload in Vonk 3.0.0-beta1 is only available for STU3. Expect it to be enabled for R4 in the next beta.
+.. caution:: Preload in Vonk 3.0.0 is only available for STU3. Expect it to be enabled for R4 in the next version.
 
 If you have set up Vonk as a reference server in a testing environment, it can be useful to load it with an 'iron test set' of examples. 
 You can do that with the preload feature. Usually you will want to :ref:`feature_resetdb` first.

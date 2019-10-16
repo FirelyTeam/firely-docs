@@ -145,6 +145,7 @@ Go to the :ref:`configure_appsettings` of Vonk, and replace the namespace of the
             "Include": [
                "Vonk.Core",
                "Vonk.Fhir.R3",
+               "Vonk.Fhir.R4",
                "Vonk.Repository.Sql",
                "Vonk.Repository.MongoDb",
                "Vonk.Repository.Memory",

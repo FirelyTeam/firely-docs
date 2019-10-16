@@ -21,6 +21,7 @@ Add Vonk Components
 1. Tools > NuGet Package Manager > Package Manager Console
 
    * Run ``Install-Package Vonk.Core``
-   * Run ``Install-Package Vonk.Fhir.R3``
+   * Run ``Install-Package Vonk.Fhir.R3`` (if you want to use R3)
+   * Run ``Install-Package Vonk.Fhir.R4`` (if you want to use R4)
 
 .. note:: You can install the latest beta release of the Vonk packages by adding ``-IncludePrerelease`` to the install command.
