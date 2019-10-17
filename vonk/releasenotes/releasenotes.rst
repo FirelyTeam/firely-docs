@@ -34,7 +34,7 @@ Feature
    #. You can set the default (or fallback) information model (previously: STU3), which is used when Vonk can not determine the information model from context (see :ref:`information_model`)
    #. You can map a path or a subdomain to a specific information model (see :ref:`information_model`), mitigating the need to specify it explicitly in a request
 
-#. Vonk now uses :ref:`FHIR .NET API 1.4.0 <api_releasenotes_1.4.0>`
+#. Vonk now uses `FHIR .NET API 1.4.0 <https://github.com/FirelyTeam/fhir-net-api/releases>`_
 #. Several performance enhancements have been made for SQL server and IIS setups
 #. Added R4-style `Conditional Update <https://www.hl7.org/fhir/http.html#cond-update>`_ to both STU3 and R4
 
