@@ -89,7 +89,7 @@ IResource is immutable, so changes will always result in a new instance. Changes
 IVonkContext
 ------------
 
-:namespace: Vonk.Core.Context.Features
+:namespace: Vonk.Core.Context
 
 :purpose: IVonkContext is the Vonk-specific counterpart to HttpContext from ASP.NET Core. It contains an IVonkRequest and IVonkResponse object that allow you to get information from the request and set results in the response, both in Vonk terms.  
 
@@ -165,7 +165,7 @@ And because you frequently need the parts instead of the context itself, there i
 IVonkRequest
 ------------
 
-:namespace: Vonk.Core.Context.Features
+:namespace: Vonk.Core.Context
 
 :purpose: Get information about the request made, in Vonk / FHIR terms.
 
@@ -285,7 +285,7 @@ Vonk has a lot of issues predefined in ``Vonk.Core.Support.VonkIssues``.
 IVonkResponse
 -------------
 
-:namespace: Vonk.Core.Context.Features
+:namespace: Vonk.Core.Context
 
 :purpose: Inspect response values set by other middleware, or set it yourself.
 

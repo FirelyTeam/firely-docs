@@ -368,6 +368,35 @@ Subscriptions
 
 See :ref:`feature_subscription`.
 
+.. _information_model:
+
+Information model
+-----------------
+
+Vonk supports the use of multiple information models (currently FHIR STU3 and R4) simultaneously. The ``InformationModel`` section contains the related settings.
+By default, Vonk serves both versions from the root of your web service, defaulting to STU3 when the client does not use Accept or _format to specify either one. Mapping a path or a subdomain to a specific version creates an additional URI serving only that particular version.
+::
+
+  "InformationModel": {
+    "Default": "Fhir4.0", // For STU3: "Fhir3.0". Information model to use when none is specified in either mapping, the _format parameter or the ACCEPT header.
+    "Mapping": {
+      "Mode": "Off"
+      //"Mode": "Path", // yourserver.org/r3 => FHIR STU3; yourserver.org/r4 => FHIR R4
+      //"Map": {
+      //  "/R3": "Fhir3.0",
+      //  "/R4": "Fhir4.0"
+      //}
+      //"Mode": "Subdomain", // r3.yourserver.org => FHIR STU3; r4.yourserver.org => FHIR R4
+      //"Map": 
+      //  {
+      //    "r3": "Fhir3.0",
+      //    "r4": "Fhir4.0"
+      //  }
+    }
+  },
+
+See :ref:`feature_multiversion`.
+
 .. _fhir_capabilities:
 
 FHIR Capabilities
@@ -420,6 +449,8 @@ are used for your Vonk server, by changing the ``PipelineOptions``.
       }
     ]
   }
+
+It is possible to disable a specific information model by removing Vonk.Fhir.R3 or Vonk.Fhir.R4 from the pipeline
 
 Please note the warning on merging arrays in :ref:`configure_levels`.
 

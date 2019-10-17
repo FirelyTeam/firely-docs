@@ -16,6 +16,7 @@ On the ``Information`` level, Vonk will tell you which assemblies are loaded and
       C:\data\dd18\vonk_preview\Vonk.Administration.Api.dll
       C:\data\dd18\vonk_preview\Vonk.Core.dll
       C:\data\dd18\vonk_preview\Vonk.Fhir.R3.dll
+      C:\data\dd18\vonk_preview\Vonk.Fhir.R4.dll
       C:\data\dd18\vonk_preview\Vonk.Repository.Generic.dll
       C:\data\dd18\vonk_preview\Vonk.Repository.Memory.dll
       C:\data\dd18\vonk_preview\Vonk.Repository.MongoDb.dll
@@ -38,6 +39,7 @@ The list below is also the default pipeline as it is configured for Vonk FHIR Se
    Configuration:
    /
       FhirR3Configuration [100] | Services: V | Pipeline: X
+      FhirR4Configuration [101] | Services: V | Pipeline: X
       MetadataConfiguration [110] | Services: V | Pipeline: X
       LicenseConfiguration [120] | Services: V | Pipeline: X
       SerializationConfiguration [130] | Services: V | Pipeline: X

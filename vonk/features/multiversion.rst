@@ -20,7 +20,7 @@ You can add the fhirVersion to the Accept and/or the Content-Type header. If you
 The examples below explain the behaviour with STU3, but if you replace fhirVersion with 4.0, it works exactly the same on R4. 
 
 .. note:: 
-   If you do not specify a fhirVersion parameter, Vonk will use fhirVersion=3.0 (STU3) as a default. This way the behaviour is compatible with previous versions of Vonk.
+   If you do not specify a fhirVersion parameter, Vonk will use fhirVersion=3.0 (STU3) as a default. This way the behaviour is compatible with previous versions of Vonk. If you like, you can change the ``Default`` in :ref:`information_model`
 
 .. note:: 
    If you use both an Accept header and a Content-Type header, the fhirVersion parameter for both must be the same. So this would be *invalid*:
@@ -109,13 +109,50 @@ Conformance resources like StructureDefinition and SearchParameter are registere
 Running a single version
 ------------------------
 
-It is currently not possible to run a single version of FHIR in Vonk.
-
-You can only exclude the namespace of the version that you don't need (``Vonk.Fhir.R3`` or ``Vonk.Fhir.R4``) from the :ref:`PipelineOptions <vonk_components_config>` so Vonk does not create unneccessary classes.
+To use only a single version you set the ``Default`` information model in :ref:`information_model` to the version you want to use. In addition, you can exclude the namespace of the version you don't need (``Vonk.Fhir.R3`` or ``Vonk.Fhir.R4``) from the :ref:`PipelineOptions <vonk_components_config>` to disable its use. If you exclude a namespace, make sure to exclude it from all branches.
 
 Running different versions on different endpoints
 -------------------------------------------------
 
-It is currently not possible to run the different versions on different endpoints. 
+To assign endpoints to different versions, create a mapping in :ref:`information_model`. Use the ``Mode`` switch to select either a path or a subdomain mapping, assigning your endpoints in the ``Map`` array. Mapped endpoints will only accept the version you have specified. The web service root ('/' and '/administration/') will still accept all supported versions.
 
-With the PipelineOptions you could create separate branches, like /R3 and /R4 but you'd still have to provide the fhirVersion parameter.
+Assigning an endpoint to a FHIR version is exactly equivalent to adding that particular ``fhirVersion`` MIME parameter to every single request sent to that endpoint. So using these settings:
+::   
+   "InformationModel": {
+      "Default": "Fhir4.0",
+      "Mapping": {
+         "Mode": "Path",
+         "Map": {
+            "/R3": "Fhir3.0",
+            "/R4": "Fhir4.0"
+         }
+      }
+   }
+
+The call
+::
+   GET http://myserver.org/Patient
+   Accept=application/fhir+json; fhirVersion=3.0
+
+   is equivalent to
+
+   GET http://myserver.org/R3/Patient
+
+and the call
+::
+   GET http://myserver.org/Patient (defaults to R4)
+
+   is equivalent to
+
+   GET http://myserver.org/R4/Patient
+
+and the administration call
+::
+   GET http://myserver.org/administration/StructureDefinition (defaults to R4)
+
+   is equivalent to
+
+   GET http://myserver.org/administration/R4/StructureDefinition (/R4 is a postfix to '/administration')
+
+
+As you can see, on a mapped endpoint it is never necessary to use a FHIR ``_format`` parameter or a ``fhirVersion`` MIME parameter in a ``Content-Type`` or ``Accept`` header.

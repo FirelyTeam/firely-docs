@@ -16,7 +16,7 @@ See `Subscriptions in the specification <http://www.hl7.org/implement/standards/
 FHIR versions
 -------------
 
-You POST a Subscription with a fhirVersion parameter (see :ref:`feature_multiversion`). It will then respond to changes on resources *in that FHIR version*.
+You POST a Subscription with a fhirVersion parameter (see :ref:`feature_multiversion`) or to a version specific endpoint. It will then respond to changes on resources *in that FHIR version*.
 So if you need a Subscription on both STU3 and R4 resources, POST that Subscription for both FHIR versions.
 
 .. _subscription_configure:

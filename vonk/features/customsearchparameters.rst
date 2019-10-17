@@ -44,7 +44,7 @@ In short, both reindex operations below will:
 Reindexing and FHIR versions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Reindexing is also controlled by the fhirVersion parameter (see :ref:`feature_multiversion`) in the Accept header. It will then reindex only for SearchParameters and resources *in that FHIR version*.
+Reindexing is also controlled by the fhirVersion parameter (see :ref:`feature_multiversion`) in the Accept header or the version-mapped endpoint. It will then reindex only for SearchParameters and resources *in that FHIR version*.
 So for a full reindex of everything you may need to issue the command twice, once for each fhirVersion.
 
 .. _feature_customsp_reindex_all:

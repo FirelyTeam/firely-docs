@@ -10,7 +10,7 @@ Vonk supports most of the features in the `FHIR RESTful API <http://www.hl7.org/
 FHIR Versions
 -------------
 
-All the operations below can be called for FHIR STU3 or FHIR R4. Vonk supports the fhirVersion mimetype parameter for that purpose. 
+All the operations below can be called for FHIR STU3 or FHIR R4. Vonk supports the fhirVersion mimetype parameter and fhir version endpoint mappings for that purpose. 
 See :ref:`feature_multiversion` for more information.
 
 Create, read, update, delete
@@ -54,8 +54,6 @@ Limitations on CRUD
    * A conditional create and a simultaneous conditional update may both result in a ``create``, although the result of one may be a match to the other.
 
 #. Parameter ``_pretty`` is not yet supported.
-#. A Conditional update still implements STU3 behaviour when one match is found and an id is provided. It ignores that id. 
-   R4 specifies that if the provided id and the id in the matching resource do not match, the server should return an error.
 
 .. _restful_versioning:
 
