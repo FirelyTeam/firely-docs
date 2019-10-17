@@ -373,7 +373,7 @@ See :ref:`feature_subscription`.
 Information model
 -----------------
 
-Vonk supports the use of multiple information models (currently STU3 and R4, but the information model *could* be non-FHIR) simultaneously. The ``InformationModel`` section contains the related settings.
+Vonk supports the use of multiple information models (currently FHIR STU3 and R4) simultaneously. The ``InformationModel`` section contains the related settings.
 By default, Vonk serves both versions from the root of your web service, defaulting to STU3 when the client does not use Accept or _format to specify either one. Mapping a path or a subdomain to a specific version creates an additional URI serving only that particular version.
 ::
 
