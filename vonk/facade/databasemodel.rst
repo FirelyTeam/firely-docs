@@ -6,15 +6,14 @@ In this step you will start mapping the existing database model to FHIR resource
 Reverse engineer the database model
 -----------------------------------
 
-To use `EF Core <https://docs.microsoft.com/en-us/ef/core/>`_, install the package for the database provider(s) you want to target. This walkthrough uses SQL Server. For a list of
-available providers see Database Providers.
+To use `EF Core <https://docs.microsoft.com/en-us/ef/core/>`_ 2.2.3, install the package for the database provider(s) you want to target. This walkthrough uses SQL Server. For a list of available providers see Database Providers.
 
 * Tools ➡️ NuGet Package Manager ➡️ Package Manager Console
-* Run ``Install-Package Microsoft.EntityFrameworkCore.SqlServer``
+* Run ``Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 2.2.3``
 
-We will be using some Entity Framework Tools to create a model from the database. So we will install the tools package as well:
+We will be using some Entity Framework Tools 2.2.3 to create a model from the database. So we will install the tools package as well:
 
-* Run ``Install-Package Microsoft.EntityFrameworkCore.Tools``
+* Run ``Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.2.3``
 
 Now it's time to create the EF model based on your existing database.
 
