@@ -86,7 +86,7 @@ If anything went wrong, go back:
 Upgrading Plugins
 -----------------
 
-Since a Plugin runs in the context of a Vonk FHIR Server we advice you to start by upgrading your Vonk FHIR Server, without loading your Plugin.
+Since a Plugin runs in the context of a Vonk FHIR Server we advise you to start by upgrading your Vonk FHIR Server, without loading your Plugin.
 Check the section on :ref:`settings_pipeline` to see how you can exclude your plugin from the pipeline.
 
 Upgrade the references in your plugin:
