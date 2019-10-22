@@ -40,7 +40,7 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 
 	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine setup.exe
 
-#. The ClickOnce installer will erronously say that .NET 4.7.2 isn't installed, when it is (4.8 is a superset). Hit 'Install' - it'll think about installing it for a moment, then realise that it doesn't need to and proceed to launc Forge.
+#. The ClickOnce installer will erronously say that .NET 4.7.2 isn't installed, when it is (4.8 is a superset). Hit 'Install' - it'll think about installing it for a moment, then realise that it doesn't need to and proceed to launch Forge.
 
 #. Ready!
 
@@ -80,18 +80,22 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 	
 #. Download the `Forge <https://simplifier.net/forge/download>`_ setup package from Simplifier.  
 
-   Move ``setup.exe`` to your ``Applications`` folder and rename to ``Forge-R4.exe`` (or ``Forge-STU3.exe``, depending on your version).  
+   Move ``setup.exe`` to your ``/Applications`` folder and rename to ``Forge-R4.exe`` (or ``Forge-STU3.exe``, depending on your version).  
    Then execute the downloaded file to install the application: ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine Forge-R4.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine /Applications/Forge-R4.exe
 	
-   The ClickOnce installer will erronously say that .NET 4.7.2 isn't installed, when it is (4.8 is a superset). Hit 'Install' - it'll think about installing it for a moment, then realise that it doesn't need to and proceed to launc Forge.
+   If wine complains that it cannot find the exe-file check if the ``Forge-R4.exe`` file is indeed in the ``/Applications`` folder.
+
+   The ClickOnce installer will erronously say that .NET 4.7.2 isn't installed, when it is (4.8 is a superset). Hit 'Install' - it'll think about installing it for a moment, then realise that it doesn't need to and proceed to launch Forge.
 	
 #. Ready!
 
    To run Forge again in the future, rerun the last command in the terminal: ::
 
-	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine Forge-R4.exe
+	WINEPREFIX="$HOME/.forge" WINEARCH=win32 wine /Applications/Forge-R4.exe
+
+   It might still think on each startup that .NET needs to be installed again. Just click through and it will realise it is already there and continue to open Forge.
 
 Known issues
 ~~~~~~~~~~~~
