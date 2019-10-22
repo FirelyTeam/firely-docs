@@ -91,7 +91,7 @@ Check the section on :ref:`settings_pipeline` to see how you can exclude your pl
 
 Upgrade the references in your plugin:
 
-#. Open the sourcecode of your plugin, and open the project file (``yourplugin.csproj``).
+#. Open the source code of your plugin, and open the project file (``yourplugin.csproj``).
 #. Change the references to the Vonk.* packages to the version that you want to upgrade to.
 #. Build and check the errors.
 #. Check the list of breaking changes for the new Vonk version in the :ref:`vonk_releasenotes`. Applying the changes should fix the errors.
