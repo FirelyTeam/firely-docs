@@ -3,8 +3,8 @@
 How to upgrade Vonk?
 ====================
 
-Upgrading Vonk should be easy to do. The process depends on whether you have a vanilla Vonk FHIR Server, you added your own plugins or are running a Facade.
-We start by describing the general process, which is then followed by a list of details per each released version of Vonk.
+The process for upgrading Vonk depends on whether you have a vanilla Vonk FHIR Server, you added your own plugins or are running a Facade.
+This page describes the general process for each situation. Please refer to the :ref:`vonk_releasenotes` for details per each released version of Vonk.
 
 .. _upgrade_server: 
 
