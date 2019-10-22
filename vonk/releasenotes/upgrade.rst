@@ -47,7 +47,7 @@ You may be able to avoid the import of specification.zip if:
 * The Administration database is in SQLite and
 * You have not made alterations to the Administration API through the Web API.
 
-In this case you can simply replace the old database (usually with the filename vonkadmin.db) with the one from the new installation directory (in ./data/vonkadmin.db).
+In this case you can simply replace the old database (usually with the filename ``vonkadmin.db``) with the one from the new installation directory (in ``./data/vonkadmin.db``).
 Do so *before* you start the new Vonk installation.
 Anything specified in :ref:`AdministrationImportOptions <configure_admin_import>` will be re-imported into the new database.
 
