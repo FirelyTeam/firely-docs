@@ -144,6 +144,8 @@ Other settings:
 * ``RequestInfoFile`` sets the location of the file with request information. This file will be used in feauture releases.
 * ``WriteRequestInfoFileInterval`` sets the time interval (in minutes) to write aggregate information about processed requests to the RequestInfoFile.
 
+.. _configure_repository:
+
 Repository
 ----------
 ::
@@ -299,6 +301,8 @@ Protect against large input
 * ``MaxBatchEntries`` limits the number of entries that is allowed in a batch or transaction bundle.
 * The values for ``MaxResourceSize`` and ``MaxBatchSize`` can be expressed in b (bytes, the default), kB (kilobytes), KiB (kibibytes), MB (megabytes), or MiB (mebibytes).
   Do not put a space between the amount and the unit.
+
+.. _configure_admin_import:
 
 SearchParameters and other Conformance Resources
 ------------------------------------------------

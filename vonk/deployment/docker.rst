@@ -70,8 +70,8 @@ To stop the container just type:|br|
 |br| To completely remove the container:|br|
 ``> docker rm vonk.server``
 
-Spinning with a docker-compose file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Spinning up with a docker-compose file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Another way to spin up a Vonk container is to use a docker-compose file. The above example can also be established by the following ``docker-compose-sqlite.yml``:
 
 .. code-block:: yaml

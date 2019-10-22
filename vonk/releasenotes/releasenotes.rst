@@ -10,6 +10,13 @@ Release notes Vonk
    releasenotes_old
    security_notes
 
+.. _upgrade_vonk:
+
+Upgrading Vonk
+--------------
+
+See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
+
 .. _vonk_releasenotes_300:
 
 Release 3.0.0
