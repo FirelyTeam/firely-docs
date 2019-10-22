@@ -22,7 +22,7 @@ Using the binary distribution
 #. Check the :ref:`vonk_releasenotes` for any actions that you need to take specifically for this upgrade.
 #. Make sure the new installation can find the license file (see :ref:`configure_license`, general advice is to put the license file outside of the installation directory).
 #. Create a backup of your current databases, both the main Resource database and the Administration database. See :ref:`configure_repository` to find the details on your configured database connection.
-#. Stop the running instance of Vonk (Ctrl + C).
+#. Stop the running instance of Vonk (Ctrl + C if running from the console).
 #. Switch to the new installation directory and start Vonk from there (``> dotnet ./Vonk.Server.dll``)
 #. Vonk will now do several upgrade tasks, during which any web request will be responded to with 423 - Locked:
 
