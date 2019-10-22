@@ -17,7 +17,7 @@ Using the binary distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Download the latest version of Vonk, see :ref:`getting_started`, and extract it to where you want it installed.
-#. Copy your appsettings.instance and logsettings.instance files from the current installation to the new installation. 
+#. Copy your appsettings.instance.json and logsettings.instance.json files from the current installation to the new installation. 
 #. Check the :ref:`vonk_releasenotes` for any new settings that you may want to apply or change from their defaults.
 #. Check the :ref:`vonk_releasenotes` for any actions that you need to take specifically for this upgrade.
 #. Make sure the new installation can find the license file (see :ref:`configure_license`, general advice is to put the license file outside of the installation directory).
