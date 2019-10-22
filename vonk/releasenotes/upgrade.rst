@@ -62,7 +62,7 @@ Revisit :ref:`use_docker`.
 #. Pull the latest image for Vonk: ``> docker pull simplifier/vonk``
 #. Check the :ref:`vonk_releasenotes` for any new settings that you may want to apply or change from their defaults, and apply that to the ``environment`` setting in the docker-compose file.
 #. Check the :ref:`vonk_releasenotes` for any action that you need to take specifically for this upgrade.
-#. Create a backup of your current databases, both the main Resource database and the Administration database. (See :ref:`configure_repository` and your docker-compose file to find the details on where your databases are).
+#. Create a backup of your current databases, both the main Resource database and the Administration database. See :ref:`configure_repository` and your docker-compose file to find the details on where your databases are.
 #. Start the new version (see :ref:`use_docker` for the various commands to run the Vonk container).
 #. Vonk will now do several upgrade tasks, during which any web request will be responded to with 423 - Locked:
 
