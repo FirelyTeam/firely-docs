@@ -69,6 +69,8 @@ Plugin and Facade API
 
 #. Improved the message you get when the sorting/shaping operator is not implemented by your facade
 #. VonkOutcome (and VonkIssue) has been simplified
+#. IResourceChangeRepository.Delete requires a new second parameter: ``string informationModel``
+
 
 .. _vonk_releasenotes_300-beta2:
 
@@ -230,6 +232,17 @@ Plugin and Facade API
       This can also be done in the fluent interface with the new method ``AndInformationModel``. See :ref:`components_interactionhandler`
 
 #. Dependency injection: if there are implementations of an interface for R3 and R4, the dependency injection in Vonk will automatically inject the correct one based on the InformationModel in the request.
+#. If you want to register your own service just for one informationmodel, do that as follows:
+
+   Add a ContextAware attribute to the implementation class::
+
+      [ContextAware (InformationModels = new[VonkConstants.Model.FhirR3]]
+      public class MySearchRepository{...}
+
+   Then register the service as being ContextAware::
+
+      services.TryAddContextAware<ISearchRepository, MySearchRepository>(ServiceLifeTime.Scoped);
+
 #. ``FhirPropertyIndexBuilder`` is moved to Vonk.Fhir.R3 (and was already marked obsolete - avoid using it)
 #. Implementations of the following that are heavily dependent upon version specific Hl7.Fhir libraries have been implemented in both Vonk.Fhir.R3 and Vonk.Fhir.R4. 
 
