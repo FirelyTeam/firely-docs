@@ -3,7 +3,7 @@
 Configuring the Mapping Engine on Vonk
 ======================================
 
-To configure the mapping engine in your Vonk installation, follow the steps below. If you don't have a copy yet, `Get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
+To configure the mapping engine in your Vonk installation, follow the steps below. If you don't have a copy yet, `get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
 
 Load the engine
 ~~~~~~~~~~~~~~~
@@ -32,7 +32,9 @@ Load the engine
       "WholeSystemInteractions": "capabilities, batch, transaction, history, search, compartment_system_search, $validate, $convert"
     },
 
-5. Update the ``/`` path of ``PipelineOptions`` to load the mapping engine plugin by including the following namespaces: ``"Vonk.Plugin.BinaryWrapper", "Vonk.Plugin.ConvertOperation", "Vonk.Plugin.MappingToStructureMap", "Vonk.Plugin.TransformOperation"``. Sample configuration: ::
+5. Update the ``/`` path of ``PipelineOptions`` to load the mapping engine plugin by including the following namespaces: ``"Vonk.Plugin.BinaryWrapper", "Vonk.Plugin.ConvertOperation", "Vonk.Plugin.MappingToStructureMap", "Vonk.Plugin.TransformOperation"``
+
+Sample configuration: ::
 
     "PipelineOptions": {
       "PluginDirectory": "./plugins",
