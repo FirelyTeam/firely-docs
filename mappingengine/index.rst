@@ -22,7 +22,7 @@ or support contract.
    
 
    start
-   vonksetup/vonksetup
+   vonksetup/configuration
    featureslist/featureslist
    runningtransformations/runningtransformations
    contact
