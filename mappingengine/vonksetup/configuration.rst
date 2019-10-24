@@ -82,6 +82,8 @@ If the verification didn't work for some reason, check the Vonk logs for the fol
     <path to vonk>/plugins/Vonk.Plugin.ConvertOperation.dll
     <path to vonk>/plugins/Hl7.Fhir.Mapping.STU3.Poco.dll
     <path to vonk>/plugins/Hl7.Fhir.Mapping.dll
+
+If they're not listed, check that the dll files are available in your ``PluginDirectory`` directory (``./plugins`` by default). 
     
 2. Ensure the plugins are being registered with the Vonk pipeline: ::
 
@@ -92,7 +94,7 @@ If the verification didn't work for some reason, check the Vonk logs for the fol
         TransfromOperationConfiguration    [4560] | Services: V | Pipeline: V
         ConvertOperationConfiguration      [4600] | Services: V | Pipeline: V
 
-
+If they're not listed, double-check your that your ``PipelineOptions`` are loading the engine plugins.
 
 
 
