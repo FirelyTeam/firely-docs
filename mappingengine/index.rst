@@ -22,8 +22,9 @@ or support contract.
    
 
    start
-   vonksetup/configuration
+   enginesetup/configuration
    featureslist/featureslist
-   runningtransformations/runningtransformations
+   transformsetup/transformsetup
+   runningtransforms/runningtransforms
    contact
 .. add files here
