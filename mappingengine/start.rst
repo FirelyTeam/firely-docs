@@ -19,6 +19,6 @@ The section :ref:`configure_mapping_engine` explains how you can configure the m
 Running transformations
 -----------------------
 
-Once you have setup the .Net FHIR Mapping Engine, you can start running your transformations.
+Once you have setup the .Net FHIR Mapping Engine, you can start :ref:`setup_transforms`.
 
-Alternatively, you can try the .Net FHIR mapping engine in our public test sandbox: https://vonk.fire.ly/R4. The rest of the documentation will be using the public sandbox as a point of reference.
+Alternatively, you can try the .Net FHIR mapping engine in our public test sandbox: https://vonk.fire.ly/R3. The rest of the documentation will be using the public sandbox as a point of reference.
