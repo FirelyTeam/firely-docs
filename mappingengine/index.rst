@@ -24,7 +24,7 @@ or support contract.
    start
    enginesetup/configuration
    featureslist/featureslist
-   transformsetup/transformsetup
+   transformsetup/overview
    runningtransforms/runningtransforms
    contact
 .. add files here
