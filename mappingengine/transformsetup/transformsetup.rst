@@ -3,7 +3,7 @@
 Setting up transformations
 ==========================
 
-Prior to running the data mapping `$transform <https://www.hl7.org/fhir/structuremap-operation-transform.html>`_ operation, you need to have a few things in place:
+Prior to running the data mapping `$transform <https://www.hl7.org/fhir/structuremap-operation-transform.html>`_ operation, you need to have two things in place:
 
 1. A definition of the data you'll be working with in the `StructureDefinition <https://www.hl7.org/fhir/structuredefinition.html>`_ format.
 
@@ -15,6 +15,6 @@ Prior to running the data mapping `$transform <https://www.hl7.org/fhir/structur
 
    2.1. Once you've written your mapping file, you can use Vonk's `$convert <http://hl7.org/fhir/resource-operation-convert.html>`_ operation to convert it to a StructureMap for you.
 
-3. With the definition of data(1) and the mapping file(2) available and uploaded to Vonk, you can start transforming your data!
+With the definition of data(1) and the mapping file(2) available and uploaded to Vonk, you can start transforming your data!
 
 The following sections will guide you through all of the steps to setup your transformation and then run it.
