@@ -46,4 +46,4 @@ With the custom resource uploaded to Vonk's administration point, we have now ta
 
 You can verify this by running ``GET http://localhost:4080/<custom resource name>`` (in our example ``GET http://localhost:4080/FakeInpatientDrugChart``). The query will return 0 search results instead of an error message "Request for not-supported ResourceType(s)".
 
-
+Next we'll create a mapping between our custom resource and FHIR STU3 resources.
