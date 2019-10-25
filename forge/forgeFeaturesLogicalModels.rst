@@ -1,3 +1,5 @@
+.. _forge_logical_models:
+
 Logical Models
 ==============================
 
