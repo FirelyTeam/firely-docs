@@ -18,3 +18,11 @@ Prior to running the data mapping `$transform <https://www.hl7.org/fhir/structur
 With the definition of data(1) and the mapping file(2) available and uploaded to Vonk, you can start transforming your data!
 
 The following sections will guide you through all of the steps to setup your transformation and then run it.
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+   :hidden:
+   
+
+   logicalmodel
