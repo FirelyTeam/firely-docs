@@ -26,3 +26,4 @@ The following sections will guide you through all of the steps to setup your tra
    
 
    logicalmodel
+   mappingfile
