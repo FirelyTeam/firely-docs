@@ -32,7 +32,10 @@ Load the engine
       "WholeSystemInteractions": "capabilities, batch, transaction, history, search, compartment_system_search, $validate, $convert"
     },
 
-5. Update the ``/`` path of ``PipelineOptions`` to load the mapping engine plugin by including the following namespaces: ``"Vonk.Plugin.BinaryWrapper", "Vonk.Plugin.ConvertOperation", "Vonk.Plugin.MappingToStructureMap", "Vonk.Plugin.TransformOperation"``
+5. Update the ``/`` path of ``PipelineOptions`` to load the mapping engine plugin by including the following namespaces: ::
+
+    "Vonk.Plugin.BinaryWrapper", "Vonk.Plugin.ConvertOperation",
+    "Vonk.Plugin.MappingToStructureMap", "Vonk.Plugin.TransformOperation"
 
 Sample configuration: ::
 
