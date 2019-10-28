@@ -94,7 +94,7 @@ If they're not listed, check that the dll files are available in your ``PluginDi
 
     Configuration:
     /
-        // ...
+        [...]
         MappingToStructureMapConfiguration [4550] | Services: V | Pipeline: V
         TransfromOperationConfiguration    [4560] | Services: V | Pipeline: V
         ConvertOperationConfiguration      [4600] | Services: V | Pipeline: V
