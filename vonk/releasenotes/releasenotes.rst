@@ -71,13 +71,19 @@ Plugin and Facade API
 #. VonkOutcome (and VonkIssue) has been simplified
 #. IResourceChangeRepository.Delete requires a new second parameter: ``string informationModel``
 #. Exclude Vonk.Fhir.R3 or Vonk.Fhir.R4 from the PipelineOptions if you don't support it in your Facade.
+#. Updated the minimal PipelineOptions for a Facade Plugin in the `example appsettings.json <https://github.com/FirelyTeam/Vonk.Facade.Starter/blob/upgrade/plugin-facade-vonk-3.0.0/Visi.Repository/appsettings.json>`_:
+   
+   * updated ``Vonk.Core.Operations.SearchConfiguration`` to ``Vonk.Core.Operations.Search``
+   * removed ``Vonk.UI.Demo``
+   * removed ``Vonk.Core.Operations.Validate.SpecificationZipSourceConfiguration`` from the ``Exclude``
+   * updated ``Vonk.Core.Operations.Terminology`` to ``Vonk.Plugins.Terminology``
 
-   .. note::
+.. note::
 
-      Early Facade implementations were built with by using Vonk services and middleware in a self-built ASP.NET Core web server. This can be seen in the Vonk.Facade.Starter project in the 
-      `repository <https://github.com/FirelyTeam/Vonk.Facade.Starter>`_ with the same name. Due to changes in Vonk this does not work with Vonk 3.0.0. It will be fixed in 3.1.0. 
-      But after that such projects cannot be upgraded anymore and will have to be refactored to a proper plugin (as the ViSi.Repository project in the same repository). 
-      Please :ref:`contact <vonk-contact>` us in case of any questions.
+   Early Facade implementations were built with by using Vonk services and middleware in a self-built ASP.NET Core web server. This can be seen in the Vonk.Facade.Starter project in the 
+   `repository <https://github.com/FirelyTeam/Vonk.Facade.Starter>`_ with the same name. Due to changes in Vonk this does not work with Vonk 3.0.0. It will be fixed in 3.1.0. 
+   But after that such projects cannot be upgraded anymore and will have to be refactored to a proper plugin (as the ViSi.Repository project in the same repository). 
+   Please :ref:`contact <vonk-contact>` us in case of any questions.
 
 
 .. _vonk_releasenotes_300-beta2:
@@ -244,7 +250,7 @@ Plugin and Facade API
 
    Add a ContextAware attribute to the implementation class::
 
-      [ContextAware (InformationModels = new[VonkConstants.Model.FhirR3]]
+      [ContextAware (InformationModels = new[] {VonkConstants.Model.FhirR3}]
       public class MySearchRepository{...}
 
    Then register the service as being ContextAware::
