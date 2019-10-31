@@ -70,6 +70,14 @@ Plugin and Facade API
 #. Improved the message you get when the sorting/shaping operator is not implemented by your facade
 #. VonkOutcome (and VonkIssue) has been simplified
 #. IResourceChangeRepository.Delete requires a new second parameter: ``string informationModel``
+#. Exclude Vonk.Fhir.R3 or Vonk.Fhir.R4 from the PipelineOptions if you don't support it in your Facade.
+
+   .. note::
+
+      Early Facade implementations were built with by using Vonk services and middleware in a self-built ASP.NET Core web server. This can be seen in the Vonk.Facade.Starter project in the 
+      `repository <https://github.com/FirelyTeam/Vonk.Facade.Starter>`_ with the same name. Due to changes in Vonk this does not work with Vonk 3.0.0. It will be fixed in 3.1.0. 
+      But after that such projects cannot be upgraded anymore and will have to be refactored to a proper plugin (as the ViSi.Repository project in the same repository). 
+      Please :ref:`contact <vonk-contact>` us in case of any questions.
 
 
 .. _vonk_releasenotes_300-beta2:
