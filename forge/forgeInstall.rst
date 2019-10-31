@@ -51,7 +51,7 @@ The .NET Framework and WPF support only the Windows operating system. However, i
 
 Running on macOS
 ~~~~~~~~~~~~~~~~
-The .NET Framework and WPF support only the Windows operating system. However, it is possible to run Forge on macOS using `Wine <https://www.winehq.org/>`_. While we do not officially support running Forge on macOS, here are the steps to get you started:
+The .NET Framework and WPF support only the Windows operating system. However, it is possible to run Forge on macOS using `Wine <https://www.winehq.org/>`_ (unless you're on macOS Catalina - it does not support 32bit applications). While we do not officially support running Forge on macOS, here are the steps to get you started:
 
 
 #. Open the ``Terminal`` (you can do so via Launchpad)
