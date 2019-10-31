@@ -1,4 +1,4 @@
-.. _components_classes:
+.. _vonk_plugins_classes:
 
 Important classes and interfaces
 ================================
@@ -93,7 +93,7 @@ IVonkContext
 
 :purpose: IVonkContext is the Vonk-specific counterpart to HttpContext from ASP.NET Core. It contains an IVonkRequest and IVonkResponse object that allow you to get information from the request and set results in the response, both in Vonk terms.  
 
-Have ``IVonkContext`` injected in the method where you need it. Use a `configuration class <vonk_components_configclass>`_ to call this method from the pipeline and have the actual context injected. A more complete template is found at :ref:`vonk_components_plugintemplate`.
+Have ``IVonkContext`` injected in the method where you need it. Use a `configuration class <vonk_plugins_configclass>`_ to call this method from the pipeline and have the actual context injected. A more complete template is found at :ref:`vonk_plugins_plugintemplate`.
 
 .. code-block:: csharp
 
@@ -113,7 +113,7 @@ Have ``IVonkContext`` injected in the method where you need it. Use a `configura
       }
    }
 
-If you also need access to the raw ``HttpContext``, you can create a normal ASP.NET Core Middleware class and access the IVonkContext with the extension method ``Vonk()`` on ``HttpRequest``. A more complete template is found at :ref:`vonk_components_directhttp`.
+If you also need access to the raw ``HttpContext``, you can create a normal ASP.NET Core Middleware class and access the IVonkContext with the extension method ``Vonk()`` on ``HttpRequest``. A more complete template is found at :ref:`vonk_plugins_directhttp`.
 
 .. code-block:: csharp
 
@@ -307,7 +307,7 @@ If your operation provides a response, you should:
 
 If you just listen in on the pipeline, you can check the values of the response. Besides that, the `InteractionHandlerAttribute`_ allows you to filter on the ``HttpStatus`` of the response.
 
-.. _components_interactionhandler:
+.. _plugins_interactionhandler:
 
 Interaction Handling
 --------------------
@@ -342,7 +342,7 @@ You can specify different filters, and combine them at will:
 InteractionHandler fluent interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Because ``InteractionHandler`` is an attribute, you can only use constant values. If that is not what you want, you can use the fluent interface in the `configuration class <vonk_components_configclass>`_ instead. The code below shows the same filters as above, although you typically would not use all of them together (e.g. the ``PUT`` excludes ``type_create``).
+Because ``InteractionHandler`` is an attribute, you can only use constant values. If that is not what you want, you can use the fluent interface in the `configuration class <vonk_plugins_configclass>`_ instead. The code below shows the same filters as above, although you typically would not use all of them together (e.g. the ``PUT`` excludes ``type_create``).
 
 .. code-block:: csharp
 

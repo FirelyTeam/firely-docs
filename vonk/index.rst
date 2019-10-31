@@ -31,8 +31,8 @@ or support contract.
    deployment/deployment
    features/features
    administration_api
+   plugins/plugins
    facade/facade
-   components/components
    architecture
    releasenotes/releasenotes
    releasenotes/releasenotes_old

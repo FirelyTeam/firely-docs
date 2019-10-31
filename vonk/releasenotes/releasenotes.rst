@@ -250,7 +250,7 @@ Plugin and Facade API
    #. ``IVonkContext``: the model that was specified in the Accept header
    #. ``IModelService``: the model for which this service is valid (implementations are available for R3 and R4)
    #. ``VonkInteraction`` attribute: to allow you to specify that an operation is only valid for a specific FHIR version.
-      This can also be done in the fluent interface with the new method ``AndInformationModel``. See :ref:`components_interactionhandler`
+      This can also be done in the fluent interface with the new method ``AndInformationModel``. See :ref:`plugins_interactionhandler`
 
 #. Dependency injection: if there are implementations of an interface for R3 and R4, the dependency injection in Vonk will automatically inject the correct one based on the InformationModel in the request.
 #. If you want to register your own service just for one informationmodel, do that as follows:

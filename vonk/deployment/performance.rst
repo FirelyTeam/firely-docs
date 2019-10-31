@@ -36,7 +36,7 @@ When a resource is sent to Vonk for storage, Vonk indexes the resource for all t
 Pipeline
 ~~~~~~~~
 
-Vonk is made up of a pipeline of components. You can leave out any component that you don't need - so if you don't need conditional processing (create, update, delete), just exclude them from the pipeline. Excluded components are not loaded and thus never executed - see :ref:`settings_pipeline`.
+Vonk is made up of a pipeline of plugins. You can leave out any plugin that you don't need - so if you don't need conditional processing (create, update, delete), just exclude them from the pipeline. Excluded plugins are not loaded and thus never executed - see :ref:`settings_pipeline`.
 
 Platform
 ^^^^^^^^
@@ -121,7 +121,7 @@ Vonk performance test setup
    #. Repository: MongoDB, both for Administration and for the main database.
    #. Prevalidation: off
    #. Search parameters: support all types of resources and all search parameters from the FHIR specification.
-   #. Pipeline: load all available components except authorization.
+   #. Pipeline: load all available plugins except authorization.
 
 #. Platform
 

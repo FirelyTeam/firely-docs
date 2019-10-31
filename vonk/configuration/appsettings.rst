@@ -421,7 +421,7 @@ See :ref:`restful_crud`.
 Configuring the Vonk Pipeline
 -----------------------------
 
-You can add your own components to the Vonk pipeline, or control which of the standard Vonk components
+You can add your own plugins to the Vonk pipeline, or control which of the standard Vonk plugins
 are used for your Vonk server, by changing the ``PipelineOptions``.
 ::
 
@@ -458,4 +458,4 @@ It is possible to disable a specific information model by removing Vonk.Fhir.R3 
 
 Please note the warning on merging arrays in :ref:`configure_levels`.
 
-See :ref:`vonk_components` for more information and an example custom component.
+See :ref:`vonk_plugins` for more information and an example custom plugin.

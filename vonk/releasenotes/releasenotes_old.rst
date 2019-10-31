@@ -31,9 +31,9 @@ Feature
 #. Vonk will count the number of requests that it processes. See :ref:`configure_license` for settings on that. Because of this change, the ``LicenseFile`` setting has moved from the top level to under ``License``.
 #. The plugin folder (:ref:`settings_pipeline`) may now contain subfolders. Plugins will be read from all underlying folders.
 #. Vonk supports If-Match on update. See `Managing Resource Contention <http://hl7.org/fhir/http.html#concurrency>`_ in the specification for details.
-#. Plugins may return non-FHIR content. See :ref:`vonk_components_directhttp`.
+#. Plugins may return non-FHIR content. See :ref:`vonk_plugins_directhttp`.
 #. This feature may also be used for :ref:`accesscontrol_custom_authentication`.
-#. A :ref:`vonk_components_plugintemplate` is added to the documentation.
+#. A :ref:`vonk_plugins_plugintemplate` is added to the documentation.
 #. A documentation page on performance is added: :ref:`vonk_performance`.
 #. Upgrade of the Hl7.Fhir.API library to 1.1. See the API releasenotes for :ref:`api_releasenotes_1.1.0`.
 
@@ -218,8 +218,8 @@ Facade
 Features and fixes
 ^^^^^^^^^^^^^^^^^^
 
-#. Feature: :ref:`Vonk FHIR Components<vonk_components>` has been released. You can now add libraries with your own components through configuration. 
-#. Feature: Through :ref:`Vonk FHIR Components<vonk_components>` you can replace the landing page with one in your own style. We provided an :ref:`example<vonk_components_landingpage>` on how to do that.
+#. Feature: :ref:`Vonk FHIR Plugins<vonk_plugins>` has been released. You can now add libraries with your own plugins through configuration. 
+#. Feature: Through :ref:`Vonk FHIR Pluginss<vonk_plugins>` you can replace the landing page with one in your own style. We provided an :ref:`example<vonk_plugins_landingpage>` on how to do that.
 #. Feature: You can now start Vonk from within another directory than the Vonk binaries directory, e.g. ``c:\programs>dotnet .\vonk\vonk.server.dll``.
 #. Feature: You can configure the maximum number of entries allowed in a Batch or Transaction, to avoid overloading Vonk. See :ref:`batch_options`.
 #. Upgrade: We upgraded the FHIR .NET API to version 0.96.0, see their :ref:`release notes<api_releasenotes_0960>` for details.

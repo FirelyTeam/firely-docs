@@ -1,15 +1,18 @@
-.. _vonk_components_directhttp:
+.. _vonk_plugins_directhttp:
 
 Returning non-FHIR content from a plugin
 ========================================
 
-Some plugins may need to return content that is not a FHIR Resource. You currently cannot do that through the ``IVonkResponse``. But there is another way. The component with order 1110 makes the ``IVonkContext`` accessible. The component with order 1120 turns the ``IVonkContext.Response`` to the ``HttpContext.Response``. That means if you pick an order between 1110 and 1120 you can read the ``IVonkContext.Request`` and ``.Arguments``, and write directly to the ``HttpContext.Response``. The steps to take are:
+Some plugins may need to return content that is not a FHIR Resource. You currently cannot do that through the ``IVonkResponse``. But there is another way. 
+The plugin with order 1110 makes the ``IVonkContext`` accessible. The plugin with order 1120 turns the ``IVonkContext.Response`` to the ``HttpContext.Response``. 
+That means if you pick an order between 1110 and 1120 you can read the ``IVonkContext.Request`` and ``.Arguments``, and write directly to the ``HttpContext.Response``. 
+The steps to take are:
 
 #. Configure your plugin with an order between 1110 and 1120
 #. Write the ``HttpContext.Response.Body`` directly
 #. Set other properties of the ``HttpContext.Response`` (like ``StatusCode``) yourself.   
    
-An example of such a plugin would look like this. Note that this is now regular ASP.NET Core Middleware, not a service like in :ref:`vonk_components_plugintemplate`.
+An example of such a plugin would look like this. Note that this is now regular ASP.NET Core Middleware, not a service like in :ref:`vonk_plugins_plugintemplate`.
 
 .. code-block:: csharp
 
@@ -72,7 +75,7 @@ An example of such a plugin would look like this. Note that this is now regular 
        }
    }
 
-.. _vonk_components_customauthorization:
+.. _vonk_plugins_customauthorization:
 
 Custom authorization plugin
 ---------------------------

@@ -110,7 +110,7 @@ Conformance resources like StructureDefinition and SearchParameter are registere
 Running a single version
 ------------------------
 
-To use only a single version you set the ``Default`` information model in :ref:`information_model` to the version you want to use. In addition, you can exclude the namespace of the version you don't need (``Vonk.Fhir.R3`` or ``Vonk.Fhir.R4``) from the :ref:`PipelineOptions <vonk_components_config>` to disable its use. If you exclude a namespace, make sure to exclude it from all branches.
+To use only a single version you set the ``Default`` information model in :ref:`information_model` to the version you want to use. In addition, you can exclude the namespace of the version you don't need (``Vonk.Fhir.R3`` or ``Vonk.Fhir.R4``) from the :ref:`PipelineOptions <vonk_plugins_config>` to disable its use. If you exclude a namespace, make sure to exclude it from all branches.
 
 Running different versions on different endpoints
 -------------------------------------------------

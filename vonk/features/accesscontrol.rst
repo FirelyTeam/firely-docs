@@ -66,20 +66,20 @@ Custom Authentication
 You may build a plugin with custom middleware to provide authentication in a form that suits your needs. 
 One example could be that you want to integrate `ASP.NET Core Identity`_ into Vonk.  
 Then you don't need the OAuth2 middleware, but instead can use the Identity framework to authenticate your users.
-See :ref:`vonk_components_customauthorization` for more details.
+See :ref:`vonk_plugins_customauthorization` for more details.
 
 Other forms of Authorization
 ----------------------------
 In :ref:`accesscontrol_api` you can find the interfaces relevant to authorization in Vonk.  
-If your environment requires other authorization information than the standard SMART on FHIR claims, you can create your own implementations of these interfaces. 
-All the standard interaction middleware components of Vonk can then use that implementation to enforce access control. 
-Providing your own implementations is only possible with Vonk FHIR Facade or Components.
+If your environment requires other authorization information than the standard SMART on FHIR claims, you can create your own implementations of these interfaces.
+You do this by implementing a :ref:`custom plugin <vonk_plugins>`. 
+All the standard plugins of Vonk can then use that implementation to enforce access control. 
 
 .. _feature_accesscontrol_config:
 
 Configuration
 -------------
-You will need to add the Smart component to the Vonk pipeline. See :ref:`vonk_components` for more information. In ``appsettings.json``, locate the pipeline
+You will need to add the Smart plugin to the Vonk pipeline. See :ref:`vonk_plugins` for more information. In ``appsettings.json``, locate the pipeline
 configuration in the ``PipelineOptions`` section, or copy that section from ``appsettings.default.json``::
 
 	"PipelineOptions": {
@@ -92,7 +92,7 @@ configuration in the ``PipelineOptions`` section, or copy that section from ``ap
 			"Vonk.Fhir.R3",
 			...
 
-Add ``Vonk.Smart`` to the list of included components. When you restart Vonk, the Smart service will be added to the pipeline.
+Add ``Vonk.Smart`` to the list of included plugins. When you restart Vonk, the Smart service will be added to the pipeline.
 
 You can control the way Access Control based on SMART on FHIR behaves with the SmartAuthorizationOptions in ``appsettings.json``::
 

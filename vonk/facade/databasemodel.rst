@@ -102,6 +102,3 @@ Create your first mapping
 
     ``IResource`` is an abstraction from actual Resource objects as they are known to specific versions of the Hl7.Fhir.Net API.
     See :ref:`classes_iresource`.
-
-..
-  TODO: add reference to Important classes from components documentation when IResource is explained there

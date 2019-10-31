@@ -1,10 +1,10 @@
 .. _accesscontrol_api:
 
-=======================================
-Access Control in Facade and Components
-=======================================
+=====================================
+Access Control in Plugins and Facades
+=====================================
 
-The :ref:`Access Control feature <feature_accesscontrol>` is also available to users of a Vonk FHIR Facade or Vonk FHIR Components. You can use the default implementation based on SMART on FHIR, or provide an implementation of your own.
+The :ref:`Access Control feature <feature_accesscontrol>` is also available to users of a Vonk FHIR Facade or Vonk FHIR Plugins. You can use the default implementation based on SMART on FHIR, or provide an implementation of your own.
 
 Access control implementation
 =============================

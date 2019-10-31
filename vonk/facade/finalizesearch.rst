@@ -12,7 +12,7 @@ In order to test if your Facade implementation works correctly, you will need to
 --------------------------
 
 To add your repository service to the Vonk pipeline, you will need to add a configuration class that sets
-the order of inclusion, and adds to the services. For background information, see :ref:`vonk_components_configclass`.
+the order of inclusion, and adds to the services. For background information, see :ref:`vonk_plugins_configclass`.
 
 * Add a static class to your project called ``ViSiConfiguration``
 * Add the following code to it::
@@ -80,7 +80,7 @@ the order of inclusion, and adds to the services. For background information, se
 
 * You will need to add your repository to the Vonk pipeline, and remove the existing repository implementations.
   The standard settings for the pipeline configuration can be found in the appsettings.default.json file, or see
-  :ref:`vonk_components_config` for an example.
+  :ref:`vonk_plugins_config` for an example.
 
   * Copy the PipelineOptions section to your appsettings.instance.json file
   * To the ``Include`` part of the branch with ``"Path":"/"`` add your namespace, and remove the Vonk.Repository.* lines from it:
