@@ -36,5 +36,6 @@ or support contract.
    architecture
    releasenotes/releasenotes
    releasenotes/releasenotes_old
+   releasenotes/upgrade
    contact
 .. add files here
