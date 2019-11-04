@@ -69,6 +69,22 @@ Plugin and Facade API
 
 #. Improved the message you get when the sorting/shaping operator is not implemented by your facade
 #. VonkOutcome (and VonkIssue) has been simplified
+#. IResourceChangeRepository.Delete requires a new second parameter: ``string informationModel``
+#. Exclude Vonk.Fhir.R3 or Vonk.Fhir.R4 from the PipelineOptions if you don't support it in your Facade.
+#. Updated the minimal PipelineOptions for a Facade Plugin in the `example appsettings.json <https://github.com/FirelyTeam/Vonk.Facade.Starter/blob/upgrade/plugin-facade-vonk-3.0.0/Visi.Repository/appsettings.json>`_:
+   
+   * updated ``Vonk.Core.Operations.SearchConfiguration`` to ``Vonk.Core.Operations.Search``
+   * removed ``Vonk.UI.Demo``
+   * removed ``Vonk.Core.Operations.Validate.SpecificationZipSourceConfiguration`` from the ``Exclude``
+   * updated ``Vonk.Core.Operations.Terminology`` to ``Vonk.Plugins.Terminology``
+
+.. note::
+
+   Early Facade implementations were built with by using Vonk services and middleware in a self-built ASP.NET Core web server. This can be seen in the Vonk.Facade.Starter project in the 
+   `repository <https://github.com/FirelyTeam/Vonk.Facade.Starter>`_ with the same name. Due to changes in Vonk this does not work with Vonk 3.0.0. It will be fixed in 3.1.0. 
+   But after that such projects cannot be upgraded anymore and will have to be refactored to a proper plugin (as the ViSi.Repository project in the same repository). 
+   Please :ref:`contact <vonk-contact>` us in case of any questions.
+
 
 .. _vonk_releasenotes_300-beta2:
 
@@ -230,6 +246,17 @@ Plugin and Facade API
       This can also be done in the fluent interface with the new method ``AndInformationModel``. See :ref:`components_interactionhandler`
 
 #. Dependency injection: if there are implementations of an interface for R3 and R4, the dependency injection in Vonk will automatically inject the correct one based on the InformationModel in the request.
+#. If you want to register your own service just for one informationmodel, do that as follows:
+
+   Add a ContextAware attribute to the implementation class::
+
+      [ContextAware (InformationModels = new[] {VonkConstants.Model.FhirR3}]
+      public class MySearchRepository{...}
+
+   Then register the service as being ContextAware::
+
+      services.TryAddContextAware<ISearchRepository, MySearchRepository>(ServiceLifeTime.Scoped);
+
 #. ``FhirPropertyIndexBuilder`` is moved to Vonk.Fhir.R3 (and was already marked obsolete - avoid using it)
 #. Implementations of the following that are heavily dependent upon version specific Hl7.Fhir libraries have been implemented in both Vonk.Fhir.R3 and Vonk.Fhir.R4. 
 

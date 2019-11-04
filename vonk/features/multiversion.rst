@@ -77,6 +77,7 @@ Conformance resources like StructureDefinition and SearchParameter are registere
 #. Conformance resources will be imported during :ref:`conformance_import` for both STU3 and R4. To avoid id clashes (see note above), the id's in R4 are appended with '-Fhir4.0'
 
    #. So the StructureDefinition for Patient will be available for STU3 and R4 respectively like this:
+   
    ::
 
       GET <base>/StructureDefinition/Patient
@@ -118,6 +119,7 @@ To assign endpoints to different versions, create a mapping in :ref:`information
 
 Assigning an endpoint to a FHIR version is exactly equivalent to adding that particular ``fhirVersion`` MIME parameter to every single request sent to that endpoint. So using these settings:
 ::   
+
    "InformationModel": {
       "Default": "Fhir4.0",
       "Mapping": {
@@ -131,6 +133,7 @@ Assigning an endpoint to a FHIR version is exactly equivalent to adding that par
 
 The call
 ::
+
    GET http://myserver.org/Patient
    Accept=application/fhir+json; fhirVersion=3.0
 
@@ -140,6 +143,7 @@ The call
 
 and the call
 ::
+
    GET http://myserver.org/Patient (defaults to R4)
 
    is equivalent to
@@ -148,6 +152,7 @@ and the call
 
 and the administration call
 ::
+
    GET http://myserver.org/administration/StructureDefinition (defaults to R4)
 
    is equivalent to
