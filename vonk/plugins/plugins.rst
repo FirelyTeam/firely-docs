@@ -16,7 +16,7 @@ Vonk FHIR Server allows you to put plugins of your own into that pipeline, and r
    plugins_configclasses
    plugins_log
    plugins_classes
-   plugins_plugintemplate
+   plugins_template
    plugins_directhttp
    Example: Create a new Landing Page <example_landingpage>
    Example: $document <example_documentoperation>

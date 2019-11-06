@@ -58,12 +58,14 @@ Note however that Vonk also supports :ref:`feature_customsp`.
 
 The ``ResultShape`` method is called when an argument is recognized as a '`Search result parameter`_', like _sort or _include.
 
+.. _vonk_architecture_capabilities:
+
 Capabilities
 ------------
 
 A FHIR server has to express its capabilities in a CapabilityStatement, available on the ``/metadata`` endpoint. Vonk's capabilities are defined by the middleware components that make up its pipeline. 
 Every component knows what interaction it adds to the capabilities. Therefore, we keep that information close to the component itself. 
-Typically, every component has an implementation of :code:`IConformanceContributor`, in which it gets access to the :code:`IConformanceBuilder`. 
+Typically, every component has an implementation of :code:`ICapabilityStatementContributor`, in which it gets access to the :code:`ICapabilityStatementBuilder`. 
 The latter provides methods to add information to the CapabilityStatement without having to worry about what is already added by other components or the order of execution.
 
 Current status

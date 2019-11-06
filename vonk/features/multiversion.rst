@@ -132,6 +132,7 @@ Assigning an endpoint to a FHIR version is exactly equivalent to adding that par
    }
 
 The call
+
 ::
 
    GET http://myserver.org/Patient
@@ -142,6 +143,7 @@ The call
    GET http://myserver.org/R3/Patient
 
 and the call
+
 ::
 
    GET http://myserver.org/Patient (defaults to R4)
@@ -151,6 +153,7 @@ and the call
    GET http://myserver.org/R4/Patient
 
 and the administration call
+
 ::
 
    GET http://myserver.org/administration/StructureDefinition (defaults to R4)

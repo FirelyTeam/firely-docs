@@ -222,6 +222,8 @@ CosmosDb
 
 Refer to :ref:`configure_cosmosdb` for configuring access to your CosmosDb databases.
 
+.. _hosting_options:
+
 http and https
 --------------
 ::
@@ -234,6 +236,8 @@ http and https
     },
 
 Refer to :ref:`configure_hosting` for enabling https and adjusting port numbers.
+
+.. _validation_options:
 
 Validation
 ----------

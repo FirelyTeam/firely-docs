@@ -1,4 +1,4 @@
-.. _vonk_plugins_document:
+.. _vonk_plugins_example_document:
 
 Vonk FHIR Plugin example - $document operation
 ==================================================

@@ -19,7 +19,7 @@ In order to test the :ref:`feature_accesscontrol` you will need to :ref:`feature
    :titlesonly:
    :hidden:
 
-   Binaries <../start>
+   Binaries <../getting_started>
    Docker <docker>
    Azure <azureWebApp>
    Yellow Button <yellowbutton>

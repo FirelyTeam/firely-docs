@@ -12,7 +12,7 @@ The steps to take are:
 #. Write the ``HttpContext.Response.Body`` directly
 #. Set other properties of the ``HttpContext.Response`` (like ``StatusCode``) yourself.   
    
-An example of such a plugin would look like this. Note that this is now regular ASP.NET Core Middleware, not a service like in :ref:`vonk_plugins_plugintemplate`.
+An example of such a plugin would look like this. Note that this is now regular ASP.NET Core Middleware, not a service like in :ref:`vonk_plugins_template`.
 
 .. code-block:: csharp
 
