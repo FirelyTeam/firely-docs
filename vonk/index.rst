@@ -8,7 +8,7 @@ Welcome to the Vonk server documentation
    :titlesonly:
    :hidden:
 
-   overview
+   Overview <overview>
    getting_started
    releasenotes/releasenotes
    releasenotes/upgrade

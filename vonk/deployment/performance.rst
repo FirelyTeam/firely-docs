@@ -68,7 +68,7 @@ Testing performance yourself
 
 Because of all the variables mentioned above the best way to find out whether Vonk's performance is sufficient for your use is: test it yourself.
 
-We provide an evaluation license that you can use for any testing, including performance testing. See :ref:`getting_started`.
+We provide an evaluation license that you can use for any testing, including performance testing. See :ref:`vonk_getting_started`.
 
 Variables
 ^^^^^^^^^

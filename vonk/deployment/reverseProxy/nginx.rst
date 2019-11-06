@@ -27,7 +27,7 @@ Prerequisites
 Start Kestrel Vonk server
 -------------------------
 
-Download the binaries for Vonk (see :ref:`getting_started`), open a terminal console and start the Vonk process by using:
+Download the binaries for Vonk (see :ref:`vonk_getting_started`), open a terminal console and start the Vonk process by using:
 dotnet Vonk.Server.dll.
 You should be able to reach to home page at http://localhost:4080 (or a different port if you changed the default configurations)
 

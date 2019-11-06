@@ -5,7 +5,7 @@ Vonk deployment options
 
 Vonk can be deployed as:
 
-* Binaries, see :ref:`getting_started`
+* Binaries, see :ref:`vonk_getting_started`
 * As Docker image, see :ref:`use_docker`
 * With :ref:`yellowbutton`
 

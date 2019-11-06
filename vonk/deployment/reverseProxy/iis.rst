@@ -38,7 +38,7 @@ Prerequisites
 
 5. Install the .NET Core Windows Server Hosting bundle on the hosting system. After installing it, you may need to do a “net stop was /y” and “net start w3svc” to ensure all the changes are picked up for IIS. The bundle installs the .NET Core Runtime, .NET Core Library, and the ASP.NET Core Module. ASP.NET Core Module (ANCM) allows you to run ASP.NET Core applictions using Kestrel behind IIS. For more information about ANCM check https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/aspnet-core-module
 
-6. Prepare binaries. You can either download the binaries for Vonk (see :ref:`getting_started`), or create your own solution by building a facade.
+6. Prepare binaries. You can either download the binaries for Vonk (see :ref:`vonk_getting_started`), or create your own solution by building a facade.
    If you are deploying a Vonk facade, take the additional following prerequisites into consideration:
    
    - Make sure you use the **IISIntegration NuGet** package. You can install this as part of one of the metapackages (``Microsoft.AspNetCore`` and ``Microsoft.AspNetCore.All``) or independently  ``Microsoft.AspNetCore.Server.IISIntegration``. This is needed for the interoperability between Kestrel and ANCM.

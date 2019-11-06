@@ -25,7 +25,7 @@ Installing the Vonk server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before you can start implementing your facade, you need to have the Vonk server installed.
-See :ref:`getting_started` on how to download the binaries and license key.
+See :ref:`vonk_getting_started` on how to download the binaries and license key.
 
 Preparing the database
 ^^^^^^^^^^^^^^^^^^^^^^

@@ -8,6 +8,8 @@ Plugins available for Vonk
 Infrastructural plugins
 -----------------------
 
+.. _vonk_plugins_scheduler:
+
 :Name: Scheduler
 :Configuration: ``Vonk.Core.Quartz.QuartzConfiguration``
 :License token: Vonk.Plugins.Core.Infra
@@ -18,11 +20,15 @@ Infrastructural plugins
    * Have the ``Quartz.IScheduler`` injected
    * Call ``IScheduler.StartJob<MyJob>(TimeSpan runInterval, CancellationToken cancellationToken)``
 
+.. _vonk_plugins_maintenance:
+
 :Name: Maintenance
 :Configuration: ``Vonk.Core.Infra.MaintenanceConfiguration``
 :License token: Vonk.Plugins.Core.Infra
 :Order: 20
 :Description: Periodically cleans the indexed values for deleted or superceded resources from the database.
+
+.. _vonk_plugins_license:
 
 :Name: License
 :Configuration: ``Vonk.Core.Licensing.LicenseConfiguration``
@@ -30,11 +36,15 @@ Infrastructural plugins
 :Order: 120
 :Description: Registers the LicenseService that checks for a valid license. Without this plugin Vonk does not work.
 
+.. _vonk_plugins_serialization:
+
 :Name: Serialization
 :Configuration: ``Vonk.Core.Serialization.SerializationConfiguration``
 :License token: Vonk.Plugins.Core.Infra
 :Order: 130
 :Description: Registers an implementation for the ``ISerializationService`` and ``ISerializationSupport`` interfaces and actual serializers and parsers for JSON and XML.
+
+.. _vonk_plugins_pluggability:
 
 :Name: Pluggability
 :Configuration: ``Vonk.Core.Pluggability.PluggabilityConfiguration``
@@ -42,11 +52,15 @@ Infrastructural plugins
 :Order: 150
 :Description: Registers services to dynamically build the ``IModelService`` using registered ``IModelContributor`` implementations.
 
+.. _vonk_plugins_httptovonk:
+
 :Name: Http to Vonk
 :Configuration: ``Vonk.Core.Context.Http.HttpToVonkConfiguration``
 :License token: Vonk.Plugins.Core.Http
 :Order: 1110
 :Description: Builds an :ref:`vonk_reference_api_ivonkcontext` out of the `HttpContext <https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.httpcontext?view=aspnetcore-3.0>`_. You can only access the IVonkContext in the pipeline from plugins that have a higher order.
+
+.. _vonk_plugins_vonktohttp:
 
 :Name: Vonk to Http
 :Configuration: ``Vonk.Core.Context.Http.VonkToHttpConfiguration``
@@ -54,11 +68,15 @@ Infrastructural plugins
 :Order: 1120
 :Description: Translates the response in the :ref:`vonk_reference_api_ivonkcontext` to a response on the `HttpContext <https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.httpcontext?view=aspnetcore-3.0>`_. It honors the value of the prefer header if present. It also adds the VonkExceptionMiddleware to the pipeline as a last resort for catching exceptions.
 
+.. _vonk_plugins_formatter:
+
 :Name: Formatter
 :Configuration: ``Vonk.Core.Context.Format.FormatConfiguration``
 :License token: Vonk.Plugins.Core.Infra
 :Order: 1130
 :Description: Registers an implementation of IFormatter that can write the ``IVonkContext.Response.Payload`` to the response body in the requested format. Does not add a processor to the pipeline.
+
+.. _vonk_plugins_longrunning:
 
 :Name: Long running tasks
 :Configuration: ``Vonk.Core.Infra.LongRunning.LongRunningConfiguration``
@@ -66,11 +84,15 @@ Infrastructural plugins
 :Order: 1170
 :Description: If Vonk processes a task that could lead to inconsistent output, all other requests are rejected by this plugin. Long running tasks are e.g. the :ref:`conformance_import` and :ref:`feature_customsp_reindex`.
 
+.. _vonk_plugins_compartments:
+
 :Name: Compartments
 :Configuration: ``Vonk.Core.Context.Features.CompartmentsConfiguration``
 :License token: Vonk.Plugins.Core.Search
 :Order: 1210
 :Description: Recognizes a compartment in a compartment search on system or type level (see :ref:`restful_search`). It is added as a feature of type ``ICompartment`` to the ``IVonkContext.Features`` collection, to be used by :ref:`Search <vonk_plugins_search>` later on. This ICompartment feature will limit all queries to within the specified compartment.
+
+.. _vonk_plugins_supportedinteractions:
 
 :Name: Supported Interactions
 :Configuration: ``Vonk.Core.Context.Guards.SupportedInteractionsConfiguration``
@@ -79,6 +101,8 @@ Infrastructural plugins
 :Description: Blocks interactions that are not listed as supported.
 :Options: ``SupportedInteractions``, see :ref:`disable_interactions`.
 
+.. _vonk_plugins_sizelimits:
+
 :Name: Size Limits
 :Configuration: ``Vonk.Core.Context.Guards.SizeLimitsConfiguration``
 :License token: Vonk.Plugins.Core.Infra
@@ -86,11 +110,15 @@ Infrastructural plugins
 :Description: Rejects bodies that are too large and bundles with too many entries.
 :Options: ``SizeLimits``, see :ref:`sizelimits_options`
 
+.. _vonk_plugins_urlmapping:
+
 :Name: Url mapping
 :Configuration: ``Vonk.Core.Context.UrlMapping.UrlMappingConfiguration``
 :License token: Vonk.Plugins.Core.Infra
 :Order: 1230
 :Description: In a resource in the request, urls pointing to this instance of Vonk are made relative. In a resource in the response, relative urls are made absolute, by adding the base url of the server. This way the server can be addressed in multiple ways (e.g. http://intranet.acme.com/fhir and https://fhir.acme.com) and still provide correct absolute urls. 
+
+.. _vonk_plugins_defaultshapes:
 
 :Name: Default Shapes
 :Configuration: ``Vonk.Core.Context.Guards.DefaultShapesConfiguration``

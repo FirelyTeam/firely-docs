@@ -43,7 +43,7 @@ Besides configuration of the settings, Vonk features an Administration API that 
 
 Read more on Vonk FHIR Server:
 
-* :ref:`getting_started`
+* :ref:`vonk_getting_started`
 * :ref:`vonk_features`
 * :ref:`deployment`
 * :ref:`configure_vonk`
