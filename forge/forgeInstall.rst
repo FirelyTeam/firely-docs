@@ -94,7 +94,7 @@ While we do not officially support running Forge on macOS, here are the steps to
 	
    If wine complains that it cannot find the exe-file check if the ``Forge-R4.exe`` file is indeed in the ``/Applications`` folder.
 
-   The ClickOnce installer will erronously say that .NET 4.7.2 isn't installed, when it is (4.8 is a superset). Hit 'Install' - it'll think about installing it for a moment, then realise that it doesn't need to and proceed to launch Forge.
+   The ClickOnce installer will erronously say that .NET 4.7.2 isn't installed, while it is (4.8 is a superset). Hit 'Install' - it'll think about installing it for a moment, then realise that it doesn't need to and proceed to launch Forge.
 	
 #. Ready!
 
