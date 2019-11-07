@@ -68,7 +68,7 @@ As a convention, you must specify the resource type followed by the property (Ti
 
 Title and Description
 ---------------------
-Using Title and Description in the expressions, you can influence how they are displayed in search results and on the resource page.
+Using Title and Description in expressions, you can influence how they are displayed in search results and on the resource page.
 
 Example:
 
