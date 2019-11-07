@@ -71,7 +71,7 @@ Most plugins do both, registering (testable) services that do the actual work an
 
 Read more on :ref:`vonk_plugins`
 
-.. TODO When the video comes available publicly: For an introduction to Plugins you can watch the `session on Vonk Plugins <url>`_ from the FHIR DevDays USA 2019.
+View the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ from `DevDays 2018 <https://www.devdays.com/events/devdays-europe-2018/>`_.
 
 .. _vonk_overview_facades:
 
@@ -89,3 +89,4 @@ So a Facade is still a Plugin, and therefore technically a .NET Core assembly (o
 
 Read more on :ref:`vonk_facade`
 
+View the `session on Facade <https://www.youtube.com/watch?v=6SFd1QJJXtA>`_ from `DevDays 2018 <https://www.devdays.com/events/devdays-europe-2018/>`_.
