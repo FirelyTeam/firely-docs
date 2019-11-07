@@ -6,7 +6,7 @@ Overview of Vonk FHIR Server, Plugins and Facades
 Framework
 ---------
 
-Vonk is not just a FHIR Server, it is a processing pipeline for handling standard and custom FHIR requests. :ref:`Vonk FHIR Server <vonk_overview_server>` consists of this pipeline filled with processors to handle the interactions defined in the FHIR RESTful API. With :ref:`vonk_overview_plugins` you can add your own processors to the framework to perform custom operations, or fill in cross-cutting concerns for your business. A :ref:`Facade <vonk_overview_facades>` is a type of plugin that provides a data access layer for an existing data repository (e.g. a legacy system). This image sums it all up:
+Vonk is not just a FHIR Server, it is a processing pipeline for handling standard and custom FHIR requests. :ref:`Vonk FHIR Server <vonk_overview_server>` consists of this pipeline filled with processors to handle the interactions defined in the FHIR RESTful API. With :ref:`vonk_overview_plugins` you can add your own processors to the framework to perform custom operations, or fill in cross-cutting concerns for your business. A :ref:`Facade <vonk_overview_facades>` is a type of plugin that provides a data access layer for an existing data repository (e.g. a proprietary system). This image sums it all up:
 
 .. image:: ./images/vonk_framework.png
   :align: center
@@ -79,7 +79,7 @@ View the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ fro
 Facades
 -------
 
-A Facade is the Vonk FHIR processing pipeline working on an existing data repository. That repository could be the database of legacy system, some API of an existing system or a whole Clinical Data Repository specifically created to open up data through a FHIR API.
+A Facade is the Vonk FHIR processing pipeline working on an existing data repository. That repository could be the database of proprietary system, some API of an existing system or a whole Clinical Data Repository specifically created to open up data through a FHIR API.
 
 The implementation of a Facade is a special type of plugin that registers services to access the existing data repository. By building the data access layer you leverage all of the FHIR processing in Vonk, connected to your repository. Thus creating a FHIR RESTful API for that repository with the least amount of work.
 
