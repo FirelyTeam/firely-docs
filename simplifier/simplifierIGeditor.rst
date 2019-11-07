@@ -35,13 +35,11 @@ An IG can be rendered in one of three formats: a Tree table, Two Level Menu or H
 
 A Tree table rendering will display your IG with the elements in a format similar to the tree table with the elements and their hierarchy along the left side of the page.
 
-.. image:: http://i32.photobucket.com/albums/d41/sdfgsdg1asdj/0c898a190d7241b9a4e48e739a87af8f_zpszdeyzndo.jpg
-
+.. image:: ./images/IGTreeNavigation.png
 
 A Two Level Menu rendering will display your IG with the elements in tabs along the top of the page.
 
-.. image:: http://i32.photobucket.com/albums/d41/sdfgsdg1asdj/5.IGblog_zps3cloxvdy.png
-
+.. image:: ./images/IGHorizontalNavigation.png
 
 A HL7 Ballot rendering will display your IG with the elements in tabs along the top of the page similar to the Two Level Menu rendering, but in the style of a HL7 Ballot IG.
 
