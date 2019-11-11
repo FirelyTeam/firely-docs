@@ -68,7 +68,7 @@ Create Website in IIS
   :align: center
 
 .. attention::
-   IIS will pauze a website if it is idle for a while. Pauzing a dotnet process is the same as shutting
+   IIS will pause a website if it is idle for a while. Pauzing a dotnet process is the same as shutting
    it down, so this means that IIS shuts down the Vonk server. |br| This causes problems with each first request that is sent to Vonk after an idle period. Vonk needs a couple of seconds to start up
    again, and answers with a ``423 Lock Error`` while it loads.  
    Make sure to set **Start Mode** to **AlwaysRunning** to prevent IIS from shutting down Vonk.
