@@ -31,7 +31,7 @@ Vonk FHIR Server is a FHIR Server out of the box. It is built in Microsoft .NET 
 
 * Choose your database: SQLite is configured by default, but for serious use you'd want to configure MongoDB or SQL Server.
 * Configure the level of validation: Vonk can be very loose or very strict on the resources that you send to it.
-* Configure endpoints for FHIR versions that you want to support (since Vonk 3.0.0, FHIR STU3 and FHIR R4)
+* Configure endpoints for FHIR versions that you want to support (since Vonk 3.0.0: FHIR STU3 and FHIR R4)
 * Fill in your licensefile.
 * Adjust the processing pipeline by trimming it down (excluding certain plugins) or extending it with extra plugins.
 
