@@ -11,11 +11,11 @@ Vonk is built upon ASP.NET Core and its modular setup of a pipeline of middlewar
 It also leverages the `dependency injection`_ pattern that is central to ASP.NET Core.
 If you are not familiar with these concepts, please review them first.
 
-Vonk FHIR Components are pieces of middleware that handle the interactions of the `FHIR RESTful API`_. These components are placed in the pipeline. 
+Vonk's core plugins provide middleware components that handles the interactions of the `FHIR RESTful API`_. These components are placed in the pipeline. 
 The pipeline starts with a few general components that interpret the incoming http request and determine which interaction is being called. 
 This information is fed to the rest of the pipeline as the Request property of an IVonkContext object, analogous to the HttpContext and its Request property of ASP.NET Core itself.
 The IVonkContext also provides the Response property that is used to communicate the status, resource and/or OperationOutcome resulting from the interaction.
-On the way back through the pipeline the counterparts of the interpreting middleware translates the IVonkContext Response back to an http response, conforming to the FHIR specification.
+On the way back through the pipeline the counterparts of the interpreting middleware translate the IVonkContext Response back to an http response, conforming to the FHIR specification.
 The rest of the pipeline consists of middleware components that each fulfill one of the interactions. So there is one for ``read``, one for ``create``, for ``search`` et cetera. 
 These components are just regular ASP.Net Core Middleware components, except that they have access to the IVonkContext, and act on that. 
 
@@ -25,6 +25,7 @@ Adding custom middleware
 Using Vonk FHIR Components you can add your own middleware anywhere in the pipeline. It can be standard ASP.NET Core middleware - having nothing to do with FHIR - or middleware acting on the IVonkContext,
 e.g. to implement a custom operation. Vonk also provides convenience methods to register your middleware as one that handles a FHIR interaction, 
 including attributes to declare for which interaction and which resource types your middleware should be invoked. 
+This is explained in :ref:`vonk_plugins`.
 
 Repository interfaces
 ---------------------
@@ -67,22 +68,6 @@ A FHIR server has to express its capabilities in a CapabilityStatement, availabl
 Every component knows what interaction it adds to the capabilities. Therefore, we keep that information close to the component itself. 
 Typically, every component has an implementation of :code:`ICapabilityStatementContributor`, in which it gets access to the :code:`ICapabilityStatementBuilder`. 
 The latter provides methods to add information to the CapabilityStatement without having to worry about what is already added by other components or the order of execution.
-
-Current status
---------------
-
-Currently we have implemented three different generic repository implementations and two different facades to existing systems. This has given us a fairly good idea of the strengths and weaknesses of this architecture and its interfaces.
-
-Based on that experience we released :ref:`Vonk FHIR Facade<facadestart>` in September 2017.
-
-However, as we continue to expand on generic implementations (PostgreSQL, CosmosDB or MySQL are just some of the ideas) and guide more facade implementations we will further strengthen the interfaces and support methods.
-So they will still change over time. Especially the interfaces for the generic implementations. And we don't want to break your implementation on every update. Therefore the Vonk FHIR Components are not yet made publicly available on NuGet.
-
-If you want to use the Vonk FHIR Components already, please :ref:`contact <vonk-contact>` us. We can then provide you with the necessary NuGet packages along with personal guidance to help you succeed with your implementation.
-Also, we can then make sure that your implementation gets updated upon changes to the architecture or the interfaces. 
-And we will learn from your requirements and adapt Vonk where needed.
-
-When the Vonk FHIR Components are made publicly available on NuGet we will also extend this documentation.
 
 .. _middleware: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware
 .. _dependency injection: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
