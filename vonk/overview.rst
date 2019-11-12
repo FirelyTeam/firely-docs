@@ -29,18 +29,18 @@ Complete Server
 
 Vonk FHIR Server is a FHIR Server out of the box. It is built with Microsoft .NET Core and runs on any of the platforms for which a `.NET Core Runtime <https://dotnet.microsoft.com/download>`_ is available. Linux, Windows, MacOS, Docker etcetera. Installation can be done in minutes. After that you can configure main features and further details:
 
-* Choose your database: SQLite is configured by default, but for serious use you'd want to configure MongoDB or SQL Server.
-* Configure the level of validation: Vonk can be very loose or very strict on the validity of the resources that you send to it.
-* Configure endpoints for FHIR versions that you want to support (since Vonk 3.0.0: FHIR STU3 and FHIR R4)
-* Fill in your licensefile.
-* Adjust the processing pipeline by trimming it down (excluding certain plugins) or extending it with extra plugins.
+* Choose your :ref:`database <configure_repository>`: :ref:`SQLite <configure_sqlite>` is configured by default, but for serious use you'd want to configure :ref:`MongoDB <configure_mongodb>` or :ref:`SQL Server <configure_sql>`.
+* Configure the level of :ref:`validation <feature_prevalidation>`: Vonk can be very loose or very strict on the validity of the resources that you send to it.
+* Configure :ref:`endpoints <feature_multiversion_endpoints>` for FHIR versions that you want to support (since Vonk 3.0.0: FHIR STU3 and FHIR R4)
+* Fill in your :ref:`licensefile <configure_license>`.
+* Adjust the :ref:`processing <settings_pipeline>` pipeline by trimming it down (excluding certain plugins) or extending it with extra plugins.
 
-Besides configuration of the settings, Vonk features an Administration API that allows you to configure the so-called Conformance Resources that drive parsing, serialization, validation and terminology. The Administration API is pre-filled with Conformance Resources such as the StructureDefinitions, Searchparameters, CodeSystems and ValueSets that come with the FHIR Specification. Beyond that you can use the Administration API to make Vonk aware of:
+Besides configuration of the settings, Vonk features an :ref:`Administration API <administration_api>` that allows you to configure the so-called :ref:`Conformance Resources <conformance>` that drive parsing, serialization, validation and terminology. The Administration API is pre-filled with Conformance Resources such as the StructureDefinitions, Searchparameters, CodeSystems and ValueSets that come with the FHIR Specification. Beyond that you can use the Administration API to make Vonk aware of:
 
 * Custom profiles, e.g. national or institutional restrictions on the standard FHIR resources.
-* Custom resources: you can even define resources beyond those in FHIR and they are treated as if they were standard FHIR resources.
-* CodeSystem and ValueSet resources for terminology.
-* Custom Searchparameters: have Vonk index and search resources on properties that are not searchable with the searchparameters from the FHIR Specification itself.
+* :ref:`Custom resources <feature_customresources>`: you can even define resources beyond those in FHIR and they are treated as if they were standard FHIR resources.
+* CodeSystem and ValueSet resources for :ref:`terminology <feature_terminology>`.
+* :ref:`Custom Searchparameters <feature_customsp>`: have Vonk index and search resources on properties that are not searchable with the searchparameters from the FHIR Specification itself.
 
 Read more on Vonk FHIR Server:
 
