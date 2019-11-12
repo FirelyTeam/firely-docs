@@ -9,16 +9,16 @@ Welcome to the Vonk server documentation
    :hidden:
 
    Overview <overview>
-   getting_started
-   releasenotes/releasenotes
-   releasenotes/upgrade
-   configuration/configuration
-   deployment/deployment
-   features/features
-   administration_api
-   plugins/plugins
-   facade/facade
-   reference/reference
+   Getting started <getting_started>
+   Releasenotes <releasenotes/releasenotes>
+   How to upgrade <releasenotes/upgrade>
+   Configuration <configuration/configuration>
+   Deployment <deployment/deployment>
+   Features <features/features>
+   Administration API <administration_api>
+   Plugins <plugins/plugins>
+   Facade <facade/facade>
+   Reference <reference/reference>
    contact
 .. add files here
 
