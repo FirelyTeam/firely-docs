@@ -13,6 +13,7 @@ If you want to develop a plugin for Vonk FHIR Server, there are a couple of clas
    elementmodel
    vonkcontext
    interactionhandling
+   pipelineconfig
    repository
    accesscontrol_api
 .. add files here

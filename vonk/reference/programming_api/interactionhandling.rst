@@ -78,3 +78,60 @@ If you have a very specific filter that is not covered by these methods, you can
 .. attention::
 
    The filter you specify is called for **every** request. So make sure you don't do any heavy calculations or I/O.
+
+.. _vonk_appbuilder_extensions:
+
+IApplicationBuilder extension methods
+-------------------------------------
+
+:method: ``IApplicationBuilder UseVonkInteraction<TService>(this IApplicationBuilder app, Expression<Action<<TService, IVonkContext>> handler, OperationType operationType = OperationType.Handler)``
+:description: Handle the request with the ``handler`` method when the request matches the ``InteractionHandler`` attribute on the ``handler`` method. The ``OperationType`` may also specify ``PreHandler`` or ``PostHandler``. If you need to do anything lengthy (I/O, computation), use the Async variant of this method.
+
+:method: ``IApplicationBuilder UseVonkInteractionAsync<TService>(this IApplicationBuilder app, Expression<Func<TService, IVonkContext, T.Task>> handler, OperationType operationType = OperationType.Handler)``
+:description: Handle the request with the asynchronous ``handler`` method when the request matches the ``InteractionHandler`` attribute on the ``handler`` method. The ``OperationType`` may also specify ``PreHandler`` or ``PostHandler``. 
+
+:method: ``VonkAppBuilder OnInteraction(this IApplicationBuilder app, VonkInteraction interaction)``
+:description: Used for fluent configuration of middleware. This is one of two methods to enter the ``VonkAppBuilder``, see :ref:`vonk_vonkappbuilder`. It requires you to choose an interaction to act on. If you need your services to act on every interaction, choose ``VonkInteraction.all``.
+
+:method: ``VonkAppBuilder OnCustomInteraction(this IApplicationBuilder app, VonkInteraction interaction, string custom)``
+:description: Used for fluent configuration of middleware. This is one of two methods to enter the ``VonkAppBuilder``, see :ref:`vonk_vonkappbuilder`. It requires you to choose an interaction to act on. This should be one of the ``VonkInteraction.all_custom`` interactions. ``custom`` is the name of the custom interaction to act on, without the preceding '$'.
+
+.. _vonk_vonkappbuilder:
+
+VonkAppBuilder extension methods
+--------------------------------
+
+``VonkAppBuilder`` is used to fluently configure your middleware. It has methods to filter the requests that your middleware should respond to. Then it has a couple of ``*Handle...`` methods to transform your service into middleware for the pipeline, and return to the IApplicationBuilder interface.
+
+:method: ``VonkAppBuilder AndInteraction(this VonkAppBuilder app, VonkInteraction interaction)``
+:description: Specify an interaction to act on.
+
+:method: ``VonkAppBuilder AndResourceTypes(this VonkAppBuilder app, params string[] resourceTypes)``
+:description: Specify the resourcetypes to act on.
+
+:method: ``VonkAppBuilder AndStatusCodes(this VonkAppBuilder app, params int[] statusCodes)``
+:description: Specify the statuscode(s) of the response to act on. This is mainly useful for posthandlers.
+
+:method: ``VonkAppBuilder AndMethod(this VonkAppBuilder app, string method)``
+:description: Specify the http method (GET, PUT, etc) to act on.
+
+:method: ``VonkAppBuilder AndInformationModel(this VonkAppBuilder app, string model)``
+:description: If your service can only act on one FHIR version, specify it with this method. Common values for ``model`` are ``VonkConstants.Model.FhirR3`` and ``VonkConstants.Model.FhirR4``.
+
+:method: ``IApplicationBuilder PreHandleAsyncWith<TService>(this VonkAppBuilder app, Expression<Func<TService, IVonkContext, T.Task>> preHandler)``
+:description: Mark the ``preHandler`` method as a prehandler, so it will act on the IVonkContext and send it further down the pipeline.
+
+:method: ``IApplicationBuilder PreHandleWith<TService>(this VonkAppBuilder app, Expression<Action<TService, IVonkContext>> preHandler)``
+:description: Synchronous version of ``PreHandleAsyncWith`` for synchronous ``preHandler`` methods.
+
+:method: ``IApplicationBuilder HandleAsyncWith<TService>(this VonkAppBuilder app, Expression<Func<TService, IVonkContext, T.Task>> handler)``
+:description: Mark the ``handler`` method as a hanlder, so it will act on the IVonkContext, provide a response and end the pipeline for the request.
+
+:method: ``HandleWith<TService>(this VonkAppBuilder app, Expression<Action<TService, IVonkContext>> handler)``
+:description: Synchronous version of ``HandleAsyncWith`` for synchronous ``handler`` methods.
+
+:method: ``IApplicationBuilder PostHandleAsyncWith<TService>(this VonkAppBuilder app, Expression<Func<TService, IVonkContext, T.Task>> postHandler)``
+:description: Mark the ``postHandler`` method as a posthandler, so it will pass on the IVonkContext to the rest of the pipeline, and on the way back through the pipeline inspect or modify the response.
+
+:method: ``IApplicationBuilder PostHandleWith<TService>(this VonkAppBuilder app, Expression<Action<TService, IVonkContext>> postHandler)``
+:description: Synchronous version of ``PostHandleAsyncWith`` for synchronous ``postHandler`` methods.
