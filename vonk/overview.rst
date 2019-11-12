@@ -27,7 +27,7 @@ For more information and pricing visit the `product site <https://fire.ly/produc
 Complete Server
 ---------------
 
-Vonk FHIR Server is a FHIR Server out of the box. It is built in Microsoft .NET Core and runs on any of the platforms for which a `.NET Core Runtime <https://dotnet.microsoft.com/download>`_ is available. Linux, Windows, MacOS, Docker etcetera. Installation can be done in minutes. After that you can configure main features and further details:
+Vonk FHIR Server is a FHIR Server out of the box. It is built with Microsoft .NET Core and runs on any of the platforms for which a `.NET Core Runtime <https://dotnet.microsoft.com/download>`_ is available. Linux, Windows, MacOS, Docker etcetera. Installation can be done in minutes. After that you can configure main features and further details:
 
 * Choose your database: SQLite is configured by default, but for serious use you'd want to configure MongoDB or SQL Server.
 * Configure the level of validation: Vonk can be very loose or very strict on the validity of the resources that you send to it.
