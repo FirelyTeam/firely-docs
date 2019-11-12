@@ -15,6 +15,7 @@ Vonk FHIR Server allows you to put plugins of your own into that pipeline, and r
    plugins_config
    plugins_configclasses
    plugins_log
+   plugins_order
    plugins_classes
    plugins_template
    plugins_directhttp
