@@ -70,7 +70,7 @@ If you work with a POCO, you can use the extension method ToIResource() from Von
    var patientPoco = new Patient(); //Requires Hl7.Fhir.Model
    var resource = patientPoco.ToIResource();
 
-IResource is immutable, so changes will always result in a new instance. Changes can usually be applied with extension methods on ISourceNode, found in Vonk.Core.ElementModel.ISourceNodeExtensions. There are also several extension methods specifically for IResource in Vonk.Core.Common.IResourceExtensions:
+IResource is immutable, so changes will always result in a new instance. Changes can usually be applied with extension methods on ISourceNode, found in :ref:`Vonk.Core.ElementModel.ISourceNodeExtensions <vonk_reference_api_elementmodel>`. There are also several extension methods specifically for IResource in Vonk.Core.Common.IResourceExtensions:
 
 .. code-block:: csharp
 

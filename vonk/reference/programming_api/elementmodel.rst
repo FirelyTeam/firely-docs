@@ -4,7 +4,7 @@ ElementModel, manipulating IResource and ISourceNode
 ====================================================
 
 As stated in :ref:`vonk_reference_api_iresource`, ``IResource`` is immutable, and so is ``ISourceNode`` that it is based on.
-Still, there are cases where you would want to manipulate a resource. Add, change or remove elements. The namespace ``Vonk.Core.ElementModel`` has methods to do so. All of these methods do *NOT* change the original structure (the input IResource or ISourceNode), but instead *return* an updated structure.
+Still, there are cases where you would want to manipulate a resource, e.g. add, change or remove elements. The namespace ``Vonk.Core.ElementModel`` has methods to do so. All of these methods do *NOT* change the original structure (the input IResource or ISourceNode), but instead *return* an updated structure.
 
 .. _vonk_reference_api_isourcenode:
 
