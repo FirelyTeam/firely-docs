@@ -35,7 +35,7 @@ Vonk FHIR Server is a FHIR Server out of the box. It is built in Microsoft .NET 
 * Fill in your licensefile.
 * Adjust the processing pipeline by trimming it down (excluding certain plugins) or extending it with extra plugins.
 
-Besides configuration of the settings, Vonk features an Administration API that allows you to configure the so-called Conformance Resources that drive parsing, serialization, validation and terminology. The Administration API is pre-filled with all the StructureDefinitions, Searchparameters, CodeSystems and ValueSets that come with the FHIR Specification. Beyond that you can use the Administration API to make Vonk aware of:
+Besides configuration of the settings, Vonk features an Administration API that allows you to configure the so-called Conformance Resources that drive parsing, serialization, validation and terminology. The Administration API is pre-filled with Conformance Resources such as the StructureDefinitions, Searchparameters, CodeSystems and ValueSets that come with the FHIR Specification. Beyond that you can use the Administration API to make Vonk aware of:
 
 * Custom profiles, e.g. national or institutional restrictions on the standard FHIR resources.
 * Custom resources: you can even define resources beyond those in FHIR and they are treated as if they were standard FHIR resources.
@@ -70,7 +70,7 @@ In all cases, a Plugin is technically a .NET Core assembly (or a set of them) co
 
 Most plugins do both, registering (testable) services that do the actual work and a thin layer around it that adds it as a processor to the pipeline.
 
-Read more on :ref:`vonk_plugins`
+Read more on :ref:`vonk_plugins`.
 
 View the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ from `DevDays 2018 <https://www.devdays.com/events/devdays-europe-2018/>`_.
 
@@ -79,15 +79,15 @@ View the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ fro
 Facades
 -------
 
-A Facade is the Vonk FHIR processing pipeline working on an existing data repository. That repository could be the database of proprietary system, some API of an existing system or a whole Clinical Data Repository specifically created to open up data through a FHIR API.
+A Facade is a Vonk FHIR processing pipeline working on an existing data repository. That repository could be the database of proprietary system, some API of an existing system or a whole Clinical Data Repository specifically created to open up data through a FHIR API.
 
-The implementation of a Facade is a special type of plugin that registers services to access the existing data repository. By building the data access layer you leverage all of the FHIR processing in Vonk, connected to your repository. Thus creating a FHIR RESTful API for that repository with the least amount of work.
+The implementation of a Facade is a special type of plugin that registers services to access the existing data repository. By building the data access layer you leverage all of the FHIR processing in Vonk, connected to your repository - thus creating a FHIR RESTful API for that repository with the least amount of work.
 
-So a Facade is still a Plugin, and therefore technically a .NET Core assembly (or a set of them) having the same well-defined configuration methods. In the case of Facade it usually only registers services (and no processor), specifically implementing the interfaces that define the data access layer in Vonk:
+So a Facade is still a Plugin, and therefore technically a .NET Core assembly (or a set of them) having the same well-defined configuration methods. In the case of a Facade it usually only registers services (and no processor), specifically implementing the interfaces that define the data access layer in Vonk:
 
 * ISearchRepository, for reading and searching
-* IResourceChangeRepository, for create, update and delete
+* IResourceChangeRepository: for creating, updating, and deleting
 
-Read more on :ref:`vonk_facade`
+Read more on :ref:`vonk_facade`.
 
 View the `session on Facade <https://www.youtube.com/watch?v=6SFd1QJJXtA>`_ from `DevDays 2018 <https://www.devdays.com/events/devdays-europe-2018/>`_.
