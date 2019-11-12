@@ -91,7 +91,7 @@ It is up to you to override the ones you support any parameters for.
 .. note::
   The ``ArgumentException`` in this code will automatically result in setting the argument status to error, so the Vonk
   server will send a response with an error code and OperationOutcome. See the information about the ``IArgumentCollection``
-  and ``IArgument`` classes in :ref:`components_classes`.
+  and ``IArgument`` classes in :ref:`vonk_reference_api_ivonkcontext`.
 
 That's it for now, we will add support for another parameter later.
 

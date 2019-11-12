@@ -1,12 +1,12 @@
-.. _vonk_components_log_detail:
+.. _vonk_plugins_log_detail:
 
-Detailed logging of loading components
+Detailed logging of loading plugins
 ======================================
 
-If your component or any of the Vonk components appears not to be loaded correctly, you may inspect what happens in more detail in the log. See :ref:`configure_log` for where you can find the log file.
+If your plugin or any of the Vonk plugins appears not to be loaded correctly, you may inspect what happens in more detail in the log. See :ref:`configure_log` for where you can find the log file.
 You can vary the log level for ``Vonk.Core.Pluggability.VonkConfigurer`` to hide or reveal details.
 
-.. _vonk_components_log_assemblies:
+.. _vonk_plugins_log_assemblies:
 
 On the ``Information`` level, Vonk will tell you which assemblies are loaded and searched for ``VonkConfiguration`` attributes:
 
@@ -29,7 +29,7 @@ On the ``Information`` level, Vonk will tell you which assemblies are loaded and
       C:\data\dd18\vonk_preview\plugins\Visi.Repository.dll
       C:\data\dd18\vonk_preview\plugins\Vonk.Facade.Relational.dll
 
-.. _vonk_components_log_pipeline:
+.. _vonk_plugins_log_pipeline:
 
 Also on the ``Information`` level, Vonk will show the services and middleware as it has loaded, in order.
 The list below is also the default pipeline as it is configured for Vonk FHIR Server.
@@ -113,7 +113,7 @@ It shows all the configuration classes it found, and whether a ConfigureServices
 It also displays the value of the ``order`` property of the ``VonkConfiguration`` attribute for each configuration class.
 This allows you to determine an appropriate order for your own configuration class.
 
-.. _vonk_components_log_includes:
+.. _vonk_plugins_log_includes:
 
 On the ``Verbose`` level, Vonk will also tell you why each configuration class that is found is being included or excluded. An example:
 

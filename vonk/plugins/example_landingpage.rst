@@ -1,9 +1,9 @@
-.. _vonk_components_landingpage:
+.. _vonk_plugins_landingpage:
 
-Vonk FHIR Components example - Create a new landing page
+Vonk FHIR Plugin example - Create a new landing page
 ========================================================
 
-As a minimal example of how to use Vonk FHIR Components we will show you how to create a library with your own landing page, and use it to replace the landing page that is provided by Vonk.
+As a minimal example of how to use Vonk FHIR Plugins we will show you how to create a library with your own landing page, and use it to replace the landing page that is provided by Vonk.
 The landing page is the webpage you see when you access Vonk's endpoint with a browser. By default it looks like this:
 
 .. image:: ../images/localhost_home.png
@@ -82,7 +82,7 @@ Save the project file.
 Create the configuration class
 ------------------------------
 
-Next, add a new file for the configuration class, as described in :ref:`vonk_components_configclass`. Annotate it with ``[VonkConfiguration(order: 802)]``. 
+Next, add a new file for the configuration class, as described in :ref:`vonk_plugins_configclass`. Annotate it with ``[VonkConfiguration(order: 802)]``. 
 Then add the static methods as prescribed: 
 
 .. code-block:: csharp
@@ -131,7 +131,7 @@ The source file will then look like this:
 Deploy and Configure
 --------------------
 
-Build this project in Release mode and copy the produced dll (located in <src>\\bin\\Release\\netcoreapp2.0) to the plugin directory of Vonk, as configured in the :ref:`PipelineOptions:PluginDirectory<vonk_components_config>`.
+Build this project in Release mode and copy the produced dll (located in <src>\\bin\\Release\\netcoreapp2.0) to the plugin directory of Vonk, as configured in the :ref:`PipelineOptions:PluginDirectory<vonk_plugins_config>`.
 
 Go to the :ref:`configure_appsettings` of Vonk, and replace the namespace of the landingpage (``Vonk.DemoUI``) in the include of the PipelineOptions:
 

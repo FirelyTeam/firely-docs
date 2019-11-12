@@ -7,7 +7,7 @@ Debugging the Facade
     If this is your first startup of Vonk, it will take a while to load in all of the specification files.
 
 * You can inspect the console log to see if the pipeline is configured to include your repository.
-  See :ref:`vonk_components_log_detail` for more details.
+  See :ref:`vonk_plugins_log_detail` for more details.
 
 * To test your Facade, open Postman, or Fiddler, or use curl to request ``GET http://localhost:4080/metadata``
 

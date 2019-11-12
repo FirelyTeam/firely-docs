@@ -1,3 +1,5 @@
+.. _vonk_features:
+
 Features
 ========
 

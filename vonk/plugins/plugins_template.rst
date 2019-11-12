@@ -1,4 +1,4 @@
-.. _vonk_components_plugintemplate:
+.. _vonk_plugins_template:
 
 Template for a plugin
 =====================
@@ -10,7 +10,7 @@ Template for a plugin
 
 A regular Vonk plugin acts on the IVonkContext and its IVonkRequest and IVonkResponse properties.
 
-You don't have to create ASP.NET Core middleware yourself. You just need to create a service acting on IVonkContext. In the configuration you can specify when the service should be called, and in which position in the pipeline it should be put. See :ref:`components_interactionhandler` for details on that.
+You don't have to create ASP.NET Core middleware yourself. You just need to create a service acting on IVonkContext. In the configuration you can specify when the service should be called, and in which position in the pipeline it should be put. See :ref:`vonk_reference_api_interactionhandling` for details on that.
 
 You can use the following code as a template for a plugin:
 

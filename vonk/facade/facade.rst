@@ -25,4 +25,3 @@ some hands-on experience with a Facade solution.
    debugging
    finalizeproject
    enablechange_1
-   accesscontrol_api

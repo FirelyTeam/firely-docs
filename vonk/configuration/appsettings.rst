@@ -51,7 +51,7 @@ Settings lower in the list override the settings higher in the list (think CSS, 
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After you installed Vonk (see :ref:`getting_started`), either:
+After you installed Vonk (see :ref:`vonk_getting_started`), either:
 
 * copy the ``appsettings.default.json`` to ``appsettings.json`` and remove settings that you do not intend to alter, or
 * create an empty ``appsettings.json`` and copy individual parts from the ``appsettings.default.json`` if you wish to adjust them.
@@ -137,7 +137,7 @@ License
     }
 
 
-The :ref:`getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\\\) as path separators.
+The :ref:`vonk_getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\\\) as path separators.
 
 Other settings: 
 
@@ -222,6 +222,8 @@ CosmosDb
 
 Refer to :ref:`configure_cosmosdb` for configuring access to your CosmosDb databases.
 
+.. _hosting_options:
+
 http and https
 --------------
 ::
@@ -234,6 +236,8 @@ http and https
     },
 
 Refer to :ref:`configure_hosting` for enabling https and adjusting port numbers.
+
+.. _validation_options:
 
 Validation
 ----------
@@ -421,7 +425,7 @@ See :ref:`restful_crud`.
 Configuring the Vonk Pipeline
 -----------------------------
 
-You can add your own components to the Vonk pipeline, or control which of the standard Vonk components
+You can add your own plugins to the Vonk pipeline, or control which of the standard Vonk plugins
 are used for your Vonk server, by changing the ``PipelineOptions``.
 ::
 
@@ -458,4 +462,4 @@ It is possible to disable a specific information model by removing Vonk.Fhir.R3 
 
 Please note the warning on merging arrays in :ref:`configure_levels`.
 
-See :ref:`vonk_components` for more information and an example custom component.
+See :ref:`vonk_plugins` for more information and an example custom plugin.

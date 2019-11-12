@@ -3,11 +3,26 @@
 Welcome to the Vonk server documentation
 =========================================
 
-`Vonk <https://fire.ly/products/vonk/>`_ is Firely's FHIR server and the successor to our Spark server.
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+   :hidden:
 
-.. The Spark server was intended to be
-   a proof of concept implementation to test the HL7 FHIR specification and support the community during connectathons.
-   Spark was not designed and built for production and as such is not easily adaptable to every situation.
+   Overview <overview>
+   Getting started <getting_started>
+   Releasenotes <releasenotes/releasenotes>
+   How to upgrade <releasenotes/upgrade>
+   Configuration <configuration/configuration>
+   Deployment <deployment/deployment>
+   Features <features/features>
+   Administration API <administration_api>
+   Plugins <plugins/plugins>
+   Facade <facade/facade>
+   Reference <reference/reference>
+   contact
+.. add files here
+
+`Vonk <https://fire.ly/products/vonk/>`_ is Firely's FHIR server and the successor to our Spark server.
 
 Vonk is the answer to the growing need for a stable server that can be used in a variety of production environments.
 A public sandbox is available at https://vonk.fire.ly. This edition is free to use and intended for
@@ -21,21 +36,3 @@ installation, as well as information on how to contact us when you have addition
 or support contract.
 
 
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
-   :hidden:
-
-   start
-   configuration/configuration
-   deployment/deployment
-   features/features
-   administration_api
-   facade/facade
-   components/components
-   architecture
-   releasenotes/releasenotes
-   releasenotes/releasenotes_old
-   releasenotes/upgrade
-   contact
-.. add files here

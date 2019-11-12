@@ -15,8 +15,8 @@ Create new project
    * Project name and directory at your liking; Click OK
 
 
-Add Vonk Components
-^^^^^^^^^^^^^^^^^^^
+Add Vonk Packages
+^^^^^^^^^^^^^^^^^
 
 1. Tools > NuGet Package Manager > Package Manager Console
 

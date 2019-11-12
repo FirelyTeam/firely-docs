@@ -142,7 +142,7 @@ You created the Vonk FHIR Server off of a Simplifier project. That project may e
 Further steps
 -------------
 
-Yellow Button is an easy way to get started with Vonk FHIR Server. But there are many other :ref:`deployment options <deployment>` for the server. Besides that you can add your own plugins with :ref:`vonk_components`, or build a :ref:`vonk_facade` with Vonk. 
+Yellow Button is an easy way to get started with Vonk FHIR Server. But there are many other :ref:`deployment options <deployment>` for the server. Besides that you can add your own plugins with :ref:`vonk_plugins`, or build a :ref:`vonk_facade` with Vonk. 
 
 .. _Simplifier: https://simplifier.net
 

@@ -5,7 +5,7 @@ Vonk deployment options
 
 Vonk can be deployed as:
 
-* Binaries, see :ref:`getting_started`
+* Binaries, see :ref:`vonk_getting_started`
 * As Docker image, see :ref:`use_docker`
 * With :ref:`yellowbutton`
 
@@ -19,7 +19,7 @@ In order to test the :ref:`feature_accesscontrol` you will need to :ref:`feature
    :titlesonly:
    :hidden:
 
-   Binaries <../start>
+   Binaries <../getting_started>
    Docker <docker>
    Azure <azureWebApp>
    Yellow Button <yellowbutton>

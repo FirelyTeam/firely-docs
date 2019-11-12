@@ -1,15 +1,24 @@
-.. _vonk_components_directhttp:
+.. _vonk_plugins_directhttp:
 
 Returning non-FHIR content from a plugin
 ========================================
 
-Some plugins may need to return content that is not a FHIR Resource. You currently cannot do that through the ``IVonkResponse``. But there is another way. The component with order 1110 makes the ``IVonkContext`` accessible. The component with order 1120 turns the ``IVonkContext.Response`` to the ``HttpContext.Response``. That means if you pick an order between 1110 and 1120 you can read the ``IVonkContext.Request`` and ``.Arguments``, and write directly to the ``HttpContext.Response``. The steps to take are:
+Some plugins may need to return content that is not a FHIR Resource. You currently cannot do that through the ``IVonkResponse``. But there is another way: write directly to the HttpContext.Response. 
+The plugin with order 1110 makes the ``IVonkContext`` accessible. That means if you pick an order higher than 1110 you can read the ``IVonkContext.Request`` and ``.Arguments``, and write directly to the ``HttpContext.Response``. 
 
-#. Configure your plugin with an order between 1110 and 1120
+If you write the response yourself, you also need to set the StatusCode and Content-Type on the HttpContext.Response.
+
+.. note::
+
+    If you write to the HttpContext.Response directly, the payload of the IVonkContext.Response is ignored.
+
+The steps to take are:
+
+#. Configure your plugin with an order higher than 1110
 #. Write the ``HttpContext.Response.Body`` directly
 #. Set other properties of the ``HttpContext.Response`` (like ``StatusCode``) yourself.   
    
-An example of such a plugin would look like this. Note that this is now regular ASP.NET Core Middleware, not a service like in :ref:`vonk_components_plugintemplate`.
+An example of such a plugin would look like this. Note that this is now regular ASP.NET Core Middleware, not a service like in :ref:`vonk_plugins_template`.
 
 .. code-block:: csharp
 
@@ -55,7 +64,7 @@ An example of such a plugin would look like this. Note that this is now regular 
            }
        }
 
-       [VonkConfiguration(order: 1115)] //note the order: between 1110 and 1120
+       [VonkConfiguration(order: 1115)] //note the order: higher than 1110
        public static class MyPluginConfiguration
        {
            public static IServiceCollection AddMyPluginServices(IServiceCollection services)
@@ -72,11 +81,11 @@ An example of such a plugin would look like this. Note that this is now regular 
        }
    }
 
-.. _vonk_components_customauthorization:
+.. _vonk_plugins_customauthorization:
 
 Custom authorization plugin
 ---------------------------
 
 This feature can also be used to implement custom authorization. You can find a template for that in this `gist <http://bit.ly/VonkAuthorizationMiddleware>`_.
 
-If you just return a statuscode, you may put the middleware anywhere in the pipeline. If you want to return e.g. a custom json object, you should put it between 1110 and 1120 as described above. Do not forget to set the Content-Type (to application/json for a custom json object).
+If you just return a statuscode, you could the regular IVonkContext.Response. If you want to return e.g. a custom json object, you should use the method described above. Do not forget to set the Content-Type (to application/json for a custom json object).
