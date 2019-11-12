@@ -41,7 +41,7 @@ No matter what handler you have, it probably wants to act on the IVonkContext. T
 
 Also, you probably want to set your response on the ``IVonkContext.Response`` and not directly on the ``HttpContext.Response``. Then, you will need the :ref:`VonkToHttp <vonk_plugins_vonktohttp>` plugin (order: 1120) to translate the ``IVonkContext`` back to the ``HttpContext``. 
 
-So in general the minimum order is higher than 1120. 
+So in general, the minimum order you need for your plugin will be higher than 1120. 
 
 If you want your middleware to act on all the entries in a Batch or Transaction, you need to choose an order higher than that of the :ref:`Transaction <vonk_plugins_transaction>` plugin, which is 3120.
 
@@ -50,7 +50,7 @@ If you want your middleware to act on all the entries in a Batch or Transaction,
 Order collisions
 ----------------
 
-If two plugins define the same order, it is not defined in what order the plugins will be put in the pipeline. As long as those plugins act on disjoint sets of requests that may not be a problem. But it is recommended to avoid this by checking the orders in use already. 
+If two plugins have the same order number, it is not defined in what order the plugins will be put in the pipeline. As long as those plugins act on disjoint sets of requests that may not be a problem. But it is recommended to avoid this by checking the orders already in use. 
 
 .. _vonk_plugins_order_prepost:
 
@@ -74,7 +74,7 @@ A Prehandler needs to act *before* the actual handler will provide a response. S
 
 So if you want a Prehandler to intercept all create interactions, you should choose an order lower than that of the :ref:`Create <vonk_plugins_create>` plugin, which is 4420. 
 
-An example of this is the :ref:`Prevalidation <vonk_plugins_prevalidation>` plugin. It needs to validate all resources that get handled by the Create, Update, Conditional Create and Conditional Update plugins. Of these, Create has the lowest order: 4420. So it must be below 4420. But it also needs to act on each resource in a :ref:`Batch <vonk_plugins_batch>` or :ref:`Transaction <vonk_plugins_transaction>`, so it must be higher than these two, which means higher than 3120. So Prevalidation has order 4320.
+An example of this is the :ref:`Prevalidation <vonk_plugins_prevalidation>` plugin. It needs to validate all resources that get handled by the Create, Update, Conditional Create and Conditional Update plugins. Of these, Create has the lowest order: 4420. So it must be below 4420. But it also needs to act on each resource in a :ref:`Batch <vonk_plugins_batch>` or :ref:`Transaction <vonk_plugins_transaction>`, so it must be higher than these two, which means higher than 3120. So this is why we have chosen 4320 as order for Prevalidation.
 
 Posthandler
 ^^^^^^^^^^^
