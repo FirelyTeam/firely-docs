@@ -19,7 +19,7 @@ Load the engine
   - Hl7.Fhir.Mapping.STU3.Poco.dll
   - Superpower.dll
   - Vonk.Plugin.BinaryWrapper.dll
-  - Vonk.Plugin.ConvertOperation.dll
+  - Vonk.Plugin.MappingToStructureMap.dll
   - Vonk.Plugin.TransformOperation.dll
 
 3. Configure the :ref:`configure_appsettings` and add ``$convert`` to ``WholeSystemInteractions`` to declare support for the `convert <http://hl7.org/fhir/resource-operation-convert.html>`_ operation.
