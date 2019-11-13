@@ -26,9 +26,10 @@ Hence using a reverse proxy together with the Kestrel server allows us to get be
 With IIS
 --------
 
-A common option on Windows is using IIS. 
-For a comparison of IIS and Kestrel features at the moment of this writing you can check https://stackify.com/kestrel-web-server-asp-net-core-kestrel-vs-iis/?utm_source=DNK-224416.
-For instructions on how to deploy Vonk on IIS see :ref:`iis`
+A common option on Windows is using IIS: for instructions on how to deploy Vonk on IIS see :ref:`iis`.
+
+For a comparison of IIS and Kestrel features at the moment of this writing you can `check here <https://stackify.com/kestrel-web-server-asp-net-core-kestrel-vs-iis/?utm_source=DNK-224416>`_.
+
 
 With Nginx
 ----------
