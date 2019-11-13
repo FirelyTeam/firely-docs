@@ -16,5 +16,5 @@ The currently documented projects are:
    Forge - FHIR profile editor <forge/index>
    Vonk - FHIR server <vonk/index>
    FHIR .Net API <fhirnetapi/index>
-   .Net FHIR Mapping Engine <mappingengine/index>
+   FHIR Mapper <mappingengine/index>
    VonkLoader - bulk upload resources to any FHIR server <vonkloader/index>
