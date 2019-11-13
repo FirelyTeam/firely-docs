@@ -3,7 +3,7 @@
 Mapping File
 ============
 
-The mapping files give meaning to our mapping engine: with it, we're able to `$transform <https://www.hl7.org/fhir/structuremap-operation-transform.html>`_ data from one format to another. Lets convert the mapping file to a `StructureMap <https://www.hl7.org/fhir/structuremap.html>`_ and upload to our Vonk.
+The mapping files give purpose to our mapping engine: with them, we're able to `$transform <https://www.hl7.org/fhir/structuremap-operation-transform.html>`_ data from one format to another. Lets convert the mapping file to a `StructureMap <https://www.hl7.org/fhir/structuremap.html>`_ resource and upload to our Vonk.
 
 1. ``POST http(s)://<vonk-endpoint>/$convert`` with the body as your mapping file and the ``Content-Type`` header set to ``text/fhir-mapping;charset=utf-8`` to convert your mapping file to a StructureMap.
 
