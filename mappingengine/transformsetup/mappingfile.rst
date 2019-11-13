@@ -7,6 +7,8 @@ The mapping files give meaning to our mapping engine: with it, we're able to `$t
 
 1. ``POST http(s)://<vonk-endpoint>/$convert`` with the body as your mapping file and the ``Content-Type`` header set to ``text/fhir-mapping;charset=utf-8`` to convert your mapping file to a StructureMap.
 
-2. ``POST http(s)://<vonk-endpoint>/StructureMap`` with the resulting ``StructureMap``, or ``PUT`` to a unique ID. Make sure you don't make duplicates of the StructureMap on the server - so always use ``PUT`` to update the existing one afterwards. Note down the returned location your map.
+2. ``POST http(s)://<vonk-endpoint>/StructureMap`` with the resulting ``StructureMap``, or ``PUT`` to a unique ID. Make sure you don't make duplicates of the StructureMap on the server - so always use ``PUT`` to update the existing one afterwards. Note down logical ID of your map.
 
-  2.1. In our example, we'll upload the map to ``http://localhost:4080/StructureMap/tutorial``.
+  2.1. In our example, we'll upload the map to ``http://localhost:4080/StructureMap/tutorial``, so the logical ID is ``tutorial``.
+  
+3. Finally, run the transform against the StructureMap resource: ``POST http(s)://<vonk-endpoint>/StructureMap/<logical id>`` with content to transform as the resource body. Make sure to set the ``Content-Type`` to either ``application/json`` or ``application/xml`` accordingly.
