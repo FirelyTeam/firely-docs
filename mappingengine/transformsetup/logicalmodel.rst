@@ -5,11 +5,11 @@ Logical Model
 
 If you're working with custom resources, you need create a model of your data to describe it to the mapping engine. If you're working with FHIR resources, it already has the models available, so you can skip this step.
 
-1. Describe your logical model in Forge: see :ref:`forge_logical_models`. An example model `is available <https://simplifier.net/.netfhirmappingengine/fakeinpatientdrugchart>`_ and we'll it in the following documentation:
+1. Describe your logical model in Forge: see :ref:`forge_logical_models`. An example model `is available <https://simplifier.net/.netfhirmappingengine/fakeinpatientdrugchart>`_ and we'll use it in this documentation.
 
 .. image:: ../images/sample-logical-model.png
 
-2. Next, convert your logical model to a custom resource:
+2. Next, convert the logical model you've made to a custom resource:
 
    2.1. Ensure the ``.url`` starts with ``http://hl7.org/fhir/StructureDefinition`` (this is a temporary limitation).
    
@@ -44,6 +44,6 @@ If you'd like to double-check, `this is how <https://simplifier.net/.NetFHIRMapp
 
 With the custom resource uploaded to Vonk's administration point, we have now taught Vonk about a new resource type!
 
-You can verify this by running ``GET http://localhost:4080/<custom resource name>`` (in our example ``GET http://localhost:4080/FakeInpatientDrugChart``). The query will return 0 search results instead of an error message "Request for not-supported ResourceType(s)".
+You can verify this by running ``GET http(s)://localhost:4080/<custom resource name>`` (in our example ``GET http://localhost:4080/FakeInpatientDrugChart``). The query will return 0 search results instead of an error message "Request for not-supported ResourceType(s)".
 
 Next we'll create a mapping between our custom resource and FHIR STU3 resources.
