@@ -11,4 +11,4 @@ The mapping files give meaning to our mapping engine: with it, we're able to `$t
 
   2.1. In our example, we'll upload the map to ``http://localhost:4080/StructureMap/tutorial``, so the logical ID is ``tutorial``.
   
-3. Finally, run the transform against the StructureMap resource: ``POST http(s)://<vonk-endpoint>/StructureMap/<logical id>`` with content to transform as the resource body. Make sure to set the ``Content-Type`` to either ``application/json`` or ``application/xml`` accordingly.
+With the structure map and the logical model upload to Vonk, you are now ready to run your transformations!
