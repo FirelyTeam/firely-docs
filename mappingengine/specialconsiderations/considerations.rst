@@ -7,6 +7,16 @@ The following special considerations - and features - are handy to keep in mind 
 
 log statement
 ~~~~~~~~~~~~~
+FHIR Mapper supports logging with ``log``, but it is a bit different from the specification: 
+
+1. use ``log`` in the start source field
+2. enclose the log statement in double quotes ``"``
+3. enclose plain text within the log statement in single quotes ``'``
+4. concatenate values with ``+``
+
+Example: ::
+
+    src.patientName as s log"'patient name is ' + $this.patientName" -> tgt.name as t, t.text = s;
 
 where/check statements
 ~~~~~~~~~~~~~~~~~~~~~~
