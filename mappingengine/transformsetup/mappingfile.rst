@@ -11,4 +11,4 @@ The mapping files give meaning to our mapping engine: with it, we're able to `$t
 
   2.1. In our example, we'll upload the map to ``http://localhost:4080/StructureMap/tutorial``, so the logical ID is ``tutorial``.
   
-With the structure map and the logical model upload to Vonk, you are now ready to run your transformations!
+With the structure map and the logical model upload to Vonk, you are now ready to run your transformations (:ref:`running_transforms`).
