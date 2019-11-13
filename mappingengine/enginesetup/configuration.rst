@@ -1,6 +1,6 @@
 .. _configure_mapping_engine:
 
-Configuring the Mapping Engine on Vonk
+Configuring FHIR Mapper on Vonk
 ======================================
 
 To configure the mapping engine in your Vonk installation, follow the steps below. If you don't have a copy yet, `get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
