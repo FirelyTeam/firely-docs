@@ -67,11 +67,18 @@ Sample configuration: ::
 Verifying
 ~~~~~~~~~
 
-To verify that the mapping engine is loaded, do a blank ``POST`` to ``http(s)://<vonk-endpoint>/$convert``. If it responds with an ``OperationOutcome`` saying: ::
+To verify that the mapping engine is loaded, do check the metadata with ``http(s)://<vonk-endpoint>/metadata``. If it mentions this in the response ::
 
-  No valid resource was provided in the request body. Skipping $convert.
+ {
+   "name": "transform",
+   "definition": {
+     "reference": "http://hl7.org/fhir/OperationDefinition/StructureMap-transform"
+    }
+  }
 
 That means the plugin is loaded and working.
+
+(alternatively, run ``curl -s http://localhost:4080/metadata | jq ".rest[].operation[] | select (.name == \"transform\")"``)
 
 Troubleshooting
 ~~~~~~~~~~~~~~~
@@ -84,7 +91,7 @@ If the verification didn't work for some reason, check the Vonk logs for the fol
     <path to vonk>/plugins/Superpower.dll
     <path to vonk>/plugins/Vonk.Plugin.TransformOperation.dll
     <path to vonk>/plugins/Vonk.Plugin.BinaryWrapper.dll
-    <path to vonk>/plugins/Vonk.Plugin.ConvertOperation.dll
+    <path to vonk>/plugins/Vonk.Plugin.MappingToStructureMap.dll
     <path to vonk>/plugins/Hl7.Fhir.Mapping.STU3.Poco.dll
     <path to vonk>/plugins/Hl7.Fhir.Mapping.dll
 
@@ -97,15 +104,5 @@ If they're not listed, check that the dll files are available in your ``PluginDi
         [...]
         MappingToStructureMapConfiguration [4550] | Services: V | Pipeline: V
         TransfromOperationConfiguration    [4560] | Services: V | Pipeline: V
-        ConvertOperationConfiguration      [4600] | Services: V | Pipeline: V
 
-If they're not listed, double-check your that your ``PipelineOptions`` are loading the engine plugins.
-
-
-
-
-
-
-
-
-
+If they're not listed, double-check your that your ``PipelineOptions`` are loading the engine plugins
