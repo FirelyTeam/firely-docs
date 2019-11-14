@@ -66,7 +66,7 @@ Sample configuration: ::
 Verifying
 ~~~~~~~~~
 
-To verify that the mapping engine is loaded, do check the metadata with ``http(s)://<vonk-endpoint>/metadata``. If it mentions this in the response ::
+To verify that the mapping engine is loaded, do check the metadata with ``http(s)://<vonk-endpoint>/metadata``. If it mentions this in the response: ::
 
  {
    "name": "transform",
