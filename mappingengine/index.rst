@@ -25,6 +25,7 @@ or support contract.
    featureslist/featureslist
    transformsetup/overview
    runningtransforms/runningtransforms
+   featureslist/supportedfeatures
    specialconsiderations/considerations
    contact
 .. add files here

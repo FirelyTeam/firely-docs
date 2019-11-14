@@ -1,4 +1,5 @@
-===================================
+.. _fhirmapper_supportedfeatures:
+
 Supported Mapping Language Features
 ===================================
 
@@ -23,7 +24,7 @@ Metadata can be added to a StructureMap based on a FHIR Mapping Language script 
 
 Flow control
 -------------
-In some cases it is necessary to control which order mapping groups are executed. It's possible to chain mapping groups in order for them to be evaluated subsequently ::
+In some cases it is necessary to control which order mapping groups are executed. It's possible to chain mapping groups in order for them to be evaluated subsequently: ::
 
   group MapFakeInpatientDrugChart(source src: FakeInpatientDrugChart, target bundle: Bundle)
   {
@@ -38,19 +39,19 @@ Transformation functions
 ------------------------
 The FHIR Mapping language defines a series of transformation functions that can alter the source content before being copied to a target. The following functions are currently supported by the FHIR Mapper.
 
-1. create('<type>') - Explicitly create an element to pass it into a subsequent rule / mapping group::
+1. create('<type>') - explicitly create an element to pass it into a subsequent rule / mapping group: ::
   
   src.guardian as guardian -> patient.contact = create('BackboneElement') as contact collate then {...}
 
-2. dateOp('<date>') - Transform a string to a date::
+2. dateOp('<date>') - transform a string to a date: ::
 
   src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth);
 
-3. uuid() - create a random UUID::
+3. uuid() - create a random UUID: ::
 
   src -> tgt.id = uuid();
 
-4. cc('<text>') / cc('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - create a CodeableConcept::
+4. cc('<text>') / cc('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - create a CodeableConcept: ::
 
   src -> observation.category = cc('http://hl7.org/fhir/observation-category', 'vital-signs', 'Vital Signs');
   
@@ -77,6 +78,6 @@ Unsupported features
   - pointer
   - qty
   - cp
-  
+
 - <<stereotypes>> for mapping groups
 - Using the "as queried" / "as produced" modes when importing a StructureDefinition
