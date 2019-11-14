@@ -4,11 +4,7 @@
 Getting Started
 ===============
 
-The FHIR Mapper is available as a paid plugin to the Vonk FHIR server. `Get in touch <https://fire.ly/contact/>`_ with us if you're interested in obtaining it for your needs. ::
-
-
-    Documentation is currently under construction! Please be patient.
-    
+The FHIR Mapper is available as a paid plugin to the Vonk FHIR server. `Get in touch <https://fire.ly/contact/>`_ with us if you're interested in obtaining it for your needs.    
 
 Configuration
 -------------
