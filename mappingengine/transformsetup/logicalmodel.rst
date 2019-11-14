@@ -32,7 +32,7 @@ If you're working with custom resources, you need create a model of your data to
    .. image:: ../images/delete-first-type-from-logical.png
      :align: center
 
-   2.7. If you only have a ``.snapshot`` in your model and no ``.differential``, rename the ``.snapshot`` to ``.differential`` (this is a temporary limitation).
+   2.7. If you only have a ``.snapshot`` in your model and no ``.differential``, rename the ``.snapshot`` to ``.differential`` (this is a temporary limitation - basically, ensure that you have a ``.differential``).
 
 If you'd like to double-check, `this is how <https://simplifier.net/fhirmapper/FakeInpatientDrugChart-custom-resource/~json>`_ our example custom resource looks like now with all the changes applied.
 
