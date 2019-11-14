@@ -50,7 +50,7 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
   src -> tgt.id = uuid();
 
-4. cc('<text>') / cc('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - Create a CodeableConcept ::
+4. cc('<text>') / cc('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - create a CodeableConcept: ::
 
   src -> observation.category = cc('http://hl7.org/fhir/observation-category', 'vital-signs', 'Vital Signs');
   
