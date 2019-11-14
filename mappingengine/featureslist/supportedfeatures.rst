@@ -7,7 +7,7 @@ The FHIR Mapper implements a broad set of features of the FHIR Mapping Language,
 
 Metadata
 -------------
-Metadata can be added to a StructureMap based on a FHIR Mapping Language script by using a /// comment at the beginning of the file. It's possible to set:
+Metadata can be added to a StructureMap based on a FHIR Mapping Language script by using a ``///`` comment at the beginning of the file. It's possible to set:
 
 - StructureMap.title
 - StructureMap.version
@@ -33,35 +33,35 @@ In some cases it is necessary to control which order mapping groups are executed
       TransformPatient(src, patient), TransformPatientPostHandler(src, patient, bundle);
   }
 
-Here TransformPatient is called first followed by TransformPatientPostHandler, allowing to refine the created Patient resource or to use its content in another resource mapping.
+Here ``TransformPatient`` is called first followed by ``TransformPatientPostHandler``, allowing to refine the created Patient resource or to use its content in another resource mapping.
 
 Transformation functions
 ------------------------
 The FHIR Mapping language defines a series of transformation functions that can alter the source content before being copied to a target. The following functions are currently supported by the FHIR Mapper.
 
-1. create('<type>') - explicitly create an element to pass it into a subsequent rule / mapping group: ::
-  
-  src.guardian as guardian -> patient.contact = create('BackboneElement') as contact collate then {...}
+1. ``create('<type>')`` - explicitly create an element to pass it into a subsequent rule / mapping group: ::
+ 
+    src.guardian as guardian -> patient.contact = create('BackboneElement') as contact collate then {...}
 
-2. dateOp('<date>') - transform a string to a date: ::
+2. ``dateOp('<date>')`` - transform a string to a date: ::
 
-  src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth);
+    src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth);
 
-3. uuid() - create a random UUID: ::
+3. ``uuid()`` - create a random UUID: ::
 
-  src -> tgt.id = uuid();
+    src -> tgt.id = uuid();
 
-4. cc('<text>') / cc('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - create a CodeableConcept: ::
+4. ``cc('<text>')`` / ``cc('<CodeSystemCanonical>', '<code>', '<DisplayValue>')`` - create a CodeableConcept: ::
 
-  src -> observation.category = cc('http://hl7.org/fhir/observation-category', 'vital-signs', 'Vital Signs');
-  
-5. id('<CodeSystemCanonical>', '<identifier>') - create an Identifier: ::
+    src -> observation.category = cc('http://hl7.org/fhir/observation-category', 'vital-signs', 'Vital Signs');
 
-  src.mpi as mpi -> patient.identifier = id('http://vonk.fire.ly/fhir/CodeSystem/mpi', mpi) as identifier, identifier.use = 'official';
+5. ``id('<CodeSystemCanonical>', '<identifier>')`` - create an Identifier: ::
 
-6. c('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - create a Coding.
+    src.mpi as mpi -> patient.identifier = id('http://vonk.fire.ly/fhir/CodeSystem/mpi', mpi) as identifier, identifier.use = 'official';
 
-7. cast(source, '<type>') - cast source to a certain different type.
+6. ``c('<CodeSystemCanonical>', '<code>', '<DisplayValue>')`` - create a Coding.
+
+7. ``cast(source, '<type>')`` - cast source to a certain different type.
 
 FHIRPath Checks
 ------------------------
