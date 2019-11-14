@@ -3,8 +3,7 @@
 Welcome to the FHIR Mapper documentation
 =====================================================
 
-The FHIR Mapper is Firely's implementation of the `mapping language <https://www.hl7.org/fhir/mapping-language.html>`_,
-available as a Vonk plugin. With this engine you're able to transform data from a variety of formats - HL7 v2 or your custom ones - to other formats such as FHIR/custom.
+The FHIR Mapper an implementation of the `mapping language <https://www.hl7.org/fhir/mapping-language.html>`_, developed by Firely and `Healex <healex.systems>`_, available as a Vonk plugin on the `Vonk marektplace <https://fire.ly/products/vonk/vonk-plugins/>`_. With this add-on you're able to transform data from a variety of formats - HL7 v2 or your custom ones - to other formats such as FHIR/custom resources.
 
 .. image:: ./images/structuremap-screenshot.png
   :align: center
