@@ -18,5 +18,3 @@ Running transformations
 
 
 Once you have setup the FHIR Mapper, you can start :ref:`setup_transforms`.
-
-Alternatively, you can try the FHIR Mapper in our public test sandbox: https://vonk.fire.ly/R3. The rest of the documentation will be using the public sandbox as a point of reference.
