@@ -54,7 +54,7 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
   src -> observation.category = cc('http://hl7.org/fhir/observation-category', 'vital-signs', 'Vital Signs');
   
-5. id('<CodeSystemCanonical>', '<identifier>') - Create an Identifier::
+5. id('<CodeSystemCanonical>', '<identifier>') - create an Identifier: ::
 
   src.mpi as mpi -> patient.identifier = id('http://vonk.fire.ly/fhir/CodeSystem/mpi', mpi) as identifier, identifier.use = 'official';
 
