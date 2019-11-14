@@ -58,7 +58,7 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
   src.mpi as mpi -> patient.identifier = id('http://vonk.fire.ly/fhir/CodeSystem/mpi', mpi) as identifier, identifier.use = 'official';
 
-6. c('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - Create a Coding
+6. c('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - create a Coding.
 
 7. cast(source, '<type>') - cast source to a certain different type.
 
