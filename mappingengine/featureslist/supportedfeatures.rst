@@ -32,7 +32,7 @@ In some cases it is necessary to control which order mapping groups are executed
       TransformPatient(src, patient), TransformPatientPostHandler(src, patient, bundle);
   }
 
-Here TransformPatient is called first followed by TransformPatientPostHandler, allowing to refine the created Patient resource or to use it's content in another resource mapping.
+Here TransformPatient is called first followed by TransformPatientPostHandler, allowing to refine the created Patient resource or to use its content in another resource mapping.
 
 Transformation functions
 ------------------------
@@ -56,8 +56,7 @@ The FHIR Mapping language defines a series of transformation functions that can 
   
 5. id('<CodeSystemCanonical>', '<identifier>') - Create an Identifier::
 
-  src.mpi as mpi -> patient.identifier =
-    id('http://vonk.fire.ly/fhir/CodeSystem/mpi', mpi) as identifier, identifier.use = 'official';
+  src.mpi as mpi -> patient.identifier = id('http://vonk.fire.ly/fhir/CodeSystem/mpi', mpi) as identifier, identifier.use = 'official';
 
 6. c('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - Create a Coding
 
@@ -70,6 +69,7 @@ Unsupported features
 ------------------------
 
 - Transformation functions:
+
   - truncate
   - escape
   - append
