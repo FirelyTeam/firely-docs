@@ -8,7 +8,7 @@ available as a Vonk plugin. With this engine you're able to transform data from 
 
 .. image:: ./images/structuremap-screenshot.png
   :align: center
-  :target: https://simplifier.net/.netfhirmappingengine/fhirmappertutorial
+  :target: https://simplifier.net/fhirmapper/fhirmappertutorial
 
 On these pages we provide you with the documentation you need to get up and running with the FHIR Mapper,
 as well as information on how to contact us when you have additional needs: such as a custom implementation
@@ -19,7 +19,7 @@ or support contract.
    :maxdepth: 1
    :titlesonly:
    :hidden:
-   
+
 
    start
    enginesetup/configuration
