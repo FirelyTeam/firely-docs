@@ -10,7 +10,7 @@ Metadata can be added to a StructureMap based on a FHIR Mapping Language script 
 
 - StrcutureMap.title
 - StructureMap.version
-- StrcutureMap.status
+- StructureMap.status
 
 ::
 
