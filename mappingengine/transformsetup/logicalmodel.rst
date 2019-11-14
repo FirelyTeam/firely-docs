@@ -1,7 +1,7 @@
 .. _mappingengine_create_logical_model:
 
-Logical Model
-=============
+Logical Model + Custom Resource
+===============================
 
 If you're working with custom resources, you need create a model of your data to describe it to the mapping engine. If you're working with FHIR resources, it already has the models available, so you can skip this step.
 
