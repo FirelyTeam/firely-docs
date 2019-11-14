@@ -3,7 +3,7 @@
 Logical Model + Custom Resource
 ===============================
 
-If you're working with custom format that you want to transform, you need create a model of your data to describe it to the FHIR Mapper. If you're working with FHIR resources as your source data, Vonk already has the models available, so you can skip this step.
+If you're working with a custom format that you want to transform, you need create a model of your data to describe it to the FHIR Mapper. If you're working with FHIR resources as your source data, Vonk already has the models available, so you can skip this step.
 
 1. Describe your logical model in Forge: see :ref:`forge_logical_models`. An example model `is available <https://simplifier.net/fhirmapper/fakeinpatientdrugchart>`_ and we'll use it in this documentation.
 
