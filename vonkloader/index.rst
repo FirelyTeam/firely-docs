@@ -34,3 +34,6 @@ See also ``vonkloader --help`` on running the tool.
 Example: ::
 
     vonkloader -file:examples-json-stu3.zip -server:http://localhost:4080
+
+    // load Synthea zip
+    vonkloader -file:examples-json-stu3.zip -server:http://localhost:4080 -collectionHandling:Transaction -forcePutInTransaction
