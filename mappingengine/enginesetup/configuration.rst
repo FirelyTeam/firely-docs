@@ -5,7 +5,7 @@ Configuring FHIR Mapper on Vonk
 
 To configure the FHIR Mapper in your Vonk installation, follow the steps below. If you don't have a copy yet, `get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
 
-Load the plugin
+Load the engine
 ~~~~~~~~~~~~~~~
 
 1. Ensure the ``/plugins`` directory exists in your Vonk installation.
