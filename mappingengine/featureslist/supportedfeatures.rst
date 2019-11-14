@@ -60,7 +60,7 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
 6. c('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - Create a Coding
 
-7. cast(source, '<type>') - Cast a source to a certain different type
+7. cast(source, '<type>') - cast source to a certain different type.
 
 FHIRPath Checks
 ------------------------
