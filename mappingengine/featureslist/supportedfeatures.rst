@@ -6,7 +6,7 @@ The FHIR Mapper implements a broad set of features of the FHIR Mapping Language,
 
 Metadata
 -------------
-Metadata can be added to a StrcutureMap based on a FHIR Mapping Language script by using a /// comment at the beginning of the file. It's possible to set:
+Metadata can be added to a StructureMap based on a FHIR Mapping Language script by using a /// comment at the beginning of the file. It's possible to set:
 
 - StrcutureMap.title
 - StrcutureMap.version
