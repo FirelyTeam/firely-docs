@@ -3,6 +3,11 @@
 Setting up transformations
 ==========================
 
+The FHIR Mapper was designed to handle two kinds of transformations:
+
+- Converting a FHIR Mapping Language file into a FHIR StructureMap resource
+- Transforming an instance of a custom format into FHIR or vice-versa
+
 Prior to running the data mapping `$transform <https://www.hl7.org/fhir/structuremap-operation-transform.html>`_ operation, you need to have two things in place:
 
 1. A definition of the data you'll be working with in the `StructureDefinition <https://www.hl7.org/fhir/structuredefinition.html>`_ format.
