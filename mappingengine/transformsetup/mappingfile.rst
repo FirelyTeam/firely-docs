@@ -11,7 +11,7 @@ These two formats are isomorphic and can be converted between each other.
 
 The FHIR Mapper operates on a StructureMap resource, so let's convert the mapping file to a `StructureMap <https://www.hl7.org/fhir/structuremap.html>`_ resource and upload to our Vonk. 
 
-1. ``POST http(s)://<vonk-endpoint>/$convert`` with the body as your mapping file and the ``Content-Type`` header set to ``text/fhir-mapping;charset=utf-8`` to convert your mapping file to a StructureMap. The operation parses your mapping file to check it is valid. You will receive an OperationOutcome if an syntax error is encountered inclduing a hint on how to fix it.
+1. ``POST http(s)://<vonk-endpoint>/$convert`` with the body as your mapping file and the ``Content-Type`` header set to ``text/fhir-mapping;charset=utf-8`` to convert your mapping file to a StructureMap. The operation parses your mapping file to check it is valid. You will receive an OperationOutcome if an syntax error is encountered, including a hint on how to fix it.
 
   1.1. In our example, ``POST http://localhost:4080/$convert`` with `our sample map <https://simplifier.net/fhirmapper/FHIRMapperTutorial/~overview>`_ as the body.
 
