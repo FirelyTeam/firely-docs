@@ -75,6 +75,15 @@ A mapping rule can be conditionally blocked from running by including a FHIRPath
 
 Please note that the FHIRPath result set is selected on the source of the mapping rule. Even if you select src.<element> as your input for the target transformation, the FHIRPath is run on ``src`` and not on ``<element>``. It's even possible to use FHIRPath variables like ``$this``.
 
+Logging
+------------------------
+For debugging purposes source content can be dumped as an OperationOutcome via a ``log`` statement. A log statement can include an arbitrary FHIRPath statement and is executed on the source of the transformation rule: ::
+
+  patient.id as patientId log "$this" -> observation.subject = create('Reference') as subject,
+      subject.reference = evaluate(patientId, '\'Patient/\' + $this');
+
+To see the debugging output StructureMap.experimental needs to be set to ``true``.
+
 Unsupported features
 ------------------------
 
