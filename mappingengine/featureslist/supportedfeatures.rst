@@ -9,7 +9,7 @@ Metadata
 Metadata can be added to a StructureMap based on a FHIR Mapping Language script by using a /// comment at the beginning of the file. It's possible to set:
 
 - StrcutureMap.title
-- StrcutureMap.version
+- StructureMap.version
 - StrcutureMap.status
 
 ::
