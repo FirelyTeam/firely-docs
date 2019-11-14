@@ -5,8 +5,8 @@ Mapping File
 
 The mapping files give purpose to our FHIR Mapper: with them, we're able to `$transform <https://www.hl7.org/fhir/structuremap-operation-transform.html>`_ data from one format to another. These transformation rules can be represented in two formats:
 
-- `FHIR Mapping Language syntax <https://www.hl7.org/fhir/mapping-language.html>`_ (Human-readable)
-- `FHIR StructureMap resource <https://www.hl7.org/fhir/stu3/structuremap.html>`_ (Machine-readable)
+- `FHIR Mapping Language syntax <https://www.hl7.org/fhir/mapping-language.html>`_ (human-readable)
+- `FHIR StructureMap resource <https://www.hl7.org/fhir/stu3/structuremap.html>`_ (machine-readable)
 
 These two formats are isomorphic and can be converted between each other. 
 
