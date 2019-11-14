@@ -46,11 +46,11 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
   src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth);
 
-3. uuid() - create a random UUID: ::
+3. uuid() - create a random UUID::
 
   src -> tgt.id = uuid();
 
-4. cc('<text>') / cc('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - create a CodeableConcept: ::
+4. cc('<text>') / cc('<CodeSystemCanonical>', '<code>', '<DisplayValue>') - create a CodeableConcept::
 
   src -> observation.category = cc('http://hl7.org/fhir/observation-category', 'vital-signs', 'Vital Signs');
   
