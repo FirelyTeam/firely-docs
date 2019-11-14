@@ -7,7 +7,11 @@ Once your transforms are setup (:ref:`setup_transforms`), you can run your data 
 
 To do so, ``POST http(s)://<vonk-endpoint>/StructureMap/<logical id>`` with content to transform as the resource body. Make sure to set the ``Content-Type`` to either ``application/json`` or ``application/xml`` accordingly.
 
-Example transformation:
+For the example we've been working with so far, ``POST http://localhost:4080/StructureMap/tutorial/$transform`` with a `sample resource <https://simplifier.net/fhirmapper/FakeInpatientDrugChart-example/~json>`_ as the body.
+
+Simplified sample call:
 
 .. image:: ../images/sample-convert-output.png
   :align: center
+
+With this done, your custom resource and mapping file is registered in Vonk, and your data transformation is working. Gefeliciteerd! 🎉

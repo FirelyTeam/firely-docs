@@ -1,7 +1,7 @@
 .. _mappingengine_create_logical_model:
 
-Logical Model
-=============
+Logical Model + Custom Resource
+===============================
 
 If you're working with custom format that you want to transform, you need create a model of your data to describe it to the FHIR Mapper. If you're working with FHIR resources as your source data, Vonk already has the models available, so you can skip this step.
 
@@ -32,7 +32,7 @@ If you're working with custom format that you want to transform, you need create
    .. image:: ../images/delete-first-type-from-logical.png
      :align: center
 
-   2.7. If you only have a ``.snapshot`` in your model and no ``.differential``, rename the ``.snapshot`` to ``.differential`` (this is a temporary limitation).
+   2.7. If you only have a ``.snapshot`` in your model and no ``.differential``, rename the ``.snapshot`` to ``.differential`` (this is a temporary limitation - basically, ensure that you have a ``.differential``).
 
 If you'd like to double-check, `this is how <https://simplifier.net/fhirmapper/FakeInpatientDrugChart-custom-resource/~json>`_ our example custom resource looks like now with all the changes applied.
 

@@ -104,4 +104,4 @@ If they're not listed, check that the dll files are available in your ``PluginDi
         MappingToStructureMapConfiguration [4550] | Services: V | Pipeline: V
         TransfromOperationConfiguration    [4560] | Services: V | Pipeline: V
 
-If they're not listed, double-check your that your ``PipelineOptions`` are loading the engine plugins
+If they're not listed, double-check your that your ``PipelineOptions`` are loading the engine plugins.
