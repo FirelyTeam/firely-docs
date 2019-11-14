@@ -46,7 +46,7 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
   src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth);
 
-3. uuid() - Creates a random UUID:
+3. uuid() - create a random UUID: ::
 
   src -> tgt.id = uuid();
 
