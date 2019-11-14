@@ -4,6 +4,7 @@ Setting up transformations
 ==========================
 
 The FHIR Mapper was designed to handle two kinds of transformations:
+
 - Converting a FHIR Mapping Language file into a FHIR StructureMap resource
 - Transforming an instance of a custom format into FHIR or vice-versa
 
