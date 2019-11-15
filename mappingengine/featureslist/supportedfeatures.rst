@@ -69,11 +69,13 @@ FHIRPath Checks
 ------------------------
 A mapping rule can be conditionally blocked from running by including a FHIRPath statement as a ``where`` selector: ::
 
-  src where "weight.exists()" -> bundle.entry as entry,
+  src.weight where "weight.exists()" -> bundle.entry as entry,
             entry.resource = create('Observation') as observation
             then TransformObservationWeight(src, patient, observation);
 
-Please note that the FHIRPath result set is selected on the source of the mapping rule. Even if you select src.<element> as your input for the target transformation, the FHIRPath is run on ``src`` and not on ``<element>``. It's even possible to use FHIRPath variables like ``$this``.
+Please note that the FHIRPath result set is selected on the source of the mapping rule. Even if you select src.<element> as your input for the target transformation, the FHIRPath is run on ``src`` and not on ``<element>`` - so in our example, you still have to say ``weight.exists()``, not ``$this.exists()``. It's even possible to use FHIRPath variables like ``$this``.
+
+Similar to ``where``, FHIR mapper also supports ``check`` - using that will raise an error if the condition fails.
 
 Logging
 ------------------------
