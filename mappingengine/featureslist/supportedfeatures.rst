@@ -21,6 +21,11 @@ Metadata can be added to a StructureMap based on a FHIR Mapping Language script 
 
   map "http://vonk.fire.ly/fhir/StructureMap/FHIRMapperTutorial" = FHIRMapperTutorial
 
+Imported StructureDefinitions can be annotated with an alias that can be used instead of the type name throughout the mapping file: ::
+
+  uses "http://hl7.org/fhir/StructureDefinition/Patient" alias PatientAlias as source
+  group MapPatient(source src: PatientAlias, target bundle: Bundle) {...}
+
 
 Flow control
 -------------
