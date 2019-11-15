@@ -104,5 +104,19 @@ Unsupported features
   - qty
   - cp
 
+- The following items are not supported when selecting a source element:
+  
+  - type
+  - min..max
+  - default
+  - list-option
+
+- The following list modes on a target transform are not supported:
+
+  - first
+  - last
+  - share
+
 - <<stereotypes>> for mapping groups
+- Extending groups
 - Using the "as queried" / "as produced" modes when importing a StructureDefinition
