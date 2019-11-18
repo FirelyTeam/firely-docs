@@ -22,7 +22,7 @@ See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 Release 3.1.0
 -------------
 
-Please also note the changes in :ref:`3.0.0-beta1 <vonk_releasenotes_300-beta1>` and in :ref:`3.0.0 <vonk_releasenotes_300>` (especially the one regarding the SQL server database)
+Please also note the changes in :ref:`3.0.0 <vonk_releasenotes_300>` (especially the one regarding the SQL server database)
 
 Fix
 ^^^
@@ -43,7 +43,6 @@ Feature
 #. The following plugins have been bundled with the Vonk release (compare your appsettings with the new appsettings.default.json to activate them)
 
    #. The $document operation (see :ref:`vonk_plugins_document`)
-   #. Document signature service (see :ref:`vonk_plugins_document`)
    #. The $convert operation (see :ref:`vonk_plugins_convert`)
    #. The binary wrapper (see :ref:`vonk_plugins_binary`)   
 
