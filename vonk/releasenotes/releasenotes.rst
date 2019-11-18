@@ -17,6 +17,44 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_310:
+
+Release 3.1.0
+-------------
+
+Please also note the changes in :ref:`3.0.0-beta1 <vonk_releasenotes_300-beta1>` and in :ref:`3.0.0 <vonk_releasenotes_300>` (especially the one regarding the SQL server database)
+
+Fix
+^^^
+#. Validation on multi-level profiled resources no longer fails with the message `"Cannot walk into unknown StructureDefinition with canonical"`
+#. Improved documentation on :ref:`upgrading Vonk<upgrade>`, the :ref:`Vonk pipeline<vonk_reference_api_pipeline_configuration>`, :ref:`CORS support<configure_cors>`, :ref:`plugins<vonk_plugins>` and :ref:`IIS deployment<iis>`
+#. Using multiple parameters in _sort led to an error for all repositories
+#. Vonk UI capability statement view now works for self-mapped endpoints like ``/R3`` or ``/R4``
+#. A saved resource reference (e.g. ``Patient.generalPractitioner``) on a self-mapped endpoint (e.g. ``/R4/...``) would have its relative path duplicated (``/R4/R4/...``)
+
+   .. attention::
+
+      If you have used :ref:`self-mapped endpoints<feature_multiversion>` (appsettings: ``InformationModel.Mapping.Map`` in the 'Path' mapping mode) and you have saved resources containing references, it is possible that your database now contains some resources with broken references. Please contact us if this is the case
+
+Feature
+^^^^^^^
+#. New licensing system, supporting the `community edition`
+#. Simplifier projects are now imported for FHIR R4 as well
+#. The following plugins have been bundled with the Vonk release (compare your appsettings with the new appsettings.default.json to activate them)
+
+   #. The $document operation (see :ref:`vonk_plugins_document`)
+   #. Document signature service (see :ref:`vonk_plugins_document`)
+   #. The $convert operation (see :ref:`vonk_plugins_convert`)
+   #. The binary wrapper (see :ref:`vonk_plugins_binary`)   
+
+Plugin and Facade API
+^^^^^^^^^^^^^^^^^^^^^
+#. Vonk.Facade.Starter has been upgraded to work with Vonk 3.1.0
+#. IConformanceContributor and IConformanceBuilder have moved from Vonk.Core.Pluggability to Vonk.Fhir.R3.Metadata. It is also deprecated, as Vonk.Core.Metadata.ICapabilityStatementContributor is now preferred instead. See :ref:`vonk_architecture_capabilities` for more information
+#. Implementations of ISearchRepository can now sort on multiple parameters (in BaseQuery.Shapes). Previously this would result in an error.
+#. Improved documentation on the :ref:`vonk_reference_api`
+#. See :ref:`vonk_releasenotes_300` for some additional issues you may encounter upgrading your plugins
+
 .. _vonk_releasenotes_300:
 
 Release 3.0.0
@@ -76,7 +114,8 @@ Plugin and Facade API
 
 #. Improved the message you get when the sorting/shaping operator is not implemented by your facade
 #. VonkOutcome (and VonkIssue) has been simplified
-#. IResourceChangeRepository.Delete requires a new second parameter: ``string informationModel``
+#. VonkConstants has moved from Vonk.Core.Context to Vonk.Core.Common
+#. IResourceChangeRepository.Delete requires a new second parameter: ``string informationModel``. Information model constants can be found in Vonk.Core.Common.VonkConstants.Model
 #. Exclude Vonk.Fhir.R3 or Vonk.Fhir.R4 from the PipelineOptions if you don't support it in your Facade.
 #. Updated the minimal PipelineOptions for a Facade Plugin in the `example appsettings.json <https://github.com/FirelyTeam/Vonk.Facade.Starter/blob/upgrade/plugin-facade-vonk-3.0.0/Visi.Repository/appsettings.json>`_:
    
