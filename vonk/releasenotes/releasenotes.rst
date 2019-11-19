@@ -38,6 +38,7 @@ Fix
 
 Feature
 ^^^^^^^
+#. The new experimental FHIR mapping engine, which is currently exclusively available on our public FHIR server `http://vonk.fire.ly <http://vonk.fire.ly>`_
 #. New licensing system, supporting the `community edition`
 #. Simplifier projects are now imported for FHIR R4 as well
 #. The following plugins have been bundled with the Vonk release (compare your appsettings with the new appsettings.default.json to activate them)
