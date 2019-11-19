@@ -153,7 +153,7 @@ If you want to **change** the payload, assign a whole new one. Generally you wou
 IArgumentCollection, IArgument
 ------------------------------
 
-:namespace: Vonk.Core.Context.Features
+:namespace: Vonk.Core.Context
 
 :purpose: Access arguments provided in the request.
 
