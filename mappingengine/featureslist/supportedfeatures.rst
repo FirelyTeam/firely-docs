@@ -3,7 +3,7 @@
 Supported Mapping Language features
 ===================================
 
-The FHIR Mapper implements a broad set of features of the FHIR Mapping Language, allowing you use write transformations to handle a variety of use cases. Please note that the FHIR Mapping Language is still under active development by the FHIR community. The following page provides an overview of all features that are supported by the our engine.
+The FHIR Mapper implements a broad set of features of the FHIR Mapping Language, allowing you write transformations to handle a variety of use cases. Please note that the FHIR Mapping Language is still under active development by the FHIR community. The following page provides an overview of all features that are supported by our engine.
 
 Metadata
 -------------
