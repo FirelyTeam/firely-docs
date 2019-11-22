@@ -11,8 +11,8 @@ You can have Vonk validate all resources that are sent in for create or update. 
     "Level": "Off", // Off / Core / Full
     "AllowedProfiles": 
     [
-        http://hl7.org/fhir/StructureDefinition/daf-patient, 
-        http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance
+        "http://hl7.org/fhir/StructureDefinition/daf-patient", 
+        "http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance"
     ]
   },
 
