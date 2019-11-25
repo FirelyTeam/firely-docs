@@ -119,4 +119,5 @@ Unsupported features
 
 - <<stereotypes>> for mapping groups
 - Extending groups
+- conceptmaps embedded in the mapping file (they have to be uploaded to Vonk instead)
 - Using the "as queried" / "as produced" modes when importing a StructureDefinition
