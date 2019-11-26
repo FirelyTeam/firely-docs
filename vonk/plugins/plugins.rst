@@ -4,8 +4,9 @@ Vonk FHIR Plugins
 =================
 
 Vonk FHIR Plugins is the means to adjust a Vonk FHIR Server to your own special needs, beyond the configuration.
-Vonk FHIR Server is built as a pipeline of middleware, see :ref:`architecture` for more background on that.
-Vonk FHIR Server allows you to put plugins of your own into that pipeline, and remove plugins that you do not need.
+Vonk FHIR Server is built as a pipeline of middleware, see :ref:`architecture` for more background on that. 
+Vonk FHIR Server allows you to put plugins of your own into that pipeline, and remove plugins that you do not need. 
+For more information on the programming API and a list of available plugins in Vonk, see :ref:`reference`.
 
 
 .. toctree::
