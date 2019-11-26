@@ -7,7 +7,7 @@ A configuration class is a static class with two public static methods having th
 
 .. code-block:: csharp
 
-   [VonkConfiguration (order: xyz)] //xyz is an integer
+   [VonkConfigurationAttribute (order: xyz)] //xyz is an integer
    public static class MyVonkConfiguration
    {
       public static void ConfigureServices(IServiceCollection services)
@@ -23,7 +23,7 @@ A configuration class is a static class with two public static methods having th
 
 As you may have noticed, the methods resemble those in an ASP.NET Core Startup class. That is exactly where they are ultimately called from. We'll explain each of the parts in more detail.
 
-:VonkConfiguration: This is an attribute defined by Vonk (package Vonk.Core, namespace Vonk.Core.Pluggability). It tells Vonk to execute the methods in this configuration class.
+:VonkConfigurationAttribute: The :ref:`pipelineconfig` is an attribute defined by Vonk (package Vonk.Core, namespace Vonk.Core.Pluggability). It tells Vonk to execute the methods in this configuration class.
    The ``order`` property determines where in the pipeline the middleware will be added. You can see the order of the plugins in the :ref:`log<vonk_plugins_log_pipeline>` at startup.
 :MyVonkConfiguration: You can give the class any name you want, it will be recognized by Vonk through the attribute, not the classname. We do advise you to choose a name that actually describes what is configured.
    It is also better to have multiple smaller configuration classes than one monolith adding all your plugins, so you allow yourself to configure your plugins individually afterwards.
