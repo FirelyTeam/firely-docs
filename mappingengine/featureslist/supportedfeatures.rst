@@ -70,6 +70,10 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
 8. ``translate(source, map_uri, output)`` - transform codes using a `ConceptMap <https://www.hl7.org/fhir/conceptmap.html>`_ by its canonical URL. The conceptmap must be available on the non-administrative ``/`` endpoint (temporary limitation). Note that only ``equal`` and ``equivalent`` equivalences are supported.
 
+List modes
+------------------------
+FHIR Mapper supports the ``collate`` list mode: so if you have multiple rules that create elements within one backbone element, and you'd like all elements to go into one backbone element, you need to use collate - otherwise the engine will create multiple backbone elements with only one element each.
+
 FHIRPath Checks
 ------------------------
 A mapping rule can be conditionally blocked from running by including a FHIRPath statement as a ``where`` selector: ::
