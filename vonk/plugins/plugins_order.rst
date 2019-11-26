@@ -37,7 +37,7 @@ Registering middleware
 
 For middleware it is more important where exactly it ends up in the pipeline. This depends mostly on what type of handler it is, see below at :ref:`vonk_plugins_order_prepost`. 
 
-No matter what handler you have, it probably wants to act on the IVonkContext. Then it is important to be in the pipeline *after* the :ref:`HttpToVonk <vonk_plugins_httptovonk>` plugin (order: 1110), since this plugin translates information from the ``HttpContext`` to an ``IVonkContext`` and adds the latter as a feature to the ``HttpContext.Features`` collection. 
+No matter what handler you have, it probably wants to act on the :ref:`IVonkContext <vonkcontext>`. Then it is important to be in the pipeline *after* the :ref:`HttpToVonk <vonk_plugins_httptovonk>` plugin (order: 1110), since this plugin translates information from the ``HttpContext`` to an ``IVonkContext`` and adds the latter as a feature to the ``HttpContext.Features`` collection. 
 
 Also, you probably want to set your response on the ``IVonkContext.Response`` and not directly on the ``HttpContext.Response``. Then, you will need the :ref:`VonkToHttp <vonk_plugins_vonktohttp>` plugin (order: 1120) to translate the ``IVonkContext`` back to the ``HttpContext``. 
 
@@ -63,7 +63,7 @@ In Vonk you can define different types of middleware:
 * Prehandler - acts on requests of certain type(s), may modify the request and sends the request further down the pipeline.
 * Posthandler - lets the request pass by to be handled further down the pipeline. When the response passes on the way back, it acts on requests or responses of certain type(s), and may modify the response.
 
-This is explained in the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ from `DevDays 2018 <https://www.devdays.com/events/devdays-europe-2018/>`_ at 17:05.
+This is explained in the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ from `DevDays 2018 <https://www.devdays.com/events/devdays-europe-2018/>`_.
 
 What type of middleware you want your service to be is defined by your use of one of the ``*Handle...`` methods from the :ref:`vonk_vonkappbuilder` or the :ref:`vonk_appbuilder_extensions`. 
 
