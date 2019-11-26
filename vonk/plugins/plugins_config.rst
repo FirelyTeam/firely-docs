@@ -22,7 +22,15 @@ Configuration of the pipeline in Vonk FHIR Server is done with ``PipelineOptions
           "Vonk.Repository.Memory.MemoryVonkConfiguration",
           "Vonk.Subscriptions",
           "Vonk.Smart",
-          "Vonk.UI.Demo"
+          "Vonk.UI.Demo",
+          "Vonk.Plugin.DocumentOperation.DocumentOperationConfiguration",
+          "Vonk.Plugin.ConvertOperation.ConvertOperationConfiguration",
+          "Vonk.Plugin.BinaryWrapper.BinaryWrapperConfiguration",
+          "Vonk.Plugin.MappingToStructureMap.MappingToStructureMapConfiguration",
+          "Vonk.Plugin.TransformOperation.TransformOperationConfiguration"
+        ],
+        "Exclude": [
+          "Vonk.Subscriptions.Administration"
         ]
       },
       {
@@ -35,7 +43,8 @@ Configuration of the pipeline in Vonk FHIR Server is done with ``PipelineOptions
           "Vonk.Repository.Sqlite.SqliteAdministrationConfiguration",
           "Vonk.Repository.MongoDb.MongoDbAdminConfiguration",
           "Vonk.Repository.Memory.MemoryAdministrationConfiguration",
-          "Vonk.Core.Operations.Terminology",
+          "Vonk.Subscriptions.Administration",
+          "Vonk.Plugins.Terminology",
           "Vonk.Administration"
         ],
         "Exclude": [
@@ -46,13 +55,13 @@ Configuration of the pipeline in Vonk FHIR Server is done with ``PipelineOptions
     ]
   },
   "SupportedInteractions": {
-    "InstanceLevelInteractions": "read, vread, update, delete, history, conditional_delete, conditional_update, $validate, $validate-code, $expand, $compose, $meta, $meta-add",
-    "TypeLevelInteractions": "create, search, history, conditional_create, compartment_type_search, $validate, $snapshot, $validate-code, $expand, $lookup, $compose",
-    "WholeSystemInteractions": "capabilities, batch, transaction, history, search, compartment_system_search, $validate"
-  }
+    "InstanceLevelInteractions": "read, vread, update, delete, history, conditional_delete, conditional_update, $validate, $validate-code, $expand, $compose, $meta, $meta-add, $document",
+    "TypeLevelInteractions": "create, search, history, conditional_create, compartment_type_search, $validate, $snapshot, $validate-code, $expand, $lookup, $compose, $document",
+    "WholeSystemInteractions": "capabilities, batch, transaction, history, search, compartment_system_search, $validate, $convert"
+  },
 
 PluginDirectory:
-   You can put plugins of your own (or third party) into this directory for Vonk to pick them up, without polluting the Vonk binaries directory itself. The directory in the default setting of ``./plugins`` is not created upon install, you may do this yourself if you want to add a plugin.
+   You can put plugins of your own (or third party) into this directory for Vonk to pick them up, without polluting the Vonk binaries directory itself. For a list of available plugins in Vonk, see :ref:`available_plugins`. The directory in the default setting of ``./plugins`` is not created upon install, you may do this yourself if you want to add a plugin.
 PluginDirectory.Branches:
    A web application can branch into different paths, and Vonk has two by default:
 
@@ -69,7 +78,7 @@ PluginDirectory.Branches:
       (Prefixes of) :ref:`vonk_plugins_configclass` that may not be executed. ``Exclude`` overrides ``Include`` and is useful if you want to use all but one configuration class from a namespace.
 
 SupportedInteractions:
-  A comma-separated list of all interactions Vonk should enable on ``[base]/[type]/[id]`` (InstanceLevelInteractions), ``[base]/[type]`` (TypeLevelInteractions), and ``[base]`` (WholeSystemInteractions) levels. Vonk will use this list to enable/disable supported interctions and reflect it in ``/metadata`` accordingly.
+  A comma-separated list of all interactions Vonk should enable on ``[base]/[type]/[id]`` (InstanceLevelInteractions), ``[base]/[type]`` (TypeLevelInteractions), and ``[base]`` (WholeSystemInteractions) levels. Vonk will use this list to enable/disable supported interactions and reflect it in ``/metadata`` accordingly.
   
   If you'd like to limit what operations your Vonk supports, remove them from this list.
   
