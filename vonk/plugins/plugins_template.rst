@@ -8,7 +8,7 @@ Template for a plugin
    A complete template for a Vonk plugin can be found on `Github     <https://github.com/FirelyTeam/Vonk.Plugin.ExampleOperation>`_. 
    It covers all details on how to create a custom operation and how to use Vonk services internally.
 
-A regular Vonk plugin acts on the IVonkContext and its IVonkRequest and IVonkResponse properties.
+A regular Vonk plugin acts on the :ref:`vonkcontext` and its IVonkRequest and IVonkResponse properties.
 
 You don't have to create ASP.NET Core middleware yourself. You just need to create a service acting on IVonkContext. In the configuration you can specify when the service should be called, and in which position in the pipeline it should be put. See :ref:`vonk_reference_api_interactionhandling` for details on that.
 
