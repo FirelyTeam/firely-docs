@@ -340,6 +340,34 @@ Known to-dos
 #. :ref:`feature_terminology`: operations do not work for R4.
 #. During :ref:`conformance_import`: Files in the import directory and Simplifier projects are only imported for R3.
 
+.. _vonk_releasenotes_220:
+
+Release 2.2.0
+--------------------
+
+Database
+^^^^^^^^
+
+#. SQL Server: the index tables have their clustered index on their link to the resources. 
+   SQL script '20190919000000_Cluster_Indexes_On_EntryId.sql' (found in the /data folder of the Vonk distribution) must be applied to existing Vonk SQL databases (both to the admin and to the data repositories) to make this change. 
+
+   .. attention::
+
+      Vonk 2.2.0 (using SQL server) will not start unless this script has been applied to the databases. Please note that running the script can take considerable time, especially for large databases.
+
+
+Features
+^^^^^^^^
+
+#. When running Vonk in IIS, it now profits from the `in-process hosting model <https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2>`_ that ASP.NET Core offers.
+#. Further improved concurrent throughput for SQL Server.
+
+Fix
+^^^
+
+#. On errors in a transaction, Vonk would not point out the entry if it had no fullUrl. Improved this message by using the resourcetype and id (if present) instead.
+#. _include gave a 500 responsecode if a resource contains absolute references.
+
 .. _vonk_releasenotes_210:
 
 Release 2.1.0
