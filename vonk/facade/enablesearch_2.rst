@@ -86,6 +86,13 @@ The gist of the implementation is to switch the querying based on the ResourceTy
          return new SearchResult(patientResources, query.GetPageSize(), count);
      }
 
+* Note that the information model is based on STU3 by default. When using FHIR version R4 or higher you will need to override the EntryInformationModel. The implementation of this looks like::
+    
+    public override PatientQuery EntryInformationModel(string informationModel)
+    {
+        return default(PatientQuery);
+    }
+
 What happens behind the scenes is that the QueryBuilderContext creates a QueryBuilder that analyzes all the arguments and options, and translates that into calls into your PatientQueryFactory.
 This pattern offers maximum assistance in processing the search, but also gives you full control over the raw arguments in case you need that for anything.
 Any argument that is reported as in Error, or not handled will automatically show up in the OperationOutcome of the Vonk response.
