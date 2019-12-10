@@ -21,105 +21,137 @@ For some of the more common extension methods we provide an overload on IResourc
 
 All the methods below are in the namespace ``Vonk.Core.ElementModel.ISourceNodeExtensions``
 
-:method: ISourceNode Add(this ISourceNode original, ISourceNode newChild)
-:description: Add the ``newChild`` as a child node to the ``original``. It will be added at the end of the Children.
+.. glossary::
+  :sorted:
 
-:method: ISourceNode Add(this ISourceNode original, ITypedElement newChild)
-:description: Overload of Add(ISourceNode newChild) that lets you add an ITypedElement as new child.
+.. function:: ISourceNode Add(this ISourceNode original, ISourceNode newChild)
 
-:method: ISourceNode AddIf(this ISourceNode original, ISourceNode newChild, Func<ISourceNode, bool> addIf)
-:description: Add the ``newChild`` as a child node to the ``original`` if the ``addIf`` predicate on ``original`` is met. It will be added at the end of the Children.
+    Add the ``newChild`` as a child node to the ``original``. It will be added at the end of the Children.
 
-:method: ISourceNode Add(this ISourceNode original, TypedElement newChild, Func<ISourceNode, bool> addIf)
-:description: Similar to AddIf(ISourceNode newChild, Func<ISourceNode, bool> addIf) that lets you add an ITypedElement as new child.
+.. function:: ISourceNode Add(this ISourceNode original, ITypedElement newChild)
 
-:method: ISourceNode AddIfNotExists(this ISourceNode original, ISourceNode newChild)
-:description: Add the ``newChild`` as a child node to the ``original`` if there is no child with the same name yet. It will be added at the end of the Children.
+    Overload of Add(ISourceNode newChild) that lets you add an ITypedElement as new child.
 
-:method: ISourceNode AddIfNotExists(this ISourceNode original, ISourceNode newChild, Func<ISourceNode, bool> exists)
-:description: Add the ``newChild`` as a child node to the ``original`` if the ``exists`` predicate on ``original`` is not satisfied. This is like ``AddIfNotExist(ISourceNode newChild)``, but here you get to specify what 'exists' means. It will be added at the end of the Children.
+.. function:: ISourceNode AddIf(this ISourceNode original, ISourceNode newChild, Func<ISourceNode, bool> addIf)
 
-:method: ISourceNode AddIfNotExists(this ISourceNode original, string location, ISourceNode newChild)
-:description: Navigate to ``lcoation``. Then add the ``newChild`` as a child node to the ``original`` if there is no child with the same name yet.
+    Add the ``newChild`` as a child node to the ``original`` if the ``addIf`` predicate on ``original`` is met. It will be added at the end of the Children.
 
-:method: ISourceNode AddIfNotExists(this ISourceNode original, ISourceNode newChild, string location, Func<ISourceNode, bool> exists)
-:description: Navigate to ``location``. Then add the ``newChild`` as a child node if the ``exists`` predicate on the current node is not satisfied. 
+.. function:: ISourceNode Add(this ISourceNode original, TypedElement newChild, Func<ISourceNode, bool> addIf)
 
-:method: ISourceNode AnnotateWith<T>(this ISourceNode original, T annotation, bool hideExisting = false)
-:description: Add an annotation of type T to the ``original``. When hideExisting == true, any existing annotations of type T are not visible anymore on the returned ISourceNode.
+    Similar to AddIf(ISourceNode newChild, Func<ISourceNode, bool> addIf) that lets you add an ITypedElement as new child.
 
-:method: T GetBoundAnnotation<T>(this ISourceNode original, ) where T : class, IBoundAnnotation
-:description: Retrieve an annotation that is bound directly to ``original``, not to any of the nodes it may decorate. 
+.. function:: ISourceNode AddIfNotExists(this ISourceNode original, ISourceNode newChild)
+
+    Add the ``newChild`` as a child node to the ``original`` if there is no child with the same name yet. It will be added at the end of the Children.
+
+.. function:: ISourceNode AddIfNotExists(this ISourceNode original, ISourceNode newChild, Func<ISourceNode, bool> exists)
+
+    Add the ``newChild`` as a child node to the ``original`` if the ``exists`` predicate on ``original`` is not satisfied. This is like ``AddIfNotExist(ISourceNode newChild)``, but here you get to specify what 'exists' means. It will be added at the end of the Children.
+
+.. function:: ISourceNode AddIfNotExists(this ISourceNode original, string location, ISourceNode newChild)
+
+    Navigate to ``lcoation``. Then add the ``newChild`` as a child node to the ``original`` if there is no child with the same name yet.
+
+.. function:: ISourceNode AddIfNotExists(this ISourceNode original, ISourceNode newChild, string location, Func<ISourceNode, bool> exists)
+
+    Navigate to ``location``. Then add the ``newChild`` as a child node if the ``exists`` predicate on the current node is not satisfied. 
+
+.. function:: ISourceNode AnnotateWith<T>(this ISourceNode original, T annotation, bool hideExisting = false)
+
+    Add an annotation of type T to the ``original``. When hideExisting == true, any existing annotations of type T are not visible anymore on the returned ISourceNode.
+
+.. function:: T GetBoundAnnotation<T>(this ISourceNode original, ) where T : class, IBoundAnnotation
+
+    Retrieve an annotation that is bound directly to ``original``, not to any of the nodes it may decorate. 
    (ISourceNode is immutable, to changes are usually a pile of wrappers around the ``original`` SourceNode, and each of the wrappers can add / replace annotations.)
 
-:method: ISourceNode RemoveEmptyNodes(this ISourceNode original, ISourceNode newChild)
-:description: Remove any nodes that have no value or children. This happens recursively: if a node has only children with empty values, it will be removed as well. This way the returned ISourceNode conforms to the invariant in the FHIR specification that an element either has a value or children.
+.. function:: ISourceNode RemoveEmptyNodes(this ISourceNode original, ISourceNode newChild)
 
-:method: ISourceNode RemoveEmptyNodes(this ISourceNode original, ISourceNode newChild, string location)
-:description: Remove any nodes that have no value or children, from the specified ``location`` downwards. This happens recursively: if a node has only children with empty values, it will be removed as well. 
+    Remove any nodes that have no value or children. This happens recursively: if a node has only children with empty values, it will be removed as well. This way the returned ISourceNode conforms to the invariant in the FHIR specification that an element either has a value or children.
 
-:method: ISourceNode Child(this ISourceNode original, string name, int arrayIndex = 0)
-:description: Convenience method to get the child with name ``name`` at position ``arrayIndex``. Usually used to get a child of which you know there is only one: ``patientNode.Child("active")``
+.. function:: ISourceNode RemoveEmptyNodes(this ISourceNode original, ISourceNode newChild, string location)
 
-:method: ISourceNode ChildString(this ISourceNode original, string name, int arrayIndex = 0)
-:description: Convenience method to get the value of the child with name ``name`` at position ``arrayIndex``. Usually used to get a child of which you know there is only one: ``patientNode.ChildString("id")``
+    Remove any nodes that have no value or children, from the specified ``location`` downwards. This happens recursively: if a node has only children with empty values, it will be removed as well. 
 
-:method: ISourceNode ForceAdd(this ISourceNode original, string addAt, ISourceNode newChild)
-:description: Add the ``newChild`` at location ``addAt``. Create the intermediate nodes if neccessary.
+.. function:: ISourceNode Child(this ISourceNode original, string name, int arrayIndex = 0)
 
-:method: ISourceNode AddOrReplace(this ISourceNode original, Func<ISourceNode, bool> match, ISourceNode toAdd, Func<ISourceNode, ISourceNode> replace)
-:description: Find any child nodes of ``original`` that match the ``match`` predicate. Apply ``replace`` to them.
+    Convenience method to get the child with name ``name`` at position ``arrayIndex``. Usually used to get a child of which you know there is only one: ``patientNode.Child("active")``
+
+.. function:: ISourceNode ChildString(this ISourceNode original, string name, int arrayIndex = 0)
+
+    Convenience method to get the value of the child with name ``name`` at position ``arrayIndex``. Usually used to get a child of which you know there is only one: ``patientNode.ChildString("id")``
+
+.. function:: ISourceNode ForceAdd(this ISourceNode original, string addAt, ISourceNode newChild)
+
+    Add the ``newChild`` at location ``addAt``. Create the intermediate nodes if neccessary.
+
+.. function:: ISourceNode AddOrReplace(this ISourceNode original, Func<ISourceNode, bool> match, ISourceNode toAdd, Func<ISourceNode, ISourceNode> replace)
+
+    Find any child nodes of ``original`` that match the ``match`` predicate. Apply ``replace`` to them.
    If none are found, add ``toAdd`` as new child.
     
-:method: ISourceNode AddOrReplace(this ISourceNode original, ISourceNode toAdd, Func<ISourceNode, ISourceNode> replace)
-:description:  Optimized overload of the previous method for matching on the node name.
+.. function:: ISourceNode AddOrReplace(this ISourceNode original, ISourceNode toAdd, Func<ISourceNode, ISourceNode> replace)
+
+     Optimized overload of the previous method for matching on the node name.
    It will perform ``replace`` on any child node of ``original`` with the same name as ``toAdd``.
    If none are found it will add ``toAdd`` as new child node.
    
-:method: ISourceNode Remove(this ISourceNode original, string location)
-:description: Remove the node at ``location``, if any.
+.. function:: ISourceNode Remove(this ISourceNode original, string location)
+
+    Remove the node at ``location``, if any.
    If that results in parent nodes becoming empty (no Text, no Children), those are removed as well.
 
-:method: IEnumerable<ISourceNode> SelectNodes(this ISourceNode original, string fhirPath)
-:description: Run ``fhirPath`` over the ``original``, but with the limitations of untyped nodes. It will return the matching nodes.
+.. function:: IEnumerable<ISourceNode> SelectNodes(this ISourceNode original, string fhirPath)
+
+    Run ``fhirPath`` over the ``original``, but with the limitations of untyped nodes. It will return the matching nodes.
    Use valueDateTime/valueBoolean instead of just 'value' for choice types.
    Only use this method if you are familiar with the differences in the naming of nodes between ISourceNode and ITypedElement.
    
 
-:method: string SelectText(this ISourceNode original, string fhirPath)
-:description: Run ``fhirPath`` over the ``original``, but with the limitations of untyped nodes. Returns the ``Text`` of the first matching node.
+.. function:: string SelectText(this ISourceNode original, string fhirPath)
+
+    Run ``fhirPath`` over the ``original``, but with the limitations of untyped nodes. Returns the ``Text`` of the first matching node.
    Use valueDateTime/valueBoolean instead of just 'value' for choice types.
    Only use this method if you are familiar with the differences in the naming of nodes between ISourceNode and ITypedElement.
    
-:method: ISourceNode Patch(this ISourceNode original, string location, Func<ISourceNode, ISourceNode> patch)
-:description: Find any nodes at ``location`` and apply ``patch`` to them. For ``patch`` you can use other methods listed here like ``Rename``, ``Add`` or ``Revalue``. ``location`` is evaluated as a fhirpath statement, with the limitations of untyped nodes.
+.. function:: ISourceNode Patch(this ISourceNode original, string location, Func<ISourceNode, ISourceNode> patch)
 
-:method: ISourceNode Patch(this ISourceNode original, string[] locations, Func<ISourceNode, ISourceNode> patch)
-:description: Find any nodes having one of the ``locations`` as their Location and apply ``patch`` to them.
+    Find any nodes at ``location`` and apply ``patch`` to them. For ``patch`` you can use other methods listed here like ``Rename``, ``Add`` or ``Revalue``. ``location`` is evaluated as a fhirpath statement, with the limitations of untyped nodes.
+
+.. function:: ISourceNode Patch(this ISourceNode original, string[] locations, Func<ISourceNode, ISourceNode> patch)
+
+    Find any nodes having one of the ``locations`` as their Location and apply ``patch`` to them.
    If you don't know exact locations, use ``original.Patch(location, patch)``, see above.
 
-:method: ISourceNode ForcePatch(this ISourceNode original, string forcePath, Func<ISourceNode, ISourceNode> patch)
-:description: Enforce that ``forcePath`` exists. Then patch the resulting node(s) with ``patch``.
+.. function:: ISourceNode ForcePatch(this ISourceNode original, string forcePath, Func<ISourceNode, ISourceNode> patch)
 
-:method: ISourceNode ForcePatchAt(this ISourceNode original, string fromLocation, string forcePath, Func<ISourceNode, ISourceNode> patch)
-:description: For each node matching the ``fromLocation``: enforce that ``fromLocation.forcePath`` exists, then patch the resulting node(s) with ``patch``.
+    Enforce that ``forcePath`` exists. Then patch the resulting node(s) with ``patch``.
+
+.. function:: ISourceNode ForcePatchAt(this ISourceNode original, string fromLocation, string forcePath, Func<ISourceNode, ISourceNode> patch)
+
+    For each node matching the ``fromLocation``: enforce that ``fromLocation.forcePath`` exists, then patch the resulting node(s) with ``patch``.
    E.g. someBundle.ForcePatchAt("entry", "request", node => node.Add(SourceNode.Valued("url", "someUrl"))
    will add request.url with value "someUrl" to every entry.
 
-:method: ISourceNode Relocate(this ISourceNode original, string newLocation)
-:description: Set ``original.Location`` to the newLocation, and update all its descendants' ``Location`` properties recursively.
+.. function:: ISourceNode Relocate(this ISourceNode original, string newLocation)
 
-:method: ISourceNode Rename(this ISourceNode original, string newName)
-:description: Set ``original.Name`` to the ``newName``.
+    Set ``original.Location`` to the newLocation, and update all its descendants' ``Location`` properties recursively.
 
-:method: ISourceNode Revalue(this ISourceNode original, string newValue)
-:description: Set ``original.Text`` to ``newValue``.
+.. function:: ISourceNode Rename(this ISourceNode original, string newName)
 
-:method: ISourceNode Revalue(this ISourceNode original, Dictionary<string, string> replacements)
-:description: ``replacements`` is a dictionary of location + newValue. On each matching location under ``original``, the value will be set to the according newValue from ``replacements``.
+    Set ``original.Name`` to the ``newName``.
 
-:method: ISourceNode AnnotateWithSourceNode(this ISourceNode original)
-:description: Add ``original`` as annotation to itself. Very specific use case.
+.. function:: ISourceNode Revalue(this ISourceNode original, string newValue)
+
+    Set ``original.Text`` to ``newValue``.
+
+.. function:: ISourceNode Revalue(this ISourceNode original, Dictionary<string, string> replacements)
+
+    ``replacements`` is a dictionary of location + newValue. On each matching location under ``original``, the value will be set to the according newValue from ``replacements``.
+
+.. function:: ISourceNode AnnotateWithSourceNode(this ISourceNode original)
+
+    Add ``original`` as annotation to itself. Very specific use case.
 
 .. _vonk_reference_api_itypedelement:
 
