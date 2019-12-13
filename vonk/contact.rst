@@ -4,6 +4,4 @@
 Contact us
 ==========
 
-For questions or feedback on Vonk, please send an e-mail to vonk@fire.ly.
-
-
+For questions, feedback, or consultancy for Vonk, please send an e-mail to vonk@fire.ly. We look forward to hearing from you!
