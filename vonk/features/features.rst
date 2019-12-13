@@ -22,5 +22,6 @@ Vonk FHIR Server offers many features as defined in the FHIR Specification and b
    resetdb
    preload
    multiversion
+   hipaa
 
 .. add files here
