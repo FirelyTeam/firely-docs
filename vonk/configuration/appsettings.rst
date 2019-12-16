@@ -346,6 +346,7 @@ Be aware that:
 
 * support for _type and _id cannot be disabled
 * the Administration API requires support for the 'url' SearchParameter on the conformance resourcetypes
+* this uses the search parameter names, not the path within the resource - so for example to specify 	`Patient.address.postalCode <http://hl7.org/fhir/R4/patient.html#search>`_ as a supported parameter, you'd use ``"Patient.address-postalcode"``.
 
 .. _disable_interactions:
 
