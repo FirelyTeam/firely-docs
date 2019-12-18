@@ -29,7 +29,7 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 .. important:: 
 	
 	The next step assumes you have a .Net Core environment installed. If not, please 
-	`download and install <https://www.microsoft.com/net/download/core#/runtime/>`_ **.NET Core Runtime 2.2.x** before you continue.
+	`download and install <https://dotnet.microsoft.com/download/dotnet-core/2.2>`_ **ASP.NET Core Runtime 2.2.x** before you continue.
 	Choose version 2.2.7 or higher to mitigate security issues in previous versions.
 
 6.	Open a command prompt or Powershell, navigate to the working directory and run:
