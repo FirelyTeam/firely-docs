@@ -232,7 +232,7 @@ After saving your settings, make sure your Vonk license file is named ``vonk-tri
 (see :ref:`getting_started_docker` on how to obtain the license). Or use the name of your license file instead of ``vonk-trial-license`` in the text above.
 
 You can run the Vonk container as follows: |br|
-``> docker-compose -f docker-compose.mssqlserver_host.yaml up -d``
+``> docker-compose -f docker-compose.mssqlserver_host.yml up -d``
 
 We have to create the Vonk database on the host. For this we need two SQL scripts which are located in the Vonk container. Perform the following commands
 in the working directory to copy the scripts and execute them on your local SQL server::
