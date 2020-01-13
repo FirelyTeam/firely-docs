@@ -86,8 +86,8 @@ The gist of the implementation is to switch the querying based on the ResourceTy
          return new SearchResult(patientResources, query.GetPageSize(), count);
      }
 
-* Note that the information model is based on STU3 by default. When using FHIR version R4 or higher you will need to override the EntryInformationModel. The implementation of this looks like::
-    
+* Please note that R4 calls can lead to NotImplementedExceptions, as some older Facades may implement STU3 only. Therefore, when using FHIR version R4 or higher, you will need to override the EntryInformationModel to suppress the NotImplementedException. This can be done by either adding a version filter to your query or, if you only do R4 and you don't want to use a filter, by implementing the following override::
+       
     public override PatientQuery EntryInformationModel(string informationModel)
     {
         return default(PatientQuery);
