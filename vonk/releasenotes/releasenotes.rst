@@ -17,6 +17,15 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_313:
+
+Release 3.1.3 hotfix
+--------------------
+
+Fix
+^^^
+#. Fixed behaviour on conditional updates in transactions. In odd circumstances Vonk could crash on this.
+
 .. _vonk_releasenotes_310:
 
 Release 3.1.0
