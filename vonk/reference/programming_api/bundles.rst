@@ -33,7 +33,7 @@ This is fairly straightforward. Create a new Bundle object, and fill its propert
 
       //fill in details of the bundle as a whole, like Meta or Identifier.
 
-The limitation of this is that you are bound to either STU3 or R4. That implies that you cannot include :ref:`feature_customresources` in the bundle.
+The limitation of this is that you are bound to either STU3 or R4, and that also implies that you cannot include :ref:`feature_customresources` in the bundle.
 
 Bundle from SourceNodes
 -----------------------
