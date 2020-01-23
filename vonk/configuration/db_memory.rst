@@ -4,7 +4,9 @@ Using the In-Memory storage
 ===========================
 
 * Navigate to your Vonk working directory
-* In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
+* Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
+
+* Find the ``Repository`` setting::
 
 	"Repository": "Memory",
 

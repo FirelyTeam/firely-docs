@@ -79,8 +79,8 @@ All the standard plugins of Vonk can then use that implementation to enforce acc
 
 Configuration
 -------------
-You will need to add the Smart plugin to the Vonk pipeline. See :ref:`vonk_plugins` for more information. In ``appsettings.json``, locate the pipeline
-configuration in the ``PipelineOptions`` section, or copy that section from ``appsettings.default.json``::
+You will need to add the Smart plugin to the Vonk pipeline. See :ref:`vonk_plugins` for more information. In ``appsettings[.instance].json``, locate the pipeline
+configuration in the ``PipelineOptions`` section, or copy that section from ``appsettings.default.json`` (see also :ref:`configure_change_settings`)::
 
 	"PipelineOptions": {
 	  "PluginDirectory": "./plugins",
@@ -94,7 +94,7 @@ configuration in the ``PipelineOptions`` section, or copy that section from ``ap
 
 Add ``Vonk.Smart`` to the list of included plugins. When you restart Vonk, the Smart service will be added to the pipeline.
 
-You can control the way Access Control based on SMART on FHIR behaves with the SmartAuthorizationOptions in ``appsettings.json``::
+You can control the way Access Control based on SMART on FHIR behaves with the SmartAuthorizationOptions in the :ref:`configure_appsettings`::
 
     "SmartAuthorizationOptions": {
       "Enabled": true,
@@ -113,7 +113,7 @@ You can control the way Access Control based on SMART on FHIR behaves with the S
         }
       ],
       "Authority": "url-to-your-identity-provider",
-      "Audience": "name-of-your-fhir-server" //Default 'vonk'
+      "Audience": "name-of-your-fhir-server" //Default this is empty
       "RequireHttpsToProvider": false, //You want this set to true (the default) in a production environment!
       "Protected": {
         "InstanceLevelInteractions": "read, vread, update, delete, history, conditional_delete, conditional_update, $validate",

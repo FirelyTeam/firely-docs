@@ -48,15 +48,22 @@ Settings lower in the list override the settings higher in the list (think CSS, 
    
    This also means you cannot override a single array element with an environment variable. (Which was tricky anyway - relying on the exact number and order of items in the original array.)
 
+.. _configure_change_settings:
+
+Changing the settings
+---------------------
+
+In general you do not change the settings in ``appsettings.default.json`` but create your own overrides in ``appsettings.json`` or ``appsettings.instance.json``. That way your settings are not overwritten by a new version of Vonk (with a new ``appsettings.default.json`` therein), and you automatically get sensible defaults for any new settings introduced in ``appsettings.default.json``.
+
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After you installed Vonk (see :ref:`vonk_getting_started`), either:
 
-* copy the ``appsettings.default.json`` to ``appsettings.json`` and remove settings that you do not intend to alter, or
-* create an empty ``appsettings.json`` and copy individual parts from the ``appsettings.default.json`` if you wish to adjust them.
+* copy the ``appsettings.default.json`` to ``appsettings[.instance].json`` and remove settings that you do not intend to alter, or
+* create an empty ``appsettings[.instance].json`` and copy individual parts from the ``appsettings.default.json`` if you wish to adjust them.
 
-Adjust the new ``appsettings.json`` to your liking using the explanation below.
+Adjust the new ``appsettings[.instance].json`` to your liking using the explanation below.
 
 When running :ref:`Vonk on Docker<use_docker>` you probably want to adjust the settings using the :ref:`Environment Variables<configure_envvar>`.
 
@@ -66,10 +73,10 @@ Settings after update
 If you install the binaries of an updated version of Vonk, you can:
 
 * copy the new binaries over the old ones, or
-* deploy the new version to a new directory and copy the appsettings.json over from the old version.
+* deploy the new version to a new directory and copy the ``appsettings[.instance].json`` over from the old version.
 
 In both cases, check the :ref:`vonk_releasenotes` to see if settings have changed, or new settings have been introduced.
-If you want to adjust a changed / new setting, copy the relevant section from ``appsettings.default.json`` to your own ``appsettings.json`` and then adjust it.
+If you want to adjust a changed / new setting, copy the relevant section from ``appsettings.default.json`` to your own ``appsettings[.instance].json`` and then adjust it.
 
 Commenting out sections
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -260,7 +267,8 @@ Search and History
 
     "BundleOptions": {
         "DefaultCount": 10,
-        "MaxCount": 50
+        "MaxCount": 50,
+        "DefaultSort": "-_lastUpdated"
     },
 
 
@@ -269,6 +277,7 @@ The Search and History interactions return a bundle with results. Users can spec
 * ``DefaultCount`` sets the number of results if the user has not specified a ``_count`` parameter.
 * ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Vonk from being overloaded.
 * ``DefaultCount`` should be less than or equal to ``MaxCount``
+* ``DefaultSort`` is what search results are sorted on if no sort order is specified in the request. If a sort order is specified, this is still added as the last sort clause. 
 
 .. _batch_options:
 
@@ -326,6 +335,31 @@ SearchParameters and other Conformance Resources
     }
 
 See :ref:`conformance` and :ref:`feature_customsp`.
+
+.. _configure_cache:
+
+Cache of Conformance Resources
+------------------------------
+::
+
+   "Cache": {
+      "MaxConformanceResources": 5000
+   }
+   
+Vonk caches StructureDefinitions and other conformance resources that are needed for (de)serialization and validation in memory. If more than ``MaxConformanceResources`` get cached, the ones that have not been used for the longest time are discarded. If you frequently encounter a delay when requesting other resource types than so far, a larger value may help. If you are very restricted on memory, you can lower the value.
+
+.. _configure_reindex:
+
+Reindexing for changes in SearchParameters
+------------------------------------------
+::
+
+    "ReindexOptions": {
+        "BatchSize": 100,
+        "MaxDegreeOfParallelism": 10
+    },
+
+See :ref:`feature_customsp_reindex_configure`.
 
 .. _supportedmodel:
 
@@ -420,6 +454,16 @@ FHIR Capabilities
   },
 
 See :ref:`restful_crud`.
+
+History size
+------------
+::
+
+  "HistoryOptions": {
+    "MaxReturnedResults": 100
+  }
+
+See :ref:`restful_history`.
 
 .. _settings_pipeline:
 

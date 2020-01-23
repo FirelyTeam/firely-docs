@@ -111,6 +111,17 @@ History
 History is supported as described in the specification, on the system, type and instance level.
 The ``_since`` and ``_count`` parameters are also supported.
 
+Configuration
+^^^^^^^^^^^^^
+::
+
+  "HistoryOptions": {
+    "MaxReturnedResults": 100
+  }
+
+If a ``_history`` call would result in more than ``MaxReturnedResults``, Vonk asks the user to be more specific.
+Use this to avoid overloading the server or the connection.
+
 .. _restful_history_limitations:
 
 Limitations on history
