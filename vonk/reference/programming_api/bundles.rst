@@ -17,7 +17,7 @@ This is fairly straightforward. Create a new Bundle object, and fill its propert
    ...
 
       var searchResult = await searchRepository.Search(args, options)
-      var bundle = new ResourceKey(resourceType, resourceId);
+      var bundle = new Bundle() { Type = Bundle.BundleType.Searchset }; // Type is required
 
       foreach (var resource in searchResult)
       {
@@ -33,7 +33,7 @@ This is fairly straightforward. Create a new Bundle object, and fill its propert
 
       //fill in details of the bundle as a whole, like Meta or Identifier.
 
-The limitation of this is that you are bound to either STU3 or R4.
+The limitation of this is that you are bound to either STU3 or R4. That implies that you cannot include :ref:`feature_customresources` in the bundle.
 
 Bundle from SourceNodes
 -----------------------
@@ -65,7 +65,7 @@ Then you can turn this into the helper class ``GenericBundle`` that provides sev
 
 .. code-block:: csharp
 
-      var documentBundle = GenericBundle.FromBundle(bundleResourceNode);
+      var documentBundle = GenericBundle.FromBundle(bundleNode);
       documentBundle = documentBundle.Meta(Guid.NewGuid().ToString(), DateTimeOffset.Now);
 
 Maybe you already saw an alternative way of adding the identifier in the intellisense by now:
