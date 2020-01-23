@@ -38,7 +38,7 @@ The limitation of this is that you are bound to either STU3 or R4.
 Bundle from SourceNodes
 -----------------------
 
-ISourceNode is from Hl7.Fhir.ElementModel and not tied to a specific FHIR version. It can represent just about any tree. Vonk can serialize ISourceNode provided that the right StructureDefinition is available in the Administration API. For Bundles that is by default the case. That means you can construct a Bundle using ISourceNode. 
+ISourceNode is from Hl7.Fhir.ElementModel and not tied to a specific FHIR version, and Vonk can serialize ISourceNode provided that the right StructureDefinition is available in the Administration API - which is the case for Bundle by default.
 
 You start by creating the Bundle itself using the class SourceNode that allows for construction of ISourceNode nodes. 
 
