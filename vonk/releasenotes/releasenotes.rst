@@ -17,6 +17,61 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_320:
+
+Release 3.2.0
+-------------
+
+   .. attention::
+
+      Vonk 3.2.0 is upgraded to .NET Core 3.1, ASP.NET Core 3.1 and EntityFramework Core 3.1.
+      
+         * For running the server: install the ASPNET.Core runtime 3.1.
+         * For developing or upgrading Facades that use Vonk.Facade.Relational: upgrade to EF Core 3.1.
+         * Plugins that target NetStandard 2.0 need not be upgraded.
+
+Database
+^^^^^^^^
+
+#. There are no changes to the databases. The upgrade of EntityFramework Core does not affect the structure of the SQL Server or SQLite databases, just the access to it.
+
+Fix
+^^^
+
+#. :ref:`Supported interactions <disable_interactions>` were not enforced for custom operations like e.g. $convert.
+#. If a resource failed :ref:`feature_prevalidation`, the OperationOutcome also contained issues on not supported arguments.  
+#. A search with ``?summary=count`` failed.
+#. Added support for FhirPath ``hasValue()`` method.
+#. Resolution of canonical ``http://hl7.org/fhir/v/0360|2.7`` failed.
+#. CapabilityStatement.rest.resource.searchInclude used '.' as separator, fixed to use ':' in <resource>:<search parameter code>
+#. Changed default value of ``License:LicenseFile`` to ``vonk-license.json``, aligned with the default naming if you download a license from Simplifier.
+#. :ref:`Reindexing <feature_customsp_reindex>` always interpreted a resource as STU3. Now it correctly honours the actual FHIR version of the resource.
+
+Feature
+^^^^^^^
+
+#. :ref:`BinaryWrapper plugin <vonk_plugins_binarywrapper>` can now be restricted to a list of mediatypes on which to act.
+#. Vonk used to sort on ``_lastUpdated`` by default, and add this as extra sort argument if it was not in the request yet. Now you can configure the element to sort on by default in ``BundleOptions:DefaultSort``. Although Vonk FHIR Server does not yet support sorting on other elements, this is useful for Facade implementations that may support that (and possibly not support sort on ``_lastUpdated``). See also :ref:`bundle_options`.
+#. Implemented `$versions <http://hl7.org/fhir/R4/capabilitystatement-operation-versions.html>`_ operation
+#. Extended the documentation on:
+
+   * :ref:`vonk_plugins_order`
+   * :ref:`vonk_reference_api_bundles`
+   * several smaller additions
+
+#. The SMART authorization plugin can now be configured to *not* check the audience. Although not recommended, it can be useful in testing scenarios or a highly trusted environment.
+
+   .. attention::
+
+      We changed the default value for the setting ``SmartAuthorizationOptions.Audience`` from ``vonk`` to empty, or 'not set'. This is to avoid awkward syntax to override it with 'not-set'. But if you rely on the value ``vonk``, please override this setting in your ``appsettings[.instance].json`` or environment variables as described in :ref:`configure_change_settings`.
+
+Plugin and Facade API
+^^^^^^^^^^^^^^^^^^^^^
+
+#. Vonk.Facade.Relational now supports the use of the .Include() function of EntityFramework Core. To do so, override ``RelationalQuery.GetEntitySet(DbContext dbContext)``.
+#. Vonk.Facade.Relational now supports sorting. Override ``RelationalQueryFactory.AddResultShape(SortShape sortShape) and return a RelationalShorShape using the extension method ``SortQuery()``.
+
+
 .. _vonk_releasenotes_313:
 
 Release 3.1.3 hotfix

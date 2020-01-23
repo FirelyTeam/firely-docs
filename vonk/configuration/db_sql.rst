@@ -14,7 +14,9 @@ In both cases:
 *   Prepare an instance of SQL Server 2012 or newer. Any edition - including SQL Server Express - will do.
     The instance will have a servername and possibly an instancename: ``server/instance``.
 
-*	In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
+*   Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
+
+*	Find the ``Repository`` setting::
 
 	"Repository": "SQLite",
 

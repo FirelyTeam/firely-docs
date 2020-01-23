@@ -512,6 +512,13 @@ Binary
 :License token: http://fire.ly/vonk/plugins/binarywrapper
 :Order: 1112
 :Description: Wraps an incoming binary format in a Binary resource for further processing by the pipeline.
+:Settings:
+   ::
+
+      "Vonk.Plugin.BinaryWrapper":{
+         "RestrictToMimeTypes": ["application/pdf", "text/plain", "image/png", "image/jpeg"]
+      },
+
 
 .. _vonk_plugins_mapping:
 

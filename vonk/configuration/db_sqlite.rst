@@ -42,7 +42,9 @@ Vonk Administration poses very limited stress on its storage engine, therefore S
 Settings for using SQLite for Vonk Data
 ---------------------------------------
 
-*	In a text editor open :code:`appsettings.json` to find the ``Repository`` setting and set it to SQLite if it not already set to that::
+*	Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
+
+*   Find the ``Repository`` setting and set it to SQLite if it not already set to that::
 
 	"Repository": "SQLite",
 
