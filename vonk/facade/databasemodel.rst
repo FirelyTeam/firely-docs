@@ -6,24 +6,29 @@ In this step you will start mapping the existing database model to FHIR resource
 Reverse engineer the database model
 -----------------------------------
 
-To use `EF Core <https://docs.microsoft.com/en-us/ef/core/>`_ 2.2.3, install the package for the database provider(s) you want to target. This walkthrough uses SQL Server. For a list of available providers see Database Providers.
+To use `EF Core <https://docs.microsoft.com/en-us/ef/core/>`_, install the package for the database provider(s) you want to target. This walkthrough uses SQL Server. For a list of available providers see Database Providers.
 
 * Tools ➡️ NuGet Package Manager ➡️ Package Manager Console
-* Run ``Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 2.2.3``
+* Run ``Install-Package Microsoft.EntityFrameworkCore.SqlServer``
 
-We will be using some Entity Framework Tools 2.2.3 to create a model from the database. So we will install the tools package as well:
+We will be using some Entity Framework Tools to create a model from the database. So we will install the tools package as well:
 
-* Run ``Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.2.3``
+* Run ``Install-Package Microsoft.EntityFrameworkCore.Tools``
+
+.. note::
+  The current version of Vonk uses the latest EF Core libraries. If you are developing for an older Vonk version, please check the version of
+  ``Microsoft.EntityFrameworkCore.SqlServer.dll`` in your Vonk distribution folder. Add ``-Version <version>`` to the commands above to use
+  the same version in your Facade implementation.
 
 Now it's time to create the EF model based on your existing database.
 
 * Tools ➡️ NuGet Package Manager ➡️ Package Manager Console
-* Run the following command to create a model from the existing database. Adjust the Data source to your instance of SQL Server. If you receive an error stating The term 'Scaffold-DbContext' is not recognized as the name of a cmdlet, then close and reopen Visual Studio.::
+* Run the following command to create a model from the existing database. Adjust the Data Source to your instance of SQL Server. If you receive an error stating The term 'Scaffold-DbContext' is not recognized as the name of a cmdlet, then close and reopen Visual Studio.::
 
     Scaffold-DbContext "MultipleActiveResultSets=true;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=ViSi;Data Source=localhost" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
     //For localdb: Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=ViSi;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
     //For SQLEXPRESS: Scaffold-DBContext "Data Source=(local)\SQLEXPRESS;Initial Catalog=ViSi;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
-    
+
 You can also generate the scaffolding using the `EF CLI tools <https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet>`_ which are crossplatform: ::
 
     dotnet ef dbcontext scaffold "User ID=SA;Password=<enter your password here>;MultipleActiveResultSets=true;Server=tcp:.;Connect Timeout=5;Integrated Security=false;Persist Security Info=False;Initial Catalog=ViSi;Data Source=localhost" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models
@@ -39,9 +44,9 @@ Clean up generated code
 
   * Patient ➡️ ViSiPatient
   * BloodPressure ➡️ ViSiBloodPressure
-  
-  In `ViSiContext.cs`, ensure that the EF objects mapping our class to the database table are correct and without prefixes (since it's just our local classes that have them): ::
-  
+
+  In ``ViSiContext.cs``, ensure that the EF objects mapping our class to the database table are correct and without prefixes (since it's just our local classes that have them): ::
+
         public virtual DbSet<ViSiBloodPressure> BloodPressure { get; set; }
         public virtual DbSet<ViSiPatient> Patient { get; set; }
 
