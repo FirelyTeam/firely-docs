@@ -296,3 +296,4 @@ You can test it using a dummy Identity Provider and Postman as a REST client. Pl
 .. _Patient CompartmentDefinition: http://www.hl7.org/implement/standards/fhir/compartmentdefinition-patient.html
 .. _ASP.NET Core Identity: https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity
 
+You might also find it useful to enable more extensive authorization failure logging - Vonk defaults to a secure setup and does not show what exactly went wrong during authorization. To do so, set the ``ASPNETCORE_ENVIRONMENT`` environment variable to ``Development``.
