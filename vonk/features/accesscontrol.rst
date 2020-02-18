@@ -43,7 +43,7 @@ Authorization in Vonk by default is based on `SMART on FHIR`_ and more specifica
 
 SMART on FHIR also defines scopes starting with 'patient/' instead of 'user/'. In Vonk these are evaluated equally. But with a scope of 'patient/' you are required to also have a 'patient=...' launch context to know to which patient the user connects.
 
-The assignment of these claims to users, systems or groups is managed in the OAuth2 provider and not in Vonk.
+The assignment of these claims to users, systems or groups is managed in the OAuth2 provider and not in Vonk. Vonk does, however, need a way to access these scopes - so if your OAuth server is issuing a self-encoded token, ensure that it has a ``scope`` field with all of the granted scopes inside it.
 
 Access Control Engine
 ---------------------
