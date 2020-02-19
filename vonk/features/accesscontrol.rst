@@ -141,6 +141,8 @@ In FHIR a `CompartmentDefinition <http://www.hl7.org/implement/standards/fhir/co
 
 An example is the `Patient CompartmentDefinition`_, where a Patient resource is the focus. One of the related resourcetypes is Observation. Its params are subject and performer, so it is in the compartment of a specific Patient if that Patient is either the subject or the performer of the Observation.
 
+In the case of building your own :ref:`vonk_facade`, this means that you need to implement all search parameters linking the particular resource back to its compartment so compartment integrity can be enforced. In case of Observation for the Patient compartment, it means you need to handle both subject and performer.
+
 FHIR defines CompartmentDefinitions for Patient, Encounter, RelatedPerson, Practitioner and Device. Although Vonk is functionally not limited to these five, the specification does not allow you to define your own. Vonk will use a CompartmentDefinition if:
 
 * the CompartmentDefinition is known to Vonk, see :ref:`conformance` for options to provide them.
