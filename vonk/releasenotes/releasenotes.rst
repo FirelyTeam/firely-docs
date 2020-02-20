@@ -24,10 +24,10 @@ Release 3.2.0
 
    .. attention::
 
-      Vonk 3.2.0 is upgraded to .NET Core 3.1, ASP.NET Core 3.1 and EntityFramework Core 3.1.
+      Vonk 3.2.0 is upgraded to .NET Core 3.1.0, ASP.NET Core 3.1.0 and EntityFramework Core 3.1.0.
       
-         * For running the server: install the ASPNET.Core runtime 3.1.
-         * For developing or upgrading Facades that use Vonk.Facade.Relational: upgrade to EF Core 3.1.
+         * For running the server: install the ASPNET.Core runtime 3.1.0.
+         * For developing or upgrading Facades that use Vonk.Facade.Relational: upgrade to EF Core 3.1.0.
          * Plugins that target NetStandard 2.0 need not be upgraded.
 
 Database
