@@ -19,6 +19,17 @@ See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
 .. _vonk_releasenotes_320:
 
+Release 3.2.1
+-------------
+
+Fix
+^^^
+
+#. SMART plugin now understand multiple scopes per access token.
+#. SMART plugin now understands ``Resource.*`` claims, in addition to already understanding ``Resource.read`` and ``Resource.write``.
+
+.. _vonk_releasenotes_320:
+
 Release 3.2.0
 -------------
 
