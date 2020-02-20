@@ -25,7 +25,7 @@ Release 3.2.1
 Fix
 ^^^
 
-#. SMART plugin now understand multiple scopes per access token.
+#. SMART plugin now understands multiple scopes per access token.
 #. SMART plugin now understands ``Resource.*`` claims, in addition to already understanding ``Resource.read`` and ``Resource.write``.
 
 .. _vonk_releasenotes_320:
