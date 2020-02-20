@@ -17,7 +17,7 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
-.. _vonk_releasenotes_320:
+.. _vonk_releasenotes_321:
 
 Release 3.2.1
 -------------
