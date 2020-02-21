@@ -198,7 +198,7 @@ A valid access token for Vonk at minimum will have:
 
 * the compartment claim. For example in case of Patient data access, the ``patient`` claim with the patient's id or identifier - see :ref:`feature_accesscontrol_compartment`
 * the ``iss`` field with the base url of the OAuth server
-* and the ``scope`` field with the scopes granted by the this access token.
+* and the ``scope`` field with the scopes granted by this access token.
 
 .. _feature_accesscontrol_decisions:
 
