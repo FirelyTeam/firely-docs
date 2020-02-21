@@ -127,7 +127,7 @@ You can control the way Access Control based on SMART on FHIR behaves with the S
 
     * FilterType: Both a launch context and a CompartmentDefinition are defined by a resourcetype. Use FilterType to define for which launch context and related CompartmentDefinition this Filter is applicable.
     * FilterArgument: Translates the value of the launch context to a search argument. You can use any supported search parameter defined on FilterType. It should contain the name of the launch context enclosed in hashes (e.g. #patient#), which is substituted by the value of the claim.
-* Authority: The base url of your identity provider, such that``{{base_url}}/.well-known/openid-configuration`` returns a valid configuration response (`OpenID Connect Discovery documentation <https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2>`_). At minimum, the ``jwks_uri``, ``token_endpoint`` and ``authorization_endpoint`` keys are required in addition to the keys required by the speficiation. See :ref:`feature_accesscontrol_idprovider` for more background.
+* Authority: The base url of your identity provider, such that ``{{base_url}}/.well-known/openid-configuration`` returns a valid configuration response (`OpenID Connect Discovery documentation <https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2>`_). At minimum, the ``jwks_uri``, ``token_endpoint`` and ``authorization_endpoint`` keys are required in addition to the keys required by the speficiation. See :ref:`feature_accesscontrol_idprovider` for more background.
 * Audience: Defines the name of this Vonk instance as it is known to the Identity Provider. Default is 'vonk'.
 * RequireHttpsToProvider: Token exchange with an Identity Provider should always happen over https. However, in a local testing scenario you may need to use http. Then you can set this to 'false'. The default value is 'true'. 
 * Protected: This setting controls which of the interactions actually require authentication. In the example values provided here, $validate is not in the TypeLevelInteractions. This means that you can use POST [base-url]/Patient/$validate without authorization. Since you only read Conformance resources with this interaction, this might make sense.
@@ -197,7 +197,8 @@ The result of this flow should be a JSON Web Token (JWT) containing zero or more
 A valid access token for Vonk at minimum will have:
 
 * the compartment claim. For example in case of Patient data access, the ``patient`` claim with the patient's id or identifier - see :ref:`feature_accesscontrol_compartment`
-* the ``iss`` field with the base url of the OAuth server
+* the ``iss`` claim with the base url of the OAuth server
+* the ``aud`` claim with the base url of the FHIR server
 * and the ``scope`` field with the scopes granted by this access token.
 
 .. _feature_accesscontrol_decisions:
