@@ -530,11 +530,17 @@ Binary
 Transformation and mapping
 --------------------------
 
-:Name: Mapping engine
+:Name: FHIR Mapper (Transform)
 :Configuration: ``Vonk.Plugins.Transform.TransformConfiguration``
 :License token: http://fire.ly/vonk/plugins/mapping
 :Order: 4560
-:Description: Implements FHIR `$transform <http://hl7.org/fhir/R4/structuremap-operation-transform.html>`_ : ``POST <base>/administration/StructureMap/$transform`` or ``POST <base>/administration/StructureMap/[id]/$transform``. See :ref:`mappingengine_index`.
+:Description: Implements FHIR `$transform <http://hl7.org/fhir/R4/structuremap-operation-transform.html>`_ : ``POST <base>/administration/StructureMap/[id]/$transform``. See :ref:`mappingengine_index`.
+
+:Name: FHIR Mapper (Convert)
+:Configuration: ``Vonk.Plugin.MappingToStructureMap.MappingToStructureMapConfiguration``
+:License token: http://fire.ly/vonk/plugins/mapping
+:Order: 4550
+:Description: Implements FHIR `$convert <http://hl7.org/fhir/R4/resource-operation-convert.html>`_ : ``POST <base>/$convert`` to convert between FHIR Mapping Language and its StructureMap representation.
 
 .. _vonk_plugins_repository:
 
