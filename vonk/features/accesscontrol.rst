@@ -24,9 +24,9 @@ Access control generally consists of the following parts, which will be addresse
 Identification and Authentication
 ---------------------------------
 Vonk does not authenticate users itself. It is meant to be used in an `OAuth2`_ environment in which an `OAuth2 provider`_ is responsible for the identification and authentication of users. 
-Typically, a user first enters a Web Application, e.g. a patient portal, or a mobile app. That application interactively redirects the user to the OAuth2 provider to authenticate, and receives an OAuth2 token back.
+Typically, a user first enters a Web Application, e.g. a patient portal, or a mobile app. That application interactively redirects the user to the OAuth2 provider - which is the authorization server and may or may not handle authentication as well - to authenticate, and receives an OAuth2 token back.
 Then, the application can do an http request to Vonk to send or receive resource(s), and provide the OAuth2 token in the http Authentication header, thereby acting on behalf of the user.
-Vonk can then read the OAuth2 token and validate it with the OAuth2 provider. This functionality is not FHIR specific.
+Vonk can then read the OAuth2 token and validate it with the OAuth2 authorization server. This functionality is not FHIR specific.
 
 .. _feature_accesscontrol_authorization:
 
@@ -43,7 +43,7 @@ Authorization in Vonk by default is based on `SMART on FHIR`_ and more specifica
 
 SMART on FHIR also defines scopes starting with 'patient/' instead of 'user/'. In Vonk these are evaluated equally. But with a scope of 'patient/' you are required to also have a 'patient=...' launch context to know to which patient the user connects.
 
-The assignment of these claims to users, systems or groups is managed in the OAuth2 provider and not in Vonk. Vonk does, however, need a way to access these scopes - so if your OAuth server is issuing a self-encoded token, ensure that it has a ``scope`` field with all of the granted scopes inside it.
+The assignment of these claims to users, systems or groups is managed in the OAuth2 authorization server and not in Vonk. Vonk does, however, need a way to access these scopes - so if your OAuth server is issuing a self-encoded token, ensure that it has a ``scope`` field with all of the granted scopes inside it.
 
 Access Control Engine
 ---------------------
@@ -128,8 +128,8 @@ You can control the way Access Control based on SMART on FHIR behaves with the S
     * FilterType: Both a launch context and a CompartmentDefinition are defined by a resourcetype. Use FilterType to define for which launch context and related CompartmentDefinition this Filter is applicable.
     * FilterArgument: Translates the value of the launch context to a search argument. You can use any supported search parameter defined on FilterType. It should contain the name of the launch context enclosed in hashes (e.g. #patient#), which is substituted by the value of the claim.
 * Authority: The base url of your identity provider, such that ``{{base_url}}/.well-known/openid-configuration`` returns a valid configuration response (`OpenID Connect Discovery documentation <https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2>`_). At minimum, the ``jwks_uri``, ``token_endpoint`` and ``authorization_endpoint`` keys are required in addition to the keys required by the speficiation. See :ref:`feature_accesscontrol_idprovider` for more background.
-* Audience: Defines the name of this Vonk instance as it is known to the Identity Provider. Default is 'vonk'.
-* RequireHttpsToProvider: Token exchange with an Identity Provider should always happen over https. However, in a local testing scenario you may need to use http. Then you can set this to 'false'. The default value is 'true'. 
+* Audience: Defines the name of this Vonk instance as it is known to the Authorization server. Default is 'vonk'.
+* RequireHttpsToProvider: Token exchange with an Authorization server should always happen over https. However, in a local testing scenario you may need to use http. Then you can set this to 'false'. The default value is 'true'. 
 * Protected: This setting controls which of the interactions actually require authentication. In the example values provided here, $validate is not in the TypeLevelInteractions. This means that you can use POST [base-url]/Patient/$validate without authorization. Since you only read Conformance resources with this interaction, this might make sense.
 
 .. _feature_accesscontrol_compartment:
@@ -153,7 +153,7 @@ A CompartmentDefinition defines the relationships, but it becomes useful once yo
 * Patient with id '123'
 * And all resources that link to that patient according to the Patient CompartmentDefinition.
 
-There may be cases where the logical id of the focus resource is not known to the Identity Provider. Let's assume it does know one of the Identifiers of a Patient. The Filters in the :ref:`feature_accesscontrol_config` allow you to configure Vonk to use the identifier search parameter as a filter instead of _id. The value in the configuration example does exactly that::
+There may be cases where the logical id of the focus resource is not known to the authorization server. Let's assume it does know one of the Identifiers of a Patient. The Filters in the :ref:`feature_accesscontrol_config` allow you to configure Vonk to use the identifier search parameter as a filter instead of _id. The value in the configuration example does exactly that::
 
     "Filters": [
       {
@@ -190,7 +190,7 @@ If multiple resources match the Compartment, that is no problem for Vonk. You ca
 Tokens
 ------
 
-When a client application wants to access data in Vonk on behalf of its user, it requests a token from the Identity Provider (configured as the Authority in the :ref:`feature_accesscontrol_config`). The configuration of the Identity Provider determines which claims are *available* for a certain user, and also for the client application. The client app configuration determines which claims it *needs*. During the token request, the user is usually redirected to the Identity Provider, logs in and is then asked whether the client app is allowed to receive the requested claims. The client app cannot request any claims that are not available to that application. And it will never get any claims that are not available to the user. This flow is also explained in the `SMART App Authorization Guide`_. 
+When a client application wants to access data in Vonk on behalf of its user, it requests a token from the authorization server (configured as the Authority in the :ref:`feature_accesscontrol_config`). The configuration of the authorization server determines which claims are *available* for a certain user, and also for the client application. The client app configuration determines which claims it *needs*. During the token request, the user is usually redirected to the authorization server, which might or might not be the authentication server as well, logs in and is then asked whether the client app is allowed to receive the requested claims. The client app cannot request any claims that are not available to that application. And it will never get any claims that are not available to the user. This flow is also explained in the `SMART App Authorization Guide`_. 
 
 The result of this flow should be a JSON Web Token (JWT) containing zero or more of the claims defined in SMART on FHIR. The claims can either be scopes or a launch context, as in the examples listed in :ref:`feature_accesscontrol_authorization`. This token is encoded as a string, and must be sent to Vonk in the Authorization header of the request.
 
@@ -290,7 +290,7 @@ Testing
 
 Testing the access control functionality is possible on a local instance of Vonk. It is not available for the `publicly hosted test server <http://vonk.fire.ly>`_.
 
-You can test it using a dummy Identity Provider and Postman as a REST client. Please refer to these pages for instructions:
+You can test it using a dummy authorization server and Postman as a REST client. Please refer to these pages for instructions:
 
 * :ref:`feature_accesscontrol_idprovider`
 * :ref:`feature_accesscontrol_postman`
