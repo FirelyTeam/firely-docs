@@ -17,6 +17,56 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_330:
+
+Release 3.3.0
+-------------
+
+.. attention::
+
+   To use the new features for auditing and R5, you need a new license file including the tokens for those plugins.
+   For evaluation and community editions you can retrieve them from Simplifier.net.
+   If you need these updates in your production license, please contact us.
+
+Feature
+^^^^^^^
+
+#. Vonk was upgraded to FHIR .NET API 1.5.0. See the `release notes of the API <https://github.com/FirelyTeam/fhir-net-api/releases>`_.
+#. Vonk can now log audit lines in a separate file. This can help you achieve HIPAA/GDPR compliancy. See :ref:`feature_auditing` for more info.
+#. Failed authorization attempts are now logged from the :ref:`vonk_plugins_smart` plugin.
+#. Support for ``_include:iterate`` and ``_revinclude:iterate``, see :ref:`restful_search`.
+#. The :ref:`plugin_binarywrapper` is now two-way. So you can POST binary content and have it stored as a Binary resource, and GET a Binary resource and have it returned in its original binary format. 
+#. Experimental support for R5 is now included in the Vonk distribution. For enabling it, see :ref:`feature_multi_version_r5`.
+
+Fix
+^^^
+
+#. Indexing of a quantity in resource could fail with a Statuscode 500 if it had no ``.value`` but only extensions.
+#. The use of a SearchParameter of type ``reference`` having no ``target`` failed. These searchparameters are now signalled upon import.
+#. Since R4 it is valid to search for a quantity without specifying the unit. Vonk now accepts that.
+#. A transaction response bundle could contain an empty ``response.etag`` element, which is invalid.
+#. :ref:`feature_preload` was not working since the upgrade to .NET Core 3.0. That has been fixed. It is still only available for STU3 though.
+#. Administration import would state that it moves a file to history when it had imported it. That is no longer true, so we removed this incorrect statement from the log.
+#. $validate-code could cause a NullReference exception in some case.
+#. The generated CapabilityStatement for R4 failed constraint cpb-14.
+#. Content negotiation favoured a mediatype with quality < 1 over a mediatype without quality. But the default value is 1, so the latter is now favoured. 
+#. :ref:`feature_validation_instance` did not account for the informationmodel (aka FHIR version) of the resource.
+
+Plugins & Facade
+^^^^^^^^^^^^^^^^
+
+#. :ref:`Document Operation <vonk_plugins_documentoperation>` 
+   
+   * Has been upgraded to Vonk 3.2.0.
+   * Was assigned a license token
+
+#. :ref:`vonk_plugins_convert`
+
+   * Has been upgraded to Vonk 3.2.0.
+   * Was assigned a license token.
+
+#. `Vonk.Facade.Starter <https://github.com/FirelyTeam/Vonk.Facade.Starter>`_ has been upgraded to Vonk 3.2.1 and as a consequence also to EntityFrameworkCore 3.1.0.
+
 .. _vonk_releasenotes_321:
 
 Release 3.2.1

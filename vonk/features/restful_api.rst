@@ -78,6 +78,15 @@ Quantity search on UCUM quantities automatically converts units to a canonical f
 
 `Compartment Search <http://www.hl7.org/implement/standards/fhir/search.html#2.21.1.2>`_ is supported.
 
+Vonk also supports ``_include:iterate`` and ``_revinclude:iterate``, as well as its STU3 counterparts ``_include:recurse`` and ``_revinclude:recurse``. See `the specification <http://hl7.org/fhir/R4/search.html#revinclude>`_ for the definition of those. You can configure the maximum level of recursion::
+
+   "FhirCapabilities": {
+      "SearchOptions": {
+         "MaximumIncludeIterationDepth": 1
+      }
+   },
+
+
 .. _restful_search_limitations:
 
 Limitations on search
@@ -94,7 +103,6 @@ The following parameters and options are not yet supported:
 #. ``:text`` modifier on a string SearchParameter
 #. ``:above``, ``:below``, ``:in``, ``:not-in`` modifiers on a token SearchParameter
 #. ``:above`` on a uri SearchParameter (``:below`` *is* supported)
-#. ``:recurse`` modifier on ``_include`` and ``_revinclude``
 #. ``*`` wildcard on ``_include`` and ``_revinclude``
 #. ``_pretty``
 

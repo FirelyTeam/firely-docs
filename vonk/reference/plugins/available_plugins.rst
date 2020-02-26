@@ -456,6 +456,23 @@ Subscriptions
 :Order: 3200
 :Description: Implements the FHIR Subscriptions framework, see :ref:`feature_subscription`. 
 
+.. _vonk_plugins_audit:
+
+Auditing
+--------
+
+:Name: Audit log
+:Configuration: ``Vonk.Plugin.Audit.AuditConfiguration``
+:License token: http://fire.ly/vonk/plugins/audit
+:Order: 3150
+:Description: Logs requests and responses to a file. See :ref:`feature_auditing` for more info.
+
+:Name: Username log
+:Configuration: ``Vonk.Plugin.Audit.UsernameLoggingConfiguration``
+:License token: http://fire.ly/vonk/plugins/audit
+:Order: 2010
+:Description: Makes the user id and name from the JWT token (if present) available for logging. See :ref:`feature_auditing` for more info.
+
 .. _vonk_plugins_demoui:
 
 Demo UI
