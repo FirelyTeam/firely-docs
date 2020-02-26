@@ -19,4 +19,5 @@ Please have a look at the :ref:`vonk_overview` to see how plugins fit in the Von
    plugins_directhttp
    Example: Create a new Landing Page <example_landingpage>
    Example: $document <example_documentoperation>
-
+   Featured plugin: Binary wrapper <featured/binarywrapper>
+   Featured plugin: Convert <featured/convertoperation>
