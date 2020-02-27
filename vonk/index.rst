@@ -12,6 +12,7 @@ Welcome to the Vonk server documentation
    Getting started <getting_started>
    Releasenotes <releasenotes/releasenotes>
    How to upgrade <releasenotes/upgrade>
+   Roadmap <releasenotes/roadmap>
    FAQ <faq>
    Configuration <configuration/configuration>
    Deployment <deployment/deployment>
