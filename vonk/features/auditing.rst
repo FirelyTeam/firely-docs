@@ -25,9 +25,9 @@ The OutputTemplate listed here contains all the properties that can be logged:
 * UserId: user id from the JWT token (if present)
 * UserName: user name from the JWT token (if present)
 * Path: request url
-* Action: interaction that was request (like instance_read or type_search)
+* Action: interaction that was requested (like instance_read or type_search)
 * Resource: resourcetype involved
-* ResourceKey: key of the resource involved (type/id)
+* ResourceKey: 'key' of the resource involved (if any), consisting of the resourcetype and the id, formatted as "resourcetype/id"
 * StatusCode: statuscode of the response at the time of logging (by default '-1' when the request is not handled yet)
 
 For transactions and batches, the audit plugin will write a line for the transaction/batch as a whole *and* one for every entry in the transaction/batch.
