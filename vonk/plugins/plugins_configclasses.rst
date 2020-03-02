@@ -7,7 +7,7 @@ A configuration class is a static class with two public static methods having th
 
 .. code-block:: csharp
 
-   [VonkConfigurationAttribute (order: xyz)] //xyz is an integer
+   [VonkConfiguration (order: xyz)] //xyz is an integer
    public static class MyVonkConfiguration
    {
       public static void ConfigureServices(IServiceCollection services)
