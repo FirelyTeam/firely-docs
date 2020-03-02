@@ -88,6 +88,6 @@ Custom authorization plugin
 
 This feature can also be used to implement custom authorization. You can find a template for that in this `gist <http://bit.ly/VonkAuthorizationMiddleware>`_.
 
-If you just return a statuscode, you could the regular IVonkContext.Response. If you want to return e.g. a custom json object, you should use the method described above. Do not forget to set the Content-Type (to application/json for a custom json object).
+If you just return a statuscode, you could use the regular IVonkContext.Response. If you want to return e.g. a custom json object, you should use the method described above. Do not forget to set the Content-Type (to ``application/json`` for a custom json object).
 
 For more information about access control in plugins and facades, see :ref:`accesscontrol_api`.
