@@ -51,7 +51,7 @@ Further ideas
 
 * GraphDefinition support
 * GraphQL support
-* PostGreSQL repository implementation
+* PostgreSQL repository implementation
 * Allow for plugins in other languages than .NET Core
 * Configurable XDS Facade
 * Configurable DICOM Facade
