@@ -30,5 +30,7 @@ When importing specification.zip for various FHIR versions, Vonk will report err
 
    Composite SearchParameter 'CodeSystem.context-type-quantity' doesn't have components.
 
-Vonk checks whether all the components of a composite searchparameter are present. So this error can be correct for a searchparameters that is not well defined. But the implementation of this check seems to have an error so too many composite parameters are reported as faulty.
+A searchparameter of type 'composite' should define which components it consists of. Vonk checks whether all the components of such a composite searchparameter are present. If no components are defined at all - that is, SearchParameter.component is empty - it will display this error. This indicates an error in the definition of the searchparameter and should be solved by the author of it.
+
+However, the implementation of this check seems to have an error so too many composite parameters are reported as faulty. We will address this issue in the next release.
 

@@ -59,6 +59,7 @@ Plugins & Facade
    
    * Has been upgraded to Vonk 3.2.0.
    * Was assigned a license token
+   * Assigns an id and lastUpdated to the result bundle
 
 #. :ref:`vonk_plugins_convert`
 
