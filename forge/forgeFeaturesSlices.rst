@@ -29,8 +29,8 @@ The discriminator information can be provided in the `Element Properties` of the
 
 More information concerning slicing and discriminators can be found here: http://hl7.org/fhir/profiling.html.
 
-*New Feature -* Type Slicing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type Slicing
+^^^^^^^^^^^^
 Forge 14.7 provides improved support for so-called type slicing. This applies to so-called
 polymorphic “choice type” elements that support multiple data types. A choice
 type element has a name that ends with “[x] ”, 

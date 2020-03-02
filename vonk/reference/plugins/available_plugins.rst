@@ -456,6 +456,23 @@ Subscriptions
 :Order: 3200
 :Description: Implements the FHIR Subscriptions framework, see :ref:`feature_subscription`. 
 
+.. _vonk_plugins_audit:
+
+Auditing
+--------
+
+:Name: Audit log
+:Configuration: ``Vonk.Plugin.Audit.AuditConfiguration``
+:License token: http://fire.ly/vonk/plugins/audit
+:Order: 3150
+:Description: Logs requests and responses to a file. See :ref:`feature_auditing` for more info.
+
+:Name: Username log
+:Configuration: ``Vonk.Plugin.Audit.UsernameLoggingConfiguration``
+:License token: http://fire.ly/vonk/plugins/audit
+:Order: 2010
+:Description: Makes the user id and name from the JWT token (if present) available for logging. See :ref:`feature_auditing` for more info.
+
 .. _vonk_plugins_demoui:
 
 Demo UI
@@ -507,22 +524,40 @@ Binary
 
 .. _vonk_plugins_binarywrapper:
 
-:Name: Binary wrapper
-:Configuration: ``Vonk.Plugins.BinaryWrapper.BinaryWrapperConfiguration``
+:Name: Binary wrapper (Encode)
+:Configuration: ``Vonk.Plugins.BinaryWrapper.BinaryEncodeConfiguration``
 :License token: http://fire.ly/vonk/plugins/binarywrapper
 :Order: 1112
 :Description: Wraps an incoming binary format in a Binary resource for further processing by the pipeline.
+:Settings:
+   ::
+
+      "Vonk.Plugin.BinaryWrapper":{
+         "RestrictToMimeTypes": ["application/pdf", "text/plain", "image/png", "image/jpeg"]
+      },
+
+:Name: Binary wrapper (Decode)
+:Configuration: ``Vonk.Plugins.BinaryWrapper.BinaryDecodeConfiguration``
+:License token: http://fire.ly/vonk/plugins/binarywrapper
+:Order: 1122
+:Description: Implements ``GET <base>/Binary/<id>``, retrieve back the Binary resource in its native format.
 
 .. _vonk_plugins_mapping:
 
 Transformation and mapping
 --------------------------
 
-:Name: Mapping engine
+:Name: FHIR Mapper (Transform)
 :Configuration: ``Vonk.Plugins.Transform.TransformConfiguration``
 :License token: http://fire.ly/vonk/plugins/mapping
 :Order: 4560
-:Description: Implements FHIR `$transform <http://hl7.org/fhir/R4/structuremap-operation-transform.html>`_ : ``POST <base>/administration/StructureMap/$transform`` or ``POST <base>/administration/StructureMap/[id]/$transform``. See :ref:`mappingengine_index`.
+:Description: Implements FHIR `$transform <http://hl7.org/fhir/R4/structuremap-operation-transform.html>`_ : ``POST <base>/administration/StructureMap/[id]/$transform``. See :ref:`mappingengine_index`.
+
+:Name: FHIR Mapper (Convert)
+:Configuration: ``Vonk.Plugin.MappingToStructureMap.MappingToStructureMapConfiguration``
+:License token: http://fire.ly/vonk/plugins/mapping
+:Order: 4550
+:Description: Implements FHIR `$convert <http://hl7.org/fhir/R4/resource-operation-convert.html>`_ : ``POST <base>/$convert`` to convert between FHIR Mapping Language and its StructureMap representation.
 
 .. _vonk_plugins_repository:
 

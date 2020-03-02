@@ -164,7 +164,7 @@ If you do so you probably don't want all this detail in your console sink, so yo
 
 Azure Application Insights
 --------------------------
-Vonk can also log to Azure Application Insights. What you need to do:
+Vonk can also log to Azure Application Insights ("Application Insights Telemetry"). What you need to do:
 
 #. Create an Application Insights instance on Azure.
 #. Get the InstrumentationKey from the Properties blade of this instance.

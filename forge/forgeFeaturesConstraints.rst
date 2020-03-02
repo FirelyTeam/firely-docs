@@ -57,7 +57,7 @@ The value must be equal to or strichter than the base value.
 	:scale: 75%
 	
 	
-*New Feature -* Inline constraints
+Inline constraints
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 FHIR allows you to constrain an element type by specifying a

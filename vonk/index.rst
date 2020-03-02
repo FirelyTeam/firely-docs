@@ -12,6 +12,7 @@ Welcome to the Vonk server documentation
    Getting started <getting_started>
    Releasenotes <releasenotes/releasenotes>
    How to upgrade <releasenotes/upgrade>
+   FAQ <faq>
    Configuration <configuration/configuration>
    Deployment <deployment/deployment>
    Features <features/features>
@@ -25,7 +26,7 @@ Welcome to the Vonk server documentation
 `Vonk <https://fire.ly/products/vonk/>`_ is Firely's FHIR server and the successor to our Spark server.
 
 Vonk is the answer to the growing need for a stable server that can be used in a variety of production environments.
-A public sandbox is available at https://vonk.fire.ly. This edition is free to use and intended for
+A public sandbox is available at https://vonk.fire.ly, which is is free to use and intended for
 testing and educational purposes only.
 
 .. image:: ./images/vonk_home.png

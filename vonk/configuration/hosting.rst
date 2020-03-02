@@ -12,11 +12,10 @@ You can enable http and/or https and adjust the port numbers for them in :ref:`c
 Changing the port number
 ------------------------
 
-By default Vonk will run on port 4080 of your system. You can change the port setting in the :code:`appsettings.json` file that is part
-of the Vonk distribution:
+By default Vonk will run on port 4080 of your system. You can change the port setting by overriding it as described in :ref:`configure_change_settings`:
 
 *	Navigate to your Vonk working directory
-*	In a text editor open :code:`appsettings.json` to find this setting:
+*	Find this setting:
 	::
 
 		"Hosting": {
@@ -32,7 +31,7 @@ Changing from http to https
 If you need your server to run on https instead of http, follow these steps:
 
 *	Navigate to the location where you extracted the Vonk files.
-*	Open :code:`appsettings.json` in a text editor and find these settings:
+*	Find these settings:
 
     ::
 

@@ -4,7 +4,7 @@ Vonk settings
 =============
 
 Vonk settings are controlled in json configuration files called ``appsettings(.*).json``. The possible settings in these files are all the same and described below.
-The different files are read in a hierarchy so you can control settings on different levels. All appsettings files are in the Vonk distribution directory, next to vonk.server.dll. 
+The different files are read in a hierarchy so you can control settings on different levels. All appsettings files are in the Vonk distribution directory, next to vonk.server.dll.
 We go through all the sections of this file and refer you to detailed pages on each of them.
 
 You can also control :ref:`configure_envvar`.
@@ -22,19 +22,19 @@ Vonk reads its settings from these sources, in this order:
 :appsettings.json: You can create this one for your own settings. Because it is not part of the Vonk distribution, it will not be overwritten by a next Vonk version.
 :environment variables: See :ref:`configure_envvar`.
 :appsettings.instance.json: You can create this one to override settings for a specific instance of Vonk. It is not part of the Vonk distribution.
-                            This file is especially useful if you run multiple instances on the same machine. 
+                            This file is especially useful if you run multiple instances on the same machine.
 
 Settings lower in the list override the settings higher in the list (think CSS, if you're familiar with that).
 
 .. warning::
 
-   JSON settings files can have arrays in them. The configuration system can NOT merge arrays. 
+   JSON settings files can have arrays in them. The configuration system can NOT merge arrays.
    So if you override an array value, you need to provide all the values that you want in the array.
-   In the Vonk settings this is relevant for e.g. Validation.AllowedProfiles and for the PipelineOptions. 
+   In the Vonk settings this is relevant for e.g. Validation.AllowedProfiles and for the PipelineOptions.
 
 .. note::
    By default in ASP.NET Core, if on a lower level the array has more items, you will still inherit those extra items.
-   We fixed this in Vonk, an array will always overwrite the complete base array. 
+   We fixed this in Vonk, an array will always overwrite the complete base array.
    To nullify an array, add the value with an array with just an empty string in it::
 
      "PipelineOptions": {
@@ -42,21 +42,28 @@ Settings lower in the list override the settings higher in the list (think CSS, 
          {
            "Path": "myroot",
            "Exclude": [""]
-         } 
+         }
        ]
      }
-   
+
    This also means you cannot override a single array element with an environment variable. (Which was tricky anyway - relying on the exact number and order of items in the original array.)
+
+.. _configure_change_settings:
+
+Changing the settings
+---------------------
+
+In general you do not change the settings in ``appsettings.default.json`` but create your own overrides in ``appsettings.json`` or ``appsettings.instance.json``. That way your settings are not overwritten by a new version of Vonk (with a new ``appsettings.default.json`` therein), and you automatically get sensible defaults for any new settings introduced in ``appsettings.default.json``.
 
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After you installed Vonk (see :ref:`vonk_getting_started`), either:
 
-* copy the ``appsettings.default.json`` to ``appsettings.json`` and remove settings that you do not intend to alter, or
-* create an empty ``appsettings.json`` and copy individual parts from the ``appsettings.default.json`` if you wish to adjust them.
+* copy the ``appsettings.default.json`` to ``appsettings[.instance].json`` and remove settings that you do not intend to alter, or
+* create an empty ``appsettings[.instance].json`` and copy individual parts from the ``appsettings.default.json`` if you wish to adjust them.
 
-Adjust the new ``appsettings.json`` to your liking using the explanation below.
+Adjust the new ``appsettings[.instance].json`` to your liking using the explanation below.
 
 When running :ref:`Vonk on Docker<use_docker>` you probably want to adjust the settings using the :ref:`Environment Variables<configure_envvar>`.
 
@@ -66,10 +73,10 @@ Settings after update
 If you install the binaries of an updated version of Vonk, you can:
 
 * copy the new binaries over the old ones, or
-* deploy the new version to a new directory and copy the appsettings.json over from the old version.
+* deploy the new version to a new directory and copy the ``appsettings[.instance].json`` over from the old version.
 
 In both cases, check the :ref:`vonk_releasenotes` to see if settings have changed, or new settings have been introduced.
-If you want to adjust a changed / new setting, copy the relevant section from ``appsettings.default.json`` to your own ``appsettings.json`` and then adjust it.
+If you want to adjust a changed / new setting, copy the relevant section from ``appsettings.default.json`` to your own ``appsettings[.instance].json`` and then adjust it.
 
 Commenting out sections
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,7 +99,7 @@ This will ignore the AutoUpdateConnectionString.
 Log of your configuration
 -------------------------
 
-Because the hierarchy of settings can be overwhelming, Vonk logs the resulting configuration. 
+Because the hierarchy of settings can be overwhelming, Vonk logs the resulting configuration.
 To enable that, the loglevel for ``Vonk.Server`` must be ``Information`` or more detailed. That is set for you by default in ``logsettings.default.json``.
 Refer to :ref:`configure_log` for information on setting log levels.
 
@@ -122,7 +129,7 @@ Administration
         }
     },
 
-The ``Administration`` section is to :ref:`configure_administration` and its repository. 
+The ``Administration`` section is to :ref:`configure_administration` and its repository.
 
 .. _configure_license:
 
@@ -139,7 +146,7 @@ License
 
 The :ref:`vonk_getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\\\) as path separators.
 
-Other settings: 
+Other settings:
 
 * ``RequestInfoFile`` sets the location of the file with request information. This file will be used in future releases.
 * ``WriteRequestInfoFileInterval`` sets the time interval (in minutes) to write aggregate information about processed requests to the RequestInfoFile.
@@ -260,7 +267,8 @@ Search and History
 
     "BundleOptions": {
         "DefaultCount": 10,
-        "MaxCount": 50
+        "MaxCount": 50,
+        "DefaultSort": "-_lastUpdated"
     },
 
 
@@ -269,6 +277,7 @@ The Search and History interactions return a bundle with results. Users can spec
 * ``DefaultCount`` sets the number of results if the user has not specified a ``_count`` parameter.
 * ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Vonk from being overloaded.
 * ``DefaultCount`` should be less than or equal to ``MaxCount``
+* ``DefaultSort`` is what search results are sorted on if no sort order is specified in the request. If a sort order is specified, this is still added as the last sort clause.
 
 .. _batch_options:
 
@@ -286,7 +295,7 @@ This will limit the number of entries that are accepted in a single Batch or Tra
 
   This setting has been moved to the ``SizeLimits`` setting as of Vonk version 0.7.1, and the logs will show a warning that it
   is deprecated when you still have it in your appsettings file.
- 
+
 .. _sizelimits_options:
 
 Protect against large input
@@ -300,7 +309,7 @@ Protect against large input
     },
 
 * ``MaxResourceSize`` sets the maximum size of a resource that is sent in a create or update.
-* ``MaxBatchSize`` sets the maximum size of a batch or transaction bundle. 
+* ``MaxBatchSize`` sets the maximum size of a batch or transaction bundle.
   (Note that a POST http(s)://<vonk-endpoint>/Bundle will be limited by MaxResourceSize, since the bundle must be processed as a whole then.)
 * ``MaxBatchEntries`` limits the number of entries that is allowed in a batch or transaction bundle.
 * The values for ``MaxResourceSize`` and ``MaxBatchSize`` can be expressed in b (bytes, the default), kB (kilobytes), KiB (kibibytes), MB (megabytes), or MiB (mebibytes).
@@ -327,6 +336,31 @@ SearchParameters and other Conformance Resources
 
 See :ref:`conformance` and :ref:`feature_customsp`.
 
+.. _configure_cache:
+
+Cache of Conformance Resources
+------------------------------
+::
+
+   "Cache": {
+      "MaxConformanceResources": 5000
+   }
+
+Vonk caches StructureDefinitions and other conformance resources that are needed for (de)serialization and validation in memory. If more than ``MaxConformanceResources`` get cached, the ones that have not been used for the longest time are discarded. If you frequently encounter a delay when requesting less used resource types, a larger value may help. If you are very restricted on memory, you can lower the value.
+
+.. _configure_reindex:
+
+Reindexing for changes in SearchParameters
+------------------------------------------
+::
+
+    "ReindexOptions": {
+        "BatchSize": 100,
+        "MaxDegreeOfParallelism": 10
+    },
+
+See :ref:`feature_customsp_reindex_configure`.
+
 .. _supportedmodel:
 
 Restrict supported resources and SearchParameters
@@ -340,19 +374,20 @@ Restrict supported resources and SearchParameters
    },
 
 By default, Vonk supports all ResourceTypes, SearchParameters and CompartmentDefinitions from the specification. They are loaded from the :ref:`specification.zip <conformance_specification_zip>`.
-If you want to limit support, you can do so with the configuration above. This is primarily targeted towards Facade builders, because they have to provide an implementation for everything that is supported. 
+If you want to limit support, you can do so with the configuration above. This is primarily targeted towards Facade builders, because they have to provide an implementation for everything that is supported.
 
 Be aware that:
 
 * support for _type and _id cannot be disabled
 * the Administration API requires support for the 'url' SearchParameter on the conformance resourcetypes
+* this uses the search parameter names, not the path within the resource - so for example to specify `Patient.address.postalCode <http://hl7.org/fhir/R4/patient.html#search>`_ as a supported location, you'd use ``"Patient.address-postalcode"``.
 
 .. _disable_interactions:
 
 Enable or disable interactions
 ------------------------------
 
-By default, the value ``SupportedInteractions`` contains all the interactions that are implemented in Vonk. 
+By default, the value ``SupportedInteractions`` contains all the interactions that are implemented in Vonk.
 But you can disable interactions by removing them from these lists.
 ::
 
@@ -395,7 +430,7 @@ By default, Vonk serves both versions from the root of your web service, default
       //  "/R4": "Fhir4.0"
       //}
       //"Mode": "Subdomain", // r3.yourserver.org => FHIR STU3; r4.yourserver.org => FHIR R4
-      //"Map": 
+      //"Map":
       //  {
       //    "r3": "Fhir3.0",
       //    "r4": "Fhir4.0"
@@ -419,6 +454,16 @@ FHIR Capabilities
   },
 
 See :ref:`restful_crud`.
+
+History size
+------------
+::
+
+  "HistoryOptions": {
+    "MaxReturnedResults": 100
+  }
+
+See :ref:`restful_history`.
 
 .. _settings_pipeline:
 

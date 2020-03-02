@@ -82,7 +82,7 @@ the order of inclusion, and adds to the services. For background information, se
   The standard settings for the pipeline configuration can be found in the appsettings.default.json file, or see
   :ref:`vonk_plugins_config` for an example.
 
-  * Copy the PipelineOptions section to your appsettings.instance.json file
+  * Copy the whole PipelineOptions section to your appsettings.instance.json file (both ``/`` and ``/administration``)
   * To the ``Include`` part of the branch with ``"Path":"/"`` add your namespace, and remove the Vonk.Repository.* lines from it:
 
     ::

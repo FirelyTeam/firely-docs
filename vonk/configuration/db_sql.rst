@@ -14,7 +14,9 @@ In both cases:
 *   Prepare an instance of SQL Server 2012 or newer. Any edition - including SQL Server Express - will do.
     The instance will have a servername and possibly an instancename: ``server/instance``.
 
-*	In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
+*   Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
+
+*	Find the ``Repository`` setting::
 
 	"Repository": "SQLite",
 
@@ -52,7 +54,7 @@ In both cases:
         "Administration": {
             "Repository": "SQL",
             "SqlDbOptions": {
-                "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=VonkStu3;Data Source=Server\Instance;MultipleActiveResultSets=true",
+                "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=VonkAdmin;Data Source=Server\Instance;MultipleActiveResultSets=true",
                 "SchemaName": "vonk",
                 "AutoUpdateDatabase": true
             }
@@ -84,7 +86,7 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
     ::
 
         "SqlDbOptions": {
-            "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=VonkStu3;Data Source=Server\Instance;MultipleActiveResultSets=true",
+            "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=VonkData;Data Source=Server\Instance;MultipleActiveResultSets=true",
             "SchemaName": "vonk",
             "AutoUpdateDatabase": true
         },
@@ -95,7 +97,7 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
         "Administration": {
             "Repository": "SQL",
             "SqlDbOptions": {
-                "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=VonkStu3;Data Source=Server\Instance;MultipleActiveResultSets=true",
+                "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=VonkAdmin;Data Source=Server\Instance;MultipleActiveResultSets=true",
                 "SchemaName": "vonk",
                 "AutoUpdateDatabase": true
             }
@@ -132,7 +134,7 @@ Create a database and users by script, and have Vonk create the schema
     ::
 
         "SqlDbOptions": {
-            "ConnectionString": "User Id=<dbUserName>;Password=<dbPassword>;Initial Catalog=<dbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
+            "ConnectionString": "User Id=<dbUserName>;Password=<dbPassword>;Initial Catalog=<DataDbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
             "SchemaName": "vonk",
             "AutoUpdateDatabase": "true"
         }
@@ -141,10 +143,10 @@ Create a database and users by script, and have Vonk create the schema
     ::
 
         "SqlDbOptions": {
-            "ConnectionString": "User Id=<dbUserName>;Password=<dbPassword>;Initial Catalog=<dbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
+            "ConnectionString": "User Id=<dbUserName>;Password=<dbPassword>;Initial Catalog=<DataDbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
             "SchemaName": "vonk",
             "AutoUpdateDatabase": "true"
-            "AutoUpdateConnectionString": "User Id=<updateUserName>;Password=<updatePassword>;Initial Catalog=<dbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
+            "AutoUpdateConnectionString": "User Id=<updateUserName>;Password=<updatePassword>;Initial Catalog=<DataDbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
         }
 
 *   Set the ``SqlDbOptions`` under ``Administration`` for the Administration database likewise:
@@ -153,7 +155,7 @@ Create a database and users by script, and have Vonk create the schema
         "Administration" : {
             "Repository": "SQL",
             "SqlDbOptions": {
-                "ConnectionString": "User Id=<AdminDbUserName>;Password=<AdminDbPassword>;Initial Catalog=<AdminbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
+                "ConnectionString": "User Id=<AdminDbUserName>;Password=<AdminDbPassword>;Initial Catalog=<AdminDbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
                 "SchemaName": "vonk",
                 "AutoUpdateDatabase": "true"
             }
@@ -165,7 +167,7 @@ Create a database and users by script, and have Vonk create the schema
         "Administration" : {
             "Repository": "SQL",
             "SqlDbOptions": {
-                "ConnectionString": "User Id=<AdminDUserName>;Password=<AdminDbPassword>;Initial Catalog=<AdminbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
+                "ConnectionString": "User Id=<AdminDUserName>;Password=<AdminDbPassword>;Initial Catalog=<AdminDbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
                 "SchemaName": "vonk",
                 "AutoUpdateDatabase": "true"
                 "AutoUpdateConnectionString": "User Id=<updateAdminUserName>;Password=<updateAdminPassword>;Initial Catalog=<AdminDbName>;Data Source=server\\instance;MultipleActiveResultSets=True",
@@ -183,7 +185,7 @@ This paragraph lists the permissions needed to perform specific actions on the S
 *   To run the AutoUpdateDatabase feature on an already created (but empty) database:
 
     *   **db_ddladmin** |br|
-        (both for the normal Vonk database and the Administration database)
+        (both for the normal Vonk Data database and the Administration database)
 
 *   To read/write resources:
 
