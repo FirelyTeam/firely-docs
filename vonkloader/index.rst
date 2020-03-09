@@ -4,12 +4,12 @@ Welcome to the VonkLoader documentation
 =========================================
 
 Installing
-~~~~~~~~~~
+----------
 VonkLoader is a free, multithreaded tool for Windows / macOS / Linux to upload resources in bulk to any FHIR server. To install, go to `simplifier.net/downloads <https://simplifier.net/downloads>`_ and log in.
 
 
 Running
-~~~~~~~
+-------
 
 Available parameters are: ::
 
@@ -37,3 +37,35 @@ Example: ::
 
     // load Synthea zip
     vonkloader -file:examples-json-stu3.zip -server:http://localhost:4080 -collectionHandling:Transaction -forcePutInTransaction
+
+Release notes
+-------------
+
+2.1.0
+^^^^^
+
+#. Report unknown arguments
+#. Recognize arguments case insensitively
+
+2.0.1
+^^^^^
+
+#. Ignore directory entries, just traverse into them (they were reported as invalid files)
+#. NullReference error could occur on transaction bundles
+
+2.0.0
+^^^^^
+
+#. Add -forcePutInTransaction
+#. Improve log messages
+#. Recognize Batch and Transaction bundles and send them as-is (opposite to Collection bundles that can be transformed to Transaction bundles first).
+
+1.1.0
+^^^^^
+
+#. Exit without user interaction (easier for automation scripts)
+
+1.0.1
+^^^^^
+
+#. First public version, on .NET Core 2.1
