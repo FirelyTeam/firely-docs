@@ -13,7 +13,7 @@ Disclaimer: No rights can be derived from this roadmap.
 Q2
 ^^
 
-* FHIR Mapping for CCDA to FHIR
+* FHIR Mapping improvements to support logical models like CDA
 * Better support for Sorting, starting with dates and times
 * Integration with external Terminology services
 * Patch
