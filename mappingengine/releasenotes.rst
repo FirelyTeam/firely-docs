@@ -6,13 +6,13 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
-0.3.3 - 2020-02-11:
+Release 0.3.3 - 2020-02-11
 -------------------
 
   - Built against Vonk 3.3.0
   - Added support for reading HL7 (C)-CDA XML files natievly. See :ref:`fhirmapper_cda`.
 
-0.3.0 - 2020-02-11:
+Release 0.3.0 - 2020-02-11
 -------------------
  
  - Built against Vonk 3.2.0
@@ -25,7 +25,7 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_.
  - Feature: Calls to evaluate() which return an empty result set result now in an error message to improve debugging
  - Feature: $convert now uses the name of the StructureMap as its id
 
-0.2.0 - 2019-11-18:
+Release 0.2.0 - 2019-11-18
 -------------------
 
   - Built against Vonk 3.0.0
@@ -33,7 +33,7 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_.
   - Upgrade to .NET API 1.4.0
   - Initial public release
 
-0.1.0 - 2019-11-18:
+Release 0.1.0 - 2019-11-18
 -------------------
   
   - Built against Vonk 2.1.0
