@@ -28,4 +28,5 @@ or support contract.
    featureslist/supportedfeatures
    specialconsiderations/considerations
    contact
+   releasenotes
 .. add files here
