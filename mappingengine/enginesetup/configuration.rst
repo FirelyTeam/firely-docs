@@ -101,7 +101,7 @@ If they're not listed, check that the dll files are available in your ``PluginDi
     /
         [...]
         BinaryEncodeConfiguration          [1112] | Services: V | Pipeline: V
-	     BinaryDecodeConfiguration     [1122] | Services: V | Pipeline: V
+	BinaryDecodeConfiguration     	   [1122] | Services: V | Pipeline: V
         MappingToStructureMapConfiguration [4550] | Services: V | Pipeline: V
         TransfromOperationConfiguration    [4560] | Services: V | Pipeline: V
 
