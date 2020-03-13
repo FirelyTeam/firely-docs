@@ -10,7 +10,7 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_.
 -------------------
 
   - Built against Vonk 3.3.0
-  - Added support for reading HL7 (C)-CDA XML files natievly. See ref:
+  - Added support for reading HL7 (C)-CDA XML files natievly. See :ref:`fhirmapper_cda`.
 
 0.3.0 - 2020-02-11:
 -------------------
