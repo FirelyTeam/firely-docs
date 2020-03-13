@@ -10,7 +10,7 @@ Release 0.3.3 - 2020-02-11
 -------------------
 
   - Built against Vonk 3.3.0
-  - Added support for reading HL7 (C)-CDA XML files natievly. See :ref:`fhirmapper_supportedformats`.
+  - Added support for reading HL7 (C)-CDA XML files natively. See :ref:`fhirmapper_supportedformats`.
 
 Release 0.3.0 - 2020-02-11
 -------------------
