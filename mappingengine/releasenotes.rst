@@ -6,7 +6,7 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
-Release 0.3.3 - 2020-02-11
+Release 0.3.3 - 2020-03-10
 -------------------
 
   - Built against Vonk 3.3.0
