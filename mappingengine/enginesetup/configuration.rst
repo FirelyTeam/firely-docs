@@ -12,17 +12,17 @@ Load the engine
 
    1.1. The location of this folder is customisable via the ``PluginDirectory`` property, so if you chose a different directory, ensure it exists instead.
 
-2. Place the all of the received DLL's into the plugins directory:
+2. Verify that all required DLLs can be found in the plugin directory:
 
-  - Hl7.Fhir.Language.dll
-  - Hl7.Fhir.Mapping.dll
-  - Hl7.Fhir.Mapping.STU3.Poco.dll
-  - Superpower.dll
-  - Vonk.Plugin.BinaryWrapper.dll
-  - Vonk.Plugin.MappingToStructureMap.dll
-  - Vonk.Plugin.TransformOperation.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Language.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.STU3.Poco.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.R4.Poco.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Superpower.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Vonk.Plugin.Mapping.dll
+  - <path to vonk>/plugins/vonk.plugin.binarywrapper/<version>/Vonk.Plugin.BinaryWrapper.dll
 
-3. Configure the :ref:`configure_appsettings` and add ``$convert`` to ``WholeSystemInteractions`` to declare support for the `convert <http://hl7.org/fhir/resource-operation-convert.html>`_ operation.
+3. Configure the :ref:`configure_appsettings` and check that ``$convert`` is added as a``WholeSystemInteractions`` to support the `convert <http://hl7.org/fhir/resource-operation-convert.html>`_ operation.
 
 4. Similarly, add ``$transform`` to ``InstanceLevelInteractions`` to declare support for the `transform <http://hl7.org/fhir/structuremap-operation-transform.html>`_ operation. Sample configuration: ::
 
@@ -32,10 +32,10 @@ Load the engine
       "WholeSystemInteractions": "capabilities, batch, transaction, history, search, compartment_system_search, $validate, $convert"
     },
 
-5. Update the ``/`` path of ``PipelineOptions`` to load the mapping engine plugin by including the following namespaces: ::
+5. Review the ``/`` path of ``PipelineOptions`` and make sure that the mapping engine plugin are included using the following namespaces: ::
 
-    "Vonk.Plugin.BinaryWrapper", "Vonk.Plugin.MappingToStructureMap", 
-    "Vonk.Plugin.TransformOperation"
+    "Vonk.Plugin.BinaryWrapper", 
+    "Vonk.Plugin.Mapping"
 
 Sample configuration: ::
 
@@ -56,8 +56,7 @@ Sample configuration: ::
             "Vonk.Smart",
             "Vonk.UI.Demo",
             "Vonk.Plugin.BinaryWrapper",
-            "Vonk.Plugin.MappingToStructureMap",
-            "Vonk.Plugin.TransformOperation"
+            "Vonk.Plugin.Mapping"
           ]
         },
 
@@ -86,13 +85,13 @@ If the verification didn't work for some reason, check the Vonk logs for the fol
 
 1. In the ``Looking for Configuration in these assemblies`` section, ensure the dll's are loaded: ::
 
-    <path to vonk>/plugins/Hl7.Fhir.Language.dll
-    <path to vonk>/plugins/Superpower.dll
-    <path to vonk>/plugins/Vonk.Plugin.TransformOperation.dll
-    <path to vonk>/plugins/Vonk.Plugin.BinaryWrapper.dll
-    <path to vonk>/plugins/Vonk.Plugin.MappingToStructureMap.dll
-    <path to vonk>/plugins/Hl7.Fhir.Mapping.STU3.Poco.dll
-    <path to vonk>/plugins/Hl7.Fhir.Mapping.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Language.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.STU3.Poco.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.R4.Poco.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Superpower.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Vonk.Plugin.Mapping.dll
+  - <path to vonk>/plugins/vonk.plugin.binarywrapper/<version>/Vonk.Plugin.BinaryWrapper.dll
 
 If they're not listed, check that the dll files are available in your ``PluginDirectory`` directory (``./plugins`` by default). 
     
@@ -101,7 +100,9 @@ If they're not listed, check that the dll files are available in your ``PluginDi
     Configuration:
     /
         [...]
-        MappingToStructureMapConfiguration [4550] | Services: V | Pipeline: V
-        TransfromOperationConfiguration    [4560] | Services: V | Pipeline: V
+        BinaryEncodeConfiguration          	[1112] | Services: V | Pipeline: V
+	BinaryDecodeConfiguration 		[1122] | Services: V | Pipeline: V
+        MappingToStructureMapConfiguration 	[4550] | Services: V | Pipeline: V
+        TransfromOperationConfiguration    	[4560] | Services: V | Pipeline: V
 
 If they're not listed, double-check your that your ``PipelineOptions`` are loading the engine plugins.
