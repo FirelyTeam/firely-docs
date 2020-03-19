@@ -17,6 +17,22 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_340:
+
+Release 3.4.0
+-------------
+
+Feature
+^^^^^^^
+
+#. Upgraded to FHIR .NET API 1.6.0, that features a couple of changes for working with CDA logical models. See the `release notes of the API <https://github.com/FirelyTeam/fhir-net-api/releases>`_.
+#. Included the FHIR Mapper in the distribution. It is only enabled however when you include the mapping plugin in your license. See :ref:`mappingengine_index` for more information about the FHIR Mapper.
+
+Fix
+^^^
+
+#. When prevalidation is set to the level 'Core', Vonk no longer complains about extensions that are not known if they are not core extensions (i.e. having a url starting with 'http://hl7.org/fhir/StructureDefinition/').
+
 .. _vonk_releasenotes_330:
 
 Release 3.3.0
