@@ -26,7 +26,7 @@ Feature
 ^^^^^^^
 
 #. Upgraded to FHIR .NET API 1.6.0, that features a couple of changes for working with CDA logical models. See the `release notes of the API <https://github.com/FirelyTeam/fhir-net-api/releases>`_.
-#. Included the FHIR Mapper in the distribution. It is only enabled however when you include the mapping plugin in your license.
+#. Included the FHIR Mapper in the distribution. It is only enabled however when you include the mapping plugin in your license. See :ref:`mappingengine_index` for more information about the FHIR Mapper.
 
 Fix
 ^^^
