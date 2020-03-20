@@ -62,7 +62,7 @@ The project file will look like this:
 
       <ItemGroup>
          <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-         <PackageReference Include="Vonk.Core" Version="0.7.0-alpha843" />
+         <PackageReference Include="Vonk.Core" Version="3.4.0" />
       </ItemGroup>
 
       <ItemGroup>
@@ -133,7 +133,7 @@ Deploy and Configure
 
 Build this project in Release mode and copy the produced dll (located in <src>\\bin\\Release\\netcoreapp2.0) to the plugin directory of Vonk, as configured in the :ref:`PipelineOptions:PluginDirectory<vonk_plugins_config>`.
 
-Go to the :ref:`configure_appsettings` of Vonk, and replace the namespace of the landingpage (``Vonk.DemoUI``) in the include of the PipelineOptions:
+Go to the :ref:`configure_appsettings` of Vonk, and replace the namespace of the landingpage (``Vonk.UI.Demo``) in the include of the PipelineOptions:
 
 .. code-block:: JavaScript
 
@@ -146,27 +146,43 @@ Go to the :ref:`configure_appsettings` of Vonk, and replace the namespace of the
                "Vonk.Core",
                "Vonk.Fhir.R3",
                "Vonk.Fhir.R4",
-               "Vonk.Repository.Sql",
-               "Vonk.Repository.MongoDb",
-               "Vonk.Repository.Memory",
-               "Vonk.Subscription",
+               //"Vonk.Fhir.R5"
+               "Vonk.Repository.SqlVonkConfiguration",
+               "Vonk.Repository.SqliteVonkConfiguration",
+               "Vonk.Repository.MongoDbVonkConfiguration",
+               "Vonk.Repository.MemoryVonkConfiguration",
+               "Vonk.Subscriptions",
+               "Vonk.Smart",
                "WebApplication2" //This is the adjustment you make.
+               "Vonk.Plugin.DocumentOperation.DocumentOperationConfiguration",
+               "Vonk.Plugin.ConvertOperation.ConvertOperationConfiguration",
+               "Vonk.Plugin.BinaryWrapper",
+               "Vonk.Plugin.MappingToStructureMap.MappingToStructureMapConfiguration",
+               "Vonk.Plugin.TransformOperation.TransformOperationConfiguration",    
+               "Vonk.Plugin.Audit"
             ],
             "Exclude": [
+               "Vonk.Subscriptions.Administration"
             ]
          },
          {
             "Path": "/administration",
             "Include": [
-               "Vonk.Core.Context",
-               "Vonk.Core.Infra",
-               "Vonk.Repository.Sql",
-               "Vonk.Repository.MongoDb",
-               "Vonk.Repository.Memory",
-               "Vonk.Core.Operations.Terminology",
+               "Vonk.Fhir.R3",
+               "Vonk.Fhir.R4",
+               //"Vonk.Fhir.R5"
+               "Vonk.Repository.SqlAdministrationVonkConfiguration",
+               "Vonk.Repository.SqliteAdministrationVonkConfiguration",
+               "Vonk.Repository.MongoDbAdministrationVonkConfiguration",
+               "Vonk.Repository.MemoryAdministrationVonkConfiguration",
+               "Vonk.Subscriptions.Administration",
+               "Vonk.Plugins.Terminology",
+               "Vonk.Plugin.Audit",
                "Vonk.Administration"
             ],
             "Exclude": [
+               "Vonk.Core.Operations",
+               "Vonk.Core.Licensing.LicenseRequestJobConfiguration"
             ]
          }
       ]

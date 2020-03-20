@@ -168,3 +168,14 @@ and the administration call
 
 
 As you can see, on a mapped endpoint it is never necessary to use a FHIR ``_format`` parameter or a ``fhirVersion`` MIME parameter in a ``Content-Type`` or ``Accept`` header.
+
+.. _feature_multi_version_r5:
+
+Support for R5 (experimental!)
+------------------------------
+
+By default the binaries for supporting R5 are included in the Vonk distribution (since Vonk 3.3.0). But also by default these binaries are not loaded. See the PipelineOptions in appsettings.default, where ``Vonk.Fhir.R5`` is commented out. 
+
+Re-enable these in your appsettings.instance and you are good to go.
+
+Note that there is not yet an ``errata_Fhir5.0.zip`` and Vonk will complain about that in the log. You can ignore that message.

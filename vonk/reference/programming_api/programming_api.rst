@@ -15,6 +15,7 @@ If you want to develop a plugin for Vonk FHIR Server, there are a couple of clas
    interactionhandling
    pipelineconfig
    repository
+   bundles
    accesscontrol_api
 .. add files here
 

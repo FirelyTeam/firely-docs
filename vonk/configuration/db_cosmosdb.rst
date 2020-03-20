@@ -12,18 +12,20 @@ You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are 
 
    You cannot use CosmosDb for the Vonk Administration database. Use :ref:`SQLite <configure_sqlite_admin>` instead.
 
-1. Create a CosmosDB account on Azure, see the `Quickstart Tutorial <https://docs.microsoft.com/en-us/azure/cosmos-db/>`_
-2. Make sure you choose the MongoDB API
-3. In the Azure Portal, open your CosmosDB account and go to the 'Connection Strings' blade. Copy the 'Primary Connection String' to your clipboard.
+#. Create a CosmosDB account on Azure, see the `Quickstart Tutorial <https://docs.microsoft.com/en-us/azure/cosmos-db/>`_
+#. Make sure you choose the MongoDB API
+#. In the Azure Portal, open your CosmosDB account and go to the 'Connection Strings' blade. Copy the 'Primary Connection String' to your clipboard.
 
-4. Now on your own machine, navigate to your Vonk working directory
-5. In a text editor open :code:`appsettings.json` to find the ``Repository`` setting::
+#. Now on your own machine, navigate to your Vonk working directory
+#. Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
+
+#. Find the ``Repository`` setting::
 
 	"Repository": "Sqlite",
 
-6. Change the setting to ``CosmosDb``
+#. Change the setting to ``CosmosDb``
 
-7. If you have your own database in CosmosDB already, change the ``CosmosDbOptions`` to reflect your settings::
+#. If you have your own database in CosmosDB already, change the ``CosmosDbOptions`` to reflect your settings::
 
         "CosmosDbOptions": {
             "ConnectionString": "<see below>",
@@ -39,9 +41,9 @@ You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are 
 
       mongodb://<accountname>:<somerandomstring>==@<accountname>.documents.azure.com:10255/vonk?ssl=true&replicaSet=globaldb
 
-8. If your CosmosDB account does not have a database or collection by this name, Vonk will create it for you.
+#. If your CosmosDB account does not have a database or collection by this name, Vonk will create it for you.
 
-9. You can set SimulateTransactions to "true" if you want to experiment with `FHIR transactions <https://www.hl7.org/fhir/http.html#transaction>`_.
+#. You can set SimulateTransactions to "true" if you want to experiment with `FHIR transactions <https://www.hl7.org/fhir/http.html#transaction>`_.
    Vonk does not utilize the CosmosDB way of supporting real transactions across documents, so in case of an error already processed entries will NOT be rolled back. 
 
 .. _configure_cosmosdb_limitations:

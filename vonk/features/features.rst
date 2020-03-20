@@ -19,6 +19,7 @@ Vonk FHIR Server offers many features as defined in the FHIR Specification and b
    conformanceresources
    errata
    subscription
+   auditing
    resetdb
    preload
    multiversion

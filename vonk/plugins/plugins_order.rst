@@ -3,14 +3,22 @@
 The order of plugins
 ====================
 
-The :ref:`VonkConfiguration attribute <vonk_reference_api_pipeline_configuration>` lets you define an ``Order``. This page explains how to choose a suitable number for that order.
+Vonk FHIR Server is organized as a pipeline of components - called Middleware. Every request travels through all the components until one of the components provides the response to the request. After that, the response travels back through all the components, in reverse order. Components that come *after* the responding component in the pipeline are not visited at all.
+
+So let's say you issue a FHIR read interaction, ``GET <base-url>/Patient/example``. The component implementing this interaction sits in the pipeline after search but before create. So the request will visit the search middleware (that will ignore it and just pass it on) but will never visit the create middleware.
+
+So many components implement an interaction and provide a response to that interaction. In Vonk those are called Handlers. Some components may not provide responses directly, but read or alter the request on the way in. Such a component is called a PreHandler. Reversely, a component may read or alter the response on the way back. Such a component is called a PostHandler.
+
+A plugin can configure its own component in this pipeline but as you may understand by now it makes a difference *where* in the pipeline you put that component. Especially if it is a Pre- or PostHandler. To control the position in the pipeline, Vonk uses the concept of 'Order'.
+
+The :ref:`VonkConfiguration attribute <vonk_reference_api_pipeline_configuration>` lets you define an ``Order`` for your component. This page explains how to choose a suitable number for that order.
 
 .. _vonk_plugins_order_inspect:
 
 Inspect order numbers in use
 ----------------------------
 
-If you start Vonk, the log lists all the loaded plugins, with their order. You can see an example :ref:`here <vonk_plugins_log_pipeline>`. Also the list of :ref:`vonk_available_plugins` includes the order number chosen for each of those plugins.
+When you start Vonk, the log lists all the loaded plugins, with their order. You can see an example :ref:`here <vonk_plugins_log_pipeline>`. Also the list of :ref:`vonk_available_plugins` includes the order number chosen for each of those plugins.
 
 .. _vonk_plugins_order_minimum:
 
@@ -20,24 +28,27 @@ Minimum order
 Registering services
 ^^^^^^^^^^^^^^^^^^^^
 
-If you only need to register services for the dependency injection framework, the order is only relevant if you need to override a registration done by Vonk. There are two ways:
+The order is mainly relevant for middleware that you register in the pipeline, in the ``Configure(IApplicationBuilder app)`` method. Some plugins, like e.g. a Facade implementation, only need to register services for the dependency injection framework, in the ``ConfigureServices(IServiceCollection services)`` method.
+If that is the case, the order is only relevant if you need to *override* a registration done by Vonk. There are two ways:
 
 1. Choose an order before Vonk's default registration. Vonk in general uses ``TryAddSingleton`` or ``TryAddScoped`` to register an implementation of an interface. This means that if an implementation is already registered, the TryAdd... will not register a second implementation.
 
-   As an example: If you want to override the registration of ``IReadAuthorizer``: that is registered from the :ref:`RepositorySearchSupport <vonk_plugins_search>` plugin, with order 140. So you would choose an order lower than 140.
+   As an example: if you want to override the registration of ``IReadAuthorizer``: that is registered from the :ref:`RepositorySearchSupport <vonk_plugins_search>` plugin, with order 140. So you would choose an order lower than 140.
 
 2. Choose a high order (e.g. > 10000) and make sure your registration overwrites any existing registration.
 
    ``services.AddOrReplace<IReadAuthorizer, MyReadAuthorizer>(ServiceLifetime.Scoped);``
 
-If you only need to register interfaces and/or classes defined by your plugin, the order is not relevant. All service registrations are done before the pipeline itself is configured.
+The latter method is the least error prone and therefore recommended. 
+
+If you only need to register interfaces and/or classes defined by your plugin, the order is not relevant, so pick any number. All service registrations are done before the pipeline itself is configured.
 
 Registering middleware
 ^^^^^^^^^^^^^^^^^^^^^^
 
 For middleware it is more important where exactly it ends up in the pipeline. This depends mostly on what type of handler it is, see below at :ref:`vonk_plugins_order_prepost`. 
 
-No matter what handler you have, it probably wants to act on the IVonkContext. Then it is important to be in the pipeline *after* the :ref:`HttpToVonk <vonk_plugins_httptovonk>` plugin (order: 1110), since this plugin translates information from the ``HttpContext`` to an ``IVonkContext`` and adds the latter as a feature to the ``HttpContext.Features`` collection. 
+No matter what handler you have, it probably wants to act on the :ref:`IVonkContext <vonkcontext>`. Then it is important to be in the pipeline *after* the :ref:`HttpToVonk <vonk_plugins_httptovonk>` plugin (order: 1110), since this plugin translates information from the ``HttpContext`` to an ``IVonkContext`` and adds the latter as a feature to the ``HttpContext.Features`` collection. 
 
 Also, you probably want to set your response on the ``IVonkContext.Response`` and not directly on the ``HttpContext.Response``. Then, you will need the :ref:`VonkToHttp <vonk_plugins_vonktohttp>` plugin (order: 1120) to translate the ``IVonkContext`` back to the ``HttpContext``. 
 
@@ -63,7 +74,7 @@ In Vonk you can define different types of middleware:
 * Prehandler - acts on requests of certain type(s), may modify the request and sends the request further down the pipeline.
 * Posthandler - lets the request pass by to be handled further down the pipeline. When the response passes on the way back, it acts on requests or responses of certain type(s), and may modify the response.
 
-This is explained in the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ from `DevDays 2018 <https://www.devdays.com/events/devdays-europe-2018/>`_ at 17:05.
+This is explained in the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ from `DevDays 2018 <https://www.devdays.com/events/devdays-europe-2018/>`_.
 
 What type of middleware you want your service to be is defined by your use of one of the ``*Handle...`` methods from the :ref:`vonk_vonkappbuilder` or the :ref:`vonk_appbuilder_extensions`. 
 
