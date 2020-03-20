@@ -10,7 +10,7 @@ Welcome to the Vonk server documentation
 
    Overview <overview>
    Getting started <getting_started>
-   Releasenotes <releasenotes/releasenotes>
+   Release notes <releasenotes/releasenotes>
    How to upgrade <releasenotes/upgrade>
    Roadmap <releasenotes/roadmap>
    FAQ <faq>
