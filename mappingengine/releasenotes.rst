@@ -10,7 +10,18 @@ Release 0.3.3 - 2020-03-10
 -------------------
 
   - Built against Vonk 3.3.0
+  - Upgraded .NET API to version 1.6
   - Added support for reading HL7 (C)-CDA XML files natively. See :ref:`fhirmapper_supportedformats`.
+  
+Release 0.3.2 - 2020-03-03
+-------------------
+ 
+  - Internal release.
+
+Release 0.3.1 - 2020-02-11
+-------------------
+ 
+  - Internal release.
 
 Release 0.3.0 - 2020-02-11
 -------------------
