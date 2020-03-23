@@ -6,7 +6,7 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
-Release 0.3.4 - 2020-03-10
+Release 0.3.4 - 2020-03-23
 -------------------
 
   - Feature: "Cannot resolve symbol" error messages now include a 'GroupId' for improved debugging
