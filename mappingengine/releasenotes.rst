@@ -6,6 +6,14 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
+Release 0.3.4 - 2020-03-10
+-------------------
+
+  - Feature: "Cannot resolve symbol" error messages now include a 'GroupId' for improved debugging
+  - Feature: CCDA transformations are now supported for FHIR version STU3 in addition to R4
+  - Fix: "@primitivvalue@" is no longer printed when logging static text within a mapping statement
+  - Fix: "status" metadata information were not copied to the StructureMap by $convert if the mapping file included a comment between the first group and the metadata information
+
 Release 0.3.3 - 2020-03-10
 -------------------
 
