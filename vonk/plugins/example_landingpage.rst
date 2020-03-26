@@ -14,15 +14,15 @@ Create a new ASP.NET Core web application
 
 In Visual Studio create a new project of type ASP .NET Core Web Application:
 
-.. image:: ../images/comp_landingpage_31newproject.png
+.. image:: ../images/comp_landingpage_31createproject.png
 
 Press OK to continue.
 
-.. image:: ../images/comp_landingpage_31nameproject.png
+.. image:: ../images/comp_landingpage_31namingproject.png
 
 Choose a name for your project and solution. Click Create to continue. 
 
-.. image:: ../images/comp_landingpage_31apptype.png
+.. image:: ../images/comp_landingpage_31type.png
 
 Choose ASP.NET Core 3.1 and select Web Application (Model-View-Controller). Press OK.
 
@@ -123,7 +123,7 @@ Then add the static methods as prescribed:
 
 The source file will then look like this:
 
-.. image:: ../images/comp_landinpage_31configclass.png
+.. image:: ../images/comp_landinpage_31configurationclass.png
 
 Deploy and Configure
 --------------------
