@@ -14,13 +14,17 @@ Create a new ASP.NET Core web application
 
 In Visual Studio create a new project of type ASP .NET Core Web Application:
 
-.. image:: ../images/comp_landingpage_newproject.png
+.. image:: ../images/comp_landingpage_31newproject.png
 
-Choose a name for your project and solution. Press OK to continue.
+Press OK to continue.
 
-.. image:: ../images/comp_landingpage_apptype.png
+.. image:: ../images/comp_landingpage_31nameproject.png
 
-Choose ASP.NET Core 2.0 and select Web Application (Model-View-Controller). Press OK.
+Choose a name for your project and solution. Click Create to continue. 
+
+.. image:: ../images/comp_landingpage_31apptype.png
+
+Choose ASP.NET Core 3.1 and select Web Application (Model-View-Controller). Press OK.
 
 Add Vonk Package
 ----------------
@@ -44,12 +48,6 @@ To edit the project file, right click on the project file and select Edit <proje
       <EmbeddedResource Include="Views\**" />
    </ItemGroup>
 
-And set Microsoft.AspNetCore.All to 2.0.0:
-
-.. code-block:: xml
-   
-   <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-
 The project file will look like this:
 
 .. code-block:: xml
@@ -57,11 +55,10 @@ The project file will look like this:
    <Project Sdk="Microsoft.NET.Sdk.Web">
 
       <PropertyGroup>
-         <TargetFramework>netcoreapp2.0</TargetFramework>
+         <TargetFramework>netcoreapp3.1</TargetFramework>
       </PropertyGroup>
 
       <ItemGroup>
-         <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
          <PackageReference Include="Vonk.Core" Version="3.4.0" />
       </ItemGroup>
 
@@ -82,7 +79,7 @@ Save the project file.
 Create the configuration class
 ------------------------------
 
-Next, add a new file for the configuration class, as described in :ref:`vonk_plugins_configclass`. Annotate it with ``[VonkConfiguration(order: 802)]``. 
+Next, add a new file for the configuration class, as described in :ref:`vonk_plugins_configclass`. Annotate it with ``[VonkConfiguration(order: 802)]``. In the example below the class is named UIConfiguration.
 Then add the static methods as prescribed: 
 
 .. code-block:: csharp
@@ -91,7 +88,7 @@ Then add the static methods as prescribed:
    {
       var thisAssembly = typeof(UIConfiguration).GetTypeInfo().Assembly;
       services
-         .AddMvc()
+         .AddMvc(option => option.EnableEndpointRouting = false)
          .AddApplicationPart(thisAssembly)
          .AddControllersAsServices();
 
@@ -100,7 +97,7 @@ Then add the static methods as prescribed:
          thisAssembly.GetName().Name
       );
 
-      services.Configure<RazorViewEngineOptions>(options =>
+      services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
       {
          options.FileProviders.Add(embeddedFileProvider);
       });
@@ -126,12 +123,12 @@ Then add the static methods as prescribed:
 
 The source file will then look like this:
 
-.. image:: ../images/comp_landingpage_configclass.png
+.. image:: ../images/comp_landinpage_31configclass.png
 
 Deploy and Configure
 --------------------
 
-Build this project in Release mode and copy the produced dll (located in <src>\\bin\\Release\\netcoreapp2.0) to the plugin directory of Vonk, as configured in the :ref:`PipelineOptions:PluginDirectory<vonk_plugins_config>`.
+Build this project in Release mode and copy the produced dll (located in <src>\\bin\\Release\\netcoreapp3.1) to the plugin directory of Vonk, as configured in the :ref:`PipelineOptions:PluginDirectory<vonk_plugins_config>`.
 
 Go to the :ref:`configure_appsettings` of Vonk, and replace the namespace of the landingpage (``Vonk.UI.Demo``) in the include of the PipelineOptions:
 
