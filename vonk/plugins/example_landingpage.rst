@@ -123,7 +123,7 @@ Then add the static methods as prescribed:
 
 The source file will then look like this:
 
-.. image:: ../images/comp_landinpage_31configurationclass.png
+.. image:: ../images/com_landinpage_31configurationclass.png
 
 Deploy and Configure
 --------------------
