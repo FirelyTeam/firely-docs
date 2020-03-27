@@ -3,9 +3,9 @@
 HIPAA compliance
 ================
 
-Vonk is stable, secure HL7 FHIR® server that enables you to comply with the Technical Safeguards of the HIPAA Security Rule.
+Vonk is well-tested, secure HL7 FHIR® server that enables you to comply with the Technical Safeguards of the HIPAA Security Rule.
 
-On this page we will detail how you can achieve compliance for your Vonk deployment. To ensure your organisation's specific usecase, environment, and deployment are compliant, feel free to :ref:`contact us <vonk-contact>`, we'd be happy to help.
+On this page we will detail how you can achieve compliance for your Vonk deployment. To ensure your organisation's specific usecase, environment, and deployment are compliant, feel free to :ref:`contact us <vonk-contact>`: we'd be happy to help.
 
 .. _hipaa_164.312.a.1:
 
@@ -42,7 +42,7 @@ The same solutions apply to this point as :ref:`hipaa_164.312.a.1` and :ref:`hip
 
    Implement procedures to verify that a person or entity seeking access to electronic protected health information is the one claimed.
 
-The same solutions apply to this point as :ref:`hipaa_164.312.a.1`, see above.
+The same solutions apply to this point as :ref:`hipaa_164.312.a.1`.
 
 .. _hipaa_164.312.a.2.i:
 
@@ -51,22 +51,59 @@ The same solutions apply to this point as :ref:`hipaa_164.312.a.1`, see above.
 
    Assign a unique name and/or number for identifying and tracking user identity.
 
-The same solution applies to this point as :ref:`hipaa_164.312.b`, see below.
+The same solution applies to this point as :ref:`hipaa_164.312.b`.
 
 .. _hipaa_164.312.b:
 
-164.312(b) Standard: Audit controls
+164.312(b) Standard: Audit control
 -----------------------------------
 
    Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.
 
-With the use of the `Audit Event log <https://fire.ly/products/vonk/plugins/>`_ plugin, Vonk will thoroughly log every interaction as an `AuditEvent <https://www.hl7.org/fhir/auditevent.html>`_ resource, a FHIR resource specially made for this purpose. Logged information will be a trace record of all system activity: viewing, modification, deletion and creation of all Eletronic Protected Health Information (ePHI).
+With the use of the `Audit Event log <https://fire.ly/products/vonk/plugins/>`_ plugin, Vonk will thoroughly log every interaction as a note in a log file. Logged information will be a trace record of all system activity: viewing, modification, deletion and creation of all Eletronic Protected Health Information (ePHI).
 
-The audit trail will also track user ID, event type, date, and time. 
+The audit trail can track the source IP, event type, date/time, and more. If a JWT token is provided (for Smart on FHIR), the user/patient identity can be logged as well.
 
+.. _hipaa_164.312.e.1-2:
 
+164.312(e)(1, 2) Standard: Transmission security
+------------------------------------------------
 
+    Implement technical security measures to guard against unauthorized access to electronic protected health information that is being transmitted over an electronic communications network.
 
+    Implement a mechanism to encrypt electronic protected health information whenever deemed appropriate.
 
+Transmission security in Vonk can be achieved by encrypting the communications with TLS/SSL. Standard industry practice is to use a reverse proxy (e.g. nginx or IIS) for this purpose. If you'd like, you can also enable secure connections in Vonk :ref:`directly <configure_hosting>` without a proxy as well.
 
+Vonk is regularly updated with the latest versions of ASP.NET to ensure that the latest cryptographic algorithms are available for use.
 
+.. _hipaa_164.312.e.2.ii:
+
+164.312(e)(2)(ii) Encryption
+----------------------------
+
+    Implement a mechanism to encrypt electronic protected health information whenever deemed appropriate.
+
+The recommended way to ensure that e-PHI is encrypted as necessary is to use disk encryption, and there are several solutions for this depending on your deployment environment. If you're deploying in the cloud - see your vendors options for disk encryption, as most have options for encrypted disks already. If you're deploying locally, look into BitLocker on Windows or dm-crypt/LUKS for Linux.
+
+.. _hipaa_164.312.a.2.ii:
+
+164.312(a)(2)(ii) Emergency access procedure
+--------------------------------------------
+
+    Establish (and implement as needed) procedures for obtaining necessary electronic protected health information during an emergency.
+
+This depends on the solution you went with for :ref:`hipaa_164.312.a.1`.
+
+In case you went with SMART on FHIR, add an authorization workflow that grants emergency access rights - essentially, a "super" access token. The application can then use this token with Vonk, just like any other token. 
+
+If you went with a custom authentication scheme, add a special measure to handle this scenario.
+
+.. _hipaa_164.312.c.2
+
+164.312(a)(c) Implementation specification: Mechanism to authenticate electronic protected health information
+-------------------------------------------------------------------------------------------------------------
+
+    Implement electronic mechanisms to corroborate that electronic protected health information has not been altered or destroyed in an unauthorized manner.
+
+Database-level safety mechanisms ensure that information is not altered or destroyed unless it's desired.
