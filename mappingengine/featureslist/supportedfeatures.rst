@@ -48,9 +48,14 @@ The FHIR Mapping language defines a series of transformation functions that can 
  
     src.guardian as guardian -> patient.contact = create('BackboneElement') as contact collate then {...}
 
-2. ``dateOp('<date>')`` - transform a string to a date: ::
+2. ``dateOp('<input>', '<date | dateTime>')`` - transform a string to a FHIR date or dateTime. The input must match the FHIR data type specification: ::
 
     src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth);
+    
+  Additional parameters are supported:
+  
+  - ``dateOp('<input>', '<inputFormat>', '<date | dateTime>')``
+  - ``dateOp('<input>', '<inputFormat>', '<outputFormat>', '<outputType>')``. Custom types for other information models then FHIR are supported as the outputType.
 
 3. ``uuid()`` - create a random UUID: ::
 
