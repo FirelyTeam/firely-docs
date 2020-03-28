@@ -50,7 +50,7 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
 2. ``dateOp('<input>', '<date | dateTime>')`` - transform a string to a FHIR date or dateTime. The input must match the FHIR data type specification: ::
 
-    src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth);
+    src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth, 'date');
     
 Additional parameters are supported:
   
