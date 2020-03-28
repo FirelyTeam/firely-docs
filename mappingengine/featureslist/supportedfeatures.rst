@@ -52,10 +52,10 @@ The FHIR Mapping language defines a series of transformation functions that can 
 
     src.dateOfBirth as dateOfBirth -> patient.birthDate = dateOp(dateOfBirth);
     
-  Additional parameters are supported:
+Additional parameters are supported:
   
-  - ``dateOp('<input>', '<inputFormat>', '<date | dateTime>')``
-  - ``dateOp('<input>', '<inputFormat>', '<outputFormat>', '<outputType>')``. Custom types for other information models then FHIR are supported as the outputType.
+- ``dateOp('<input>', '<inputFormat>', '<date | dateTime>')``
+- ``dateOp('<input>', '<inputFormat>', '<outputFormat>', '<outputType>')``. Custom types for other information models then FHIR are supported as the outputType.
 
 3. ``uuid()`` - create a random UUID: ::
 
