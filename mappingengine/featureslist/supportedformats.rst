@@ -50,8 +50,8 @@ Regardless if the CSV file contains a header, all elements are accessible for th
 
   src.record as record then 
   {
-    record.field0 as id -> tgt.identifier = id('<system>', id);
-    record.field1 as given -> tgt.name as name, name.given = given;
-    record.field2 as family -> tgt.name as name collate, name.family = family;
-    record.field3 as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
+    record.field1 as id -> tgt.identifier = id('<system>', id);
+    record.field2 as given -> tgt.name as name, name.given = given;
+    record.field3 as family -> tgt.name as name collate, name.family = family;
+    record.field4 as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
   };
