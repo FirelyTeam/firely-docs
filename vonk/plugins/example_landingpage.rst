@@ -89,6 +89,7 @@ Then add the static methods as prescribed:
       var thisAssembly = typeof(UIConfiguration).GetTypeInfo().Assembly;
       services
          .AddMvc(option => option.EnableEndpointRouting = false)
+         .AddRazorRuntimeCompilation()
          .AddApplicationPart(thisAssembly)
          .AddControllersAsServices();
 
