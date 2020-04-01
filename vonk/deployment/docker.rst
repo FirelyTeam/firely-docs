@@ -128,7 +128,7 @@ We will use docker-compose to achieve this.
        ports:
          - "8080:4080"
        depends_on:
-         - vonk-server-db
+         - vonk-sqlserver-db
        environment:
          - VONK_Repository=SQL
          - VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=vonk-sqlserver-db,1433;User ID=vonk;Password=Tester01
@@ -159,25 +159,25 @@ We will use docker-compose to achieve this.
          - AdminDbPassword=Tester01
          - dbUsername=vonk
          - dbPassword=Tester01
-      healthcheck:
-        test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'SQLServerStrong(!)Password*' -Q 'SELECT 1 FROM VonkSTU3.sys.tables'
-        interval: 1m30s
-        timeout: 10s
-        retries: 3
-      volumes:
+       healthcheck:
+         test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'SQLServerStrong(!)Password*' -Q 'SELECT 1 FROM VonkSTU3.sys.tables'
+         interval: 1m30s
+         timeout: 10s
+         retries: 3
+       volumes:
          - script-volume:/app/data
        command: bash -c "sleep 10 && cat /app/data/install_vonkdb.sh | tr -d '\r' | sh &  /opt/mssql/bin/sqlservr"
  
    volumes:
      script-volume:
 	  
-Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver.yaml``. Make sure your Vonk license file is named
+Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver.yml``. Make sure your Vonk license file is named
 ``vonk-trial-license.json`` and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license). 
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
 
 Then use this command to spin up a Vonk container and SQL container: |br|
-``> docker-compose -f docker-compose.mssqlserver.yaml up -d``
+``> docker-compose -f docker-compose.mssqlserver.yml up -d``
 
 Open a browser and use the address ``http://localhost:8080/``. This will show the landing page of Vonk.
 
@@ -204,15 +204,15 @@ To run the Vonk container we will use the following docker-compose file:
          - "8080:4080"
        environment:
          - VONK_Repository=SQL
-         - VONK_SqlDbOptions:ConnectionString=Database=VonkStu3;Server=<myServerName\myInstanceName>;User ID=<myUser>;Password=<myPassword>
+         - VONK_SqlDbOptions:ConnectionString=Database=VonkStu3;Server=my_host\<myInstanceName>;User ID=<myUser>;Password=<myPassword>
          - VONK_SqlDbOptions:SchemaName=vonk
          - VONK_SqlDbOptions:AutoUpdateDatabase=true
-         - VONK_SqlDbOptions:AutoUpdateConnectionString=Database=VonkStu3;Server=<myServerName\myInstanceName>;User ID=<DLLUser>;Password=<myPassword>
+         - VONK_SqlDbOptions:AutoUpdateConnectionString=Database=VonkStu3;Server=my_host\<myInstanceName>;User ID=<DLLUser>;Password=<myPassword>
          - VONK_Administration:Repository=SQL
-         - VONK_Administration:SqlDbOptions:ConnectionString=Database=VonkAdmin;Server=<myServerName\myInstanceName>;User ID=<myUser>;Password=<myPassword>
+         - VONK_Administration:SqlDbOptions:ConnectionString=Database=VonkAdmin;Server=my_host\<myInstanceName>;User ID=<myUser>;Password=<myPassword>
          - VONK_Administration:SqlDbOptions:SchemaName=vonkadmin
          - VONK_Administration:SqlDbOptions:AutoUpdateDatabase=true
-         - VONK_Administration:SqlDbOptions:AutoUpdateConnectionString=Database=VonkAdmin;Server=<myServerName\myInstanceName>;User ID=<DLLUser>;Password=<myPassword>
+         - VONK_Administration:SqlDbOptions:AutoUpdateConnectionString=Database=VonkAdmin;Server=my_host\<myInstanceName>;User ID=<DLLUser>;Password=<myPassword>
          - VONK_License:LicenseFile=./license/vonk-trial-license.json
        volumes:
          - .:/app/license
@@ -222,10 +222,9 @@ To run the Vonk container we will use the following docker-compose file:
 Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver_host.yml``. Before we spin up the container we have
 to adjust the ``docker-compose.mssqlserver_host.yml``:
 
-* On line 9 the connection string to the database server is stated. Change the ``Data Source`` to your database server. In this exampe we are using a
-  named instance ``sql2016`` on the host ``my_host``.
-* Also change the ``User ID`` and ``Password`` on line 9 to your credentials.
-* Furthermore we have to tell Docker which IP address the host uses. This is done on line 17.
+* On lines 11, 14, 16 and 19 the connection string to the database server is stated. Change the ``Server`` to your database server and instance name.
+* Also change the ``User ID`` and ``Password`` on lines 11, 14, 16 and 19 to your credentials.
+* Furthermore we have to tell Docker which IP address the host uses. This is done on line 24.
   In this case the host (named my_host) uses IP address 192.0.2.1. Change this to the appropriate address.
 
 After saving your settings, make sure your Vonk license file is named ``vonk-trial-license.json`` and is residing in your working directory
@@ -234,15 +233,7 @@ After saving your settings, make sure your Vonk license file is named ``vonk-tri
 You can run the Vonk container as follows: |br|
 ``> docker-compose -f docker-compose.mssqlserver_host.yml up -d``
 
-We have to create the Vonk database on the host. For this we need two SQL scripts which are located in the Vonk container. Perform the following commands
-in the working directory to copy the scripts and execute them on your local SQL server::
-
-  > docker cp vonk_vonk-web_1:/app/data ./scripts
-  > cd scripts
-  > sqlcmd -S my_host\sql2016 -d master -v dbName = VonkSTU3 dbPath= "C:\Program Files\Microsoft SQL Server\MSSQL13.SQL2016\MSSQL\DATA\" -i 01-CreateDatabaseAndSchema.sql
-  > sqlcmd -S my_host\sql2016 -d master -v dbName = VonkSTU3 dbUsername = vonk dbPassword = Tester01  -i 02-CreateDBUser.sql
-
-You might want to change the ``dbPath`` and provide the sqlcmd user (SA) credentials with the parameters ``-U`` and ``-P``.
+A database will automatically be created if is not already present on the database server. See :ref:`overview_of_permissions` for an overview of  permissions the database user needs for creating the database and/or schema.
 
 Open a browser and use the address http://localhost:8080/. This will show the landing page of Vonk.
 
