@@ -174,7 +174,7 @@ Create a database and users by script, and have Vonk create the schema
             }
         }
 
-.. _configure_sql_overview_of_permissions:
+.. _overview_of_permissions:
 
 Overview of permissions
 -----------------------
