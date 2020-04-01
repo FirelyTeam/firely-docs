@@ -233,7 +233,7 @@ After saving your settings, make sure your Vonk license file is named ``vonk-tri
 You can run the Vonk container as follows: |br|
 ``> docker-compose -f docker-compose.mssqlserver_host.yml up -d``
 
-A database will automatically be created if is not already present on the database server. See :ref:`overview_of_permissions` for an overview of  permissions the database user needs for creating the database and/or schema.
+A database will automatically be created if is not already present on the database server. See :ref:`this page <configure_sql_overview_of_permissions>` for an overview of permissions the database user needs for creating the database and/or schema.
 
 Open a browser and use the address http://localhost:8080/. This will show the landing page of Vonk.
 

@@ -174,6 +174,7 @@ Create a database and users by script, and have Vonk create the schema
             }
         }
 
+.. _configure_sql_overview_of_permissions:
 Overview of permissions
 -----------------------
 This paragraph lists the permissions needed to perform specific actions on the SQL database.
