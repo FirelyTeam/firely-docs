@@ -61,11 +61,7 @@ The project file will look like this:
       <ItemGroup>
          <PackageReference Include="Vonk.Core" Version="3.4.0" />
       </ItemGroup>
-
-      <ItemGroup>
-         <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
-      </ItemGroup>
-
+      
       <ItemGroup>
          <EmbeddedResource Include="wwwroot\**\*" />
          <EmbeddedResource Include="Views\**" />
@@ -100,6 +96,7 @@ Then add the static methods as prescribed:
 
       services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
       {
+         options.FileProviders.Clear();
          options.FileProviders.Add(embeddedFileProvider);
       });
       return services;
