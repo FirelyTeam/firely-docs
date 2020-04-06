@@ -14,6 +14,7 @@ Vonk FHIR Server offers many features as defined in the FHIR Specification and b
    customoperations
    customresources
    terminology
+   terminologyintegration
    prevalidation
    customsearchparameters
    conformanceresources

@@ -3,7 +3,7 @@
 Terminology
 ===========
 
-.. caution:: Terminology operations in Vonk 3.0.0 only work for STU3. We intend to provide more elaborate terminology support by integrating with a full Terminology Server, including support for R4 in the near future.
+.. caution:: Terminology operations in Vonk 3.0.0 only work for STU3. Starting from Vonk 3.5.0 we provide more elaborate terminology support by integrating with a full Terminology Server, see :ref:`Terminology Integration docs<feature_terminologyintegration>`.
 
 Vonk provides limited support for these Terminology operations:
 
