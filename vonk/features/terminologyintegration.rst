@@ -3,10 +3,10 @@
 External terminology services
 =============================
 
-.. caution:: The TerminologyIntegration plugin does not work together with the Vonk Terminology plugin. 
+.. warning:: The TerminologyIntegration plugin does not work together with the Vonk Terminology plugin. 
 
-To be able to use more elaborate terminology support through Vonk, 
-we now provide the option to integrate external FHIR terminology services with Vonk. 
+To be able to use more elaborate terminology support, 
+we provide the option to integrate external FHIR terminology services with Vonk. 
 
 Vonk can redirect the following terminology operations to external services:
 * $validate-code
@@ -97,4 +97,4 @@ The Terminology section in the appsettings can look like this:
     ]
   },
   
-  Now if you execute a terminology operation request, Vonk will validate the request, redirect it to the preferred terminology service and finally return the result. 
+This means if you execute a terminology operation request, Vonk will validate the request, redirect it to the preferred terminology service and finally return the result. 
