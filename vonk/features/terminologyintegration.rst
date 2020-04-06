@@ -16,7 +16,7 @@ Vonk can redirect the following terminology operations to external services:
 
 .. warning:: The TerminologyIntegration plugin does not work together with the Vonk Terminology plugin. 
 
-To enable the TerminologyIntegration it needs to be added to the PipelineOptions in the appsettings.
+Make sure to add the plugin to the PipelineOptions in appsettings in order to make use of the ``TerminologyIntegration`` plugin.
 
 .. code-block:: JavaScript
 
@@ -64,14 +64,14 @@ For each terminology service you can set the following options:
     :Name: The name of the terminology service.
     :Endpoint: The endpoint url where Vonk can redirect the requests to.
     :Username: If the terminology service uses Basic Authentication, you can set the required username here. 
-    :Password: If the terminology service uses Basic Authentication, you can set the (reference to the) required password here.
-    :Priority: The priority of the terminology service. If multiple Terminology services could be used for a request, Vonk will use the priority to select a service. Terminology services are arranged in a descending order.
-    :PreferredSystem: If a request is directed at a specific system, Vonk will choose this terminology server over other available services.
+    :Password: If the terminology service uses Basic Authentication, you can set the required password here.
+    :Priority: The priority of the terminology service. If multiple Terminology services could be used for a request, Vonk will use the priority to select a service. Terminology services are arranged in a descending order: so 1 is first priority, 2 is next in priority and so on.
+    :PreferredSystem: If a request is directed at a specific code system, Vonk will choose this terminology server over other available services.
     :SupportedInteractions: The operations supported by the terminology service. Vonk will only select this service if the operation is in this list.
     :SupportedResources: The resources supported by the terminology service.
 
 
-The Terminology section in the appsettings can look like this:
+A sample Terminology section in the appsettings can look like this:
 
 .. code-block:: JavaScript
 
