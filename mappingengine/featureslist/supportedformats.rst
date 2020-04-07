@@ -8,7 +8,7 @@ The mapping engine therefore supports different 'adapters' which can be used to 
 
 CSV
 -------------
-The FHIR Mapper supports mapping a comma-separated values (CSV) file without any prior pre-processing. You can POST the CSV file as the HTTP Body to the $transform operation and access its metadata and content within a StructureMap.
+The FHIR Mapper supports mapping a comma-separated values (CSV) file without any prior setup. You can POST the CSV file as the HTTP Body to the $transform operation and access its metadata and content within a StructureMap.
 
 To enable CSV support, please adjust the BinaryWrapper settings in you appsettings.instance.json to allow Vonk to accept the ``text/csv`` Content-Type header: ::
 
