@@ -29,7 +29,7 @@ For example, given a CSV file that contains the following rows: ::
 The following StructureDefinition would be produced in the background while executing $transform: ::
 
   <embed>
-    <iframe src=https://simplifier.net/embed/render?id=fhirmapperr4/csvtransport height=”345px” width=”100%”></iframe>
+    <iframe src=https://simplifier.net/embed/render?id=fhirmapperr4/csvtransport height="345px" width="100%"></iframe>
   </embed>
   
 The .hasHeader child element indicates if the CSV mapping adapter was configured to interpret the first row of the CSV file as a header record. This behaviour can be indicated according to `RFC 4180 <https://tools.ietf.org/html/rfc4180>`_ by using the ``header`` parameter in the Content-Type header.
