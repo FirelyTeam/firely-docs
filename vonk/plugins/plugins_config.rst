@@ -61,7 +61,7 @@ Configuration of the pipeline in Vonk FHIR Server is done with ``PipelineOptions
   },
 
 PluginDirectory:
-   You can put plugins of your own (or third party) into this directory for Vonk to pick them up, without polluting the Vonk binaries directory itself. For a list of available plugins in Vonk, see :ref:`available_plugins`. The directory in the default setting of ``./plugins`` is not created upon install, you may do this yourself if you want to add a plugin.
+   You can put plugins of your own (or third party) into this directory for Vonk to pick them up, without polluting the Vonk binaries directory itself. For a list of available plugins in Vonk, see :ref:`vonk_available_plugins`. The directory in the default setting of ``./plugins`` is not created upon install, you may do this yourself if you want to add a plugin.
 PluginDirectory.Branches:
    A web application can branch into different paths, and Vonk has two by default:
 

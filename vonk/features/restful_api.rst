@@ -86,6 +86,34 @@ Vonk also supports ``_include:iterate`` and ``_revinclude:iterate``, as well as 
       }
    },
 
+.. _restful_search_sort:
+
+Sorting
+^^^^^^^
+
+``_sort`` is implemented for searchparameters of types: 
+
+* string 
+* number 
+* uri
+* reference
+* datetime
+* token
+
+for the repositories:
+
+* SQL
+* SQLite
+* Memory.
+
+How is sort evaluated?
+
+* A searchparameter may be indexed with multiple values for a single resource. E.g. Patient.name for Fred Flintstone would have name=Fred and name=Flintstone. When searching in ascending order, Vonk uses the minimum value (here: Flintstone) for sorting the resources. For descending order Vonk uses the maximum value (here: Fred).
+
+* The searchparameter to sort on may not be indexed at all for some of the resources in the resultset. E.g. a Patient without any identifier will not be indexed for Patient.identifier. Resources not having that parameter always end up last (both in ascending and descending order). This is similar to the ‘nulls last’ option in some SQL languages.
+
+* Token parameters are sorted only on their code element. The system element is ignored in the sorting. The FHIR search API does not allow you to specify a _sort on codes of a specific system either.
+
 
 .. _restful_search_limitations:
 
@@ -108,7 +136,6 @@ The following parameters and options are not yet supported:
 
 Furthermore:
 
-#. ``_sort`` is only implemented for the parameter ``_lastUpdated`` in order to support History.
 #. Paging is supported, but it is not isolated from intermediate changes to resources.
 
 .. _restful_history:

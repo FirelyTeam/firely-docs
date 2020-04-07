@@ -48,7 +48,7 @@ Registering middleware
 
 For middleware it is more important where exactly it ends up in the pipeline. This depends mostly on what type of handler it is, see below at :ref:`vonk_plugins_order_prepost`. 
 
-No matter what handler you have, it probably wants to act on the :ref:`IVonkContext <vonkcontext>`. Then it is important to be in the pipeline *after* the :ref:`HttpToVonk <vonk_plugins_httptovonk>` plugin (order: 1110), since this plugin translates information from the ``HttpContext`` to an ``IVonkContext`` and adds the latter as a feature to the ``HttpContext.Features`` collection. 
+No matter what handler you have, it probably wants to act on the :ref:`IVonkContext <vonk_reference_api_ivonkcontext>`. Then it is important to be in the pipeline *after* the :ref:`HttpToVonk <vonk_plugins_httptovonk>` plugin (order: 1110), since this plugin translates information from the ``HttpContext`` to an ``IVonkContext`` and adds the latter as a feature to the ``HttpContext.Features`` collection. 
 
 Also, you probably want to set your response on the ``IVonkContext.Response`` and not directly on the ``HttpContext.Response``. Then, you will need the :ref:`VonkToHttp <vonk_plugins_vonktohttp>` plugin (order: 1120) to translate the ``IVonkContext`` back to the ``HttpContext``. 
 

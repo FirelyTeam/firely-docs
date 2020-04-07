@@ -17,6 +17,53 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_350:
+
+Release 3.5.0
+-------------
+
+Feature
+^^^^^^^
+
+#. Search reference by identifier: FHIR R4 allows you to `search a reference by its identifier <http://hl7.org/fhir/R4/search.html#reference>`_. We added support for this in Vonk. Note that any identifiers in reference elements have to be indexed by Vonk. For new data that is done automatically. But if you want to use this on existing data, you have to :ref:`reindex for the searchparameters <feature_customsp_reindex_specific>` you want to use it on. E.g. Observation.patient. 
+#. AuditEvent logging: In release 3.3.0 we already added support for logging audit information to a file. With this release we add to that logging that same information in AuditEvent resources. These resources are written to the Vonk Data database (not the Administration database). Users are not allowed to update or delete these resources. See :ref:`auditing` for more background.
+#. Audit logging: we added ``[Request]`` or ``[Response]`` to the log lines so you can distinguish them better.
+#. Sort! We started implementing :ref:`sorting <restful_search_sort>`. This release provides sorting for searchparameters of the types string, number, uri, reference, datetime and token, on the repositories SQL, SQLite and Memory. On the roadmap is extending this support to MongoDb and to quantity searchparameters.
+#. :ref:`feature_terminologyintegration`: You can configure Vonk to route the terminology operations to external terminology servers. You can even configure a preferred server for certain code systems like LOINC or Snomed-CT. On the roadmap is to also allow you to use these servers for validation of codes and for token searches.
+#. We implemented `$meta-delete <http://hl7.org/fhir/R4/resource-operation-meta-delete.html>`_, see :ref:`Meta plugins <vonk_plugins_meta>`.
+#. Loading plugins can lead to unexpected errors. We made the process and the log friendlier, so you can spot configuration errors more easily:
+
+   * The log outputs the version of each of the plugins
+   * If a duplicate .dll file is found, Vonk tells you which two dlls are causing this and then exits.
+   * If you configured a plugin that you are not licensed to use, this is logged with a friendly hint to acquire a license that does allow you to use it.
+
+#. The log is now by default configured to use asynchronous logging so Vonk is not limited by the speed of the logging sinks (like the Console and the log file). Please update your logsettings.instance.json if you created your own log settings in that. See :ref:`configure_log` for more background.
+
+
+Fix
+^^^
+
+#. You could load invalid XML in the Resource.text through a JSON payload. When that resource was then retrieved in XML, it would fail with an InternalServerError. Vonk will now return an OperationOutcome telling you what the problem is. You can then correct it by using JSON.
+#. Composite searchparameters were not parsed correctly. Now they are. So you don't see warnings like ``Composite SearchParameter 'CodeSystem.context-type-quantity' doesn't have components.`` anymore.  
+#. Indexing for the _profile searchparameter was broken for R4 since Vonk 3.2.1. We fixed it. If you added new resources with Vonk 3.2.1 - 3.4.0, you need to :ref:`reindex for the Resource._profile <feature_customsp_reindex_specific>` parameter.
+#. Audit log: ``%temp%`` in the path setting was evaluated as ``<current directory>\%temp%``. Fixed that to evaluate to the systems temporary directory.
+#. The logsettings.json configured the Serilog RollingFile sink by default. That is deprecated, so we replaced it with the File sink.
+#. :ref:`feature_customsp_reindex_specific` now returns an error if you forget to actually specify a searchparameter.
+#. An InternalServerError was returned when you validate a resource that is syntactically incorrect. Like a Patient with multiple id's. Vonk now returns an OperationOutcome with the actual problem.
+#. The configuration for the FHIR Mapper was simplified. You only need to include ``Vonk.Plugin.Mapping``. Check appsettings.default.json for the new pipeline.
+#. Maybe you got accustomed to ignoring a list of warnings at startup of Vonk. We cleaned up the list so that if there is a warning, it is worthwile investigating the cause of it.
+#. The appsettings and logsettings can contain relative file paths for several settings, like the ``License:LicenseFile``. These were evaluated against the current workingdirectory, but that could lead to problems if that was *not* the Vonk directory. We solved that: all relative paths are evaluated against the Vonk directory.
+#. The docker image for version 3.4.0 was tagged ``3.4.0-``. With 3.5.0 we removed the superfluous hypen at the end.
+#. We updated the documentation on :ref:`use_docker` on SQL Server to be clearer about the order of the steps to take.
+#. We updated the documentation on :ref:`vonk_plugins_landingpage` to match .NET Core 3.1.
+
+Plugins & Facade
+^^^^^^^^^^^^^^^^
+
+#. :ref:`FHIR Mapper <vonk_plugins_mapping>` 
+
+   * Has been upgraded to version 0.3.4.
+
 .. _vonk_releasenotes_340:
 
 Release 3.4.0
