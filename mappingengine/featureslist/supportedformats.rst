@@ -16,7 +16,7 @@ To enable CSV support, please adjust the BinaryWrapper settings in your appsetti
         "RestrictToMimeTypes": ["application/pdf", "text/plain", "image/png", "image/jpeg", "text/fhir-mapping", "text/csv"]
       }
 
-In order to fully use the type-safety features of the FHIR Mapping Language, a StructureDefinition is generated automatically by the FHIR Mapper when a CSV file is received. Depending on the composition of the CSV two different formats are used.
+In order to fully use the type-safety features of the FHIR Mapping Language, a StructureDefinition is generated automatically by the FHIR Mapper when a CSV file is received. Depending on the composition of the CSV, two different formats are used:
 
 1. CSV file contains a header with column metadata:
 
