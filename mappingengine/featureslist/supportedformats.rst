@@ -46,7 +46,7 @@ All other column identifiers are exposed as child elements of the .record Backbo
   
 2. CSV file contains no header metadata:
 
-Regardless if the CSV file contains a header, all elements are accessible for the mapping to FHIR. For files not containing a metadata row, element names for the mapping source are generated dynamically: :: 
+Regardless if the CSV file contains a header, all elements are accessible for the mapping to FHIR. For files not containing a metadata row, element names for the mapping source are generated dynamically as ``field#``: :: 
 
   src.record as record then 
   {
