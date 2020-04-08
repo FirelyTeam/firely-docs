@@ -3,7 +3,7 @@
 HIPAA compliance
 ================
 
-Vonk is well-tested, secure HL7 FHIR® server that enables you to comply with the Technical Safeguards of the HIPAA Security Rule.
+Vonk is a well-tested, secure HL7 FHIR® server that enables you to comply with the Technical Safeguards of the HIPAA Security Rule.
 
 On this page we will detail how you can achieve compliance for your Vonk deployment. To ensure your organisation's specific usecase, environment, and deployment are compliant, feel free to :ref:`contact us <vonk-contact>`: we'd be happy to help.
 
@@ -52,7 +52,7 @@ The same solutions apply to this point as :ref:`hipaa_164.312.a.1`.
    Assign a unique name and/or number for identifying and tracking user identity.
 
 The same solution applies to this point as :ref:`hipaa_164.312.b`.
-For Vonk to be able to log the identity of the user, this identity must be present in or derivable from the authentication token. And it must be added to the log properties. If you use the SMART on FHIR plugin, that is automatically configured. If you want to do this from within a custom authentication plugin, feel free to contact us for details.
+For Vonk to be able to log the identity of the user, this identity must be present in or derivable from the authentication token, and it must be added to the log properties. If you use the SMART on FHIR plugin, that is automatically configured. If you want to do this from within a custom authentication plugin, feel free to contact us for details.
 .. _hipaa_164.312.b:
 
 164.312(b) Standard: Audit control
@@ -85,7 +85,9 @@ Vonk is regularly updated with the latest versions of ASP.NET to ensure that the
     Implement a mechanism to encrypt electronic protected health information whenever deemed appropriate.
 
 The recommended way to ensure that e-PHI is encrypted as necessary is to use disk encryption, and there are several solutions for this depending on your deployment environment. If you're deploying in the cloud - see your vendors options for disk encryption, as most have options for encrypted disks already. If you're deploying locally, look into BitLocker on Windows or dm-crypt/LUKS for Linux.
-Vonk does not provide encryption on the database fields, because this would severly hurt the search capabilities.
+
+Disk encryption is preferred over individual database field encryption as the latter would severely impact the search performance.
+
 .. _hipaa_164.312.a.2.ii:
 
 164.312(a)(2)(ii) Emergency access procedure
