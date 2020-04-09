@@ -347,7 +347,19 @@ FHIR RESTful interactions
 :Configuration: ``Vonk.Core.Operations.MetaOperation.MetaConfiguration``
 :License token: http://fire.ly/vonk/plugins/meta
 :Order: 5180
-:Description: Implements FHIR $meta and $meta-add on instance level.
+:Description: Implements FHIR $meta on instance level.
+
+:Name: Meta Add
+:Configuration: ``Vonk.Core.Operations.MetaOperation.MetaAddConfiguration``
+:License token: http://fire.ly/vonk/plugins/meta
+:Order: 5190
+:Description: Implements FHIR $meta-add on instance level.
+
+:Name: Meta Delete
+:Configuration: ``Vonk.Core.Operations.MetaOperation.MetaDeleteConfiguration``
+:License token: http://fire.ly/vonk/plugins/meta
+:Order: 5195
+:Description: Implements FHIR $meta-delete on instance level.
 
 .. _vonk_plugins_snapshot:
 
@@ -461,17 +473,35 @@ Subscriptions
 Auditing
 --------
 
+:Name: Username log
+:Configuration: ``Vonk.Plugin.Audit.UsernameLoggingConfiguration``
+:License token: http://fire.ly/vonk/plugins/audit
+:Order: 2010
+:Description: Makes the user id and name from the JWT token (if present) available for logging. See :ref:`feature_auditing` for more info.
+
+:Name: Audit logging for transactions
+:Configuration: ``Vonk.Plugin.Audit.AuditTransactionConfiguration``
+:License token: http://fire.ly/vonk/plugins/audit
+:Order: 3100
+:Description: Logs requests and responses for transactions to a file. See :ref:`feature_auditing` for more info.
+
 :Name: Audit log
 :Configuration: ``Vonk.Plugin.Audit.AuditConfiguration``
 :License token: http://fire.ly/vonk/plugins/audit
 :Order: 3150
 :Description: Logs requests and responses to a file. See :ref:`feature_auditing` for more info.
 
-:Name: Username log
-:Configuration: ``Vonk.Plugin.Audit.UsernameLoggingConfiguration``
+:Name: AuditEvent logging for transactions
+:Configuration: ``Vonk.Plugin.Audit.AuditEventTransactionConfiguration``
 :License token: http://fire.ly/vonk/plugins/audit
-:Order: 2010
-:Description: Makes the user id and name from the JWT token (if present) available for logging. See :ref:`feature_auditing` for more info.
+:Order: 3160
+:Description: Logs requests and responses for transactions to a file. See :ref:`feature_auditing` for more info.
+
+:Name: AuditEvent logging
+:Configuration: ``Vonk.Plugin.Audit.AuditEventConfiguration``
+:License token: http://fire.ly/vonk/plugins/audit
+:Order: 3170
+:Description: Logs requests and responses to a file. See :ref:`feature_auditing` for more info.
 
 .. _vonk_plugins_demoui:
 
