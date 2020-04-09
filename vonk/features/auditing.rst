@@ -11,7 +11,7 @@ Vonk can log access through the RESTful API for auditing purposes. It has 3 feat
 
 All features can be enabled by including ``Vonk.Plugins.Audit`` in the pipeline. See :ref:`vonk_plugins_config` for details on how to do that.
 
-You can enable specific features by narrowing the namespace that you include in the pipeline, see the available plugins listed under :ref:`vonk_plugins_audit`
+You can enable specific features by narrowing the namespace that you include in the pipeline, see the available plugins listed under :ref:`vonk_plugins_audit`.
 
 Audit log file configuration
 ----------------------------
@@ -45,4 +45,4 @@ There is no further configuration for AuditEvent logging. If you include it in t
 
 For transactions and batches the audit plugin will create an AuditEvent for the transaction/batch as a whole *and* one for every entry in the transaction/batch.
 
-Vonk does not allow you to update or delete the AuditEvent resources through the RESTful API so the Audit log cannot be tampered with. You can of course still manipulate these resources directly on the database. For instance to offload a surplus of old AuditEvent resources elsewhere. Please :ref:`vonk-contact` us for details if you want to do this.
+Vonk does not allow you to update or delete the AuditEvent resources through the RESTful API so the Audit log cannot be tampered with. You can of course still manipulate these resources directly on the database, for instance to offload a surplus of old AuditEvent resources elsewhere. Please :ref:`vonk-contact` us for details if you want to do this.

@@ -104,15 +104,50 @@ for the repositories:
 
 * SQL
 * SQLite
-* Memory.
+* Memory
 
 How is sort evaluated?
 
-* A searchparameter may be indexed with multiple values for a single resource. E.g. Patient.name for Fred Flintstone would have name=Fred and name=Flintstone. When searching in ascending order, Vonk uses the minimum value (here: Flintstone) for sorting the resources. For descending order Vonk uses the maximum value (here: Fred).
+* A searchparameter may be indexed with multiple values for a single resource. E.g. Patient.name for Angelina Jolie would have name=Angelina and name=Jolie. And George Clooney: name=George and name=Clooney. As the FHIR Specification phrases it: "In this case, the sort is based on the item in the set of multiple parameters that comes earliest in the specified sort order when ordering the returned resources." Here is an example of how Vonk evaluates this.
+
+   * In ascending order: ``Patient?_sort=name``
+
+      +-------------+--------------------+------------------+
+      | Name values | Asc. per resource  | Asc. resources   |
+      +=============+====================+==================+
+      | Angelina    | Angelina           | *Angelina* Jolie |
+      +-------------+--------------------+------------------+
+      | Jolie       | Jolie              |                  |
+      +-------------+--------------------+------------------+
+      |             |                    |                  |
+      +-------------+--------------------+------------------+
+      | George      | Clooney            | George *Clooney* |
+      +-------------+--------------------+------------------+
+      | Clooney     | George             |                  |
+      +-------------+--------------------+------------------+
+
+   * Now in descending order: ``Patient?_sort=-name``
+
+      +-------------+--------------------+------------------+
+      | Name values | Desc. per resource | Desc. resources  |
+      +=============+====================+==================+
+      | Angelina    | Jolie              | Angelina *Jolie* |
+      +-------------+--------------------+------------------+
+      | Jolie       | Angelina           |                  |
+      +-------------+--------------------+------------------+
+      |             |                    |                  |
+      +-------------+--------------------+------------------+
+      | George      | George             | *George* Clooney |
+      +-------------+--------------------+------------------+
+      | Clooney     | Clooney            |                  |
+      +-------------+--------------------+------------------+
+
 
 * The searchparameter to sort on may not be indexed at all for some of the resources in the resultset. E.g. a Patient without any identifier will not be indexed for Patient.identifier. Resources not having that parameter always end up last (both in ascending and descending order). This is similar to the ‘nulls last’ option in some SQL languages.
 
-* Token parameters are sorted only on their code element. The system element is ignored in the sorting. The FHIR search API does not allow you to specify a _sort on codes of a specific system either.
+* Token parameters are sorted only on their code element. The system element is ignored in the sorting.
+
+* Vonk uses the default collation as configured on the database server. This collation defines the ordering of characters.
 
 
 .. _restful_search_limitations:
