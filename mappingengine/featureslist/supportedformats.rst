@@ -26,7 +26,9 @@ For example, given a CSV file that contains the following rows: ::
     1,  Peter James,  Chalmers,   M
     2,  Sandy,        Notsowell,  F 
     
-The following StructureDefinition would be produced in the background while executing $transform: raw:: html
+The following StructureDefinition would be produced in the background while executing $transform: 
+
+.. raw:: html
 
   <embed>
     <iframe src=https://simplifier.net/embed/render?id=fhirmapperr4/csvtransport height="345px" width="100%"></iframe>
