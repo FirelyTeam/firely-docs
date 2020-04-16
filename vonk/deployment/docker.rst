@@ -120,31 +120,29 @@ We will use docker-compose to achieve this.
    :linenos:
 
    version: '3'
-
+   
    services:
- 
      vonk-web:
        image: simplifier/vonk
        ports:
-         - "8080:4080"
+       - "8080:4080"
        depends_on:
          - vonk-sqlserver-db
        environment:
          - VONK_Repository=SQL
-         - VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=vonk-sqlserver-db,1433;User ID=vonk;Password=Tester01
+         - VONK_SqlDbOptions:ConnectionString=Initial Catalog=VonkStu3;Data Source=vonk-sqlserver-db,1433;User ID=sa;Password=SQLServerStrong(!)Password*
          - VONK_SqlDbOptions:SchemaName=vonk
          - VONK_SqlDbOptions:AutoUpdateDatabase=true
          - VONK_SqlDbOptions:AutoUpdateConnectionString=Initial Catalog=VonkStu3;Data Source=vonk-sqlserver-db,1433;User ID=sa;Password=SQLServerStrong(!)Password*
          - VONK_Administration:Repository=SQL
-         - VONK_Administration:SqlDbOptions:ConnectionString=Initial Catalog=VonkAdmin;Data Source=vonk-sqlserver-db,1433;User ID=vonk;Password=Tester01
+         - VONK_Administration:SqlDbOptions:ConnectionString=Initial Catalog=VonkAdmin;Data Source=vonk-sqlserver-db,1433;User ID=sa;Password=SQLServerStrong(!)Password*
          - VONK_Administration:SqlDbOptions:SchemaName=vonkadmin
          - VONK_Administration:SqlDbOptions:AutoUpdateDatabase=true
          - VONK_Administration:SqlDbOptions:AutoUpdateConnectionString=Initial Catalog=VonkAdmin;Data Source=vonk-sqlserver-db,1433;User ID=sa;Password=SQLServerStrong(!)Password*
          - VONK_License:LicenseFile=./license/vonk-trial-license.json
        volumes:
          - .:/app/license
-         - script-volume:/app/data
- 
+   
      vonk-sqlserver-db:
        image: microsoft/mssql-server-linux
        ports:
@@ -152,25 +150,12 @@ We will use docker-compose to achieve this.
        environment:
          - ACCEPT_EULA=Y
          - SA_PASSWORD=SQLServerStrong(!)Password*
-         - dbName=VonkStu3
-         - dbPath=/var/opt/mssql/data/
-         - AdminDbName=VonkAdmin
-         - AdminDbUsername=vonk
-         - AdminDbPassword=Tester01
-         - dbUsername=vonk
-         - dbPassword=Tester01
        healthcheck:
          test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'SQLServerStrong(!)Password*' -Q 'SELECT 1 FROM VonkSTU3.sys.tables'
          interval: 1m30s
          timeout: 10s
          retries: 3
-       volumes:
-         - script-volume:/app/data
-       command: bash -c "sleep 10 && cat /app/data/install_vonkdb.sh | tr -d '\r' | sh &  /opt/mssql/bin/sqlservr"
- 
-   volumes:
-     script-volume:
-	  
+   
 Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver.yml``. Make sure your Vonk license file is named
 ``vonk-trial-license.json`` and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license). 
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
