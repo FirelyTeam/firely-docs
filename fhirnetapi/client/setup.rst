@@ -14,12 +14,13 @@ As second parameter to the constructor, you can specify whether the client shoul
 perform a conformance check to see if the server has got a compatible FHIR version.
 The default setting is ``false``.
 
-You'll create an instance of a client for every server you want to work
-with. Every call we'll do on this client will be for interactions
-with this server. Since resources may reference other resources on a different FHIR server,
-you'll have to inspect any references and direct them to the right FhirClient.
+A FhirClient works with a single server. If you work with multiple servers simultanuously, you'll
+have to create a FhirClient for each of them. Since resources may reference other resources on a 
+different FHIR server, you'll have to inspect any references and direct them to the right FhirClient.
 Of course, if you're dealing with a single server within your organization or a single
-cloud-based FHIR server, you don't have to worry about this.
+cloud-based FHIR server, you don't have to worry about this. Note: the FhirClient is not thread-safe,
+so you will need to create one for each thread, if necessary. But don't worry: creating an instance
+of a FhirClient is cheap, the connection will not be opened until you start working with it.
 
 There's a list of `publically available test 
 servers <http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for_testing>`__ you can use.
