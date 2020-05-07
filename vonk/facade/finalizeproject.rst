@@ -128,3 +128,13 @@ the completed exercise.
 Please feel free to try out more options, and :ref:`ask for help <vonk-contact>` if you get stuck!
 
 The next topic will show you how to enable :ref:`Create, Update and Delete<enablechange>` interactions.
+
+Postscript
+----------
+If your resource is split across multiple tables in the database, you'll need to make use of ``.Include()`` to have EF `load the dependent table <https://docs.microsoft.com/en-us/ef/core/querying/related-data#eager-loading>`_. To do so in Vonk, override the `GetEntitySet()` method in your `RelationalQuery` class, for example ::
+
+        protected override IQueryable<ViSiPatient> GetEntitySet(DbContext dbContext)
+        {
+            // load the dependent Address table
+            return dbContext.Set<ViSiPatient>().Include(p => p.Address).AsNoTracking();
+        }
