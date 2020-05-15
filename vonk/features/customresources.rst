@@ -22,6 +22,7 @@ Just like any resourcetype, the definition for a custom resource is formalized a
 * base = DomainResource
 * derivation = specialization
 * kind = resource
+* abstract = false
   
 This also means that a Logical Model as-is cannot be used as the definition of a custom resourcetype.
 
