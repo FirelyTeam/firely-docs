@@ -6,6 +6,21 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
+Release 0.3.5 - 2020-05-26
+-------------------
+
+  - Feature: Support for natively mapping text/csv content to FHIR. See :ref:`fhirmapper_supportedformats`.
+  - Feature: Adding ?persist=true to $convert will now automatically store the StructureMap in Vonk
+  - Fix: Improved the error message if an unknown / uninterpretable Content-Type header was sent to $transform
+  - Fix: $transform could be executed on a StructureMap using a different information model (e.g. executing $transform using FHIR R4 on a StructureMap stored in STU3). This could lead to unexpected behaviour in the mapping execution.
+  - Fix: If a FHIR Bundle was produced using $transform and the debug mode was enabled, a Bundle of Bundles would be returned. Now, the debug log is integrated into the result bundle.
+  - Fix: Using a FHIRPath statement in "check" mode always threw an error regardless of the statement
+  - Fix: A stacktrace is now included in error messages thrown during the execution of $transform
+  - Fix: Harmonized the dateOp parameters with FHIR data types.
+  - Fix: The source resource type of the initial mapping group is now checked against the provided resource type when calling $transform
+  - Fix: Return an exception if it is attempted to create a child of a choice[x] element without passing a concrete type.
+  - Fix: Circual 'using' statements could lead to a StackOverflow in Vonk
+
 Release 0.3.4 - 2020-03-23
 -------------------
 
