@@ -5,9 +5,9 @@ Running transformations
 
 Once your transforms are setup (:ref:`setup_transforms`), you can run your data conversion!
 
-To do so, ``POST http(s)://<vonk-endpoint>/StructureMap/<logical id>/$transform`` with content to transform as the resource body. Make sure to set the ``Content-Type`` to either ``application/json`` or ``application/xml`` accordingly.
+To do so, ``POST http(s)://<vonk-endpoint>/administration/StructureMap/<logical id>/$transform`` with content to transform as the resource body. Make sure to set the ``Content-Type`` to either ``application/json`` or ``application/xml`` accordingly.
 
-For the example we've been working with so far, ``POST http://localhost:4080/StructureMap/tutorial/$transform`` with a `sample resource <https://simplifier.net/fhirmapper/FakeInpatientDrugChart-example/~json>`_ as the body.
+For the example we've been working with so far, ``POST http://localhost:4080/administration/StructureMap/tutorial/$transform`` with a `sample resource <https://simplifier.net/fhirmapper/FakeInpatientDrugChart-example/~json>`_ as the body.
 
 Simplified sample call:
 
