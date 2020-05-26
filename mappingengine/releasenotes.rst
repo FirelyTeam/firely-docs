@@ -20,7 +20,7 @@ Release 0.3.5 - 2020-05-26
   - Fix: Harmonized the dateOp parameters with FHIR data types.
   - Fix: The source resource type of the initial mapping group is now checked against the provided resource type when calling $transform
   - Fix: Return an exception if it is attempted to create a child of a choice[x] element without passing a concrete type.
-  - Fix: Circual 'using' statements could lead to a StackOverflow in Vonk
+  - Fix: Circular 'using' statements could lead to a StackOverflow in Vonk
 
 Release 0.3.4 - 2020-03-23
 -------------------
