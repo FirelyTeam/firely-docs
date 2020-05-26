@@ -3,8 +3,6 @@
 Terminology
 ===========
 
-.. caution:: Terminology operations in Vonk 3.0.0 only work for STU3. Starting from Vonk 3.5.0 we provide more elaborate terminology support by integrating with a full Terminology Server, see :ref:`Terminology Integration docs<feature_terminologyintegration>`.
-
 Vonk provides limited support for these Terminology operations:
 
 * $validate-code
@@ -20,7 +18,7 @@ Refer to :ref:`conformance` on how to provide CodeSystem and ValueSet resources 
    This is a first attempt on supporting Terminology operations. We welcome feedback on how you would like to use them. Contact us at vonk@fire.ly.
 
 .. note::
-   This implementation does not support complex terminologies like Snomed CT or LOINC.  
+   This implementation does not support complex terminologies like Snomed CT or LOINC. If you need that: Starting with Vonk 3.5.0 we provide more elaborate terminology support by integrating with a full Terminology Server, see :ref:`Terminology Integration docs<feature_terminologyintegration>`.
 
 .. _terminology_validate-code:
 
