@@ -32,7 +32,7 @@ Load the engine
       "WholeSystemInteractions": "capabilities, batch, transaction, history, search, compartment_system_search, $validate, $convert"
     },
 
-5. Review the ``/`` path of ``PipelineOptions`` and make sure that the mapping engine plugin are included using the following namespaces: ::
+5. Review the ``/administration`` path of ``PipelineOptions`` and make sure that the mapping engine plugin are included using the following namespaces: ::
 
     "Vonk.Plugin.BinaryWrapper", 
     "Vonk.Plugin.Mapping"
@@ -43,21 +43,22 @@ Sample configuration: ::
       "PluginDirectory": "./plugins",
       "Branches": [
         {
-          "Path": "/",
+          "Path": "/administration",
           "Include": [
             "Vonk.Core",
             "Vonk.Fhir.R3",
-            "Vonk.Repository.Sql.SqlVonkConfiguration",
-            "Vonk.Repository.Sqlite.SqliteVonkConfiguration",
-            "Vonk.Repository.MongoDb.MongoDbVonkConfiguration",
-            "Vonk.Repository.CosmosDb.CosmosDbVonkConfiguration",
-            "Vonk.Repository.Memory.MemoryVonkConfiguration",
-            "Vonk.Subscriptions",
-            "Vonk.Smart",
-            "Vonk.UI.Demo",
+            "Vonk.Fhir.R4",
+            //"Vonk.Fhir.R5",
+            "Vonk.Repository.Sql.SqlAdministrationConfiguration",
+            "Vonk.Repository.Sqlite.SqliteAdministrationConfiguration",
+            "Vonk.Repository.MongoDb.MongoDbAdminConfiguration",
+            "Vonk.Repository.Memory.MemoryAdministrationConfiguration",
+            "Vonk.Subscriptions.Administration",
+            "Vonk.Plugins.Terminology",         
+            "Vonk.Administration",
             "Vonk.Plugin.BinaryWrapper",
             "Vonk.Plugin.Mapping"
-          ]
+          ],
         },
 
 6. Start Vonk :)
@@ -98,11 +99,11 @@ If they're not listed, check that the dll files are available in your ``PluginDi
 2. Ensure the plugins are being registered with the Vonk pipeline: ::
 
     Configuration:
-    /
+    /administration
         [...]
         BinaryEncodeConfiguration          	[1112] | Services: V | Pipeline: V
 	BinaryDecodeConfiguration 		[1122] | Services: V | Pipeline: V
-        MappingToStructureMapConfiguration 	[4550] | Services: V | Pipeline: V
+        MappingToStructureMapConfiguration 	[1500] | Services: V | Pipeline: V
         TransfromOperationConfiguration    	[4560] | Services: V | Pipeline: V
 
 If they're not listed, double-check your that your ``PipelineOptions`` are loading the engine plugins.
