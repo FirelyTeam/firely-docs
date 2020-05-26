@@ -17,6 +17,29 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_360:
+
+Release 3.6.0
+-------------
+
+Feature
+^^^^^^^
+
+#. Sort: The :ref:`sorting <restful_search_sort>` that was implemented for the SQL/SQLite repositories in the previous version is now also implemented for MongoDb.
+#. Terminology: The :ref:`local terminology service <feature_terminology>`, built in to the Vonk Administration API, is upgraded to support R4 and R5 (and still R3 of course).
+#. Vonk can now index and search on searchparameters that reference a nested resource, like Bundle.message.
+#. If you accidentally provide a body in a GET or DELETE request, Vonk will now ignore that body instead of returning an error.
+
+Fix
+^^^
+
+#. CapabilityStatement (rev)includes now use ':' as a separator instead of '.'.
+
+Plugins
+^^^^^^^
+
+#. The :ref:`BinaryWrapper plugin <vonk_plugins_binarywrapper>` is upgraded to 0.3.1, where the included BinaryEncodeService is made more reusable for other plugins (most notably the :ref:`FHIR Mapper <vonk_plugins_mapping>`).
+
 .. _vonk_releasenotes_350:
 
 Release 3.5.0

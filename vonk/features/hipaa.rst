@@ -53,6 +53,7 @@ The same solutions apply to this point as :ref:`hipaa_164.312.a.1`.
 
 The same solution applies to this point as :ref:`hipaa_164.312.b`.
 For Vonk to be able to log the identity of the user, this identity must be present in or derivable from the authentication token, and it must be added to the log properties. If you use the SMART on FHIR plugin, that is automatically configured. If you want to do this from within a custom authentication plugin, feel free to contact us for details.
+
 .. _hipaa_164.312.b:
 
 164.312(b) Standard: Audit control
@@ -101,7 +102,7 @@ In case you went with SMART on FHIR, add an authorization workflow that grants e
 
 If you went with a custom authentication scheme, add a special measure to handle this scenario.
 
-.. _hipaa_164.312.c.2
+.. _hipaa_164.312.c.2:
 
 164.312(a)(c) Implementation specification: Mechanism to authenticate electronic protected health information
 -------------------------------------------------------------------------------------------------------------

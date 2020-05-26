@@ -41,7 +41,7 @@ Authorization in Vonk by default is based on `SMART on FHIR`_ and more specifica
 * scope=[array of individual scopes]
 * patient=123: the user is allowed access to resources in the compartment of patient 123 -- see :ref:`feature_accesscontrol_compartment`.
 
-SMART on FHIR also defines scopes starting with 'patient/' instead of 'user/'. In Vonk these are evaluated equally. But with a scope of 'patient/' you are required to also have a 'patient=...' launch context to know to which patient the user connects. It is also possible to apply a launch context to a user scope, for example the scope can look like "launch user/*.read". In your authorization server you can specify the resources that are in the launch context parameter.
+SMART on FHIR also defines scopes starting with 'patient/' instead of 'user/'. In Vonk these are evaluated equally. But with a scope of 'patient/' you are required to also have a 'patient=...' launch context to know to which patient the user connects. It is also possible to apply a launch context to a user scope, for example the scope can look like "launch user/\*.read". In your authorization server you can specify the resources that are in the launch context parameter.
 
 The assignment of these claims to users, systems or groups is managed in the OAuth2 authorization server and not in Vonk. Vonk does, however, need a way to access these scopes - so if your OAuth server is issuing a self-encoded token, ensure that it has a ``scope`` field with all of the granted scopes inside it.
 
