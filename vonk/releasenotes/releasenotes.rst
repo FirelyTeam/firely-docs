@@ -28,6 +28,11 @@ Feature
 #. Sort: The :ref:`sorting <restful_search_sort>` that was implemented for the SQL/SQLite repositories in the previous version is now also implemented for MongoDb.
 #. Terminology: The :ref:`local terminology service <feature_terminology>`, built in to the Vonk Administration API, is upgraded to support R4 and R5 (and still R3 of course).
 #. Vonk can now index and search on searchparameters that reference a nested resource, like Bundle.message.
+   
+   .. attention::
+   
+      Note that any nested resources have to be indexed by Vonk. For new data that is done automatically. But if you want to use this on existing data, you have to :ref:`reindex for the searchparameters <feature_customsp_reindex_specific>` you want to use it on. Those will most notably be Bundle.message and Bundle.composition.
+
 #. If you accidentally provide a body in a GET or DELETE request, Vonk will now ignore that body instead of returning an error.
 
 Fix
