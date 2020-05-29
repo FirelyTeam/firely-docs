@@ -9,7 +9,7 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_.
 Release 0.3.5 - 2020-05-26
 -------------------
 
-  - Feature: As StructureMaps are conformance resources, they are now stored in the Vonk administration endpoint. Please check the new Vonk default settings for enabling $convert and $transform on the /administration endpoint. Using the FHIR Mapper on the default branch ("{{BASE_URL}}/") is no longer supported.
+  - Feature: As StructureMaps are conformance resources, they are now stored in the Vonk administration endpoint. Please check :ref:`_configure_mapping_engine` for enabling $convert and $transform on the /administration endpoint. Using the FHIR Mapper on the default branch ("{{BASE_URL}}/") is no longer supported.
   - Feature: Support for natively mapping text/csv content to FHIR. See :ref:`fhirmapper_supportedformats`.
   - Feature: Adding ?persist=true to $convert will now automatically store the StructureMap in Vonk
   - Fix: Improved the error message if an unknown / uninterpretable Content-Type header was sent to $transform
