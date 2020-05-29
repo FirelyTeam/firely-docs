@@ -5,6 +5,11 @@ Configuring FHIR Mapper on Vonk
 
 To configure the FHIR Mapper in your Vonk installation, follow the steps below. If you don't have a copy yet, `get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
 
+.. important::
+
+	Please note that the latest version of Vonk (v3.6.0) does not contain the latest version of the FHIR Mapper (v0.3.5).
+	Please configure the plugin on the "/" branch, instead of "/administration" when working with the FHIR Mapper in an earlier version (v0.3.4 and below).
+
 Load the engine
 ~~~~~~~~~~~~~~~
 
