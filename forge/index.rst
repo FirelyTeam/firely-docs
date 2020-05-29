@@ -1,23 +1,4 @@
-Welcome to Forge's documentation!
+Forge's has moved!
 =================================
 
-Contents:
-
-.. toctree::
-   :maxdepth: 2
-
-   forgeIntro
-   forgeInstall
-   forgeLaunch
-   forgeFeatures
-   forgeFeaturesOpenFolder
-   forgeFeaturesNewProfile
-   forgeFeaturesEditProfile
-   forgeFeaturesConstraints
-   forgeFeaturesExtensions
-   forgeFeaturesSlices
-   forgeDerivedProfiles
-   forgeFeaturesLogicalModels
-   forgeContact
-
-
+The Forge documentation has moved to https://simplifier.net/docs/Forge.
