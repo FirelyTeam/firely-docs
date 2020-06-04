@@ -6,6 +6,14 @@ All components of the FHIR Mapper are designed to handle customs data formats as
 By default the FHIR Mapper supports reading and writing 'Custom FHIR resources' (:ref:`feature_customresources`), however it is also possible to provide data in other formats besides the JSON / XML serialization format of FHIR. 
 The mapping engine therefore supports different 'adapters' which can be used to read in other formats natively.
 
++-------------------------------+-------------------------+-----+--------+-----+-------------+
+| FHIR Version / Content format | Custom Resources (FHIR) | CSV | HL7 v2 | VCF | HL7 (C)-CDA |
++===============================+=========================+=====+========+=====+=============+
+| FHIR STU3                     | X                       | X   | X      | X   | X           |
++-------------------------------+-------------------------+-----+--------+-----+-------------+
+| FHIR R4                       | X                       | X   |        |     | X           |
++-------------------------------+-------------------------+-----+--------+-----+-------------+
+
 CSV
 -------------
 The FHIR Mapper supports mapping a comma-separated values (CSV) file without any prior setup. You can POST the CSV file as the HTTP Body to the $transform operation and access its metadata and content within a StructureMap.
