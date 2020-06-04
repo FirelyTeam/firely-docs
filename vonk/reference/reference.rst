@@ -12,3 +12,4 @@ The reference documentation lists the available plugins for configuring the pipe
    Available plugins <plugins/available_plugins>
    Programming API <programming_api/programming_api>
    Architecture <architecture>
+   Dependencies and licenses <dependencies>
