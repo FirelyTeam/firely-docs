@@ -24,12 +24,10 @@ or support contract.
 
    start
    enginesetup/configuration
-   featureslist/featureslist
    transformsetup/overview
    runningtransforms/runningtransforms
    featureslist/supportedfeatures
    featureslist/supportedformats
    specialconsiderations/considerations
-   contact
    releasenotes
 .. add files here
