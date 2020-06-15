@@ -1,4 +1,4 @@
-.. _releasenotes:
+.. _mapping_releasenotes:
 
 Release notes
 =============
@@ -6,8 +6,17 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
+.. _mapping_releasenotes_036:
+
+Release 0.3.6 - 2020-06-09
+--------------------------
+
+- Fix: Using $convert with the ?persist would try to persist the result of the conversion even if there was an error.
+
+.. _mapping_releasenotes_035:
+
 Release 0.3.5 - 2020-05-26
--------------------
+--------------------------
 
   - Feature: As StructureMaps are conformance resources, they are now stored in the Vonk administration endpoint. Please check :ref:`configure_mapping_engine` for enabling $convert and $transform on the /administration endpoint. Using the FHIR Mapper on the default branch ("{{BASE_URL}}/") is no longer supported.
   - Feature: Support for natively mapping text/csv content to FHIR. See :ref:`fhirmapper_supportedformats`.
@@ -23,7 +32,7 @@ Release 0.3.5 - 2020-05-26
   - Fix: Circular 'using' statements could lead to a StackOverflow in Vonk
 
 Release 0.3.4 - 2020-03-23
--------------------
+--------------------------
 
   - Feature: "Cannot resolve symbol" error messages now include a 'GroupId' for improved debugging
   - Feature: CCDA transformations are now supported for FHIR version STU3 in addition to R4
@@ -31,24 +40,24 @@ Release 0.3.4 - 2020-03-23
   - Fix: "status" metadata information were not copied to the StructureMap by $convert if the mapping file included a comment between the first group and the metadata information
 
 Release 0.3.3 - 2020-03-10
--------------------
+--------------------------
 
   - Built against Vonk 3.3.0
   - Upgraded .NET API to version 1.6
   - Added support for reading HL7 (C)-CDA XML files natively. See :ref:`fhirmapper_supportedformats`.
   
 Release 0.3.2 - 2020-03-03
--------------------
+--------------------------
  
   - Internal release.
 
 Release 0.3.1 - 2020-02-11
--------------------
+--------------------------
  
   - Internal release.
 
 Release 0.3.0 - 2020-02-11
--------------------
+--------------------------
  
  - Built against Vonk 3.2.0
  - Fix: Error messages about empty groups now contain the corresponding group id
@@ -61,7 +70,7 @@ Release 0.3.0 - 2020-02-11
  - Feature: $convert now uses the name of the StructureMap as its id
 
 Release 0.2.0 - 2019-11-18
--------------------
+--------------------------
 
   - Built against Vonk 3.0.0
   - Compatible with Vonk 3.0.0, 3.1.0
@@ -69,7 +78,7 @@ Release 0.2.0 - 2019-11-18
   - Initial public release
 
 Release 0.1.0 - 2019-11-18
--------------------
+--------------------------
   
   - Built against Vonk 2.1.0
   - Initial internal release

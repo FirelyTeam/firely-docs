@@ -91,13 +91,13 @@ If the verification didn't work for some reason, check the Vonk logs for the fol
 
 1. In the ``Looking for Configuration in these assemblies`` section, ensure the dll's are loaded: ::
 
-  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Language.dll
-  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.dll
-  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.STU3.Poco.dll
-  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.R4.Poco.dll
-  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Superpower.dll
-  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Vonk.Plugin.Mapping.dll
-  - <path to vonk>/plugins/vonk.plugin.binarywrapper/<version>/Vonk.Plugin.BinaryWrapper.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Language.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.STU3.Poco.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.R4.Poco.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Superpower.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Vonk.Plugin.Mapping.dll
+   - <path to vonk>/plugins/vonk.plugin.binarywrapper/<version>/Vonk.Plugin.BinaryWrapper.dll
 
 If they're not listed, check that the dll files are available in your ``PluginDirectory`` directory (``./plugins`` by default). 
     

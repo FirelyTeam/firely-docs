@@ -14,7 +14,7 @@ Prior to running the data mapping `$transform <https://www.hl7.org/fhir/structur
 
    1.1. If you're converting from FHIR resources, then this is already available in Vonk. Otherwise:
 
-   1.2. Create a logical model in Forge, see: :ref:`forge_logical_models`.
+   1.2. Create a logical model in Forge, see: `Logical Models <https://simplifier.net/docs/Forge/LogicalModels>`_.
 
 2. Your `mapping file <https://www.hl7.org/fhir/mapping-tutorial.html>`_ as a `StructureMap <https://www.hl7.org/fhir/StructureMap.html>`_ resource.
 

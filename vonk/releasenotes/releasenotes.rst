@@ -17,6 +17,27 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_361:
+
+Release 3.6.1
+-------------
+
+Features
+^^^^^^^^
+
+#. ConceptMap resources can be stored at the Administration endpoint, both through :ref:`import <conformance_import>` and through the :ref:`RESTful API <conformance_on_demand>`.
+
+.. attention::
+
+   Previous versions of Vonk did not include the ConceptMap resources in the import so they will currently not be in your Administration database. If you run your Administration database on SQL Server or MongoDb and want to use the ConceptMap resources from the spec, be sure to rerun the import of the specification resources. You can force Vonk to do so by deleting the ``.vonk-import-history.json`` file from the ImportedDirectory (see the settings under ``AdministrationImportOptions``). If you use SQLite, you can simply use the pre-built ``./data/admin.db`` from the binaries.
+
+Plugins
+^^^^^^^
+
+#. The FHIR Mapper plugin is upgraded to :ref:`version 0.3.6 <mapping_releasenotes_036>`.
+#. The FHIR Mapper plugin now fully works on the *Administration* endpoint.
+
+
 .. _vonk_releasenotes_360:
 
 Release 3.6.0

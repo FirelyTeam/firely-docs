@@ -9,6 +9,7 @@ Vonk uses `Conformance Resources <http://www.hl7.org/implement/standards/fhir/co
 * StructureDefinition: For :ref:`snapshot generation<feature_snapshot>`, and of course -- along with ValueSet and CodeSystem -- for :ref:`validation <feature_validation>`.
 * CompartmentDefinition: For :ref:`access control <feature_accesscontrol>` and Compartment :ref:`restful_search`.
 * ValueSet and CodeSystem: For :ref:`feature_terminology` operations.
+* StructureMap and ConceptMap: for mapping
 
 You can control the behaviour of Vonk for these interactions by loading resources of these types into Vonk. There are two ways of doing this:
 
