@@ -19,5 +19,9 @@ The FHIR Mapper operates on a StructureMap resource, so let's convert the mappin
 2. ``POST http(s)://<vonk-endpoint>/administration/StructureMap`` with the resulting ``StructureMap``, or ``PUT`` to a unique ID. Make sure you don't make duplicates of the StructureMap on the server - so always use ``PUT`` to update the existing one afterwards. Note down logical ID of your map.
 
   2.1. In our example, add ``"id": "tutorial",`` to the StructureMap received in step 1 and upload it to ``http://localhost:4080/administration/StructureMap/tutorial``. Thus ``tutorial`` is the logical ID we're working with.
+  
+.. note::
+
+  The $convert operation supports a persist option. By adding ?persist=true to the $convert URL, the FHIR Mapper will automatically   store the StructureMap. StructureDefinition.id and hence the location of the StructureMap will be automatically chosen based on   StructureMap.name. 
 
 With the structure map and the logical model uploaded to Vonk, you are now ready to run your transformations (:ref:`running_transforms`).
