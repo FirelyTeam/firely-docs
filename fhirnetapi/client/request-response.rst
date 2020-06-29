@@ -35,15 +35,20 @@ Adding extra headers
 It could be necessary to add extra headers to the requests your FhirClient
 sends out, for example when you want to send an authorization token with your
 request. Or perhaps you need other code to be executed each time the FhirClient
-sends a request. You can use the ``OnBeforeRequest`` event in these cases:
+sends a request. You can use the ``OnBeforeRequest`` event in these cases, this can be done by adding a ``HttpClientEventHandler`` as parameter to the FhirClient:
 
 .. code:: csharp
 
-	client.OnBeforeRequest += (object sender, BeforeRequestEventArgs e) =>
+ 	using (var handler = new HttpClientEventHandler())
 	{
-		// Replace with a valid bearer token for the server
-		e.RawRequest.Headers.Add("Authorization", "Bearer XXXXXXX");
-	};
+		using (FhirClient client = new FhirClient(testEndpoint, messageHandler: handler))
+        	{
+	  		handler.OnBeforeRequest += (sender, e) =>
+			{                    
+				e.RawRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "Your Oauth token");
+			};
+		}
+	}
 	
 Extra code after response
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,7 +57,13 @@ be executed every time a response is received by the FhirClient:
 
 .. code:: csharp
 
-	client.OnAfterResponse += (object sender, AfterResponseEventArgs e) =>
+	using (var handler = new HttpClientEventHandler())
 	{
-		Console.WriteLine("Received response with status: " + e.RawResponse.StatusCode);
-	};
+		using (FhirClient client = new FhirClient(testEndpoint, messageHandler: handler))
+       		{
+			handler.OnAfterResponse += (sender, e) =>
+			{                    
+				Console.WriteLine("Received response with status: " + e.RawResponse.StatusCode);
+			};
+		}
+	}
