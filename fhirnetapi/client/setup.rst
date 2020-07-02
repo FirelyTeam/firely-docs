@@ -72,7 +72,7 @@ change that request, you can set the ``PreferredReturn`` attribute:
 
 .. code:: csharp
 
-	client.Settings.PrefferedReturn = Prefer.minimal;
+	client.Settings.PrefferedReturn = Prefer.ReturnMinimal;
 	
 This sets the ``Prefer`` HTTP header in the request to ``minimal``, asking the
 server to return no body in the response.
