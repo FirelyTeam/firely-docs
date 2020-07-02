@@ -29,12 +29,28 @@ servers <http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for
 
 FhirClient communication options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To specify some specific settings, you add a ``FhirClientSettings`` to the constructor:
+
+.. code:: csharp
+
+	 var settings = new FhirClientSettings
+            {
+                Timeout = 0,
+                PreferredFormat = ResourceFormat.Json,
+                VerifyFhirVersion = true,
+                PreferredReturn = Prefer.ReturnMinimal
+            };
+            
+    	var client = new FhirClient("http://vonk.fire.ly", settings)
+
+You can also toggle these settings after the clint has been initialized.
+
 To specify the preferred format --JSON or XML-- of the content to be used when communicating
 with the FHIR server, you can use the ``PreferredFormat`` attribute:
 
 .. code:: csharp
 
-	client.PreferredFormat = ResourceFormat.Json;
+	client.Settings.PreferredFormat = ResourceFormat.Json;
 
 The FHIR client will send all requests in the specified format. Servers
 are asked to return responses in the same format, but may choose
@@ -46,17 +62,17 @@ latter by default, but if you want, you can use the ``_format`` parameter instea
 
 .. code:: csharp
 
-	client.UseFormatParam = true;
+	client.Settings.UseFormatParam = true;
 
 If you perform a ``Create``, ``Update`` or ``Transaction`` interaction, you can request the server
 to either send back the complete representation of the interaction, or a minimal data set, as
 described in the `Managing Return Content <http://www.hl7.org/fhir/http.html#2.21.0.5.2>`_ section
 of the specification. The default setting is to ask for the complete representation. If you want to
-change that request, you can set the ``ReturnFullResource`` attribute:
+change that request, you can set the ``PreferredReturn`` attribute:
 
 .. code:: csharp
 
-	client.ReturnFullResource = false;
+	client.Settings.PrefferedReturn = Prefer.minimal;
 	
 This sets the ``Prefer`` HTTP header in the request to ``minimal``, asking the
 server to return no body in the response.

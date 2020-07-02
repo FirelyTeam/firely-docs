@@ -30,8 +30,8 @@ implementation, this could differ from what you've sent. For instance, the serve
 could have filled in fields with default values, if the values for those fields were
 not set in your request.
 
-If you've set the ``ReturnFullResource`` property of the :ref:`FhirClient <minimal>`
-to ``false``, the server will return the technical id and version number of the newly
+If you've set the ``PrefferedReturn`` property of the :ref:`FhirClient <minimal>`
+to ``minimal``, the server will return the technical id and version number of the newly
 created resource in the headers of the response and the ``Create`` method will return
 ``null``. See :ref:`request-response` for an example of how to retrieve the information
 from the returned headers.
