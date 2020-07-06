@@ -136,3 +136,5 @@ If you'd like to set Vonk environment variables via an Azure pipelines task, you
 
       %systemroot%\system32\inetsrv\APPCMD set config -section:system.applicationHost/applicationPools /-"[name='fhir'].environmentVariables.[name='VONK_TEST']" /commit:apphost
       %systemroot%\system32\inetsrv\APPCMD set config -section:system.applicationHost/applicationPools /+"[name='fhir'].environmentVariables.[name='VONK_TEST',value='some_value_here']" /commit:apphost
+      
+See also :ref:`configure_envvar`.
