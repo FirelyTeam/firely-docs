@@ -17,6 +17,37 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_370:
+
+Release 3.7.0
+-------------
+
+Database
+^^^^^^^^
+
+.. attention::
+
+   To accomodate for feature #2 below there is an automatic migration carried out for SQL Server and SQLite. This migration might run a little while, so please test it first. For MongoDb, you will have to :ref:`feature_customsp_reindex_all`. If this is not feasible for your database, please :ref:`vonk-contact` for assistance.
+
+Features
+^^^^^^^^
+
+#. Patch: We implemented FHIR Patch. You can now update a resource having only partial data for it. See :ref:`restful_crud`.
+#. Search on accents and combined characters: we improved searching with and on accents and combined characters. Note the database change above.
+#. API 1.7: We upgraded Vonk to use the FHIR .NET API 1.7, having its own `releasenotes <https://github.com/FirelyTeam/fhir-net-api/releases/tag/v1.7.0-beta-may2020-r5>`_.
+#. Security: The Docker image is now based on the Alpine image for .NET Core. This has far less security issues than the Ubuntu image that we used before. The base image is aspnet:3.1-alpine:3.11 (newest version 3.12 has an open bug related to SQLite).
+#. Security: We revisited the list of security vulnerabilities, see :ref:`vonk_securitynotes`.
+#. Administration: ConceptMaps are now :ref:`imported <conformance_import>` at startup.
+
+Fixes
+^^^^^
+
+#. Searching on _lastUpdated could be inaccurate when time zone differences are in play. We fixed that.
+#. Search arguments for a quantity search weren't allowed to be greater than 999.
+
+Plugins
+^^^^^^^
+
 .. _vonk_releasenotes_361:
 
 Release 3.6.1
