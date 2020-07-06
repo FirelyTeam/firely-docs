@@ -129,3 +129,12 @@ You should see something similar to the image below:
 .. |br| raw:: html
 
    <br />
+
+Extra
+------------
+If you'd like to set Vonk environment variables via an Azure pipelines task, you can do so by setting the application pool's environment variables. For example, to pass the variable ``TEST`` to Vonk that's housed in the ``fhir`` application pool, do the following: ::
+
+      %systemroot%\system32\inetsrv\APPCMD set config -section:system.applicationHost/applicationPools /-"[name='fhir'].environmentVariables.[name='VONK_TEST']" /commit:apphost
+      %systemroot%\system32\inetsrv\APPCMD set config -section:system.applicationHost/applicationPools /+"[name='fhir'].environmentVariables.[name='VONK_TEST',value='some_value_here']" /commit:apphost
+      
+See also :ref:`configure_envvar`.
