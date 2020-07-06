@@ -27,7 +27,7 @@ Database
 
 .. attention::
 
-   To accomodate for feature #2 below there is an automatic migration carried out for SQL Server and SQLite. This migration might run a little while, so please test it first. For MongoDb, you will have to :ref:`feature_customsp_reindex_all`. If this is not feasible for your database, please :ref:`vonk-contact` for assistance.
+   To accomodate for feature #2 below there is an automatic migration carried out for SQL Server and SQLite. This migration might take some time, so please test it first. For MongoDb, you will have to :ref:`feature_customsp_reindex_all`. If this is not feasible for your database, please :ref:`vonk-contact` for assistance.
 
 Features
 ^^^^^^^^

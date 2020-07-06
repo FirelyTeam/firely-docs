@@ -16,7 +16,7 @@ See :ref:`feature_multiversion` for more information.
 Create, read, update, patch, delete
 -----------------------------------
 
-These five operations to manage the contents of the Vonk FHIR Server, commonly referenced by the acronym CRUD, are implemented as per the specification. Patch is implemented as FHIR Patch, as this is the most versatile one.
+These five operations to manage the contents of the Vonk FHIR Server, commonly referenced by the acronym CRUD, are implemented as per the specification. Patch is implemented as `FHIR Patch <http://hl7.org/fhir/fhirpatch.html>`_, as this is the most versatile one.
 This includes version-read and the conditional variations. 
 Only a few limitations apply.
 
