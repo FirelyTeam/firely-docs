@@ -45,9 +45,6 @@ Fixes
 #. Searching on _lastUpdated could be inaccurate when time zone differences are in play. We fixed that.
 #. Search arguments for a quantity search weren't allowed to be greater than 999.
 
-Plugins
-^^^^^^^
-
 .. _vonk_releasenotes_361:
 
 Release 3.6.1

@@ -11,8 +11,8 @@ Microsoft has published several newer Security Advisories regaring ASP.NET Core:
   * Microsoft.ApplicationInsights.AspNetcore 2.12 was vulnerable to `CVE-2005-2224 <http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2005-2224>`_. We upgraded it to 2.14.
   * Microsoft Security Advisory CVE-2020-0602 : ASP.NET Core Denial of Service Vulnerability, `#402 <https://github.com/aspnet/Announcements/issues/402>`_ and
   * Microsoft Security Advisory CVE-2020-0603 : ASP.NET Core Remote Code Execution Vulnerability, `#403 <https://github.com/aspnet/Announcements/issues/403>`_.
-   These affect applications running SignalR. Vonk does not use SignalR. Nevertheless we recommend to follow Microsoft's advice:
-   For machines running .NET Core 3.1, you should download and install Runtime 3.1.1 or SDK 3.1.101 from https://dotnet.microsoft.com/download/dotnet-core/3.1
+    These affect applications running SignalR. Vonk does not use SignalR. Nevertheless we recommend to follow Microsoft's advice:
+    For machines running .NET Core 3.1, you should download and install Runtime 3.1.1 or SDK 3.1.101 from https://dotnet.microsoft.com/download/dotnet-core/3.1
   * Microsoft Security Advisory | MessagePack Denial of Service, `#405 <https://github.com/aspnet/Announcements/issues/405>`_.
     This only affect applications using MessagePack, which Vonk does not use.
 

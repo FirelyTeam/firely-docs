@@ -5,13 +5,13 @@ FHIR RESTful API
 
 Vonk supports most of the features in the `FHIR RESTful API <http://www.hl7.org/implement/standards/fhir/http.html>`_.
 
-.. _restful_crud:
-
 FHIR Versions
 -------------
 
 All the operations below can be called for FHIR STU3 or FHIR R4. Vonk supports the fhirVersion mimetype parameter and fhir version endpoint mappings for that purpose. 
 See :ref:`feature_multiversion` for more information.
+
+.. _restful_crud:
 
 Create, read, update, patch, delete
 -----------------------------------
