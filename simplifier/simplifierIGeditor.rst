@@ -160,7 +160,7 @@ The following statements add an index within the IG.
 
 IG Storage
 ----------
-Since release 16.5 IG's are stored as separate mark down files in your project. This means that you can access them as separate resources, add issues to them and check version history. In addition, your IG’s will be available in your GitHub repository and can be downloaded in a ZIP file together with the other files of your project.
+Since release 16.5 IG's are stored as separate mark down files in your project. This means that you can access them as separate resources, add issues to them and check version history. In addition, your IG’s will be downloaded in a ZIP file together with the other files of your project.
 
 To illustrate how this works, see the screen picture of an example IG containing two chapters called ‘First part’ and  ‘Second part’. The First part also contains a child called ‘Child of first part’. The different parts of the IG are now accessible from the Resources tab in your project as well as from the search engine. To search for IG parts, just check the Texts box.
 
