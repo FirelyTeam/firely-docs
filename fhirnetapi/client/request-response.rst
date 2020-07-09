@@ -49,7 +49,33 @@ sends a request. You can use the ``OnBeforeRequest`` event in these cases, this 
 			};
 		}
 	}
-	
+
+Next using the predefined ``HttpClientEventHandler``, you can also implement your own message handler, for example:
+
+.. code:: csharp
+
+	public class AuthorizationMessageHandler : HttpClientHandler
+   	{
+        	public System.Net.Http.Headers.AuthenticationHeaderValue Authorization { get; set; }        	
+		protected async override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        	{
+            		if (Authorization != null)
+                		request.Headers.Authorization = Authorization;
+            		return await base.SendAsync(request, cancellationToken);
+        	}
+    	}
+
+and add that to the ``FhirClient``:
+
+.. code:: csharp
+
+	 var handler = new AuthorizationMessageHandler();
+	 var bearerToken = "AbCdEf123456" //example-token;
+	 handler.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
+	 var client = new FhirClient(handler);
+	 client.Read<Patient>("example");
+
+
 Extra code after response
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 The ``OnAfterResponse`` event can be used to add extra code that needs to
