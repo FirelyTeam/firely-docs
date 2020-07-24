@@ -30,7 +30,7 @@ Publish packages
 Visit the ``Packages`` tab of your project and click on ``Create`` > ``Create new package`` to create a new package. Provide a name, version number, description and release notes for your package. Note that the name of your package should include at least one dot. Indicate if your package is a prelease package or not and click ``Create`` to publish your package. 
 To create a new version of an existing package, click on ``Create`` and select ``Create new version for..`` followed by the name of your package. Add the required information and click ``Create`` to publish the new version of your package.
 
-.. image:: ./images/PackageCreation2.PNG
+.. image:: ./images/PackageCreation.png
   :align: center
   
 Dependencies
