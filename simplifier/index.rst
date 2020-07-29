@@ -24,3 +24,4 @@ Contents:
    simplifierVonk
    FHIRRegistry
    simplifierContact
+   Knownissues
