@@ -39,7 +39,7 @@ Instructions
    .. image:: ../images/ac_identityprovider_startup.png
 
 #. Also try https://localhost:5101 for the https connection. Your browser will ask you to make a security exception for the self-signed certificate. 
-#. Get the openid connect configuration at http://localhost:5000/.well-known/openid-configuration.
+#. Get the openid connect configuration at http://localhost:5100/.well-known/openid-configuration.
    You can see all the available scopes in this document.
 
 Configuration
