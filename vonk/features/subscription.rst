@@ -7,7 +7,7 @@ Subscriptions can be managed in the :ref:`administration_api`, on the ``/adminis
 to the regular FHIR endpoint, it will be stored but not evaluated. Subscriptions posted to the
 ``/administration`` endpoint will be processed and evaluated for each POST/PUT to the server.
 
-Vonk currently only supports Subscriptions with a Channel of type rest-hook.
+Vonk currently only supports STU3/R4-style Subscriptions with a Channel of type rest-hook.
 
 If you are :ref:`not permitted <configure_administration_access>` to access the /Subscription endpoint, Vonk will return statuscode 403.
 
