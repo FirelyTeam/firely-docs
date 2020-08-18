@@ -1,8 +1,7 @@
 Known issues
 ============
 
-If your issue is not listed below, please contact us at forge@fire.ly,
-simplifier@fire.ly or (for customers) `our premium support desk`_.
+If your issue is not listed below, please contact us at forge@fire.ly or (for customers) `our premium support desk`_.
 
 *Updated for 24.2 for STU3, R4, R5*
 
