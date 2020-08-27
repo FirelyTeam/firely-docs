@@ -3,16 +3,11 @@ Known issues
 
 If your issue is not listed below, please contact us at forge@fire.ly or (for customers) `our premium support desk`_.
 
-*Updated for 24.2 for STU3, R4, R5*
+*Updated for 25.1 for STU3, R4, R5*
 
 +-----------------------+-----------------------+--------------------------------------------------------------------------+
 | Status                | Category              | Description                                                              |
 +=======================+=======================+==========================================================================+
-| Open                  | Validation            | | When adding a new slice or extension, Forge is taking over values      |
-|                       |                       | | from/validating against properties of another slice.                   |
-|                       |                       | | For now: Please just ignore the warning ``Cannot further constrain``   |
-|                       |                       | | ``a fixed value that is defined in a base profile.`` in that case.     |
-+-----------------------+-----------------------+--------------------------------------------------------------------------+
 | Parked                | Navigation            | | When adding an extension, refresh might be necessary for showing and   |
 |                       |                       | | editing all options on extension.                                      |
 +-----------------------+-----------------------+--------------------------------------------------------------------------+
@@ -22,7 +17,6 @@ If your issue is not listed below, please contact us at forge@fire.ly or (for cu
 +-----------------------+-----------------------+--------------------------------------------------------------------------+
 
 ..
-    https://firely.atlassian.net/browse/FOR-373
     https://firely.atlassian.net/browse/FOR-420
     https://firely.atlassian.net/browse/FOR-395
 
