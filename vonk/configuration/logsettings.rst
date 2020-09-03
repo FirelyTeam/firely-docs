@@ -8,6 +8,8 @@ Vonk comes with default settings in ``logsettings.default.json``. You can adjust
 
 Alternatively you can control :ref:`configure_envvar_log`.
 
+Vonk by default does nog log any Patient Health Information data, regardless of the level of the log. The only PHI part that can be included in the log is the User Name, when running with Smart authorization (so the user is identified) and including this part in the outputTemplate (see below). 
+
 .. _configure_log_level:
 
 Changing the log event level
@@ -18,7 +20,7 @@ level or higher will be logged. By default, Vonk uses ``Error`` as the minimum l
 
 To change the level of logging, follow these steps:
 
-*	Find this settings::
+*	Find this setting::
 
 		"MinimumLevel": {
 			"Default": "Error",
@@ -42,7 +44,7 @@ Some additional namespaces you might want to log are:
 - ``Vonk.Configuration`` to log configuration information on startup
 - ``Vonk.Core.Licensing`` to show license information in your logs
 - ``Vonk.Repository.EntityFrameworkCore``, ``Vonk.Repository.DocumentDb`` or ``Vonk.Repository.Memory`` to log repository events
-- ``Vonk.Core.Repository.EntryIndexerContext``, set it to ``"Error"`` if you have excessive warnings about indexing (mostly when importing Synthea data)
+- ``Vonk.Core.Repository.EntryIndexerContext``, set it to ``"Error"`` if you have excessive warnings about indexing (mostly when importing `Synthea <https://synthea.mitre.org/downloads>` data)
 - ``Microsoft`` to log events from the Microsoft libraries
 - ``Microsoft.AspNetCore.Diagnostics`` to report request handling times
 - ``System`` to log events from the System libraries
@@ -101,7 +103,7 @@ The Console sink will write to your shell.
 				//Settings for other sinks
 			}
 
-The Console is notoriously slow at processing log statements, so it is recommended to limit the number of statements for this sink. Use the ``restrictedToMinimumLevel`` to do so.
+The Console is notoriously slow at processing log statements, so it is recommended to limit the number of statements for this sink. Use the ``restrictedToMinimumLevel`` to do so. Also, if you are on Windows, the Powershell command window appears to be faster than the traditional Command Line window.
 
 Settings for the Console sink:
 
