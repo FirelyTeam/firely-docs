@@ -6,6 +6,10 @@ How to upgrade Vonk?
 The process for upgrading Vonk depends on whether you have a vanilla Vonk FHIR Server, you added your own plugins or are running a Facade.
 This page describes the general process for each situation. Please refer to the :ref:`vonk_releasenotes` for details per each released version of Vonk.
 
+.. attention:
+
+   In all cases, pay attention to the import of new conformance resources - especially if you have multiple instances of Vonk running. See :ref:`vonk_conformance_instances` for details.
+
 .. _upgrade_server: 
 
 Upgrading Vonk FHIR Server
