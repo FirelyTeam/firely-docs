@@ -8,6 +8,9 @@ Using MongoDB
 =============
 We assume you already have MongoDB installed. If not, please refer to the `MongoDB download <https://www.mongodb.com/download-center>`_ pages.
 
+Vonk can work with MongoDb 4.0 and higher. Since Vonk version 3.7.0 Vonk uses the MongoDb Aggregation Framework heavily, and you are advised to upgrade to MongoDb 4.4 (or newer). 
+In this version issue `SERVER-7568 <https://jira.mongodb.org/browse/SERVER-7568>` is solved, so the most selective index is used more often. 
+
 * Navigate to your Vonk working directory
 
 * Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
@@ -49,6 +52,7 @@ We assume you already have MongoDB installed. If not, please refer to the `Mongo
 
 Using MongoDB for the Administration API database
 -------------------------------------------------
+
 Although we encourage you to use :ref:`SQLite for Vonk Administration <sqlite_admin_reasons>`, you can still use MongoDB for Vonk Administration as well.
 
 This works the same as with the normal Vonk database, except that you:
@@ -79,4 +83,17 @@ This works the same as with the normal Vonk database, except that you:
                 }
             ]
         }
-   
+
+.. attention::
+
+    For MongoDb it is essential to retain the ``.vonk-import-history.json`` file. Please read :ref:`vonk_conformance_history` for details.
+
+Tips and hints for using MongoDb for Vonk
+-----------------------------------------
+
+#. If searches and/or creates and updates are excessively slow, you may be limited by the IOPS on your MongoDb deployment (e.g. MongoDb Atlas). Try upgrading it and check the timings again.
+#. If for any reason you would like to see how Vonk is interacting with MongoDb, make the following adjustments to the :ref:`configure_log`:
+
+    #. In the section ``Serilog.MinimumLevel.Override`` add ``"Vonk.Repository.DocumentDb": "Verbose"``. Add it before any broader namespaces like ``Vonk``.
+    #. In the section on the File sink, change the ``restrictedToMinimumLevel`` to ``Verbose``.
+

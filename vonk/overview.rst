@@ -14,7 +14,7 @@ Vonk is not just a FHIR Server, it is a processing pipeline for handling standar
 Vonk comes in several editions:
 
 * Sandbox: try it right now on https://vonk.fire.ly
-* Evaluation: get an evaluation license from `Simplifier.net <https://simplifier.net/vonk>`_, allowing you to explore all functionality for free during a month (renewable)
+* Evaluation: get an evaluation license from `Simplifier.net <https://simplifier.net/vonk>`_, allowing you to explore all functionality for free during a week (renewable)
 * Community: use Vonk for free, but only on SQLite
 * Commercial use with professional support in different scales: Startup, Growth, Scale and Enterprise 
 

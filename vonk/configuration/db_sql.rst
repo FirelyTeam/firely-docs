@@ -107,6 +107,10 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
 
 *   Start Vonk. It will display in its log that it applied pending migrations. After that the database is created and set up with the correct schema.
 
+.. attention::
+
+    For SQL Server it is essential to retain the ``.vonk-import-history.json`` file. Please read :ref:`vonk_conformance_history` for details.
+
 Create a database and users by script, and have Vonk create the schema
 ----------------------------------------------------------------------
 
@@ -199,3 +203,4 @@ This paragraph lists the permissions needed to perform specific actions on the S
     *   **db_ddladmin** |br|
         only on the normal Vonk database for the user in the SqlDbOptions connectionstring. |br|
         (no extra permissions are required for the user on the Administration database).
+
