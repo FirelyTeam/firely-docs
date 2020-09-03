@@ -17,6 +17,30 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_380:
+
+Release 3.8.0
+-------------
+
+Database
+^^^^^^^^
+
+* We added an important note to the :ref:`3.6.0 release notes <vonk_releasenotes_360>` for MongoDb users.
+* Because of the changes in searching for Quantities (feature 2 below), you will need to do a :ref:`reindex <feature_customsp_reindex>` in order to make use of this. You may limit the reindex to only the searchparameters of type 'quantity' that you actually use.
+
+Features
+^^^^^^^^
+
+#. We upgraded the FHIR .NET API to 1.9, which has its own `releasenotes <https://github.com/FirelyTeam/fhir-net-api/releases>`_. This will trigger an automatic :ref:`import of the Conformance Resources <conformance_specification_zip>` at startup.
+#. We upgraded the `Fhir.Metrics library <https://github.com/FirelyTeam/fhir.metrics>`_ to 1.2. This allows for a more uniform search on Quantities (mainly under the hood)
+#. The :ref:`built-in terminology services <feature_terminology>` now support the ``includeDesignations`` parameter. 
+#. The :ref:`vonk_reference_api_ivonkcontext` now lets you access the original HttpContext.
+
+Fixes
+^^^^^
+
+#. If the server configured as authorization endpoint in the Smart setting is not reachable, Vonk wil log a proper error about that.
+
 .. _vonk_releasenotes_370:
 
 Release 3.7.0
@@ -70,6 +94,13 @@ Plugins
 
 Release 3.6.0
 -------------
+
+Database
+^^^^^^^^
+
+.. attention::
+
+   For MongoDb users: We implemented feature #1 below using the Aggregation Pipeline. This makes an existing issue in MongoDb - `SERVER-7568 <https://jira.mongodb.org/browse/SERVER-7568>` - a more urgent problem. MongoDb has solved this problem in version 4.4. Therefore we advise you to upgrade to MongoDb 4.4.
 
 Feature
 ^^^^^^^

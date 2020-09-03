@@ -27,31 +27,38 @@ Have ``IVonkContext`` injected in the method where you need it. Use a `configura
       }
    }
 
-If you also need access to the raw ``HttpContext``, you can create a normal ASP.NET Core Middleware class and access the IVonkContext with the extension method ``Vonk()`` on ``HttpRequest``. A more complete template is found at :ref:`vonk_plugins_directhttp`.
+If you also need access to the raw ``HttpContext``, you have two options:
 
-.. code-block:: csharp
+#. The ``IVonkContext.HttpContext()`` extension method gives you the original HttpContext. Be aware though:
 
-   public class SomeMiddleware
-   {
-      public SomeMiddleware(RequestDelegate next)
+   * Situations may arise where there is no HttpContext, so be prepared for that.
+   * When handling batches or transactions, an IVonkContext is created for each entry in the bundle. But they all refer to the same original HttpContext.
+   
+#. Create a normal ASP.NET Core Middleware class and access the IVonkContext with the extension method ``Vonk()`` on ``HttpRequest``. A more complete template is found at :ref:`vonk_plugins_directhttp`.
+
+   .. code-block:: csharp
+
+      public class SomeMiddleware
       {
-         //...
+         public SomeMiddleware(RequestDelegate next)
+         {
+            //...
+         }
+
+         public async Task Invoke(HttpContext httpContext)
+         {
+            var vonkContext = httpContext.Vonk();
+            //...
+         }
       }
 
-      public async Task Invoke(HttpContext httpContext)
+      public static class SomeMiddlewareConfiguration
       {
-         var vonkContext = httpContext.Vonk();
-         //...
+         public static IApplicationBuilder UseSomeMiddleware(this IApplicationBuilder app)
+         {
+            return app.UseMiddleware<SomeMiddleware>(); //Just plain ASP.NET Core, nothing Vonk specific here.
+         }
       }
-   }
-
-   public static class SomeMiddlewareConfiguration
-   {
-      public static IApplicationBuilder UseSomeMiddleware(this IApplicationBuilder app)
-      {
-         return app.UseMiddleware<SomeMiddleware>(); //Just plain ASP.NET Core, nothing Vonk specific here.
-      }
-   }
 
 IVonkContext has three major parts, that are explained below. The ``InformationModel`` tells you the FHIR version for which the request was made.
 
