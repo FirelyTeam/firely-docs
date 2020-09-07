@@ -44,7 +44,7 @@ Features
 Fixes
 ^^^^^
 
-#. If the server configured as authorization endpoint in the Smart setting is not reachable, Vonk wil log a proper error about that.
+#. If the server configured as authorization endpoint in the Smart setting is not reachable, Vonk will log a proper error about that.
 #. An error message for when a query argument has no value is improved.
 #. When :ref:`SMART-on-FHIR <feature_accesscontrol>` is enabled, and the received token contains a launch context, the :ref:`_history<restful_history>` operation is no longer available. Because Vonk does not retain the search parameter index for historical resources, it cannot guarantee that these resources fall within the launch context (at least not in a performant way). To avoid information leakage we decided to disable this case altogether.
 #. A Create interaction without an id in the resource, with :ref:`SMART-on-FHIR <feature_accesscontrol>` enabled, resulted in an exception.
