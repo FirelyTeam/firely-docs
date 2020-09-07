@@ -26,20 +26,30 @@ Database
 ^^^^^^^^
 
 * We added an important note to the :ref:`3.6.0 release notes <vonk_releasenotes_360>` for MongoDb users.
-* Because of the changes in searching for Quantities (feature 2 below), you will need to do a :ref:`reindex <feature_customsp_reindex>` in order to make use of this. You may limit the reindex to only the searchparameters of type 'quantity' that you actually use.
+* Because of the changes in searching for Quantities (feature 2 below), you will need to do a :ref:`reindex <feature_customsp_reindex>` in order to make use of this. You may limit the reindex to only the searchparameters of type 'quantity' that you actually use (e.g. ``Observation.value-quantity``).
 
 Features
 ^^^^^^^^
 
-#. We upgraded the FHIR .NET API to 1.9, which has its own `releasenotes <https://github.com/FirelyTeam/fhir-net-api/releases>`_. This will trigger an automatic :ref:`import of the Conformance Resources <conformance_specification_zip>` at startup.
+#. We upgraded the FHIR .NET API to 1.9, see the `1.9 releasenotes <https://github.com/FirelyTeam/fhir-net-api/releases>`_. This will trigger an automatic :ref:`import of the Conformance Resources <conformance_specification_zip>` at startup.
 #. We upgraded the `Fhir.Metrics library <https://github.com/FirelyTeam/fhir.metrics>`_ to 1.2. This allows for a more uniform search on Quantities (mainly under the hood)
+#. We upgraded the FHIR Mapping plugin to support the FHIR Mapper version 0.5. See its :ref:`FHIR Mapper releasenotes <mapping_releasenotes_050>`.
 #. The :ref:`built-in terminology services <feature_terminology>` now support the ``includeDesignations`` parameter. 
 #. The :ref:`vonk_reference_api_ivonkcontext` now lets you access the original HttpContext.
+#. The CapabilityStatement now lists the profiles that are known to Vonk (in its Administration database) under ``CapabilityStatement.rest.resource.supportedProfile`` (>= R4 only) and the base profile for a resource under ``CapabilityStatement.rest.resource.profile``.
+#. We extended the security extension on the CapabilityStatement to include the endpoints for ``register``, ``manage``, ``introspect`` and ``revoke``.
+#. ``IAdministrationSearchRepository`` and ``IAdministrationChangeRepository`` interfaces are no publicly available. Use with care.
+
 
 Fixes
 ^^^^^
 
 #. If the server configured as authorization endpoint in the Smart setting is not reachable, Vonk wil log a proper error about that.
+#. An error message for when a query argument has no value is improved.
+#. When :ref:`SMART-on-FHIR <feature_accesscontrol>` is enabled, and the received token contains a launch context, the :ref:`_history<restful_history>` operation is no longer available. Because Vonk does not retain the search parameter index for historical resources, it cannot guarantee that these resources fall within the launch context (at least not in a performant way). To avoid information leakage we decided to disable this case altogether.
+#. A Create interaction without an id in the resource, with :ref:`SMART-on-FHIR <feature_accesscontrol>` enabled, resulted in an exception.
+#. You can now escape the questionmark '?' in a query argument by prepending it with a backslash '\'.
+#. A Quantity search using 'lt' on MongoDb resulted in too many results. 
 
 .. _vonk_releasenotes_370:
 

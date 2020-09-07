@@ -6,6 +6,11 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
+.. _mapping_releasenotes_050:
+
+Release 0.5.0 - 2020-09-04
+--------------------------
+
 .. _mapping_releasenotes_036:
 
 Release 0.4.0 - 2020-07-26
