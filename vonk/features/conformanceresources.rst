@@ -18,6 +18,8 @@ You can control the behaviour of Vonk for these interactions by loading resource
 
 No matter which method you use, all Conformance resources are persisted in the Administration API database (see :ref:`configure_administration` for configuring that database), and available through the Administration API endpoint (``<vonk-endpoint>/administration``)
 
+For each resourcetype the base profile is listed in the CapabilityStatement under ``CapabilityStatement.rest.resource.profile`` and (since FHIR R4) all the other profiles are listed under ``CapabilityStatement.rest.resource.supportedProfile``. So by requesting the :ref:`CapabilityStatement <restful_capabilities>` you can easily check whether your changes to the StructureDefinitions were correctly processed by Vonk.
+
 .. attention::
 
    Please be aware that Conformance Resources have to have a **unique canonical url** within the FHIR Version they are loaded, in their url element. Vonk does not allow you to POST two conformance resources with the same canonical url.

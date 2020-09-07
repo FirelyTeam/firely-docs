@@ -26,12 +26,6 @@ Q2
 Q3
 ^^
 
-* Revamp Administration API to ease the management of your Vonk Server
-
-   * Base it on FHIR packages
-   * Separate service
-   * Provide a UI
-
 * HIPAA/GDPR compliancy features
 * Extend support for Sorting
 * R4 search features
@@ -39,11 +33,18 @@ Q3
    * exponential numbers and quantities
    * identifier:oftype modifier
 
+* Async operations
+* Bulk data export
+
 Q4
 ^^
 
-* Async operations
-* Bulk data export
+* Revamp Administration API to ease the management of your Vonk Server
+
+   * Base it on FHIR packages
+   * Separate service
+   * Provide a UI
+
 * Experimental support for R5 Subscriptions
 
 Further ideas

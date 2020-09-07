@@ -38,7 +38,7 @@ ValueSet $expand
 :definition: http://www.hl7.org/implement/standards/fhir/valueset-operations.html#expand
 :notes:
    * Available on the type level ``<vonk-endpoint>/administration/ValueSet/$expand`` and the instance level ``<vonk-endpoint>/administration/ValueSet/<id>/$expand``.
-   * Only the parameters url, valueSet and valueSetVersion are supported.
+   * Only the parameters url, valueSet, valueSetVersion and includeDesignations are supported.
    * The url and valueSetVersion input parameters are only taken into consideration if no valueSet resource was provided in the body. So the valueSet in the body takes priority.
    * Both ``GET`` and ``POST`` interactions are available. 
 
