@@ -97,9 +97,19 @@ Additional parameters are supported:
 
     src.name as name, name.text as text -> tgt.name as name, name.text = truncate(text, 10);
 
-List modes
+Target List modes
 ------------------------
-FHIR Mapper supports the ``collate`` list mode: so if you have multiple rules that create elements within one backbone element, and you'd like all elements to go into one backbone element, you need to use collate - otherwise the engine will create multiple backbone elements with only one element each.
+FHIR Mapper supports the ``collate`` target list mode: so if you have multiple rules that create elements within one backbone element, and you'd like all elements to go into one backbone element, you need to use collate - otherwise the engine will create multiple backbone elements with only one element each. ::
+
+  src.identifierPart1 as value -> tgt.identifier = create('Identifier') as identifier, identifier.value = value;
+  src -> tgt.identifier as identifier collate, identifier.system = 'TestSystem';
+  
+Source Content
+------------------------
+  - type
+  - min..max
+  - default
+  - list-option
 
 FHIRPath Checks
 ------------------------
@@ -133,13 +143,6 @@ Unsupported features
   - pointer
   - qty
   - cp
-
-- The following items are not supported when selecting a source element:
-  
-  - type
-  - min..max
-  - default
-  - list-option
 
 - The following list modes on a target transform are not supported:
 
