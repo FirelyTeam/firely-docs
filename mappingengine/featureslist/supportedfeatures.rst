@@ -89,9 +89,13 @@ Additional parameters are supported:
 | time     |        |      |    |          |     |     |      |           |     |              |         |             |            |         |         |          | X    |
 +----------+--------+------+----+----------+-----+-----+------+-----------+-----+--------------+---------+-------------+------------+---------+---------+----------+------+
 
-8. ``translate(source, map_uri, output)`` - transform codes using a `ConceptMap <https://www.hl7.org/fhir/conceptmap.html>`_ by its canonical URL. The conceptmap must be available on the non-administrative ``/`` endpoint (temporary limitation). Note that only ``equal`` and ``equivalent`` equivalences are supported. ::
+8. ``translate(source, map_uri, output)`` - transform codes using a `ConceptMap <https://www.hl7.org/fhir/conceptmap.html>`_ by its canonical URL. The ConceptMap must be available on the ``/administration`` endpoint. Note that only ``equal`` and ``equivalent`` equivalences are supported. ::
 
     src.gender as gender -> patient.gender = translate(gender, 'http://vonk.fire.ly/fhir/ConceptMap/MyFakePatientGender', 'code');
+
+9. ``truncate(source, maxLength)`` - shorten the source input - which must be a string - to maxLength by cutting it off. ::
+
+    src.name as name, name.text as text -> tgt.name as name, name.text = truncate(text, 10);
 
 List modes
 ------------------------
@@ -123,7 +127,6 @@ Unsupported features
 
 - Transformation functions:
 
-  - truncate
   - escape
   - append
   - reference
