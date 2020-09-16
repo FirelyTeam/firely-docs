@@ -11,6 +11,12 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_.
 Release 0.5.0 - 2020-09-04
 --------------------------
 
+- Feature: Support for parsing Variant Call Format files. See :ref:`fhirmapper_supportedformats`.
+- Feature: External variables can now be used in a log FHIRPath statement using the %var syntax
+- Feature: "default" FHIRPath statements can now be specified in mapping rules, the default FHIRPath statement will be executed if the src element is empty
+- Feature: Upgrade to .NET FHIR API v1.9
+- Fix: An error is now thrown if a mapping attempts to call a mapping function without a contex (e.g. "src.ele -> create('<resourceType>') as var", note the missing target assignment)
+
 .. _mapping_releasenotes_036:
 
 Release 0.4.0 - 2020-07-26
