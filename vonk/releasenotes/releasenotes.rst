@@ -424,7 +424,7 @@ Plugin and Facade API
 #. VonkConstants has moved from Vonk.Core.Context to Vonk.Core.Common
 #. IResourceChangeRepository.Delete requires a new second parameter: ``string informationModel``. Information model constants can be found in Vonk.Core.Common.VonkConstants.Model
 #. Exclude Vonk.Fhir.R3 or Vonk.Fhir.R4 from the PipelineOptions if you don't support it in your Facade.
-#. Updated the minimal PipelineOptions for a Facade Plugin in the `example appsettings.json <https://github.com/FirelyTeam/Vonk.Facade.Starter/blob/upgrade/plugin-facade-vonk-3.0.0/Visi.Repository/appsettings.json>`_:
+#. Updated the minimal PipelineOptions for a Facade Plugin in the `example appsettings.json <https://github.com/FirelyTeam/Vonk.Facade.Starter/blob/master/Visi.Repository/appsettings.json>`_:
    
    * updated ``Vonk.Core.Operations.SearchConfiguration`` to ``Vonk.Core.Operations.Search``
    * removed ``Vonk.UI.Demo``
