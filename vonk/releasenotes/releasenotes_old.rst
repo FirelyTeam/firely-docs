@@ -216,7 +216,7 @@ Plugin and Facade API
    * Properties Count and Offset have been removed.
    * Instead, use _count and _skip arguments in the IArgumentCollection provided to the SearchRepository.Search method if you need to.
 
-#. We have created a template for a plugin on `GitHub <https://github.com/FirelyTeam/Vonk.Plugin.Template>`_. Fetch it for a quick start of your plugin.
+#. We have created a template for a plugin on `GitHub <https://github.com/FirelyTeam/Vonk.Plugin.ExampleOperation>`_. Fetch it for a quick start of your plugin.
 
 .. _vonk_releasenotes_110:
 
