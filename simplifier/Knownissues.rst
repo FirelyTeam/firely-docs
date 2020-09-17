@@ -24,8 +24,8 @@ simplifier@fire.ly or (for customers) `our premium support desk`_.
 |                       |                       | | resources that make use of that profile.               |
 |                       |                       | | The next technical release of that                     |
 |                       |                       | | package should have a fix for that, and the            |
-|                       |                       | | validation engine of  Simplifier will                  |
-|                       |                       | | circumvent this error from version 1.9.                |
+|                       |                       | | validation engine of Simplifier will                   |
+|                       |                       | | suppress this error in an upcoming version.            |
 +-----------------------+-----------------------+----------------------------------------------------------+
 | Workaround in place   | Validation            | | Validation against FHIR version 3.0.2                  |
 |                       |                       | | gives ``eld-16`` `warning 2009`_ and `error 1012`_.    |
@@ -37,17 +37,10 @@ simplifier@fire.ly or (for customers) `our premium support desk`_.
 |                       |                       | | 3.0.3. Simplifier will silence these                   |
 |                       |                       | | errors and warnings for you.                           |
 +-----------------------+-----------------------+----------------------------------------------------------+
-| Open                  | Validation            | | When having multiple discriminators the                |
-|                       |                       | | validator checks against both                          |
-|                       |                       | | descriminators, not either of them.                    |
-|                       |                       | | Reported to the FHIR API:                              |
-|                       |                       | | https://github.com/FirelyTeam/fhir-net-api/issues/1246 |
-+-----------------------+-----------------------+----------------------------------------------------------+
 
 ..
     https://firely.atlassian.net/browse/SIM-960
     https://firely.atlassian.net/browse/SIM-1127
-    https://firely.atlassian.net/browse/SIM-799
 
 All our tooling is built on top of the official .NET API for HL7 FHIR
 .NET FHIR API, developed and managed by Firely. The `API is open source
