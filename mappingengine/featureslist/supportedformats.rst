@@ -72,7 +72,7 @@ The FHIR Mapper supports mapping (C)-CDA XML documents to FHIR documents. All fi
 
 It contains:
 
-1. StructureDefinitions respresenting (C)-CDA documents and all corresponding data types
+1. StructureDefinitions respresenting (C)-CDA documents and all corresponding data types. All StructureDefinitions are based on the [CDA-Core-2.0](https://github.com/HL7/cda-core-2.0) Project from HL7 International. For more information see [CDA-Core-2.0 ImplementationGuide](http://build.fhir.org/ig/HL7/cda-core-2.0/).
 2. StructureMap / FHIR Mapping Language files for executing the mapping. For C-CDA documents, the mappings are based on an open-source project provided by HL7 International. See `ccda-to-fhir GitHub project <https://github.com/HL7/ccda-to-fhir>`_. For more information about the scope of the mappings see `HL7 CCDA Mapping Report <https://github.com/HL7/ccda-to-fhir/blob/master/Mapping%20Report.pdf>`_. A high-level overview of the mapping can be found `here as an Excel Sheet <https://github.com/HL7/ccda-to-fhir/blob/master/CDA-to-FHIR_mappings.xlsx>`_.
 
 To enable (C)-CDA support, please adjust the BinaryWrapper settings in your appsettings.instance.json to allow Vonk to accept the ``application/hl7-sda+xml`` Content-Type header: ::
