@@ -97,3 +97,6 @@ Tips and hints for using MongoDb for Vonk
     #. In the section ``Serilog.MinimumLevel.Override`` add ``"Vonk.Repository.DocumentDb": "Verbose"``. Add it before any broader namespaces like ``Vonk``.
     #. In the section on the File sink, change the ``restrictedToMinimumLevel`` to ``Verbose``.
 
+#. With regards to Vonk version and MongoDB version:
+    #. If you are on a Vonk version < v3.6, you can keep using MongoDB v4.0 or higher.
+    #. If you are on Vonk v3.6 or higher and are unable to migrate to MongoDB 4.4 (relatively soon), please contact us if you need assistance.
