@@ -186,7 +186,7 @@ An ImplementationGuide resource can be converted to a Simplifier webbased IG. Th
 
 -	Locate the an ImplementationGuide resource. 
 
--	Click on ``Update`` followed by ``Edit: Update by editing in IG editor``. This will convert the ImplementationGuide resource to a Simplifier IG. 
+-	Click on ``Update`` followed by ``Edit: Create IG and start updating in IG Editor``. This will convert the ImplementationGuide resource to a Simplifier IG. 
 
 - Follow the configuration steps and locate the IG in the Guides tab.
 
