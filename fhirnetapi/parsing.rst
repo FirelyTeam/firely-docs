@@ -33,6 +33,7 @@ The second approach, using the ``ElementModel`` abstraction, has been designed t
    parsing/itypedelement-serialization
    parsing/elementmodel-overview
    parsing/itypedelement-custom
+   parsing/errorhandling
    
 
 
