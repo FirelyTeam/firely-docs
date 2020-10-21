@@ -73,15 +73,15 @@ resource and pass this to the client's ``Search(Query q)`` overload. The
 ``Query`` resource has a set of fluent calls to allow you to easily
 construct more complex queries:
 
-| \`\`\`csharp
-| var q = new Query()
-| .For("Patient").Where("name:exact=ewout")
-| .OrderBy("birthDate", SortOrder.Descending)
-| .SummaryOnly().Include("Patient.managingOrganization")
-| .LimitTo(20);
+.. code:: csharp
 
-| Bundle result = client.Search(q);
-| \`\`\`
+ var q = new Query()
+  .For("Patient").Where("name:exact=ewout")
+  .OrderBy("birthDate", SortOrder.Descending)
+  .SummaryOnly().Include("Patient.managingOrganization")
+  .LimitTo(20);
+
+ Bundle result = client.Search(q);
 
 Note that unlike the search options shown before, you can specify search
 ordering and the use of a summary result. As well, this syntax avoids
