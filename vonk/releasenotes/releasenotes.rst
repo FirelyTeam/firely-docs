@@ -17,6 +17,20 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_381:
+
+Release 3.8.1 hotfix
+--------------------
+
+Fix
+^^^
+
+All the fixes below are only relevant for SQL Server.
+
+* Improved the handling of concurrent updates on the same resource.
+* Upgraded the version of the SqlClient library to fix issues when running on Linux.
+* Fixed missing language libraries for SQL Server when running on Docker. 
+
 .. _vonk_releasenotes_380:
 
 Release 3.8.0
