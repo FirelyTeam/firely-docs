@@ -29,7 +29,7 @@ Note that, if there is no such delegate installed, a component (in this case the
 
 Working with IExceptionSource
 ------------------------------
-Installing a delegate by setting the ``ExceptionHandler`` property like this is feasible, but it is easy to forget to unregister the delegate (leading to unexpected call backs or memory leaks). You also probably wanto to check whether there was already a previously installed handler, which you might want to to forward the exception to once you are done with it.
+Installing a delegate by setting the ``ExceptionHandler`` property like this is feasible, but it is easy to forget to unregister the delegate (leading to unexpected call backs or memory leaks). In addition, you should check whether there was already a previously installed handler, which you to might need to forward the exception to once you have handled it.
 
 To make working with ``ExceptionHandler`` easier, we have added a ``Catch()`` extension method to ``IExceptionSource``, which returns an ``IDisposable``, so you can use the returned value in a ``using`` statement like so:
 
@@ -45,7 +45,7 @@ To make working with ``ExceptionHandler`` easier, we have added a ``Catch()`` ex
         var poco = src.ToPoco();
     }
 
-This will install your error callback, and uninstall it when the flow leaves the ``using`` block. ``Catch()`` has a ``forward`` argument which you can use to indicate whether you need to forward the errors to a handler that might have been installed before calling ``Catch()``.
+This will install your error callback, and uninstall it when the flow leaves the ``using`` block. ``Catch()`` has a ``forward`` argument which you can set to `true` to indicate whether you need to forward the errors to a handler that might have been installed before calling ``Catch()``.
 
 If you are just interested in triggering all errors, you can do so by visiting the complete tree, catching the errors in the meantime:
 
