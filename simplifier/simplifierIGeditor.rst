@@ -47,7 +47,7 @@ To add a new menu item to your Implementation Guide, use the ``+`` icons in the 
 
 CSS-editor
 ----------
-When you click on the icon on the left of the Settings icon in the IG-editor, the CSS-editor will be opened. 
+For our Enterprise Licenses the feature "Custom Layout" is available. Here you can create your own custom master template (HTML) and choose your own layout (CSS). When you click on the icon on the left of the Settings icon in the IG-editor, the CSS-editor will be opened. 
 
 .. image:: ./images/CSSeditor.png
 
