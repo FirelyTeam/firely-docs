@@ -24,7 +24,9 @@ Load the engine
 
 3. Configure the :ref:`configure_appsettings` and check that ``$convert`` is added as a``WholeSystemInteractions`` to support the `convert <http://hl7.org/fhir/resource-operation-convert.html>`_ operation.
 
-4. Similarly, add ``$transform`` to ``InstanceLevelInteractions`` and ``TypeLevelInteractions`` to declare support for the `transform <http://hl7.org/fhir/structuremap-operation-transform.html>`_ operation. Sample configuration: ::
+4. ``text/fhir-mapping`` must be added as a MIME type to the ``Vonk.Plugin.BinaryWrapper`` settings. Please add it as a new value to the ``RestrictToMimeTypes`` array.
+ 
+5. Similarly, add ``$transform`` to ``InstanceLevelInteractions`` and ``TypeLevelInteractions`` to declare support for the `transform <http://hl7.org/fhir/structuremap-operation-transform.html>`_ operation. Sample configuration: ::
 
     "SupportedInteractions": {
       "InstanceLevelInteractions": "read, vread, update, patch, delete, history, conditional_delete, conditional_update, $validate, $validate-code, $expand, $compose, $meta, $meta-add, $transform",
@@ -32,7 +34,7 @@ Load the engine
       "WholeSystemInteractions": "capabilities, batch, transaction, history, search, compartment_system_search, $validate, $convert"
     },
 
-5. Review the ``/administration`` path of ``PipelineOptions`` and make sure that the mapping engine plugin are included using the following namespaces: ::
+6. Review the ``/administration`` path of ``PipelineOptions`` and make sure that the mapping engine plugin are included using the following namespaces: ::
 
     "Vonk.Plugin.BinaryWrapper", 
     "Vonk.Plugin.Mapping"
