@@ -190,6 +190,8 @@ An ImplementationGuide resource can be converted to a Simplifier webbased IG. Th
 
 - Follow the configuration steps and locate the IG in the Guides tab.
 
+**Note**: If you want to export and import a project through a .zip you have to make sure that the folder structure is the same as in the project, to make sure links between IG resources are still in tact. Zipping a containing folder will include the folder in the zip-file. To make sure no extra layer of folders is added, directly zip the resources within a folder instead.
+
 Manage your IG using GitHub
 ---------------------------
 The GitHub webhook allows managing your Implementation Guide, without using the editor itself. You can find more information on how to set this up in the `GitHub integration documentation`_.
