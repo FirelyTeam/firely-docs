@@ -168,7 +168,9 @@ You are encouraged to manage and publish your profiles and related Conformance R
 :Password: password with the username
 :BatchSize: you normally don't need to change this parameter
 
-You can load from multiple Simplifier projects by adding them to the list.
+You can load from multiple Simplifier projects by adding them to the list. The environment variable version of this is::
+
+  VONK_Administration:SimplifierProjects:0:Uri=<FHIR endpoint for retrieving StructureDefinitions>
 
 Get a FHIR endpoint for a Simplifier project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
