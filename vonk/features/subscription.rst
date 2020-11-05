@@ -11,7 +11,7 @@ Vonk currently only supports STU3/R4-style Subscriptions with a Channel of type 
 
 If you are :ref:`not permitted <configure_administration_access>` to access the /Subscription endpoint, Vonk will return statuscode 403.
 
-See `Subscriptions in the specification <http://www.hl7.org/implement/standards/fhir/subscription.html>`_ for more background on Subscriptions.
+See `Subscriptions in the specification <http://www.hl7.org/fhir/stu3/subscription.html>`_ for more background on Subscriptions.
 
 FHIR versions
 -------------
