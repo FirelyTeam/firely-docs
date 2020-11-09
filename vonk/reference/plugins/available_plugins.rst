@@ -189,6 +189,14 @@ FHIR RESTful interactions
 :Order: 4430
 :Description: Implements FHIR instance update, with support for 'upsert': creating a Resource with a pre-assigned id. Note that id's must be unique across FHIR versions.
 
+.. _vonk_plugins_patch:
+
+:Name: Patch
+:Configuration: ``Vonk.Core.Operations.Crud.FhirPatchConfiguration``
+:License token: http://fire.ly/vonk/plugins/update
+:Order: 4433
+:Description: Implements FHIR instance patch, as specified by `FHIR Patch <http://hl7.org/fhir/fhirpatch.html>`_.
+
 .. _vonk_plugins_delete:
 
 :Name: Delete

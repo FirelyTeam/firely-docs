@@ -22,6 +22,7 @@ Before you can run Vonk, you will need to pull the Docker Vonk container and req
 
 3. Create a working directory for Vonk and place the license file there.
 
+.. warning:: If you use Docker, you may want to run multiple instances of Vonk (e.g. with Kubernetes). Read :ref:`vonk_conformance_instances` for caveats with the Administration endpoint.
 
 Running a Docker Vonk in SQLite mode
 ------------------------------------
@@ -116,6 +117,8 @@ We will use docker-compose to achieve this.
 
 .. warning:: SQL Server container uses at least 3.25 GB of RAM. Make sure to assign enough memory to the Docker VM if you're running on Docker for Mac or Windows.
 
+.. warning:: If you also run the Administration database on SQL Server, please read :reF:`vonk_conformance_history`.
+
 .. code-block:: yaml
    :linenos:
 
@@ -174,6 +177,8 @@ Running Docker with a SQL Server on host
 Another possibility is to run a Vonk container with a SQL Server repository on the host. You will need a Microsoft SQL Server running on your host.
 The version of SQL Server must at least be version 2012.
 
+.. warning:: If you also run the Administration database on SQL Server, please read :reF:`vonk_conformance_history`.
+
 To run the Vonk container we will use the following docker-compose file:
 
 .. code-block:: yaml
@@ -229,6 +234,8 @@ Run Docker with a MongoDB container
 -----------------------------------
 
 This section describes how to spin up a Vonk container and a MongoDB container using a docker-compose. We assume you already have MongoDB installed.
+
+.. warning:: If you also run the Administration database on MongoDb, please read :reF:`vonk_conformance_history`.
 
 .. code-block:: yaml
    :linenos:

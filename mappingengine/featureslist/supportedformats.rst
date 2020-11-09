@@ -9,14 +9,14 @@ The mapping engine therefore supports different 'adapters' which can be used to 
 +-------------------------------+-------------------------+-----+--------+-----+-------------+
 | FHIR Version / Content format | Custom Resources (FHIR) | CSV | HL7 v2 | VCF | HL7 (C)-CDA |
 +===============================+=========================+=====+========+=====+=============+
-| FHIR STU3                     | X                       | X   | X      | X   | X           |
+| FHIR STU3                     | X                       | X   |        | X   | X           |
 +-------------------------------+-------------------------+-----+--------+-----+-------------+
-| FHIR R4                       | X                       | X   |        |     | X           |
+| FHIR R4                       | X                       | X   | X      | X   | X           |
 +-------------------------------+-------------------------+-----+--------+-----+-------------+
 
 CSV
 -------------
-The FHIR Mapper supports mapping a comma-separated values (CSV) file without any prior setup. You can POST the CSV file as the HTTP Body to the $transform operation and access its metadata and content within a StructureMap.
+The FHIR Mapper supports mapping a comma-separated values (CSV) file without any prior setup (e.g. creating StructureDefinitions). You can POST the CSV file as the HTTP Body to the $transform operation and access its metadata and content within a StructureMap.
 
 To enable CSV support, please adjust the BinaryWrapper settings in your appsettings.instance.json to allow Vonk to accept the ``text/csv`` Content-Type header: ::
 
@@ -65,3 +65,18 @@ Regardless if the CSV file contains a header, all elements are accessible for th
     record.field3 as family -> tgt.name as name collate, name.family = family;
     record.field4 as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
   };
+  
+(C)-CDA
+-------------
+The FHIR Mapper supports mapping (C)-CDA XML documents to FHIR documents. All files needed to execute these mappings are provided as package in the `Firely.FhirMapper.Examples Repository <https://github.com/FirelyTeam/Firely.FhirMapper.Examples>`_. 
+
+It contains:
+
+1. StructureDefinitions respresenting (C)-CDA documents and all corresponding data types. All StructureDefinitions are based on the `CDA-Core-2.0 <https://github.com/HL7/cda-core-2.0>`_ Project from HL7 International. For more information see `CDA-Core-2.0 ImplementationGuide <http://build.fhir.org/ig/HL7/cda-core-2.0/>`_.
+2. StructureMap / FHIR Mapping Language files for executing the mapping. For C-CDA documents, the mappings are based on an open-source project provided by HL7 International. See `ccda-to-fhir GitHub project <https://github.com/HL7/ccda-to-fhir>`_. For more information about the scope of the mappings see `HL7 CCDA Mapping Report <https://github.com/HL7/ccda-to-fhir/blob/master/Mapping%20Report.pdf>`_. A high-level overview of the mapping can be found `here as an Excel Sheet <https://github.com/HL7/ccda-to-fhir/blob/master/CDA-to-FHIR_mappings.xlsx>`_.
+
+To enable (C)-CDA support, please adjust the BinaryWrapper settings in your appsettings.instance.json to allow Vonk to accept the ``application/hl7-sda+xml`` Content-Type header: ::
+
+      "Vonk.Plugin.BinaryWrapper":{
+        "RestrictToMimeTypes": ["application/pdf", "text/plain", "image/png", "image/jpeg", "text/fhir-mapping", "application/hl7-sda+xml"]
+      }

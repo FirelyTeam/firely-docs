@@ -47,7 +47,7 @@ To add a new menu item to your Implementation Guide, use the ``+`` icons in the 
 
 CSS-editor
 ----------
-When you click on the icon on the left of the Settings icon in the IG-editor, the CSS-editor will be opened. 
+For our Enterprise Licenses the feature "Custom Layout" is available. Here you can create your own custom master template (HTML) and choose your own layout (CSS). When you click on the icon on the left of the Settings icon in the IG-editor, the CSS-editor will be opened. 
 
 .. image:: ./images/CSSeditor.png
 
@@ -160,7 +160,7 @@ The following statements add an index within the IG.
 
 IG Storage
 ----------
-Since release 16.5 IG's are stored as separate mark down files in your project. This means that you can access them as separate resources, add issues to them and check version history. In addition, your IG’s will be available in your GitHub repository and can be downloaded in a ZIP file together with the other files of your project.
+Since release 16.5 IG's are stored as separate mark down files in your project. This means that you can access them as separate resources, add issues to them and check version history. In addition, your IG’s will be downloaded in a ZIP file together with the other files of your project.
 
 To illustrate how this works, see the screen picture of an example IG containing two chapters called ‘First part’ and  ‘Second part’. The First part also contains a child called ‘Child of first part’. The different parts of the IG are now accessible from the Resources tab in your project as well as from the search engine. To search for IG parts, just check the Texts box.
 
@@ -186,9 +186,11 @@ An ImplementationGuide resource can be converted to a Simplifier webbased IG. Th
 
 -	Locate the an ImplementationGuide resource. 
 
--	Click on ``Update`` followed by ``Edit: Update by editing in IG editor``. This will convert the ImplementationGuide resource to a Simplifier IG. 
+-	Click on ``Update`` followed by ``Edit: Create IG and start updating in IG Editor``. This will convert the ImplementationGuide resource to a Simplifier IG. 
 
 - Follow the configuration steps and locate the IG in the Guides tab.
+
+**Note**: If you want to export and import a project through a .zip you have to make sure that the folder structure is the same as in the project, to make sure links between IG resources are still in tact. Zipping a containing folder will include the folder in the zip-file. To make sure no extra layer of folders is added, directly zip the resources within a folder instead.
 
 Manage your IG using GitHub
 ---------------------------

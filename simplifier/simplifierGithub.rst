@@ -20,7 +20,7 @@ When connecting a GitHub repository you will be asked to choose a strategy about
 
 Fetch Updates
 -------------
-After the linking is performed, any updates to your resources in the GitHub repository will be sent automatically to Simplifier. Based on the the linking settings, resources from your Simplifier project will be updated to, deleted from, or added to GitHub. 
+After the linking is performed, any updates to your resources in the GitHub repository will be sent automatically to Simplifier. Based on the the linking settings, resources in your Simplifier project will be updated, added or deleted. 
 
 GitHub Sync
 -----------

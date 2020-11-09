@@ -17,6 +17,68 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_380:
+
+Release 3.8.0
+-------------
+
+Database
+^^^^^^^^
+
+* We added an important note to the :ref:`3.6.0 release notes <vonk_releasenotes_360>` for MongoDb users.
+* Because of the changes in searching for Quantities (feature 2 below), you will need to do a :ref:`reindex <feature_customsp_reindex>` in order to make use of this. You may limit the reindex to only the searchparameters of type 'quantity' that you actually use (e.g. ``Observation.value-quantity``).
+
+Features
+^^^^^^^^
+
+#. We upgraded the FHIR .NET API to 1.9, see the `1.9 releasenotes <https://github.com/FirelyTeam/fhir-net-api/releases>`_. This will trigger an automatic :ref:`import of the Conformance Resources <conformance_specification_zip>` at startup.
+#. We upgraded the `Fhir.Metrics library <https://github.com/FirelyTeam/fhir.metrics>`_ to 1.2. This allows for a more uniform search on Quantities (mainly under the hood)
+#. We upgraded the FHIR Mapping plugin to support the FHIR Mapper version 0.5. See its :ref:`FHIR Mapper releasenotes <mapping_releasenotes_050>`.
+#. The :ref:`built-in terminology services <feature_terminology>` now support the ``includeDesignations`` parameter. 
+#. The :ref:`vonk_reference_api_ivonkcontext` now lets you access the original HttpContext.
+#. The CapabilityStatement now lists the profiles that are known to Vonk (in its Administration database) under ``CapabilityStatement.rest.resource.supportedProfile`` (>= R4 only) and the base profile for a resource under ``CapabilityStatement.rest.resource.profile``.
+#. We extended the security extension on the CapabilityStatement to include the endpoints for ``register``, ``manage``, ``introspect`` and ``revoke``.
+#. ``IAdministrationSearchRepository`` and ``IAdministrationChangeRepository`` interfaces are no publicly available. Use with care.
+
+
+Fixes
+^^^^^
+
+#. If the server configured as authorization endpoint in the Smart setting is not reachable, Vonk will log a proper error about that.
+#. An error message for when a query argument has no value is improved.
+#. When :ref:`SMART-on-FHIR <feature_accesscontrol>` is enabled, and the received token contains a launch context, the :ref:`_history<restful_history>` operation is no longer available. Because Vonk does not retain the search parameter index for historical resources, it cannot guarantee that these resources fall within the launch context (at least not in a performant way). To avoid information leakage we decided to disable this case altogether.
+#. A Create interaction without an id in the resource, with :ref:`SMART-on-FHIR <feature_accesscontrol>` enabled, resulted in an exception.
+#. You can now escape the questionmark '?' in a query argument by prepending it with a backslash '\'.
+#. A Quantity search using 'lt' on MongoDb resulted in too many results. 
+
+.. _vonk_releasenotes_370:
+
+Release 3.7.0
+-------------
+
+Database
+^^^^^^^^
+
+.. attention::
+
+   To accomodate for feature #2 below there is an automatic migration carried out for SQL Server and SQLite. This migration might take some time, so please test it first. For MongoDb, you will have to :ref:`feature_customsp_reindex_all`. If this is not feasible for your database, please :ref:`vonk-contact` for assistance.
+
+Features
+^^^^^^^^
+
+#. Patch: We implemented FHIR Patch. You can now update a resource having only partial data for it. See :ref:`restful_crud`.
+#. Search on accents and combined characters: we improved searching with and on accents and combined characters. Note the database change above.
+#. API 1.7: We upgraded Vonk to use the FHIR .NET API 1.7, having its own `releasenotes <https://github.com/FirelyTeam/fhir-net-api/releases/tag/v1.7.0-beta-may2020-r5>`_.
+#. Security: The Docker image is now based on the Alpine image for .NET Core. This has far less security issues than the Ubuntu image that we used before. The base image is aspnet:3.1-alpine:3.11 (newest version 3.12 has an open bug related to SQLite).
+#. Security: We revisited the list of security vulnerabilities, see :ref:`vonk_securitynotes`.
+#. Administration: ConceptMaps are now :ref:`imported <conformance_import>` at startup.
+
+Fixes
+^^^^^
+
+#. Searching on _lastUpdated could be inaccurate when time zone differences are in play. We fixed that.
+#. Search arguments for a quantity search weren't allowed to be greater than 999.
+
 .. _vonk_releasenotes_361:
 
 Release 3.6.1
@@ -42,6 +104,13 @@ Plugins
 
 Release 3.6.0
 -------------
+
+Database
+^^^^^^^^
+
+.. attention::
+
+   For MongoDb users: We implemented feature #1 below using the Aggregation Pipeline. This makes an existing issue in MongoDb - `SERVER-7568 <https://jira.mongodb.org/browse/SERVER-7568>` - a more urgent problem. MongoDb has solved this problem in version 4.4. Therefore we advise you to upgrade to MongoDb 4.4.
 
 Feature
 ^^^^^^^
@@ -355,7 +424,7 @@ Plugin and Facade API
 #. VonkConstants has moved from Vonk.Core.Context to Vonk.Core.Common
 #. IResourceChangeRepository.Delete requires a new second parameter: ``string informationModel``. Information model constants can be found in Vonk.Core.Common.VonkConstants.Model
 #. Exclude Vonk.Fhir.R3 or Vonk.Fhir.R4 from the PipelineOptions if you don't support it in your Facade.
-#. Updated the minimal PipelineOptions for a Facade Plugin in the `example appsettings.json <https://github.com/FirelyTeam/Vonk.Facade.Starter/blob/upgrade/plugin-facade-vonk-3.0.0/Visi.Repository/appsettings.json>`_:
+#. Updated the minimal PipelineOptions for a Facade Plugin in the `example appsettings.json <https://github.com/FirelyTeam/Vonk.Facade.Starter/blob/master/Visi.Repository/appsettings.json>`_:
    
    * updated ``Vonk.Core.Operations.SearchConfiguration`` to ``Vonk.Core.Operations.Search``
    * removed ``Vonk.UI.Demo``

@@ -16,6 +16,7 @@ Welcome to the Vonk server documentation
    FAQ <faq>
    Configuration <configuration/configuration>
    Deployment <deployment/deployment>
+   Security <security/security>
    Features <features/features>
    Administration API <administration_api>
    Plugins <plugins/plugins>
@@ -36,5 +37,3 @@ testing and educational purposes only.
 On these pages we provide you with the documentation you need to get up and running with your own standard Vonk
 installation, as well as information on how to contact us when you have additional needs, such as a custom implementation
 or support contract.
-
-

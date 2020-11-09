@@ -18,6 +18,8 @@ You can control the behaviour of Vonk for these interactions by loading resource
 
 No matter which method you use, all Conformance resources are persisted in the Administration API database (see :ref:`configure_administration` for configuring that database), and available through the Administration API endpoint (``<vonk-endpoint>/administration``)
 
+For each resourcetype the base profile is listed in the CapabilityStatement under ``CapabilityStatement.rest.resource.profile`` and (since FHIR R4) all the other profiles are listed under ``CapabilityStatement.rest.resource.supportedProfile``. So by requesting the :ref:`CapabilityStatement <restful_capabilities>` you can easily check whether your changes to the StructureDefinitions were correctly processed by Vonk.
+
 .. attention::
 
    Please be aware that Conformance Resources have to have a **unique canonical url** within the FHIR Version they are loaded, in their url element. Vonk does not allow you to POST two conformance resources with the same canonical url.
@@ -73,6 +75,41 @@ If you wish to force a renewed import of a specific file, you should:
 
 * manually edit the read history file and delete the entry about that file;
 * provide the file again in the ImportDirectory.
+
+.. _vonk_conformance_history:
+
+Retain the import history
+-------------------------
+
+If you run the Administration database on SQL Server or MongoDb it is important to *retain* the ``.vonk-import-history`` file. This means that if you run Vonk on something stateless like a Kubernetes pod, or a webapp service, you need to attach file storage on which to store this file. If you do not do that, Vonk will import all the conformance resources *on every start*.
+
+.. _vonk_conformance_instances:
+
+Running imports with multiple instances
+---------------------------------------
+
+If you run multiple instances of Vonk each will have its own ``/administration`` pipeline. So you need to make sure that only 1 instance will perform the import. The import at startup will happen when:
+
+- we upgraded to a new version on the FHIR .NET API (always mentioned in the releasenotes)
+- you add new resources to the ``ImportDirectory``
+- resources retrieved from Simplifier are renewed.
+
+To ensure that only one instance runs the import you can do two things:
+
+#. Make sure only 1 instance is running:
+
+   #. Stop Vonk
+   #. Scale down to 1 instance
+   #. Upgrade Vonk (by referring to a newer image, or installing newer binaries)
+   #. Start Vonk
+   #. Let it do the import
+   #. Then scale back up to multiple instances.
+
+#. Exclude the namespace ``Vonk.Administration.Api.Import`` from the :ref:`PipelineOptions<vonk_plugins_config>` in branch ``administration`` on all but one instance.
+
+If you want to use the manual import (``<url>/administration/import``) you are advised to apply solution nr. 1 above. In the second solution the call may or may not end up on an instance having the Import functionality.
+
+We are aware that this can be a bit cumbersome. On the :ref:`vonk_roadmap` is therefore the story to host the Administration API in its own microservice.
 
 .. _conformance_specification_zip:
 
@@ -131,7 +168,9 @@ You are encouraged to manage and publish your profiles and related Conformance R
 :Password: password with the username
 :BatchSize: you normally don't need to change this parameter
 
-You can load from multiple Simplifier projects by adding them to the list.
+You can load from multiple Simplifier projects by adding them to the list. The environment variable version of this is::
+
+  VONK_Administration:SimplifierProjects:0:Uri=<FHIR endpoint for retrieving StructureDefinitions>
 
 Get a FHIR endpoint for a Simplifier project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

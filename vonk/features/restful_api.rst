@@ -5,18 +5,18 @@ FHIR RESTful API
 
 Vonk supports most of the features in the `FHIR RESTful API <http://www.hl7.org/implement/standards/fhir/http.html>`_.
 
-.. _restful_crud:
-
 FHIR Versions
 -------------
 
 All the operations below can be called for FHIR STU3 or FHIR R4. Vonk supports the fhirVersion mimetype parameter and fhir version endpoint mappings for that purpose. 
 See :ref:`feature_multiversion` for more information.
 
-Create, read, update, delete
-----------------------------
+.. _restful_crud:
 
-These four operations to manage the contents of the Vonk FHIR Server, commonly referenced by the acronym CRUD, are implemented as per the specification.
+Create, read, update, patch, delete
+-----------------------------------
+
+These five operations to manage the contents of the Vonk FHIR Server, commonly referenced by the acronym CRUD, are implemented as per the specification. Patch is implemented as `FHIR Patch <http://hl7.org/fhir/fhirpatch.html>`_, as this is the most versatile one.
 This includes version-read and the conditional variations. 
 Only a few limitations apply.
 
@@ -54,6 +54,7 @@ Limitations on CRUD
    * A conditional create and a simultaneous conditional update may both result in a ``create``, although the result of one may be a match to the other.
 
 #. Parameter ``_pretty`` is not yet supported.
+#. XML Patch and JSON Patch are not supported.
 
 .. _restful_versioning:
 

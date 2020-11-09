@@ -5,11 +5,6 @@ Configuring FHIR Mapper on Vonk
 
 To configure the FHIR Mapper in your Vonk installation, follow the steps below. If you don't have a copy yet, `get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
 
-.. important::
-
-	Please note that the latest version of Vonk (v3.6.0) does not contain the latest version of the FHIR Mapper (v0.3.5).
-	Please configure the plugin on the "/" branch, instead of "/administration" when working with the FHIR Mapper in an earlier version (v0.3.4 and below).
-
 Load the engine
 ~~~~~~~~~~~~~~~
 
@@ -29,15 +24,17 @@ Load the engine
 
 3. Configure the :ref:`configure_appsettings` and check that ``$convert`` is added as a``WholeSystemInteractions`` to support the `convert <http://hl7.org/fhir/resource-operation-convert.html>`_ operation.
 
-4. Similarly, add ``$transform`` to ``InstanceLevelInteractions`` to declare support for the `transform <http://hl7.org/fhir/structuremap-operation-transform.html>`_ operation. Sample configuration: ::
+4. ``text/fhir-mapping`` must be added as a MIME type to the ``Vonk.Plugin.BinaryWrapper`` settings. Please add it as a new value to the ``RestrictToMimeTypes`` array.
+ 
+5. Similarly, add ``$transform`` to ``InstanceLevelInteractions`` and ``TypeLevelInteractions`` to declare support for the `transform <http://hl7.org/fhir/structuremap-operation-transform.html>`_ operation. Sample configuration: ::
 
     "SupportedInteractions": {
-      "InstanceLevelInteractions": "read, vread, update, delete, history, conditional_delete, conditional_update, $validate, $validate-code, $expand, $compose, $meta, $meta-add, $transform",
-      "TypeLevelInteractions": "create, search, history, conditional_create, compartment_type_search, $validate, $snapshot, $validate-code, $expand, $lookup, $compose",
+      "InstanceLevelInteractions": "read, vread, update, patch, delete, history, conditional_delete, conditional_update, $validate, $validate-code, $expand, $compose, $meta, $meta-add, $transform",
+      "TypeLevelInteractions": "create, search, history, conditional_create, compartment_type_search, $validate, $snapshot, $validate-code, $expand, $lookup, $compose, $transform",
       "WholeSystemInteractions": "capabilities, batch, transaction, history, search, compartment_system_search, $validate, $convert"
     },
 
-5. Review the ``/administration`` path of ``PipelineOptions`` and make sure that the mapping engine plugin are included using the following namespaces: ::
+6. Review the ``/administration`` path of ``PipelineOptions`` and make sure that the mapping engine plugin are included using the following namespaces: ::
 
     "Vonk.Plugin.BinaryWrapper", 
     "Vonk.Plugin.Mapping"

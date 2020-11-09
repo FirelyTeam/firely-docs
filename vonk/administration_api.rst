@@ -3,7 +3,7 @@
 Vonk Administration API
 =======================
 
-Besides the regular FHIR endpoint, Vonk also exposes an Administration API. The endpoint for this is::
+Besides the regular FHIR endpoint, Vonk also exposes an Administration API. The endpoint for this is:
 ::
 
    http(s)://<vonk-endpoint>/administration

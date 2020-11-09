@@ -6,7 +6,32 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
+.. _mapping_releasenotes_050:
+
+Release 0.5.0 - 2020-09-04
+--------------------------
+
+- Feature: Support for parsing Variant Call Format files. See :ref:`fhirmapper_supportedformats`.
+- Feature: External variables can now be used in a log FHIRPath statement using the %var syntax
+- Feature: "default" FHIRPath statements can now be specified in mapping rules, the default FHIRPath statement will be executed if the src element is empty
+- Feature: Upgrade to .NET FHIR API v1.9
+- Fix: An error is now thrown if a mapping attempts to call a mapping function without a contex (e.g. "src.ele -> create('<resourceType>') as var", note the missing target assignment)
+
 .. _mapping_releasenotes_036:
+
+Release 0.4.0 - 2020-07-26
+--------------------------
+
+- Fetaure: Implement $transform as a Type level interaction using Parameter resources as input
+- Feature: Upgrade the .NET FHIR API to 1.7
+- Feature: $convert?$persist returns a location header
+- Feature: External variables can now be used in a where FHIRPath check using the %var syntax
+- Feature: Added support for the truncate transformation function
+- Feature: Added support for casting a string to an integer
+- Feature: Allow any kind of date type as the first parameter of dateOp
+- Feature: Support the direct mapping of complex child elements
+- Fix: Don't overwrite non-repeating elements if the collate option is being used
+- Fix: The initial group selection did not account for type aliases
 
 Release 0.3.6 - 2020-06-09
 --------------------------
