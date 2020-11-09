@@ -29,9 +29,10 @@ Similarly, the primitive value of the node (if any) is now of type object, and r
 .. csv-table:: Mapping between FHIR type and .NET type
     :header: "FHIR Type", ".NET type"
 
-    "instant", "Hl7.Fhir.Model.Primitive.PartialDateTime"
-    "time", "Hl7.Fhir.Model.Primitive.PartialTime"
-    "date, dateTime", "Hl7.Fhir.Model.Primitive.PartialDateTime"
+    "instant", "Hl7.Fhir.ElementModel.Types.DateTime"
+    "time", "Hl7.Fhir.ElementModel.Types.Time"
+    "date", "Hl7.Fhir.ElementModel.Types.Date" 
+    "dateTime", "Hl7.Fhir.ElementModel.Types.DateTime"
     "decimal", "decimal"
     "boolean", "bool"
     "integer", "long"
