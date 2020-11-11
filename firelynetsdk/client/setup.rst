@@ -25,7 +25,7 @@ of a FhirClient is cheap, the connection will not be opened until you start work
 There's a list of `publically available test 
 servers <http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for_testing>`__ you can use.
 
-.. _minimal:
+.. _sdk-minimal:
 
 FhirClient communication options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

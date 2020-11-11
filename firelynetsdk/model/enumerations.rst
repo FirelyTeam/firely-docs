@@ -11,7 +11,7 @@ The Patient resource has a fixed ValueSet for the ``gender`` element.
 
 Enumeration in the SDK:
 
-.. image:: ../images/api_patient_gender.png
+.. image:: ../images/sdk_patient_gender.png
 
 Code example, adding a gender to our Patient:
 

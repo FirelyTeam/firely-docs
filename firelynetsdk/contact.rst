@@ -1,4 +1,4 @@
-.. _api-contact:
+.. _sdk-contact:
 
 ==========
 Contact us

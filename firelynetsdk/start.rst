@@ -1,4 +1,4 @@
-.. _api-getting-started:
+.. _sdk-getting-started:
 
 ===============
 Getting Started

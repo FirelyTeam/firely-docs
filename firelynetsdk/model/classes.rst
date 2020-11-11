@@ -25,7 +25,7 @@ For example, the Patient resource has an ``active`` element:
 
 The Patient class in the SDK has a field called ``Active`` that corresponds with this element:
  
-.. image:: ../images/api_patient_active.png
+.. image:: ../images/sdk_patient_active.png
 
 Likewise, the Identifier data type has an element called ``use``:
 
@@ -33,6 +33,6 @@ Likewise, the Identifier data type has an element called ``use``:
 
 And the Identifier class in the SDK has a field called ``Use`` that corresponds with this element:
  
-.. image:: ../images/api_identifier_use.png
+.. image:: ../images/sdk_identifier_use.png
 
 As you can see, the classes and fields all have inline documentation describing them.

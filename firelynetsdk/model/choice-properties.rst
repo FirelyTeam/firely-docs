@@ -10,7 +10,7 @@ For the Patient resource type for example, we have a choice for the ``deceased``
 In the SDK, you will see that the corresponding field is of type ``Element``, which is the base for
 all data types.
 
-.. image:: ../images/api_patient_deceased.png
+.. image:: ../images/sdk_patient_deceased.png
 
 This means that in your code, you will first have to create an instance of the data type of your
 choice, before you can fill in the field. |br|

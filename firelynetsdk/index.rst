@@ -28,7 +28,7 @@ as parsing and serializing FHIR data, working with transactions, and using the R
 
 .. note:: All code examples on these pages are for the STU3 version of the library. 
 
-Please look at the :ref:`api-contact` page for ways to ask questions, contribute to the SDK, or reach out to other
+Please look at the :ref:`sdk-contact` page for ways to ask questions, contribute to the SDK, or reach out to other
 .Net developers in the FHIR community.
 
 

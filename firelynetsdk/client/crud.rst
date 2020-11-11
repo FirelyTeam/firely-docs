@@ -118,7 +118,7 @@ deletion, and the server returned an error indicating that.
 Note that sending an update to a resource after it has been deleted is
 not considered an error and may effectively "undelete" it.
 
-.. _conditionals:
+.. _sdk_conditionals:
 
 Conditional interactions
 ------------------------

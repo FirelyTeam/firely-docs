@@ -11,7 +11,7 @@ In the SDK, a component block is represented by a class within the resource type
 has the name of the field, followed by 'Component', for example ``ContactComponent`` in the
 ``Patient`` class:
 
-.. image:: ../images/api_patient_component.png
+.. image:: ../images/sdk_patient_component.png
 
 Code example, adding contact details to our Patient:
 
