@@ -9,11 +9,11 @@ etc. that can take a single value. The complex types consist of multiple values 
 .. important:: Primitives are not really primitive in FHIR!
 
 Because you can `extend <http://www.hl7.org/fhir/extensibility.html>`__ resources **and** data types
-in FHIR, the API has provided FHIR data types for the primitive types.
+in FHIR, the SDK has provided FHIR data types for the primitive types.
 Where the name of the FHIR data type would conflict with existing .Net data types, the word 'Fhir' is
 added to the type, e.g. ``FhirString``. 
 
-For each of the fields that take a primitive data type, the API provides you with two fields in the
+For each of the fields that take a primitive data type, the SDK provides you with two fields in the
 class. |br|
 One of the fields has the same name as the element it corresponds with in the FHIR resource, e.g.
 ``Active`` in the ``Patient`` class. This field is of the standard .Net data type.
@@ -27,7 +27,7 @@ You can fill this field just the way you would expect:
 
 The other field has got the name of the element, with 'Element' added to it, for example
 ``ActiveElement`` in the ``Patient`` class. You fill this field with the FHIR data type that is in
-the API:
+the SDK:
 
 .. code-block:: csharp
 
@@ -43,7 +43,7 @@ Complex data types in FHIR are data types that group certain values together, su
 ``Identifier`` and ``Quantity``. The `FHIR specification <http://www.hl7.org/fhir/datatypes.html>`__
 describes which elements are part of these data types.
 
-The API has created classes for each of the data types, with fields for each of the elements.
+The SDK has created classes for each of the data types, with fields for each of the elements.
 Most of the elements will be of a primitive data type, but you can also encounter complex types
 within a complex data type.
 

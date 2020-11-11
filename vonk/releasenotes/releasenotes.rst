@@ -31,7 +31,7 @@ Database
 Features
 ^^^^^^^^
 
-#. We upgraded the FHIR .NET API to 1.9, see the `1.9 releasenotes <https://github.com/FirelyTeam/fhir-net-api/releases>`_. This will trigger an automatic :ref:`import of the Conformance Resources <conformance_specification_zip>` at startup.
+#. We upgraded the FHIR .NET API to 1.9, see the `1.9 releasenotes <https://github.com/FirelyTeam/firely-net-sdk/releases>`_. This will trigger an automatic :ref:`import of the Conformance Resources <conformance_specification_zip>` at startup.
 #. We upgraded the `Fhir.Metrics library <https://github.com/FirelyTeam/fhir.metrics>`_ to 1.2. This allows for a more uniform search on Quantities (mainly under the hood)
 #. We upgraded the FHIR Mapping plugin to support the FHIR Mapper version 0.5. See its :ref:`FHIR Mapper releasenotes <mapping_releasenotes_050>`.
 #. The :ref:`built-in terminology services <feature_terminology>` now support the ``includeDesignations`` parameter. 
@@ -68,7 +68,7 @@ Features
 
 #. Patch: We implemented FHIR Patch. You can now update a resource having only partial data for it. See :ref:`restful_crud`.
 #. Search on accents and combined characters: we improved searching with and on accents and combined characters. Note the database change above.
-#. API 1.7: We upgraded Vonk to use the FHIR .NET API 1.7, having its own `releasenotes <https://github.com/FirelyTeam/fhir-net-api/releases/tag/v1.7.0-beta-may2020-r5>`_.
+#. API 1.7: We upgraded Vonk to use the FHIR .NET API 1.7, having its own `releasenotes <https://github.com/FirelyTeam/firely-net-sdk/releases/tag/v1.7.0-beta-may2020-r5>`_.
 #. Security: The Docker image is now based on the Alpine image for .NET Core. This has far less security issues than the Ubuntu image that we used before. The base image is aspnet:3.1-alpine:3.11 (newest version 3.12 has an open bug related to SQLite).
 #. Security: We revisited the list of security vulnerabilities, see :ref:`vonk_securitynotes`.
 #. Administration: ConceptMaps are now :ref:`imported <conformance_import>` at startup.
@@ -190,7 +190,7 @@ Release 3.4.0
 Feature
 ^^^^^^^
 
-#. Upgraded to FHIR .NET API 1.6.0, that features a couple of changes for working with CDA logical models. See the `release notes of the API <https://github.com/FirelyTeam/fhir-net-api/releases>`_.
+#. Upgraded to FHIR .NET API 1.6.0, that features a couple of changes for working with CDA logical models. See the `release notes of the API <https://github.com/FirelyTeam/firely-net-sdk/releases>`_.
 #. Included the FHIR Mapper in the distribution. It is only enabled however when you include the mapping plugin in your license. See :ref:`mappingengine_index` for more information about the FHIR Mapper.
 
 Fix
@@ -212,7 +212,7 @@ Release 3.3.0
 Feature
 ^^^^^^^
 
-#. Vonk was upgraded to FHIR .NET API 1.5.0. See the `release notes of the API <https://github.com/FirelyTeam/fhir-net-api/releases>`_.
+#. Vonk was upgraded to FHIR .NET API 1.5.0. See the `release notes of the API <https://github.com/FirelyTeam/firely-net-sdk/releases>`_.
 #. Vonk can now log audit lines in a separate file. This can help you achieve HIPAA/GDPR compliancy. See :ref:`feature_auditing` for more info.
 #. Failed authorization attempts are now logged from the :ref:`vonk_plugins_smart` plugin.
 #. Support for ``_include:iterate`` and ``_revinclude:iterate``, see :ref:`restful_search`.
@@ -386,7 +386,7 @@ Feature
    #. You can set the default (or fallback) information model (previously: STU3), which is used when Vonk can not determine the information model from context (see :ref:`information_model`)
    #. You can map a path or a subdomain to a specific information model (see :ref:`information_model`), mitigating the need to specify it explicitly in a request
 
-#. Vonk now uses `FHIR .NET API 1.4.0 <https://github.com/FirelyTeam/fhir-net-api/releases>`_
+#. Vonk now uses `FHIR .NET API 1.4.0 <https://github.com/FirelyTeam/firely-net-sdk/releases>`_
 #. Several performance enhancements have been made for SQL server and IIS setups
 #. Added R4-style `Conditional Update <https://www.hl7.org/fhir/http.html#cond-update>`_ to both STU3 and R4
 

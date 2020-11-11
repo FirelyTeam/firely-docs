@@ -46,19 +46,19 @@ Similarly, the primitive value of the node (if any) is now of type object, and r
     "base64Binary", "string (uuencoded)"
     "xhtml", "string"
 
-Note that ``Location`` is exactly the same on both interfaces - every part of the path still has an array index, whether the element repeats or not. If you would like to have a shortened path, where non-repeating elements have their array index removed, you can check whether the underlying implementation of `ITypedElement` implements ``IShortPathGenerator`` (which the implementations from the API do), and get its ``ShortPath`` property.
+Note that ``Location`` is exactly the same on both interfaces - every part of the path still has an array index, whether the element repeats or not. If you would like to have a shortened path, where non-repeating elements have their array index removed, you can check whether the underlying implementation of `ITypedElement` implements ``IShortPathGenerator`` (which the implementations from the SDK do), and get its ``ShortPath`` property.
 
 .. important::
-    The ``IElementDefinitionSummary`` interface returned by the ``Definition`` property is very likely still to change. You are welcome to experiment with it and provide feedback, but the next release of the API will most likely add (incompatible) capabilities.
+    The ``IElementDefinitionSummary`` interface returned by the ``Definition`` property is very likely still to change. You are welcome to experiment with it and provide feedback, but the next release of the SDK will most likely add (incompatible) capabilities.
 
-The API offers a set of extension methods on top of ``ITypedElement`` (like ``Visit()`` and ``Descendants()``) to make it easier to select subtrees and process the data in the tree.
+The SDK offers a set of extension methods on top of ``ITypedElement`` (like ``Visit()`` and ``Descendants()``) to make it easier to select subtrees and process the data in the tree.
 
 Obtaining an ITypedElement
 --------------------------
-The API enables you to turn data in POCO or ``ISourceNode`` form into an ``ITypedElement`` by calling the ``ToTypedElement()`` extension method.
+The SDK enables you to turn data in POCO or ``ISourceNode`` form into an ``ITypedElement`` by calling the ``ToTypedElement()`` extension method.
 
 In the first case, the POCO has all additional type information available (being based on a strongly-typed object model), and simply surface this through the ``ITypedElement`` interface.
-In the second case, the API needs an external source of type information to associate type information to the untyped nodes in the ``ISourceNode`` tree. The ``ToTypedElement`` method on ``ISourceNode`` looks like this:
+In the second case, the SDK needs an external source of type information to associate type information to the untyped nodes in the ``ISourceNode`` tree. The ``ToTypedElement`` method on ``ISourceNode`` looks like this:
 
 .. code-block:: csharp
 
@@ -66,7 +66,7 @@ In the second case, the API needs an external source of type information to asso
         IStructureDefinitionSummaryProvider provider, string type = null, 
         TypedElementSettings settings = null);
 
-Notice that the ``provider`` parameter is used to pass in type information structured by the ``IStructureDefinitionSummaryProvider`` interface. Currently, the API supplies two implementations of this interface:
+Notice that the ``provider`` parameter is used to pass in type information structured by the ``IStructureDefinitionSummaryProvider`` interface. Currently, the SDK supplies two implementations of this interface:
 
 * The ``PocoStructureDefinitionSummaryProvider``, which obtains type information from pre-compiled POCO classes. This is very similar to calling ``ToTypedElement()`` on a POCO, but this method does not require the caller to have data present in POCOs.
 * The ``StructureDefinitionSummaryProvider``, which obtains type information from ``StructureDefinitions`` provided with the core specification and additional Implementation Guides and packages. The constructor for this provider needs a reference to an ``IResourceResolver``, which is the subsystem used to get access to FHIR's metadata resources (like ``StructureDefinition``). See :ref:`specification-sources` for more information about ``IResourceResolver``.
@@ -83,7 +83,7 @@ This is a complete example showing how to turn the ``patientNode`` from the last
 
 Compatibility with ``IElementNavigator``
 ----------------------------------------
-Previous versions of the API defined and used the precursor to ``ITypedElement``, called ``IElementNavigator``. Though functionally the same, ``ITypedElement`` is stateless, whereas ``IElementNavigator`` was not. To aid in parallellization, we have chosen to obsolete the stateful ``IElementNavigator`` in favor of ``ITypedElement``. At this moment, not all parts of the API have been rewritten (yet) to use the new ``ITypedElement`` and we expect the same is true for current users of the API. To aid in migration from one concept to the other, the API provides a set of adapters to turn ``IElementNavigators`` into ``ITypedElements`` and vice versa. These can be constructed by simply calling ``ToElementNavigator()`` on a ``ITypedElement`` or ``ToTypedElement()`` on an ``IElementNavigator``. The compiler will emit messages about this interface being obsolete to stimulate migration to the new paradigm.
+Previous versions of the SDK defined and used the precursor to ``ITypedElement``, called ``IElementNavigator``. Though functionally the same, ``ITypedElement`` is stateless, whereas ``IElementNavigator`` was not. To aid in parallellization, we have chosen to obsolete the stateful ``IElementNavigator`` in favor of ``ITypedElement``. At this moment, not all parts of the SDK have been rewritten (yet) to use the new ``ITypedElement`` and we expect the same is true for current users of the SDK. To aid in migration from one concept to the other, the SDK provides a set of adapters to turn ``IElementNavigators`` into ``ITypedElements`` and vice versa. These can be constructed by simply calling ``ToElementNavigator()`` on a ``ITypedElement`` or ``ToTypedElement()`` on an ``IElementNavigator``. The compiler will emit messages about this interface being obsolete to stimulate migration to the new paradigm.
 
 Handling structural type errors
 -------------------------------

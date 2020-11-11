@@ -25,7 +25,7 @@ The extension for birthPlace is pretty straightforward to add. The URL is taken 
 extension definition. The value is of type ``Address``, and the extension can be added to the
 top-level of the Patient instance. |br|
 The birthTime extension is a little more complex. This extension takes a ``dateTime`` value, and
-has to be added to the ``BirthDate`` field. For this field the API provides you with the easy way
+has to be added to the ``BirthDate`` field. For this field the SDK provides you with the easy way
 to fill it, by allowing you to set the value of ``BirthDate`` as a ``string`` -- internally
 converting this to the ``Date`` type. This means you will have to use the ``[fieldname]Element``
 construction to add extensions to the field.

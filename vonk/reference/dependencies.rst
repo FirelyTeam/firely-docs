@@ -41,11 +41,11 @@ For unittesting:
 Firely OSS License
 ------------------
 
-Vonk relies on the reference .NET FHIR library: Hl7.Fhir.*, also created and maintained by Firely. The license is this (as stated in the `LICENSE file <https://github.com/FirelyTeam/fhir-net-api/blob/master/LICENSE>`_:
+Vonk relies on the reference .NET FHIR library: Hl7.Fhir.*, also created and maintained by Firely. The license is this (as stated in the `LICENSE file <https://github.com/FirelyTeam/firely-net-sdk/blob/master/LICENSE>`_:
 
 
 Copyright (c) 2013-2020, HL7, Firely (info@fire.ly), Microsoft Open Technologies 
-and contributors. See the file `CONTRIBUTORS <https://github.com/FirelyTeam/fhir-net-api/blob/master/contributors.md>`_ for details
+and contributors. See the file `CONTRIBUTORS <https://github.com/FirelyTeam/firely-net-sdk/blob/master/contributors.md>`_ for details
 
 All rights reserved.
 

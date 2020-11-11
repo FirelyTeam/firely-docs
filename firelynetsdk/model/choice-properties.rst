@@ -7,7 +7,7 @@ For the Patient resource type for example, we have a choice for the ``deceased``
 
 .. image:: ../images/fhir_patient_deceased.png
 
-In the API, you will see that the corresponding field is of type ``Element``, which is the base for
+In the SDK, you will see that the corresponding field is of type ``Element``, which is the base for
 all data types.
 
 .. image:: ../images/api_patient_deceased.png
@@ -34,4 +34,5 @@ Or, if we choose to fill in a boolean value:
 
    <br />
    
-The list of all available types is `available here <https://github.com/FirelyTeam/fhir-net-api/tree/develop-1.x/stu3/src/Hl7.Fhir.Core/Model>`_.
+The list of all available types is `available here <https://github.com/FirelyTeam/firely-net-sdk/tree/develop-stu3/src/Hl7.Fhir.Core/Model>`_ 
+and `here <https://github.com/FirelyTeam/firely-net-common/tree/develop/src/Hl7.Fhir.Support.Poco/Model>`_. 

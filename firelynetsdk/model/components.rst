@@ -7,7 +7,7 @@ or 'components'. For example, the Patient resource type has a component called `
 	
 .. image:: ../images/fhir_patient_component.png
 
-In the API, a component block is represented by a class within the resource type class. This subclass
+In the SDK, a component block is represented by a class within the resource type class. This subclass
 has the name of the field, followed by 'Component', for example ``ContactComponent`` in the
 ``Patient`` class:
 

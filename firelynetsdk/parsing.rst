@@ -4,7 +4,7 @@
 Parsing and serialization
 =========================
 
-The .NET API makes it easy to work with XML and Json-based FHIR data. There are two approaches for getting data in and out of your application:
+The Firely .NET SDK makes it easy to work with XML and Json-based FHIR data. There are two approaches for getting data in and out of your application:
 
 * Work with the POCO classes (as described in :ref:`FHIR-model`). These are .NET classes that represent the FHIR resources mostly one-on-one.
 * Work with the ``ElementModel`` classes, which is an abstract memory model representing the FHIR data as an in-memory tree of data.

@@ -43,7 +43,7 @@ To specify some specific settings, you add a ``FhirClientSettings`` to the const
             
     	var client = new FhirClient("http://vonk.fire.ly", settings)
 
-You can also toggle these settings after the clint has been initialized.
+You can also toggle these settings after the client has been initialized.
 
 To specify the preferred format --JSON or XML-- of the content to be used when communicating
 with the FHIR server, you can use the ``PreferredFormat`` attribute:

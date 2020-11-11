@@ -1,6 +1,6 @@
 Lists
 -----
-For elements with a maximum cardinality > 1, the API has a list of the type for that element.
+For elements with a maximum cardinality > 1, the SDK has a list of the type for that element.
 
 .. image:: ../images/fhir_cardinality.png
 .. image:: ../images/patient_identifier.png
@@ -16,4 +16,4 @@ do this:
 	pat.Identifier.Add(id);
 
 .. note:: If you did not initialize a field before adding to the list,
-	the API will create the List for you, and will not generate a NullReferenceException.
+	the SDK will create the List for you, and will not generate a NullReferenceException.
