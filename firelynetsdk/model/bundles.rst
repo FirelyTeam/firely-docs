@@ -17,13 +17,13 @@ the type of Bundle, and a total if the Bundle contains a result from a :ref:`sea
 or :ref:`history <history>` interaction. The resources that are put in a Bundle, are located
 in the ``entry`` element of the Bundle resource.
 
-Since ``entry`` is a 0..* element **and** a :ref:`component <components>` block, the API
+Since ``entry`` is a 0..* element **and** a :ref:`component <components>` block, the SDK
 provides you with a list of ``EntryComponent`` in the ``Bundle.Entry`` field.
 You can loop through that list, or use any of the standard C# List methods to work with the list.
 
 The fully qualified URL identifying the resource that is in the entry, is stored in the
 ``FullUrl`` field of the entry. |br|
-The API doesn't know the type of resource that is in the entry, so the data type for the
+The SDK doesn't know the type of resource that is in the entry, so the data type for the
 ``Resource`` field in the entry is the base type ``Resource``. You will need to cast to
 the actual resource type if you want to have access to the fields for that type.
 
@@ -56,7 +56,7 @@ for the Bundle resource to see which elements are mandatory, just as you would d
 resource types. 
 
 .. tip:: If you want to create a Bundle for a batch or transaction, you can use the helper methods
-	in the API to construct the Bundle correctly, described in the :ref:`transactions` paragraph.
+	in the SDK to construct the Bundle correctly, described in the :ref:`transactions` paragraph.
 
 Then, for each resource you want to include in the Bundle, you will add an
 ``EntryComponent`` to the ``Entry`` list. This can be done by creating an instance of type

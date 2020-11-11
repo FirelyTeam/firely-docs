@@ -25,7 +25,7 @@ of a FhirClient is cheap, the connection will not be opened until you start work
 There's a list of `publically available test 
 servers <http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for_testing>`__ you can use.
 
-.. _minimal:
+.. _sdk-minimal:
 
 FhirClient communication options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ To specify some specific settings, you add a ``FhirClientSettings`` to the const
             
     	var client = new FhirClient("http://vonk.fire.ly", settings)
 
-You can also toggle these settings after the clint has been initialized.
+You can also toggle these settings after the client has been initialized.
 
 To specify the preferred format --JSON or XML-- of the content to be used when communicating
 with the FHIR server, you can use the ``PreferredFormat`` attribute:

@@ -1,10 +1,10 @@
-.. _api-getting-started:
+.. _sdk-getting-started:
 
 ===============
 Getting Started
 ===============
 
-It's easy to start using the FHIR .Net API in your solution: start with the `right NuGet package <https://www.nuget.org/profiles/firely>`_.
+It's easy to start using the Firely .NET SDK in your solution: start with the `right NuGet package <https://www.nuget.org/profiles/firely>`_.
 
 Install via .nuspec
 -------------------
@@ -32,7 +32,7 @@ For R4, you will need the Hl7.Fhir.R4 package:
 4.	Check the box next to the name of your project and click on Install.
 
 
-The :ref:`next section <FHIR-model>` explains how the API works with the FHIR model.
+The :ref:`next section <FHIR-model>` explains how the SDK works with the FHIR model.
 
 
 .. |br| raw:: html

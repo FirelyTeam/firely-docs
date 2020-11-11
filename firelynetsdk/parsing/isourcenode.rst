@@ -50,7 +50,7 @@ Some of the more subtle point illustrated here are:
 * The location ensures each node is named uniquely by suffixing each path with an array index ([0], [1], etc), even if the given element does not repeat according to the FHIR specification (remember, at this level we do not have type information, nor are we aware of the differences between different versions of FHIR, so this information is simply not available).
 * The choice element ``value``, has its instance type (``Quantity``) appended to it: the name of the node in the tree agrees with the name of the element in the Json (or xml) serialization.
 
-The API offers a set of extension methods on top of ``ISourceNode`` (like ``Visit()`` and ``Descendants()``) to make it easier to select subtrees and process the data in the tree.
+The SDK offers a set of extension methods on top of ``ISourceNode`` (like ``Visit()`` and ``Descendants()``) to make it easier to select subtrees and process the data in the tree.
 
 Parsing
 -------

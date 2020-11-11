@@ -2,11 +2,11 @@
 Special initializers
 --------------------
 As you can see from the example in the previous paragraph with the ``FhirDateTime`` or
-``FhirBoolean``, for several data types, the API provides you with extra initialization methods.
+``FhirBoolean``, for several data types, the SDK provides you with extra initialization methods.
 Visual Studio's IntelliSense will help you to view the possibilities while you type, or you can take
 a look at ``Hl7.Fhir.Model`` with the Object Browser to view the methods, plus their attributes as well.
 
-For the ``HumanName`` data type, the API has added some methods to make it easier to construct a
+For the ``HumanName`` data type, the SDK has added some methods to make it easier to construct a
 name in one go, using fluent notation:
 
 .. code-block:: csharp

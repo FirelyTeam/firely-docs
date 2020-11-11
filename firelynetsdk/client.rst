@@ -3,7 +3,7 @@ Working with REST
 =================
 
 In this section we explain the methods of the FhirClient that are in the
-``Hl7.Fhir.Rest`` part of the API package.
+``Hl7.Fhir.Rest`` part of the SDK package.
 
 Add this ``using`` directive to your code:
 

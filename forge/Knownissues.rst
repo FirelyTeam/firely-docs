@@ -20,14 +20,13 @@ If your issue is not listed below, please contact us at forge@fire.ly or (for cu
     https://firely.atlassian.net/browse/FOR-420
     https://firely.atlassian.net/browse/FOR-395
 
-All our tooling is built on top of the official .NET API for HL7 FHIR
-.NET FHIR API, developed and managed by Firely. The `API is open source
+All our tooling is built on top of the official Firely .NET SDK, developed and managed by Firely. The `SDK is open source
 and maintained on Github`_ and `issues are publicly tracked there`_.
 
 HL7 is maintaining a `known issue list for the FHIR specifications on
 their Confluence`_.
 
 .. _our premium support desk: https://firely.atlassian.net/servicedesk
-.. _API is open source and maintained on Github: https://github.com/FirelyTeam/fhir-net-api/
-.. _issues are publicly tracked there: https://github.com/FirelyTeam/fhir-net-api/issues
+.. _SDK is open source and maintained on Github: https://github.com/FirelyTeam/firely-net-sdk/
+.. _issues are publicly tracked there: https://github.com/FirelyTeam/firely-net-sdk/issues
 .. _known issue list for the FHIR specifications on their Confluence: https://confluence.hl7.org/display/FHIR/Known+Issues+with+the+published+FHIR+Specifications

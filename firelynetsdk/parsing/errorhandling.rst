@@ -4,7 +4,7 @@
 Handling errors
 ===============
 
-It is pretty common to encounter errors while parsing (external) FHIR data - in fact so common that the .NET API does not consider them true Exceptions but 
+It is pretty common to encounter errors while parsing (external) FHIR data - in fact so common that the Firely .NET SDK does not consider them true Exceptions but 
 instead employs streaming error reporting for the parser classes. With streaming error reporting, you can subscribe to errors occuring in these components
 by installing a callback. When an error is encountered while parsing, this callback will be called with details about the error. There are several advantages to this approach:
 
@@ -12,7 +12,7 @@ by installing a callback. When an error is encountered while parsing, this callb
 * The parser will report errors as you navigate through the instance. This also means you can stop or halt wherever it fits your usecase.
 * You are not limited to processing just the first error. As long as you continue navigating the instance, parsing will continue.
 
-All components in the API (there are a few in addition to the parsers) that support streaming error reporting implement the ``IExceptionSource`` interface. It has a single property ``ExceptionHandler``, which is a .NET delegate:
+All components in the SDK (there are a few in addition to the parsers) that support streaming error reporting implement the ``IExceptionSource`` interface. It has a single property ``ExceptionHandler``, which is a .NET delegate:
 
 .. code-block:: csharp
 

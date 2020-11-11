@@ -1,11 +1,11 @@
-.. _api_releasenotes:
-=============
+.. _sdk_releasenotes:
+============
 Release notes
 =============
 
-.. important:: The release notes are moved to `fhir-net-api/releases <https://github.com/FirelyTeam/fhir-net-api/releases>`_ 
+.. important:: The release notes are moved to `firely-net-sdk/releases <https://github.com/FirelyTeam/firely-net-sdk/releases>`_ 
 
-.. _api_releasenotes_1.3.0:
+.. _sdk_releasenotes_1.3.0:
 1.3.0 (STU3, R4) (released 20190710)
 ------------------------------------
 
@@ -52,7 +52,7 @@ New Functionality
 Note: Active development of DSTU2 has stopped, the included DSTU2 1.3 update is there to retain binary 
 compatibility with the newer shared assemblies but has none of the new features.
 
-.. _api_releasenotes_1.2.1:
+.. _sdk_releasenotes_1.2.1:
 1.2.1 (STU3, R4) (released 20190416)
 ------------------------------------
 The fix for issue #889 should have been in version 1.2.0, but it was not because of a merge error. In this hotfix (1.2.1) we corrected this mistake 
@@ -62,7 +62,7 @@ Bugfixes
 ~~~~~~~~~~~~
 - #889 Additional rules will get confused by hybrid typed trees
 
-.. _api_releasenotes_1.2.0:
+.. _sdk_releasenotes_1.2.0:
 1.2.0 (DSTU2, STU3, R4) (released 20190329)
 -------------------------------------------
 
@@ -87,7 +87,7 @@ Note: The parsing subsystem now catches way more error in the FHIR xml/json synt
 raise errors in instances that previously parsed without problems, this feature is turned off by default.
 Turn it on by setting ParserSettings.PermissiveParsing to "false".
 
-.. _api_releasenotes_1.2.0-beta2:
+.. _sdk_releasenotes_1.2.0-beta2:
 
 1.2.0-beta2 (DSTU2, STU3, R4) (released 20190228)
 -------------------------------------------------
@@ -96,7 +96,7 @@ R4) were properly released. In STU3 you got a `System.MissingFieldException` dur
 
 - Fix: Parsing of the primitive type decimal is done better now. 
 
-.. _api_releasenotes_1.2.0-beta1:
+.. _sdk_releasenotes_1.2.0-beta1:
 
 1.2.0-beta1 (DSTU2, STU3, R4) (released 20190220)
 -------------------------------------------------
@@ -119,7 +119,7 @@ This first beta of 1.2 includes support for FHIR version R4! In the coming perio
 - Fix: #756 Validation issue with text.div
 - Fix: #807 FhirPath indexOf returns -1 instead of empty.
 
-.. _api_releasenotes_1.1.3:
+.. _sdk_releasenotes_1.1.3:
 
 1.1.3 (DSTU2, STU3) (released 20190213)
 ---------------------------------------
@@ -127,7 +127,7 @@ Hotfix release
 
 - Fix: ParserSettings.PermissiveParsing was not copied in Clone() and constructor
 
-.. _api_releasenotes_1.1.2:
+.. _sdk_releasenotes_1.1.2:
 
 1.1.2 (DSTU2, STU3) (released 20190131)
 ---------------------------------------
@@ -135,7 +135,7 @@ Hotfix release
 
 - Fix: v2-tables.xml of specification.zip contained an invalid codesystem (id =v2-0550)
 
-.. _api_releasenotes_1.1.1:
+.. _sdk_releasenotes_1.1.1:
 
 1.1.1 (DSTU2, STU3) (released 20190130)
 ---------------------------------------
@@ -148,7 +148,7 @@ Hotfix release
 Note: Since 1.0, the parsers are more strict than before in what they accept as input. To disable this behaviour, set PermissiveParsing to 'true'
 in the ParserSettings which can be passed to the Json/Xml POCO parsers.
 
-.. _api_releasenotes_1.1.0:
+.. _sdk_releasenotes_1.1.0:
 
 1.1.0 (DSTU2, STU3) (beta - final version to be released 20190128)
 ------------------------------------------------------------------
@@ -178,7 +178,7 @@ This is a minor release.
 - #793 Element and Backbone element were handled differently in the ClassMappings that feed the parsers.
 - #794 GetResourceFormatFromContentType would throw a null reference exception when the content-type had non-alphanumeric characters.
 
-.. _api_releasenotes_1.0.0:
+.. _sdk_releasenotes_1.0.0:
 
 1.0.0 (DSTU2, STU3) (20181217)
 ---------------------------------------------------------
@@ -210,7 +210,7 @@ we have strived to keep the exsiting top-level POCO-parsing API intact - your pr
 - #704 Replaced uses of .NET ``DateTime`` with ``DateTimeOffset`` everywhere in the public API surface.
 - Build scripts changed because of migration to Azure DevOps from AppVeyor
 
-.. _api_releasenotes_0961:
+.. _sdk_releasenotes_0961:
 
 0.96.1 (Just R4) (released 20180925)
 -----------------------------------------------
@@ -218,7 +218,7 @@ we have strived to keep the exsiting top-level POCO-parsing API intact - your pr
 
 Note: There are no new packages for other versions, since we did not add any new functionality.
 
-.. _api_releasenotes_0960:
+.. _sdk_releasenotes_0960:
 
 0.96.0 (DSTU2, STU3 and R4) (released 20180606)
 -----------------------------------------------
@@ -233,7 +233,7 @@ Note: There are no new packages for other versions, since we did not add any new
 - #612 Bugfix for snapshot generator
 - #614 Improved encoding for search parameters when doing POST-based search
 
-.. _api_releasenotes_0950:
+.. _sdk_releasenotes_0950:
 
 0.95.0 (DSTU2, STU3 and R4) (released 20180412)
 -----------------------------------------------

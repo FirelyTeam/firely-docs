@@ -1,10 +1,10 @@
-.. _api-contact:
+.. _sdk-contact:
 
 ==========
 Contact us
 ==========
 
-We actively monitor the `issues <https://github.com/FirelyTeam/fhir-net-api/issues>`__ 
+We actively monitor the `issues <https://github.com/FirelyTeam/firely-net-sdk/issues>`__ 
 coming in through the GitHub repository.
 You are welcome to register your bugs and feature suggestions there!
 

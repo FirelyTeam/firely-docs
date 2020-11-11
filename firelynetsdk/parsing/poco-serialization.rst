@@ -37,7 +37,7 @@ summary forms by passing the ``summary`` parameter to any of the serialization m
 Convenience methods
 -------------------
 
-.. caution:: This documentation describes features in a prelease of version 1.0 of the API. The documentation may be outdated and code examples may become incorrect.
+.. caution:: This documentation describes features in a prelease of version 1.0 of the SDK. The documentation may be outdated and code examples may become incorrect.
 
 Although the code examples above are simple enough, there is also a set of extension methods available on POCOs to make serialization even easier, without the need of explicitly creating a serializer:
 

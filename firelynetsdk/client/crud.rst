@@ -30,7 +30,7 @@ implementation, this could differ from what you've sent. For instance, the serve
 could have filled in fields with default values, if the values for those fields were
 not set in your request.
 
-If you've set the ``PrefferedReturn`` property of the :ref:`FhirClient <minimal>`
+If you've set the ``PreferredReturn`` property of the :ref:`FhirClient <minimal>`
 to ``minimal``, the server will return the technical id and version number of the newly
 created resource in the headers of the response and the ``Create`` method will return
 ``null``. See :ref:`request-response` for an example of how to retrieve the information
@@ -118,11 +118,11 @@ deletion, and the server returned an error indicating that.
 Note that sending an update to a resource after it has been deleted is
 not considered an error and may effectively "undelete" it.
 
-.. _conditionals:
+.. _sdk_conditionals:
 
 Conditional interactions
 ------------------------
-The API provides support for the conditional versions of the ``Create``,
+The SDK provides support for the conditional versions of the ``Create``,
 ``Update`` and ``Delete`` interactions.
 Not all servers will support conditional interactions and can return
 an HTTP 412 error with an `OperationOutcome`_ to indicate that.
