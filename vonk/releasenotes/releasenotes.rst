@@ -17,6 +17,31 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_390:
+
+Release 3.9.0
+-------------
+
+Features
+^^^^^^^^
+#. We have made :ref:`feature_subscription` more robust. If an evaluation of a Subscription fails, Vonk will retry the evaluation periodically for a number amount of tries.
+#. We have implemented the ``_total`` parameter for options ``none`` and ``accurate``. Omitting the ``_total`` parameter is equivalent to ``_total=accurate``. If the total number of resources is not relevant, using ``_total=none`` in the request results in better performance when searching.
+#. It is no longer necessary for the ``:type`` parameter to always be provided to distinguish between multiple reference targets. The parameter does not need to be provided anymore when the search only applies to a single target.
+   For example: ``GET <base>/AllergyIntolerance?patient=xyz``
+   The ``patient:Patient`` type parameter does not have to be supplied. The 'patient' search parameter on AllergyIntolerance has two possible targets. It may reference either a Patient or a Group resource. However, the fhirpath statement that goes with it, selects ‘AllergyIntolerance.patient', and that reference element may only target a Patient resource. 
+
+Fixes
+^^^^^
+#. Indexing values for a string search parameter threw an exception when there was no value but only an extension. This has been corrected.
+#. We made the Provenance.target available as a revInclude Parameter in the CapabilityStatement. Previously, Vonk did not account for the case that a reference is allowed to ANY resource type, which incorrectly resulted in Provenance.target to not be shown in the CapabilityStatement.
+
+All the following fixes are only relevant for SQL Server:
+
+#. Improved the handling of concurrent updates on the same resource.
+#. Upgraded the version of the SqlClient library to fix issues when running on Linux.
+#. Fixed missing language libraries for SQL Server when running on Docker.
+
+
 .. _vonk_releasenotes_380:
 
 Release 3.8.0
