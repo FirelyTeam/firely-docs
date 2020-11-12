@@ -24,6 +24,7 @@ Release 3.9.0
 
 Features
 ^^^^^^^^
+
 #. We have made Subscriptions more robust. See :ref:`feature_subscription` for details. In summary, if an evaluation of a Subscription fails, Vonk will retry the evaluation periodically for a number amount of tries. You can control the retry period and the maximum number of retries in the subscription settings:
       * ``RetryPeriod`` is expressed in milliseconds. Default ``30000`` (30 sec).
       * ``MaximumRetries`` is the maximum amount of times Vonk will retry to send the resources. Default ``3`` retries.
@@ -34,6 +35,7 @@ Features
 
 Fixes
 ^^^^^
+
 #. Indexing values for a string search parameter threw an exception when there was no value but only an extension. This has been corrected.
 #. We made the Provenance.target available as a revInclude Parameter in the CapabilityStatement. Previously, Vonk did not account for the case that a reference is allowed to ANY resource type, which incorrectly resulted in Provenance.target to not be shown in the CapabilityStatement.
 
