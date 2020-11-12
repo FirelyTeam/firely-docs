@@ -24,7 +24,9 @@ Release 3.9.0
 
 Features
 ^^^^^^^^
-#. We have made :ref:`feature_subscription` more robust. If an evaluation of a Subscription fails, Vonk will retry the evaluation periodically for a number amount of tries.
+#. We have made Subscriptions more robust. See :ref:`feature_subscription` for details. In summary, if an evaluation of a Subscription fails, Vonk will retry the evaluation periodically for a number amount of tries. You can control the retry period and the maximum number of retries in the subscription settings:
+      * ``RetryPeriod`` is expressed in milliseconds. Default ``30000`` (30 sec).
+      * ``MaximumRetries`` is the maximum amount of times Vonk will retry to send the resources. Default ``3`` retries.
 #. We have implemented the ``_total`` parameter for options ``none`` and ``accurate``. Omitting the ``_total`` parameter is equivalent to ``_total=accurate``. If the total number of resources is not relevant, using ``_total=none`` in the request results in better performance when searching.
 #. It is no longer necessary for the ``:type`` parameter to always be provided to distinguish between multiple reference targets. The parameter does not need to be provided anymore when the search only applies to a single target.
    For example: ``GET <base>/AllergyIntolerance?patient=xyz``
