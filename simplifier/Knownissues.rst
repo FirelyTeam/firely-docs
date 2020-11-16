@@ -42,8 +42,7 @@ simplifier@fire.ly or (for customers) `our premium support desk`_.
     https://firely.atlassian.net/browse/SIM-960
     https://firely.atlassian.net/browse/SIM-1127
 
-All our tooling is built on top of the official .NET API for HL7 FHIR
-.NET FHIR API, developed and managed by Firely. The `API is open source
+All our tooling is built on top of the official Firely .NET SDK developed and managed by Firely. The `SDK is open source
 and maintained on Github`_ and `issues are publicly tracked there`_.
 
 HL7 is maintaining a `known issue list for the FHIR specifications on
@@ -53,6 +52,6 @@ their Confluence`_.
 .. _warning 2009: https://simplifier.net/docs/fhir-net-api/Code-2009
 .. _error 1012: https://simplifier.net/docs/fhir-net-api/Code-1012
 .. _has been acknowledged: https://jira.hl7.org/browse/FHIR-25776
-.. _API is open source and maintained on Github: https://github.com/FirelyTeam/fhir-net-api/
-.. _issues are publicly tracked there: https://github.com/FirelyTeam/fhir-net-api/issues
+.. _SDK is open source and maintained on Github: https://github.com/FirelyTeam/firely-net-sdk/
+.. _issues are publicly tracked there: https://github.com/FirelyTeam/firely-net-sdk/issues
 .. _known issue list for the FHIR specifications on their Confluence: https://confluence.hl7.org/display/FHIR/Known+Issues+with+the+published+FHIR+Specifications

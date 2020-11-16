@@ -158,7 +158,7 @@ Fix
 #. Transaction: references within the transaction are automatically changed to the id's the referenced resources get from Vonk when processing the transaction. This did not happen for references inside extensions. It does now. 
 #. Administration Import: an Internal Server Error could be triggered with a zip file with nested directories in it.
 
-   * NB: Directories in your zip are still not supported because of `Fhir.NET API issue #883 <https://github.com/FirelyTeam/fhir-net-api/issues/883>`_, but Vonk will not error on it anymore.
+   * NB: Directories in your zip are still not supported because of `Fhir.NET API issue #883 <https://github.com/FirelyTeam/firely-net-sdk/issues/883>`_, but Vonk will not error on it anymore.
 
 #. Search: The entry.fullUrl for an OperationOutcome in a Search bundle had a relative url.
 #. Search: Processed _elements and _summary arguments were not reported in the selflink of the bundle (or any of the paging links).
