@@ -5,7 +5,7 @@ Welcome
 This is documentation site for the support SDK for working with `HL7
 FHIR <http://www.hl7.org/fhir>`__ on the Microsoft .NET platform.
 
-.. important:: The old name of this product was FHIR .NET API. Since November 2020 we rename it to **Firely .NET SDK**.
+.. important:: The old name of this product was FHIR .NET API. Since November 2020 we renamed it to **Firely .NET SDK**.
   It is still the same product from the same contributors only with another name.
 
 
