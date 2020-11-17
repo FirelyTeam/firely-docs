@@ -1,5 +1,5 @@
 .. _sdk_releasenotes:
-============
+=============
 Release notes
 =============
 
