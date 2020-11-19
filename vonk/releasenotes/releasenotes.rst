@@ -17,6 +17,17 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_391:
+
+Release 3.9.1 hotfix
+--------------------
+
+Fix
+^^^
+#. Fixed a bug introduced with 3.9.0 were Vonk would throw the following exception on start-up ``System.InvalidOperationException: Unable to resolve service for type 'Vonk.Core.Conformance.IDefinitionProvider' while attempting to activate 'Vonk.Fhir.R3.SnapshotGeneration.SnapshotGeneratorR3``
+#. Fixed a breaking change to public search API with the implementation of ``_total`` parameter. We had introduced a new parameter to the Next method in ResultPage, effectively breaking backwards compatibility. This has been fixed.
+
+
 .. _vonk_releasenotes_390:
 
 Release 3.9.0
