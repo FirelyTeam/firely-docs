@@ -160,7 +160,7 @@ We will use docker-compose to achieve this.
          retries: 3
    
 Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver.yml``. Make sure your Vonk license file is named
-``vonk-trial-license.json`` and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license). 
+``vonk-trial-license.json`` and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container).
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
 
@@ -218,7 +218,7 @@ to adjust the ``docker-compose.mssqlserver_host.yml``:
   In this case the host (named my_host) uses IP address 192.0.2.1. Change this to the appropriate address.
 
 After saving your settings, make sure your Vonk license file is named ``vonk-trial-license.json`` and is residing in your working directory
-(see :ref:`getting_started_docker` on how to obtain the license). Or use the name of your license file instead of ``vonk-trial-license`` in the text above.
+(see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container). Or use the name of your license file instead of ``vonk-trial-license`` in the text above.
 
 You can run the Vonk container as follows: |br|
 ``> docker-compose -f docker-compose.mssqlserver_host.yml up -d``
@@ -263,7 +263,7 @@ This section describes how to spin up a Vonk container and a MongoDB container u
        image: mongo
 
 Save the text above to a file in your working directory with the name ``docker-compose.mongodb.yml``. Make sure your Vonk license file is named ``vonk-trial-license.json``
-and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license).
+and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container).
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
 
