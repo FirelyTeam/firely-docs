@@ -19,28 +19,24 @@ You can use Postman to get a JWT Token from the IdentityServer, and use that in 
 
 #. In the 'Type' dropdown choose OAuth2 (SMART uses OpenIdConnect, which is a specialization of OAuth2)
 #. In the 'Add authorization data to' dropdown choose 'Request headers' (probably preselected)
-#. Click Get New Access Token, and in the popup window fill in the blanks:
-
-   .. image:: ../images/ac_postman_request_token_https.png
-
+#. Now fill in the blank fields under section 'Configure New Token'.
+#. Take special care to use https in the AUTH URL and Access Token URL fields.
 #. You can alter the values in 'Scope' to get other claims in the token.
-#. Click Request Token and you'll be presented with the login screen of IdentityServer:
+#. Click 'Get New Access Token' and you'll be presented with the login screen of IdentityServer:
 
    .. image:: ../images/ac_postman_login.png
 
-#. Log in as Bob or Alice and you'll be presented with the grant screen of IdentityServer. It will ask you whether Postman may have the claims you requested in the 'Scope' field.
-
-   .. image:: ../images/ac_postman_grant.png
-
-#. Click 'Allow' and you return to Postman with the newly retrieved token:
+#. Log in as Bob or Alice and you return to Postman with the newly retrieved token:
 
    .. image:: ../images/ac_postman_managetokens.png
 
-#. You can copy the value of the access token and paste it into `JWT.io <http://jwt.io>`_. It will show you the contents of the token.
-#. Scroll down and click 'Use Token':
+#. Optionally, you can copy the value of the access token and paste it into `JWT.io <http://jwt.io>`_. It will show you the contents of the token.
+#. Back in Postman, click 'Use Token'.
+#. The token will be added as Authorization header to the request (make sure you have disabled 'Hide auto-generated headers' in the Headers tab):
 
-   .. image:: ../images/ac_postman_usetoken.png
+   .. image:: ../images/ac_postman_auth_tab_current_token_filled.png
 
-#. The token will be added as Authorization header to the request.
+   .. image:: ../images/ac_postman_header_auth_token.png
+
 #. Issue the original request again. Provided there is a Patient with the identifier of Bob or Alice (or whomever you chose), it will be in the search results.
 
