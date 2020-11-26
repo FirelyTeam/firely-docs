@@ -1,6 +1,6 @@
 .. SimplifierDocs documentation master file, created by
    This file is the main page, pointing to the documentation
-   for the subprojects Simplifier, Forge, Spark, Vonk, VonkLoader, and the Firely .Net SDK.
+   for the subprojects Simplifier.net, Forge, Firely Terminal, Vonk, VonkLoader, and the Firely .Net SDK.
 
 Welcome to Simplifier's documentation site
 ==========================================
@@ -16,6 +16,7 @@ The currently documented projects are:
    Forge - FHIR profile editor <forge/index>
    Vonk - FHIR server <vonk/index>
    Firely .NET SDK - Open Source FHIR library <firelynetsdk/index>
+   Firely Terminal (Torinox) - Command-line FHIR tool <firelyterminal/index>
    FHIR Mapper - Engine for the FHIR Mapping Language <mappingengine/index>
    VonkLoader - Bulk upload resources to any FHIR server <vonkloader/index>
 
