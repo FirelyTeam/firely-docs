@@ -23,5 +23,6 @@ Contents:
    simplifierIGeditor
    simplifierVonk
    FHIRRegistry
+   accessibility
    simplifierContact
    Knownissues

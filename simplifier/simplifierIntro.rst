@@ -9,19 +9,22 @@ and collaboration in teams.
 FHIR (Fast Health Interoperability Resources) is an HL7 standard for information exchange in health care. It is based on Internet
 technology. More information about FHIR can be found at `HL7 FHIR <http://www.hl7.org/fhir/>`_.
 
-**FHIR Profiling**
+FHIR Profiling
+--------------
 
 The FHIR Profiling tool `Forge (https://fire.ly/forge) <https://fire.ly/forge>`_ can be
 used off-line and independently from Simplifier.net.
 
-**Simplifier accounts**
+Simplifier accounts
+-------------------
 
 Simplifier.net distinguishes between free (personal) plans and paid
 plans. Anyone can find and download Resources in this Registry, with
 or without an account. Creating Resources requires an account. Paid
 plans are targeted at professional users and organizations.
 
-**Simplifier content**
+Simplifier content
+------------------
 
 Simplifier content is organized at four levels: Users, Resources, Projects and Organizations.
 
@@ -33,7 +36,8 @@ All FHIR resources are organized in projects, which can be either public or priv
 
 Organizations only exist for the highest account plan. One or more projects and users can be added to an organization.
 
-**Firely**
+Firely
+--------
 
 Simplifier.net is created and managed by Firely, formerly known as Furore Health Informatics.
 We are a group of software engineers, support engineers and FHIR consultants, based in Amsterdam,
