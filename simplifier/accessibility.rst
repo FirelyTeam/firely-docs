@@ -12,11 +12,14 @@ Firely Accessibility Conformance Report - WCAG Edition
 
 **Product Description:** Simplifier.net by Firely is an online platform for collaborating on, and publishing the artifacts from, FHIR specifications.
 
-**Contact Information:** simplifier@fire.ly
+**Contact Information:** Please contact simplifier@fire.ly with any questions or suggestions for improvements.
 
 **Notes:**
 
-* 30-11-2020: First edition published
+* Simplifier.net is a platform for user-generated content. While we do our best to facilitate our users in creating accessible content, the flexibility of the platform requires users to check their own generated content for accessibility.
+* Log
+
+  * 30-11-2020: First edition published
 
 **Evaluation Methods Used:**
 
@@ -135,103 +138,114 @@ Notes:
 * 30-11-2020: First publication
 
 .. list-table::
-   :widths: 10 10 10
-   :header-rows: 1
+  :widths: 10 10 10
+  :header-rows: 1
 
-   * - Criteria
-     - Conformance Level
-     - Remarks and Explanations
-   * - `1.1.1 Non-text Content`_ (Level A)
-     -
-     - * Test
-       * Test2
-   * - `1.2.1 Audio-only and Video-only (Prerecorded)`_ (Level A)
-     -
-     -
-   * - `1.2.2 Captions (Prerecorded)`_ (Level A)
-     -
-     -
-   * - `1.2.3 Audio Description or Media Alternative (Prerecorded)`_ (Level A)
-     -
-     -
-   * - `1.3.1 Info and Relationships`_ (Level A)
-     -
-     -
-   * - `1.3.2 Meaningful Sequence`_ (Level A)
-     -
-     -
-   * - `1.3.3 Sensory Characteristics`_ (Level A)
-     -
-     -
-   * - `1.4.1 Use of Color`_ (Level A)
-     -
-     -
-   * - `1.4.2 Audio Control`_ (Level A)
-     -
-     -
-   * - `2.1.1 Keyboard`_ (Level A)
-     -
-     -
-   * - `2.1.2 No Keyboard Trap`_ (Level A)
-     -
-     -
-   * - `2.1.4 Character Key Shortcuts`_ (Level A 2.1 only)
-     -
-     -
-   * - `2.2.1 Timing Adjustable`_ (Level A)
-     -
-     -
-   * - `2.2.2 Pause, Stop, Hide`_ (Level A)
-     -
-     -
-   * - `2.3.1 Three Flashes or Below Threshold`_ (Level A)
-     -
-     -
-   * - `2.4.1 Bypass Blocks`_ (Level A)
-     -
-     -
-   * - `2.4.2 Page Titled`_ (Level A)
-     -
-     -
-   * - `2.4.3 Focus Order`_ (Level A)
-     -
-     -
-   * - `2.4.4 Link Purpose (In Context)`_ (Level A)
-     -
-     -
-   * - `2.5.1 Pointer Gestures`_ (Level A 2.1 only)
-     -
-     -
-   * - `2.5.2 Pointer Cancellation`_ (Level A 2.1 only)
-     -
-     -
-   * - `2.5.3 Label in Name`_ (Level A 2.1 only)
-     -
-     -
-   * - `2.5.4 Motion Actuation`_ (Level A 2.1 only)
-     -
-     -
-   * - `3.1.1 Language of Page`_ (Level A)
-     -
-     -
-   * - `3.2.1 On Focus`_ (Level A)
-     -
-     -
-   * - `3.2.2 On Input`_ (Level A)
-     -
-     -
-   * - `3.3.1 Error Identification`_ (Level A)
-     -
-     -
-   * - `3.3.2 Labels or Instructions`_ (Level A)
-     -
-     -
-   * - `4.1.1 Parsing`_ (Level A)
-     -
-     -
-   * - `4.1.2 Name, Role, Value`_ (Level A)
-     -
-     -
+  * - Criteria
+    - Conformance Level
+    - Remarks and Explanations
+  * - `1.1.1 Non-text Content`_ (Level A)
+    -
+    - * TODO: Check per page:
+
+        * Form fields have relevant names
+        * Relevant images have relevant alt tags
+  * - `1.2.1 Audio-only and Video-only (Prerecorded)`_ (Level A)
+    - Supports
+    - No audio or video content is used.
+  * - `1.2.2 Captions (Prerecorded)`_ (Level A)
+    - Supports
+    - No audio or video content is used.
+  * - `1.2.3 Audio Description or Media Alternative (Prerecorded)`_ (Level A)
+    - Supports
+    - No audio or video content is used.
+  * - `1.3.1 Info and Relationships`_ (Level A)
+    - 
+    - * TODO: Check per page:
+        
+        * Sections labeled with relevant aria tags
+  * - `1.3.2 Meaningful Sequence`_ (Level A)
+    - Supports
+    - Meaningful order of elements is reflected in programmatic page structure.
+  * - `1.3.3 Sensory Characteristics`_ (Level A)
+    - Supports
+    - Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound.
+  * - `1.4.1 Use of Color`_ (Level A)
+    - Supports
+    - Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+  * - `1.4.2 Audio Control`_ (Level A)
+    - Supports
+    - No audio is used.
+  * - `2.1.1 Keyboard`_ (Level A)
+    -
+    - * BUG: [SIM-1357] Alternative for/navigate by keyboard resource tree
+      * BUG: [SIM-1358] Hide visually hidden menu items from project/resource menu for screen readers
+      * BUG: [SIM-1355] Feedback button is not accessible by tab
+      * BUG: [SIM-1356] Avatar shows no visible indication of being selected with tab
+      * BUG: [SIM-1359] In IG editor > IG settings: Can't change tab with keyboard
+      * TODO: Check per page:
+        
+        * Relevant headers on page
+  * - `2.1.2 No Keyboard Trap`_ (Level A)
+    -
+    - BUG: [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
+  * - `2.1.4 Character Key Shortcuts`_ (Level A 2.1 only)
+    -
+    -
+  * - `2.2.1 Timing Adjustable`_ (Level A)
+    -
+    -
+  * - `2.2.2 Pause, Stop, Hide`_ (Level A)
+    -
+    -
+  * - `2.3.1 Three Flashes or Below Threshold`_ (Level A)
+    -
+    -
+  * - `2.4.1 Bypass Blocks`_ (Level A)
+    -
+    -
+  * - `2.4.2 Page Titled`_ (Level A)
+    -
+    -
+  * - `2.4.3 Focus Order`_ (Level A)
+    -
+    -
+  * - `2.4.4 Link Purpose (In Context)`_ (Level A)
+    -
+    -
+  * - `2.5.1 Pointer Gestures`_ (Level A 2.1 only)
+    -
+    -
+  * - `2.5.2 Pointer Cancellation`_ (Level A 2.1 only)
+    -
+    -
+  * - `2.5.3 Label in Name`_ (Level A 2.1 only)
+    -
+    -
+  * - `2.5.4 Motion Actuation`_ (Level A 2.1 only)
+    -
+    -
+  * - `3.1.1 Language of Page`_ (Level A)
+    -
+    -
+  * - `3.2.1 On Focus`_ (Level A)
+    -
+    -
+  * - `3.2.2 On Input`_ (Level A)
+    -
+    -
+  * - `3.3.1 Error Identification`_ (Level A)
+    -
+    -
+  * - `3.3.2 Labels or Instructions`_ (Level A)
+    -
+    -
+  * - `4.1.1 Parsing`_ (Level A)
+    -
+    -
+  * - `4.1.2 Name, Role, Value`_ (Level A)
+    -
+    -
 
 
 Table 2: Success Criteria, Level AA
