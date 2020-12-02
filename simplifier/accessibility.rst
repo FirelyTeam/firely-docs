@@ -21,9 +21,11 @@ Firely Accessibility Conformance Report - WCAG Edition
 **Evaluation Methods Used:**
 
 * Testing based on general product knowledge
-* Testing with assistive technologies with Google Chrome on Windows
-  - `WAVE Web Accessibility Evaluation Tool`_
-  - `Microsoft Narrator`_
+* Testing with assistive technologies with Google Chrome/Microsoft Edge on Windows
+
+   * `WAVE Web Accessibility Evaluation Tool`_
+
+   * `Microsoft Narrator`_
 
 Applicable Standards/Guidelines
 -------------------------------
@@ -63,6 +65,8 @@ follows:
 
 Scope
 ------
+
+Tests were executed with the following pages, taken as representative for the full application:
 
 .. list-table::
    :widths: 10 10 10

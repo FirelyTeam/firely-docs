@@ -3,10 +3,14 @@
 Welcome to Simplifier's documentation!
 ======================================
 
-Contents:
+`Simplifier.net <https://simplifier.net>`_ is a FHIR specification development, collaboration and publishing platform.
+Below you will find the documentation for the platform.
+
+Table of Contents
+-----------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    simplifierIntro
    simplifierBrowse
