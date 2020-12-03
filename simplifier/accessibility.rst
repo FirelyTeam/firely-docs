@@ -36,17 +36,26 @@ Applicable Standards/Guidelines
 This report covers the degree of conformance for the following
 accessibility standard/guidelines:
 
-+-----------------------------------+-----------------------------------+
-| Standard/Guideline                | Included In Report                |
-+===================================+===================================+
-| `Web Content Accessibility        | | Level A: Yes                    |
-| Guidelines 2.0`_                  | | Level AA: Yes                   |
-|                                   | | Level AAA: No                   |
-+-----------------------------------+-----------------------------------+
-| `Web Content Accessibility        | | Level A: Yes                    |
-| Guidelines 2.1`_                  | | Level AA: Yes                   |
-|                                   | | Level AAA: No                   |
-+-----------------------------------+-----------------------------------+
+.. list-table::
+  :widths: 10 10
+  :header-rows: 1
+
+  * - Standard/Guideline
+    - Included In Report
+
+  * - `Web Content Accessibility Guidelines 2.0`_
+    - Level A: Yes
+      
+      Level AA: Yes
+      
+      Level AAA: No
+
+  * - `Web Content Accessibility Guidelines 2.1`_
+    - Level A: Yes
+      
+      Level AA: Yes
+      
+      Level AAA: No
 
 Terms
 -----
@@ -144,39 +153,59 @@ Notes:
   * - Criteria
     - Conformance Level
     - Remarks and Explanations
-  * - `1.1.1 Non-text Content`_ (Level A)
+  * - `1.1.1 Non-text Content`_
+      
+      (Level A)
     -
     - * TODO: Check per page:
 
         * Form fields have relevant names
         * Relevant images have relevant alt tags
-  * - `1.2.1 Audio-only and Video-only (Prerecorded)`_ (Level A)
+  * - `1.2.1 Audio-only and Video-only`_
+      
+      (Level A)
     - Supports
     - No audio or video content is used.
-  * - `1.2.2 Captions (Prerecorded)`_ (Level A)
+  * - `1.2.2 Captions`_
+      
+      (Level A)
     - Supports
     - No audio or video content is used.
-  * - `1.2.3 Audio Description or Media Alternative (Prerecorded)`_ (Level A)
+  * - `1.2.3 Audio Description or Media Alternative`_
+      
+      (Level A)
     - Supports
     - No audio or video content is used.
-  * - `1.3.1 Info and Relationships`_ (Level A)
+  * - `1.3.1 Info and Relationships`_
+      
+      (Level A)
     - 
     - * TODO: Check per page:
         
         * Sections labeled with relevant aria tags
-  * - `1.3.2 Meaningful Sequence`_ (Level A)
+  * - `1.3.2 Meaningful Sequence`_
+      
+      (Level A)
     - Supports
     - Meaningful order of elements is reflected in programmatic page structure.
-  * - `1.3.3 Sensory Characteristics`_ (Level A)
+  * - `1.3.3 Sensory Characteristics`_
+      
+      (Level A)
     - Supports
     - Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound.
-  * - `1.4.1 Use of Color`_ (Level A)
+  * - `1.4.1 Use of Color`_
+  
+      (Level A)
     - Supports
     - Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
-  * - `1.4.2 Audio Control`_ (Level A)
+  * - `1.4.2 Audio Control`_
+  
+      (Level A)
     - Supports
     - No audio is used.
-  * - `2.1.1 Keyboard`_ (Level A)
+  * - `2.1.1 Keyboard`_
+  
+      (Level A)
     -
     - * BUG: [SIM-1357] Alternative for/navigate by keyboard resource tree
       * BUG: [SIM-1358] Hide visually hidden menu items from project/resource menu for screen readers
@@ -186,66 +215,118 @@ Notes:
       * TODO: Check per page:
         
         * Relevant headers on page
-  * - `2.1.2 No Keyboard Trap`_ (Level A)
+  * - `2.1.2 No Keyboard Trap`_
+  
+      (Level A)
     -
-    - BUG: [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
-  * - `2.1.4 Character Key Shortcuts`_ (Level A 2.1 only)
+    - * BUG: [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
+  * - `2.1.4 Character Key Shortcuts`_
+  
+      (Level A 2.1 only)
+    - Supports
+    - No keyboard shortcuts are used, except in Monaco code editor, which provides its own accessibility menu and options.
+  * - `2.2.1 Timing Adjustable`_
+  
+      (Level A)
+    - Supports
+    - No timings are used.
+  * - `2.2.2 Pause, Stop, Hide`_
+      
+      (Level A)
+    - Supports
+    - All scrolling, moving content (for example the log output from file import or package generation) are started based on user input and pause at the end for review.
+  * - `2.3.1 Three Flashes or Below Threshold`_
+      
+      (Level A)
+    - Supports
+    - No flashing content is used.
+  * - `2.4.1 Bypass Blocks`_
+      
+      (Level A)
     -
+    - * ISSUE: [SIM-1365] Make it easier to skip to main content by providing ARIA indications for blocks.
+  * - `2.4.2 Page Titled`_
+      
+      (Level A)
+    - 
+    - * ISSUE: [SIM-1366] Reverse page title order: Content for repeated SIMPLIFIER.net
+      * ISSUE: [SIM-1367] Consider using different page title per resource/project/package tab
+  * - `2.4.3 Focus Order`_
+      
+      (Level A)
     -
-  * - `2.2.1 Timing Adjustable`_ (Level A)
+    - * BUG: [SIM-1358] Put project/package/resource menu in right tab order. 
+      * BUG: [SIM-1358] Main buttons of project/package/resource menu are not selectable
+      * TODO: Check per page
+
+        * Logical focus order
+  * - `2.4.4 Link Purpose (In Context)`_
+      
+      (Level A)
     -
+    - * BUG: [SIM-1368] Buttons without text: Copy button next to API link, Canonical link, (embed) Snippet URL, etc.
+      * BUG: [SIM-1369] Better text around Avatar image/link
+  * - `2.5.1 Pointer Gestures`_
+      
+      (Level A 2.1 only)
     -
-  * - `2.2.2 Pause, Stop, Hide`_ (Level A)
+    - * BUG: [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
+  * - `2.5.2 Pointer Cancellation`_
+      
+      (Level A 2.1 only)
+    - Supports
+    - No actions are executed on mouse down event.
+  * - `2.5.3 Label in Name`_
+      
+      (Level A 2.1 only)
+    - 
+    - Note: `Organizational news page <https://simplifier.net/organization/firely/~news>`_ has 'Read More', but also descriptive link to news article.
+
+      * TODO: Check per page
+
+        * Descriptive link naming.
+  * - `2.5.4 Motion Actuation`_
+      
+      (Level A 2.1 only)
+    - Supports
+    - No motion is used.
+  * - `3.1.1 Language of Page`_
+      
+      (Level A)
     -
+    - Note: User defined text currently has no way to deviate from English language. This will be done later when support for IG translation is added.
+
+      * BUG: [SIM-1372] Define English as the language for every Simplifier page
+  * - `3.2.1 On Focus`_
+      
+      (Level A)
+    - Supports
+    - No change of context is executed when changing focus.
+  * - `3.2.2 On Input`_
+      
+      (Level A)
+    - Supports
+    - No change of context is executed when changing input, without user actuation.
+  * - `3.3.1 Error Identification`_
+      
+      (Level A)
     -
-  * - `2.3.1 Three Flashes or Below Threshold`_ (Level A)
+    - * BUG: [SIM-1373] Error message on deleting team with packages/project linked is time based
+  * - `3.3.2 Labels or Instructions`_
+      
+      (Level A)
     -
-    -
-  * - `2.4.1 Bypass Blocks`_ (Level A)
-    -
-    -
-  * - `2.4.2 Page Titled`_ (Level A)
-    -
-    -
-  * - `2.4.3 Focus Order`_ (Level A)
-    -
-    -
-  * - `2.4.4 Link Purpose (In Context)`_ (Level A)
-    -
-    -
-  * - `2.5.1 Pointer Gestures`_ (Level A 2.1 only)
-    -
-    -
-  * - `2.5.2 Pointer Cancellation`_ (Level A 2.1 only)
-    -
-    -
-  * - `2.5.3 Label in Name`_ (Level A 2.1 only)
-    -
-    -
-  * - `2.5.4 Motion Actuation`_ (Level A 2.1 only)
-    -
-    -
-  * - `3.1.1 Language of Page`_ (Level A)
-    -
-    -
-  * - `3.2.1 On Focus`_ (Level A)
-    -
-    -
-  * - `3.2.2 On Input`_ (Level A)
-    -
-    -
-  * - `3.3.1 Error Identification`_ (Level A)
-    -
-    -
-  * - `3.3.2 Labels or Instructions`_ (Level A)
-    -
-    -
-  * - `4.1.1 Parsing`_ (Level A)
-    -
-    -
-  * - `4.1.2 Name, Role, Value`_ (Level A)
-    -
-    -
+    - * BUG: [SIM-1374] No label for main search bar on home page and search bar on other pages
+  * - `4.1.1 Parsing`_
+      
+      (Level A)
+    - Supports
+    - Website uses valid HTML.
+  * - `4.1.2 Name, Role, Value`_
+      
+      (Level A)
+    - 
+    - * BUG: [SIM-1375] Check boxes on package creation third tab are not tab accessible.
 
 
 Table 2: Success Criteria, Level AA
@@ -256,72 +337,113 @@ Notes:
 * 30-11-2020: First publication
 
 .. list-table::
-   :widths: 10 10 10
-   :header-rows: 1
+  :widths: 10 10 10
+  :header-rows: 1
 
-   * - Criteria
-     - Conformance Level
-     - Remarks and Explanations
-   * - `1.2.4 Captions (Live)`_ (Level AA)
-     -
-     -
-   * - `1.2.5 Audio Description (Prerecorded)`_ (Level AA)
-     -
-     -
-   * - `1.3.4 Orientation`_ (Level AA 2.1 only)
-     -
-     -
-   * - `1.3.5 Identify Input Purpose`_ (Level AA 2.1 only)
-     -
-     -
-   * - `1.4.3 Contrast (Minimum)`_ (Level AA)
-     -
-     -
-   * - `1.4.4 Resize text`_ (Level AA)
-     -
-     -
-   * - `1.4.5 Images of Text`_ (Level AA)
-     -
-     -
-   * - `1.4.10 Reflow`_ (Level AA 2.1 only)
-     -
-     -
-   * - `1.4.11 Non-text Contrast`_ (Level AA 2.1 only)
-     -
-     -
-   * - `1.4.12 Text Spacing`_ (Level AA 2.1 only)
-     -
-     -
-   * - `1.4.13 Content on Hover or Focus`_ (Level AA 2.1 only)
-     -
-     -
-   * - `2.4.5 Multiple Ways`_ (Level AA)
-     -
-     -
-   * - `2.4.6 Headings and Labels`_ (Level AA)
-     -
-     -
-   * - `2.4.7 Focus Visible`_ (Level AA)
-     -
-     -
-   * - `3.1.2 Language of Parts`_ (Level AA)
-     -
-     -
-   * - `3.2.3 Consistent Navigation`_ (Level AA)
-     -
-     -
-   * - `3.2.4 Consistent Identification`_ (Level AA)
-     -
-     -
-   * - `3.3.3 Error Suggestion`_ (Level AA)
-     -
-     -
-   * - `3.3.4 Error Prevention (Legal, Financial, Data)`_ (Level AA)
-     -
-     -
-   * - `4.1.3 Status Messages`_ (Level AA 2.1 only)
-     -
-     -
+  * - Criteria
+    - Conformance Level
+    - Remarks and Explanations
+  * - `1.2.4 Captions (Live)`_
+    
+      (Level AA)
+    - Supports
+    - No (live) audio used.
+  * - `1.2.5 Audio Description (Prerecorded)`_
+    
+      (Level AA)
+    - Supports
+    - No video content used.
+  * - `1.3.4 Orientation`_
+    
+      (Level AA 2.1 only)
+    - Supports
+    - Site does not fixate a particular screen orientation.
+  * - `1.3.5 Identify Input Purpose`_
+    
+      (Level AA 2.1 only)
+    -
+    - * BUG: [SIM-1376] Use standard input type on Signup, Login and Account Settings (eg type=name)
+  * - `1.4.3 Contrast (Minimum)`_
+    
+      (Level AA)
+    -
+    - * BUG: [SIM-1377] Improve color contrast (see Wave) to 4.5:1 for small and 3:1 for large text
+  * - `1.4.4 Resize text`_
+    
+      (Level AA)
+    - Supports
+    - No loss of function at 200% zoom level.
+  * - `1.4.5 Images of Text`_
+    
+      (Level AA)
+    - Supports
+    - No images of text are used.
+  * - `1.4.10 Reflow`_
+    
+      (Level AA 2.1 only)
+    - Supports
+    - Even in small view ports website reflows and content is still accessible.
+  * - `1.4.11 Non-text Contrast`_
+    
+      (Level AA 2.1 only)
+    - Supports
+    - Images not used as replacement for user interface components or for required understanding.
+  * - `1.4.12 Text Spacing`_
+    
+      (Level AA 2.1 only)
+    - Supports
+    - No loss of function found with large fonts, line height and spacing.
+  * - `1.4.13 Content on Hover or Focus`_
+    
+      (Level AA 2.1 only)
+    - Supports
+    - Note: For seeing the content that appears in the resource tree-rendering on mouse over, click the element to make it persistent and not disappear on removal of mouse focus.
+  * - `2.4.5 Multiple Ways`_
+    
+      (Level AA)
+    -
+    -
+  * - `2.4.6 Headings and Labels`_
+    
+      (Level AA)
+    -
+    -
+  * - `2.4.7 Focus Visible`_
+    
+      (Level AA)
+    -
+    -
+  * - `3.1.2 Language of Parts`_
+    
+      (Level AA)
+    -
+    -
+  * - `3.2.3 Consistent Navigation`_
+    
+      (Level AA)
+    -
+    -
+  * - `3.2.4 Consistent Identification`_
+    
+      (Level AA)
+    -
+    -
+  * - `3.3.3 Error Suggestion`_
+    
+      (Level AA)
+    -
+    -
+  * - `3.3.4 Error Prevention (Legal, Financial, Data)`_
+    
+      (Level AA)
+    -
+    -
+  * - `4.1.3 Status Messages`_
+    
+      (Level AA 2.1 only)
+    -
+    -
+
 .. _Web Content Accessibility Guidelines 2.0: http://www.w3.org/TR/2008/REC-WCAG20-20081211
 .. _Web Content Accessibility Guidelines 2.1: https://www.w3.org/TR/WCAG21
 .. _WCAG 2.0 Conformance Requirements: https://www.w3.org/TR/WCAG20/#conformance-reqs
@@ -330,9 +452,9 @@ Notes:
 .. _Microsoft Narrator: https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1
 
 .. _1.1.1 Non-text Content: http://www.w3.org/TR/WCAG20/#text-equiv-all
-.. _1.2.1 Audio-only and Video-only (Prerecorded): http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt
-.. _1.2.2 Captions (Prerecorded): http://www.w3.org/TR/WCAG20/#media-equiv-captions
-.. _1.2.3 Audio Description or Media Alternative (Prerecorded): http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc
+.. _1.2.1 Audio-only and Video-only: http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt
+.. _1.2.2 Captions: http://www.w3.org/TR/WCAG20/#media-equiv-captions
+.. _1.2.3 Audio Description or Media Alternative: http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc
 .. _1.3.1 Info and Relationships: http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic
 .. _1.3.2 Meaningful Sequence: http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence
 .. _1.3.3 Sensory Characteristics: http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding
