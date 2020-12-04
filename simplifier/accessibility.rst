@@ -212,6 +212,9 @@ Notes:
       * BUG: [SIM-1355] Feedback button is not accessible by tab
       * BUG: [SIM-1356] Avatar shows no visible indication of being selected with tab
       * BUG: [SIM-1359] In IG editor > IG settings: Can't change tab with keyboard
+      * BUG: [SIM-1382] Edit button for canonical base URLs on project not accessible with keyboard only
+      * BUG: [SIM-1384] Can't activate the checkmarks on the Create a new package page
+
       * TODO: Check per page:
         
         * Relevant headers on page
@@ -220,6 +223,11 @@ Notes:
       (Level A)
     -
     - * BUG: [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
+      * BUG: [SIM-1378] keyboard trap: create issue on project / add comment on issue
+      * BUG: [SIM-1379] keyboard trap: create new package, release notes field
+      * BUG: [SIM-1380] keyboard trap: manage dependencies on project, search field
+      * BUG: [SIM-1381] keyboard trap: create script connector
+
   * - `2.1.4 Character Key Shortcuts`_
   
       (Level A 2.1 only)
@@ -320,13 +328,15 @@ Notes:
   * - `4.1.1 Parsing`_
       
       (Level A)
-    - Supports
-    - Website uses valid HTML.
+    - Partially Supports
+    - Website generally uses valid HTML.
+
+      * BUG: [SIM-1386] W3 Validator reports errors on certain pages.
   * - `4.1.2 Name, Role, Value`_
       
       (Level A)
     - 
-    - * BUG: [SIM-1375] Check boxes on package creation third tab are not tab accessible.
+    - * BUG: [SIM-1384] Check boxes on package creation third tab are not tab accessible.
 
 
 Table 2: Success Criteria, Level AA
