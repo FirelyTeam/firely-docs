@@ -35,7 +35,7 @@ Firely Server FHIR Server is a FHIR Server out of the box. It is built with Micr
 * Fill in your :ref:`licensefile <configure_license>`.
 * Adjust the :ref:`processing <settings_pipeline>` pipeline by trimming it down (excluding certain plugins) or extending it with extra plugins.
 
-Besides configuration of the settings, Firely Server features an :ref:`Administration API <administration_api>` that allows you to configure the so-called :ref:`Conformance Resources <conformance>` that drive parsing, serialization, validation and terminology. The Administration API is pre-filled with Conformance Resources such as the StructureDefinitions, Searchparameters, CodeSystems and ValueSets that come with the FHIR Specification. Beyond that you can use the Administration API to make Vonk aware of:
+Besides configuration of the settings, Firely Server features an :ref:`Administration API <administration_api>` that allows you to configure the so-called :ref:`Conformance Resources <conformance>` that drive parsing, serialization, validation and terminology. The Administration API is pre-filled with Conformance Resources such as the StructureDefinitions, Searchparameters, CodeSystems and ValueSets that come with the FHIR Specification. Beyond that you can use the Administration API to make Firely Server aware of:
 
 * Custom profiles, e.g. national or institutional restrictions on the standard FHIR resources.
 * :ref:`Custom resources <feature_customresources>`: you can even define resources beyond those in FHIR and they are treated as if they were standard FHIR resources.

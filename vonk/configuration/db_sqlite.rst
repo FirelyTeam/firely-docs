@@ -13,7 +13,7 @@ For more background on SQLite please refer to the `SQLite documentation <https:/
 
 SQLite is the default configuration of Firely Server FHIR Server. For the Administration database there is little reason to change this. 
 For the actual runtime data, (the 'Firely Server database') itself, you may run into limitations of SQLite if you put it through its paces. 
-You may find one of the other repositories a better fit then. You can safely use different storage engines for Vonk Data and Vonk Administration.
+You may find one of the other repositories a better fit then. You can safely use different storage engines for Firely Server Data and Firely Server Administration.
 
 .. _sqlite_admin_reasons:
 

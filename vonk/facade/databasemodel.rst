@@ -16,7 +16,7 @@ We will be using some Entity Framework Tools to create a model from the database
 * Run ``Install-Package Microsoft.EntityFrameworkCore.Tools``
 
 .. note::
-  The current version of Firely Server uses the latest EF Core libraries. If you are developing for an older Vonk version, please check the version of
+  The current version of Firely Server uses the latest EF Core libraries. If you are developing for an older Firely Server version, please check the version of
   ``Microsoft.EntityFrameworkCore.SqlServer.dll`` in your Firely Server distribution folder. Add ``-Version <version>`` to the commands above to use
   the same version in your Facade implementation.
 

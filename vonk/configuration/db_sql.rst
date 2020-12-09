@@ -31,7 +31,7 @@ In both cases:
             //"AutoUpdateConnectionString" : "set this to the same database as 'ConnectionString' but with credentials that can alter the database. If not set, defaults to the value of 'ConnectionString'"
         },
 
-*   Find the section called ``PipelineOptions``. Make sure it contains the SQL repository in the root path for Vonk Data::
+*   Find the section called ``PipelineOptions``. Make sure it contains the SQL repository in the root path for Firely Server Data::
 
         "PipelineOptions" : 
         {

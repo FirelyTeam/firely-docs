@@ -1,7 +1,7 @@
 .. _deploy_reverseProxy:
 
 ==============================
-Deploy Vonk on a reverse proxy
+Deploy Firely Server on a reverse proxy
 ==============================
 
 Why
@@ -26,7 +26,7 @@ Hence using a reverse proxy together with the Kestrel server allows us to get be
 With IIS
 --------
 
-A common option on Windows is using IIS: for instructions on how to deploy Vonk on IIS see :ref:`iis`.
+A common option on Windows is using IIS: for instructions on how to deploy Firely Server on IIS see :ref:`iis`.
 
 For a comparison of IIS and Kestrel features at the moment of this writing you can `check here <https://stackify.com/kestrel-web-server-asp-net-core-kestrel-vs-iis/?utm_source=DNK-224416>`_.
 
@@ -34,7 +34,7 @@ For a comparison of IIS and Kestrel features at the moment of this writing you c
 With Nginx
 ----------
 
-A popular open source alternative is Nginx. For instruction on how to deploy Vonk on Nginx see :ref:`nginx`
+A popular open source alternative is Nginx. For instruction on how to deploy Firely Server on Nginx see :ref:`nginx`
 
 .. toctree::
    :maxdepth: 2
