@@ -11,15 +11,15 @@ The next paragraphs will walk you through these steps.
 1. Create a query
 -----------------
 
-Vonk FHIR Facade is meant to be used across all kinds of database paradigms and schemas. Or even against underlying web services or stored procedures.
-This means Vonk cannot prescribe the way your query should be expressed. After all, it could be an http call to a webservice, or a json command to MongoDB.
+Firely Server FHIR Facade is meant to be used across all kinds of database paradigms and schemas. Or even against underlying web services or stored procedures.
+This means Firely Server cannot prescribe the way your query should be expressed. After all, it could be an http call to a webservice, or a json command to MongoDB.
 
 In our case we will build a LINQ query against our ViSi model, that is translated by Entity Framework to a SQL query.
-Because this is a quite common case, Vonk provides a basis for it in the package ``Vonk.Facade.Relational``.
+Because this is a quite common case, Firely Server provides a basis for it in the package ``Vonk.Facade.Relational``.
 
 * Go back to the NuGet Package Manager Console and run ``Install-Package Vonk.Facade.Relational``
 
-.. note:: If you did this previously for the other Vonk packages, you can install the latest beta release of this package as well by adding
+.. note:: If you did this previously for the other Firely Server packages, you can install the latest beta release of this package as well by adding
           ``-IncludePrerelease`` to the install command.
 
 Adding classes for the query
@@ -45,7 +45,7 @@ Because PatientQuery has no specific content of its own, we will include both in
 Adding a constructor
 ^^^^^^^^^^^^^^^^^^^^
 
-You have to provide a constructor for the factory class. With this you tell Vonk for which resource type this QueryFactory is valid.
+You have to provide a constructor for the factory class. With this you tell Firely Server for which resource type this QueryFactory is valid.
 The DbContext is used for retrieving DbSets for related entities, as we will see later::
 
     public PatientQueryFactory(DbContext onContext) : base("Patient", onContext) { }
@@ -89,8 +89,8 @@ It is up to you to override the ones you support any parameters for.
      return base.AddValueFilter(parameterName, value);
 
 .. note::
-  The ``ArgumentException`` in this code will automatically result in setting the argument status to error, so the Vonk
-  server will send a response with an error code and OperationOutcome. See the information about the ``IArgumentCollection``
+  The ``ArgumentException`` in this code will automatically result in setting the argument status to error, so the Firely Server
+  will send a response with an error code and OperationOutcome. See the information about the ``IArgumentCollection``
   and ``IArgument`` classes in :ref:`vonk_reference_api_ivonkcontext`.
 
 That's it for now, we will add support for another parameter later.
@@ -106,5 +106,5 @@ The first 7 are the `general search parameter types <http://hl7.org/fhir/search.
 Besides that there are two special values for chaining and reverse chaining:
 ReferenceToValue and ReferenceFromValue.
 
-And finally there is a special value for when Vonk does not know the SearchParameter and hence not the type of it:
+And finally there is a special value for when Firely Server does not know the SearchParameter and hence not the type of it:
 RawValue.

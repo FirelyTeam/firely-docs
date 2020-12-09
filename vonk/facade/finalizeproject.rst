@@ -11,10 +11,10 @@ First, follow similar steps as above to support ViSiBloodPressure:
 #. Create a BloodPressureQuery query class.
 #. Add a BPQueryFactory extending ``RelationalQueryFactory<ViSiBloodPressure, BloodPressureQuery>``.
 #. Implement support for the ``_id`` parameter by overriding ``public virtual BloodPressureQuery AddValueFilter(string parameterName, TokenValue value)``.
-#. Add the Observation type to the ``SupportedModel`` section in Vonk's appsettings.instance.json: ``"RestrictToResources": [ "Patient", "Observation" ]``
+#. Add the Observation type to the ``SupportedModel`` section in Firely Server's appsettings.instance.json: ``"RestrictToResources": [ "Patient", "Observation" ]``
 
-When you have completed these steps, build your project again and copy the dll to your Vonk plugins folder.
-After you (re)start Vonk, you will be able to request an Observation through your Facade:
+When you have completed these steps, build your project again and copy the dll to your Firely Server plugins folder.
+After you (re)start Firely Server, you will be able to request an Observation through your Facade:
 ``GET http://localhost:4080/Observation?_id=1`` or ``GET http://localhost:4080/Observation/1``.
 
 Since you do not always want to request Observations by their technical id, but more often might want to request Observations from
@@ -58,7 +58,7 @@ Searching on chained parameters involves the following steps:
           patIds is of type IQueryable, so the resulting BloodPressureQuery will still be executed as
           a single command to the database.
 
-    #. Add support for the ``Observation.subject`` search parameter in the Vonk appsettings similar to how we did it for ``_id``.
+    #. Add support for the ``Observation.subject`` search parameter in the Firely Server appsettings similar to how we did it for ``_id``.
 
 At this point you should be able to search for ``GET http://localhost:4080/Observation?subject:Patient._id=1``
 
@@ -108,12 +108,12 @@ You can test the following scenarios:
 Adding a custom SearchParameter
 -------------------------------
 
-Your Vonk server will load the standard parameters from the
-specification on first startup, so the ``_id`` SearchParameter from the exercise is already known to Vonk, as well as any of
+Your Firely Server will load the standard parameters from the
+specification on first startup, so the ``_id`` SearchParameter from the exercise is already known to Firely Server, as well as any of
 the other standard search parameters for the resource types.
 
 If you want to implement support for a custom search parameter, you will need to have the definition of that in the form of
-a SearchParameter resource, and add it to your Vonk server. The :ref:`feature_customsp_configure` section describes how to
+a SearchParameter resource, and add it to your Firely Server. The :ref:`feature_customsp_configure` section describes how to
 do that.
 
 Of course you will also need to implement the correct AddValueFilter method in your ``<resourcetype>QueryFactory`` to handle
@@ -131,7 +131,7 @@ The next topic will show you how to enable :ref:`Create, Update and Delete<enabl
 
 Postscript
 ----------
-If your resource is split across multiple tables in the database, you'll need to make use of ``.Include()`` to have EF `load the dependent table <https://docs.microsoft.com/en-us/ef/core/querying/related-data#eager-loading>`_. To do so in Vonk, override the `GetEntitySet()` method in your `RelationalQuery` class, for example ::
+If your resource is split across multiple tables in the database, you'll need to make use of ``.Include()`` to have EF `load the dependent table <https://docs.microsoft.com/en-us/ef/core/querying/related-data#eager-loading>`_. To do so in Firely Server, override the `GetEntitySet()` method in your `RelationalQuery` class, for example ::
 
         protected override IQueryable<ViSiPatient> GetEntitySet(DbContext dbContext)
         {

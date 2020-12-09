@@ -3,7 +3,7 @@
 Enable changes to the repository
 ================================
 
-In :ref:`facadestart` you have created read and search support for a Vonk Facade on top of an existing database.
+In :ref:`facadestart` you have created read and search support for a Firely Server Facade on top of an existing database.
 The next part will walk you through enabling create, update and delete support.
 This will be done in three steps:
 
@@ -99,7 +99,7 @@ Implementing Create
         }
 
 *  For the ``Create`` and ``Update`` methods, you will also need to implement the ``NewId`` and ``NewVersion`` methods,
-   because Vonk will call them. For the ``NewId`` method, we will return null, since our ViSi database does not allow us
+   because Firely Server will call them. For the ``NewId`` method, we will return null, since our ViSi database does not allow us
    to create our own index value. Since our ViSi repository does not handle versions, we will let the ``NewVersion`` method
    return null as well::
 
@@ -117,7 +117,7 @@ Implementing Create
 .. note::
 
   For the ViSi repository we're using a null value, but you can implement this method any way that's
-  useful for your own repository. The public Vonk server for example generates a GUID in these methods.
+  useful for your own repository. The public Firely Server for example generates a GUID in these methods.
 
 At this point you can skip ahead to :ref:`config_change_repo`, if you want to try and create a new patient in the ViSi database.
 
@@ -182,18 +182,18 @@ to throw an error.
 
 .. _config_change_repo:
 
-3. Configure the service and Vonk Server
+3. Configure the service and Firely Server
 ----------------------------------------
 
 Just like with the search repository, you will need to add your change repository as service to the pipeline.
-Also, you will need to indicate support for the CRUD interactions in your Vonk appsettings.
+Also, you will need to indicate support for the CRUD interactions in your Firely Server appsettings.
 
 * In your project, go to the ViSiConfiguration class, and add this line to add an IResourceChangeRepository to
   the pipeline::
 
     services.TryAddScoped<IResourceChangeRepository, ViSiChangeRepository>();
 
-* Add support for the interactions to the SupportedModel section of the Vonk appsettings::
+* Add support for the interactions to the SupportedModel section of the Firely Server appsettings::
 
     "SupportedInteractions": {
       "InstanceLevelInteractions": "read, update, delete",
@@ -203,7 +203,7 @@ Also, you will need to indicate support for the CRUD interactions in your Vonk a
     
 * Adjust ``PipelineOptions.Branches.Include`` from ``Vonk.Core.Operations.Crud.ReadConfiguration`` to ````Vonk.Core.Operations`` include all operations, including ``Create``.
 
-You can now build your project, copy the dll to the Vonk plugins folder and run Vonk to test the new interactions
+You can now build your project, copy the dll to the Firely Server plugins folder and run Firely Server to test the new interactions
 on your Facade.
 
 The end?

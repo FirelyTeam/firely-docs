@@ -5,13 +5,13 @@ In the previous steps you have created search support for the _id parameter on a
 In order to test if your Facade implementation works correctly, you will need to perform a couple of steps:
 
 #. Create a configuration class for the `ASP .Net Core pipeline <https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-2.2>`_
-#. Plug the Facade into the Vonk Server
-#. Configure the Vonk Server to use your repository
+#. Plug the Facade into the Firely Server
+#. Configure the Firely Server to use your repository
 
 1. Add configuration class
 --------------------------
 
-To add your repository service to the Vonk pipeline, you will need to add a configuration class that sets
+To add your repository service to the Firely Server pipeline, you will need to add a configuration class that sets
 the order of inclusion, and adds to the services. For background information, see :ref:`vonk_plugins_configclass`.
 
 * Add a static class to your project called ``ViSiConfiguration``
@@ -35,10 +35,10 @@ the order of inclusion, and adds to the services. For background information, se
 ----------------------------
 
 * First, build your project
-* Find the resulting dll and copy that to the ``plugins`` folder in the working directory of your Vonk server
+* Find the resulting dll and copy that to the ``plugins`` folder in the working directory of your Firely Server
 
 .. note::
-  If your Vonk working directory does not contain a plugins folder yet, you can create one. Within it, you can
+  If your Firely Server working directory does not contain a plugins folder yet, you can create one. Within it, you can
   create subfolders, which can be useful if you work with multiple plugins.
 
   You can also configure the name and location of this folder with the ``PipelineOptions.PluginDirectory`` setting
@@ -46,10 +46,10 @@ the order of inclusion, and adds to the services. For background information, se
 
 .. _configure_facade:
 
-3. Configure your Vonk Facade
+3. Configure your Firely Server Facade
 -----------------------------
 
-* Create an appsettings.instance.json file in your Vonk working directory.
+* Create an appsettings.instance.json file in your Firely Server working directory.
 
   .. tip::
     See :ref:`configure_appsettings` for more information about the hierarchy of the ``appsettings(.*).json``
@@ -78,7 +78,7 @@ the order of inclusion, and adds to the services. For background information, se
       "RestrictToSearchParameters": ["Resource._id", "StructureDefinition.url"]
     },
 
-* You will need to add your repository to the Vonk pipeline, and remove the existing repository implementations.
+* You will need to add your repository to the Firely Server pipeline, and remove the existing repository implementations.
   The standard settings for the pipeline configuration can be found in the appsettings.default.json file, or see
   :ref:`vonk_plugins_config` for an example.
 

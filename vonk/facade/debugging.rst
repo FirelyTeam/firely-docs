@@ -1,10 +1,10 @@
 Debugging the Facade
 ====================
 
-* Start your Vonk server
+* Start your Firely Server
 
   .. note::
-    If this is your first startup of Vonk, it will take a while to load in all of the specification files.
+    If this is your first startup of Firely Server, it will take a while to load in all of the specification files.
 
 * You can inspect the console log to see if the pipeline is configured to include your repository.
   See :ref:`vonk_plugins_log_detail` for more details.
@@ -18,23 +18,23 @@ Debugging the Facade
   Requesting the resource 'normally' should automatically work as well: ``GET http://localhost:4080/Patient/1``
 
 .. important::
-   If it works, congratulations! You now have a Vonk Facade running!
+   If it works, congratulations! You now have a Firely Server Facade running!
 
 Testing during implementation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Follow these steps if you want to test your work during the implementation phase without having to build, copy and start Vonk each time,
+Follow these steps if you want to test your work during the implementation phase without having to build, copy and start Firely Server each time,
 or with the ability to set break points in your code and debugging it:
 
 * In the project properties, click on the ``Build`` tab.
-* Set the ``Output path`` to your Vonk plugins directory.
+* Set the ``Output path`` to your Firely Server plugins directory.
 * Go to the ``Debug`` tab and set ``Launch`` to ``Executable``.
 * Point the ``Executable`` field to your dotnet.exe.
 * Set the ``Application arguments`` to ``<your-Vonk-working-directory>/Vonk.Server.dll``.
-* Set the ``Working directory`` to your Vonk working directory.
+* Set the ``Working directory`` to your Firely Server working directory.
 
-Now, whenever you click to start debugging, Vonk will start from your project and your project dll will be automatically
-built to the Vonk plugins directory.
+Now, whenever you click to start debugging, Firely Server will start from your project and your project dll will be automatically
+built to the Firely Server plugins directory.
 
 Next part of the exercise
 -------------------------

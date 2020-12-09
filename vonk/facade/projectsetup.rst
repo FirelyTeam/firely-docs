@@ -15,7 +15,7 @@ Create new project
    * Project name and directory at your liking; Click OK
 
 
-Add Vonk Packages
+Add Firely Server Packages
 ^^^^^^^^^^^^^^^^^
 
 1. Tools > NuGet Package Manager > Package Manager Console
@@ -24,4 +24,4 @@ Add Vonk Packages
    * Run ``Install-Package Vonk.Fhir.R3`` (if you want to use R3)
    * Run ``Install-Package Vonk.Fhir.R4`` (if you want to use R4)
 
-.. note:: You can install the latest beta release of the Vonk packages by adding ``-IncludePrerelease`` to the install command.
+.. note:: You can install the latest beta release of the Firely Server packages by adding ``-IncludePrerelease`` to the install command.

@@ -21,10 +21,10 @@ Prerequisites and Preparations
 
 * Postman, Fiddler or a similar tool to issue http requests and inspect the responses.
 
-Installing the Vonk server
+Installing the Firely Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Before you can start implementing your facade, you need to have the Vonk server installed.
+Before you can start implementing your facade, you need to have the Firely Server installed.
 See :ref:`vonk_getting_started` on how to download the binaries and license key.
 
 Preparing the database
