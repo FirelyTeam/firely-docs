@@ -1,3 +1,5 @@
 
 _build/
 .vscode/
+/.vs/slnx.sqlite
+/.vs/slnx.sqlite-journal
