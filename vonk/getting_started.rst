@@ -4,13 +4,13 @@
 Getting Started
 ===============
 
-If you want to start using the standard Vonk server in your own Windows environment, follow the steps on this page to install
+If you want to start using the standard Firely Server server in your own Windows environment, follow the steps on this page to install
 and run the server. |br|
 For non Windows systems, or if you want to use Docker for Windows, please look at the :ref:`use_docker` section.
 
-1.	Download the Vonk binaries and the license file from `Simplifier.net <https://simplifier.net/vonk>`_.
+1.	Download the Firely Server binaries and the license file from `Simplifier.net <https://simplifier.net/vonk>`_.
 	
-2.	Extract the downloaded files to a location on your system, for example: :code:`C:\Vonk`. We will call this the 
+2.	Extract the downloaded files to a location on your system, for example: :code:`C:\FirelyServer`. We will call this the 
 	working directory.
 
 3.	Put the license file in the working directory.
@@ -35,9 +35,9 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 6.	Open a command prompt or Powershell, navigate to the working directory and run:
 	:code:`> dotnet .\Vonk.Server.dll`
 
-	Vonk will then run on port 4080 of the system.
+	Firely Server will then run on port 4080 of the system.
 	
-7.	If you want to check if Vonk is running correctly, open a browser and go to :code:`localhost:4080`.
+7.	If you want to check if Firely Server is running correctly, open a browser and go to :code:`localhost:4080`.
 	You should see a homepage similar to this:
    
 .. image:: ./images/localhost_home.png
@@ -49,7 +49,7 @@ You can get this `example from the specification <http://www.hl7.org/implement/s
 Configuration
 -------------
 
-The section :ref:`configure_vonk` explains how you can configure the Vonk server.
+The section :ref:`configure_vonk` explains how you can configure the Firely Server server.
 
 .. _vonk_run:
 
