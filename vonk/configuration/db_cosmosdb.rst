@@ -6,17 +6,17 @@
 
 Using Microsoft Azure CosmosDB
 ==============================
-You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are a few limitations that we will work out later. They are listed below.
+You can connect Firely Server to CosmosDB the same way you connect to MongoDB. There are a few limitations that we will work out later. They are listed below.
 
 .. attention::
 
-   You cannot use CosmosDb for the Vonk Administration database. Use :ref:`SQLite <configure_sqlite_admin>` instead.
+   You cannot use CosmosDb for the Firely Server Administration database. Use :ref:`SQLite <configure_sqlite_admin>` instead.
 
 #. Create a CosmosDB account on Azure, see the `Quickstart Tutorial <https://docs.microsoft.com/en-us/azure/cosmos-db/>`_
 #. Make sure you choose the MongoDB API
 #. In the Azure Portal, open your CosmosDB account and go to the 'Connection Strings' blade. Copy the 'Primary Connection String' to your clipboard.
 
-#. Now on your own machine, navigate to your Vonk working directory
+#. Now on your own machine, navigate to your Firely Server working directory
 #. Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
 
 #. Find the ``Repository`` setting::
@@ -41,10 +41,10 @@ You can connect Vonk to CosmosDB the same way you connect to MongoDB. There are 
 
       mongodb://<accountname>:<somerandomstring>==@<accountname>.documents.azure.com:10255/vonk?ssl=true&replicaSet=globaldb
 
-#. If your CosmosDB account does not have a database or collection by this name, Vonk will create it for you.
+#. If your CosmosDB account does not have a database or collection by this name, Firely Server will create it for you.
 
 #. You can set SimulateTransactions to "true" if you want to experiment with `FHIR transactions <https://www.hl7.org/fhir/http.html#transaction>`_.
-   Vonk does not utilize the CosmosDB way of supporting real transactions across documents, so in case of an error already processed entries will NOT be rolled back. 
+   Firely Server does not utilize the CosmosDB way of supporting real transactions across documents, so in case of an error already processed entries will NOT be rolled back. 
 
 .. _configure_cosmosdb_limitations:
 
@@ -52,7 +52,7 @@ CosmosDB Request Units
 ----------------------
 
 If you upload a lot of data in a short time (as is done on :ref:`reindexing <feature_customsp_reindex>`), you quickly exceed the default maximum of 1000 Request Units / second.
-If you encounter its limits, the Vonk log will contain errors stating 'Request rate is large'. 
+If you encounter its limits, the Firely Server log will contain errors stating 'Request rate is large'. 
 This is likely to happen upon :ref:`reindexing <feature_customsp_reindex>` or when using :ref:`Vonkloader <vonkloader_index>`.
 Solutions are:
 
@@ -67,7 +67,7 @@ Limitations
 
 #.  Request size for insertions to CosmosDB is limited to around 5 MB. Some bundles in the examples from the specification exceed that limit. Then you will get an error stating 'Request size too large'.
     You can avoid this by limiting the size of incoming resources in the :ref:`SizeLimits <sizelimits_options>` setting.
-#.  The CosmosDB implementation of the MongoDB API is flawed on processing ``$not`` on arrays. This inhibits the use of these searches in Vonk:
+#.  The CosmosDB implementation of the MongoDB API is flawed on processing ``$not`` on arrays. This inhibits the use of these searches in Firely Server:
    
     *   Using the ``:not`` modifier
     *   Using ``:missing=true``

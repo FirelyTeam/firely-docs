@@ -5,7 +5,7 @@
 
 .. _configure_envvar:
 
-Vonk settings with Environment Variables
+Firely Server settings with Environment Variables
 ========================================
 
 .. _configure_envvar_appsettings:
@@ -14,7 +14,7 @@ Environment Variables for appsettings
 -------------------------------------
 
 All the settings in :ref:`configure_appsettings` can be overridden by environment variables on your OS.
-This can be useful if you want to deploy Vonk to several machines, each having their own settings for certain options.
+This can be useful if you want to deploy Firely Server to several machines, each having their own settings for certain options.
 For :ref:`use_docker` using environment variables in the docker-compose file is currently the only way to pass settings to the container.
 Or if you don't want  a database password in the ``appsettings.json`` file.
 

@@ -3,7 +3,7 @@
 Using the In-Memory storage
 ===========================
 
-* Navigate to your Vonk working directory
+* Navigate to your Firely Server working directory
 * Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
 
 * Find the ``Repository`` setting::
@@ -24,7 +24,7 @@ Using the In-Memory storage
 
 Using the In-Memory storage for the Administration API database
 ---------------------------------------------------------------
-This works the same as with the normal Vonk database, except that you put the settings within the ``Administration`` section
+This works the same as with the normal Firely Server database, except that you put the settings within the ``Administration`` section
 
 E.g.::
 
@@ -37,8 +37,8 @@ E.g.::
 
 .. warning::
 
-   Using the In-Memory storage for the administration layer will cause Vonk to load the specification files on each startup.
-   This takes several minutes, and Vonk will respond with a '423 - Locked' error to all requests during that time. As of version
+   Using the In-Memory storage for the administration layer will cause Firely Server to load the specification files on each startup.
+   This takes several minutes, and Firely Server will respond with a '423 - Locked' error to all requests during that time. As of version
    0.7.1 we have implemented support for SQLite, which we recommend to use instead of the In-Memory storage. See :ref:`sqlite_admin_reasons`
    for more information.
 

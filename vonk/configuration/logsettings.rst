@@ -3,12 +3,12 @@
 Log settings
 ============
 
-Vonk uses `Serilog <https://serilog.net/>`__ for logging. The logging settings are controlled in json configuration files called ``logsettings(.*).json``. The files are read in a hierarchy, exactly like the :ref:`appsettings files <configure_levels>` are.
-Vonk comes with default settings in ``logsettings.default.json``. You can adjust the way Vonk logs its information by overriding these default settings in ``logsettings.json`` or ``logsettings.instance.json``. You need to create this file yourself.
+Firely Server uses `Serilog <https://serilog.net/>`__ for logging. The logging settings are controlled in json configuration files called ``logsettings(.*).json``. The files are read in a hierarchy, exactly like the :ref:`appsettings files <configure_levels>` are.
+Firely Server comes with default settings in ``logsettings.default.json``. You can adjust the way Firely Server logs its information by overriding these default settings in ``logsettings.json`` or ``logsettings.instance.json``. You need to create this file yourself.
 
 Alternatively you can control :ref:`configure_envvar_log`.
 
-Vonk by default does nog log any Patient Health Information data, regardless of the level of the log. The only PHI part that can be included in the log is the User Name, when running with Smart authorization (so the user is identified) and including this part in the outputTemplate (see below). 
+Firely Server by default does nog log any Patient Health Information data, regardless of the level of the log. The only PHI part that can be included in the log is the User Name, when running with Smart authorization (so the user is identified) and including this part in the outputTemplate (see below). 
 
 .. _configure_log_level:
 
@@ -16,7 +16,7 @@ Changing the log event level
 ----------------------------
 Serilog defines several levels of log events. From low to high, these are ``Verbose``, ``Debug``, ``Information``,
 ``Warning``, ``Error`` and ``Fatal``. You can set the minimum level you want to log, meaning that events for that
-level or higher will be logged. By default, Vonk uses ``Error`` as the minimum level of recording information.
+level or higher will be logged. By default, Firely Server uses ``Error`` as the minimum level of recording information.
 
 To change the level of logging, follow these steps:
 
@@ -75,7 +75,7 @@ But in this (purposefully incorrect) example the ``Warning`` level on the ``Vonk
 Changing the sink
 -----------------
 Another setting you can adjust is ``WriteTo``. This tells Serilog which sink(s) to log to.
-Serilog provides several sinks, and for Vonk you can use ``Console``, ``File``, ``ApplicationInsights`` and ``Seq``. All of which can be wrapped in an ``Async`` sink to avoid blocking Vonk when waiting for the sink to process the log statements.
+Serilog provides several sinks, and for Firely Server you can use ``Console``, ``File``, ``ApplicationInsights`` and ``Seq``. All of which can be wrapped in an ``Async`` sink to avoid blocking Firely Server when waiting for the sink to process the log statements.
 
 Console
 ^^^^^^^
@@ -114,10 +114,10 @@ Settings for the Console sink:
 		* ``{Username}``: Name of the logged in user - if applicable
 		* ``{Application}``: Name of the application (in case other applications are logging to the same sink). Is set to ``Vonk`` at the bottom of the logsettings file
 		* ``{Level}``: Level of the log, see the values in :ref:`configure_log_level`
-		* ``{MachineName}``: Name of the machine hosting the Vonk instance. Expecially useful when running multiple instances all logging to the same file.
+		* ``{MachineName}``: Name of the machine hosting the Firely Server instance. Expecially useful when running multiple instances all logging to the same file.
 		* ``{RequestId}``: Unique id of the web request, useful to correlate log statements
 		* ``{Message}}``: Actual message being logged
-		* ``{Exception}``: If an error is logged, Vonk may include the original exception. That is then formatted here.
+		* ``{Exception}``: If an error is logged, Firely Server may include the original exception. That is then formatted here.
 		* ``{SourceContext}``: The class from which the log statement originated (this is usually not needed by end users).
 		* ``{NewLine``}: Well, ehh, continue on the next line
 
@@ -182,7 +182,7 @@ The ``File`` sink will write to a file, possibly rolling it by interval or size.
 Application Insights
 ^^^^^^^^^^^^^^^^^^^^
 
-Vonk can also log to Azure Application Insights ("Application Insights Telemetry"). What you need to do:
+Firely Server can also log to Azure Application Insights ("Application Insights Telemetry"). What you need to do:
 
 #. Create an Application Insights instance on Azure.
 #. Get the InstrumentationKey from the Properties blade of this instance.
@@ -222,7 +222,7 @@ Seq server::
 
 Database details
 ----------------
-Whether you use MongoDB or SQL Server, you can have Vonk log in detail what happens towards your database. Just set the appropriate loglevel to 'Verbose'::
+Whether you use MongoDB or SQL Server, you can have Firely Server log in detail what happens towards your database. Just set the appropriate loglevel to 'Verbose'::
 
 	"MinimumLevel": {
 		"Default": "Error",

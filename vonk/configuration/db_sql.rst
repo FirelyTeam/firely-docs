@@ -7,7 +7,7 @@
 Using SQL server
 ================
 
-There are two ways to create the Vonk database on a SQL Server instance: Have Vonk create it for you entirely or create an empty database and users yourself and have Vonk create the schema (tables etc.).
+There are two ways to create the Firely Server database on a SQL Server instance: Have Firely Server create it for you entirely or create an empty database and users yourself and have Firely Server create the schema (tables etc.).
 
 In both cases:
 
@@ -49,7 +49,7 @@ In both cases:
 
 *   If you will only use Windows Accounts, you can use the (default) Authentication Mode, which is Windows Authentication Mode. But if you also want to use SQL Server accounts, you have to run it in Mixed Mode. Refer to `Authentication in SQL Server <https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/authentication-in-sql-server>`_ for more information.
 
-*   Although we encourage you to use :ref:`SQLite for Vonk Administration <sqlite_admin_reasons>`, you can still use SQL Server for Vonk Administration as well::
+*   Although we encourage you to use :ref:`SQLite for Firely Server Administration <sqlite_admin_reasons>`, you can still use SQL Server for Firely Server Administration as well::
 
         "Administration": {
             "Repository": "SQL",
@@ -73,7 +73,7 @@ In both cases:
         }
 
 
-Have Vonk create your database
+Have Firely Server create your database
 ------------------------------
 
 This option is mainly for experimentation as it effectively requires sysadmin privileges for the connecting user.
@@ -82,7 +82,7 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
 
     *   sysadmin
 
-*   Set the ``SqlDbOptions`` for the Vonk database as follows (the values are example values for connecting with your own Windows login):
+*   Set the ``SqlDbOptions`` for the Firely Server database as follows (the values are example values for connecting with your own Windows login):
     ::
 
         "SqlDbOptions": {
@@ -105,13 +105,13 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
 
 *   You don't need to set AutoUpdateConnectionString since the ConnectionString will already have enough permissions.
 
-*   Start Vonk. It will display in its log that it applied pending migrations. After that the database is created and set up with the correct schema.
+*   Start Firely Server. It will display in its log that it applied pending migrations. After that the database is created and set up with the correct schema.
 
 .. attention::
 
     For SQL Server it is essential to retain the ``.vonk-import-history.json`` file. Please read :ref:`vonk_conformance_history` for details.
 
-Create a database and users by script, and have Vonk create the schema
+Create a database and users by script, and have Firely Server create the schema
 ----------------------------------------------------------------------
 
 *   Log into SQL Server as the Administrator user.
@@ -122,7 +122,7 @@ Create a database and users by script, and have Vonk create the schema
 
 *	In the script uncomment and adjust the variable names :code:`dbName` and :code:`AdminDbName` as well as any other variables to your own liking.
 
-*   Run the script to create both the Vonk database and the Administration API database.
+*   Run the script to create both the Firely Server database and the Administration API database.
 
 *	From the working directory open :code:`data\02-CreateDBUser.sql`
 
@@ -130,11 +130,11 @@ Create a database and users by script, and have Vonk create the schema
 
 *	In the script uncomment and adjust the variables at the top names to your own liking.
 
-*   Run the script to create two users, one with access to the Vonk database, the other with access to the Administration database.
+*   Run the script to create two users, one with access to the Firely Server database, the other with access to the Administration database.
     This script grants the database role db_ddladmin to both users, to enable the AutoUpdateDatabase feature.
     Refer to `Overview of permissions`_ for an overview of neccessary authorization for different features.
 
-*   Set the ``SqlDbOptions`` for the Vonk database as follows:
+*   Set the ``SqlDbOptions`` for the Firely Server database as follows:
     ::
 
         "SqlDbOptions": {
@@ -191,7 +191,7 @@ This paragraph lists the permissions needed to perform specific actions on the S
 *   To run the AutoUpdateDatabase feature on an already created (but empty) database:
 
     *   **db_ddladmin** |br|
-        (both for the normal Vonk Data database and the Administration database)
+        (both for the normal Firely Server Data database and the Administration database)
 
 *   To read/write resources:
 
@@ -201,6 +201,6 @@ This paragraph lists the permissions needed to perform specific actions on the S
 *   To execute the ResetDb feature:
 
     *   **db_ddladmin** |br|
-        only on the normal Vonk database for the user in the SqlDbOptions connectionstring. |br|
+        only on the normal Firely Server database for the user in the SqlDbOptions connectionstring. |br|
         (no extra permissions are required for the user on the Administration database).
 

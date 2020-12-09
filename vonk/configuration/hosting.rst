@@ -12,9 +12,9 @@ You can enable http and/or https and adjust the port numbers for them in :ref:`c
 Changing the port number
 ------------------------
 
-By default Vonk will run on port 4080 of your system. You can change the port setting by overriding it as described in :ref:`configure_change_settings`:
+By default Firely Server will run on port 4080 of your system. You can change the port setting by overriding it as described in :ref:`configure_change_settings`:
 
-*	Navigate to your Vonk working directory
+*	Navigate to your Firely Server working directory
 *	Find this setting:
 	::
 
@@ -30,7 +30,7 @@ Changing from http to https
 
 If you need your server to run on https instead of http, follow these steps:
 
-*	Navigate to the location where you extracted the Vonk files.
+*	Navigate to the location where you extracted the Firely Server files.
 *	Find these settings:
 
     ::
@@ -64,4 +64,4 @@ If you need your server to run on https instead of http, follow these steps:
 	+ or go to your `System`, open the `Advanced system settings` --> `Environment variables` and create a new variable
 	  with the name :code:`VONK_Hosting:CertificatePassword` and the value set to your password
 
-*   You can choose to comment-out the ``HttpPort`` setting, so Vonk will no longer be available through unsecured http.
+*   You can choose to comment-out the ``HttpPort`` setting, so Firely Server will no longer be available through unsecured http.
