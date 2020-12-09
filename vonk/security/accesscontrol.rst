@@ -11,7 +11,7 @@ Access control and SMART
 
 Concepts
 --------
-This explanation of access control and SMART in Vonk requires basic understanding of the :ref:`architecture <architecture>` of Vonk, so you know what is meant by middleware components and repository interfaces.
+This explanation of access control and SMART in Firely Server requires basic understanding of the :ref:`architecture <architecture>` of Firely Server, so you know what is meant by middleware components and repository interfaces.
 It also presumes general knowledge about authentication and OAuth2.
 
 Access control generally consists of the following parts, which will be addressed one by one:
@@ -23,16 +23,16 @@ Access control generally consists of the following parts, which will be addresse
 
 Identification and Authentication
 ---------------------------------
-Vonk does not authenticate users itself. It is meant to be used in an `OAuth2`_ environment in which an `OAuth2 provider`_ is responsible for the identification and authentication of users. 
+Firely Server does not authenticate users itself. It is meant to be used in an `OAuth2`_ environment in which an `OAuth2 provider`_ is responsible for the identification and authentication of users. 
 Typically, a user first enters a Web Application, e.g. a patient portal, or a mobile app. That application interactively redirects the user to the OAuth2 provider - which is the authorization server and may or may not handle authentication as well - to authenticate, and receives an OAuth2 token back.
-Then, the application can do an http request to Vonk to send or receive resource(s), and provide the OAuth2 token in the http Authentication header, thereby acting on behalf of the user.
-Vonk can then read the OAuth2 token and validate it with the OAuth2 authorization server. This functionality is not FHIR specific.
+Then, the application can do an http request to Firely Server to send or receive resource(s), and provide the OAuth2 token in the http Authentication header, thereby acting on behalf of the user.
+Firely Server can then read the OAuth2 token and validate it with the OAuth2 authorization server. This functionality is not FHIR specific.
 
 .. _feature_accesscontrol_authorization:
 
 Authorization
 -------------
-Authorization in Vonk by default is based on `SMART on FHIR`_ and more specifically the `Scopes and Launch Context`_ defined by it. SMART specifies several claims that can be present in the OAuth2 token and their meaning. These are examples of scopes and launch contexts that are recognized by Vonk:
+Authorization in Firely Server by default is based on `SMART on FHIR`_ and more specifically the `Scopes and Launch Context`_ defined by it. SMART specifies several claims that can be present in the OAuth2 token and their meaning. These are examples of scopes and launch contexts that are recognized by Firely Server:
 
 * scope=user/Observation.read: the user is allowed to read Observation resources
 * scope=user/Encounter.write: the user is allowed to write Encounter resources
@@ -41,20 +41,20 @@ Authorization in Vonk by default is based on `SMART on FHIR`_ and more specifica
 * scope=[array of individual scopes]
 * patient=123: the user is allowed access to resources in the compartment of patient 123 -- see :ref:`feature_accesscontrol_compartment`.
 
-SMART on FHIR also defines scopes starting with 'patient/' instead of 'user/'. In Vonk these are evaluated equally. But with a scope of 'patient/' you are required to also have a 'patient=...' launch context to know to which patient the user connects. It is also possible to apply a launch context to a user scope, for example the scope can look like "launch user/\*.read". In your authorization server you can specify the resources that are in the launch context parameter.
+SMART on FHIR also defines scopes starting with 'patient/' instead of 'user/'. In Firely Server these are evaluated equally. But with a scope of 'patient/' you are required to also have a 'patient=...' launch context to know to which patient the user connects. It is also possible to apply a launch context to a user scope, for example the scope can look like "launch user/\*.read". In your authorization server you can specify the resources that are in the launch context parameter.
 
-The assignment of these claims to users, systems or groups is managed in the OAuth2 authorization server and not in Vonk. Vonk does, however, need a way to access these scopes - so if your OAuth server is issuing a self-encoded token, ensure that it has a ``scope`` field with all of the granted scopes inside it.
+The assignment of these claims to users, systems or groups is managed in the OAuth2 authorization server and not in Firely Server. Firely Server does, however, need a way to access these scopes - so if your OAuth server is issuing a self-encoded token, ensure that it has a ``scope`` field with all of the granted scopes inside it.
 
 Access Control Engine
 ---------------------
-The Access Control Engine in Vonk evaluates two types of authorization:
+The Access Control Engine in Firely Server evaluates two types of authorization:
 
 #. Type-Access: Is the user allowed to read or write resource(s) of a specific resourcetype?
 #. Compartment: Is the data to be read or written within the current compartment (if any)?
 
 As you may have noticed, Type-Access aligns with the concept of scopes, and Compartment aligns with the concept of launch context in SMART on FHIR.
 
-The Vonk ``SmartContextMiddleware`` component extracts the claims defined by SMART on FHIR from the OAuth2 token, and puts it into two classes that are then available for Access Control Decisions in all the interaction handlers (e.g. for read, search, create etc.)
+The Firely Server ``SmartContextMiddleware`` component extracts the claims defined by SMART on FHIR from the OAuth2 token, and puts it into two classes that are then available for Access Control Decisions in all the interaction handlers (e.g. for read, search, create etc.)
 
 SMART on FHIR defines launch contexts for Patient, Encounter and Location, extendible with others if needed. 
 If a request is done with a Patient launch context, and the user is allowed to see other resource types as well, these other resource types are restricted by the `Patient CompartmentDefinition`_.
@@ -64,22 +64,22 @@ If a request is done with a Patient launch context, and the user is allowed to s
 Custom Authentication
 ---------------------
 You may build a plugin with custom middleware to provide authentication in a form that suits your needs. 
-One example could be that you want to integrate `ASP.NET Core Identity`_ into Vonk.  
+One example could be that you want to integrate `ASP.NET Core Identity`_ into Firely Server.  
 Then you don't need the OAuth2 middleware, but instead can use the Identity framework to authenticate your users.
 See :ref:`vonk_plugins_customauthorization` for more details.
 
 Other forms of Authorization
 ----------------------------
-In :ref:`accesscontrol_api` you can find the interfaces relevant to authorization in Vonk.  
+In :ref:`accesscontrol_api` you can find the interfaces relevant to authorization in Firely Server.  
 If your environment requires other authorization information than the standard SMART on FHIR claims, you can create your own implementations of these interfaces.
 You do this by implementing a :ref:`custom plugin <vonk_plugins>`. 
-All the standard plugins of Vonk can then use that implementation to enforce access control. 
+All the standard plugins of Firely Server can then use that implementation to enforce access control. 
 
 .. _feature_accesscontrol_config:
 
 Configuration
 -------------
-You will need to add the Smart plugin to the Vonk pipeline. See :ref:`vonk_plugins` for more information. In ``appsettings[.instance].json``, locate the pipeline
+You will need to add the Smart plugin to the Firely Server pipeline. See :ref:`vonk_plugins` for more information. In ``appsettings[.instance].json``, locate the pipeline
 configuration in the ``PipelineOptions`` section, or copy that section from ``appsettings.default.json`` (see also :ref:`configure_change_settings`)::
 
 	"PipelineOptions": {
@@ -92,7 +92,7 @@ configuration in the ``PipelineOptions`` section, or copy that section from ``ap
 			"Vonk.Fhir.R3",
 			...
 
-Add ``Vonk.Smart`` to the list of included plugins. When you restart Vonk, the Smart service will be added to the pipeline.
+Add ``Vonk.Smart`` to the list of included plugins. When you restart Firely Server, the Smart service will be added to the pipeline.
 
 You can control the way Access Control based on SMART on FHIR behaves with the SmartAuthorizationOptions in the :ref:`configure_appsettings`::
 
@@ -122,13 +122,13 @@ You can control the way Access Control based on SMART on FHIR behaves with the S
       }
     }
 
-* Enabled: With this setting you can disable ('false') the authentication and authorization altogether. When it is enabled ('true'), Vonk will also evaluate the other settings. The default value is 'false'. This implies that authorization is disabled as if no SmartAuthorizationOptions section is present in the settings.
+* Enabled: With this setting you can disable ('false') the authentication and authorization altogether. When it is enabled ('true'), Firely Server will also evaluate the other settings. The default value is 'false'. This implies that authorization is disabled as if no SmartAuthorizationOptions section is present in the settings.
 * Filters: Defines how different launch contexts are translated to search arguments. See :ref:`feature_accesscontrol_compartment` for more background.
 
     * FilterType: Both a launch context and a CompartmentDefinition are defined by a resourcetype. Use FilterType to define for which launch context and related CompartmentDefinition this Filter is applicable.
     * FilterArgument: Translates the value of the launch context to a search argument. You can use any supported search parameter defined on FilterType. It should contain the name of the launch context enclosed in hashes (e.g. #patient#), which is substituted by the value of the claim.
 * Authority: The base url of your identity provider, such that ``{{base_url}}/.well-known/openid-configuration`` returns a valid configuration response (`OpenID Connect Discovery documentation <https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2>`_). At minimum, the ``jwks_uri``, ``token_endpoint`` and ``authorization_endpoint`` keys are required in addition to the keys required by the speficiation. See :ref:`feature_accesscontrol_idprovider` for more background.
-* Audience: Defines the name of this Vonk instance as it is known to the Authorization server. Default is 'vonk'.
+* Audience: Defines the name of this Firely Server instance as it is known to the Authorization server. Default is 'firelyserver'.
 * RequireHttpsToProvider: Token exchange with an Authorization server should always happen over https. However, in a local testing scenario you may need to use http. Then you can set this to 'false'. The default value is 'true'. 
 * Protected: This setting controls which of the interactions actually require authentication. In the example values provided here, $validate is not in the TypeLevelInteractions. This means that you can use POST [base-url]/Patient/$validate without authorization. Since you only read Conformance resources with this interaction, this might make sense.
 
@@ -141,19 +141,19 @@ In FHIR a `CompartmentDefinition <http://www.hl7.org/implement/standards/fhir/co
 
 An example is the `Patient CompartmentDefinition`_, where a Patient resource is the focus. One of the related resourcetypes is Observation. Its params are subject and performer, so it is in the compartment of a specific Patient if that Patient is either the subject or the performer of the Observation.
 
-FHIR defines CompartmentDefinitions for Patient, Encounter, RelatedPerson, Practitioner and Device. Although Vonk is functionally not limited to these five, the specification does not allow you to define your own. Vonk will use a CompartmentDefinition if:
+FHIR defines CompartmentDefinitions for Patient, Encounter, RelatedPerson, Practitioner and Device. Although Firely Server is functionally not limited to these five, the specification does not allow you to define your own. Firely Server will use a CompartmentDefinition if:
 
-* the CompartmentDefinition is known to Vonk, see :ref:`conformance` for options to provide them.
+* the CompartmentDefinition is known to Firely Server, see :ref:`conformance` for options to provide them.
 * the OAuth2 Token contains a claim with the same name as the CompartmentDefinition.code (but it may be lowercase).
 
 So the launch contexts mentioned in SMART on FHIR -- 'patient' and 'encounter' -- map to the CompartmentDefinitions for Patient and Encounter. For the launch context 'location', the specification has no matching CompartmentDefinition. 
 
-A CompartmentDefinition defines the relationships, but it becomes useful once you combine it with a way of specifying the actual focus resource. In SMART on FHIR, the launch context can do that, e.g. patient=123. As per the SMART `Scopes and Launch Context`_, the value '123' is the value of the Patient.id. Together with the Patient CompartmentDefinition this defines a -- what we call -- Compartment in Vonk:
+A CompartmentDefinition defines the relationships, but it becomes useful once you combine it with a way of specifying the actual focus resource. In SMART on FHIR, the launch context can do that, e.g. patient=123. As per the SMART `Scopes and Launch Context`_, the value '123' is the value of the Patient.id. Together with the Patient CompartmentDefinition this defines a -- what we call -- Compartment in Firely Server:
 
 * Patient with id '123'
 * And all resources that link to that patient according to the Patient CompartmentDefinition.
 
-There may be cases where the logical id of the focus resource is not known to the authorization server. Let's assume it does know one of the Identifiers of a Patient. The Filters in the :ref:`feature_accesscontrol_config` allow you to configure Vonk to use the identifier search parameter as a filter instead of _id. The value in the configuration example does exactly that::
+There may be cases where the logical id of the focus resource is not known to the authorization server. Let's assume it does know one of the Identifiers of a Patient. The Filters in the :ref:`feature_accesscontrol_config` allow you to configure Firely Server to use the identifier search parameter as a filter instead of _id. The value in the configuration example does exactly that::
 
     "Filters": [
       {
@@ -163,7 +163,7 @@ There may be cases where the logical id of the focus resource is not known to th
       ...
     ]
 
-Please notice that it is possible that more than one Patient matches the filter. This is intended behaviour of Vonk, and it is up to you to configure a search parameter that is guaranteed to have unique values for each Patient if you need that. You can always stick to the SMART on FHIR default of _id by specifying that as the filter::
+Please notice that it is possible that more than one Patient matches the filter. This is intended behaviour of Firely Server, and it is up to you to configure a search parameter that is guaranteed to have unique values for each Patient if you need that. You can always stick to the SMART on FHIR default of _id by specifying that as the filter::
 
     "Filters": [
       {
@@ -185,16 +185,16 @@ But you can also take advantage of it and allow access only to the patients from
 
 In this example the claim is still called 'patient', although it contains an Identifier of a General Practitioner. This is because the CompartmentDefinition is selected by matching its code to the name of the claim, regardless of the value the claim contains. 
 
-If multiple resources match the Compartment, that is no problem for Vonk. You can simply configure the Filters according to the business rules in your organization.
+If multiple resources match the Compartment, that is no problem for Firely Server. You can simply configure the Filters according to the business rules in your organization.
 
 Tokens
 ------
 
-When a client application wants to access data in Vonk on behalf of its user, it requests a token from the authorization server (configured as the Authority in the :ref:`feature_accesscontrol_config`). The configuration of the authorization server determines which claims are *available* for a certain user, and also for the client application. The client app configuration determines which claims it *needs*. During the token request, the user is usually redirected to the authorization server, which might or might not be the authentication server as well, logs in and is then asked whether the client app is allowed to receive the requested claims. The client app cannot request any claims that are not available to that application. And it will never get any claims that are not available to the user. This flow is also explained in the `SMART App Authorization Guide`_. 
+When a client application wants to access data in Firely Server on behalf of its user, it requests a token from the authorization server (configured as the Authority in the :ref:`feature_accesscontrol_config`). The configuration of the authorization server determines which claims are *available* for a certain user, and also for the client application. The client app configuration determines which claims it *needs*. During the token request, the user is usually redirected to the authorization server, which might or might not be the authentication server as well, logs in and is then asked whether the client app is allowed to receive the requested claims. The client app cannot request any claims that are not available to that application. And it will never get any claims that are not available to the user. This flow is also explained in the `SMART App Authorization Guide`_. 
 
-The result of this flow should be a JSON Web Token (JWT) containing zero or more of the claims defined in SMART on FHIR. The claims can either be scopes or a launch context, as in the examples listed in :ref:`feature_accesscontrol_authorization`. This token is encoded as a string, and must be sent to Vonk in the Authorization header of the request.
+The result of this flow should be a JSON Web Token (JWT) containing zero or more of the claims defined in SMART on FHIR. The claims can either be scopes or a launch context, as in the examples listed in :ref:`feature_accesscontrol_authorization`. This token is encoded as a string, and must be sent to Firely Server in the Authorization header of the request.
 
-A valid access token for Vonk at minimum will have:
+A valid access token for Firely Server at minimum will have:
 
 * the ``iss`` claim with the base url of the OAuth server
 * the ``aud`` the same value you've entered in ``SmartAuthorizationOptions.Audience``
@@ -288,7 +288,7 @@ In this paragraph we will explain how Access Control Decisions are made for the 
 Testing
 -------
 
-Testing the access control functionality is possible on a local instance of Vonk. It is not available for the `publicly hosted test server <http://vonk.fire.ly>`_.
+Testing the access control functionality is possible on a local instance of Firely Server. It is not available for the `publicly hosted test server <http://server.fire.ly>`_.
 
 You can test it using a dummy authorization server and Postman as a REST client. Please refer to these pages for instructions:
 
@@ -303,4 +303,4 @@ You can test it using a dummy authorization server and Postman as a REST client.
 .. _Patient CompartmentDefinition: http://www.hl7.org/implement/standards/fhir/compartmentdefinition-patient.html
 .. _ASP.NET Core Identity: https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity
 
-You might also find it useful to enable more extensive authorization failure logging - Vonk defaults to a secure setup and does not show what exactly went wrong during authorization. To do so, set the ``ASPNETCORE_ENVIRONMENT`` environment variable to ``Development``.
+You might also find it useful to enable more extensive authorization failure logging - Firely Server defaults to a secure setup and does not show what exactly went wrong during authorization. To do so, set the ``ASPNETCORE_ENVIRONMENT`` environment variable to ``Development``.
