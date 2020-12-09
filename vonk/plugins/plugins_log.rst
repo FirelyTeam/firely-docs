@@ -3,12 +3,12 @@
 Detailed logging of loading plugins
 ======================================
 
-If your plugin or any of the Vonk plugins appears not to be loaded correctly, you may inspect what happens in more detail in the log. See :ref:`configure_log` for where you can find the log file.
+If your plugin or any of the Firely Server plugins appears not to be loaded correctly, you may inspect what happens in more detail in the log. See :ref:`configure_log` for where you can find the log file.
 You can vary the log level for ``Vonk.Core.Pluggability.VonkConfigurer`` to hide or reveal details.
 
 .. _vonk_plugins_log_assemblies:
 
-On the ``Information`` level, Vonk will tell you which assemblies are loaded and searched for ``VonkConfiguration`` attributes:
+On the ``Information`` level, Firely Server will tell you which assemblies are loaded and searched for ``VonkConfiguration`` attributes:
 
 ::
 
@@ -31,8 +31,8 @@ On the ``Information`` level, Vonk will tell you which assemblies are loaded and
 
 .. _vonk_plugins_log_pipeline:
 
-Also on the ``Information`` level, Vonk will show the services and middleware as it has loaded, in order.
-The list below is also the default pipeline as it is configured for Vonk FHIR Server.
+Also on the ``Information`` level, Firely Server will show the services and middleware as it has loaded, in order.
+The list below is also the default pipeline as it is configured for Firely Server FHIR Server.
 
 ::
 
@@ -115,10 +115,10 @@ This allows you to determine an appropriate order for your own configuration cla
 
 .. _vonk_plugins_log_includes:
 
-On the ``Verbose`` level, Vonk will also tell you why each configuration class that is found is being included or excluded. An example:
+On the ``Verbose`` level, Firely Server will also tell you why each configuration class that is found is being included or excluded. An example:
 
 ::
 
-   2018-07-02 12:58:10.586 +02:00 [Vonk] [Verbose] [Machine: XYZ] [ReqId: ] Searching for configurations in assembly "Vonk.Core, Version=0.7.0.0, Culture=neutral, PublicKeyToken=null"
-   2018-07-02 12:58:10.625 +02:00 [Vonk] [Verbose] [Machine: XYZ] [ReqId: ] "Vonk.Core.Serialization.SerializationConfiguration" was included on "/" because it matches the include "Vonk.Core"
-   2018-07-02 12:58:10.625 +02:00 [Vonk] [Verbose] [Machine: XYZ] [ReqId: ] "Vonk.Core.Serialization.SerializationConfiguration" was not included on "/administration" because it did not match any include
+   2018-07-02 12:58:10.586 +02:00 [Firely Server] [Verbose] [Machine: XYZ] [ReqId: ] Searching for configurations in assembly "Vonk.Core, Version=0.7.0.0, Culture=neutral, PublicKeyToken=null"
+   2018-07-02 12:58:10.625 +02:00 [Firely Server] [Verbose] [Machine: XYZ] [ReqId: ] "Vonk.Core.Serialization.SerializationConfiguration" was included on "/" because it matches the include "Vonk.Core"
+   2018-07-02 12:58:10.625 +02:00 [Firely Server] [Verbose] [Machine: XYZ] [ReqId: ] "Vonk.Core.Serialization.SerializationConfiguration" was not included on "/administration" because it did not match any include

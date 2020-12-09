@@ -3,13 +3,13 @@
 The order of plugins
 ====================
 
-Vonk FHIR Server is organized as a pipeline of components - called Middleware. Every request travels through all the components until one of the components provides the response to the request. After that, the response travels back through all the components, in reverse order. Components that come *after* the responding component in the pipeline are not visited at all.
+Firely Server FHIR Server is organized as a pipeline of components - called Middleware. Every request travels through all the components until one of the components provides the response to the request. After that, the response travels back through all the components, in reverse order. Components that come *after* the responding component in the pipeline are not visited at all.
 
 So let's say you issue a FHIR read interaction, ``GET <base-url>/Patient/example``. The component implementing this interaction sits in the pipeline after search but before create. So the request will visit the search middleware (that will ignore it and just pass it on) but will never visit the create middleware.
 
-So many components implement an interaction and provide a response to that interaction. In Vonk those are called Handlers. Some components may not provide responses directly, but read or alter the request on the way in. Such a component is called a PreHandler. Reversely, a component may read or alter the response on the way back. Such a component is called a PostHandler.
+So many components implement an interaction and provide a response to that interaction. In Firely Server those are called Handlers. Some components may not provide responses directly, but read or alter the request on the way in. Such a component is called a PreHandler. Reversely, a component may read or alter the response on the way back. Such a component is called a PostHandler.
 
-A plugin can configure its own component in this pipeline but as you may understand by now it makes a difference *where* in the pipeline you put that component. Especially if it is a Pre- or PostHandler. To control the position in the pipeline, Vonk uses the concept of 'Order'.
+A plugin can configure its own component in this pipeline but as you may understand by now it makes a difference *where* in the pipeline you put that component. Especially if it is a Pre- or PostHandler. To control the position in the pipeline, Firely Server uses the concept of 'Order'.
 
 The :ref:`VonkConfiguration attribute <vonk_reference_api_pipeline_configuration>` lets you define an ``Order`` for your component. This page explains how to choose a suitable number for that order.
 
@@ -18,7 +18,7 @@ The :ref:`VonkConfiguration attribute <vonk_reference_api_pipeline_configuration
 Inspect order numbers in use
 ----------------------------
 
-When you start Vonk, the log lists all the loaded plugins, with their order. You can see an example :ref:`here <vonk_plugins_log_pipeline>`. Also the list of :ref:`vonk_available_plugins` includes the order number chosen for each of those plugins.
+When you start Firely Server, the log lists all the loaded plugins, with their order. You can see an example :ref:`here <vonk_plugins_log_pipeline>`. Also the list of :ref:`vonk_available_plugins` includes the order number chosen for each of those plugins.
 
 .. _vonk_plugins_order_minimum:
 
@@ -29,9 +29,9 @@ Registering services
 ^^^^^^^^^^^^^^^^^^^^
 
 The order is mainly relevant for middleware that you register in the pipeline, in the ``Configure(IApplicationBuilder app)`` method. Some plugins, like e.g. a Facade implementation, only need to register services for the dependency injection framework, in the ``ConfigureServices(IServiceCollection services)`` method.
-If that is the case, the order is only relevant if you need to *override* a registration done by Vonk. There are two ways:
+If that is the case, the order is only relevant if you need to *override* a registration done by Firely Server. There are two ways:
 
-1. Choose an order before Vonk's default registration. Vonk in general uses ``TryAddSingleton`` or ``TryAddScoped`` to register an implementation of an interface. This means that if an implementation is already registered, the TryAdd... will not register a second implementation.
+1. Choose an order before Firely Server's default registration. Firely Server in general uses ``TryAddSingleton`` or ``TryAddScoped`` to register an implementation of an interface. This means that if an implementation is already registered, the TryAdd... will not register a second implementation.
 
    As an example: if you want to override the registration of ``IReadAuthorizer``: that is registered from the :ref:`RepositorySearchSupport <vonk_plugins_search>` plugin, with order 140. So you would choose an order lower than 140.
 
@@ -68,7 +68,7 @@ If two plugins have the same order number, it is not defined in what order the p
 Handlers and pre- and posthandlers
 ----------------------------------
 
-In Vonk you can define different types of middleware:
+In Firely Server you can define different types of middleware:
 
 * Handler - acts on requests of a certain type, provides the response to it and ends the pipeline.
 * Prehandler - acts on requests of certain type(s), may modify the request and sends the request further down the pipeline.

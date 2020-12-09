@@ -6,7 +6,7 @@ BinaryWrapper plugin
 Description
 -----------
 
-Enables you to send binary content to Vonk and have it stored as a Binary resource, as well as the reverse: get a Binary resource and have it returned in its original binary format. The contents are Base64 encoded and stored inside the resource in the Vonk database. Therefore this plugin is only suitable for small binary files.
+Enables you to send binary content to Firely Server and have it stored as a Binary resource, as well as the reverse: get a Binary resource and have it returned in its original binary format. The contents are Base64 encoded and stored inside the resource in the Firely Server database. Therefore this plugin is only suitable for small binary files.
 
 Sending binary content example request::
 
@@ -16,7 +16,7 @@ Sending binary content example request::
    Body: enclose a file with the actual contents
 
 * This can also be done with a PUT: ``PUT <base-url>/Binary/example``
-* The Content-Type must be the mediatype of the actual contents. It will only be accepted by Vonk if it is one of the mediatypes listed in the ``RestrictToMimeTypes`` below.
+* The Content-Type must be the mediatype of the actual contents. It will only be accepted by Firely Server if it is one of the mediatypes listed in the ``RestrictToMimeTypes`` below.
 * The Accept header can be either a fhir mediatype, with any of the supported FHIR versions. You could also set it equal to the Content-Type in which case you will be returned the same contents again.
 
 Getting binary content example request::
@@ -50,8 +50,8 @@ Configuration
       ]
    }
 
-* ``RestrictToMimeTypes`` protects Vonk from arbitrary content.
-* This plugin honours the Vonk setting for maximum resource size. This protects Vonk from binary contents that are too large to store in the database.
+* ``RestrictToMimeTypes`` protects Firely Server from arbitrary content.
+* This plugin honours the Firely Server setting for maximum resource size. This protects Firely Server from binary contents that are too large to store in the database.
 * The namespace ``Vonk.Plugin.BinaryWrapper`` configures both encoding and decoding of binary contents. You can configure them separately as well::
 
    "PipelineOptions": {
