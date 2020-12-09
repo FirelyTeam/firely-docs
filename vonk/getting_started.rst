@@ -4,7 +4,7 @@
 Getting Started
 ===============
 
-If you want to start using the standard Firely Server server in your own Windows environment, follow the steps on this page to install
+If you want to start using the standard Firely Server in your own Windows environment, follow the steps on this page to install
 and run the server. |br|
 For non Windows systems, or if you want to use Docker for Windows, please look at the :ref:`use_docker` section.
 
@@ -49,7 +49,7 @@ You can get this `example from the specification <http://www.hl7.org/implement/s
 Configuration
 -------------
 
-The section :ref:`configure_vonk` explains how you can configure the Firely Server server.
+The section :ref:`configure_vonk` explains how you can configure the Firely Server.
 
 .. _vonk_run:
 

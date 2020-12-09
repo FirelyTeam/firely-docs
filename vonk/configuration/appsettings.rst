@@ -471,7 +471,7 @@ Configuring the Firely Server Pipeline
 -----------------------------
 
 You can add your own plugins to the Firely Server pipeline, or control which of the standard Firely Server plugins
-are used for your Firely Server server, by changing the ``PipelineOptions``.
+are used for your Firely Server, by changing the ``PipelineOptions``.
 ::
 
   "PipelineOptions": {
