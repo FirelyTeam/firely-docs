@@ -3,13 +3,13 @@
 Running multiple versions of FHIR
 =================================
 
-Since version 3.0.0 Vonk can run multiple versions of FHIR side-by-side in the same server. This page explains how this works and what the consequences are.
+Since version 3.0.0 Firely Server can run multiple versions of FHIR side-by-side in the same server. This page explains how this works and what the consequences are.
 
 Requests
 --------
 
 The FHIR Specification explains the mimetype parameter that distinguishes one FHIR version from another in the paragraph on the `FHIR Version parameter <http://hl7.org/fhir/R4/http.html#version-parameter>`_.
-Vonk uses this approach to let you choose the model for your request. Below are examples on how to use the fhirVersion parameter and how in influences the behaviour of Vonk. 
+Firely Server uses this approach to let you choose the model for your request. Below are examples on how to use the fhirVersion parameter and how in influences the behaviour of Firely Server. 
 Accepted values for the parameter are:
 
 * fhirVersion=3.0, for FHIR STU3
@@ -20,7 +20,7 @@ You can add the fhirVersion to the Accept and/or the Content-Type header. If you
 The examples below explain the behaviour with STU3, but if you replace fhirVersion with 4.0, it works exactly the same on R4. 
 
 .. note:: 
-   If you do not specify a fhirVersion parameter, Vonk will use fhirVersion=3.0 (STU3) as a default. This way the behaviour is compatible with previous versions of Vonk. If you like, you can change the ``Default`` in :ref:`information_model`
+   If you do not specify a fhirVersion parameter, Firely Server will use fhirVersion=3.0 (STU3) as a default. This way the behaviour is compatible with previous versions of Firely Server. If you like, you can change the ``Default`` in :ref:`information_model`
 
 .. note:: 
    If you use both an Accept header and a Content-Type header, the fhirVersion parameter for both must be the same. So this would be *invalid*:
@@ -30,7 +30,7 @@ The examples below explain the behaviour with STU3, but if you replace fhirVersi
       Accept=application/fhir+json; fhirVersion=3.0
       Content-Type=application/fhir+json; fhirVersion=4.0
 
-Search for all Patients in STU3. In Vonk this means Patient resources that were also stored as STU3. There is no automatic conversion of resources that were stored as R4 to the STU3 format (or vice versa). ::
+Search for all Patients in STU3. In Firely Server this means Patient resources that were also stored as STU3. There is no automatic conversion of resources that were stored as R4 to the STU3 format (or vice versa). ::
 
       GET <base>/Patient
       Accept=application/fhir+json; fhirVersion=3.0
@@ -56,7 +56,7 @@ Update a Patient resource in STU3.::
 
    {<valid Patient JSON body with id: 123>}
 
-#. If no resource with this id existed before: it will be created with this id. (This was already always the behaviour of Vonk.)
+#. If no resource with this id existed before: it will be created with this id. (This was already always the behaviour of Firely Server.)
 #. If a resource with this id existed before, in STU3: update it.
 #. If a resource with this id already exists in R4: you will get an error with an OperationOutcome saying that a resource with this id already exists with a different informationmodel.
 
@@ -67,7 +67,7 @@ Delete a Patient resource.::
    DELETE <base>/Patient/123
    Accept=application/fhir+json; fhirVersion=3.0
 
-This will delete Patient/123, regardless of its FHIR version. The Accept header is needed for Vonk to know how to format an OperationOutcome if there is an error.
+This will delete Patient/123, regardless of its FHIR version. The Accept header is needed for Firely Server to know how to format an OperationOutcome if there is an error.
 
 Conformance resources
 ---------------------
@@ -88,7 +88,7 @@ Conformance resources like StructureDefinition and SearchParameter are registere
 
 #. If you add a StructureDefinition or SearchParameter via the Administration API, you can decide for yourself whether to append the FHIR version to the id or not. 
    Just note that you cannot use the same id for different FHIR versions.
-#. Depending on the fhirVersion parameter Vonk evaluates whether a resourcetype or searchparameter is valid in that FHIR version. E.g. 'VerificationResult' is only valid in R4, but 'DataElement' is only valid in R3.
+#. Depending on the fhirVersion parameter Firely Server evaluates whether a resourcetype or searchparameter is valid in that FHIR version. E.g. 'VerificationResult' is only valid in R4, but 'DataElement' is only valid in R3.
 #. For validation, the StructureDefinitions and terminology resources needed are only searched for in the FHIR version of the resource that is being validated.
 #. When you :ref:`conformance_administration_api`, a StructureDefinition can only be posted to the Administration API in the context of a FHIR Version that matches the StructureDefinition.fhirVersion.
    So this works::
@@ -174,8 +174,8 @@ As you can see, on a mapped endpoint it is never necessary to use a FHIR ``_form
 Support for R5 (experimental!)
 ------------------------------
 
-By default the binaries for supporting R5 are included in the Vonk distribution (since Vonk 3.3.0). But also by default these binaries are not loaded. See the PipelineOptions in appsettings.default, where ``Vonk.Fhir.R5`` is commented out. 
+By default the binaries for supporting R5 are included in the Firely Server distribution (since Vonk 3.3.0). But also by default these binaries are not loaded. See the PipelineOptions in appsettings.default, where ``Vonk.Fhir.R5`` is commented out. 
 
 Re-enable these in your appsettings.instance and you are good to go.
 
-Note that there is not yet an ``errata_Fhir5.0.zip`` and Vonk will complain about that in the log. You can ignore that message.
+Note that there is not yet an ``errata_Fhir5.0.zip`` and Firely Server will complain about that in the log. You can ignore that message.

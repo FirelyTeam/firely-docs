@@ -12,7 +12,7 @@ Custom Operations
    snapshot
    meta
 
-The FHIR Specification `operations framework`_ allows for the definition of custom operations and defines how to offer them in the `FHIR RESTful API`_. Vonk offers two custom operations out of the box.
+The FHIR Specification `operations framework`_ allows for the definition of custom operations and defines how to offer them in the `FHIR RESTful API`_. Firely Server offers two custom operations out of the box.
 
 #. :ref:`feature_validation`
 #. :ref:`feature_snapshot`

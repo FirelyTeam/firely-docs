@@ -3,7 +3,7 @@
 Validating incoming resources
 =============================
 
-You can have Vonk validate all resources that are sent in for create or update. The setting to do that is like this:
+You can have Firely Server validate all resources that are sent in for create or update. The setting to do that is like this:
 ::
 
   "Validation": {
@@ -50,14 +50,14 @@ To enable this feature, set ``Level`` to ``Full``.
 
 If you leave the list of AllowedProfiles empty, any resource will be allowed (provided it passes the validations set in Parsing and Level).
 
-When you add canonical urls of StructureDefinitions to this list, Vonk will:
+When you add canonical urls of StructureDefinitions to this list, Firely Server will:
 
 * check whether the incoming resource has any of these profiles listed in its meta.profile element
 * validate the resource against the profiles listed in its meta.profile element.
 
-So in the example above, Vonk will only allow resources that conform to either the DAF Patient profile or the DAF AllergyIntolerance profile.
+So in the example above, Firely Server will only allow resources that conform to either the DAF Patient profile or the DAF AllergyIntolerance profile.
 
-Note that the resource has to declare conformance to the profile in its ``meta.profile`` element. Vonk will *not* try to validate a resource against all the ``Validation.AllowedProfiles`` to see whether the resource conforms to any of them, only those that the resource claims conformance to.
+Note that the resource has to declare conformance to the profile in its ``meta.profile`` element. Firely Server will *not* try to validate a resource against all the ``Validation.AllowedProfiles`` to see whether the resource conforms to any of them, only those that the resource claims conformance to.
 
 Upgrading from < 2.0
 --------------------

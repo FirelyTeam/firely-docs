@@ -3,7 +3,7 @@
 Controlling the Conformance Resources
 =====================================
 
-Vonk uses `Conformance Resources <http://www.hl7.org/implement/standards/fhir/conformance-module.html>`_ along with some `Terminology Resources <http://www.hl7.org/implement/standards/fhir/terminology-module.html>`_ for various operations:
+Firely Server uses `Conformance Resources <http://www.hl7.org/implement/standards/fhir/conformance-module.html>`_ along with some `Terminology Resources <http://www.hl7.org/implement/standards/fhir/terminology-module.html>`_ for various operations:
 
 * SearchParameter: For indexing resources and evaluating :ref:`search <restful_search>` interactions.
 * StructureDefinition: For :ref:`snapshot generation<feature_snapshot>`, and of course -- along with ValueSet and CodeSystem -- for :ref:`validation <feature_validation>`.
@@ -11,18 +11,18 @@ Vonk uses `Conformance Resources <http://www.hl7.org/implement/standards/fhir/co
 * ValueSet and CodeSystem: For :ref:`feature_terminology` operations.
 * StructureMap and ConceptMap: for mapping
 
-You can control the behaviour of Vonk for these interactions by loading resources of these types into Vonk. There are two ways of doing this:
+You can control the behaviour of Firely Server for these interactions by loading resources of these types into Firely Server. There are two ways of doing this:
 
 #. With regular FHIR interactions (create, update, delete) on the :ref:`administration_api`.
 #. With the :ref:`conformance_import`.
 
 No matter which method you use, all Conformance resources are persisted in the Administration API database (see :ref:`configure_administration` for configuring that database), and available through the Administration API endpoint (``<firely-server-endpoint>/administration``)
 
-For each resourcetype the base profile is listed in the CapabilityStatement under ``CapabilityStatement.rest.resource.profile`` and (since FHIR R4) all the other profiles are listed under ``CapabilityStatement.rest.resource.supportedProfile``. So by requesting the :ref:`CapabilityStatement <restful_capabilities>` you can easily check whether your changes to the StructureDefinitions were correctly processed by Vonk.
+For each resourcetype the base profile is listed in the CapabilityStatement under ``CapabilityStatement.rest.resource.profile`` and (since FHIR R4) all the other profiles are listed under ``CapabilityStatement.rest.resource.supportedProfile``. So by requesting the :ref:`CapabilityStatement <restful_capabilities>` you can easily check whether your changes to the StructureDefinitions were correctly processed by Firely Server.
 
 .. attention::
 
-   Please be aware that Conformance Resources have to have a **unique canonical url** within the FHIR Version they are loaded, in their url element. Vonk does not allow you to POST two conformance resources with the same canonical url.
+   Please be aware that Conformance Resources have to have a **unique canonical url** within the FHIR Version they are loaded, in their url element. Firely Server does not allow you to POST two conformance resources with the same canonical url.
    For SearchParameter resources, the combination of base and code must be unique.
 
 .. attention::
@@ -45,7 +45,7 @@ For each resourcetype the base profile is listed in the CapabilityStatement unde
 Import of Conformance Resources
 -------------------------------
 
-The import process of conformance resources runs on every startup of Vonk, and :ref:`on demand<conformance_on_demand>`.
+The import process of conformance resources runs on every startup of Firely Server, and :ref:`on demand<conformance_on_demand>`.
 
 The process uses these locations on disk:
 
@@ -55,7 +55,7 @@ The process uses these locations on disk:
 
 .. attention::
 
-   Please make sure that the Vonk process has write permission on the ImportedDirectory.
+   Please make sure that the Firely Server process has write permission on the ImportedDirectory.
 
 The process follows these steps for each FHIR version (currently STU3 and R4)
 
@@ -68,7 +68,7 @@ The process follows these steps for each FHIR version (currently STU3 and R4)
 
 Loading the conformance resources from the various sources can take some time,
 especially on first startup when the :ref:`conformance_specification_zip` have to be imported.
-During the import Vonk will respond with 423 'Locked' to every request to avoid storing or retrieving inconsistent data.
+During the import Firely Server will respond with 423 'Locked' to every request to avoid storing or retrieving inconsistent data.
 
 The read history keeps a record of files that have been read, with an MD5 hash of each.
 If you wish to force a renewed import of a specific file, you should:
@@ -81,14 +81,14 @@ If you wish to force a renewed import of a specific file, you should:
 Retain the import history
 -------------------------
 
-If you run the Administration database on SQL Server or MongoDb it is important to *retain* the ``.vonk-import-history`` file. This means that if you run Vonk on something stateless like a Kubernetes pod, or a webapp service, you need to attach file storage on which to store this file. If you do not do that, Vonk will import all the conformance resources *on every start*.
+If you run the Administration database on SQL Server or MongoDb it is important to *retain* the ``.vonk-import-history`` file. This means that if you run Firely Server on something stateless like a Kubernetes pod, or a webapp service, you need to attach file storage on which to store this file. If you do not do that, Firely Server will import all the conformance resources *on every start*.
 
 .. _vonk_conformance_instances:
 
 Running imports with multiple instances
 ---------------------------------------
 
-If you run multiple instances of Vonk each will have its own ``/administration`` pipeline. So you need to make sure that only 1 instance will perform the import. The import at startup will happen when:
+If you run multiple instances of Firely Server each will have its own ``/administration`` pipeline. So you need to make sure that only 1 instance will perform the import. The import at startup will happen when:
 
 - we upgraded to a new version on the FHIR .NET API (always mentioned in the releasenotes)
 - you add new resources to the ``ImportDirectory``
@@ -98,10 +98,10 @@ To ensure that only one instance runs the import you can do two things:
 
 #. Make sure only 1 instance is running:
 
-   #. Stop Vonk
+   #. Stop Firely Server
    #. Scale down to 1 instance
-   #. Upgrade Vonk (by referring to a newer image, or installing newer binaries)
-   #. Start Vonk
+   #. Upgrade Firely Server (by referring to a newer image, or installing newer binaries)
+   #. Start Firely Server
    #. Let it do the import
    #. Then scale back up to multiple instances.
 
@@ -116,7 +116,7 @@ We are aware that this can be a bit cumbersome. On the :ref:`vonk_roadmap` is th
 Default Conformance Resources
 -----------------------------
 
-Vonk comes with the specification.zip file from the HL7 FHIR API. It contains all the Conformance resources from the specification. These are loaded and used for validation and snapshot generation by default.
+Firely Server comes with the specification.zip file from the HL7 FHIR API. It contains all the Conformance resources from the specification. These are loaded and used for validation and snapshot generation by default.
 
 Some of the conformance resources (especially SearchParameters) contain errors in the core specification.
 We try to correct all errors in :ref:`feature_errata`. You can also override them yourself by:
@@ -132,7 +132,7 @@ We try to correct all errors in :ref:`feature_errata`. You can also override the
 Load Conformance Resources from disk
 ------------------------------------
 
-Vonk can read SearchParameter and CompartmentDefinition resources from a directory on disk at startup. The AdministrationImportOptions in the :ref:`configure_appsettings` control from which directory resources are loaded::
+Firely Server can read SearchParameter and CompartmentDefinition resources from a directory on disk at startup. The AdministrationImportOptions in the :ref:`configure_appsettings` control from which directory resources are loaded::
 
   "AdministrationImportOptions": {
     "ImportDirectory": "<path to the directory you want to import from, default ./vonk-import>",
@@ -150,7 +150,7 @@ Note that in json you either use forward slashes (/) or double backward slashes 
 Load Conformance Resources from simplifier.net
 ----------------------------------------------
 
-You are encouraged to manage and publish your profiles and related Conformance Resources on `simplifier.net <https://simplifier.net>`_. If you do that, you can have Vonk read those. You configure this in the :ref:`configure_appsettings`::
+You are encouraged to manage and publish your profiles and related Conformance Resources on `simplifier.net <https://simplifier.net>`_. If you do that, you can have Firely Server read those. You configure this in the :ref:`configure_appsettings`::
 
   "AdministrationImportOptions": {
     "SimplifierProjects": [
@@ -193,7 +193,7 @@ Load Conformance Resources on demand
 ------------------------------------
 
 It can be useful to reload the profiles, e.g. after you have finalized changes in your project.
-Therefore you can instruct Vonk to actually load the profiles from the source(s) with a separate command:
+Therefore you can instruct Firely Server to actually load the profiles from the source(s) with a separate command:
 
 ::
 
@@ -215,14 +215,14 @@ The :ref:`administration_api` has a FHIR interface included, on the ``https://<f
 * CodeSystem
 * CompartmentDefinition
 
-If you are :ref:`not permitted <configure_administration_access>` to access the endpoint for the resource you want to manage (e.g. ``<firely-server-endpoint>/administration/StructureDefinition``), Vonk will return statuscode 403.
+If you are :ref:`not permitted <configure_administration_access>` to access the endpoint for the resource you want to manage (e.g. ``<firely-server-endpoint>/administration/StructureDefinition``), Firely Server will return statuscode 403.
 
-.. note:: You can also do the same interactions on the same resourcetypes on the normal Vonk FHIR interface ``https://<firely-server-endpoint>``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Vonk operates.
+.. note:: You can also do the same interactions on the same resourcetypes on the normal Firely Server FHIR interface ``https://<firely-server-endpoint>``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Firely Server operates.
 
 Example
 ^^^^^^^
 
-To add a StructureDefinition to Vonk
+To add a StructureDefinition to Firely Server
 ::
 
     POST <firely-server-endpoint>/administration/StructureDefinition

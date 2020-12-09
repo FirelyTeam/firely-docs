@@ -3,12 +3,12 @@
 FHIR RESTful API
 ================
 
-Vonk supports most of the features in the `FHIR RESTful API <http://www.hl7.org/implement/standards/fhir/http.html>`_.
+Firely Server supports most of the features in the `FHIR RESTful API <http://www.hl7.org/implement/standards/fhir/http.html>`_.
 
 FHIR Versions
 -------------
 
-All the operations below can be called for FHIR STU3 or FHIR R4. Vonk supports the fhirVersion mimetype parameter and fhir version endpoint mappings for that purpose. 
+All the operations below can be called for FHIR STU3 or FHIR R4. Firely Server supports the fhirVersion mimetype parameter and fhir version endpoint mappings for that purpose. 
 See :ref:`feature_multiversion` for more information.
 
 .. _restful_crud:
@@ -16,13 +16,13 @@ See :ref:`feature_multiversion` for more information.
 Create, read, update, patch, delete
 -----------------------------------
 
-These five operations to manage the contents of the Vonk FHIR Server, commonly referenced by the acronym CRUD, are implemented as per the specification. Patch is implemented as `FHIR Patch <http://hl7.org/fhir/fhirpatch.html>`_, as this is the most versatile one.
+These five operations to manage the contents of the Firely Server FHIR Server, commonly referenced by the acronym CRUD, are implemented as per the specification. Patch is implemented as `FHIR Patch <http://hl7.org/fhir/fhirpatch.html>`_, as this is the most versatile one.
 This includes version-read and the conditional variations. 
 Only a few limitations apply.
 
-Vonk enables create-on-update: If you request an update and no resource exists for the given id, the provided resource will be created under the provided id.
+Firely Server enables create-on-update: If you request an update and no resource exists for the given id, the provided resource will be created under the provided id.
 
-Vonk can reject a resource based on :ref:`feature_prevalidation`.
+Firely Server can reject a resource based on :ref:`feature_prevalidation`.
 
 .. _restful_crud_configuration:
 
@@ -61,7 +61,7 @@ Limitations on CRUD
 Versioning
 ----------
 
-Vonk keeps a full version history of every resource, including the resources on the :ref:`administration_api`.
+Firely Server keeps a full version history of every resource, including the resources on the :ref:`administration_api`.
 
 .. _restful_search:
 
@@ -71,7 +71,7 @@ Search
 Search is supported as per the specification, with a few :ref:`restful_search_limitations`.
 
 In the default configuration the SearchParameters from the `FHIR specification <http://www.hl7.org/implement/standards/fhir/searchparameter-registry.html>`_ 
-are available. But Vonk also allows :ref:`feature_customsp`. 
+are available. But Firely Server also allows :ref:`feature_customsp`. 
 
 Chaining and reverse chaining is fully supported.
 
@@ -79,7 +79,7 @@ Quantity search on UCUM quantities automatically converts units to a canonical f
 
 `Compartment Search <http://www.hl7.org/implement/standards/fhir/search.html#2.21.1.2>`_ is supported.
 
-Vonk also supports ``_include:iterate`` and ``_revinclude:iterate``, as well as its STU3 counterparts ``_include:recurse`` and ``_revinclude:recurse``. See `the specification <http://hl7.org/fhir/R4/search.html#revinclude>`_ for the definition of those. You can configure the maximum level of recursion::
+Firely Server also supports ``_include:iterate`` and ``_revinclude:iterate``, as well as its STU3 counterparts ``_include:recurse`` and ``_revinclude:recurse``. See `the specification <http://hl7.org/fhir/R4/search.html#revinclude>`_ for the definition of those. You can configure the maximum level of recursion::
 
    "FhirCapabilities": {
       "SearchOptions": {
@@ -109,7 +109,7 @@ for the repositories:
 
 How is sort evaluated?
 
-* A searchparameter may be indexed with multiple values for a single resource. E.g. Patient.name for Angelina Jolie would have name=Angelina and name=Jolie. And George Clooney: name=George and name=Clooney. As the FHIR Specification phrases it: "In this case, the sort is based on the item in the set of multiple parameters that comes earliest in the specified sort order when ordering the returned resources." Here is an example of how Vonk evaluates this.
+* A searchparameter may be indexed with multiple values for a single resource. E.g. Patient.name for Angelina Jolie would have name=Angelina and name=Jolie. And George Clooney: name=George and name=Clooney. As the FHIR Specification phrases it: "In this case, the sort is based on the item in the set of multiple parameters that comes earliest in the specified sort order when ordering the returned resources." Here is an example of how Firely Server evaluates this.
 
    * In ascending order: ``Patient?_sort=name``
 
@@ -148,7 +148,7 @@ How is sort evaluated?
 
 * Token parameters are sorted only on their code element. The system element is ignored in the sorting.
 
-* Vonk uses the default collation as configured on the database server. This collation defines the ordering of characters.
+* Firely Server uses the default collation as configured on the database server. This collation defines the ordering of characters.
 
 
 .. _restful_search_limitations:
@@ -190,7 +190,7 @@ Configuration
     "MaxReturnedResults": 100
   }
 
-If a ``_history`` call would result in more than ``MaxReturnedResults``, Vonk asks the user to be more specific.
+If a ``_history`` call would result in more than ``MaxReturnedResults``, Firely Server asks the user to be more specific.
 Use this to avoid overloading the server or the connection.
 
 .. _restful_history_limitations:
@@ -227,7 +227,7 @@ You can limit the number of entries accepted in a single transaction. See :ref:`
 Capabilities
 ------------
 
-On the Capabilities interaction (``<firely-server-endpoint>/metadata``) Vonk returns a CapabilityStatement that is built dynamically from the 
+On the Capabilities interaction (``<firely-server-endpoint>/metadata``) Firely Server returns a CapabilityStatement that is built dynamically from the 
 supported ResourceTypes, SearchParameters and interactions. E.g. if you :ref:`feature_customsp_configure`, the SearchParameters that are actually loaded appear in the CapabilityStatement.
 
 .. _restful_notsupported:
@@ -235,9 +235,9 @@ supported ResourceTypes, SearchParameters and interactions. E.g. if you :ref:`fe
 Not supported interactions
 --------------------------
 
-These interactions are not yet supported by Vonk:
+These interactions are not yet supported by Firely Server:
 
 #. patch
 #. HEAD
 
-Besides that, Vonk does not yet return the ``date`` header as specified in `HTTP return values <http://hl7.org/fhir/R4/http.html#return>`_
+Besides that, Firely Server does not yet return the ``date`` header as specified in `HTTP return values <http://hl7.org/fhir/R4/http.html#return>`_

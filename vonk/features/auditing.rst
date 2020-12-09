@@ -3,11 +3,11 @@
 Auditing
 ========
 
-Vonk can log access through the RESTful API for auditing purposes. It has 3 features:
+Firely Server can log access through the RESTful API for auditing purposes. It has 3 features:
 
 #. Write requests and responses to a separate audit logfile.
 #. Include user id and name from the JWT token (if present) in the audit log lines.
-#. Write the audit information to AuditEvent resources in the Vonk Data database.
+#. Write the audit information to AuditEvent resources in the Firely Server Data database.
 
 All features can be enabled by including ``Vonk.Plugins.Audit`` in the pipeline. See :ref:`vonk_plugins_config` for details on how to do that.
 
@@ -45,4 +45,4 @@ There is no further configuration for AuditEvent logging. If you include it in t
 
 For transactions and batches the audit plugin will create an AuditEvent for the transaction/batch as a whole *and* one for every entry in the transaction/batch.
 
-Vonk does not allow you to update or delete the AuditEvent resources through the RESTful API so the Audit log cannot be tampered with. You can of course still manipulate these resources directly on the database, for instance to offload a surplus of old AuditEvent resources elsewhere. Please :ref:`vonk-contact` us for details if you want to do this.
+Firely Server does not allow you to update or delete the AuditEvent resources through the RESTful API so the Audit log cannot be tampered with. You can of course still manipulate these resources directly on the database, for instance to offload a surplus of old AuditEvent resources elsewhere. Please :ref:`vonk-contact` us for details if you want to do this.

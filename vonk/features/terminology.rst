@@ -3,7 +3,7 @@
 Terminology
 ===========
 
-Vonk provides limited support for these Terminology operations:
+Firely Server provides limited support for these Terminology operations:
 
 * $validate-code
 * $expand

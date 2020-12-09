@@ -3,9 +3,9 @@
 HIPAA compliance
 ================
 
-Vonk is a well-tested, secure HL7 FHIR® server that enables you to comply with the Technical Safeguards of the HIPAA Security Rule.
+Firely Server is a well-tested, secure HL7 FHIR® server that enables you to comply with the Technical Safeguards of the HIPAA Security Rule.
 
-On this page we will detail how you can achieve compliance for your Vonk deployment. To ensure your organisation's specific usecase, environment, and deployment are compliant, feel free to :ref:`contact us <vonk-contact>`: we'd be happy to help.
+On this page we will detail how you can achieve compliance for your Firely Server deployment. To ensure your organisation's specific usecase, environment, and deployment are compliant, feel free to :ref:`contact us <vonk-contact>`: we'd be happy to help.
 
 .. _hipaa_164.312.a.1:
 
@@ -16,15 +16,15 @@ On this page we will detail how you can achieve compliance for your Vonk deploym
 
 There are several ways to approach this:
 
-1. ensure Vonk is deployed in a secure environment where only those with correct permissions are able to access it,
+1. ensure Firely Server is deployed in a secure environment where only those with correct permissions are able to access it,
 2. use SMART on FHIR as a means of controlling access,
 3. or add custom authentication based on a plugin.
 
-Deploying in a secure environment (1) would mean access to Vonk is controlled by third-party software or policy, placing this scenario outside the scope of this guide.
+Deploying in a secure environment (1) would mean access to Firely Server is controlled by third-party software or policy, placing this scenario outside the scope of this guide.
 
-For scenario (2), Vonk implements support for `Smart on FHIR <http://hl7.org/fhir/smart-app-launch/index.html>`_, a sibling specification to FHIR for securely connecting third-party applications to Electronic Health Record data. See :ref:`feature_accesscontrol` on how to configure Vonk with it.
+For scenario (2), Firely Server implements support for `Smart on FHIR <http://hl7.org/fhir/smart-app-launch/index.html>`_, a sibling specification to FHIR for securely connecting third-party applications to Electronic Health Record data. See :ref:`feature_accesscontrol` on how to configure Firely Server with it.
 
-You may also wish to setup custom authentication (3). Given how Vonk is based on a pipeline architecture, you can insert a plugin at the start of the pipeline to call out to your authentication service(s) prior to handling the request. See `this gist <http://bit.ly/VonkAuthorizationMiddleware>`_ as an example.
+You may also wish to setup custom authentication (3). Given how Firely Server is based on a pipeline architecture, you can insert a plugin at the start of the pipeline to call out to your authentication service(s) prior to handling the request. See `this gist <http://bit.ly/VonkAuthorizationMiddleware>`_ as an example.
 
 .. _hipaa_164.312.c.1:
 
@@ -52,7 +52,7 @@ The same solutions apply to this point as :ref:`hipaa_164.312.a.1`.
    Assign a unique name and/or number for identifying and tracking user identity.
 
 The same solution applies to this point as :ref:`hipaa_164.312.b`.
-For Vonk to be able to log the identity of the user, this identity must be present in or derivable from the authentication token, and it must be added to the log properties. If you use the SMART on FHIR plugin, that is automatically configured. If you want to do this from within a custom authentication plugin, feel free to contact us for details.
+For Firely Server to be able to log the identity of the user, this identity must be present in or derivable from the authentication token, and it must be added to the log properties. If you use the SMART on FHIR plugin, that is automatically configured. If you want to do this from within a custom authentication plugin, feel free to contact us for details.
 
 .. _hipaa_164.312.b:
 
@@ -61,7 +61,7 @@ For Vonk to be able to log the identity of the user, this identity must be prese
 
    Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.
 
-With the use of the :ref:`Audit Event log <vonk_plugins_audit>` plugin, Vonk will thoroughly log every interaction as a note in a log file and/or in an AuditEvent resource. Logged information will be a trace record of all system activity: viewing, modification, deletion and creation of all Eletronic Protected Health Information (ePHI).
+With the use of the :ref:`Audit Event log <vonk_plugins_audit>` plugin, Firely Server will thoroughly log every interaction as a note in a log file and/or in an AuditEvent resource. Logged information will be a trace record of all system activity: viewing, modification, deletion and creation of all Eletronic Protected Health Information (ePHI).
 
 The audit trail can track the source IP, event type, date/time, and more. If a JWT token is provided (for SMART on FHIR), the user/patient identity can be logged as well.
 
@@ -74,9 +74,9 @@ The audit trail can track the source IP, event type, date/time, and more. If a J
 
     Implement a mechanism to encrypt electronic protected health information whenever deemed appropriate.
 
-Transmission security in Vonk can be achieved by encrypting the communications with TLS/SSL. Standard industry practice is to use a reverse proxy (e.g. nginx or IIS) for this purpose. If you'd like, you can also enable secure connections in Vonk :ref:`directly <configure_hosting>` without a proxy as well.
+Transmission security in Firely Server can be achieved by encrypting the communications with TLS/SSL. Standard industry practice is to use a reverse proxy (e.g. nginx or IIS) for this purpose. If you'd like, you can also enable secure connections in Firely Server :ref:`directly <configure_hosting>` without a proxy as well.
 
-Vonk is regularly updated with the latest versions of ASP.NET to ensure that the latest cryptographic algorithms are available for use.
+Firely Server is regularly updated with the latest versions of ASP.NET to ensure that the latest cryptographic algorithms are available for use.
 
 .. _hipaa_164.312.e.2.ii:
 
@@ -98,7 +98,7 @@ Disk encryption is preferred over individual database field encryption as the la
 
 This depends on the solution you went with for :ref:`hipaa_164.312.a.1`.
 
-In case you went with SMART on FHIR, add an authorization workflow that grants emergency access rights - essentially, a "super" access token. The application can then use this token with Vonk, just like any other token. 
+In case you went with SMART on FHIR, add an authorization workflow that grants emergency access rights - essentially, a "super" access token. The application can then use this token with Firely Server, just like any other token. 
 
 If you went with a custom authentication scheme, add a special measure to handle this scenario.
 
@@ -109,6 +109,6 @@ If you went with a custom authentication scheme, add a special measure to handle
 
     Implement electronic mechanisms to corroborate that electronic protected health information has not been altered or destroyed in an unauthorized manner.
 
-Vonk does not allow you to delete resources through its RESTful API. Old versions of resources are retained by default. The only way to alter or destroy resources is through direct database access.
+Firely Server does not allow you to delete resources through its RESTful API. Old versions of resources are retained by default. The only way to alter or destroy resources is through direct database access.
 
 Therefore database-level safety mechanisms must ensure that information is not altered or destroyed unless it's desired.

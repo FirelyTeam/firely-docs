@@ -4,9 +4,9 @@ External terminology services
 =============================
 
 To be able to use more elaborate terminology support, 
-we provide the option to integrate external FHIR terminology services with Vonk. 
+we provide the option to integrate external FHIR terminology services with Firely Server. 
 
-Vonk can redirect the following terminology operations to external services:
+Firely Server can redirect the following terminology operations to external services:
 
 * $validate-code
 * $expand
@@ -14,7 +14,7 @@ Vonk can redirect the following terminology operations to external services:
 * $translate
 * $subsumes
 
-.. warning:: The TerminologyIntegration plugin does not work together with the Vonk Terminology plugin. 
+.. warning:: The TerminologyIntegration plugin does not work together with the Firely Server Terminology plugin. 
 
 Make sure to add the plugin to the PipelineOptions in appsettings in order to make use of the ``TerminologyIntegration`` plugin.
 
@@ -53,7 +53,7 @@ Make sure to add the plugin to the PipelineOptions in appsettings in order to ma
           }, ...etc...
 
 .. note::
-    Adding Vonk.Plugins.TerminologyIntegration means you cannot use Vonk.Plugins.Terminology. Vonk will log a warning if you have both      plugins included in the appsettings. 
+    Adding Vonk.Plugins.TerminologyIntegration means you cannot use Vonk.Plugins.Terminology. Firely Server will log a warning if you have both      plugins included in the appsettings. 
     
 Options
 -------
@@ -62,12 +62,12 @@ You can enable the integration with one or more external terminology services by
 For each terminology service you can set the following options:
 
     :Name: The name of the terminology service.
-    :Endpoint: The endpoint url where Vonk can redirect the requests to.
+    :Endpoint: The endpoint url where Firely Server can redirect the requests to.
     :Username: If the terminology service uses Basic Authentication, you can set the required username here. 
     :Password: If the terminology service uses Basic Authentication, you can set the required password here.
-    :Priority: The priority of the terminology service. If multiple Terminology services could be used for a request, Vonk will use the priority to select a service. Terminology services are arranged in a descending order: so 1 is first priority, 2 is next in priority and so on.
-    :PreferredSystem: If a request is directed at a specific code system, Vonk will choose this terminology server over other available services.
-    :SupportedInteractions: The operations supported by the terminology service. Vonk will only select this service if the operation is in this list.
+    :Priority: The priority of the terminology service. If multiple Terminology services could be used for a request, Firely Server will use the priority to select a service. Terminology services are arranged in a descending order: so 1 is first priority, 2 is next in priority and so on.
+    :PreferredSystem: If a request is directed at a specific code system, Firely Server will choose this terminology server over other available services.
+    :SupportedInteractions: The operations supported by the terminology service. Firely Server will only select this service if the operation is in this list.
     :SupportedResources: The resources supported by the terminology service.
 
 
@@ -100,4 +100,4 @@ A sample Terminology section in the appsettings can look like this:
         ]
       }, ...etc...
   
-This means if you execute a terminology operation request, Vonk will validate the request, redirect it to the preferred terminology service and finally return the result. 
+This means if you execute a terminology operation request, Firely Server will validate the request, redirect it to the preferred terminology service and finally return the result. 

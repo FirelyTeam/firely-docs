@@ -3,7 +3,7 @@
 Custom Resources
 ================
 
-Custom Resources are not formally defined in the FHIR Specification. To Vonk a Custom Resource is a resource with a definition that is a specialization of DomainResource, but that is not in the Core FHIR Specification. Vonk can handle these, provided it knows about the StructureDefinition that defines it. This page explains how to register such a StructureDefinition and store custom resources.
+Custom Resources are not formally defined in the FHIR Specification. To Firely Server a Custom Resource is a resource with a definition that is a specialization of DomainResource, but that is not in the Core FHIR Specification. Firely Server can handle these, provided it knows about the StructureDefinition that defines it. This page explains how to register such a StructureDefinition and store custom resources.
 
 .. warning::
 
@@ -12,12 +12,12 @@ Custom Resources are not formally defined in the FHIR Specification. To Vonk a C
 What to use them for?
 ---------------------
 
-Vonk can be used as a platform to build apps on. In these apps, structures arise outside of the FHIR Specification or even the Health domain. Still, it would be useful to also use Vonk to store, search and version these structures. Note that this is only for internal use in the app.
+Firely Server can be used as a platform to build apps on. In these apps, structures arise outside of the FHIR Specification or even the Health domain. Still, it would be useful to also use Firely Server to store, search and version these structures. Note that this is only for internal use in the app.
 
 Register the definition
 -----------------------
 
-Just like any resourcetype, the definition for a custom resource is formalized as a StructureDefinition. Vonk will recognize it as the definition of a custom resourcetype if and only if:
+Just like any resourcetype, the definition for a custom resource is formalized as a StructureDefinition. Firely Server will recognize it as the definition of a custom resourcetype if and only if:
 
 * base = DomainResource
 * derivation = specialization
@@ -36,12 +36,12 @@ Examples of these can be found in the specification: each resourcetype is define
 #. Make sure all the elements in the differential start with 'Foo.' 
 #. (Recommended) Store your definition in Simplifier.net for version management, comments and collaboration.
 
-If you have created the StructureDefinition, register it in Vonk using any of the methods mentioned in :ref:`conformance`. As an example we will issue an update interaction on the Administration API::
+If you have created the StructureDefinition, register it in Firely Server using any of the methods mentioned in :ref:`conformance`. As an example we will issue an update interaction on the Administration API::
 
    PUT <base-url>/administration/StructureDefinition/Foo
    Content-Type=application/fhir+json; fhirVersion=3.0
 
-By using an update we can choose the id and hence the location of this StructureDefinition. Vonk does this by default for all the resourcetypes defined by the specification as well.
+By using an update we can choose the id and hence the location of this StructureDefinition. Firely Server does this by default for all the resourcetypes defined by the specification as well.
 
 Use a resource
 --------------
@@ -52,7 +52,7 @@ To test whether you can actually use the endpoint associated with your custom re
 
    The CapabilityStatement will not list the custom definition. This is because the element CapabilityStatement.rest.resource.type has a Required binding to the ResourceType valueset. And obviously this valueset does not contain our 'Foo' resourcetype.
 
-Now use your favorite editor to create a resource that conforms to the Foo StructureDefinition. And then create it on Vonk: ``POST <base-url>/Foo``.
+Now use your favorite editor to create a resource that conforms to the Foo StructureDefinition. And then create it on Firely Server: ``POST <base-url>/Foo``.
 
 All the operations on specification-defined resourcetypes are also available for custom resources. You can also use them in a batch or transaction bundle. 
 Custom Resources can also be validated. This also means that :ref:`feature_prevalidation` can be used in conjunction with Custom Resources.
@@ -60,4 +60,4 @@ Custom Resources can also be validated. This also means that :ref:`feature_preva
 Search parameters on a custom resource
 --------------------------------------
 
-In Vonk you can define your own custom search parameters on any type of resource (see :ref:`feature_customsp`). This includes Custom Resources. Just use the type name of the Custom Resource in the SearchParameter.base.
+In Firely Server you can define your own custom search parameters on any type of resource (see :ref:`feature_customsp`). This includes Custom Resources. Just use the type name of the Custom Resource in the SearchParameter.base.

@@ -4,9 +4,9 @@ Errata to the specification
 ===========================
 
 The FHIR Specification is good, but not perfect. Some of the SearchParameters have errors. If we find these errors, we report them in the issue tracking system of HL7. 
-But it takes time until the fix is applied to the specification. In the meantime Vonk provides you with updated versions of the resources that have errors, so you can use them already while we await the fixes in the specification.
+But it takes time until the fix is applied to the specification. In the meantime Firely Server provides you with updated versions of the resources that have errors, so you can use them already while we await the fixes in the specification.
 
-These corrections come with the Vonk installation, in the files:
+These corrections come with the Firely Server installation, in the files:
 
 * ``errataFhir3.0.zip``, with corrections to the STU3 version of the Specification
 * ``errataFhir4.0.zip``, with corrections to the R4 version of the Specification
@@ -20,7 +20,7 @@ clinical-patient
 	For DeviceUseStatement-patient this was correct, so we created a separate file for this parameter, still listing the Group as a valid target type.
 
 search parameters with FhirPath expression .as(DateTime)
-	Several search parameters had an incorrect FhirPath expression using .as(DateTime) instead of .as(dateTime). As a result, Vonk 
+	Several search parameters had an incorrect FhirPath expression using .as(DateTime) instead of .as(dateTime). As a result, Firely Server 
 	could not index the fields correctly and searches on the dates would not work. The search parameters that were corrected are:
 	clinical-date, DeviceRequest-event-date, Observation-code-value-date, Observation-value-date and patient-death-date.
 

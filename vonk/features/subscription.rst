@@ -7,9 +7,9 @@ Subscriptions can be managed in the :ref:`administration_api`, on the ``/adminis
 to the regular FHIR endpoint, it will be stored but not evaluated. Subscriptions posted to the
 ``/administration`` endpoint will be processed and evaluated for each POST/PUT to the server.
 
-Vonk currently only supports STU3/R4-style Subscriptions with a Channel of type rest-hook.
+Firely Server currently only supports STU3/R4-style Subscriptions with a Channel of type rest-hook.
 
-If you are :ref:`not permitted <configure_administration_access>` to access the /Subscription endpoint, Vonk will return statuscode 403.
+If you are :ref:`not permitted <configure_administration_access>` to access the /Subscription endpoint, Firely Server will return statuscode 403.
 
 See `Subscriptions in the specification <http://www.hl7.org/fhir/stu3/subscription.html>`_ for more background on Subscriptions.
 
@@ -23,8 +23,8 @@ So if you need a Subscription on both STU3 and R4 resources, POST that Subscript
 
 Configuration
 -------------
-Vonk evaluates the active Subscriptions periodically, and in batches (x at a time, until all the active Subscriptions have been evaluated).
-You can control the period and the batchsize. If an evaluation of a Subscription fails, Vonk will retry the evaluation periodically for a maximum amount of tries. You can control the retry period and the maximum number of retries.
+Firely Server evaluates the active Subscriptions periodically, and in batches (x at a time, until all the active Subscriptions have been evaluated).
+You can control the period and the batchsize. If an evaluation of a Subscription fails, Firely Server will retry the evaluation periodically for a maximum amount of tries. You can control the retry period and the maximum number of retries.
 
 ::
 
@@ -39,5 +39,5 @@ You can control the period and the batchsize. If an evaluation of a Subscription
 * ``Enabled`` allows you to quickly enable or disable the evaluation of Subscriptions. Default value is 'false', which implies that Subscription evaluation is also off if this section is left out of the settings.
 * ``RepeatPeriod`` is expressed in milliseconds. In the example above the period is set to 20 seconds, meaning that after a change a subscriber will be notified in at most 20 seconds.
 * ``SubscriptionBatchSize`` is expressed in number of Subscriptions that is retrieved and evaluated at once. Default is 1, but you can set it higher if you have a lot of Subscriptions.
-* ``RetryPeriod`` is expressed in milliseconds. In the example above the period is set to 60 seconds, meaning that the Vonk will retry to send the resources after a minimum of 60 seconds. Retry is included in the normal evaluation process, so the RetryPeriod cannot be smaller than RepeatPeriod.
-* ``MaximumRetries`` is the maximum amount of times Vonk will retry to send the resources. 
+* ``RetryPeriod`` is expressed in milliseconds. In the example above the period is set to 60 seconds, meaning that the Firely Server will retry to send the resources after a minimum of 60 seconds. Retry is included in the normal evaluation process, so the RetryPeriod cannot be smaller than RepeatPeriod.
+* ``MaximumRetries`` is the maximum amount of times Firely Server will retry to send the resources. 

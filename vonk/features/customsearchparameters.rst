@@ -13,14 +13,14 @@ Using Custom Search Parameters
 Configure Search Parameters
 ---------------------------
 
-You can control which search parameters are known to Vonk. This is managed in the same way as all the conformance resources, see :ref:`conformance`.
+You can control which search parameters are known to Firely Server. This is managed in the same way as all the conformance resources, see :ref:`conformance`.
 
 .. _feature_customsp_reindex:
 
 Re-indexing for new or changed SearchParameters
 -----------------------------------------------
 
-Vonk extracts values from resources based on the available search parameters upon create or update.
+Firely Server extracts values from resources based on the available search parameters upon create or update.
 This means that if you already had resources in your database before adding a custom search parameter, 
 those resources will not be indexed for that parameter. If you on the other hand removed a previously used 
 search parameter, the index will contain superfluous data.
@@ -30,7 +30,7 @@ To fix that, you should re-index (repeat the extraction) for these parameters.
 In short, both reindex operations below will:
 
 *	Return an Operation Outcome stating that the reindex procedure was started successfully. 
-*	Run the actual reindex asynchronously, using a configured number of threads, thereby using most of the hardware resources available to Vonk.
+*	Run the actual reindex asynchronously, using a configured number of threads, thereby using most of the hardware resources available to Firely Server.
 *	Block any other requests for the duration of the reindex.
 *	Log progress in the log.
 
@@ -52,10 +52,10 @@ So for a full reindex of everything you may need to issue the command twice, onc
 Rebuild the whole search index
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is only needed if we changed something very significant to the way Vonk searches, like
+This is only needed if we changed something very significant to the way Firely Server searches, like
 
 *	The way values are extracted for all or many searchparameters.
-*	The structure in which Vonk stores the search index.
+*	The structure in which Firely Server stores the search index.
 
 To re-index all resources for all search parameters, use:
 
@@ -100,16 +100,16 @@ You use this when you removed a search parameter.
 Remember to adjust the Content-Type header: ``application/x-www-form-urlencoded``.
 
 
-If you are :ref:`not permitted <configure_administration_access>` to perform the reindex, Vonk will return statuscode 403.
+If you are :ref:`not permitted <configure_administration_access>` to perform the reindex, Firely Server will return statuscode 403.
 
 .. _feature_customsp_reindex_configure:
 
 Re-index Configuration
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Vonk will not re-index the resources in the database all at once, but in batches. The re-index operation will process all batches until all resources are re-indexed.
+Firely Server will not re-index the resources in the database all at once, but in batches. The re-index operation will process all batches until all resources are re-indexed.
 You can control the size of the batches in the :ref:`configure_appsettings`. 
-Besides that you can also control how many threads run in parallel to speed up the reindex process. The configured value is a maximum, since Vonk will also be limited by the available computing resources.
+Besides that you can also control how many threads run in parallel to speed up the reindex process. The configured value is a maximum, since Firely Server will also be limited by the available computing resources.
 ::
 
     "ReindexOptions": {
@@ -127,7 +127,7 @@ Use any integer value >= 1.
 	If you encounter errors stating 'Request rate is large', you will have to:
 
 	*	lower the MaxDegreeOfParallelism, 
-	*	restart Vonk 
+	*	restart Firely Server 
 	*	and start a the reindex operation again.
 
 .. _feature_customsp_limitations:
