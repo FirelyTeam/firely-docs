@@ -1,6 +1,6 @@
 .. _vonk_roadmap:
 
-Vonk Roadmap
+Firely Server Roadmap
 ============
 
 This page lists the features and changes we have planned for the foreseeable future. This planning is volatile, so changes will happen. We will update this page accordingly. You are also very welcome to provide input to us on features or fixes that you would like to see prioritized. 
@@ -39,7 +39,7 @@ Q3
 Q4
 ^^
 
-* Revamp Administration API to ease the management of your Vonk Server
+* Revamp Administration API to ease the management of your Firely Server
 
    * Base it on FHIR packages
    * Separate service

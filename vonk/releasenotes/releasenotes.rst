@@ -1,6 +1,6 @@
 .. _vonk_releasenotes:
 
-Release notes Vonk
+Release notes Firely Server
 ==================
 
 .. toctree::
@@ -12,10 +12,10 @@ Release notes Vonk
 
 .. _upgrade_vonk:
 
-Upgrading Vonk
+Upgrading Firely Server
 --------------
 
-See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
+See :ref:`upgrade` for information on how to upgrade to a new version of Firely Server.
 
 .. _vonk_releasenotes_391:
 

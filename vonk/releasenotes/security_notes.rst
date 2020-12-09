@@ -1,6 +1,6 @@
 .. _vonk_securitynotes:
 
-Security notifications for Vonk
+Security notifications for Firely Server
 ===============================
 
 July 2020
