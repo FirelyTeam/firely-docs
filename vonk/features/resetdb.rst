@@ -9,7 +9,7 @@ You would usually do this in combination with :ref:`feature_preload`.
 To reset the database, execute:
 ::
 
-    POST http(s)://<vonk-endpoint>/administration/reset
+    POST http(s)://<firely-server-endpoint>/administration/reset
 
 Vonk will return statuscode 200 if the operation succeeded. 
 

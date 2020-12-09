@@ -61,7 +61,7 @@ To re-index all resources for all search parameters, use:
 
 	::
 	
-		POST http(s)://<vonk-endpoint>/administration/reindex/all
+		POST http(s)://<firely-server-endpoint>/administration/reindex/all
 		Accept=application/fhir+json (or xml); fhirVersion=3.0 (or 4.0)
 
 This will delete any previously indexed data and extract it again from the resources.
@@ -81,7 +81,7 @@ To re-index all resources for certain search parameters, use:
 
 	::
 	
-		POST http(s)://<vonk-endpoint>administration/reindex/searchparameters
+		POST http(s)://<firely-server-endpoint>administration/reindex/searchparameters
 		Accept=application/fhir+json (or xml); fhirVersion=3.0 (or 4.0)
 
 In the body of the POST, you put the parameters to actually re-index as form parameters:

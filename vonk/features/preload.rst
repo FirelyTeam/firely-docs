@@ -15,7 +15,7 @@ You can do that with the preload feature. Usually you will want to :ref:`feature
 To preload a set of resources, execute:
 ::
 
-    POST http(s)://<vonk-endpoint>/administration/preload
+    POST http(s)://<firely-server-endpoint>/administration/preload
     Content-Type: application/octet-stream
     Body: a zip file with resources, each resource in a separate file (xml or json).
 

@@ -32,7 +32,7 @@ The gist of the implementation is to switch the querying based on the ResourceTy
 
    * First, let's inspect the parameters:
 
-       :resourceType: The ResourceType that is being searched for, e.g. Patient in ``<vonk-endpoint>/Patient?...``
+       :resourceType: The ResourceType that is being searched for, e.g. Patient in ``<firely-server-endpoint>/Patient?...``
        :arguments: All the arguments provided in the search, whether they come from the path (like 'Patient'), the querystring (after the '?'), the headers or the body. Usually you don't have to inspect these yourself.
        :options: A few hints on how the query should be executed: are deleted or contained resources allowed etc. Usually you just pass these on as well.
 

@@ -16,7 +16,7 @@ You can control the behaviour of Vonk for these interactions by loading resource
 #. With regular FHIR interactions (create, update, delete) on the :ref:`administration_api`.
 #. With the :ref:`conformance_import`.
 
-No matter which method you use, all Conformance resources are persisted in the Administration API database (see :ref:`configure_administration` for configuring that database), and available through the Administration API endpoint (``<vonk-endpoint>/administration``)
+No matter which method you use, all Conformance resources are persisted in the Administration API database (see :ref:`configure_administration` for configuring that database), and available through the Administration API endpoint (``<firely-server-endpoint>/administration``)
 
 For each resourcetype the base profile is listed in the CapabilityStatement under ``CapabilityStatement.rest.resource.profile`` and (since FHIR R4) all the other profiles are listed under ``CapabilityStatement.rest.resource.supportedProfile``. So by requesting the :ref:`CapabilityStatement <restful_capabilities>` you can easily check whether your changes to the StructureDefinitions were correctly processed by Vonk.
 
@@ -182,7 +182,7 @@ Open the project of your choice on https://simplifier.net. There are two limitat
 
 Then on the overview page of the project click 'Endpoint' and copy the value you see there:
 
-   .. image:: ../images/simplifier-vonk-endpoint.png
+   .. image:: ../images/simplifier-firely-server-endpoint.png
       :align: center
 
 By default the endpoint is ``https://stu3.simplifier.net/<projectname>``
@@ -197,7 +197,7 @@ Therefore you can instruct Vonk to actually load the profiles from the source(s)
 
 ::
 
-  POST http(s)://<vonk-endpoint>/administration/importResources
+  POST http(s)://<firely-server-endpoint>/administration/importResources
 
 The operation will return an OperationOutcome resource, containing details about the number of resources created and updated, as well as any errors that occurred.
 Please note that this will also respect the history of already read files, and not read them again.
@@ -207,7 +207,7 @@ Please note that this will also respect the history of already read files, and n
 Manage Conformance Resources with the Administration API
 --------------------------------------------------------
 
-The :ref:`administration_api` has a FHIR interface included, on the ``https://<vonk-endpoint>/administration`` endpoint. On this endpoint you can do most of the FHIR interactions (create, read, update, delete, search) on these resourcetypes:
+The :ref:`administration_api` has a FHIR interface included, on the ``https://<firely-server-endpoint>/administration`` endpoint. On this endpoint you can do most of the FHIR interactions (create, read, update, delete, search) on these resourcetypes:
 
 * SearchParameter
 * StructureDefinition
@@ -215,9 +215,9 @@ The :ref:`administration_api` has a FHIR interface included, on the ``https://<v
 * CodeSystem
 * CompartmentDefinition
 
-If you are :ref:`not permitted <configure_administration_access>` to access the endpoint for the resource you want to manage (e.g. ``<vonk-endpoint>/administration/StructureDefinition``), Vonk will return statuscode 403.
+If you are :ref:`not permitted <configure_administration_access>` to access the endpoint for the resource you want to manage (e.g. ``<firely-server-endpoint>/administration/StructureDefinition``), Vonk will return statuscode 403.
 
-.. note:: You can also do the same interactions on the same resourcetypes on the normal Vonk FHIR interface ``https://<vonk-endpoint>``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Vonk operates.
+.. note:: You can also do the same interactions on the same resourcetypes on the normal Vonk FHIR interface ``https://<firely-server-endpoint>``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Vonk operates.
 
 Example
 ^^^^^^^
@@ -225,7 +225,7 @@ Example
 To add a StructureDefinition to Vonk
 ::
 
-    POST <vonk-endpoint>/administration/StructureDefinition
+    POST <firely-server-endpoint>/administration/StructureDefinition
 
 * In the body provide the StructureDefinition that you want to add.
 * The Content-Type header must match the format of the body (application/fhir+json or application/fhir+xml)
@@ -233,4 +233,4 @@ To add a StructureDefinition to Vonk
 If you prefer to assign your own logical id to e.g. StructureDefinition 'MyPatient', you can use an update:
 ::
 
-    PUT <vonk-endpoint>/administration/StructureDefinition/MyPatient
+    PUT <firely-server-endpoint>/administration/StructureDefinition/MyPatient

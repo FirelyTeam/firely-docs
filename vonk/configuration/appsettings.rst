@@ -1,27 +1,27 @@
 .. _configure_appsettings:
 
-Vonk settings
+Firely Server settings
 =============
 
-Vonk settings are controlled in json configuration files called ``appsettings(.*).json``. The possible settings in these files are all the same and described below.
-The different files are read in a hierarchy so you can control settings on different levels. All appsettings files are in the Vonk distribution directory, next to vonk.server.dll.
+Firely Server settings are controlled in json configuration files called ``appsettings(.*).json``. The possible settings in these files are all the same and described below.
+The different files are read in a hierarchy so you can control settings on different levels. All appsettings files are in the Firely Server distribution directory, next to vonk.server.dll.
 We go through all the sections of this file and refer you to detailed pages on each of them.
 
 You can also control :ref:`configure_envvar`.
 
-Changes to the settings require a restart of Vonk.
+Changes to the settings require a restart of Firely Server.
 
 .. _configure_levels:
 
 Hierarchy of settings
 ---------------------
 
-Vonk reads its settings from these sources, in this order:
+Firely Server reads its settings from these sources, in this order:
 
-:appsettings.default.json: Installed with Vonk, contains default settings and a template setting if no sensible default is available.
-:appsettings.json: You can create this one for your own settings. Because it is not part of the Vonk distribution, it will not be overwritten by a next Vonk version.
+:appsettings.default.json: Installed with Firely Server, contains default settings and a template setting if no sensible default is available.
+:appsettings.json: You can create this one for your own settings. Because it is not part of the Firely Server distribution, it will not be overwritten by a next Firely Server version.
 :environment variables: See :ref:`configure_envvar`.
-:appsettings.instance.json: You can create this one to override settings for a specific instance of Vonk. It is not part of the Vonk distribution.
+:appsettings.instance.json: You can create this one to override settings for a specific instance of Firely Server. It is not part of the Firely Server distribution.
                             This file is especially useful if you run multiple instances on the same machine.
 
 Settings lower in the list override the settings higher in the list (think CSS, if you're familiar with that).
@@ -30,11 +30,11 @@ Settings lower in the list override the settings higher in the list (think CSS, 
 
    JSON settings files can have arrays in them. The configuration system can NOT merge arrays.
    So if you override an array value, you need to provide all the values that you want in the array.
-   In the Vonk settings this is relevant for e.g. Validation.AllowedProfiles and for the PipelineOptions.
+   In the Firely Server settings this is relevant for e.g. Validation.AllowedProfiles and for the PipelineOptions.
 
 .. note::
    By default in ASP.NET Core, if on a lower level the array has more items, you will still inherit those extra items.
-   We fixed this in Vonk, an array will always overwrite the complete base array.
+   We fixed this in Firely Server, an array will always overwrite the complete base array.
    To nullify an array, add the value with an array with just an empty string in it::
 
      "PipelineOptions": {
@@ -58,19 +58,19 @@ In general you do not change the settings in ``appsettings.default.json`` but cr
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After you installed Vonk (see :ref:`vonk_getting_started`), either:
+After you installed Firely Server (see :ref:`vonk_getting_started`), either:
 
 * copy the ``appsettings.default.json`` to ``appsettings[.instance].json`` and remove settings that you do not intend to alter, or
 * create an empty ``appsettings[.instance].json`` and copy individual parts from the ``appsettings.default.json`` if you wish to adjust them.
 
 Adjust the new ``appsettings[.instance].json`` to your liking using the explanation below.
 
-When running :ref:`Vonk on Docker<use_docker>` you probably want to adjust the settings using the :ref:`Environment Variables<configure_envvar>`.
+When running :ref:`Firely Server on Docker<use_docker>` you probably want to adjust the settings using the :ref:`Environment Variables<configure_envvar>`.
 
 Settings after update
 ^^^^^^^^^^^^^^^^^^^^^
 
-If you install the binaries of an updated version of Vonk, you can:
+If you install the binaries of an updated version of Firely Server, you can:
 
 * copy the new binaries over the old ones, or
 * deploy the new version to a new directory and copy the ``appsettings[.instance].json`` over from the old version.
@@ -81,7 +81,7 @@ If you want to adjust a changed / new setting, copy the relevant section from ``
 Commenting out sections
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-JSON formally has no notion of comments. But the configuration system of ASP.Net Core (and hence Vonk) accepts double slashes just fine::
+JSON formally has no notion of comments. But the configuration system of ASP.Net Core (and hence Firely Server) accepts double slashes just fine::
 
     "Administration": {
         "Repository": "SQLite", //Memory / SQL / MongoDb
@@ -99,7 +99,7 @@ This will ignore the AutoUpdateConnectionString.
 Log of your configuration
 -------------------------
 
-Because the hierarchy of settings can be overwhelming, Vonk logs the resulting configuration.
+Because the hierarchy of settings can be overwhelming, Firely Server logs the resulting configuration.
 To enable that, the loglevel for ``Vonk.Server`` must be ``Information`` or more detailed. That is set for you by default in ``logsettings.default.json``.
 Refer to :ref:`configure_log` for information on setting log levels.
 
@@ -144,7 +144,7 @@ License
     }
 
 
-The :ref:`vonk_getting_started` explains how to obtain a licensefile for Vonk. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\\\) as path separators.
+The :ref:`vonk_getting_started` explains how to obtain a licensefile for Firely Server. Once you have it, put the path to it in the ``LicenseFile`` setting. Note that in json you either use forward slashes (/) or double backward slashes (\\\\\\) as path separators.
 
 Other settings:
 
@@ -275,7 +275,7 @@ Search and History
 The Search and History interactions return a bundle with results. Users can specify the number of results that they want to receive in one response with the ``_count`` parameter.
 
 * ``DefaultCount`` sets the number of results if the user has not specified a ``_count`` parameter.
-* ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Vonk from being overloaded.
+* ``MaxCount`` sets the number of results in case the user specifies a ``_count`` value higher than this maximum. This is to protect Firely Server from being overloaded.
 * ``DefaultCount`` should be less than or equal to ``MaxCount``
 * ``DefaultSort`` is what search results are sorted on if no sort order is specified in the request. If a sort order is specified, this is still added as the last sort clause.
 
@@ -310,7 +310,7 @@ Protect against large input
 
 * ``MaxResourceSize`` sets the maximum size of a resource that is sent in a create or update.
 * ``MaxBatchSize`` sets the maximum size of a batch or transaction bundle.
-  (Note that a POST http(s)://<vonk-endpoint>/Bundle will be limited by MaxResourceSize, since the bundle must be processed as a whole then.)
+  (Note that a POST http(s)://<firely-server-endpoint>/Bundle will be limited by MaxResourceSize, since the bundle must be processed as a whole then.)
 * ``MaxBatchEntries`` limits the number of entries that is allowed in a batch or transaction bundle.
 * The values for ``MaxResourceSize`` and ``MaxBatchSize`` can be expressed in b (bytes, the default), kB (kilobytes), KiB (kibibytes), MB (megabytes), or MiB (mebibytes).
   Do not put a space between the amount and the unit.
@@ -346,7 +346,7 @@ Cache of Conformance Resources
       "MaxConformanceResources": 5000
    }
 
-Vonk caches StructureDefinitions and other conformance resources that are needed for (de)serialization and validation in memory. If more than ``MaxConformanceResources`` get cached, the ones that have not been used for the longest time are discarded. If you frequently encounter a delay when requesting less used resource types, a larger value may help. If you are very restricted on memory, you can lower the value.
+Firely Server caches StructureDefinitions and other conformance resources that are needed for (de)serialization and validation in memory. If more than ``MaxConformanceResources`` get cached, the ones that have not been used for the longest time are discarded. If you frequently encounter a delay when requesting less used resource types, a larger value may help. If you are very restricted on memory, you can lower the value.
 
 .. _configure_reindex:
 
@@ -373,7 +373,7 @@ Restrict supported resources and SearchParameters
      "RestrictToCompartments": ["Patient"]
    },
 
-By default, Vonk supports all ResourceTypes, SearchParameters and CompartmentDefinitions from the specification. They are loaded from the :ref:`specification.zip <conformance_specification_zip>`.
+By default, Firely Server supports all ResourceTypes, SearchParameters and CompartmentDefinitions from the specification. They are loaded from the :ref:`specification.zip <conformance_specification_zip>`.
 If you want to limit support, you can do so with the configuration above. This is primarily targeted towards Facade builders, because they have to provide an implementation for everything that is supported.
 
 Be aware that:
@@ -387,7 +387,7 @@ Be aware that:
 Enable or disable interactions
 ------------------------------
 
-By default, the value ``SupportedInteractions`` contains all the interactions that are implemented in Vonk.
+By default, the value ``SupportedInteractions`` contains all the interactions that are implemented in Firely Server.
 But you can disable interactions by removing them from these lists.
 ::
 
@@ -416,8 +416,8 @@ See :ref:`feature_subscription`.
 Information model
 -----------------
 
-Vonk supports the use of multiple information models (currently FHIR STU3 and R4) simultaneously. The ``InformationModel`` section contains the related settings.
-By default, Vonk serves both versions from the root of your web service, defaulting to STU3 when the client does not use Accept or _format to specify either one. Mapping a path or a subdomain to a specific version creates an additional URI serving only that particular version.
+Firely Server supports the use of multiple information models (currently FHIR STU3 and R4) simultaneously. The ``InformationModel`` section contains the related settings.
+By default, Firely Server serves both versions from the root of your web service, defaulting to STU3 when the client does not use Accept or _format to specify either one. Mapping a path or a subdomain to a specific version creates an additional URI serving only that particular version.
 ::
 
   "InformationModel": {
@@ -467,11 +467,11 @@ See :ref:`restful_history`.
 
 .. _settings_pipeline:
 
-Configuring the Vonk Pipeline
+Configuring the Firely Server Pipeline
 -----------------------------
 
-You can add your own plugins to the Vonk pipeline, or control which of the standard Vonk plugins
-are used for your Vonk server, by changing the ``PipelineOptions``.
+You can add your own plugins to the Firely Server pipeline, or control which of the standard Firely Server plugins
+are used for your Firely Server server, by changing the ``PipelineOptions``.
 ::
 
   "PipelineOptions": {

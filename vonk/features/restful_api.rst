@@ -227,7 +227,7 @@ You can limit the number of entries accepted in a single transaction. See :ref:`
 Capabilities
 ------------
 
-On the Capabilities interaction (``<vonk-endpoint>/metadata``) Vonk returns a CapabilityStatement that is built dynamically from the 
+On the Capabilities interaction (``<firely-server-endpoint>/metadata``) Vonk returns a CapabilityStatement that is built dynamically from the 
 supported ResourceTypes, SearchParameters and interactions. E.g. if you :ref:`feature_customsp_configure`, the SearchParameters that are actually loaded appear in the CapabilityStatement.
 
 .. _restful_notsupported:
