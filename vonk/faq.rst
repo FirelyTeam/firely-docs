@@ -8,7 +8,7 @@ Frequently asked questions
 Conflicting resources upon import
 ---------------------------------
 
-When importing specification.zip for R4, Vonk will report errors like these::
+When importing specification.zip for R4, Firely Server will report errors like these::
 
 ::
 
@@ -24,13 +24,13 @@ The error message is actually correct, since there *are* duplicate fullUrls in d
 Searchparameter errors for composite parameters
 -----------------------------------------------
 
-When importing specification.zip for various FHIR versions, Vonk will report errors like these:
+When importing specification.zip for various FHIR versions, Firely Server will report errors like these:
 
 ::
 
    Composite SearchParameter 'CodeSystem.context-type-quantity' doesn't have components.
 
-A searchparameter of type 'composite' should define which components it consists of. Vonk checks whether all the components of such a composite searchparameter are present. If no components are defined at all - that is, SearchParameter.component is empty - it will display this error. This indicates an error in the definition of the searchparameter and should be solved by the author of it.
+A searchparameter of type 'composite' should define which components it consists of. Firely Server checks whether all the components of such a composite searchparameter are present. If no components are defined at all - that is, SearchParameter.component is empty - it will display this error. This indicates an error in the definition of the searchparameter and should be solved by the author of it.
 
 However, the implementation of this check seems to have an error so too many composite parameters are reported as faulty. We will address this issue in the next release.
 
