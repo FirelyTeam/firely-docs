@@ -1,10 +1,10 @@
 .. _use_docker:
 
 ====================
-Using Vonk on Docker
+Using Firely Server on Docker
 ====================
 
-We have created a Docker image for Vonk, so you can run the server in any environment that supports Docker. For this section we
+We have created a Docker image for Firely Server, so you can run the server in any environment that supports Docker. For this section we
 assume you have Docker installed on your system. If you want to install Docker for Windows, please read :ref:`docker_win` for specific
 installation details.
 
@@ -13,21 +13,21 @@ installation details.
 Getting started
 ---------------
 
-Before you can run Vonk, you will need to pull the Docker Vonk container and request a license.
+Before you can run Firely Server, you will need to pull the Docker Firely Server container and request a license.
 
 1. Open your favourite command line tool and execute this command:
    ``> docker pull simplifier/vonk``
 
 2. Go to the `Simplifier website <https://simplifier.net>`_, login and download your evaluation license.
 
-3. Create a working directory for Vonk and place the license file there.
+3. Create a working directory for Firely Server and place the license file there.
 
-.. warning:: If you use Docker, you may want to run multiple instances of Vonk (e.g. with Kubernetes). Read :ref:`vonk_conformance_instances` for caveats with the Administration endpoint.
+.. warning:: If you use Docker, you may want to run multiple instances of Firely Server (e.g. with Kubernetes). Read :ref:`vonk_conformance_instances` for caveats with the Administration endpoint.
 
-Running a Docker Vonk in SQLite mode
+Running a Docker Firely Server in SQLite mode
 ------------------------------------
 
-The easiest and the default way to run a Docker Vonk container is to run Vonk in SQLite repository mode. Note that this is not the most performant mode - see MongoDB and SQL Server options below for that.
+The easiest and the default way to run a Docker Firely Server container is to run Firely Server in SQLite repository mode. Note that this is not the most performant mode - see MongoDB and SQL Server options below for that.
 
 Open your command prompt and execute this command:
 ``> docker images simplifier/vonk``
@@ -36,7 +36,7 @@ You will get a list that looks like:
 
 .. image:: ../images/docker1.png
 
-Navigate to your working directory for Vonk and run the container with this command:
+Navigate to your working directory for Firely Server and run the container with this command:
 
 - in cmd.exe: ``docker run -d -p 8080:4080 --name vonk.server -v %CD%:/app/license -e "VONK_License:LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
 
@@ -48,7 +48,7 @@ If your license file has a different name, use that name instead of ``vonk-trial
   of docker copying your file before spinning the image. You should **not** create the subdirectory. Just keep the license file in the root
   of your working directory.
 
-This will spin up a Vonk container. It maps the host port 8080 to the container port 4080 with the switch ``-p 8080:4080``. It will give the
+This will spin up a Firely Server container. It maps the host port 8080 to the container port 4080 with the switch ``-p 8080:4080``. It will give the
 container the name vonk.server with the switch ``--name vonk.server``.
 Furthermore it mounts the current directory (where the license file resides) from the host to the container. Also it passes an environment
 variable ``VONK_License:LicenseFile`` to the container with the switch ``-e``.
@@ -59,10 +59,10 @@ To test whether the container is running correctly, type the command:|br|
 
 .. image:: ../images/docker2.png
 
-You can also take a look at the logs for Vonk with:|br|
+You can also take a look at the logs for Firely Server with:|br|
 ``> docker logs vonk.server``
 
-Open a browser and use the address ``http://localhost:8080/``. This will show the landing page of Vonk.
+Open a browser and use the address ``http://localhost:8080/``. This will show the landing page of Firely Server.
 
 To stop the container just type:|br|
 ``> docker stop vonk.server``
@@ -73,7 +73,7 @@ To stop the container just type:|br|
 
 Spinning up with a docker-compose file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Another way to spin up a Vonk container is to use a docker-compose file. The above example can also be established by the following ``docker-compose-sqlite.yml``:
+Another way to spin up a Firely Server container is to use a docker-compose file. The above example can also be established by the following ``docker-compose-sqlite.yml``:
 
 .. code-block:: yaml
    :linenos:
@@ -112,7 +112,7 @@ To stop the container, run: |br|
 Running Docker with a SQL Server container
 ------------------------------------------
 
-Vonk can use also other repositories than Memory, for example SQL Server. This section describes how to spin up a Vonk container and a SQL Server container.
+Firely Server can use also other repositories than Memory, for example SQL Server. This section describes how to spin up a Firely Server container and a SQL Server container.
 We will use docker-compose to achieve this.
 
 .. warning:: SQL Server container uses at least 3.25 GB of RAM. Make sure to assign enough memory to the Docker VM if you're running on Docker for Mac or Windows.
@@ -159,27 +159,27 @@ We will use docker-compose to achieve this.
          timeout: 10s
          retries: 3
    
-Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver.yml``. Make sure your Vonk license file is named
+Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver.yml``. Make sure your Firely Server license file is named
 ``vonk-trial-license.json`` and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container).
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
 
-Then use this command to spin up a Vonk container and SQL container: |br|
+Then use this command to spin up a Firely Server container and SQL container: |br|
 ``> docker-compose -f docker-compose.mssqlserver.yml up -d``
 
-Open a browser and use the address ``http://localhost:8080/``. This will show the landing page of Vonk.
+Open a browser and use the address ``http://localhost:8080/``. This will show the landing page of Firely Server.
 
 .. warning:: Wait for about 2 minutes, because it takes a while to fire up the SQL container
 
 Running Docker with a SQL Server on host
 ----------------------------------------
 
-Another possibility is to run a Vonk container with a SQL Server repository on the host. You will need a Microsoft SQL Server running on your host.
+Another possibility is to run a Firely Server container with a SQL Server repository on the host. You will need a Microsoft SQL Server running on your host.
 The version of SQL Server must at least be version 2012.
 
 .. warning:: If you also run the Administration database on SQL Server, please read :reF:`vonk_conformance_history`.
 
-To run the Vonk container we will use the following docker-compose file:
+To run the Firely Server container we will use the following docker-compose file:
 
 .. code-block:: yaml
    :linenos:
@@ -217,23 +217,23 @@ to adjust the ``docker-compose.mssqlserver_host.yml``:
 * Furthermore we have to tell Docker which IP address the host uses. This is done on line 24.
   In this case the host (named my_host) uses IP address 192.0.2.1. Change this to the appropriate address.
 
-After saving your settings, make sure your Vonk license file is named ``vonk-trial-license.json`` and is residing in your working directory
+After saving your settings, make sure your Firely Server license file is named ``vonk-trial-license.json`` and is residing in your working directory
 (see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container). Or use the name of your license file instead of ``vonk-trial-license`` in the text above.
 
-You can run the Vonk container as follows: |br|
+You can run the Firely Server container as follows: |br|
 ``> docker-compose -f docker-compose.mssqlserver_host.yml up -d``
 
 A database will automatically be created if is not already present on the database server. See :ref:`this page <overview_of_permissions>` for an overview of permissions the database user needs for creating the database and/or schema.
 
-Open a browser and use the address http://localhost:8080/. This will show the landing page of Vonk.
+Open a browser and use the address http://localhost:8080/. This will show the landing page of Firely Server.
 
-.. warning:: When you have a firewall installed on your host machine, it can block traffic from your Vonk container to your host.
+.. warning:: When you have a firewall installed on your host machine, it can block traffic from your Firely Server container to your host.
 	Provide an inbound rule to allow traffic from the container to the host.
 
 Run Docker with a MongoDB container
 -----------------------------------
 
-This section describes how to spin up a Vonk container and a MongoDB container using a docker-compose. We assume you already have MongoDB installed.
+This section describes how to spin up a Firely Server container and a MongoDB container using a docker-compose. We assume you already have MongoDB installed.
 
 .. warning:: If you also run the Administration database on MongoDb, please read :reF:`vonk_conformance_history`.
 
@@ -262,15 +262,15 @@ This section describes how to spin up a Vonk container and a MongoDB container u
      vonk-mongo-db:
        image: mongo
 
-Save the text above to a file in your working directory with the name ``docker-compose.mongodb.yml``. Make sure your Vonk license file is named ``vonk-trial-license.json``
+Save the text above to a file in your working directory with the name ``docker-compose.mongodb.yml``. Make sure your Firely Server license file is named ``vonk-trial-license.json``
 and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container).
 If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
 
 
-Use this command to spin up a Vonk container and MongoDB container: |br|
+Use this command to spin up a Firely Server container and MongoDB container: |br|
 ``> docker-compose -f docker-compose.mongodb.yml up -d``
 
-Open a browser and use the address http://localhost:8080/. This will show the landing page of Vonk.
+Open a browser and use the address http://localhost:8080/. This will show the landing page of Firely Server.
 
 
 

@@ -3,7 +3,7 @@
 Access Control Tokens with Postman
 ==================================
 
-You can use Postman to get a JWT Token from the IdentityServer, and use that in a subsequent request to your local Vonk instance.
+You can use Postman to get a JWT Token from the IdentityServer, and use that in a subsequent request to your local Firely Server instance.
 
 #. Make sure IdentityServer is running (see :ref:`feature_accesscontrol_idprovider`), I assume at http://localhost:5100
 #. Open Postman Settings (menu: File | Settings) and turn ssl certificate validation off, otherwise your self-signed certificate will not be accepted.

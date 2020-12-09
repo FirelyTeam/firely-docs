@@ -35,7 +35,7 @@ If you have shared your drives before, please check whether the credentials are 
 Linux Containers
 ----------------
 
-Vonk Docker containers are *Linux* Containers, not Windows Containers. So make sure Docker for Windows is using Linux Containers. See the documentation on `Docker switching Container type`_ if needed. 
+Firely Server Docker containers are *Linux* Containers, not Windows Containers. So make sure Docker for Windows is using Linux Containers. See the documentation on `Docker switching Container type`_ if needed. 
 
 Check
 -----

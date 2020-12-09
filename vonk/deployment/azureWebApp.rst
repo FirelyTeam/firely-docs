@@ -1,16 +1,16 @@
 .. _azure_webapp:
 
-Vonk deployment on Azure Web App Service
+Firely Server deployment on Azure Web App Service
 ========================================
 
-In this section we explain how you can deploy Vonk in the Azure cloud. 
+In this section we explain how you can deploy Firely Server in the Azure cloud. 
 
 Getting started
 ---------------
 
-Before you can run Vonk, you will need to download the Vonk binaries and request a license:
+Before you can run Firely Server, you will need to download the Firely Server binaries and request a license:
 
-	1. Go to the Simplifier website, login and download the Vonk binaries from https://simplifier.net/vonk/download
+	1. Go to the Simplifier website, login and download the Firely Server binaries from https://simplifier.net/vonk/download
 	2. Download the trial license file from the same location.
  
 Deployment
@@ -28,15 +28,15 @@ Deployment
 
 #. Add the trial license file (vonk-trial-license.json) to the vonk_distribution.zip by dragging the license file into the zipfile.
 #. Open a webbrowser, navigate to ``https://<webapp>.scm.azurewebsites.net/ZipDeployUI`` and drag vonk_distribution.zip into the browser window. 
-   This will install the Vonk server as a Web App in Azure.
+   This will install the Firely Server as a Web App in Azure.
    In our example the url is ``https://<webapp>.scm.azurewebsites.net/ZipDeployUI``
    This method of deployment does not work in Internet Explorer. It does work in Firefox, Chrome and Edge.
-#. Open a browser and go to the site ``https://<webapp>.azurewebsites.net/`` . This will show the Vonk home page.
+#. Open a browser and go to the site ``https://<webapp>.azurewebsites.net/`` . This will show the Firely Server home page.
 
 Change database
 ---------------
 
-In this example Vonk is using a memory repository. If you want to change it to another kind of repository then you could change that on the page Application Settings of the Web App. Here you can set :ref:`Environment Variables<configure_envvar>` 
+In this example Firely Server is using a memory repository. If you want to change it to another kind of repository then you could change that on the page Application Settings of the Web App. Here you can set :ref:`Environment Variables<configure_envvar>` 
 with the settings for either :ref:`SQL Server<configure_sql>` or :ref:`MongoDB<configure_mongodb>`. For example for MongoDB it will look like this:
 
 .. image:: ../images/Azure_04_Settings.png

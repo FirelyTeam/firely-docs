@@ -3,7 +3,7 @@
 Set up an Identity Provider
 ===========================
 
-About Identity Providers and Vonk
+About Identity Providers and Firely Server
 ---------------------------------
 
 In order to use :ref:`feature_accesscontrol` you need an Identity Provider that can provide OAuth2 JWT Tokens with claims that conform to `SMART on FHIR`_. In a production scenario, you typically already have such a provider. It could be the EHR system, the Active Directory, or a provider set up specifically for let's say a Patient Portal. It is also very well possible that the provider handing the correct claims uses a federated OAuth2 provider to do the authentication.
@@ -15,7 +15,7 @@ To allow you to test :ref:`feature_accesscontrol`, we provide you with instructi
 
 By default, the configuration is such that you can test many different cases. If you wish to adjust the configuration, that will require a bit of programming.
 
-The Identity Provider is built in Microsoft .NET Core. Therefore it should also run cross-platform, just as Vonk itself. However, we did not try that. 
+The Identity Provider is built in Microsoft .NET Core. Therefore it should also run cross-platform, just as Firely Server itself. However, we did not try that. 
 
 .. note::
 

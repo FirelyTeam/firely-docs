@@ -1,9 +1,9 @@
 .. _deployment:
 
-Vonk deployment options
+Firely Server deployment options
 =======================
 
-Vonk can be deployed as:
+Firely Server can be deployed as:
 
 * Binaries, see :ref:`vonk_getting_started`
 * As Docker image, see :ref:`use_docker`
