@@ -1,6 +1,6 @@
 .. _vonk_available_plugins:
 
-Plugins available for Vonk
+Plugins available for Firely Server
 ==========================
 
 .. _vonk_plugins_infra:
@@ -34,7 +34,7 @@ Infrastructural plugins
 :Configuration: ``Vonk.Core.Licensing.LicenseConfiguration``
 :License token: http://fire.ly/vonk/plugins/infra
 :Order: 120
-:Description: Registers the LicenseService that checks for a valid license. Without this plugin Vonk does not work.
+:Description: Registers the LicenseService that checks for a valid license. Without this plugin Firely Server does not work.
 
 .. _vonk_plugins_serialization:
 
@@ -203,14 +203,14 @@ FHIR RESTful interactions
 :Configuration: ``Vonk.Core.Operations.Crud.DeleteConfiguration``
 :License token: http://fire.ly/vonk/plugins/delete
 :Order: 4440
-:Description: Implements FHIR instance delete. Since id's in Vonk must be unique across FHIR versions, the delete is issued on the provided id, regardless of the FHIR version.
+:Description: Implements FHIR instance delete. Since id's in Firely Server must be unique across FHIR versions, the delete is issued on the provided id, regardless of the FHIR version.
 
 .. _vonk_plugins_search:
 
 :Name: Search
 :Configuration: ``Vonk.Core.Operations.Search.SearchConfiguration``
 :License token: http://fire.ly/vonk/plugins/search
-:Description: Implements FHIR Search on system and type level. For data access it uses the registered implementation of ISearchRepository, which can be any of the implementations provided by Vonk or an implementation provided by a Facade plugin. The implementations provided by Vonk also require the Index plugin to extract searchparameter values from the resources.
+:Description: Implements FHIR Search on system and type level. For data access it uses the registered implementation of ISearchRepository, which can be any of the implementations provided by Firely Server or an implementation provided by a Facade plugin. The implementations provided by Firely Server also require the Index plugin to extract searchparameter values from the resources.
 :Order: 4220
 :Options: 
    * ``AdministrationImportOptions``, see :ref:`configure_admin_import`, for available Searchparameters
@@ -329,7 +329,7 @@ FHIR RESTful interactions
 :Configuration: ``Vonk.Core.Operations.Validation.StructuralValidationConfiguration``
 :License token: http://fire.ly/vonk/plugins/validation
 :Order: 1227
-:Description: Validates the structure of resources sent to Vonk (is it valid FHIR JSON or XML?).
+:Description: Validates the structure of resources sent to Firely Server (is it valid FHIR JSON or XML?).
 
 .. _vonk_plugins_prevalidation:
 
@@ -337,7 +337,7 @@ FHIR RESTful interactions
 :Configuration: ``Vonk.Core.Operations.Validation.PreValidationConfiguration``
 :License token: http://fire.ly/vonk/plugins/validation
 :Order: 4320
-:Description: Validates resources sent to Vonk against their stated profile compliance (in Resource.meta.profile). The strictness of the validation is controlled by the options.
+:Description: Validates resources sent to Firely Server against their stated profile compliance (in Resource.meta.profile). The strictness of the validation is controlled by the options.
 :Options: ``Validation``, see :ref:`validation_options`
 
 .. _vonk_plugins_profile_filter:
@@ -608,7 +608,7 @@ Repository implementations
 :Configuration: ``Vonk.Repository.MemoryConfiguration``
 :license token: http://fire.ly/vonk/plugins/repository/memory
 :Order: 210
-:Description: Implements a repository in working memory that fully supports all of the capabilities of Vonk. This implementation is mainly used for unittesting.
+:Description: Implements a repository in working memory that fully supports all of the capabilities of Firely Server. This implementation is mainly used for unittesting.
 
 :Name: Memory Administration Repository
 :Configuration: ``Vonk.Repository.MemoryAdministrationConfiguration``
@@ -622,7 +622,7 @@ Repository implementations
 :Configuration: ``Vonk.Repository.MongoDbConfiguration``
 :license token: http://fire.ly/vonk/plugins/repository/mongo-db
 :Order: 230
-:Description: Implements a repository in MongoDb that fully supports all of the capabilities of Vonk, except Transactions.
+:Description: Implements a repository in MongoDb that fully supports all of the capabilities of Firely Server, except Transactions.
 
 :Name: MongoDb Administration Repository
 :Configuration: ``Vonk.Repository.MemoryAdministrationConfiguration``
@@ -636,7 +636,7 @@ Repository implementations
 :Configuration: ``Vonk.Repository.SqliteConfiguration``
 :license token: http://fire.ly/vonk/plugins/repository/sqlite
 :Order: 240
-:Description: Implements a repository in SQLite that fully supports all of the capabilities of Vonk.
+:Description: Implements a repository in SQLite that fully supports all of the capabilities of Firely Server.
 
 :Name: SQLite Administration Repository
 :Configuration: ``Vonk.Repository.SqliteAdministrationConfiguration``
@@ -650,7 +650,7 @@ Repository implementations
 :Configuration: ``Vonk.Repository.SqlConfiguration``
 :license token: http://fire.ly/vonk/plugins/repository/sql-server
 :Order: 220
-:Description: Implements a repository in SQL Server that fully supports all of the capabilities of Vonk.
+:Description: Implements a repository in SQL Server that fully supports all of the capabilities of Firely Server.
 
 :Name: SQL Server Administration Repository
 :Configuration: ``Vonk.Repository.SqlAdministrationConfiguration``

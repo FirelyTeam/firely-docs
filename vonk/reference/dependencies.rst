@@ -1,10 +1,10 @@
 .. _vonk_dependencies:
 
-Dependencies of Vonk and their licenses
+Dependencies of Firely Server and their licenses
 =======================================
 
-Vonk is mainly built using libraries from Microsoft .Net Core and ASP.NET Core, along with a limited list of other libraries.
-This is the full list of direct depencies that Vonk has on other libraries, along with their licenses.
+Firely Server is mainly built using libraries from Microsoft .Net Core and ASP.NET Core, along with a limited list of other libraries.
+This is the full list of direct depencies that Firely Server has on other libraries, along with their licenses.
 
 This list uses the NuGet package names (or prefixes of them) so you can easily lookup further details of those packages on `NuGet.org <https://www.nuget.org>`_ if needed.
 
@@ -41,7 +41,7 @@ For unittesting:
 Firely OSS License
 ------------------
 
-Vonk relies on the reference .NET FHIR library: Hl7.Fhir.*, also created and maintained by Firely. The license is this (as stated in the `LICENSE file <https://github.com/FirelyTeam/firely-net-sdk/blob/master/LICENSE>`_:
+Firely Server relies on the reference .NET FHIR library: Hl7.Fhir.*, also created and maintained by Firely. The license is this (as stated in the `LICENSE file <https://github.com/FirelyTeam/firely-net-sdk/blob/master/LICENSE>`_:
 
 
 Copyright (c) 2013-2020, HL7, Firely (info@fire.ly), Microsoft Open Technologies 

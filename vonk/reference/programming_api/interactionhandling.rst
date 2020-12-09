@@ -30,7 +30,7 @@ You can specify different filters, and combine them at will:
 * Specific http method: ``[InteractionHandler(Method = "POST")]``
 * Specific statuscode(s) on the response: ``[InteractionHandler(StatusCode = new[]{200, 201})]``
 
-Now to configure your service to be a processor in the Vonk pipeline, you use ``UseVonkInteraction[Async]()``:
+Now to configure your service to be a processor in the Firely Server pipeline, you use ``UseVonkInteraction[Async]()``:
 
 .. code-block:: csharp
 

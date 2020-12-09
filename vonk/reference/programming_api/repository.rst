@@ -8,7 +8,7 @@ Repository interfaces
 ISearchRepository
 -----------------
 
-``Vonk.Core.Repository.ISearchRepository`` is central in the functioning of Vonk. It defines all read-access to the underlying repository, being one of Vonks own database implementations or a Facade implementation.
+``Vonk.Core.Repository.ISearchRepository`` is central in the functioning of Firely Server. It defines all read-access to the underlying repository, being one of Firely Server's own database implementations or a Facade implementation.
 
 It has a single method:
 

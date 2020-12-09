@@ -5,7 +5,7 @@ IVonkContext
 
 :namespace: Vonk.Core.Context
 
-:purpose: IVonkContext is the Vonk-specific counterpart to HttpContext from ASP.NET Core. It contains an IVonkRequest and IVonkResponse object that allow you to get information from the request and set results in the response, both in Vonk terms.  
+:purpose: IVonkContext is the Vonk-specific counterpart to HttpContext from ASP.NET Core. It contains an IVonkRequest and IVonkResponse object that allow you to get information from the request and set results in the response, both in Firely Server terms.  
 
 Have ``IVonkContext`` injected in the method where you need it. Use a `configuration class <vonk_plugins_configclass>`_ to call this method from the pipeline and have the actual context injected. A more complete template is found at :ref:`vonk_plugins_template`.
 
@@ -56,7 +56,7 @@ If you also need access to the raw ``HttpContext``, you have two options:
       {
          public static IApplicationBuilder UseSomeMiddleware(this IApplicationBuilder app)
          {
-            return app.UseMiddleware<SomeMiddleware>(); //Just plain ASP.NET Core, nothing Vonk specific here.
+            return app.UseMiddleware<SomeMiddleware>(); //Just plain ASP.NET Core, nothing Firely Server specific here.
          }
       }
 
@@ -88,7 +88,7 @@ IVonkRequest
 
 :namespace: Vonk.Core.Context
 
-:purpose: Get information about the request made, in Vonk / FHIR terms.
+:purpose: Get information about the request made, in Firely Server / FHIR terms.
 
 You can access the current ``IVonkRequest`` through the `IVonkContext`_. Its properties are:
 
@@ -138,7 +138,7 @@ GetRequiredPayload is useful if your code expects the payload to be present. It 
       var (request, args, response) = vonkContext.Parts();
       if (!request.GetRequiredPayload(response, out var resource))
       {
-         return; //If you return with an error code in the response, Vonk will end the pipeline
+         return; //If you return with an error code in the response, Firely Server will end the pipeline
       }
       // do something with the resource.
    }
@@ -187,7 +187,7 @@ If an argument is of interest to the operation you implement in your plugin, you
   
 In both cases you simply set the ``Status`` to ``Handled``. 
 
-If an argument is incorrect, you can set its status to ``Error`` and set the ``Issue`` to report to the client what the problem was. These issues will be accumulated in the response by Vonk automatically.
+If an argument is incorrect, you can set its status to ``Error`` and set the ``Issue`` to report to the client what the problem was. These issues will be accumulated in the response by Firely Server automatically.
 
 Any argument that is not handled will automatically be reported as such in an OperationOutcome.
 
@@ -199,7 +199,7 @@ Useful extension methods:
    IArgument.Warning(string message, Issue issue)
    IArgument.Error(string message, Issue issue)
 
-Vonk has a lot of issues predefined in ``Vonk.Core.Support.VonkIssues``.
+Firely Server has a lot of issues predefined in ``Vonk.Core.Support.VonkIssues``.
 
 .. _vonk_reference_api_ivonkresponse:
 

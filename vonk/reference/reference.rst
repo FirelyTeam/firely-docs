@@ -1,9 +1,9 @@
 .. _vonk_reference:
 
-Vonk Reference Documentation
+Firely Server Reference Documentation
 ============================
 
-The reference documentation lists the available plugins for configuring the pipeline, and the public programming API of Vonk for building Plugins and Facades.
+The reference documentation lists the available plugins for configuring the pipeline, and the public programming API of Firely Server for building Plugins and Facades.
 
 .. toctree::
    :maxdepth: 3

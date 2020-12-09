@@ -5,13 +5,13 @@ IResource
 
 :namespace: Vonk.Core.Common
 
-:purpose: IResource is the abstraction for all FHIR resources in Vonk. It is used in the request and the response, and thereby all through the pipeline.
+:purpose: IResource is the abstraction for all FHIR resources in Firely Server. It is used in the request and the response, and thereby all through the pipeline.
           It allows you to program against resources in different Fhir.NET API (the Resource class is defined in each version separately), as well as against resources that do not even have a POCO implementation.
 
 .. code-block:: csharp
 
     /// <summary>
-    /// Abstraction of a resource in some format. Specifies the properties of a Resource that Vonk needs to read and maintain.
+    /// Abstraction of a resource in some format. Specifies the properties of a Resource that Firely Server needs to read and maintain.
     /// <para>Future: may be extended with Tags and Labels.</para>
     /// </summary>
     public interface IResource : ISourceNode
