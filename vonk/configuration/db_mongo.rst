@@ -8,7 +8,7 @@ Using MongoDB
 =============
 We assume you already have MongoDB installed. If not, please refer to the `MongoDB download <https://www.mongodb.com/download-center>`_ pages.
 
-Firely Server can work with MongoDb 4.0 and higher. Since Vonk version 3.7.0 Firely Server uses the MongoDb Aggregation Framework heavily, and you are advised to upgrade to MongoDb 4.4 (or newer). 
+Firely Server can work with MongoDb 4.0 and higher. Since Firely Server (Vonk) version 3.7.0 Firely Server uses the MongoDb Aggregation Framework heavily, and you are advised to upgrade to MongoDb 4.4 (or newer). 
 In this version issue `SERVER-7568 <https://jira.mongodb.org/browse/SERVER-7568>` is solved, so the most selective index is used more often. 
 
 * Navigate to your Firely Server working directory
@@ -98,5 +98,5 @@ Tips and hints for using MongoDb for Firely Server
     #. In the section on the File sink, change the ``restrictedToMinimumLevel`` to ``Verbose``.
 
 #. With regards to Firely Server version and MongoDB version:
-    #. If you are on a Vonk version < v3.6, you can keep using MongoDB v4.0 or higher.
-    #. If you are on Vonk v3.6 or higher and are unable to migrate to MongoDB 4.4 (relatively soon), please contact us if you need assistance.
+    #. If you are on a Firely Server (Vonk) version < v3.6, you can keep using MongoDB v4.0 or higher.
+    #. If you are on Firely Server (Vonk) v3.6 or higher and are unable to migrate to MongoDB 4.4 (relatively soon), please contact us if you need assistance.

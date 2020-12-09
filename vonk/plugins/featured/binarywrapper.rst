@@ -80,20 +80,20 @@ Release notes
 Version 0.3.0
 ^^^^^^^^^^^^^
 
-* Built against Vonk 3.2.0
-* Compatible with Vonk 3.2.0, 3.2.1, 3.3.0
+* Built against Firely Server (Vonk) 3.2.0
+* Compatible with Firely Server (Vonk) 3.2.0, 3.2.1, 3.3.0
 * Introduces the decoding of Binary resources, so you can GET a Binary resource in its original binary format.
 
 Version 0.2.0
 ^^^^^^^^^^^^^
 
-* Build against Vonk 3.0.0
-* Compatible with Vonk 3.0.0
+* Build against Firely Server (Vonk) 3.0.0
+* Compatible with Firely Server (Vonk) 3.0.0
 * Functionally equivalent to version 0.1.0
 
 Version 0.1.0
 ^^^^^^^^^^^^^ 
 
-* Build against Vonk 2.1.0
-* Compatible with Vonk 2.1.0
+* Build against Firely Server (Vonk) 2.1.0
+* Compatible with Firely Server (Vonk) 2.1.0
 * Introduces the encoding of Binary resources, so you can POST binary contents and have it stored as a Binary resource.

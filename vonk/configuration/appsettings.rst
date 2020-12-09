@@ -53,7 +53,7 @@ Settings lower in the list override the settings higher in the list (think CSS, 
 Changing the settings
 ---------------------
 
-In general you do not change the settings in ``appsettings.default.json`` but create your own overrides in ``appsettings.json`` or ``appsettings.instance.json``. That way your settings are not overwritten by a new version of Vonk (with a new ``appsettings.default.json`` therein), and you automatically get sensible defaults for any new settings introduced in ``appsettings.default.json``.
+In general you do not change the settings in ``appsettings.default.json`` but create your own overrides in ``appsettings.json`` or ``appsettings.instance.json``. That way your settings are not overwritten by a new version of Firely Server (with a new ``appsettings.default.json`` therein), and you automatically get sensible defaults for any new settings introduced in ``appsettings.default.json``.
 
 Settings after first install
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -293,7 +293,7 @@ This will limit the number of entries that are accepted in a single Batch or Tra
 
 .. note::
 
-  This setting has been moved to the ``SizeLimits`` setting as of Vonk version 0.7.1, and the logs will show a warning that it
+  This setting has been moved to the ``SizeLimits`` setting as of Firely Server (Vonk) version 0.7.1, and the logs will show a warning that it
   is deprecated when you still have it in your appsettings file.
 
 .. _sizelimits_options:

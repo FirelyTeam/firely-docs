@@ -116,7 +116,7 @@ Infrastructural plugins
 :Configuration: ``Vonk.Core.Context.UrlMapping.UrlMappingConfiguration``
 :License token: http://fire.ly/vonk/plugins/infra
 :Order: 1230
-:Description: In a resource in the request, urls pointing to this instance of Vonk are made relative. In a resource in the response, relative urls are made absolute, by adding the base url of the server. This way the server can be addressed in multiple ways (e.g. http://intranet.acme.com/fhir and https://fhir.acme.com) and still provide correct absolute urls. 
+:Description: In a resource in the request, urls pointing to this instance of Firely Server are made relative. In a resource in the response, relative urls are made absolute, by adding the base url of the server. This way the server can be addressed in multiple ways (e.g. http://intranet.acme.com/fhir and https://fhir.acme.com) and still provide correct absolute urls. 
 
 .. _vonk_plugins_defaultshapes:
 

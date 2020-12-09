@@ -174,7 +174,7 @@ As you can see, on a mapped endpoint it is never necessary to use a FHIR ``_form
 Support for R5 (experimental!)
 ------------------------------
 
-By default the binaries for supporting R5 are included in the Firely Server distribution (since Vonk 3.3.0). But also by default these binaries are not loaded. See the PipelineOptions in appsettings.default, where ``Vonk.Fhir.R5`` is commented out. 
+By default the binaries for supporting R5 are included in the Firely Server distribution (since Firely Server (Vonk) 3.3.0). But also by default these binaries are not loaded. See the PipelineOptions in appsettings.default, where ``Vonk.Fhir.R5`` is commented out. 
 
 Re-enable these in your appsettings.instance and you are good to go.
 
