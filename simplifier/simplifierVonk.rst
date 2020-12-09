@@ -1,10 +1,10 @@
 .. _simplifier_vonk:
 
-Use Vonk FHIR Server with your Simplifier artifacts
+Use Firely Server FHIR Server with your Simplifier artifacts
 ===================================================
 
 If you have defined some profiles, valuesets and examples in your Simplifier project, you may want to setup a FHIR Server for you or others to test against.
-We have tried to make that extremely simple for you, using Firely Vonk FHIR Server. Here is how:
+We have tried to make that extremely simple for you, using Firely Server FHIR Server. Here is how:
 
 Currently we only enabled this for Windows 10, using PowerShell. Later we will add support for Linux and/or MacOS.
 
@@ -46,4 +46,4 @@ Currently we only enabled this for Windows 10, using PowerShell. Later we will a
 
    .. attention:: Docker and PowerShell are not perfect friends, and Docker may show some 'NativeCommandError' messages. You can ignore those.
 
-#. You can use the .\stop-vonk-server.ps1 script to stop Vonk again.
+#. You can use the .\stop-vonk-server.ps1 script to stop Firely Server again.
