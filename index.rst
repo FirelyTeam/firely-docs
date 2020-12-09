@@ -2,7 +2,7 @@
    This file is the main page, pointing to the documentation
    for the subprojects Simplifier.net, Forge, Firely Terminal, Vonk, VonkLoader, and the Firely .Net SDK.
 
-Welcome to Simplifier's documentation site
+Welcome to Firely's documentation site
 ==========================================
 
 On this site you will find the documentation for various FHIR tools and SDKs.
