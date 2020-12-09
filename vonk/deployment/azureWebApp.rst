@@ -26,7 +26,7 @@ Deployment
    .. image:: ../images/Azure_02_ChooseName.png
       :align: center
 
-#. Add the trial license file (vonk-trial-license.json) to the vonk_distribution.zip by dragging the license file into the zipfile.
+#. Add the trial license file (firelyserver-trial-license.json) to the vonk_distribution.zip by dragging the license file into the zipfile.
 #. Open a webbrowser, navigate to ``https://<webapp>.scm.azurewebsites.net/ZipDeployUI`` and drag vonk_distribution.zip into the browser window. 
    This will install the Firely Server as a Web App in Azure.
    In our example the url is ``https://<webapp>.scm.azurewebsites.net/ZipDeployUI``

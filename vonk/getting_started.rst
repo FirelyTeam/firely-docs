@@ -23,7 +23,7 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 ::
 
     "License": {
-        "LicenseFile": "vonk-trial-license.json"
+        "LicenseFile": "firelyserver-trial-license.json"
     }
 
 .. important:: 

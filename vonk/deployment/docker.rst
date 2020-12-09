@@ -38,11 +38,11 @@ You will get a list that looks like:
 
 Navigate to your working directory for Firely Server and run the container with this command:
 
-- in cmd.exe: ``docker run -d -p 8080:4080 --name vonk.server -v %CD%:/app/license -e "VONK_License:LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
+- in cmd.exe: ``docker run -d -p 8080:4080 --name vonk.server -v %CD%:/app/license -e "VONK_License:LicenseFile=./license/firelyserver-trial-license.json" simplifier/vonk``
 
-- in Powershell: ``docker run -d -p 8080:4080 --name vonk.server -v ${PWD}:/app/license -e "VONK_License:LicenseFile=./license/vonk-trial-license.json" simplifier/vonk``
+- in Powershell: ``docker run -d -p 8080:4080 --name vonk.server -v ${PWD}:/app/license -e "VONK_License:LicenseFile=./license/firelyserver-trial-license.json" simplifier/vonk``
 
-If your license file has a different name, use that name instead of ``vonk-trial-license`` in the command above.
+If your license file has a different name, use that name instead of ``firelyserver-trial-license`` in the command above.
 
 .. important:: It looks like the command wants to retrieve your license file from a subdirectory called ``license``. This is a result
   of docker copying your file before spinning the image. You should **not** create the subdirectory. Just keep the license file in the root
@@ -52,7 +52,7 @@ This will spin up a Firely Server container. It maps the host port 8080 to the c
 container the name vonk.server with the switch ``--name vonk.server``.
 Furthermore it mounts the current directory (where the license file resides) from the host to the container. Also it passes an environment
 variable ``VONK_License:LicenseFile`` to the container with the switch ``-e``.
-In this example the license file is called vonk-trial-license.json. At last it will run the container in background mode with the switch ``-d``.
+In this example the license file is called firelyserver-trial-license.json. At last it will run the container in background mode with the switch ``-d``.
 
 To test whether the container is running correctly, type the command:|br|
 ``> docker ps``
@@ -89,7 +89,7 @@ Another way to spin up a Firely Server container is to use a docker-compose file
        environment:
          - VONK_Repository=SQLite
          - VONK_Administration:Repository=SQLite
-         - VONK_License:LicenseFile=./license/vonk-trial-license.json
+         - VONK_License:LicenseFile=./license/firelyserver-trial-license.json
        volumes:
          - .:/app/license
 
@@ -97,7 +97,7 @@ Another way to spin up a Firely Server container is to use a docker-compose file
 Save the text above to a file in your working directory with the name ``docker-compose.sqlite.yml`` and then run the following command: |br|
 ``> docker-compose -f docker-compose.sqlite.yml up -d``
 
-If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above - but make sure to keep ``./license`` as that maps to a Docker volume inside the container.
+If your license file has a different name, use that name instead of ``firelyserver-trial-license`` in the text above - but make sure to keep ``./license`` as that maps to a Docker volume inside the container.
 
 .. image:: ../images/docker3.png
 
@@ -142,7 +142,7 @@ We will use docker-compose to achieve this.
          - VONK_Administration:SqlDbOptions:SchemaName=vonkadmin
          - VONK_Administration:SqlDbOptions:AutoUpdateDatabase=true
          - VONK_Administration:SqlDbOptions:AutoUpdateConnectionString=Initial Catalog=VonkAdmin;Data Source=vonk-sqlserver-db,1433;User ID=sa;Password=SQLServerStrong(!)Password*
-         - VONK_License:LicenseFile=./license/vonk-trial-license.json
+         - VONK_License:LicenseFile=./license/firelyserver-trial-license.json
        volumes:
          - .:/app/license
    
@@ -160,8 +160,8 @@ We will use docker-compose to achieve this.
          retries: 3
    
 Save the text above to a file in your working directory with the name ``docker-compose.mssqlserver.yml``. Make sure your Firely Server license file is named
-``vonk-trial-license.json`` and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container).
-If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
+``firelyserver-trial-license.json`` and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container).
+If your license file has a different name, use that name instead of ``firelyserver-trial-license`` in the text above.
 
 
 Then use this command to spin up a Firely Server container and SQL container: |br|
@@ -203,7 +203,7 @@ To run the Firely Server container we will use the following docker-compose file
          - VONK_Administration:SqlDbOptions:SchemaName=vonkadmin
          - VONK_Administration:SqlDbOptions:AutoUpdateDatabase=true
          - VONK_Administration:SqlDbOptions:AutoUpdateConnectionString=Database=VonkAdmin;Server=my_host\<myInstanceName>;User ID=<DLLUser>;Password=<myPassword>
-         - VONK_License:LicenseFile=./license/vonk-trial-license.json
+         - VONK_License:LicenseFile=./license/firelyserver-trial-license.json
        volumes:
          - .:/app/license
        extra_hosts:
@@ -217,8 +217,8 @@ to adjust the ``docker-compose.mssqlserver_host.yml``:
 * Furthermore we have to tell Docker which IP address the host uses. This is done on line 24.
   In this case the host (named my_host) uses IP address 192.0.2.1. Change this to the appropriate address.
 
-After saving your settings, make sure your Firely Server license file is named ``vonk-trial-license.json`` and is residing in your working directory
-(see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container). Or use the name of your license file instead of ``vonk-trial-license`` in the text above.
+After saving your settings, make sure your Firely Server license file is named ``firelyserver-trial-license.json`` and is residing in your working directory
+(see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container). Or use the name of your license file instead of ``firelyserver-trial-license`` in the text above.
 
 You can run the Firely Server container as follows: |br|
 ``> docker-compose -f docker-compose.mssqlserver_host.yml up -d``
@@ -253,7 +253,7 @@ This section describes how to spin up a Firely Server container and a MongoDB co
          - VONK_Administration:Repository=MongoDb
          - VONK_Administration:MongoDbOptions:ConnectionString=mongodb://vonk-mongo-db/vonkadmin
          - VONK_Administration:MongoDbOptions:EntryCollection=vonkentries
-         - VONK_License:LicenseFile=./license/vonk-trial-license.json
+         - VONK_License:LicenseFile=./license/firelyserver-trial-license.json
        volumes:
          - .:/app/license
        ports:
@@ -262,9 +262,9 @@ This section describes how to spin up a Firely Server container and a MongoDB co
      vonk-mongo-db:
        image: mongo
 
-Save the text above to a file in your working directory with the name ``docker-compose.mongodb.yml``. Make sure your Firely Server license file is named ``vonk-trial-license.json``
+Save the text above to a file in your working directory with the name ``docker-compose.mongodb.yml``. Make sure your Firely Server license file is named ``firelyserver-trial-license.json``
 and is residing in your working directory (see :ref:`getting_started_docker` on how to obtain the license), **not** in a subdirectory named ``license`` (that is an internal directory inside the container).
-If your license file has a different name, use that name instead of ``vonk-trial-license`` in the text above.
+If your license file has a different name, use that name instead of ``firelyserver-trial-license`` in the text above.
 
 
 Use this command to spin up a Firely Server container and MongoDB container: |br|
