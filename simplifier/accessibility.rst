@@ -17,9 +17,12 @@ Firely Accessibility Conformance Report - WCAG Edition
 **Notes:**
 
 * Simplifier.net is a platform for user-generated content. While we do our best to facilitate our users in creating accessible content, the flexibility of the platform requires users to check their own generated content for accessibility.
+* The tree rendering of FHIR resources can be navigated by keyboard when Javascript is enabled. The Details page on a resource and dictionary rendering in an Implementation Guide provide static alternatives.
+* The Monaco Editor which is embedded in many places on the site provides powerfull accessibility features and a dedicated menu which is highlighted when using a screen reader. More information can be found in the `Monaco Editor Accessibility Guide <https://github.com/microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide>`_.
 * Log
 
-  * 30-11-2020: First edition published
+  * Nov 30, 2020: First edition published.
+  * Dec 2020: Accessibility scan completed and major issues resolved.
 
 **Evaluation Methods Used:**
 
@@ -142,10 +145,6 @@ accessibility-supported ways of using technology as documented in the
 Table 1: Success Criteria, Level A
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Notes:
-
-* 30-11-2020: First publication
-
 .. list-table::
   :widths: 10 10 10
   :header-rows: 1
@@ -157,10 +156,10 @@ Notes:
       
       (Level A)
     -
-    - * TODO: Check per page:
+    - TODO: Check per page:
 
-        * Form fields have relevant names
-        * Relevant images have relevant alt tags
+      * Form fields have relevant names
+      * Relevant images have relevant alt tags
   * - `1.2.1 Audio-only and Video-only`_
       
       (Level A)
@@ -180,9 +179,9 @@ Notes:
       
       (Level A)
     - 
-    - * TODO: Check per page:
+    - TODO: Check per page:
         
-        * Sections labeled with relevant aria tags
+      * Sections labeled with relevant aria tags
   * - `1.3.2 Meaningful Sequence`_
       
       (Level A)
@@ -207,26 +206,44 @@ Notes:
   
       (Level A)
     -
-    - * BUG: [SIM-1357] Alternative for/navigate by keyboard resource tree
-      * BUG: [SIM-1358] Hide visually hidden menu items from project/resource menu for screen readers
-      * BUG: [SIM-1355] Feedback button is not accessible by tab
-      * BUG: [SIM-1356] Avatar shows no visible indication of being selected with tab
-      * BUG: [SIM-1359] In IG editor > IG settings: Can't change tab with keyboard
-      * BUG: [SIM-1382] Edit button for canonical base URLs on project not accessible with keyboard only
-      * BUG: [SIM-1384] Can't activate the checkmarks on the Create a new package page
+    - For keyboard navigation in the FHIR resource tree and the embedded Monaco code editors, see general notes above.
 
-      * TODO: Check per page:
-        
-        * Relevant headers on page
+      Resolved issues
+
+      * [SIM-1355] Feedback button is not accessible by tab
+      * [SIM-1358] Hide visually hidden menu items from project/resource menu for screen readers
+      * [SIM-1357] Alternative for/navigate by keyboard resource tree
+      
+      Open issues
+
+      * [SIM-1359] In IG editor > IG settings: Can't change tab with keyboard
+      * [SIM-1397] Can't reach diff/hybrid/snapshot button with tab
+
+      Known issues
+
+      * [SIM-1382] Edit button for canonical base URLs on project not accessible with keyboard only
+      * [SIM-1384] Can't activate the checkmarks on the Create a new package page
+      * [SIM-1387] Unable to succesfully navigate account avatar with keyboard only
+
+      TODO: Check per page:  
+    
+      * Relevant headers on page
   * - `2.1.2 No Keyboard Trap`_
   
       (Level A)
     -
-    - * BUG: [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
-      * BUG: [SIM-1378] keyboard trap: create issue on project / add comment on issue
-      * BUG: [SIM-1379] keyboard trap: create new package, release notes field
-      * BUG: [SIM-1380] keyboard trap: manage dependencies on project, search field
-      * BUG: [SIM-1381] keyboard trap: create script connector
+    - On tab trapping in the embedded Monaco code editors, see general note above.
+      
+      Open issues
+
+      * [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
+      * [SIM-1380] keyboard trap: manage dependencies on project, search field
+      
+      Known issues
+
+      * [SIM-1378] keyboard trap: create issue on project / add comment on issue
+      * [SIM-1379] keyboard trap: create new package, release notes field
+      * [SIM-1381] keyboard trap: create script connector
 
   * - `2.1.4 Character Key Shortcuts`_
   
@@ -251,34 +268,47 @@ Notes:
   * - `2.4.1 Bypass Blocks`_
       
       (Level A)
-    -
-    - * ISSUE: [SIM-1365] Make it easier to skip to main content by providing ARIA indications for blocks.
+    - Supports
+    - Resolved issues
+      
+      * [SIM-1365] Make it easier to skip to main content by providing ARIA indications for blocks.
   * - `2.4.2 Page Titled`_
       
       (Level A)
-    - 
-    - * ISSUE: [SIM-1366] Reverse page title order: Content for repeated SIMPLIFIER.net
-      * ISSUE: [SIM-1367] Consider using different page title per resource/project/package tab
+    - Supports
+    - Resolved issues
+
+      * [SIM-1366] Reverse page title order: Content for repeated SIMPLIFIER.net
+
+      Known issues
+
+      * [SIM-1367] Consider using different page title per resource/project/package tab
   * - `2.4.3 Focus Order`_
       
       (Level A)
-    -
-    - * BUG: [SIM-1358] Put project/package/resource menu in right tab order. 
-      * BUG: [SIM-1358] Main buttons of project/package/resource menu are not selectable
-      * TODO: Check per page
+    - 
+    - Resolved issues
 
-        * Logical focus order
+      * [SIM-1358] Put project/package/resource menu in right tab order. 
+      * [SIM-1358] Main buttons of project/package/resource menu are not selectable
+      TODO: Check per page
+
+      * Logical focus order
   * - `2.4.4 Link Purpose (In Context)`_
       
       (Level A)
     -
-    - * BUG: [SIM-1368] Buttons without text: Copy button next to API link, Canonical link, (embed) Snippet URL, etc.
-      * BUG: [SIM-1369] Better text around Avatar image/link
+    - Open issues
+    
+      * [SIM-1368] Buttons without text: Copy button next to API link, Canonical link, (embed) Snippet URL, etc.
+      * [SIM-1369] Better text around Avatar image/link
   * - `2.5.1 Pointer Gestures`_
       
       (Level A 2.1 only)
-    -
-    - * BUG: [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
+    - Partially Supports
+    - Known issues:
+    
+      * [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
   * - `2.5.2 Pointer Cancellation`_
       
       (Level A 2.1 only)
@@ -301,10 +331,10 @@ Notes:
   * - `3.1.1 Language of Page`_
       
       (Level A)
-    -
-    - Note: User defined text currently has no way to deviate from English language. This will be done later when support for IG translation is added.
-
-      * BUG: [SIM-1372] Define English as the language for every Simplifier page
+    - Supports
+    - Resolved issues
+      
+      * [SIM-1372] Define English as the language for every Simplifier page
   * - `3.2.1 On Focus`_
       
       (Level A)
@@ -318,33 +348,37 @@ Notes:
   * - `3.3.1 Error Identification`_
       
       (Level A)
-    -
-    - * BUG: [SIM-1373] Error message on deleting team with packages/project linked is time based
+    - Partially Supports
+    - Known issues
+      
+      * [SIM-1373] Error message on deleting team with packages/project linked is time based
   * - `3.3.2 Labels or Instructions`_
       
       (Level A)
-    -
-    - * BUG: [SIM-1374] No label for main search bar on home page and search bar on other pages
+    - Supports
+    - Resolved issues
+      
+      * [SIM-1374] No label for main search bar on home page and search bar on other pages
   * - `4.1.1 Parsing`_
       
       (Level A)
-    - Partially Supports
-    - Website generally uses valid HTML.
+    - 
+    - Open issues
 
-      * BUG: [SIM-1386] W3 Validator reports errors on certain pages.
+      * [SIM-1386] W3 Validator reports errors on certain pages.
+      * [SIM-1389] Tree rendering HTML errors
+      * [SIM-1398] Broken ARIA menu in Avatar drop down menu
   * - `4.1.2 Name, Role, Value`_
       
       (Level A)
-    - 
-    - * BUG: [SIM-1384] Check boxes on package creation third tab are not tab accessible.
+    - Partially Supports
+    - Known issues
+    
+      * [SIM-1384] Check boxes on package creation third tab are not tab accessible.
 
 
 Table 2: Success Criteria, Level AA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Notes:
-
-* 30-11-2020: First publication
 
 .. list-table::
   :widths: 10 10 10
@@ -371,13 +405,19 @@ Notes:
   * - `1.3.5 Identify Input Purpose`_
     
       (Level AA 2.1 only)
-    -
-    - * BUG: [SIM-1376] Use standard input type on Signup, Login and Account Settings (eg type=name)
+    - Partially Supports
+    - Known issues
+    
+      * [SIM-1376] Use standard input type on Signup, Login and Account Settings (eg type=name)
   * - `1.4.3 Contrast (Minimum)`_
     
       (Level AA)
     -
-    - * BUG: [SIM-1377] Improve color contrast (see Wave) to 4.5:1 for small and 3:1 for large text
+    - On constrast in the embedded Monaco code editors, see general note above.
+    
+      Open issues:
+
+      * [SIM-1377] Improve color contrast (see Wave) to 4.5:1 for small and 3:1 for large text
   * - `1.4.4 Resize text`_
     
       (Level AA)
@@ -411,48 +451,63 @@ Notes:
   * - `2.4.5 Multiple Ways`_
     
       (Level AA)
-    -
-    -
+    - Supports
+    - All user content on Simplifier.net is reachable via Search and direct navigation via owning organization/project/packages.
+      
+      Implementation Guides have support for providing a Table of Contents of all pages.
   * - `2.4.6 Headings and Labels`_
     
       (Level AA)
     -
-    -
+    - Open issues
+
+      * [SIM-1396] Make tabs on resource/project/etc. page headings and indicate active state
   * - `2.4.7 Focus Visible`_
     
       (Level AA)
-    -
-    -
+    - Supports
+    - Resolved issues
+      
+      * [SIM-1356] Avatar shows no visible indication of being selected with tab
   * - `3.1.2 Language of Parts`_
     
       (Level AA)
-    -
-    -
+    - Supports
+    - Website is only provided in English, which is indicated as page language.
+
+      Note: User defined text currently has no way to deviate from English language. This will be done later when support for IG translation is added.
   * - `3.2.3 Consistent Navigation`_
     
       (Level AA)
-    -
-    -
+    - Supports
+    - The menu is provided consistently throughout the site. Exceptions:
+
+      * Full page editors that open in new window: Differential in resource history, Update resource in standalone editor, Implementation Guide editor.
+      * Implementation guides have a navigation defined by the style chosen by the publishing user.
   * - `3.2.4 Consistent Identification`_
     
       (Level AA)
     -
-    -
+    - TODO: Check per page
+
+      * Same names given to corresponding fields/logos across pages
   * - `3.3.3 Error Suggestion`_
     
       (Level AA)
-    -
-    -
+    - Supports
+    - Where solutions to possible errors are known the site tries to prevent you from making them beforehand.
+      Examples: Providing dropdowns of possible values or automatically fixing duplicate URLs.
   * - `3.3.4 Error Prevention (Legal, Financial, Data)`_
     
       (Level AA)
-    -
-    -
+    - Supports
+    - No financial transactions, legal transactions or test results are handled.
+      All data delete operations require an extra confirmation step. 
   * - `4.1.3 Status Messages`_
     
       (Level AA 2.1 only)
-    -
-    -
+    - Supports
+    - There where status is conveyed by graphical elements, like a progress bar, the status is programmatically available to the user agent.
 
 .. _Web Content Accessibility Guidelines 2.0: http://www.w3.org/TR/2008/REC-WCAG20-20081211
 .. _Web Content Accessibility Guidelines 2.1: https://www.w3.org/TR/WCAG21
