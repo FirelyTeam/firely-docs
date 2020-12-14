@@ -47,7 +47,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'SimplifierDocs'
+project = u'Firely Docs'
 copyright = u'2012-2020, Firely'
 author = u'Firely'
 
