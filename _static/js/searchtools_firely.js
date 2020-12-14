@@ -116,6 +116,7 @@ Search.query = function(query) {
       }
 
       // EDITS FIRELY START
+      // Based on https://github.com/sphinx-doc/sphinx/blob/master/sphinx/themes/basic/static/searchtools.js
 
       var searchTitle = '';
 
