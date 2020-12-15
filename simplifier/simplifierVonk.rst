@@ -1,6 +1,6 @@
 .. _simplifier_vonk:
 
-Use Firely Server FHIR Server with your Simplifier artifacts
+Use Firely Server with your Simplifier artifacts
 ===================================================
 
 If you have defined some profiles, valuesets and examples in your Simplifier project, you may want to setup a FHIR Server for you or others to test against.
