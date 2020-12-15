@@ -14,16 +14,16 @@ If your issue is not listed below, please contact us at forge@fire.ly or (for cu
       - Description
     * - Open
       - Extensions
-      - Forge R4 can not extend value[x] elements (FOR-479)
+      - | Forge R4 can not extend value[x] elements (FOR-479)
     * - Parked
       - Navigation
-      - When adding an extension, refresh might be necessary for showing and 
-        editing all options on extension. (FOR-420)
+      - | When adding an extension, refresh might be necessary for showing and 
+        | editing all options on extension. (FOR-420)
     * - Parked
       - Navigation
-      - When moving to the Dependencies tab on a Forge project, the interface
-        might refuse to switch back directly to the Project tab. Please click
-        in the packages window below first and then try again. (FOR-395)
+      - | When moving to the Dependencies tab on a Forge project, the interface
+        | might refuse to switch back directly to the Project tab. Please click
+        | in the packages window below first and then try again. (FOR-395)
 
 All our tooling is built on top of the official Firely .NET SDK, developed and managed by Firely. The `SDK is open source
 and maintained on Github`_ and `issues are publicly tracked there`_.
