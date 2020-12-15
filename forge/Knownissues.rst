@@ -3,22 +3,27 @@ Known issues
 
 If your issue is not listed below, please contact us at forge@fire.ly or (for customers) `our premium support desk`_.
 
-*Updated for 25.1 for STU3, R4, R5*
+*Updated for 26.1 for STU3, R4, R5*
 
-+-----------------------+-----------------------+--------------------------------------------------------------------------+
-| Status                | Category              | Description                                                              |
-+=======================+=======================+==========================================================================+
-| Parked                | Navigation            | | When adding an extension, refresh might be necessary for showing and   |
-|                       |                       | | editing all options on extension.                                      |
-+-----------------------+-----------------------+--------------------------------------------------------------------------+
-| Parked                | Navigation            | | When moving to the Dependencies tab on a Forge project, the interface  |
-|                       |                       | | might refuse to switch back directly to the Project tab. Please click  |
-|                       |                       | | in the packages window below first and then try again.                 |
-+-----------------------+-----------------------+--------------------------------------------------------------------------+
+.. list-table::
+    :widths: 10, 10, 10
+    :header-rows: 1
 
-..
-    https://firely.atlassian.net/browse/FOR-420
-    https://firely.atlassian.net/browse/FOR-395
+    * - Status
+      - Category
+      - Description
+    * - Open
+      - Extensions
+      - Forge R4 can not extend value[x] elements (FOR-479)
+    * - Parked
+      - Navigation
+      - When adding an extension, refresh might be necessary for showing and 
+        editing all options on extension. (FOR-420)
+    * - Parked
+      - Navigation
+      - When moving to the Dependencies tab on a Forge project, the interface
+        might refuse to switch back directly to the Project tab. Please click
+        in the packages window below first and then try again. (FOR-395)
 
 All our tooling is built on top of the official Firely .NET SDK, developed and managed by Firely. The `SDK is open source
 and maintained on Github`_ and `issues are publicly tracked there`_.
