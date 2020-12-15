@@ -10,15 +10,29 @@ Firely Accessibility Conformance Report - WCAG Edition
 
 **Report Date:** 30-11-2020  
 
-**Product Description:** Simplifier.net by Firely is an online platform for collaborating on, and publishing the artifacts from, FHIR specifications.
+**Product Description:** Simplifier.net by Firely is an online platform for collaborating on,
+and publishing the artifacts from, FHIR specifications.
 
-**Contact Information:** Please contact simplifier@fire.ly with any questions or suggestions for improvements.
+**Contact Information:** Please contact simplifier@fire.ly with any questions or suggestions
+for improvements.
 
 **Notes:**
 
-* Simplifier.net is a platform for user-generated content. While we do our best to facilitate our users in creating accessible content, the flexibility of the platform requires users to check their own generated content for accessibility.
-* The tree rendering of FHIR resources can be navigated by keyboard when Javascript is enabled. The Details page on a resource and dictionary rendering in an Implementation Guide provide static alternatives.
-* The Monaco Editor which is embedded in many places on the site provides powerfull accessibility features and a dedicated menu which is highlighted when using a screen reader. More information can be found in the `Monaco Editor Accessibility Guide <https://github.com/microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide>`_.
+* Simplifier.net is a platform for user-generated content. While we do our best to facilitate
+  our users in creating accessible content, the flexibility of the platform requires users to
+  check their own generated content for accessibility.
+* The tree rendering of FHIR resources can be navigated by keyboard when Javascript is enabled:
+  
+  - Tab until the full three is selected.
+  - Then navigate the three rows with the up and down arrows. When using a screen reader this
+    can be done after 'Scan mode' is turned off.
+  - Three nodes can be opened/collapsed by selecting the node and pressing Space bar or Enter.
+
+  The Details page on a resource and dictionary rendering in an Implementation Guide provide
+  static alternatives.
+* The Monaco Editor which is embedded in many places on the site provides powerfull accessibility
+  features and a dedicated menu which is highlighted when using a screen reader. More information
+  can be found in the `Monaco Editor Accessibility Guide <https://github.com/microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide>`_.
 * Log
 
   * Nov 30, 2020: First edition published.
@@ -84,54 +98,56 @@ Scope
 Tests were executed with the following pages, taken as representative for the full application:
 
 .. list-table::
-   :widths: 10 10 10
-   :header-rows: 1
+  :widths: 10 10 10
+  :header-rows: 1
 
-   * - Id
-     - Web Page / Screen / Document Identifier
-     - Location / URL
-   * - 1
-     - Implementation Guide
-     - https://simplifier.net/guide/accessibilitytestingimplementationguide
-   * - 1.1
-     - Implementation Guide home page and navigation
-     - https://simplifier.net/guide/AccessibilitytestingImplementationGuide/Home
-   * - 1.2
-     - Implementation Guide static Markdown pages
-     - https://simplifier.net/guide/accessibilitytestingimplementationguide/staticmarkdownpage
-   * - 1.3
-     - Implementation Guide page with an embedded resource
-     - https://simplifier.net/guide/accessibilitytestingimplementationguide/pagewithanembeddedresource
-   * - 2
-     - Resource page
-     - https://simplifier.net/Accessibilitytestingproject/ACMEbasePatient
-   * - 2.1
-     - Resource overview page with tree view
-     - https://simplifier.net/Accessibilitytestingproject/ACMEbasePatient/~overview
-   * - 3
-     - Home page
-     - https://simplifier.net/
-   * - 4
-     - Organization page
-     - https://simplifier.net/organization/firely
-   * - 5
-     - Project page
-     - https://simplifier.net/accessibilitytestingproject
-   * - 6
-     - Package page
-     - https://simplifier.net/packages/firely.com.accessibilitytesting/0.0.1-test/~introduction
-   * - 7
-     - Validation page
-     - https://simplifier.net/snippet/wardweistra/18/$validate
-   * - 8
-     - Search page
-     - https://simplifier.net/search (Postponed until after upcoming redesign)
-   * - 9
-     - Snippet page
-     - https://simplifier.net/snippet/wardweistra/18
-   * - 10
-     - Documentation page
-     - https://docs.fire.ly/simplifier/index.html
+  * - Id
+    - Web Page / Screen / Document Identifier
+    - Location / URL
+  * - 1
+    - Implementation Guide
+    - https://simplifier.net/guide/accessibilitytestingimplementationguide
+  * - 1.1
+    - * Home page and navigation
+    - https://simplifier.net/guide/AccessibilitytestingImplementationGuide/Home
+  * - 1.2
+    - * Static Markdown pages
+    - https://simplifier.net/guide/accessibilitytestingimplementationguide/staticmarkdownpage
+  * - 1.3
+    - * Page with an embedded resource
+    - https://simplifier.net/guide/accessibilitytestingimplementationguide/pagewithanembeddedresource
+  * - 2
+    - Resource page
+    - https://simplifier.net/Accessibilitytestingproject/ACMEbasePatient
+  * - 2.1
+    - * Page with tree view
+    - https://simplifier.net/Accessibilitytestingproject/ACMEbasePatient/~overview
+  * - 3
+    - Home page
+    - https://simplifier.net/
+  * - 4
+    - Organization page
+    - https://simplifier.net/organization/firely
+  * - 5
+    - Project page
+    - https://simplifier.net/accessibilitytestingproject
+  * - 6
+    - Package page
+    - https://simplifier.net/packages/firely.com.accessibilitytesting/0.0.1-test/~introduction
+  * - 7
+    - Validation page
+    - https://simplifier.net/snippet/wardweistra/18/$validate
+  * - 8
+    - Search page
+    - https://simplifier.net/search
+      
+      (Postponed until after upcoming redesign)
+  * - 9
+    - Snippet page
+    - https://simplifier.net/snippet/wardweistra/18
+  * - 10
+    - Documentation page
+    - https://docs.fire.ly/simplifier/index.html
    
 
 WCAG 2.x Report
@@ -155,11 +171,14 @@ Table 1: Success Criteria, Level A
   * - `1.1.1 Non-text Content`_
       
       (Level A)
-    -
-    - TODO: Check per page:
+    - 
+    - Resolved issues:
 
-      * Form fields have relevant names
-      * Relevant images have relevant alt tags
+      * On Firely Docs DevDays banner has no alt text, search bar no form label
+
+      Open issues:
+
+      * [SIM-1403] Add alt text to home page images
   * - `1.2.1 Audio-only and Video-only`_
       
       (Level A)
@@ -178,10 +197,8 @@ Table 1: Success Criteria, Level A
   * - `1.3.1 Info and Relationships`_
       
       (Level A)
-    - 
-    - TODO: Check per page:
-        
-      * Sections labeled with relevant aria tags
+    - Supports
+    - Sections are labeled with relevant ARIA tags.
   * - `1.3.2 Meaningful Sequence`_
       
       (Level A)
@@ -191,12 +208,14 @@ Table 1: Success Criteria, Level A
       
       (Level A)
     - Supports
-    - Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound.
+    - Instructions provided for understanding and operating content do not rely solely on sensory characteristics
+      of components such as shape, size, visual location, orientation, or sound.
   * - `1.4.1 Use of Color`_
   
       (Level A)
     - Supports
-    - Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
+    - Color is not used as the only visual means of conveying information, indicating an action, prompting a
+      response, or distinguishing a visual element.
   * - `1.4.2 Audio Control`_
   
       (Level A)
@@ -213,28 +232,26 @@ Table 1: Success Criteria, Level A
       * [SIM-1355] Feedback button is not accessible by tab
       * [SIM-1358] Hide visually hidden menu items from project/resource menu for screen readers
       * [SIM-1357] Alternative for/navigate by keyboard resource tree
+      * [SIM-1401] Keyboard navigation for instance tree
+      * [SIM-1397] Can't reach diff/hybrid/snapshot button with tab
       
       Open issues
 
       * [SIM-1359] In IG editor > IG settings: Can't change tab with keyboard
-      * [SIM-1397] Can't reach diff/hybrid/snapshot button with tab
+      * [SIM-1406] Can't reach certain menu items using tab on Organization and Snippet page
 
       Known issues
 
       * [SIM-1382] Edit button for canonical base URLs on project not accessible with keyboard only
       * [SIM-1384] Can't activate the checkmarks on the Create a new package page
-      * [SIM-1387] Unable to succesfully navigate account avatar with keyboard only
 
-      TODO: Check per page:  
-    
-      * Relevant headers on page
   * - `2.1.2 No Keyboard Trap`_
   
       (Level A)
-    -
+    - Partially Supports
     - On tab trapping in the embedded Monaco code editors, see general note above.
       
-      Open issues
+      Resolved issues
 
       * [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
       * [SIM-1380] keyboard trap: manage dependencies on project, search field
@@ -259,7 +276,8 @@ Table 1: Success Criteria, Level A
       
       (Level A)
     - Supports
-    - All scrolling, moving content (for example the log output from file import or package generation) are started based on user input and pause at the end for review.
+    - All scrolling, moving content (for example the log output from file import or package generation)
+      are started based on user input and pause at the end for review.
   * - `2.3.1 Three Flashes or Below Threshold`_
       
       (Level A)
@@ -272,6 +290,7 @@ Table 1: Success Criteria, Level A
     - Resolved issues
       
       * [SIM-1365] Make it easier to skip to main content by providing ARIA indications for blocks.
+
   * - `2.4.2 Page Titled`_
       
       (Level A)
@@ -283,25 +302,25 @@ Table 1: Success Criteria, Level A
       Known issues
 
       * [SIM-1367] Consider using different page title per resource/project/package tab
+
   * - `2.4.3 Focus Order`_
       
       (Level A)
-    - 
+    - Supports
     - Resolved issues
 
       * [SIM-1358] Put project/package/resource menu in right tab order. 
       * [SIM-1358] Main buttons of project/package/resource menu are not selectable
-      TODO: Check per page
 
-      * Logical focus order
   * - `2.4.4 Link Purpose (In Context)`_
       
       (Level A)
     -
-    - Open issues
-    
-      * [SIM-1368] Buttons without text: Copy button next to API link, Canonical link, (embed) Snippet URL, etc.
+    - Open issues:
+      
+      * [SIM-1411] Validation page has nondescriptive links
       * [SIM-1369] Better text around Avatar image/link
+
   * - `2.5.1 Pointer Gestures`_
       
       (Level A 2.1 only)
@@ -309,6 +328,8 @@ Table 1: Success Criteria, Level A
     - Known issues:
     
       * [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
+      * [SIM-1387] Unable to succesfully navigate account avatar with keyboard only
+
   * - `2.5.2 Pointer Cancellation`_
       
       (Level A 2.1 only)
@@ -317,12 +338,8 @@ Table 1: Success Criteria, Level A
   * - `2.5.3 Label in Name`_
       
       (Level A 2.1 only)
+    - Supports
     - 
-    - Note: `Organizational news page <https://simplifier.net/organization/firely/~news>`_ has 'Read More', but also descriptive link to news article.
-
-      * TODO: Check per page
-
-        * Descriptive link naming.
   * - `2.5.4 Motion Actuation`_
       
       (Level A 2.1 only)
@@ -352,6 +369,8 @@ Table 1: Success Criteria, Level A
     - Known issues
       
       * [SIM-1373] Error message on deleting team with packages/project linked is time based
+      * [SIM-1413] Incorrect URL message on Account settings page is time based
+      * Confirmation of copied canonical or resource is time based popup
   * - `3.3.2 Labels or Instructions`_
       
       (Level A)
@@ -362,17 +381,26 @@ Table 1: Success Criteria, Level A
   * - `4.1.1 Parsing`_
       
       (Level A)
-    - 
-    - Open issues
-
-      * [SIM-1386] W3 Validator reports errors on certain pages.
-      * [SIM-1389] Tree rendering HTML errors
+    - Partially Supports
+    - Resolved issues
+      
       * [SIM-1398] Broken ARIA menu in Avatar drop down menu
+      * [SIM-1399] Broken ARIA menu in resource settings menu item
+      * [SIM-1400] Broken ARIA menus in project
+      * [SIM-1386] W3 Validator reports errors on certain pages.
+      
+      Known issues
+
+      * [SIM-1389] Tree rendering HTML errors
   * - `4.1.2 Name, Role, Value`_
       
       (Level A)
-    - Partially Supports
-    - Known issues
+    - 
+    - Open issues
+
+      * [SIM-1368] Buttons without text: Copy button next to API link, Canonical link, (embed) Snippet URL, etc.
+      
+      Known issues
     
       * [SIM-1384] Check boxes on package creation third tab are not tab accessible.
 
@@ -458,10 +486,15 @@ Table 2: Success Criteria, Level AA
   * - `2.4.6 Headings and Labels`_
     
       (Level AA)
-    -
-    - Open issues
+    - 
+    - Resolved issues
 
       * [SIM-1396] Make tabs on resource/project/etc. page headings and indicate active state
+
+      Open issues
+      
+      * [SIM-1405] Feedback popup is missing label and has orphaned label
+      * [SIM-1408] Missing form labels and empty buttons on Project page
   * - `2.4.7 Focus Visible`_
     
       (Level AA)
@@ -487,10 +520,8 @@ Table 2: Success Criteria, Level AA
   * - `3.2.4 Consistent Identification`_
     
       (Level AA)
-    -
-    - TODO: Check per page
-
-      * Same names given to corresponding fields/logos across pages
+    - Supports
+    - 
   * - `3.3.3 Error Suggestion`_
     
       (Level AA)
