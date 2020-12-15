@@ -34,11 +34,11 @@ Versions overview
      - FHIR DSTU2
      - Firely tools used
    * - Forge 26.1
-     - ✔️ 4.4.0 (alpha)
+     - ✔️ 4.5.0 (alpha)
      - ✔️ 4.0.1
      - ✔️ 3.0.2
      - ✔️ (frozen)
-     - Firely .NET SDK 2.0
+     - Firely .NET SDK 2.0.1
    * - Simplifier 26.3
      - 
      - ✔️ 4.0.1
@@ -46,11 +46,11 @@ Versions overview
      - ✔️ (frozen)
      - Firely .NET SDK 1.9, Vonk 3.6
    * - Firely Terminal 2.0.0
-     - 
+     - ✔️ 4.5.0 (alpha)
      - ✔️ 4.0.1
      - ✔️ 3.0.2
      - 
-     - Firely .NET SDK 2.0
+     - Firely .NET SDK 2.0.0-beta2
    * - Vonk 3.9.1
      - ✔️ 4.4.0 (alpha)
      - ✔️ 4.0.1
@@ -64,7 +64,7 @@ Versions overview
      - 
      - Firely .NET SDK 1.9, Vonk 3.8
    * - Firely .NET SDK 2.0
-     - ✔️ 4.4.0 (alpha)
+     - ✔️ 4.5.0 (alpha)
      - ️️️️✔️ 4.0.1
      - ✔️ 3.0.2
      - ✔️ (frozen)
