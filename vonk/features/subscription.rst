@@ -33,7 +33,8 @@ You can control the period and the batchsize. If an evaluation of a Subscription
         "RepeatPeriod": 20000,
         "SubscriptionBatchSize" : 1,
         "RetryPeriod": 60000,
-        "MaximumRetries":  3
+        "MaximumRetries":  3,
+        "SendRestHookAsCreate": false
     },
 
 * ``Enabled`` allows you to quickly enable or disable the evaluation of Subscriptions. Default value is 'false', which implies that Subscription evaluation is also off if this section is left out of the settings.
@@ -41,3 +42,4 @@ You can control the period and the batchsize. If an evaluation of a Subscription
 * ``SubscriptionBatchSize`` is expressed in number of Subscriptions that is retrieved and evaluated at once. Default is 1, but you can set it higher if you have a lot of Subscriptions.
 * ``RetryPeriod`` is expressed in milliseconds. In the example above the period is set to 60 seconds, meaning that the Vonk will retry to send the resources after a minimum of 60 seconds. Retry is included in the normal evaluation process, so the RetryPeriod cannot be smaller than RepeatPeriod.
 * ``MaximumRetries`` is the maximum amount of times Vonk will retry to send the resources. 
+* ``SendRestHookAsCreate``: in versions < 3.9.3, Vonk sent RestHook notifications as a create operation using a POST. That was not compliant with the specification that requires an update operation using a PUT. The default value of ``false`` provides compliant behaviour. Only set it to ``true`` if you need Vonk to keep sending create operations as it did previously. 

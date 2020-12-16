@@ -17,6 +17,28 @@ Upgrading Vonk
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Vonk.
 
+.. _vonk_releasenotes_393:
+
+Release 3.9.3 hotfix
+--------------------
+
+.. attention::
+
+   We changed the behaviour of resthook notifications on Subscriptions. See Fix nr 1 below.
+
+Database
+^^^^^^^^
+
+#. SQL Server: The migration that adds the indexes described in :ref:`vonk_releasenotes_392` might run longer than the timeout period of 30 seconds. Therefore we added scripts to apply and revert this migration manually. If you encounter the timeout during upgrade: shut down vonk, run the script using SQL Server Management Studio or any similar tool, then start Vonk 3.9.3 again. In both scripts you only need to provide the databasename for the database that you want to upgrade. If you run your administration database on SQL Server you can but probably do not need to run this script on it. The administration database is typically small enough to complete the script within 30 seconds.
+
+   #. apply: <vonk-dir>/data/2021211113200_AddIndex_ForCountAndUpdateCurrent_Up.sql
+   #. revert: <vonk-dir>/data/2021211113200_AddIndex_ForCountAndUpdateCurrent_Down.sql
+
+Fix
+^^^
+
+#. :ref:`feature_subscription`: A resthook notification was sent as a FHIR create operation, using POST. This was not compliant with the specification that states it must be an update, using PUT. We changed the default behaviour to align with the specification. To avoid a breaking change in an existing deployment you may set the new setting ``SubscriptionEvaluatorOptions:SendRestHookAsCreate`` to true. That way Vonk will retain the (incorrect) behaviour from the previous versions.
+
 .. _vonk_releasenotes_392:
 
 Release 3.9.2 hotfix
