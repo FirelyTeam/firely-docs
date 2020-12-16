@@ -38,6 +38,6 @@ You can control the period and the batchsize. If an evaluation of a Subscription
 
 * ``Enabled`` allows you to quickly enable or disable the evaluation of Subscriptions. Default value is 'false', which implies that Subscription evaluation is also off if this section is left out of the settings.
 * ``RepeatPeriod`` is expressed in milliseconds. In the example above the period is set to 20 seconds, meaning that after a change a subscriber will be notified in at most 20 seconds.
-* ``SubscriptionBatchSize`` is expressed in number of Subscriptions that is retrieved and evaluated at once. Default is 1, but you can set it higher if you have a lot of Subscriptions.
+* ``SubscriptionBatchSize`` is expressed in number of Subscriptions that is retrieved and evaluated at once. Default is 1, but you can set it higher if you have a lot of Subscriptions in order to have them processed quicker, at the expense of increased memory usage.
 * ``RetryPeriod`` is expressed in milliseconds. In the example above the period is set to 60 seconds, meaning that the Vonk will retry to send the resources after a minimum of 60 seconds. Retry is included in the normal evaluation process, so the RetryPeriod cannot be smaller than RepeatPeriod.
 * ``MaximumRetries`` is the maximum amount of times Vonk will retry to send the resources. 
