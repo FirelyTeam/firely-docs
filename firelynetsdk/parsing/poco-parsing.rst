@@ -21,7 +21,7 @@ First, let us parse a bit of XML representing a FHIR Patient into the correspond
 
 .. code-block:: csharp
     
-    var xml = "<Patient xmlns='http://hl7.org/fhir'><active value='true'></Patient>";
+    var xml = "<Patient xmlns='http://hl7.org/fhir'><active value='true'/></Patient>";
     var parser = new FhirXmlParser();
 
     try
