@@ -175,7 +175,7 @@ You can load from multiple Simplifier projects by adding them to the list. The e
 
   VONK_Administration:SimplifierProjects:0:Uri=<FHIR endpoint for retrieving StructureDefinitions>
   
-Vonk automatically find out about the FHIR version for each project and import it only for the matching FHIR version.
+Vonk automatically finds the FHIR version for each project and imports it only for the matching FHIR version.
 
 Get a FHIR endpoint for a Simplifier project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
