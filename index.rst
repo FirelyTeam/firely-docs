@@ -14,7 +14,7 @@ The currently documented projects are:
 
    Simplifier - FHIR profile registry <simplifier/index>
    Forge - FHIR profile editor <forge/index>
-   Firely Server - FHIR server <vonk/index>
+   Firely Server - FHIR server <firelyserver/index>
    Firely .NET SDK - Open Source FHIR library <firelynetsdk/index>
    Firely Terminal (Torinox) - Command-line FHIR tool <firelyterminal/index>
    FHIR Mapper - Engine for the FHIR Mapping Language <mappingengine/index>
