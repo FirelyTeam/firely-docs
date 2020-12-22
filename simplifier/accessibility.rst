@@ -1,14 +1,14 @@
 Accessibility
-================================
+=============
 
 Firely Accessibility Conformance Report - WCAG Edition
 ------------------------------------------------------
 
-**(Based on VPAT**\ ® **Version 2.4)**
+(Based on VPAT® Version 2.4)
 
 **Name of Product/Version:** Simplifier.net  
 
-**Report Date:** 30-11-2020  
+**Report Date:** 22-12-2020  
 
 **Product Description:** Simplifier.net by Firely is an online platform for collaborating on,
 and publishing the artifacts from, FHIR specifications.
@@ -16,11 +16,15 @@ and publishing the artifacts from, FHIR specifications.
 **Contact Information:** Please contact simplifier@fire.ly with any questions or suggestions
 for improvements.
 
-**Notes:**
+Notes
+~~~~~
+
+General notes
 
 * Simplifier.net is a platform for user-generated content. While we do our best to facilitate
   our users in creating accessible content, the flexibility of the platform requires users to
   check their own generated content for accessibility.
+
 * The tree rendering of FHIR resources can be navigated by keyboard when Javascript is enabled:
   
   - Tab until the full three is selected.
@@ -30,15 +34,18 @@ for improvements.
 
   The Details page on a resource and dictionary rendering in an Implementation Guide provide
   static alternatives.
+
 * The Monaco Editor which is embedded in many places on the site provides powerfull accessibility
   features and a dedicated menu which is highlighted when using a screen reader. More information
   can be found in the `Monaco Editor Accessibility Guide <https://github.com/microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide>`_.
-* Log
 
-  * Nov 30, 2020: First edition published.
-  * Dec 2020: Accessibility scan completed and major issues resolved.
+Changelog
 
-**Evaluation Methods Used:**
+* Nov 30, 2020: First edition published.
+* Dec 22, 2020: Accessibility scan completed and major issues resolved.
+
+Evaluation Methods Used
+~~~~~~~~~~~~~~~~~~~~~~~
 
 * Testing based on general product knowledge
 * Testing with assistive technologies with Google Chrome/Microsoft Edge on Windows
@@ -168,7 +175,7 @@ Table 1: Success Criteria, Level A
   * - Criteria
     - Conformance Level
     - Remarks and Explanations
-    
+
   * - `1.1.1 Non-text Content`_
       
       (Level A)
