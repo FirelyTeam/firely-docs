@@ -31,7 +31,7 @@ Firely Server is the answer to the growing need for a stable server that can be 
 A public sandbox is available at https://server.fire.ly, which is is free to use and intended for
 testing and educational purposes only.
 
-.. image:: ./images/vonk_home.png
+.. image:: ./images/firelyserver_home.png
   :align: center
 
 On these pages we provide you with the documentation you need to get up and running with your own standard Firely Server
