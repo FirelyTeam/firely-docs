@@ -168,63 +168,70 @@ Table 1: Success Criteria, Level A
   * - Criteria
     - Conformance Level
     - Remarks and Explanations
+    
   * - `1.1.1 Non-text Content`_
       
       (Level A)
-    - 
+    - Supports
     - Resolved issues:
 
       * On Firely Docs DevDays banner has no alt text, search bar no form label
-
-      Open issues:
-
       * [SIM-1403] Add alt text to home page images
+
   * - `1.2.1 Audio-only and Video-only`_
       
       (Level A)
     - Supports
     - No audio or video content is used.
+
   * - `1.2.2 Captions`_
       
       (Level A)
     - Supports
     - No audio or video content is used.
+
   * - `1.2.3 Audio Description or Media Alternative`_
       
       (Level A)
     - Supports
     - No audio or video content is used.
+
   * - `1.3.1 Info and Relationships`_
       
       (Level A)
     - Supports
     - Sections are labeled with relevant ARIA tags.
+
   * - `1.3.2 Meaningful Sequence`_
       
       (Level A)
     - Supports
     - Meaningful order of elements is reflected in programmatic page structure.
+
   * - `1.3.3 Sensory Characteristics`_
       
       (Level A)
     - Supports
     - Instructions provided for understanding and operating content do not rely solely on sensory characteristics
       of components such as shape, size, visual location, orientation, or sound.
+
   * - `1.4.1 Use of Color`_
   
       (Level A)
     - Supports
     - Color is not used as the only visual means of conveying information, indicating an action, prompting a
       response, or distinguishing a visual element.
+
   * - `1.4.2 Audio Control`_
   
       (Level A)
     - Supports
     - No audio is used.
+
   * - `2.1.1 Keyboard`_
   
       (Level A)
-    -
+    - Partially Supports
     - For keyboard navigation in the FHIR resource tree and the embedded Monaco code editors, see general notes above.
 
       Resolved issues
@@ -234,11 +241,9 @@ Table 1: Success Criteria, Level A
       * [SIM-1357] Alternative for/navigate by keyboard resource tree
       * [SIM-1401] Keyboard navigation for instance tree
       * [SIM-1397] Can't reach diff/hybrid/snapshot button with tab
-      
-      Open issues
-
       * [SIM-1359] In IG editor > IG settings: Can't change tab with keyboard
       * [SIM-1406] Can't reach certain menu items using tab on Organization and Snippet page
+      * [SIM-1388] Subscribe menu item on project/resource page not accessible by keyboard navigation
 
       Known issues
 
@@ -255,11 +260,11 @@ Table 1: Success Criteria, Level A
 
       * [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
       * [SIM-1380] keyboard trap: manage dependencies on project, search field
-      
+      * [SIM-1379] keyboard trap: create new package, release notes field
+
       Known issues
 
       * [SIM-1378] keyboard trap: create issue on project / add comment on issue
-      * [SIM-1379] keyboard trap: create new package, release notes field
       * [SIM-1381] keyboard trap: create script connector
 
   * - `2.1.4 Character Key Shortcuts`_
@@ -267,22 +272,26 @@ Table 1: Success Criteria, Level A
       (Level A 2.1 only)
     - Supports
     - No keyboard shortcuts are used, except in Monaco code editor, which provides its own accessibility menu and options.
+
   * - `2.2.1 Timing Adjustable`_
   
       (Level A)
     - Supports
     - No timings are used.
+
   * - `2.2.2 Pause, Stop, Hide`_
       
       (Level A)
     - Supports
     - All scrolling, moving content (for example the log output from file import or package generation)
       are started based on user input and pause at the end for review.
+
   * - `2.3.1 Three Flashes or Below Threshold`_
       
       (Level A)
     - Supports
     - No flashing content is used.
+
   * - `2.4.1 Bypass Blocks`_
       
       (Level A)
@@ -315,8 +324,8 @@ Table 1: Success Criteria, Level A
   * - `2.4.4 Link Purpose (In Context)`_
       
       (Level A)
-    -
-    - Open issues:
+    - Supports
+    - Resolved issues:
       
       * [SIM-1411] Validation page has nondescriptive links
       * [SIM-1369] Better text around Avatar image/link
@@ -335,16 +344,19 @@ Table 1: Success Criteria, Level A
       (Level A 2.1 only)
     - Supports
     - No actions are executed on mouse down event.
+
   * - `2.5.3 Label in Name`_
       
       (Level A 2.1 only)
     - Supports
     - 
+
   * - `2.5.4 Motion Actuation`_
       
       (Level A 2.1 only)
     - Supports
     - No motion is used.
+
   * - `3.1.1 Language of Page`_
       
       (Level A)
@@ -352,16 +364,19 @@ Table 1: Success Criteria, Level A
     - Resolved issues
       
       * [SIM-1372] Define English as the language for every Simplifier page
+
   * - `3.2.1 On Focus`_
       
       (Level A)
     - Supports
     - No change of context is executed when changing focus.
+
   * - `3.2.2 On Input`_
       
       (Level A)
     - Supports
     - No change of context is executed when changing input, without user actuation.
+
   * - `3.3.1 Error Identification`_
       
       (Level A)
@@ -371,6 +386,7 @@ Table 1: Success Criteria, Level A
       * [SIM-1373] Error message on deleting team with packages/project linked is time based
       * [SIM-1413] Incorrect URL message on Account settings page is time based
       * Confirmation of copied canonical or resource is time based popup
+
   * - `3.3.2 Labels or Instructions`_
       
       (Level A)
@@ -378,6 +394,7 @@ Table 1: Success Criteria, Level A
     - Resolved issues
       
       * [SIM-1374] No label for main search bar on home page and search bar on other pages
+
   * - `4.1.1 Parsing`_
       
       (Level A)
@@ -387,16 +404,18 @@ Table 1: Success Criteria, Level A
       * [SIM-1398] Broken ARIA menu in Avatar drop down menu
       * [SIM-1399] Broken ARIA menu in resource settings menu item
       * [SIM-1400] Broken ARIA menus in project
+      * [SIM-1416] Broken ARIA menus in Signup page and Home signup form
       * [SIM-1386] W3 Validator reports errors on certain pages.
       
       Known issues
 
       * [SIM-1389] Tree rendering HTML errors
+      
   * - `4.1.2 Name, Role, Value`_
       
       (Level A)
-    - 
-    - Open issues
+    - Partially Supports
+    - Resolved issues
 
       * [SIM-1368] Buttons without text: Copy button next to API link, Canonical link, (embed) Snippet URL, etc.
       
@@ -415,21 +434,25 @@ Table 2: Success Criteria, Level AA
   * - Criteria
     - Conformance Level
     - Remarks and Explanations
+
   * - `1.2.4 Captions (Live)`_
     
       (Level AA)
     - Supports
     - No (live) audio used.
+
   * - `1.2.5 Audio Description (Prerecorded)`_
     
       (Level AA)
     - Supports
     - No video content used.
+
   * - `1.3.4 Orientation`_
     
       (Level AA 2.1 only)
     - Supports
     - Site does not fixate a particular screen orientation.
+
   * - `1.3.5 Identify Input Purpose`_
     
       (Level AA 2.1 only)
@@ -437,45 +460,53 @@ Table 2: Success Criteria, Level AA
     - Known issues
     
       * [SIM-1376] Use standard input type on Signup, Login and Account Settings (eg type=name)
+
   * - `1.4.3 Contrast (Minimum)`_
     
       (Level AA)
-    -
+    - Partially Supports
     - On constrast in the embedded Monaco code editors, see general note above.
+      
+      Contrast issues on website header and footer and Implementation Guides footer have been resolved [SIM-1377].
+      Contrast issues in website main content will be addressed in upcoming change of website colors.
     
-      Open issues:
-
-      * [SIM-1377] Improve color contrast (see Wave) to 4.5:1 for small and 3:1 for large text
   * - `1.4.4 Resize text`_
     
       (Level AA)
     - Supports
     - No loss of function at 200% zoom level.
+
   * - `1.4.5 Images of Text`_
     
       (Level AA)
     - Supports
     - No images of text are used.
+
   * - `1.4.10 Reflow`_
     
       (Level AA 2.1 only)
     - Supports
     - Even in small view ports website reflows and content is still accessible.
+
   * - `1.4.11 Non-text Contrast`_
     
       (Level AA 2.1 only)
     - Supports
     - Images not used as replacement for user interface components or for required understanding.
+
   * - `1.4.12 Text Spacing`_
     
       (Level AA 2.1 only)
     - Supports
     - No loss of function found with large fonts, line height and spacing.
+
   * - `1.4.13 Content on Hover or Focus`_
     
       (Level AA 2.1 only)
     - Supports
-    - Note: For seeing the content that appears in the resource tree-rendering on mouse over, click the element to make it persistent and not disappear on removal of mouse focus.
+    - Note: For seeing the content that appears in the resource tree-rendering on mouse over,
+      click the element to make it persistent and not disappear on removal of mouse focus.
+
   * - `2.4.5 Multiple Ways`_
     
       (Level AA)
@@ -483,18 +514,17 @@ Table 2: Success Criteria, Level AA
     - All user content on Simplifier.net is reachable via Search and direct navigation via owning organization/project/packages.
       
       Implementation Guides have support for providing a Table of Contents of all pages.
+
   * - `2.4.6 Headings and Labels`_
     
       (Level AA)
-    - 
+    - Supports
     - Resolved issues
 
-      * [SIM-1396] Make tabs on resource/project/etc. page headings and indicate active state
-
-      Open issues
-      
+      * [SIM-1396] Make tabs on resource/project/etc. page headings and indicate active state      
       * [SIM-1405] Feedback popup is missing label and has orphaned label
       * [SIM-1408] Missing form labels and empty buttons on Project page
+
   * - `2.4.7 Focus Visible`_
     
       (Level AA)
@@ -502,6 +532,7 @@ Table 2: Success Criteria, Level AA
     - Resolved issues
       
       * [SIM-1356] Avatar shows no visible indication of being selected with tab
+
   * - `3.1.2 Language of Parts`_
     
       (Level AA)
@@ -509,6 +540,7 @@ Table 2: Success Criteria, Level AA
     - Website is only provided in English, which is indicated as page language.
 
       Note: User defined text currently has no way to deviate from English language. This will be done later when support for IG translation is added.
+
   * - `3.2.3 Consistent Navigation`_
     
       (Level AA)
@@ -517,23 +549,27 @@ Table 2: Success Criteria, Level AA
 
       * Full page editors that open in new window: Differential in resource history, Update resource in standalone editor, Implementation Guide editor.
       * Implementation guides have a navigation defined by the style chosen by the publishing user.
+
   * - `3.2.4 Consistent Identification`_
     
       (Level AA)
     - Supports
     - 
+
   * - `3.3.3 Error Suggestion`_
     
       (Level AA)
     - Supports
     - Where solutions to possible errors are known the site tries to prevent you from making them beforehand.
       Examples: Providing dropdowns of possible values or automatically fixing duplicate URLs.
+
   * - `3.3.4 Error Prevention (Legal, Financial, Data)`_
     
       (Level AA)
     - Supports
     - No financial transactions, legal transactions or test results are handled.
-      All data delete operations require an extra confirmation step. 
+      All data delete operations require an extra confirmation step.
+
   * - `4.1.3 Status Messages`_
     
       (Level AA 2.1 only)
