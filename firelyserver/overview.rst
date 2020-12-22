@@ -1,6 +1,6 @@
 .. _vonk_overview:
 
-Overview of Firely Server FHIR Server, Plugins and Facades
+Overview of Firely Server, Plugins and Facades
 =================================================
 
 Framework
