@@ -105,7 +105,7 @@ Configuration checks
 3. Did you change your Windows password after sharing your drive in Docker for Windows? If so, you need to reset your credentials in Docker for Windows. See :ref:`docker_win_shared_drives` for more information.
 4. Does Docker for Windows have enough resources to let Firely Server run its initialization within the designated time? You can give it more resources in the `Docker Advanced Settings`_.
 
-Still no luck? Please contact us on vonk@fire.ly. Please include:
+Still no luck? Please contact us on server@fire.ly. Please include:
 
 - the output of the Powershell script ./start-vonk-server.ps1
 - version info of Windows

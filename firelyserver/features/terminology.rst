@@ -15,7 +15,7 @@ These operations are currently implemented on the :ref:`Administration API<admin
 Refer to :ref:`conformance` on how to provide CodeSystem and ValueSet resources to the Administration API.
 
 .. note::
-   This is a first attempt on supporting Terminology operations. We welcome feedback on how you would like to use them. Contact us at vonk@fire.ly.
+   This is a first attempt on supporting Terminology operations. We welcome feedback on how you would like to use them. Contact us at server@fire.ly.
 
 .. note::
    This implementation does not support complex terminologies like Snomed CT or LOINC. If you need that: Starting with Firely Server (Vonk) 3.5.0 we provide more elaborate terminology support by integrating with a full Terminology Server, see :ref:`Terminology Integration docs<feature_terminologyintegration>`.
