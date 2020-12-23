@@ -114,6 +114,8 @@ If a task has the Complete or Failed status, the GET $exportstatus request shoul
 Performing a GET request on this $exportfilerequest url returns a body of FHIR resources in newline delimited json (ndjson).
 
 .. note::
-  The Accept header for this request has to be::
+  The Accept header for this request has to be:
   
-  application/fhir+ndjson
+  ::    
+  
+    application/fhir+ndjson
