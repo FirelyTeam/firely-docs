@@ -75,10 +75,12 @@ There are three different levels for which the $export operation can be called:
 :url: [firely-server-base]/Group/<group-id>/$export
 :note: For now we only support inclusion in a Group through Group.member.
 
-Making a $export request will create a new task in the database with status "Queued". The request should return an absolute <b>$exportstatus</b> URL in the Content-Location header and the OperationOutcome in the body.  
+Making a $export request will create a new task in the database with status "Queued". The request should return an absolute $exportstatus URL in the Content-Location header and the OperationOutcome in the body.  
 
 $exportstatus
 -------------
+
+The $export request should return the $exportstatus url for your export task. This url can be used to request the current status of the task through a GET request, or to cancel the task through a DELETE request.
 
 $exportfilerequest
 ------------------
