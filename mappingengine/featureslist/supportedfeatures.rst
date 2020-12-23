@@ -132,6 +132,10 @@ For debugging purposes source content can be dumped as an OperationOutcome via a
 
 To see the debugging output StructureMap.experimental needs to be set to ``true``.
 
+Default mapping groups
+------------------------
+In order to accommodate the fact that neither <<types>> or <<type+>> annotation are supported on a group level, the FHIR Mapper implements a default copy mechanism. A source element can be mapped to a target directly using the "Simple Form" ``src.element -> tgt.element`` if the source and target element consist of the same type. No casts are possible. In case of a type mismatch, the copy rule is silently ignored. For choice types, the target type is being derived from the src type.
+
 Unsupported features
 ------------------------
 
