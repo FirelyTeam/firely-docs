@@ -33,7 +33,7 @@ For non Windows systems, or if you want to use Docker for Windows, please look a
 	Choose the latest security patch to mitigate security issues in previous versions.
 
 6.	Open a command prompt or Powershell, navigate to the working directory and run:
-	:code:`> dotnet .\Vonk.Server.dll`
+	:code:`> dotnet .\Firely.Server.dll`
 
 	Firely Server will then run on port 4080 of the system.
 	
@@ -60,7 +60,7 @@ When you have completed your configuration changes, you can run the server.
 Open a command prompt or Powershell, navigate to your working directory and run:
 ::
 
-	> dotnet .\Vonk.Server.dll
+	> dotnet .\Firely.Server.dll
 
 
 .. |br| raw:: html
