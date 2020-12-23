@@ -30,7 +30,7 @@ or with the ability to set break points in your code and debugging it:
 * Set the ``Output path`` to your Firely Server plugins directory.
 * Go to the ``Debug`` tab and set ``Launch`` to ``Executable``.
 * Point the ``Executable`` field to your dotnet.exe.
-* Set the ``Application arguments`` to ``<your-Vonk-working-directory>/Vonk.Server.dll``.
+* Set the ``Application arguments`` to ``<your-Firely-Server-working-directory>/Firely.Server.dll``.
 * Set the ``Working directory`` to your Firely Server working directory.
 
 Now, whenever you click to start debugging, Firely Server will start from your project and your project dll will be automatically
