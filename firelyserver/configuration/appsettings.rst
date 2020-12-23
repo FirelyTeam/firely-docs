@@ -4,7 +4,7 @@ Firely Server settings
 =============
 
 Firely Server settings are controlled in json configuration files called ``appsettings(.*).json``. The possible settings in these files are all the same and described below.
-The different files are read in a hierarchy so you can control settings on different levels. All appsettings files are in the Firely Server distribution directory, next to vonk.server.dll.
+The different files are read in a hierarchy so you can control settings on different levels. All appsettings files are in the Firely Server distribution directory, next to Firely.Server.dll.
 We go through all the sections of this file and refer you to detailed pages on each of them.
 
 You can also control :ref:`configure_envvar`.
