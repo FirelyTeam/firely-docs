@@ -20,7 +20,7 @@ You may find one of the other repositories a better fit then. You can safely use
 Prefer SQLite for Firely Server Administration
 -------------------------------------
 
-Until Firely Server (Vonk) version 0.7.0 you could use any of the storage engines for both Firely Server Data and Firely Server Administration. Starting with Vonk 0.7.1 you are encouraged to use SQLite for Firely Server Administration.
+Until Firely Server (Vonk) version 0.7.0 you could use any of the storage engines for both Firely Server Data and Firely Server Administration. Starting with Firely Server (Vonk) 0.7.1 you are encouraged to use SQLite for Firely Server Administration.
 Over time we will deprecate support for running Firely Server Administration on the SQL Server, MongoDb and Memory storage engines.
 For Firely Server Data you can of course still use the storage engine of your preference. 
 
