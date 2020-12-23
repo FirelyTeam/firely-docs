@@ -25,7 +25,7 @@ In both cases:
 *   Find the section called ``SqlDbOptions``. It has these values by default::
 
         "SqlDbOptions": {
-            "ConnectionString": "connectionstring to your Vonk SQL Server database (SQL2012 or newer); Set MultipleActiveResultSets=True",
+            "ConnectionString": "connectionstring to your Firely Server SQL Server database (SQL2012 or newer); Set MultipleActiveResultSets=True",
             "SchemaName": "vonk",
             "AutoUpdateDatabase": true
             //"AutoUpdateConnectionString" : "set this to the same database as 'ConnectionString' but with credentials that can alter the database. If not set, defaults to the value of 'ConnectionString'"
