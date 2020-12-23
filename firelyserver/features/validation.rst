@@ -27,7 +27,7 @@ Validate on the system level
 ----------------------------
 ::
 
-    POST <vonk_endpoint>/$validate[?profile=<canonical-url-of-structuredefinition>]
+    POST <firelyserver_endpoint>/$validate[?profile=<canonical-url-of-structuredefinition>]
 
 There are two ways of calling $validate:
 
@@ -49,7 +49,7 @@ Validate on the ResourceType level
 ----------------------------------
 ::
 
-    POST <vonk_endpoint>/<resourcetype>/$validate[?profile=<canonical-url-of-structuredefinition>]
+    POST <firelyserver_endpoint>/<resourcetype>/$validate[?profile=<canonical-url-of-structuredefinition>]
 
 You can call $validate in the same two ways as with :ref:`feature_validation_system`.
 
@@ -61,7 +61,7 @@ Validate an instance from the database
 --------------------------------------
 ::
 
-    GET <vonk_endpoint>/<resourcetype>/<id>/$validate[?profile=<canonical-url-of-structuredefinition>]
+    GET <firelyserver_endpoint>/<resourcetype>/<id>/$validate[?profile=<canonical-url-of-structuredefinition>]
 
 This time you can only use the (optional) profile parameter on the url to specify a StructureDefinition to validate against.
 
