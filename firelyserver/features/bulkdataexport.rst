@@ -67,20 +67,20 @@ There are three different levels for which the $export operation can be called:
 
 System
 ^^^^^^
-**url** [firely-server-base]/$export
+**url:** [firely-server-base]/$export
 
 This will create a system level export task, exporting all resources in the Firely Server database to a .ndjson file per resourcetype.
 
 Patient
 ^^^^^^^
 
-**url** [firely-server-base]/Patient/$export
+**url:** [firely-server-base]/Patient/$export
 
 This will create a type level export task, exporting all resources included in the Patient Compartment in the Firely Server database to a .ndjson file per resourcetype.
 
 Group
 ^^^^^
-**url** [firely-server-base]/Group/<group-id>/$export
+**url:** [firely-server-base]/Group/<group-id>/$export
 
 This will create an instance level export task. For each Patient in the Group, the task will export all resources included in the Patient Compartment in the Firely Server database to a .ndjson file per resourcetype.
 
@@ -92,6 +92,20 @@ $exportstatus
 -------------
 
 The $export request should return the $exportstatus url for your export task. This url can be used to request the current status of the task through a GET request, or to cancel the task through a DELETE request.
+
+There are five possible status options:
+
+1. Queued
+2. Active
+3. Complete
+4. Failed
+5. Cancelled
+
+* If a task is Queued or Active, GET $exportstatus will return the status in the X-Progress header
+* If a task is Complete, GET $exportstatus will return the results with a **$exportfilerequest** url per exported .ndjson file. This url can be used to retrieve the files per resourcetype.
+* If a task is Failed, GET $exportstatus will return the available results (if any) and a **$exportfilerequest** url for the generated OperationOutcome resources.
+* If a task is Cancelled, GET $exportstatus will return HTTP Statuscode 204NoContent.
+
 
 $exportfilerequest
 ------------------
