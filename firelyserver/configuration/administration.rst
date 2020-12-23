@@ -14,7 +14,7 @@ This configuration is part of :ref:`configure_appsettings`.
       "EntryCollection": "vonkentries"
     },
     "SqlDbOptions": {
-      "ConnectionString": "connectionstring to your Vonk Admin SQL Server database (SQL2012 or newer); Set MultipleActiveResultSets=True",
+      "ConnectionString": "connectionstring to your Firely Server Admin SQL Server database (SQL2012 or newer); Set MultipleActiveResultSets=True",
       "SchemaName": "vonkadmin",
       "AutoUpdateDatabase": true
       //"AutoUpdateConnectionString" : "set this to the same database as 'ConnectionString' but with credentials that can alter the database. If not set, defaults to the value of 'ConnectionString'"
