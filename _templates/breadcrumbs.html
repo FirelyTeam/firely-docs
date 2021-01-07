@@ -2,7 +2,7 @@
 
 {% block breadcrumbs %}
 
-  <div><a href="https://www.devdays.com/amsterdam"><img src="{{ pathto('_static/images/banner.png', 1) }}"/></a></div>
+  <div><a href="https://www.devdays.com"><img src="{{ pathto('_static/images/banner.png', 1) }}" alt="FHIR DevDays banner"/></a></div>
   <hr/>
 	{% if _('firelynetsdk') in pagename %}
 		<li class="wy-breadcrumbs-api"><a href="{{ pathto(master_doc) }}">{{ _('Docs') }}</a> &raquo;</li>
@@ -19,6 +19,12 @@
 				<li><a href="{{ doc.link|e }}">Vonk</a> &raquo;</li>
 			{% elif _('firelynetsdk') in pagename %}
 				<li><a href="{{ doc.link|e }}">SDK</a> &raquo;</li>
+			{% elif _('firelyterminal') in pagename %}
+				<li><a href="{{ doc.link|e }}">Firely Terminal</a> &raquo;</li>
+			{% elif _('mappingengine') in pagename %}
+				<li><a href="{{ doc.link|e }}">FHIR Mapper</a> &raquo;</li>
+			{% elif _('vonkloader') in pagename %}
+				<li><a href="{{ doc.link|e }}">VonkLoader</a> &raquo;</li>
 			{% endif %}
 		{% else %}
 			<li><a href="{{ doc.link|e }}">{{ doc.title }}</a> &raquo;</li>

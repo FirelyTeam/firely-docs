@@ -37,6 +37,11 @@ For each resourcetype the base profile is listed in the CapabilityStatement unde
 
    A StructureDefinition can only be posted in the context of a FHIR Version that matches the StructureDefinition.fhirVersion. See :ref:`feature_multiversion`.
 
+.. note::
+
+   The import process will retain any id that is already in the resource, or assign a new id if there is none in the resource.
+   For FHIR versions other than STU3, a postfix is appended to the id to avoid collissions between FHIR versions. See also :ref:`feature_multiversion_conformance`.
+
 .. toctree::
    :maxdepth: 3
 
@@ -57,14 +62,12 @@ The process uses these locations on disk:
 
    Please make sure that the Firely Server process has write permission on the ImportedDirectory.
 
-The process follows these steps for each FHIR version (currently STU3 and R4)
+The process follows these steps for each FHIR version (currently STU3 and R4, and experimentally for R5)
 
 #. Load the :ref:`conformance_specification_zip`, if they have not been loaded before.
 #. Load the :ref:`feature_errata`, if they have not been loaded before.
-#. And then, currently just for STU3:
-
-   #. :ref:`conformance_fromdisk`. After reading, the read files are registered in the read history.
-   #. :ref:`conformance_fromsimplifier`. After reading, the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
+#. :ref:`conformance_fromdisk`. After reading, the read files are registered in the read history.
+#. :ref:`conformance_fromsimplifier`. After reading, the project is registered in the read history. Subsequent reads will query only for resources that have changed since the last read.
 
 Loading the conformance resources from the various sources can take some time,
 especially on first startup when the :ref:`conformance_specification_zip` have to be imported.
@@ -74,7 +77,7 @@ The read history keeps a record of files that have been read, with an MD5 hash o
 If you wish to force a renewed import of a specific file, you should:
 
 * manually edit the read history file and delete the entry about that file;
-* provide the file again in the ImportDirectory.
+* provide the file again in the ImportDirectory (if you deleted it previously - Vonk does not delete it).
 
 .. _vonk_conformance_history:
 
@@ -171,6 +174,8 @@ You are encouraged to manage and publish your profiles and related Conformance R
 You can load from multiple Simplifier projects by adding them to the list. The environment variable version of this is::
 
   VONK_Administration:SimplifierProjects:0:Uri=<FHIR endpoint for retrieving StructureDefinitions>
+  
+Vonk automatically finds the FHIR version for each project and imports it only for the matching FHIR version.
 
 Get a FHIR endpoint for a Simplifier project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

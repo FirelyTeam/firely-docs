@@ -1,10 +1,7 @@
 Model classes
 -------------
-For each Resource type and data type in FHIR, the SDK contains a class in the form of a public partial
-class. If you need extra code to be performed when using these classes, you can just implement
-your own partial class for it. That way you can keep your code separate from the SDK code.
-
-Creating a new Patient resource instance, and an instance of the Identifier data type:
+For each Resource type and data type in FHIR, the SDK contains a class in the form of a public
+class. Creating a new Patient resource instance, and an instance of the Identifier data type:
 
 .. code-block:: csharp
 

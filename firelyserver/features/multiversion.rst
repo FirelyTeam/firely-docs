@@ -69,6 +69,8 @@ Delete a Patient resource.::
 
 This will delete Patient/123, regardless of its FHIR version. The Accept header is needed for Firely Server to know how to format an OperationOutcome if there is an error.
 
+.. _feature_multiversion_conformance:
+
 Conformance resources
 ---------------------
 

@@ -17,6 +17,19 @@ Upgrading Firely Server
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Firely Server.
 
+.. _vonk_releasenotes_392:
+
+Release 3.9.2 hotfix
+--------------------
+
+Fix
+^^^
+
+All fixes are relevant to SQL Server only.
+
+#. The 3.9.0 fix that "Improved the handling of concurrent updates on the same resource." decreased the performance of concurrent transaction handling. We implemented another solution that does not affect performance.
+#. Improved read performance by adding an index.
+
 .. _vonk_releasenotes_391:
 
 Release 3.9.1 hotfix

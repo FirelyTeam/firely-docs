@@ -40,4 +40,4 @@ You can control the period and the batchsize. If an evaluation of a Subscription
 * ``RepeatPeriod`` is expressed in milliseconds. In the example above the period is set to 20 seconds, meaning that after a change a subscriber will be notified in at most 20 seconds.
 * ``SubscriptionBatchSize`` is expressed in number of Subscriptions that is retrieved and evaluated at once. Default is 1, but you can set it higher if you have a lot of Subscriptions.
 * ``RetryPeriod`` is expressed in milliseconds. In the example above the period is set to 60 seconds, meaning that the Firely Server will retry to send the resources after a minimum of 60 seconds. Retry is included in the normal evaluation process, so the RetryPeriod cannot be smaller than RepeatPeriod.
-* ``MaximumRetries`` is the maximum amount of times Firely Server will retry to send the resources. 
+* ``MaximumRetries`` is the maximum amount of times Firely Server will retry to send the resources.
