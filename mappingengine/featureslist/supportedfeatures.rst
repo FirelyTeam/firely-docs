@@ -19,7 +19,7 @@ Metadata can be added to a StructureMap based on a FHIR Mapping Language script 
   /// title = "FHIR Mapper Tutorial : FakeInpatientDrugChart"
   /// status = draft
 
-  map "http://vonk.fire.ly/fhir/StructureMap/FHIRMapperTutorial" = FHIRMapperTutorial
+  map "http://server.fire.ly/fhir/StructureMap/FHIRMapperTutorial" = FHIRMapperTutorial
 
 Imported StructureDefinitions can be annotated with an alias that can be used instead of the type name throughout the mapping file: ::
 
@@ -67,7 +67,7 @@ Additional parameters are supported:
 
 5. ``id('<CodeSystemCanonical>', '<identifier>')`` - create an Identifier: ::
 
-    src.mpi as mpi -> patient.identifier = id('http://vonk.fire.ly/fhir/CodeSystem/mpi', mpi) as identifier, identifier.use = 'official';
+    src.mpi as mpi -> patient.identifier = id('http://server.fire.ly/fhir/CodeSystem/mpi', mpi) as identifier, identifier.use = 'official';
 
 6. ``c('<CodeSystemCanonical>', '<code>', '<DisplayValue>')`` - create a Coding.
 
@@ -91,7 +91,7 @@ Additional parameters are supported:
 
 8. ``translate(source, map_uri, output)`` - transform codes using a `ConceptMap <https://www.hl7.org/fhir/conceptmap.html>`_ by its canonical URL. The ConceptMap must be available on the ``/administration`` endpoint. Note that only ``equal`` and ``equivalent`` equivalences are supported. ::
 
-    src.gender as gender -> patient.gender = translate(gender, 'http://vonk.fire.ly/fhir/ConceptMap/MyFakePatientGender', 'code');
+    src.gender as gender -> patient.gender = translate(gender, 'http://server.fire.ly/fhir/ConceptMap/MyFakePatientGender', 'code');
 
 9. ``truncate(source, maxLength)`` - shorten the source input - which must be a string - to maxLength by cutting it off. ::
 
@@ -156,5 +156,5 @@ Unsupported features
 
 - <<stereotypes>> for mapping groups
 - Extending groups
-- conceptmaps embedded in the mapping file (they have to be uploaded to Vonk instead)
+- conceptmaps embedded in the mapping file (they have to be uploaded to Firely Server instead)
 - Using the "as queried" / "as produced" modes when importing a StructureDefinition

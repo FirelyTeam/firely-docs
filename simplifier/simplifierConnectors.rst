@@ -144,7 +144,7 @@ AJAX connectors run a query on an external server and can use Simplifier to rend
             // sample connector that validates the patient resource
             // and uses Simplifier to render the outcome
             $.ajax({ 
-                url: 'https://vonk.fire.ly/Patient/$validate', 
+                url: 'https://server.fire.ly/Patient/$validate', 
                 type: 'post', 
                 data: simplifier.ResourceJson, 
                 headers: { 

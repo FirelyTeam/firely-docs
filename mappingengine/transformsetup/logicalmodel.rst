@@ -3,7 +3,7 @@
 Logical Model + Custom Resource
 ===============================
 
-If you're working with a custom format that you want to transform, you need create a model of your data to describe it to the FHIR Mapper. If you're working with FHIR resources as your source data, Vonk already has the models available, so you can skip this step.
+If you're working with a custom format that you want to transform, you need create a model of your data to describe it to the FHIR Mapper. If you're working with FHIR resources as your source data, Firely Server already has the models available, so you can skip this step.
 
 1. Describe your logical model in Forge: see :ref:`forge_logical_models`. An example model `is available <https://simplifier.net/fhirmapper/fakeinpatientdrugchart>`_ and we'll use it in this documentation.
 
@@ -36,13 +36,13 @@ If you're working with a custom format that you want to transform, you need crea
 
 If you'd like to double-check, `this is how <https://simplifier.net/fhirmapper/FakeInpatientDrugChart-custom-resource/~json>`_ our example custom resource looks like now with all the changes applied.
 
-3. Finally, upload your custom resource to Vonk's ``/administration`` endpoint:
+3. Finally, upload your custom resource to Firely Server's ``/administration`` endpoint:
 
-   3.1. ``PUT`` the resource to ``http(s)://<vonk-endpoint>/administration/StructureDefinition/<custom resource name>``.
+   3.1. ``PUT`` the resource to ``http(s)://<firely-server-endpoint>/administration/StructureDefinition/<custom resource name>``.
 
       3.1.1 In our example, ``PUT http://localhost:4080/administration/StructureDefinition/FakeInpatientDrugChart`` with the resource in the body.
 
-With the custom resource uploaded to Vonk's administration point, we have now taught Vonk about a new resource type!
+With the custom resource uploaded to Firely Server's administration point, we have now taught Firely Server about a new resource type!
 
 You can verify this by running ``GET http(s)://localhost:4080/<custom resource name>`` (in our example ``GET http://localhost:4080/FakeInpatientDrugChart``). The query will return 0 search results instead of an error message "Request for not-supported ResourceType(s)".
 

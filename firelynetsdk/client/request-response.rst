@@ -88,7 +88,7 @@ Like this:
 	{
 		InnerHandler = authHandler
 	};
-	var client = new FhirClient("http://vonk.fire.ly", FhirClientSettings.CreateDefault(), loggingHandler);
+	var client = new FhirClient("http://server.fire.ly", FhirClientSettings.CreateDefault(), loggingHandler);
 
 
 This puts the AuthorizationMessageHandler inside the LoggingHandler, which is added to the client. Resulting in that both handlers form a pipeline through which requests and responses will pass.

@@ -7,7 +7,7 @@ FHIR server's endpoint as a parameter to the constructor:
 
 .. code:: csharp
 
-    var client = new FhirClient("http://vonk.fire.ly");
+    var client = new FhirClient("http://server.fire.ly");
 
 The constructor method is overloaded, to enable you to use a URI instead of a string.
 As second parameter to the constructor, you can specify whether the client should
@@ -41,7 +41,7 @@ To specify some specific settings, you add a ``FhirClientSettings`` to the const
                 PreferredReturn = Prefer.ReturnMinimal
             };
             
-    	var client = new FhirClient("http://vonk.fire.ly", settings)
+    	var client = new FhirClient("http://server.fire.ly", settings)
 
 You can also toggle these settings after the client has been initialized.
 
