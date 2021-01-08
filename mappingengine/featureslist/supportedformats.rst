@@ -51,7 +51,7 @@ All other column identifiers are exposed as child elements of the .record Backbo
     record.ID as id -> tgt.identifier = id('<system>', id);
     record.Given as given -> tgt.name as name, name.given = given;
     record.Family as family -> tgt.name as name collate, name.family = family;
-    record.Gener as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
+    record.Gender as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
   };
   
 2. CSV file contains no header metadata:
