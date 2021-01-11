@@ -1,26 +1,26 @@
 .. _configure_mapping_engine:
 
-Configuring FHIR Mapper on Firely Server
+Configuring FHIR Mapper on Vonk
 ======================================
 
-To configure the FHIR Mapper in your Firely Server installation, follow the steps below. If you don't have a copy yet, `get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
+To configure the FHIR Mapper in your Vonk installation, follow the steps below. If you don't have a copy yet, `get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
 
 Load the engine
 ~~~~~~~~~~~~~~~
 
-1. Ensure the ``/plugins`` directory exists in your Firely Server installation.
+1. Ensure the ``/plugins`` directory exists in your Vonk installation.
 
    1.1. The location of this folder is customisable via the ``PluginDirectory`` property, so if you chose a different directory, ensure it exists instead.
 
 2. Verify that all required DLLs can be found in the plugin directory:
 
-  - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Language.dll
-  - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.dll
-  - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.STU3.Poco.dll
-  - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.R4.Poco.dll
-  - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Superpower.dll
-  - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Vonk.Plugin.Mapping.dll
-  - <path to firely server>/plugins/vonk.plugin.binarywrapper/<version>/Vonk.Plugin.BinaryWrapper.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Language.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.STU3.Poco.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.R4.Poco.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Superpower.dll
+  - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Vonk.Plugin.Mapping.dll
+  - <path to vonk>/plugins/vonk.plugin.binarywrapper/<version>/Vonk.Plugin.BinaryWrapper.dll
 
 3. Configure the :ref:`configure_appsettings` and check that ``$convert`` is added as a``WholeSystemInteractions`` to support the `convert <http://hl7.org/fhir/resource-operation-convert.html>`_ operation.
 
@@ -63,12 +63,12 @@ Sample configuration: ::
           ],
         },
 
-6. Start Firely Server :)
+6. Start Vonk :)
 
 Verifying
 ~~~~~~~~~
 
-To verify that the mapping engine is loaded, do check the metadata with ``http(s)://<firely-server-endpoint>/metadata``. If it mentions this in the response: ::
+To verify that the mapping engine is loaded, do check the metadata with ``http(s)://<vonk-endpoint>/metadata``. If it mentions this in the response: ::
 
  {
    "name": "transform",
@@ -84,21 +84,21 @@ That means the plugin is loaded and working.
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
-If the verification didn't work for some reason, check the Firely Server logs for the following:
+If the verification didn't work for some reason, check the Vonk logs for the following:
 
 1. In the ``Looking for Configuration in these assemblies`` section, ensure the dll's are loaded: ::
 
-   - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Language.dll
-   - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.dll
-   - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.STU3.Poco.dll
-   - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.R4.Poco.dll
-   - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Superpower.dll
-   - <path to firely server>/plugins/vonk.plugin.mapping/<version>/Vonk.Plugin.Mapping.dll
-   - <path to firely server>/plugins/vonk.plugin.binarywrapper/<version>/Vonk.Plugin.BinaryWrapper.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Language.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.STU3.Poco.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Hl7.Fhir.Mapping.R4.Poco.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Superpower.dll
+   - <path to vonk>/plugins/vonk.plugin.mapping/<version>/Vonk.Plugin.Mapping.dll
+   - <path to vonk>/plugins/vonk.plugin.binarywrapper/<version>/Vonk.Plugin.BinaryWrapper.dll
 
 If they're not listed, check that the dll files are available in your ``PluginDirectory`` directory (``./plugins`` by default). 
     
-2. Ensure the plugins are being registered with the Firely Server pipeline: ::
+2. Ensure the plugins are being registered with the Vonk pipeline: ::
 
     Configuration:
     /administration

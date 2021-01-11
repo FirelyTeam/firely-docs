@@ -3,12 +3,12 @@
 Getting started
 ===============
 
-The FHIR Mapper is available as a paid plugin to the Firely Server - FHIR server. `Get in touch <https://fire.ly/contact/>`_ with us if you're interested in obtaining it for your needs. Alternatively, you can try the FHIR Mapper in our `public test sandbox <https://server.fire.ly/>`_ or by downloading `Firely Server <https://simplifier.net/vonk>`_ using an Evaluation license. All operations described in this documentation are accessible for testing purposes.
+The FHIR Mapper is available as a paid plugin to the Vonk FHIR server. `Get in touch <https://fire.ly/contact/>`_ with us if you're interested in obtaining it for your needs. Alternatively, you can try the FHIR Mapper in our `public test sandbox <https://vonk.fire.ly/>`_ or by downloading `Vonk <https://simplifier.net/vonk>`_ using an Evaluation license. All operations described in this documentation are accessible for testing purposes.
 
 Configuration
 -------------
 
-The section :ref:`configure_mapping_engine` explains how you can configure the plugin in your own Firely Server.
+The section :ref:`configure_mapping_engine` explains how you can configure the plugin in your own Vonk server.
 
 .. _mappingengine_run:
 

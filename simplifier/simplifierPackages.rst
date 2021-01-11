@@ -87,11 +87,11 @@ Resource validation
 ^^^^^^^^^^^^^^^^^^^
 When all required packages have been installed, you can start validating your resources. First, set up your FHIR server if you haven't done this earlier. 
 
-``fhir server add firely server https://server.fire.ly``
+``fhir server add vonk https://vonk.fire.ly``
 
 Next, get an example Patient from your server.
 
-``fhir read firely server Patient/example``
+``fhir read vonk Patient/example``
 
 Finally, run the command to validate this resource.
 

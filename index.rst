@@ -1,6 +1,6 @@
 .. SimplifierDocs documentation master file, created by
    This file is the main page, pointing to the documentation
-   for the subprojects Simplifier.net, Forge, Firely Terminal, Firely Server, VonkLoader, and the Firely .Net SDK.
+   for the subprojects Simplifier.net, Forge, Firely Terminal, Vonk, VonkLoader, and the Firely .Net SDK.
 
 Welcome to Firely's documentation site
 ==========================================
@@ -14,7 +14,7 @@ The currently documented projects are:
 
    Simplifier - FHIR profile registry <simplifier/index>
    Forge - FHIR profile editor <forge/index>
-   Firely Server - FHIR server <firelyserver/index>
+   Vonk - FHIR server <vonk/index>
    Firely .NET SDK - Open Source FHIR library <firelynetsdk/index>
    Firely Terminal (Torinox) - Command-line FHIR tool <firelyterminal/index>
    FHIR Mapper - Engine for the FHIR Mapping Language <mappingengine/index>
@@ -40,7 +40,7 @@ Versions overview
      - ✔️ (frozen)
      - Firely .NET SDK 2.0.1
    * - Simplifier 26.3
-     -
+     - 
      - ✔️ 4.0.1
      - ✔️ 3.0.2
      - ✔️ (frozen)
@@ -49,25 +49,25 @@ Versions overview
      - ✔️ 4.5.0 (alpha)
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     -
+     - 
      - Firely .NET SDK 2.0.0-beta2
    * - Vonk 3.9.1
      - ✔️ 4.4.0 (alpha)
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     -
+     - 
      - Firely .NET SDK 1.9
    * - FHIR Mapper 0.5.0
-     -
+     - 
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     -
+     - 
      - Firely .NET SDK 1.9, Vonk 3.8
    * - Firely .NET SDK 2.0
      - ✔️ 4.5.0 (alpha)
      - ️️️️✔️ 4.0.1
      - ✔️ 3.0.2
      - ✔️ (frozen)
-     -
+     - 
 
 See `all released FHIR versions <https://www.hl7.org/fhir/history.html>`_.
