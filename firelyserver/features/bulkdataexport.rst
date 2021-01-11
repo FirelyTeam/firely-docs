@@ -43,7 +43,7 @@ To start using the Bulk Data Export Service (BDE) you will first have to add the
       }, ...etc...
 
 .. note::
-    We only implemented BDE for SQL and SQLite. Make sure both the admin and data database are configured for either SQL Server or SQLite.
+    We did not implement BDE for all database types. Make sure the admin database is configured for either SQL Server or SQLite and the data database is configured for SQL Server.
     
 BDE introduces two new parts to the appsettings, namely TaskFileManagement and BulkDataExport.
 
@@ -52,13 +52,13 @@ BDE introduces two new parts to the appsettings, namely TaskFileManagement and B
   "TaskFileManagement": {
       "StoragePath": "./taskfiles"
     },
-    "BulkDataExport": {
+  "BulkDataExport": {
       "RepeatPeriod" : 60000 //ms
     },
     
 In StoragePath you can configure the folder (in de Vonk directory) where the exported files will be saved to. 
 
-In RepeatPeriod you can configure the frequency (in milliseconds) the Task queue is checked if there are no active tasks.
+In RepeatPeriod you can configure the polling interval (in milliseconds) for checking the Task queue if there are no active tasks.
 
 $export
 -------
@@ -102,8 +102,8 @@ There are five possible status options:
 5. Cancelled
 
 * If a task is Queued or Active, GET $exportstatus will return the status in the X-Progress header
-* If a task is Complete, GET $exportstatus will return the results with a **$exportfilerequest** url per exported .ndjson file. This url can be used to retrieve the files per resourcetype.
-* If a task is Failed, GET $exportstatus will return the available results (if any) and a **$exportfilerequest** url for the generated OperationOutcome resources.
+* If a task is Complete, GET $exportstatus will return the results with a **$exportfilerequest** url per exported .ndjson file. This url can be used to retrieve the files per resourcetype. If there were any problems with parts of the export, an url for the generated OperationOutcome resources can be found in the error section of the result.
+* If a task is Failed, GET $exportstatus will return HTTP Statuscode 500 with an OperationOutcome.
 * If a task is Cancelled, GET $exportstatus will return HTTP Statuscode 204NoContent.
 
 
