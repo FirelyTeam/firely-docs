@@ -10,6 +10,7 @@ Firely Server FHIR Server offers many features as defined in the FHIR Specificat
    :titlesonly:
 
    restful_api
+   bulkdataexport
    customoperations
    customresources
    terminology
