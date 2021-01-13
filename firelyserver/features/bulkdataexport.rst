@@ -56,7 +56,7 @@ BDE introduces two new parts to the appsettings, namely TaskFileManagement and B
       "RepeatPeriod" : 60000 //ms
     },
     
-In StoragePath you can configure the folder (in de Vonk directory) where the exported files will be saved to. 
+In StoragePath you can configure the folder (in de Firely Server directory) where the exported files will be saved to. 
 
 In RepeatPeriod you can configure the polling interval (in milliseconds) for checking the Task queue if there are no active tasks.
 
@@ -76,17 +76,17 @@ Patient
 
 **url:** [firely-server-base]/Patient/$export
 
-This will create a type level export task, exporting all resources included in the Patient Compartment in the Firely Server database to a .ndjson file per resourcetype.
+This will create a type level export task, exporting all resources included in the Patient Compartment in the Firely Server database to an .ndjson file per resourcetype.
 
 Group
 ^^^^^
 **url:** [firely-server-base]/Group/<group-id>/$export
 
-This will create an instance level export task. For each Patient in the Group, the task will export all resources included in the Patient Compartment in the Firely Server database to a .ndjson file per resourcetype.
+This will create an instance level export task. For each Patient in the Group, the task will export all resources included in the Patient Compartment in the Firely Server database to an .ndjson file per resourcetype.
 
 .. note:: For now we only support inclusion in a Group through Group.member.
 
-Making a $export request will create a new task in the database with status "Queued". The request should return an absolute **$exportstatus** URL in the Content-Location header and the OperationOutcome in the body.  
+Making an $export request will create a new task in the database with status "Queued". The request should return an absolute **$exportstatus** URL in the Content-Location header and the OperationOutcome in the body.  
 
 $exportstatus
 -------------
