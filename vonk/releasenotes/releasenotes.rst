@@ -37,7 +37,7 @@ Database
 Fix
 ^^^
 
-#. :ref:`feature_subscription`: A resthook notification was sent as a FHIR create operation, using POST. This was not compliant with the specification that states it must be an update, using PUT. We changed the default behaviour to align with the specification. To avoid a breaking change in an existing deployment you may set the new setting ``SubscriptionEvaluatorOptions:SendRestHookAsCreate`` to true. That way Vonk will retain the (incorrect) behaviour from the previous versions.
+#. :ref:`feature_subscription`: A resthook notification was sent as a FHIR create operation, using POST. This was not compliant with the specification that states it must be an update, using PUT. We changed the default behaviour to align with the specification. In order to avoid breaking changes in an existing deployments, you may set the new setting ``SubscriptionEvaluatorOptions:SendRestHookAsCreate`` to ``true`` - that way Vonk will retain the (incorrect) behaviour from the previous versions.
 
 .. _vonk_releasenotes_392:
 
@@ -723,4 +723,3 @@ Known to-dos
 #. :ref:`feature_subscription`: do not work for R4 yet.
 #. :ref:`feature_terminology`: operations do not work for R4.
 #. During :ref:`conformance_import`: Files in the import directory and Simplifier projects are only imported for R3.
-
