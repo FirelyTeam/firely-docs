@@ -18,7 +18,7 @@ CSV
 -------------
 The FHIR Mapper supports mapping a comma-separated values (CSV) file without any prior setup (e.g. creating StructureDefinitions). You can POST the CSV file as the HTTP Body to the $transform operation and access its metadata and content within a StructureMap.
 
-To enable CSV support, please adjust the BinaryWrapper settings in your appsettings.instance.json to allow Vonk to accept the ``text/csv`` Content-Type header: ::
+To enable CSV support, please adjust the BinaryWrapper settings in your appsettings.instance.json to allow Firely Server to accept the ``text/csv`` Content-Type header: ::
 
       "Vonk.Plugin.BinaryWrapper":{
         "RestrictToMimeTypes": ["application/pdf", "text/plain", "image/png", "image/jpeg", "text/fhir-mapping", "text/csv"]
@@ -51,19 +51,19 @@ All other column identifiers are exposed as child elements of the .record Backbo
     record.ID as id -> tgt.identifier = id('<system>', id);
     record.Given as given -> tgt.name as name, name.given = given;
     record.Family as family -> tgt.name as name collate, name.family = family;
-    record.Gener as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
+    record.Gender as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
   };
   
 2. CSV file contains no header metadata:
 
-Regardless if the CSV file contains a header, all elements are accessible for the mapping to FHIR. For files not containing a metadata row, element names for the mapping source are generated dynamically as ``field#``: :: 
+Regardless if the CSV file contains a header, all elements are accessible for the mapping to FHIR. For files not containing a metadata row, element names for the mapping source are generated dynamically as ``field#`` (starting with field0): :: 
 
   src.record as record then 
   {
-    record.field1 as id -> tgt.identifier = id('<system>', id);
-    record.field2 as given -> tgt.name as name, name.given = given;
-    record.field3 as family -> tgt.name as name collate, name.family = family;
-    record.field4 as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
+    record.field0 as id -> tgt.identifier = id('<system>', id);
+    record.field1 as given -> tgt.name as name, name.given = given;
+    record.field2 as family -> tgt.name as name collate, name.family = family;
+    record.field3 as gender -> tgt.gender = translate('<ConceptMap>', gender, 'code');
   };
   
 (C)-CDA
@@ -75,7 +75,7 @@ It contains:
 1. StructureDefinitions respresenting (C)-CDA documents and all corresponding data types. All StructureDefinitions are based on the `CDA-Core-2.0 <https://github.com/HL7/cda-core-2.0>`_ Project from HL7 International. For more information see `CDA-Core-2.0 ImplementationGuide <http://build.fhir.org/ig/HL7/cda-core-2.0/>`_.
 2. StructureMap / FHIR Mapping Language files for executing the mapping. For C-CDA documents, the mappings are based on an open-source project provided by HL7 International. See `ccda-to-fhir GitHub project <https://github.com/HL7/ccda-to-fhir>`_. For more information about the scope of the mappings see `HL7 CCDA Mapping Report <https://github.com/HL7/ccda-to-fhir/blob/master/Mapping%20Report.pdf>`_. A high-level overview of the mapping can be found `here as an Excel Sheet <https://github.com/HL7/ccda-to-fhir/blob/master/CDA-to-FHIR_mappings.xlsx>`_.
 
-To enable (C)-CDA support, please adjust the BinaryWrapper settings in your appsettings.instance.json to allow Vonk to accept the ``application/hl7-sda+xml`` Content-Type header: ::
+To enable (C)-CDA support, please adjust the BinaryWrapper settings in your appsettings.instance.json to allow Firely Server to accept the ``application/hl7-sda+xml`` Content-Type header: ::
 
       "Vonk.Plugin.BinaryWrapper":{
         "RestrictToMimeTypes": ["application/pdf", "text/plain", "image/png", "image/jpeg", "text/fhir-mapping", "application/hl7-sda+xml"]

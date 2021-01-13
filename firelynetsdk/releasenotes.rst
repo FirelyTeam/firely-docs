@@ -3,7 +3,9 @@
 Release notes
 =============
 
-.. important:: The release notes are moved to `firely-net-sdk/releases <https://github.com/FirelyTeam/firely-net-sdk/releases>`_ 
+.. important:: The release notes are moved to `firely-net-sdk/releases <https://github.com/FirelyTeam/firely-net-sdk/releases>`_.
+
+The 2.0 transition docs can be `found here <https://github.com/FirelyTeam/firely-net-sdk/wiki/What's-new-and-changed-in-Firely-.NET-SDK-2.0%3F>`_. 
 
 .. _sdk_releasenotes_1.3.0:
 1.3.0 (STU3, R4) (released 20190710)

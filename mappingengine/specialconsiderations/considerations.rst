@@ -24,3 +24,6 @@ Enclose the ``where`` and ``check`` FHIRPath statements (`documentation <https:/
 
   src.contact as s where "address.exists()" -> ...
   
+bulk input
+~~~~~~~~~~
+In order to transform data in bulk, submit it in CSV format. JSON format supports only individual transformations.
