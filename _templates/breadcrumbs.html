@@ -5,9 +5,9 @@
   <div><a href="https://www.devdays.com"><img src="{{ pathto('_static/images/banner.png', 1) }}" alt="FHIR DevDays banner"/></a></div>
   <hr/>
 	{% if _('firelynetsdk') in pagename %}
-		<li class="wy-breadcrumbs-api"><a href="{{ pathto(master_doc) }}">{{ _('Docs') }}</a> &raquo;</li>
+		<li class="wy-breadcrumbs-api"><a href="{{ pathto(master_doc) }}">{{ _('Firely Docs') }}</a> &raquo;</li>
 	{% else %}
-		<li><a href="{{ pathto(master_doc) }}">{{ _('Docs') }}</a> &raquo;</li>
+		<li><a href="{{ pathto(master_doc) }}">{{ _('Firely Docs') }}</a> &raquo;</li>
 	{% endif %}
 	{% for doc in parents %}
 		{% if loop.index == 1 %}

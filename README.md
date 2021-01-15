@@ -15,7 +15,7 @@ This is the source code for the Firely documentation site, documenting the Firel
 2. Create empty RTD project: sphinx-quickstart
 3. Copy from another subproject like https://github.com/firelyTeam/firely-docs-firely-terminal:
   * In root: build.bat, autobuild.bat, .gitignore
-  * In _templates: breadcrumbs.html (to customize top page name), layout.html (for Firely layout), searchbox.html (for accessibility label on search field)
+  * In _templates: breadcrumbs.html (to customize top page name), layout.html (for Firely layout and logo link), searchbox.html (for accessibility label on search field)
   * In _static: css/style.css, images/banner.png
 4. In conf.py:
   * Change theme: `html_theme = 'sphinx_rtd_theme'`
