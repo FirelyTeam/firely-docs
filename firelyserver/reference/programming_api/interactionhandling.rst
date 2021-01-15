@@ -145,7 +145,7 @@ VonkAppBuilder extension methods
 
 .. function:: PostHandleAsyncWith<TService>(this VonkAppBuilder app, Expression<Func<TService, IVonkContext, T.Task>> postHandler) -> IApplicationBuilder
 
-   Mark the ``postHandler`` method as a posthandler, so it will pass on the IVonkContext to the rest of the pipeline, and on the way back through the pipeline inspect or modify the response.
+   Mark the ``postHandler`` method as a posthandler, so it will pass on the IVonkContext to the rest of the pipeline, and on the way back through the pipeline inspect or modify the response. Make sure that the ``VonkConfiguration`` order you have for this is lower than whatever action you need to post-handle.
 
 .. function:: PostHandleWith<TService>(this VonkAppBuilder app, Expression<Action<TService, IVonkContext>> postHandler) -> IApplicationBuilder
 
