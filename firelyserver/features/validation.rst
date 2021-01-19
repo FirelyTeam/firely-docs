@@ -74,7 +74,7 @@ Firely Server must be aware of all the StructureDefinitions referenced directly 
 
 .. _feature_validation_limitations:
 
-Limitation
+Limitations
 -----------
 
 #. The mode parameter is not yet supported.
