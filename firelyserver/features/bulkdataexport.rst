@@ -99,7 +99,8 @@ There are six possible status options:
 2. Active
 3. Complete
 4. Failed
-5. Cancelled
+5. CancellationRequested
+6. Cancelled
 
 * If a task is Queued or Active, GET $exportstatus will return the status in the X-Progress header
 * If a task is Complete, GET $exportstatus will return the results with a **$exportfilerequest** url per exported .ndjson file. This url can be used to retrieve the files per resourcetype. If there were any problems with parts of the export, an url for the generated OperationOutcome resources can be found in the error section of the result.
