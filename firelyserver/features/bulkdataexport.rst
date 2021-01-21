@@ -93,7 +93,7 @@ $exportstatus
 
 The $export request should return the $exportstatus url for your export task. This url can be used to request the current status of the task through a GET request, or to cancel the task through a DELETE request.
 
-There are five possible status options:
+There are six possible status options:
 
 1. Queued
 2. Active
