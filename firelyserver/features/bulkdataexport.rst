@@ -110,7 +110,7 @@ There are six possible status options:
 $exportfilerequest
 ------------------
 
-If a task has the Complete or Failed status, the GET $exportstatus request should return one or more $exportfilerequest urls.
+If a task has the Complete status, the GET $exportstatus request should return one or more $exportfilerequest urls.
 Performing a GET request on this $exportfilerequest url returns a body of FHIR resources in newline delimited json (ndjson).
 
 .. note::
