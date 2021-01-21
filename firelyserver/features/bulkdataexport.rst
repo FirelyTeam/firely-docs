@@ -58,7 +58,7 @@ BDE introduces two new parts to the appsettings, namely TaskFileManagement and B
     
 In StoragePath you can configure the folder where the exported files will be saved to. Make sure the server has write access to this folder.
 
-In RepeatPeriod you can configure the polling interval (in milliseconds) for checking the Task queue if there are no active tasks.
+In RepeatPeriod you can configure the polling interval (in milliseconds) for checking the Task queue for new export task.
 
 $export
 -------
