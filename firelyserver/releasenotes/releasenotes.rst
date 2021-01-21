@@ -32,7 +32,7 @@ Features
 
    .. attention::
    
-      If you are running Firely Server with your own self-made plugins, you will likely encounter package versioning problems and need to upgrade your NuGet Firely Server package references (package names starting with ``Vonk.``) to version 4.0.0. You also need to upgrade any Firely .NET SDK package references (package names starting with ``Hl7.Fhir.``) to version 2.0.1. The `Firely .NET SDK release notes <https://github.com/FirelyTeam/firely-net-sdk/releases>`_ can give you an idea of the changes you may encounter in the SDK.
+      If you are running Firely Server with your own self-made plugins, you will likely encounter package versioning problems and need to upgrade your NuGet Firely Server package references (package names starting with ``Vonk.``) to version 4.0.0. You also need to upgrade any Firely .NET SDK package references (package names starting with ``Hl7.Fhir.``) to version 2.0.1. The `Firely .NET SDK release notes <https://github.com/FirelyTeam/firely-net-sdk/releases>`_ and `Breaking changes in Firely SDK 2.0 <https://github.com/FirelyTeam/firely-net-sdk/wiki/Breaking-changes-in-2.0>`_ can give you an idea of the changes you may encounter in the SDK.
 	  
 Changes
 ^^^^^^^
@@ -45,6 +45,7 @@ Changes
 	  If you developed a facade plugin based on ``Vonk.Facade.Relational``, you need to override ``RelationalQueryFactory.EntryInformationModel(string informationModel)`` in your implementation to allow the FHIR version you wish to target (see :ref:`facade_fhir_version`)
 
 #. Application Insights has now been disabled by default. If you need Application Insights, you can enable it in your log settings file by including the entire section mentioned in :ref:`Application Insights log settings<configure_log_insights>`.
+#. When validating a resource, a non-existing code would lead to an OperationOutcome.issue with the code ``code-invalid``. That issue code has been changed to ``not-supported``
 
 
 .. _vonk_releasenotes_393:
