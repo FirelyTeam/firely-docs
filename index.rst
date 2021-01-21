@@ -43,12 +43,12 @@ On this site you will find the documentation for various FHIR tools and SDKs.
      - ✔️ 3.0.2
      -
      - Firely .NET SDK 2.0.0-beta2
-   * - Vonk 3.9.1
-     - ✔️ 4.4.0 (alpha)
+   * - Firely Server 4.0.0
+     - ✔️ 4.5.0 (alpha)
      - ✔️ 4.0.1
      - ✔️ 3.0.2
      -
-     - Firely .NET SDK 1.9
+     - Firely .NET SDK 2.0.1
    * - FHIR Mapper 0.5.0
      -
      - ✔️ 4.0.1

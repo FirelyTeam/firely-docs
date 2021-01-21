@@ -51,6 +51,31 @@ The DbContext is used for retrieving DbSets for related entities, as we will see
     public PatientQueryFactory(DbContext onContext) : base("Patient", onContext) { }
 
 
+.. _facade_fhir_version:
+
+Deciding on a FHIR version
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You need to explicitly tell Firely Server for which FHIR version(s) you wish to return resources. If you don't override ``EntryInformationModel``, any search will fail with a ``501 Not Implemented``. The following override will allow searches for any possible FHIR version to be handled by your facade::
+       
+    public override PatientQuery EntryInformationModel(string informationModel)
+    {
+        return default(PatientQuery);
+    }
+
+If you wish to implement search only for a single FHIR version or for a limited set of versions you can override the method like this::
+
+    public override PatientQuery EntryInformationModel(string informationModel)
+    {
+        if (informationModel == VonkConstants.Model.FhirR4)
+        {
+            return default(PatientQuery);
+        }
+        
+        throw new NotImplementedException($"FHIR version {informationModel} is not supported");        
+    }
+	
+
 Handling the search request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Each of the searchparameters in the search request triggers a call to the ``Filter`` method. This method takes a

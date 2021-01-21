@@ -86,13 +86,6 @@ The gist of the implementation is to switch the querying based on the ResourceTy
          return new SearchResult(patientResources, query.GetPageSize(), count);
      }
 
-* Please note that R4 calls can lead to NotImplementedExceptions, as some older Facades may implement STU3 only. Therefore, when using FHIR version R4 or higher, you will need to override the EntryInformationModel to suppress the NotImplementedException. This can be done by either adding a version filter to your query or, if you only do R4 and you don't want to use a filter, by implementing the following override::
-       
-    public override PatientQuery EntryInformationModel(string informationModel)
-    {
-        return default(PatientQuery);
-    }
-
 What happens behind the scenes is that the QueryBuilderContext creates a QueryBuilder that analyzes all the arguments and options, and translates that into calls into your PatientQueryFactory.
 This pattern offers maximum assistance in processing the search, but also gives you full control over the raw arguments in case you need that for anything.
 Any argument that is reported as in Error, or not handled will automatically show up in the OperationOutcome of the Firely Server response.

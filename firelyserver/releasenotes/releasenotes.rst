@@ -17,6 +17,36 @@ Upgrading Firely Server
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Firely Server.
 
+.. _vonk_releasenotes_400:
+
+Release 4.0.0
+-------------
+
+This major version introduces a new name: **Firely Server** instead of Vonk. Other than that, this release contains some significant code changes, which could impact you if you run Firely Server with your own plugins.
+
+Features
+^^^^^^^^
+
+#. We have implemented FHIR Bulk Data Access (``$export``) to allow for fast, asynchronous ndjson data exports. The :ref:`Bulk Data Export documentation<feature_bulkdataexport>` can help you to get started.
+#. Firely Server now uses Firely .NET SDK 2.0.1 (formerly: FHIR .NET API)
+
+   .. attention::
+   
+      If you are running Firely Server with your own self-made plugins, you will likely encounter package versioning problems and need to upgrade your NuGet Firely Server package references (package names starting with ``Vonk.``) to version 4.0.0. You also need to upgrade any Firely .NET SDK package references (package names starting with ``Hl7.Fhir.``) to version 2.0.1. The `Firely .NET SDK release notes <https://github.com/FirelyTeam/firely-net-sdk/releases>`_ can give you an idea of the changes you may encounter in the SDK.
+	  
+Changes
+^^^^^^^
+
+#. The main entry point dll (formerly: ``Vonk.Server.dll``) and executable (formerly: ``Vonk.Server.exe``) names have been changed to ``Firely.Server.dll`` and ``Firely.Server.exe`` respectively.
+#. A self-provided facade based on ``Vonk.Facade.Relational`` no longer defaults to STU3
+
+   .. attention::
+
+	  If you developed a facade plugin based on ``Vonk.Facade.Relational``, you need to override ``RelationalQueryFactory.EntryInformationModel(string informationModel)`` in your implementation to allow the FHIR version you wish to target (see :ref:`facade_fhir_version`)
+
+#. Application Insights has now been disabled by default. If you need Application Insights, you can enable it in your log settings file by including the entire section mentioned in :ref:`Application Insights log settings<configure_log_insights>`.
+
+
 .. _vonk_releasenotes_393:
 
 Release 3.9.3 hotfix
