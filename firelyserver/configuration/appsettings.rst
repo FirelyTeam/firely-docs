@@ -369,7 +369,7 @@ Restrict supported resources and SearchParameters
 
    "SupportedModel": {
      "RestrictToResources": [ "Patient", "Observation" ],
-     "RestrictToSearchParameters": ["Patient.active", "Observation.patient"],
+     "RestrictToSearchParameters": ["Patient.active", "Observation.patient", "Resource._id", "StructureDefinition.url"],
      "RestrictToCompartments": ["Patient"]
    },
 
@@ -378,7 +378,7 @@ If you want to limit support, you can do so with the configuration above. This i
 
 Be aware that:
 
-* support for _type and _id cannot be disabled
+* support for _type and _id must not be disabled
 * the Administration API requires support for the 'url' SearchParameter on the conformance resourcetypes
 * this uses the search parameter names, not the path within the resource - so for example to specify `Patient.address.postalCode <http://hl7.org/fhir/R4/patient.html#search>`_ as a supported location, you'd use ``"Patient.address-postalcode"``.
 
