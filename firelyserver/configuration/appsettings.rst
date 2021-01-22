@@ -368,8 +368,8 @@ Restrict supported resources and SearchParameters
 ::
 
    "SupportedModel": {
-     "RestrictToResources": [ "Patient", "Observation" ]
-     "RestrictToSearchParameters": ["Patient.active", "Observation.patient"]
+     "RestrictToResources": [ "Patient", "Observation" ],
+     "RestrictToSearchParameters": ["Patient.active", "Observation.patient"],
      "RestrictToCompartments": ["Patient"]
    },
 
