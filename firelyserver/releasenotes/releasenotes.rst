@@ -30,7 +30,7 @@ Features
 #. Name change Vonk -> Firely Server:
    #. The main entry point dll (formerly: ``Vonk.Server.dll``) and executable (formerly: ``Vonk.Server.exe``) names have been changed to ``Firely.Server.dll`` and ``Firely.Server.exe`` respectively.
    #. The name was changed in the CapabilityStatement.name.
-   #. The SMART on FHIR ``Audience`` setting i
+   #. The SMART on FHIR ``Audience`` setting
 #. We have implemented FHIR Bulk Data Access (``$export``) to allow for fast, asynchronous ndjson data exports. The :ref:`Bulk Data Export documentation<feature_bulkdataexport>` can help you to get started.
 #. Firely Server now uses Firely .NET SDK 2.0.2 (formerly: FHIR .NET API)
 
