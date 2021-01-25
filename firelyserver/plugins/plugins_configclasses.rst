@@ -3,7 +3,7 @@
 Configuration classes
 =====================
 
-A configuration class is a static class with two public static methods having the signature as below, that can add services to the Firely Server FHIR Server dependency injection system, and add middleware to the pipeline.
+A configuration class is a static class with two public static methods having the signature as below, that can add services to the Firely Server dependency injection system, and add middleware to the pipeline.
 
 .. code-block:: csharp
 

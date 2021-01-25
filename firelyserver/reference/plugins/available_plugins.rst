@@ -1,7 +1,7 @@
 .. _vonk_available_plugins:
 
 Plugins available for Firely Server
-==========================
+===================================
 
 .. _vonk_plugins_infra:
 

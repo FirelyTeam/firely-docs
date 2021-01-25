@@ -1,8 +1,8 @@
 .. _use_docker:
 
-====================
+=============================
 Using Firely Server on Docker
-====================
+=============================
 
 We have created a Docker image for Firely Server, so you can run the server in any environment that supports Docker. For this section we
 assume you have Docker installed on your system. If you want to install Docker for Windows, please read :ref:`docker_win` for specific
@@ -25,7 +25,7 @@ Before you can run Firely Server, you will need to pull the Docker Firely Server
 .. warning:: If you use Docker, you may want to run multiple instances of Firely Server (e.g. with Kubernetes). Read :ref:`vonk_conformance_instances` for caveats with the Administration endpoint.
 
 Running a Docker Firely Server in SQLite mode
-------------------------------------
+---------------------------------------------
 
 The easiest and the default way to run a Docker Firely Server container is to run Firely Server in SQLite repository mode. Note that this is not the most performant mode - see MongoDB and SQL Server options below for that.
 

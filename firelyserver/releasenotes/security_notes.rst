@@ -1,7 +1,7 @@
 .. _vonk_securitynotes:
 
 Security notifications for Firely Server
-===============================
+========================================
 
 July 2020
 ---------

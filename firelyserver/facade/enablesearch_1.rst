@@ -11,7 +11,7 @@ The next paragraphs will walk you through these steps.
 1. Create a query
 -----------------
 
-Firely Server FHIR Facade is meant to be used across all kinds of database paradigms and schemas. Or even against underlying web services or stored procedures.
+Firely Server Facade is meant to be used across all kinds of database paradigms and schemas. Or even against underlying web services or stored procedures.
 This means Firely Server cannot prescribe the way your query should be expressed. After all, it could be an http call to a webservice, or a json command to MongoDB.
 
 In our case we will build a LINQ query against our ViSi model, that is translated by Entity Framework to a SQL query.

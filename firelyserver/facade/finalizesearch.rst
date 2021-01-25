@@ -47,7 +47,7 @@ the order of inclusion, and adds to the services. For background information, se
 .. _configure_facade:
 
 3. Configure your Firely Server Facade
------------------------------
+--------------------------------------
 
 * Create an appsettings.instance.json file in your Firely Server working directory.
 

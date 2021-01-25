@@ -4,7 +4,7 @@ Set up an Identity Provider
 ===========================
 
 About Identity Providers and Firely Server
----------------------------------
+------------------------------------------
 
 In order to use :ref:`feature_accesscontrol` you need an Identity Provider that can provide OAuth2 JWT Tokens with claims that conform to `SMART on FHIR`_. In a production scenario, you typically already have such a provider. It could be the EHR system, the Active Directory, or a provider set up specifically for let's say a Patient Portal. It is also very well possible that the provider handing the correct claims uses a federated OAuth2 provider to do the authentication.
 

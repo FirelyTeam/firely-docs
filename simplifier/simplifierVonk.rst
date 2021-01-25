@@ -4,7 +4,7 @@ Use Firely Server with your Simplifier artifacts
 ===================================================
 
 If you have defined some profiles, valuesets and examples in your Simplifier project, you may want to setup a FHIR Server for you or others to test against.
-We have tried to make that extremely simple for you, using Firely Server FHIR Server. Here is how:
+We have tried to make that extremely simple for you, using Firely Server. Here is how:
 
 Currently we only enabled this for Windows 10, using PowerShell. Later we will add support for Linux and/or MacOS.
 

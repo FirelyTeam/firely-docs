@@ -1,7 +1,7 @@
 .. _administration_api:
 
 Firely Server Administration API
-=======================
+================================
 
 Besides the regular FHIR endpoint, Firely Server also exposes an Administration API. The endpoint for this is:
 ::

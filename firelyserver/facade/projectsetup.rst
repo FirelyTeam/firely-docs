@@ -16,7 +16,7 @@ Create new project
 
 
 Add Firely Server Packages
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Tools > NuGet Package Manager > Package Manager Console
 

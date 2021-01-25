@@ -1,7 +1,7 @@
 .. _deployment:
 
 Firely Server deployment options
-=======================
+================================
 
 Firely Server can be deployed as:
 

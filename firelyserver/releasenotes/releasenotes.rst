@@ -1,7 +1,7 @@
 .. _vonk_releasenotes:
 
 Release notes Firely Server
-==================
+===========================
 
 .. toctree::
    :maxdepth: 1
@@ -13,7 +13,7 @@ Release notes Firely Server
 .. _upgrade_vonk:
 
 Upgrading Firely Server
---------------
+-----------------------
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Firely Server.
 
@@ -27,17 +27,24 @@ This major version introduces a new name: **Firely Server** instead of Vonk. Oth
 Features
 ^^^^^^^^
 
+#. Name change Vonk -> Firely Server:
+   #. The main entry point dll (formerly: ``Vonk.Server.dll``) and executable (formerly: ``Vonk.Server.exe``) names have been changed to ``Firely.Server.dll`` and ``Firely.Server.exe`` respectively.
+   #. The name was changed in the CapabilityStatement.name.
+   #. The SMART on FHIR ``Audience`` setting i
 #. We have implemented FHIR Bulk Data Access (``$export``) to allow for fast, asynchronous ndjson data exports. The :ref:`Bulk Data Export documentation<feature_bulkdataexport>` can help you to get started.
-#. Firely Server now uses Firely .NET SDK 2.0.1 (formerly: FHIR .NET API)
+#. Firely Server now uses Firely .NET SDK 2.0.2 (formerly: FHIR .NET API)
 
    .. attention::
    
-      If you are running Firely Server with your own self-made plugins, you will likely encounter package versioning problems and need to upgrade your NuGet Firely Server package references (package names starting with ``Vonk.``) to version 4.0.0. You also need to upgrade any Firely .NET SDK package references (package names starting with ``Hl7.Fhir.``) to version 2.0.1. The `Firely .NET SDK release notes <https://github.com/FirelyTeam/firely-net-sdk/releases>`_ and `Breaking changes in Firely SDK 2.0 <https://github.com/FirelyTeam/firely-net-sdk/wiki/Breaking-changes-in-2.0>`_ can give you an idea of the changes you may encounter in the SDK.
-	  
-Changes
-^^^^^^^
+      If you are running Firely Server with your own self-made plugins, you will likely encounter package versioning problems and need to upgrade your NuGet Firely Server package references (package names starting with ``Vonk.``) to version 4.0.0. You also need to upgrade any Firely .NET SDK package references (package names starting with ``Hl7.Fhir.``) to version 2.0.2. The `Firely .NET SDK release notes <https://github.com/FirelyTeam/firely-net-sdk/releases>`_ and `Breaking changes in Firely SDK 2.0 <https://github.com/FirelyTeam/firely-net-sdk/wiki/Breaking-changes-in-2.0>`_ can give you an idea of the changes you may encounter in the SDK.
 
-#. The main entry point dll (formerly: ``Vonk.Server.dll``) and executable (formerly: ``Vonk.Server.exe``) names have been changed to ``Firely.Server.dll`` and ``Firely.Server.exe`` respectively.
+#. SMART on FHIR can now recognize prefixes to the claims, see its :ref:`feature_accesscontrol_config`.
+#. The smart-configuration endpoint (`<url>/.well-known/smart-configuration`) relays the signature algorithms configured in the authorization server.
+
+
+Fixes
+^^^^^
+
 #. A self-provided facade based on ``Vonk.Facade.Relational`` no longer defaults to STU3
 
    .. attention::
@@ -45,8 +52,12 @@ Changes
 	  If you developed a facade plugin based on ``Vonk.Facade.Relational``, you need to override ``RelationalQueryFactory.EntryInformationModel(string informationModel)`` in your implementation to allow the FHIR version you wish to target (see :ref:`facade_fhir_version`)
 
 #. Application Insights has now been disabled by default. If you need Application Insights, you can enable it in your log settings file by including the entire section mentioned in :ref:`Application Insights log settings<configure_log_insights>`.
-#. When validating a resource, a non-existing code would lead to an OperationOutcome.issue with the code ``code-invalid``. That issue code has been changed to ``not-supported``
-
+#. When validating a resource, a non-existing code would lead to an OperationOutcome.issue with the code ``code-invalid``. That issue code has been changed to ``not-supported``.
+#. On a batch or transaction bundle errors were not reported clearly if the entry in error had no fullUrl element. We fixed this by referring to the index of the entry in the entry array, and the resourcetype of the resource in the entry (if any).
+#. The ``import[.R4]`` folder allows for importing custom StructureDefinition resources. If any of them had no id, the error on that caused an exception. Fixed that.
+#. If a Facade returned a resource without an id from the Create method, an error was caused by a log statement. Fixed that.
+#. Indexing ``Subscription.channel[0].endpoint[0]`` failed for R4. Fixed that. This means you can't search for existing Subscriptions by ``Subscription.url`` on the /administration endpoint for FHIR R4.
+#. Postman was updated w.r.t. acquiring tokens. We adjusted the :ref:`documentation on that <feature_accesscontrol_postman>` accordingly.
 
 .. _vonk_releasenotes_393:
 
@@ -252,7 +263,7 @@ Feature
 ^^^^^^^
 
 #. Search reference by identifier: FHIR R4 allows you to `search a reference by its identifier <http://hl7.org/fhir/R4/search.html#reference>`_. We added support for this in Vonk. Note that any identifiers in reference elements have to be indexed by Vonk. For new data that is done automatically. But if you want to use this on existing data, you have to :ref:`reindex for the searchparameters <feature_customsp_reindex_specific>` you want to use it on. E.g. Observation.patient. 
-#. AuditEvent logging: In release 3.3.0 we already added support for logging audit information to a file. With this release we add to that logging that same information in AuditEvent resources. These resources are written to the Vonk Data database (not the Administration database). Users are not allowed to update or delete these resources. See :ref:`auditing` for more background.
+#. AuditEvent logging: In release 3.3.0 we already added support for logging audit information to a file. With this release we add to that logging that same information in AuditEvent resources. These resources are written to the Vonk Data database (not the Administration database). Users are not allowed to update or delete these resources. See :ref:`feature_auditing` for more background.
 #. Audit logging: We added ``[Request]`` or ``[Response]`` to the log lines so you can distinguish them better.
 #. Sort: We started implementing :ref:`sorting <restful_search_sort>`. This release provides sorting for searchparameters of the types string, number, uri, reference, datetime and token, on the repositories SQL, SQLite and Memory. On the roadmap is extending this support to MongoDb and to quantity searchparameters.
 #. :ref:`feature_terminologyintegration`: You can configure Vonk to route the terminology operations to external terminology servers. You can even configure a preferred server for certain code systems like LOINC or Snomed-CT. On the roadmap is to also allow you to use these servers for validation of codes and for token searches.
@@ -645,7 +656,7 @@ Feature
 
 #. Support for FHIR R4 next to FHIR STU3. Vonk will choose the correct handling based on the fhirVersion parameter in the mimetype. 
    The mimetype is read from the Accept header and (for POST/PUT) the Content-Type header. See :ref:`feature_multiversion` for background info.
-#. Upgrade to HL7.Fhir.Net API 1.3, see its :ref:`releasenotes <api_releasenotes_1.3.0>`.
+#. Upgrade to HL7.Fhir.Net API 1.3, see its :ref:`releasenotes <sdk_releasenotes_1.3.0>`.
 #. Administration API imports both STU3 and R4 conformance resources, see :ref:`conformance`
 
    #. Note: :ref:`Terminology operations <feature_terminology>` are still only available for STU3.

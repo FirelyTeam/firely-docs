@@ -44,7 +44,7 @@ Database
 Features
 ^^^^^^^^
 
-#. Upgrade to HL7.Fhir.Net API 1.3, see its :ref:`releasenotes <api_releasenotes_1.3.0>`.
+#. Upgrade to HL7.Fhir.Net API 1.3, see its :ref:`releasenotes <sdk_releasenotes_1.3.0>`.
 #. Vonk calls ``UseIISIntegration`` for better integration with IIS (if present).
 
 Fix
@@ -114,7 +114,7 @@ Feature
 Plugin and Facade API
 ^^^^^^^^^^^^^^^^^^^^^
 
-#. We upgraded the embedded Fhir.Net API to version 1.2, see its :ref:`release notes <api_releasenotes_1.2.0>`.
+#. We upgraded the embedded Fhir.Net API to version 1.2, see its :ref:`release notes <sdk_releasenotes_1.2.0>`.
 #. Together with the upgrade to .NET Core 2.2, several libraries were updated as well. Most notably Microsoft.EntityFrameworkCore.*, to 2.2.3.
 
 .. _vonk_releasenotes_200-beta2:
@@ -168,7 +168,7 @@ Fix
 Feature
 ^^^^^^^
 
-#. Upgraded Fhir.NET API to version 1.1.2, see its :ref:`release notes <api_releasenotes_1.1.2>`.
+#. Upgraded Fhir.NET API to version 1.1.2, see its :ref:`release notes <sdk_releasenotes_1.1.2>`.
 #. The Vonk Administration API now allows for StructureMap and GraphDefinition resources to be loaded.
 #. The opening page of Vonk (and the only UI part of it) is updated. It no longer contains links that you can only execute with Postman, and it has a button that shows you the CapabilityStatement.
 #. We published our custom operations on `Simplifier <https://simplifier.net/vonk-resources>`_! And integrated those links into the CapabilityStatement.
@@ -250,7 +250,7 @@ Feature
 #. This feature may also be used for :ref:`accesscontrol_custom_authentication`.
 #. A :ref:`vonk_plugins_template` is added to the documentation.
 #. A documentation page on performance is added: :ref:`vonk_performance`.
-#. Upgrade of the Hl7.Fhir.API library to 1.1. See the API releasenotes for :ref:`api_releasenotes_1.1.0`.
+#. Upgrade of the Hl7.Fhir.API library to 1.1. See the API releasenotes for :ref:`sdk_releasenotes_1.1.0`.
 
 Fix
 ^^^
@@ -346,7 +346,7 @@ Features and fixes
    If this is relevant for you, you may want to reindex for this searchparameter. See :ref:`feature_customsp_reindex_specific`, just for 'Encounter.length'.
 #. Fix: Error "Unable to index for element of type 'base64Binary'". This type of element is now correctly indexed. 
    One known searchparameter that encounters this type is Device.udi-carrier. If this is relevant to you, you may want to reindex for this searchparameter. See :ref:`feature_customsp_reindex_specific`, just for 'Device.udi-carrier'.
-#. Fix: Validation would fail on references between contained resources. See also fix #423 in the :ref:`release notes for the FHIR API <api_releasenotes_0950>`.
+#. Fix: Validation would fail on references between contained resources. See also fix #423 in the :ref:`release notes for the FHIR API <sdk_releasenotes_0950>`.
 #. Fix: E-tag was missing from the response on a delete interaction.
 #. Fix: An invalid mimetype in the _format parameter (like _format=application/foobar) returned response code 400 instead of 415.
 #. Fix: If a subscription errors upon execution, not only set the status to error, but also state the reason in Subscription.error for the user to inspect.
@@ -437,7 +437,7 @@ Features and fixes
 #. Feature: Through :ref:`Vonk FHIR Pluginss<vonk_plugins>` you can replace the landing page with one in your own style. We provided an :ref:`example<vonk_plugins_landingpage>` on how to do that.
 #. Feature: You can now start Vonk from within another directory than the Vonk binaries directory, e.g. ``c:\programs>dotnet .\vonk\vonk.server.dll``.
 #. Feature: You can configure the maximum number of entries allowed in a Batch or Transaction, to avoid overloading Vonk. See :ref:`batch_options`.
-#. Upgrade: We upgraded the FHIR .NET API to version 0.96.0, see their :ref:`release notes<api_releasenotes_0960>` for details.
+#. Upgrade: We upgraded the FHIR .NET API to version 0.96.0, see their :ref:`release notes<sdk_releasenotes_0960>` for details.
    Mainly #599 affects Vonk, since it provides the next...
 #. Fix: Under very high load the FhirPath engine would have concurrency errors. The FhirPath engine is used to extract the search parameters from the resources. This has been fixed.
 #. Fix: Search on a frequently used tag took far too long on a SQL Server repository.
@@ -488,7 +488,7 @@ Features and fixes
    This required a few small changes to the MongoDB implementation (the share the drivers), so please reindex your MongoDB database: :ref:`reindex/all <feature_customsp_reindex>`.
 #. Feature: Configuration to restrict support for ResourceTypes, SearchParameters and CompartmentDefinitions, see :ref:`supportedmodel`.
 #. Feature: Errata.zip: collection of corrected search parameters (e.g. that had a faulty expression in the FHIR Core specification), see :ref:`feature_errata`
-#. Upgrade: FHIR .NET API 0.95.0 (see :ref:`api_releasenotes_0950`)
+#. Upgrade: FHIR .NET API 0.95.0 (see :ref:`sdk_releasenotes_0950`)
 #. Fix: a search on _id:missing=true was not processed correctly.
 #. Fix: better distinction of reasons to reject updates (error codes 400 vs. 422, see `RESTful API specification <http://hl7.org/fhir/http.html#2.21.0.10.1>`_
 #. Fix: recognize _format=text/xml and return xml (instead of the default json)

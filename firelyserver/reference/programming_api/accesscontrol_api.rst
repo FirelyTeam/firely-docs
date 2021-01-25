@@ -4,7 +4,7 @@
 Access Control in Plugins and Facades
 =====================================
 
-The :ref:`Access Control feature <feature_accesscontrol>` is also available to users of a Firely Server FHIR Facade or Firely Server FHIR Plugins. You can use the default implementation based on SMART on FHIR, or provide an implementation of your own.
+The :ref:`Access Control feature <feature_accesscontrol>` is also available to users of a Firely Server Facade or Firely Server Plugins. You can use the default implementation based on SMART on FHIR, or provide an implementation of your own.
 
 Access control implementation
 =============================

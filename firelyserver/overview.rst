@@ -6,7 +6,7 @@ Overview of Firely Server, Plugins and Facades
 Framework
 ---------
 
-Firely Server is not just a FHIR Server, it is a processing pipeline for handling standard and custom FHIR requests. :ref:`Firely Server FHIR Server <vonk_overview_server>` consists of this pipeline filled with processors to handle the interactions defined in the FHIR RESTful API. With :ref:`vonk_overview_plugins` you can add your own processors to the framework to perform custom operations, or fill in cross-cutting concerns for your business. A :ref:`Facade <vonk_overview_facades>` is a type of plugin that provides a data access layer for an existing data repository (e.g. a proprietary system). This image sums it all up:
+Firely Server is not just a FHIR Server, it is a processing pipeline for handling standard and custom FHIR requests. :ref:`Firely Server <vonk_overview_server>` consists of this pipeline filled with processors to handle the interactions defined in the FHIR RESTful API. With :ref:`vonk_overview_plugins` you can add your own processors to the framework to perform custom operations, or fill in cross-cutting concerns for your business. A :ref:`Facade <vonk_overview_facades>` is a type of plugin that provides a data access layer for an existing data repository (e.g. a proprietary system). This image sums it all up:
 
 .. image:: ./images/vonk_framework.png
   :align: center
@@ -27,7 +27,7 @@ For more information and pricing visit the `product site <https://fire.ly/produc
 Complete Server
 ---------------
 
-Firely Server FHIR Server is a FHIR Server out of the box. It is built with Microsoft .NET Core and runs on any of the platforms for which a `.NET Core Runtime <https://dotnet.microsoft.com/download>`_ is available. Linux, Windows, MacOS, Docker etcetera. Installation can be done in minutes. After that you can configure main features and further details:
+Firely Server is a FHIR Server out of the box. It is built with Microsoft .NET Core and runs on any of the platforms for which a `.NET Core Runtime <https://dotnet.microsoft.com/download>`_ is available. Linux, Windows, MacOS, Docker etcetera. Installation can be done in minutes. After that you can configure main features and further details:
 
 * Choose your :ref:`database <configure_repository>`: :ref:`SQLite <configure_sqlite>` is configured by default, but for serious use you'd want to configure :ref:`MongoDB <configure_mongodb>` or :ref:`SQL Server <configure_sql>`.
 * Configure the level of :ref:`validation <feature_prevalidation>`: Firely Server can be very loose or very strict on the validity of the resources that you send to it.
@@ -42,7 +42,7 @@ Besides configuration of the settings, Firely Server features an :ref:`Administr
 * CodeSystem and ValueSet resources for :ref:`terminology <feature_terminology>`.
 * :ref:`Custom Searchparameters <feature_customsp>`: have Firely Server index and search resources on properties that are not searchable with the searchparameters from the FHIR Specification itself.
 
-Read more on Firely Server FHIR Server:
+Read more on Firely Server:
 
 * :ref:`vonk_getting_started`
 * :ref:`vonk_features`
@@ -79,7 +79,7 @@ View the `session on Plugins <https://www.youtube.com/watch?v=odYaOM19XXc>`_ fro
 Facades
 -------
 
-A Facade is a Firely Server FHIR processing pipeline working on an existing data repository. That repository could be the database of proprietary system, some API of an existing system or a whole Clinical Data Repository specifically created to open up data through a FHIR API.
+A Facade is a Firely Server processing pipeline working on an existing data repository. That repository could be the database of proprietary system, some API of an existing system or a whole Clinical Data Repository specifically created to open up data through a FHIR API.
 
 The implementation of a Facade is a special type of plugin that registers services to access the existing data repository. By building the data access layer you leverage all of the FHIR processing in Firely Server, connected to your repository - thus creating a FHIR RESTful API for that repository with the least amount of work.
 
