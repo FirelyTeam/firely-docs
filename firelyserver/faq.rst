@@ -34,3 +34,19 @@ A searchparameter of type 'composite' should define which components it consists
 
 However, the implementation of this check seems to have an error so too many composite parameters are reported as faulty. We will address this issue in the next release.
 
+.NET SDK not found
+------------------
+
+Since version 4.0 Vonk was renamed to Firely Server, including the main entrypoint. It changed from ``vonk.server.dll`` to ``firely.server.dll``.
+
+If you now still run ``dotnet vonk.server.dll`` on .NET runtime 3.1 it will state this error:
+
+   ::
+      It was not possible to find any installed .NET Core SDKs
+      Did you mean to run .NET Core SDK commands? Install a .NET Core SDK from: https://aka.ms/dotnet-download
+
+This is very misleading. The actual error is that you probably tried to run ``dotnet vonk.server.dll`` but this dll no longer exists.
+
+The same error can happen if you have built a Docker image of your own with ``dotnet vonk.server.dll`` as entrypoint.
+
+.NET 5 fixed this and more clearly states that the dll is missing.
