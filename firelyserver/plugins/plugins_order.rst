@@ -3,7 +3,7 @@
 The order of plugins
 ====================
 
-Firely Server FHIR Server is organized as a pipeline of components - called Middleware. Every request travels through all the components until one of the components provides the response to the request. After that, the response travels back through all the components, in reverse order. Components that come *after* the responding component in the pipeline are not visited at all.
+Firely Server is organized as a pipeline of components - called Middleware. Every request travels through all the components until one of the components provides the response to the request. After that, the response travels back through all the components, in reverse order. Components that come *after* the responding component in the pipeline are not visited at all.
 
 So let's say you issue a FHIR read interaction, ``GET <base-url>/Patient/example``. The component implementing this interaction sits in the pipeline after search but before create. So the request will visit the search middleware (that will ignore it and just pass it on) but will never visit the create middleware.
 

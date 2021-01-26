@@ -32,7 +32,7 @@ On the ``Information`` level, Firely Server will tell you which assemblies are l
 .. _vonk_plugins_log_pipeline:
 
 Also on the ``Information`` level, Firely Server will show the services and middleware as it has loaded, in order.
-The list below is also the default pipeline as it is configured for Firely Server FHIR Server.
+The list below is also the default pipeline as it is configured for Firely Server.
 
 ::
 

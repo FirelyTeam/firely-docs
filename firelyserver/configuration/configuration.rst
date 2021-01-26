@@ -1,7 +1,7 @@
 .. _configure_vonk:
 
-Configuring the Firely Server
-===========================
+Configuring Firely Server
+=========================
 
 In this section we assume you have downloaded and installed the Firely Server binaries, and have obtained a license file.
 If not, please see the :ref:`previous section <getting_started>` and follow the steps there first.

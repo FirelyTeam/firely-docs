@@ -11,7 +11,7 @@ The next paragraphs will walk you through these steps.
 1. Create a query
 -----------------
 
-Firely Server FHIR Facade is meant to be used across all kinds of database paradigms and schemas. Or even against underlying web services or stored procedures.
+Firely Server Facade is meant to be used across all kinds of database paradigms and schemas. Or even against underlying web services or stored procedures.
 This means Firely Server cannot prescribe the way your query should be expressed. After all, it could be an http call to a webservice, or a json command to MongoDB.
 
 In our case we will build a LINQ query against our ViSi model, that is translated by Entity Framework to a SQL query.
@@ -50,6 +50,31 @@ The DbContext is used for retrieving DbSets for related entities, as we will see
 
     public PatientQueryFactory(DbContext onContext) : base("Patient", onContext) { }
 
+
+.. _facade_fhir_version:
+
+Deciding on a FHIR version
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You need to explicitly tell Firely Server for which FHIR version(s) you wish to return resources. If you don't override ``EntryInformationModel``, any search will fail with a ``501 Not Implemented``. The following override will allow searches for any possible FHIR version to be handled by your facade::
+       
+    public override PatientQuery EntryInformationModel(string informationModel)
+    {
+        return default(PatientQuery);
+    }
+
+If you wish to implement search only for a single FHIR version or for a limited set of versions you can override the method like this::
+
+    public override PatientQuery EntryInformationModel(string informationModel)
+    {
+        if (informationModel == VonkConstants.Model.FhirR4)
+        {
+            return default(PatientQuery);
+        }
+        
+        throw new NotImplementedException($"FHIR version {informationModel} is not supported");        
+    }
+	
 
 Handling the search request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

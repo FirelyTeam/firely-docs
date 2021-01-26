@@ -114,6 +114,7 @@ You can control the way Access Control based on SMART on FHIR behaves with the S
       ],
       "Authority": "url-to-your-identity-provider",
       "Audience": "name-of-your-fhir-server" //Default this is empty
+    //"ClaimsNamespace": "http://smarthealthit.org",
       "RequireHttpsToProvider": false, //You want this set to true (the default) in a production environment!
       "Protected": {
         "InstanceLevelInteractions": "read, vread, update, delete, history, conditional_delete, conditional_update, $validate",
@@ -129,6 +130,7 @@ You can control the way Access Control based on SMART on FHIR behaves with the S
     * FilterArgument: Translates the value of the launch context to a search argument. You can use any supported search parameter defined on FilterType. It should contain the name of the launch context enclosed in hashes (e.g. #patient#), which is substituted by the value of the claim.
 * Authority: The base url of your identity provider, such that ``{{base_url}}/.well-known/openid-configuration`` returns a valid configuration response (`OpenID Connect Discovery documentation <https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2>`_). At minimum, the ``jwks_uri``, ``token_endpoint`` and ``authorization_endpoint`` keys are required in addition to the keys required by the speficiation. See :ref:`feature_accesscontrol_idprovider` for more background.
 * Audience: Defines the name of this Firely Server instance as it is known to the Authorization server. Default is 'firelyserver'.
+* ClaimsNamespace: Some authorization providers will prefix all their claims with a namespace, e.g. ``http://my.company.org/auth/user/*.read``. Configure the namespace here to make Firely Server interpret it correctly. It will then strip off that prefix and interpret it as just ``user/*.read``. By default no namespace is configured.
 * RequireHttpsToProvider: Token exchange with an Authorization server should always happen over https. However, in a local testing scenario you may need to use http. Then you can set this to 'false'. The default value is 'true'. 
 * Protected: This setting controls which of the interactions actually require authentication. In the example values provided here, $validate is not in the TypeLevelInteractions. This means that you can use POST [base-url]/Patient/$validate without authorization. Since you only read Conformance resources with this interaction, this might make sense.
 

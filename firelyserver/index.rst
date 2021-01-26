@@ -1,7 +1,7 @@
 .. _vonk_index:
 
 Welcome to the Firely Server documentation
-=========================================
+==========================================
 
 .. toctree::
    :maxdepth: 1
@@ -25,7 +25,7 @@ Welcome to the Firely Server documentation
    contact
 .. add files here
 
-`Firely Server <https://fire.ly/products/vonk/>`_ is Firely's FHIR server and the successor to our Vonk and Spark server.
+`Firely Server <https://fire.ly/products/vonk/>`_ is Firely's FHIR server. It was formerly named 'Vonk' and is the successor to our Spark server.
 
 Firely Server is the answer to the growing need for a stable server that can be used in a variety of production environments.
 A public sandbox is available at https://server.fire.ly, which is is free to use and intended for

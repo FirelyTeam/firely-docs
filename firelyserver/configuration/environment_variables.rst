@@ -6,7 +6,7 @@
 .. _configure_envvar:
 
 Firely Server settings with Environment Variables
-========================================
+=================================================
 
 .. _configure_envvar_appsettings:
 

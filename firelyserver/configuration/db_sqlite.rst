@@ -7,18 +7,18 @@
 Using SQLite
 ============
 
-SQLite is a file based database engine. The engine itself does not run separately on the server, but in-process in the application, Firely Server FHIR Server in this case. 
+SQLite is a file based database engine. The engine itself does not run separately on the server, but in-process in the application, Firely Server in this case. 
 
 For more background on SQLite please refer to the `SQLite documentation <https://sqlite.org/about.html>`_.
 
-SQLite is the default configuration of Firely Server FHIR Server. For the Administration database there is little reason to change this. 
+SQLite is the default configuration of Firely Server. For the Administration database there is little reason to change this. 
 For the actual runtime data, (the 'Firely Server database') itself, you may run into limitations of SQLite if you put it through its paces. 
 You may find one of the other repositories a better fit then. You can safely use different storage engines for Firely Server Data and Firely Server Administration.
 
 .. _sqlite_admin_reasons:
 
 Prefer SQLite for Firely Server Administration
--------------------------------------
+----------------------------------------------
 
 Until Firely Server (Vonk) version 0.7.0 you could use any of the storage engines for both Firely Server Data and Firely Server Administration. Starting with Firely Server (Vonk) 0.7.1 you are encouraged to use SQLite for Firely Server Administration.
 Over time we will deprecate support for running Firely Server Administration on the SQL Server, MongoDb and Memory storage engines.
@@ -34,13 +34,13 @@ Firely Server Administration poses very limited stress on its storage engine, th
 *   Readymade database: In the other storage engines, the conformance resources from the specification had to be :ref:`imported<conformance_import>` before Firely Server could start. This would take a couple of minutes.
     Because SQLite is file based, we can run the import process for you and provide you with a readymade Administration database.
 
-*   Runs with Facades: perhaps the most important feature. If you build a Firely Server FHIR Facade, the facade will not provide support for hosting conformance resources. 
+*   Runs with Facades: perhaps the most important feature. If you build a Firely Server Facade, the facade will not provide support for hosting conformance resources. 
     With Firely Server Administration on SQLite the facade has its own storage and you can use Firely Server Administration out of the box. This enables e.g. validation against your custom resources (that can be imported from your Simplifier project), subscriptions, and other use cases.
 
 .. _configure_sqlite_data:
 
 Settings for using SQLite for Firely Server Data
----------------------------------------
+------------------------------------------------
 
 *	Changing a setting means overriding it as described in :ref:`configure_change_settings`. 
 
@@ -75,7 +75,7 @@ Settings for using SQLite for Firely Server Data
 .. _configure_sqlite_admin:
 
 Settings for using SQLite for Firely Server Administration
--------------------------------------------------
+----------------------------------------------------------
 
 *   Set the ``SqlDbOptions`` under ``Administration`` for the Administration database similar to those above:
     ::

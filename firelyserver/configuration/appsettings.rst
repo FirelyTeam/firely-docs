@@ -1,7 +1,7 @@
 .. _configure_appsettings:
 
 Firely Server settings
-=============
+======================
 
 Firely Server settings are controlled in json configuration files called ``appsettings(.*).json``. The possible settings in these files are all the same and described below.
 The different files are read in a hierarchy so you can control settings on different levels. All appsettings files are in the Firely Server distribution directory, next to Firely.Server.dll.
@@ -468,7 +468,7 @@ See :ref:`restful_history`.
 .. _settings_pipeline:
 
 Configuring the Firely Server Pipeline
------------------------------
+--------------------------------------
 
 You can add your own plugins to the Firely Server pipeline, or control which of the standard Firely Server plugins
 are used for your Firely Server, by changing the ``PipelineOptions``.

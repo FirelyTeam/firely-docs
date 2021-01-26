@@ -3,7 +3,7 @@
 Configure the pipeline
 ======================
 
-Configuration of the pipeline in Firely Server FHIR Server is done with ``PipelineOptions`` in combination with ``SupportedInteractions``. A default setup is installed with Firely Server in appsettings.default.json, and it looks like this:
+Configuration of the pipeline in Firely Server is done with ``PipelineOptions`` in combination with ``SupportedInteractions``. A default setup is installed with Firely Server in appsettings.default.json, and it looks like this:
 ::
 
   "PipelineOptions": {

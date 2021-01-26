@@ -22,7 +22,7 @@ These components are just regular ASP.Net Core Middleware components, except tha
 Adding custom middleware
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Using Firely Server FHIR Components you can add your own middleware anywhere in the pipeline. It can be standard ASP.NET Core middleware - having nothing to do with FHIR - or middleware acting on the IVonkContext,
+Using Firely Server Components you can add your own middleware anywhere in the pipeline. It can be standard ASP.NET Core middleware - having nothing to do with FHIR - or middleware acting on the IVonkContext,
 e.g. to implement a custom operation. Firely Server also provides convenience methods to register your middleware as one that handles a FHIR interaction, 
 including attributes to declare for which interaction and which resource types your middleware should be invoked. 
 This is explained in :ref:`vonk_plugins`.
@@ -41,7 +41,7 @@ In Firely Server, the middleware components that implement these interactions ac
 In many scenarios, read-only access is sufficient, and you only need to implement the ISearchRepository.
 In that implementation you can choose which of the search parameters you want to support, and whether to expose versions and deleted resources.
 
-These interfaces enable you to implement a Firely Server FHIR Facade. And they enable us to support database engines as diverse as MongoDB, SQL Server and in-memory.
+These interfaces enable you to implement a Firely Server Facade. And they enable us to support database engines as diverse as MongoDB, SQL Server and in-memory.
 
 Search
 ^^^^^^

@@ -1,7 +1,7 @@
 .. _vonk_securitynotes:
 
 Security notifications for Firely Server
-===============================
+========================================
 
 January 2021
 ------------

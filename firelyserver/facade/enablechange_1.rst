@@ -183,7 +183,7 @@ to throw an error.
 .. _config_change_repo:
 
 3. Configure the service and Firely Server
-----------------------------------------
+------------------------------------------
 
 Just like with the search repository, you will need to add your change repository as service to the pipeline.
 Also, you will need to indicate support for the CRUD interactions in your Firely Server appsettings.
