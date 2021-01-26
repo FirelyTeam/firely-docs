@@ -31,16 +31,3 @@ The :ref:`exercise <facadestart>` below uses this setup.
 
   Although we take care to try and avoid breaking changes, please be prepared to retest and update your plugins when you
   choose to update Firely Server.
-
-
-Create your own server
-^^^^^^^^^^^^^^^^^^^^^^
-
-In this setup you:
-
-- create a new ASP.NET Core Web Application
-- include Firely Server NuGet packages
-- set up the necessary Firely Server services (usually a subset of the services that Firely Server uses)
-- implement your own repository backend
-
-This also allows you to include the Firely Server plugins into a web application of your own that may offer more interfaces than just the FHIR RESTful API.

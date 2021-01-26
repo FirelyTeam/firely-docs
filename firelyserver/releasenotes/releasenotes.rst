@@ -30,7 +30,6 @@ Features
 #. Name change Vonk -> Firely Server:
    #. The main entry point dll (formerly: ``Vonk.Server.dll``) and executable (formerly: ``Vonk.Server.exe``) names have been changed to ``Firely.Server.dll`` and ``Firely.Server.exe`` respectively.
    #. The name was changed in the CapabilityStatement.name.
-   #. The SMART on FHIR ``Audience`` setting
 #. We have implemented FHIR Bulk Data Access (``$export``) to allow for fast, asynchronous ndjson data exports. The :ref:`Bulk Data Export documentation<feature_bulkdataexport>` can help you to get started.
 #. Firely Server now uses Firely .NET SDK 2.0.2 (formerly: FHIR .NET API)
 
@@ -45,12 +44,6 @@ Features
 Fixes
 ^^^^^
 
-#. A self-provided facade based on ``Vonk.Facade.Relational`` no longer defaults to STU3
-
-   .. attention::
-
-	  If you developed a facade plugin based on ``Vonk.Facade.Relational``, you need to override ``RelationalQueryFactory.EntryInformationModel(string informationModel)`` in your implementation to allow the FHIR version you wish to target (see :ref:`facade_fhir_version`)
-
 #. Application Insights has now been disabled by default. If you need Application Insights, you can enable it in your log settings file by including the entire section mentioned in :ref:`Application Insights log settings<configure_log_insights>`.
 #. When validating a resource, a non-existing code would lead to an OperationOutcome.issue with the code ``code-invalid``. That issue code has been changed to ``not-supported``.
 #. On a batch or transaction bundle errors were not reported clearly if the entry in error had no fullUrl element. We fixed this by referring to the index of the entry in the entry array, and the resourcetype of the resource in the entry (if any).
@@ -58,6 +51,46 @@ Fixes
 #. If a Facade returned a resource without an id from the Create method, an error was caused by a log statement. Fixed that.
 #. Indexing ``Subscription.channel[0].endpoint[0]`` failed for R4. Fixed that. This means you can't search for existing Subscriptions by ``Subscription.url`` on the /administration endpoint for FHIR R4.
 #. Postman was updated w.r.t. acquiring tokens. We adjusted the :ref:`documentation on that <feature_accesscontrol_postman>` accordingly.
+
+Plugin and Facade
+^^^^^^^^^^^^^^^^^
+
+#. As announced in :ref:`vonk_releasenotes_300` we removed support for creating a Facade as a standalone ASP.Net Core project. You can now only build a Facade as a plugin to Firely Server. See :ref:`vonk_facade` on how to do that.
+#. A Facade based on ``Vonk.Facade.Relational`` no longer defaults to STU3
+
+   .. attention::
+
+	  If you developed a facade plugin based on ``Vonk.Facade.Relational``, you need to override ``RelationalQueryFactory.EntryInformationModel(string informationModel)`` in your implementation to allow the FHIR version you wish to target (see :ref:`facade_fhir_version`)
+
+#. We took the opportunity of a major version upgrade to clean up a list of items that had been declared ``Obsolete`` already. Others have become obsolete now. This is the full list:
+
+   # ``Obsolete``, now deleted:
+
+      # Vonk.Core.Common.DeletedResource
+      # Vonk.Core.Common.IResource.Currency, Change and Clone(), also in VonkResource.
+      # Vonk.Core.Common.IResourceExtensions.ToIResource(this ISourceNode original, ResourceChange change, ResourceCurrency currency = ResourceCurrency.Current) (the overload defaulting to STU3)
+      # Vonk.Core.Context.Guards.SupportedInteractionOptions.SupportsCustomOperationOnLevel()
+      # Vonk.Core.Context.Internal.BatchOptions
+      # Vonk.Core.Operations.Validation.ValidationOptions
+      # Vonk.Core.Pluggability.InteractionHandlerAttribute.Tag
+      # Vonk.Core.Pluggability.ModelOptions
+      # Vonk.Core.Repository.SearchOptions.LatestOne
+      # Vonk.Core.Support.LogHelpers.TryGetTelemetryClient, both overloads.
+      # Vonk.Core.Support.SpecificationZipLocator.ctor(IHostingEnvironment…)
+      # Vonk.Fhir.R3.IResourceVisitor + extensions
+      # Vonk.Fhir.R3.Configuration.ModelContributorsFacadeConfiguration
+      # Vonk.Fhir.R3.FhirExtensions.AsIResource()
+      # Vonk.Fhir.R3.FhirPropertyIndex + FhirPropertyInfo + FhirPropertyIndexBuilder
+      # Vonk.Fhir.R3.IConformanceBuilder + BaseConformanceBuilder + HarvestingConformanceBuilder + extensions + IConformanceContributor
+      # Vonk.Fhir.R3.CompartmentDefinitionLoader + (I)SearchParameterLoader
+      # Vonk.Fhir.R3.MetadataImportOptions + MetadataImportSet + ImportSource
+      # Vonk.Fhir.R3.PocoResource + PocoResourceVisitor
+      # Vonk.Core.InformationModelAttribute (actually made internal)
+
+   # ``Obsolete`` since this version:
+
+      # Vonk.Core.Configuration.CoreConfiguration: allows for integrating Vonk components in your own ASP.NET Web server, discouraged per 3.0 (see these releasenotes).
+      # Vonk.Fhir.R3.FhirR3FacadeConfiguration: see above.
 
 .. _vonk_releasenotes_393:
 
