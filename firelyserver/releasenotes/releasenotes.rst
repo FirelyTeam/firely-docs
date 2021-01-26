@@ -30,6 +30,7 @@ Features
 #. Name change Vonk -> Firely Server:
    #. The main entry point dll (formerly: ``Vonk.Server.dll``) and executable (formerly: ``Vonk.Server.exe``) names have been changed to ``Firely.Server.dll`` and ``Firely.Server.exe`` respectively.
    #. The name was changed in the CapabilityStatement.name.
+   #. The name of the download zip (from Simplifier) has changed from `vonk_distribution.zip` to `firely-server-latest.zip`. Likewise the versioned zip files have changed as well.
 #. We have implemented FHIR Bulk Data Access (``$export``) to allow for fast, asynchronous ndjson data exports. The :ref:`Bulk Data Export documentation<feature_bulkdataexport>` can help you to get started.
 #. Firely Server now uses Firely .NET SDK 2.0.2 (formerly: FHIR .NET API)
 
@@ -56,6 +57,11 @@ Plugin and Facade
 ^^^^^^^^^^^^^^^^^
 
 #. As announced in :ref:`vonk_releasenotes_300` we removed support for creating a Facade as a standalone ASP.Net Core project. You can now only build a Facade as a plugin to Firely Server. See :ref:`vonk_facade` on how to do that.
+#. The order of some plugins has changed. This way it is possible to add a plugin between PreValidation and UrlMapping:
+
+   * :ref:`UrlMapping<vonk_plugins_urlmapping>`: from 1230 to 1235
+   * :ref:`Prevalidation<vonk_plugins_prevalidation>`: from 4320 to 1228
+
 #. A Facade based on ``Vonk.Facade.Relational`` no longer defaults to STU3
 
    .. attention::
