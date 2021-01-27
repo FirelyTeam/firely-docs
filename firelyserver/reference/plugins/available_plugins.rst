@@ -115,7 +115,7 @@ Infrastructural plugins
 :Name: Url mapping
 :Configuration: ``Vonk.Core.Context.UrlMapping.UrlMappingConfiguration``
 :License token: http://fire.ly/vonk/plugins/infra
-:Order: 1230
+:Order: 1235
 :Description: In a resource in the request, urls pointing to this instance of Firely Server are made relative. In a resource in the response, relative urls are made absolute, by adding the base url of the server. This way the server can be addressed in multiple ways (e.g. http://intranet.acme.com/fhir and https://fhir.acme.com) and still provide correct absolute urls. 
 
 .. _vonk_plugins_defaultshapes:
@@ -336,7 +336,7 @@ FHIR RESTful interactions
 :Name: Prevalidation
 :Configuration: ``Vonk.Core.Operations.Validation.PreValidationConfiguration``
 :License token: http://fire.ly/vonk/plugins/validation
-:Order: 4320
+:Order: 1228
 :Description: Validates resources sent to Firely Server against their stated profile compliance (in Resource.meta.profile). The strictness of the validation is controlled by the options.
 :Options: ``Validation``, see :ref:`validation_options`
 
