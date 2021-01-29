@@ -28,9 +28,11 @@ Features
 ^^^^^^^^
 
 #. Name change Vonk -> Firely Server:
+
    #. The main entry point dll (formerly: ``Vonk.Server.dll``) and executable (formerly: ``Vonk.Server.exe``) names have been changed to ``Firely.Server.dll`` and ``Firely.Server.exe`` respectively.
    #. The name was changed in the CapabilityStatement.name.
    #. The name of the download zip (from Simplifier) has changed from `vonk_distribution.zip` to `firely-server-latest.zip`. Likewise the versioned zip files have changed as well.
+
 #. We have implemented FHIR Bulk Data Access (``$export``) to allow for fast, asynchronous ndjson data exports. The :ref:`Bulk Data Export documentation<feature_bulkdataexport>` can help you to get started.
 #. Firely Server now uses Firely .NET SDK 2.0.2 (formerly: FHIR .NET API)
 
@@ -695,7 +697,7 @@ Feature
 
 #. Support for FHIR R4 next to FHIR STU3. Vonk will choose the correct handling based on the fhirVersion parameter in the mimetype. 
    The mimetype is read from the Accept header and (for POST/PUT) the Content-Type header. See :ref:`feature_multiversion` for background info.
-#. Upgrade to HL7.Fhir.Net API 1.3, see its :ref:`releasenotes <sdk_releasenotes_1.3.0>`.
+#. Upgrade to HL7.Fhir.Net API 1.3, see its `releasenotes <https://docs.fire.ly/projects/Firely-NET-SDK/releasenotes.html#stu3-r4-released-20190710>`_.
 #. Administration API imports both STU3 and R4 conformance resources, see :ref:`conformance`
 
    #. Note: :ref:`Terminology operations <feature_terminology>` are still only available for STU3.

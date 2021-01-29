@@ -8,7 +8,7 @@ January 2021
 
 Microsoft has a new Security Advisory regarding ASP.NET Core:
 
-  * Microsoft Security Advisory CVE-2020-1161 | ASP.NET Core Denial of Service Vulnerability in all ASP.NET Core applications on runtime 3.1.3 or lower (`#402 <https://github.com/aspnet/Announcements/issues/416>`_). If you are not already up-to-date, you should install the latest runtime version from `<https://dotnet.microsoft.com/download/dotnet-core/3.1>`_
+  * Microsoft Security Advisory CVE-2020-1161 | ASP.NET Core Denial of Service Vulnerability in all ASP.NET Core applications on runtime 3.1.3 or lower (`#416 <https://github.com/aspnet/Announcements/issues/416>`_). If you are not already up-to-date, you should install the latest runtime version from `<https://dotnet.microsoft.com/download/dotnet-core/3.1>`_
 
 July 2020
 ---------
