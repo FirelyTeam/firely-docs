@@ -6,6 +6,29 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
+.. _mapping_releasenotes_060:
+
+Release 0.6.0 - 2021-01-27
+--------------------------
+
+- Known Issue: The (C)-CDA support is currently disabled due to an issue with accessing the .value element of a complex CDA element. We will publish a hotfix for this as soon as possible.
+
+- Feature: Upgraded to Firely SDK version 2.0.3. This new major release includes improved support for the normative version of FHIRPath. See https://github.com/FirelyTeam/firely-net-sdk/wiki/Breaking-changes-in-2.0#changes-to-the-fhirpath-engine for more details.
+- Feature: ": <type>" (StructureDefinition.group.rule.source.type) can now be used on the source side of a mapping rule
+- Feature: "(min..max)" (StructureDefinition.group.rule.source.min / max) can now be used on the source side of a mapping rule
+- Feature: StructureMapSourceListMode (first | not_first | last | not_last | only_one) are now fully implemented
+- Feature: $convert is now extracting /// experimental = <bool> from a StructureMap as a metadata annotation
+- Experimental support for HL7 v2 has been added. See :ref:`fhirmapper_supportedformats`. 
+- Feature: Suppport for <<types>> group annotations has been added. Please note that <<type+>> annotations are not yet supported.
+- Feature: A "delimiter=<delimiter>" and "header = <absent|present>" parameter can be added to the Content-Type header for text/csv
+- Fix: The internal LogicalModel type for CSV representation has been renamed from CSV_Transport to CSV
+- Fix: A simple copy rule now checks if the source and target types are the same instance types
+- Fix: Let statements with constants can now be used
+- Fix: Line numbers have been added to error messages from the CSV parser to improve the debugging experience
+- Fix: "/administration" was always included the .reference string of a Reference. Now all references stay as they are defined in the mapping. No absolute reference is being generated when executing $transform
+- Fix: Include more details in the error message if the compilation step to IL fails when executing $transform
+
+
 .. _mapping_releasenotes_050:
 
 Release 0.5.0 - 2020-09-04

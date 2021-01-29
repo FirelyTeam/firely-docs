@@ -56,9 +56,9 @@ BDE introduces two new parts to the appsettings, namely TaskFileManagement and B
       "RepeatPeriod" : 60000 //ms
     },
     
-In StoragePath you can configure the folder (in de Firely Server directory) where the exported files will be saved to. 
+In StoragePath you can configure the folder where the exported files will be saved to. Make sure the server has write access to this folder.
 
-In RepeatPeriod you can configure the polling interval (in milliseconds) for checking the Task queue if there are no active tasks.
+In RepeatPeriod you can configure the polling interval (in milliseconds) for checking the Task queue for a new export task.
 
 $export
 -------
@@ -93,24 +93,25 @@ $exportstatus
 
 The $export request should return the $exportstatus url for your export task. This url can be used to request the current status of the task through a GET request, or to cancel the task through a DELETE request.
 
-There are five possible status options:
+There are six possible status options:
 
 1. Queued
 2. Active
 3. Complete
 4. Failed
-5. Cancelled
+5. CancellationRequested
+6. Cancelled
 
 * If a task is Queued or Active, GET $exportstatus will return the status in the X-Progress header
 * If a task is Complete, GET $exportstatus will return the results with a **$exportfilerequest** url per exported .ndjson file. This url can be used to retrieve the files per resourcetype. If there were any problems with parts of the export, an url for the generated OperationOutcome resources can be found in the error section of the result.
 * If a task is Failed, GET $exportstatus will return HTTP Statuscode 500 with an OperationOutcome.
-* If a task is Cancelled, GET $exportstatus will return HTTP Statuscode 204NoContent.
+* If a task is on status CancellationRequested or Cancelled, GET $exportstatus will return HTTP Statuscode 410 (Gone).
 
 
 $exportfilerequest
 ------------------
 
-If a task has the Complete or Failed status, the GET $exportstatus request should return one or more $exportfilerequest urls.
+If a task has the Complete status, the GET $exportstatus request should return one or more $exportfilerequest urls.
 Performing a GET request on this $exportfilerequest url returns a body of FHIR resources in newline delimited json (ndjson).
 
 .. note::

@@ -31,15 +31,15 @@ Validate on the system level
 
 There are two ways of calling $validate:
 
-#. With a Resource as body and optionally a profile parameter on the url.
+#. With a Resource or a Bundle of resources as body, and optionally, a profile parameter on the url.
 #. With a Parameters resource as body, having
 
     * a parameter element with the Resource to validate in the resource parameter;
     * (optionally) the profile to validate against in the profile parameter
 
-In both cases the request must have a Content-Type header matching the format of the body (application/fhir+json or application/fhir+xml)
+In both cases the request must have a Content-Type header matching the format of the body (``application/fhir+json`` or ``application/fhir+xml``).
 
-If you do not specify a profile parameter, Firely Server will validate the Resource against the base profile from the FHIR Specification.
+If you do not specify a profile parameter, Firely Server will validate the Resource against any profiles mentioned in ``meta.profile`` as well as the base profile from the FHIR Specification.
 
 If you call $validate on the system level, Firely Server will make no assumptions about the ResourceType of the Resource to validate.
 
@@ -70,11 +70,11 @@ This time you can only use the (optional) profile parameter on the url to specif
 Precondition
 ------------
 
-Firely Server must be aware of all the StructureDefinitions referenced directly or indirectly by a profile. Refer to the :ref:`conformance` for more information.
+Firely Server must be aware of all the StructureDefinitions referenced directly via parameter or indirectly by a profile in ``meta.profile``. Refer to the :ref:`conformance` for more information.
 
 .. _feature_validation_limitations:
 
-Limitation
+Limitations
 -----------
 
 #. The mode parameter is not yet supported.
