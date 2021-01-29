@@ -74,7 +74,7 @@ In both cases:
 
 
 Have Firely Server create your database
-------------------------------
+---------------------------------------
 
 This option is mainly for experimentation as it effectively requires sysadmin privileges for the connecting user.
 
@@ -112,7 +112,7 @@ This option is mainly for experimentation as it effectively requires sysadmin pr
     For SQL Server it is essential to retain the ``.vonk-import-history.json`` file. Please read :ref:`vonk_conformance_history` for details.
 
 Create a database and users by script, and have Firely Server create the schema
-----------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 *   Log into SQL Server as the Administrator user.
 

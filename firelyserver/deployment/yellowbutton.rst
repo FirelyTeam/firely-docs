@@ -1,15 +1,15 @@
 .. _yellowbutton:
 
-================================================
+=========================================================
 Yellow Button - Firely Server for your Simplifier project
-================================================
+=========================================================
 
-Yellow Button is an easy way to run an instance of Firely Server FHIR Server that is aware of all the profiles, search parameters and other (conformance) resources that are part of a Simplifier project. That can be a project of your own or for instance a project with national profiles.
+Yellow Button is an easy way to run an instance of Firely Server that is aware of all the profiles, search parameters and other (conformance) resources that are part of a Simplifier project. That can be a project of your own or for instance a project with national profiles.
 
 Prerequisites
 -------------
 
-Yellow Button provides you with a PowerShell script to start Firely Server FHIR Server in a Docker container. This means that you will need:
+Yellow Button provides you with a PowerShell script to start Firely Server in a Docker container. This means that you will need:
 
 - Windows OS that can run Docker for Windows
 - Docker for Windows
@@ -54,7 +54,7 @@ Powershell will probably still ask for confirmation before running the script. T
 
 .. image:: ../images/yellow_Powershell_SecurityWarning.png
 
-The script will pull images from the Docker hub as necessary, and then start the Firely Server FHIR Server. Firely Server will load all the conformance resources from the core specification, and from your project into its Administration database. You can read :ref:`conformance` if you want to know more about this. Since this may take some time, you will see a progress bar. Firely Server is allowed to finish this task in at most 6 minutes.
+The script will pull images from the Docker hub as necessary, and then start the Firely Server. Firely Server will load all the conformance resources from the core specification, and from your project into its Administration database. You can read :ref:`conformance` if you want to know more about this. Since this may take some time, you will see a progress bar. Firely Server is allowed to finish this task in at most 6 minutes.
 
 .. image:: ../images/yellow_ScriptProgress.png
   :align: left
@@ -128,7 +128,7 @@ If the project you created the server off of contains any *example* resources, t
 Your project in progress
 ------------------------
 
-You created the Firely Server FHIR Server off of a Simplifier project. That project may evolve. Either because it is your own and you improve your profiles, or because the maintainer of the project applies changes. Firely Server is connected to the Simplifier project. This means that you can update the conformance resource in Firely Server from the contents of the project by:
+You created the Firely Server off of a Simplifier project. That project may evolve. Either because it is your own and you improve your profiles, or because the maintainer of the project applies changes. Firely Server is connected to the Simplifier project. This means that you can update the conformance resource in Firely Server from the contents of the project by:
 
 - invoking importResources::
 
@@ -142,7 +142,7 @@ You created the Firely Server FHIR Server off of a Simplifier project. That proj
 Further steps
 -------------
 
-Yellow Button is an easy way to get started with Firely Server FHIR Server. But there are many other :ref:`deployment options <deployment>` for the server. Besides that you can add your own plugins with :ref:`vonk_plugins`, or build a :ref:`vonk_facade` with Firely Server. 
+Yellow Button is an easy way to get started with Firely Server. But there are many other :ref:`deployment options <deployment>` for the server. Besides that you can add your own plugins with :ref:`vonk_plugins`, or build a :ref:`vonk_facade` with Firely Server. 
 
 .. _Simplifier: https://simplifier.net
 

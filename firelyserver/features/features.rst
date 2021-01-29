@@ -3,7 +3,7 @@
 Features
 ========
 
-Firely Server FHIR Server offers many features as defined in the FHIR Specification and beyond.
+Firely Server offers many features as defined in the FHIR Specification and beyond.
 
 .. toctree::
    :maxdepth: 1

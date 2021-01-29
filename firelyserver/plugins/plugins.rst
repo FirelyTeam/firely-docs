@@ -1,10 +1,10 @@
 .. _vonk_plugins:
 
-Firely Server FHIR Plugins
-=================
+Firely Server Plugins
+=====================
 
-Firely Server FHIR Plugins is the means to adjust a Firely Server to your own special needs, beyond the configuration.
-Please have a look at the :ref:`vonk_overview` to see how plugins fit in the Firely Server FHIR Server. :ref:`architecture` provides more detail on that.
+Firely Server Plugins is the means to adjust a Firely Server to your own special needs, beyond the configuration.
+Please have a look at the :ref:`vonk_overview` to see how plugins fit in the Firely Server. :ref:`architecture` provides more detail on that.
 
 .. toctree::
    :maxdepth: 1

@@ -1,7 +1,7 @@
 .. _vonk_dependencies:
 
 Dependencies of Firely Server and their licenses
-=======================================
+================================================
 
 Firely Server is mainly built using libraries from Microsoft .Net Core and ASP.NET Core, along with a limited list of other libraries.
 This is the full list of direct depencies that Firely Server has on other libraries, along with their licenses.

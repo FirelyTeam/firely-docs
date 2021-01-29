@@ -187,7 +187,7 @@ Open the project of your choice on https://simplifier.net. There are two limitat
 
 Then on the overview page of the project click 'Endpoint' and copy the value you see there:
 
-   .. image:: ../images/simplifier-firely-server-endpoint.png
+   .. image:: ../images/simplifier-vonk-endpoint.png
       :align: center
 
 By default the endpoint is ``https://stu3.simplifier.net/<projectname>``
@@ -222,7 +222,7 @@ The :ref:`administration_api` has a FHIR interface included, on the ``https://<f
 
 If you are :ref:`not permitted <configure_administration_access>` to access the endpoint for the resource you want to manage (e.g. ``<firely-server-endpoint>/administration/StructureDefinition``), Firely Server will return statuscode 403.
 
-.. note:: You can also do the same interactions on the same resourcetypes on the normal Firely Server FHIR interface ``https://<firely-server-endpoint>``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Firely Server operates.
+.. note:: You can also do the same interactions on the same resourcetypes on the normal (or 'data') FHIR endpoint ``https://<firely-server-endpoint>``. This will only result in storing, updating or deleting the resource. But it will not have any effect on the way Firely Server operates.
 
 Example
 ^^^^^^^

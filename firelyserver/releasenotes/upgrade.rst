@@ -1,9 +1,9 @@
 .. _upgrade:
 
 How to upgrade Firely Server?
-====================
+=============================
 
-The process for upgrading Firely Server depends on whether you have a vanilla Firely Server FHIR Server, you added your own plugins or are running a Facade.
+The process for upgrading Firely Server depends on whether you have a vanilla Firely Server, you added your own plugins or are running a Facade.
 This page describes the general process for each situation. Please refer to the :ref:`vonk_releasenotes` for details per each released version of Firely Server.
 
 .. attention:
@@ -12,8 +12,8 @@ This page describes the general process for each situation. Please refer to the 
 
 .. _upgrade_server: 
 
-Upgrading Firely Server FHIR Server
---------------------------
+Upgrading Firely Server
+-----------------------
 
 .. _upgrade_server_binaries:
 
@@ -90,7 +90,7 @@ If anything went wrong, go back:
 Upgrading Plugins
 -----------------
 
-Since a Plugin runs in the context of a Firely Server FHIR Server we advise you to start by upgrading your Firely Server FHIR Server, without loading your Plugin.
+Since a Plugin runs in the context of a Firely Server we advise you to start by upgrading your Firely Server, without loading your Plugin.
 Check the section on :ref:`settings_pipeline` to see how you can exclude your plugin from the pipeline.
 
 Upgrade the references in your plugin:

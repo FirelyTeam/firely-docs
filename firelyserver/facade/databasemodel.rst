@@ -101,7 +101,7 @@ Create your first mapping
                                            source.PatientNumber));
      // etc.
 
-  For more examples of filling the elements, see the FHIR API documentation: :ref:`FHIR-model`.
+  For more examples of filling the elements, see the FHIR API documentation: `FHIR-model <https://docs.fire.ly/projects/Firely-NET-SDK/model.html>`_.
 
 5. Then return the created Patient object as an IResource with ``patient.ToIResource()``.
 

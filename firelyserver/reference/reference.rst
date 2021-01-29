@@ -1,7 +1,7 @@
 .. _vonk_reference:
 
 Firely Server Reference Documentation
-============================
+=====================================
 
 The reference documentation lists the available plugins for configuring the pipeline, and the public programming API of Firely Server for building Plugins and Facades.
 

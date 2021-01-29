@@ -4,9 +4,9 @@
 
 .. _nginx:
 
-=============================
+======================================
 Deploy Firely Server on Nginx on Linux
-=============================
+======================================
 
 About Nginx
 -----------
@@ -25,7 +25,7 @@ Prerequisites
 #. Install Nginx  :code:`sudo apt-get install nginx`
 
 Start Kestrel Firely Server
--------------------------
+---------------------------
 
 Download the binaries for Firely Server (see :ref:`vonk_getting_started`), open a terminal console and start the Firely Server process by using:
 dotnet Vonk.Server.dll.

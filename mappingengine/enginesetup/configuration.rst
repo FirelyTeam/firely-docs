@@ -1,7 +1,7 @@
 .. _configure_mapping_engine:
 
 Configuring FHIR Mapper on Firely Server
-======================================
+========================================
 
 To configure the FHIR Mapper in your Firely Server installation, follow the steps below. If you don't have a copy yet, `get in touch <https://fire.ly/contact/>`_ with us if you're interested in purchasing it for your needs.
 

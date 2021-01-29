@@ -89,7 +89,7 @@ This works the same as with the normal Firely Server database, except that you:
     For MongoDb it is essential to retain the ``.vonk-import-history.json`` file. Please read :ref:`vonk_conformance_history` for details.
 
 Tips and hints for using MongoDb for Firely Server
------------------------------------------
+--------------------------------------------------
 
 #. If searches and/or creates and updates are excessively slow, you may be limited by the IOPS on your MongoDb deployment (e.g. MongoDb Atlas). Try upgrading it and check the timings again.
 #. If for any reason you would like to see how Firely Server is interacting with MongoDb, make the following adjustments to the :ref:`configure_log`:

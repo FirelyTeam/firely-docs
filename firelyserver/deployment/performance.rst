@@ -1,7 +1,7 @@
 .. _vonk_performance:
 
-Performance of Firely Server FHIR Server
-===============================
+Performance of Firely Server
+========================================
 
 About Performance
 -----------------
@@ -12,7 +12,7 @@ Performance variables
 ---------------------
 
 Firely Server Configuration
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Firely Server can be run as self contained FHIR Server or as a Facade on top of an existing system. The performance of a Facade is heavily dependent on the performance of the system it is built on top of. The self contained server can run on different databases. On top of that you can configure a couple of features in the settings that influence the performance. These are the most important configuration variables to take into account:
 
 Repository 
@@ -114,7 +114,7 @@ Available performance figures
 We are in the process of setting up performance tests as part of our Continuous Integration and Deployment. Here we describe how this test is currently set up. Because of the beta phase this is in, the output is not yet complete nor fully reliable. Nevertheless we share the preliminary results to give you a first insight.
 
 Firely Server performance test setup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Configuration
 

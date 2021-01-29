@@ -1,9 +1,9 @@
 .. _vonk_plugins_landingpage:
 
-Firely Server FHIR Plugin example - Create a new landing page
+Firely Server Plugin example - Create a new landing page
 ========================================================
 
-As a minimal example of how to use Firely Server FHIR Plugins we will show you how to create a library with your own landing page, and use it to replace the landing page that is provided by Firely Server.
+As a minimal example of how to use Firely Server Plugins we will show you how to create a library with your own landing page, and use it to replace the landing page that is provided by Firely Server.
 The landing page is the webpage you see when you access Firely Server's endpoint with a browser. By default it looks like this:
 
 .. image:: ../images/localhost_home.png
@@ -27,7 +27,7 @@ Choose a name for your project and solution. Click Create to continue.
 Choose ASP.NET Core 3.1 and select Web Application (Model-View-Controller). Press OK.
 
 Add Firely Server Package
-----------------
+-------------------------
 
 Add Vonk.Core via the Nuget Package Manager:
 
