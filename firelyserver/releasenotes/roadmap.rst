@@ -55,7 +55,7 @@ Q3
 
    * Downloadable version of Firely Server that is fully compliant with the MedMij standards
 
-* Bulk data export as a service
+* Bulk data export as a separate service - deploy and scale it independently of Firely Server itself.
 
 * Bulk data import tool for MongoDB
 
@@ -67,4 +67,3 @@ Q4
 * FHIR transaction support for MongoDB
 
 * Enhanced support for subscriptions
-
