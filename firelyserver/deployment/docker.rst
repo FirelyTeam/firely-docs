@@ -38,21 +38,15 @@ You will get a list that looks like:
 
 Navigate to your working directory for Firely Server and run the container with this command:
 
-- in cmd.exe: ``docker run -d -p 8080:4080 --name vonk.server -v %CD%:/app/license -e "VONK_License:LicenseFile=./license/firelyserver-trial-license.json" simplifier/vonk``
+- in cmd.exe: ``docker run -d -p 8080:4080 --name vonk.server -v %CD%/firelyserver-license.json:/app/firelyserver-license.json simplifier/vonk``
 
-- in Powershell: ``docker run -d -p 8080:4080 --name vonk.server -v ${PWD}:/app/license -e "VONK_License:LicenseFile=./license/firelyserver-trial-license.json" simplifier/vonk``
+- in Powershell: ``docker run -d -p 8080:4080 --name vonk.server -v ${PWD}/firelyserver-license.json:/app/firelyserver-license.json simplifier/vonk``
 
-If your license file has a different name, use that name instead of ``firelyserver-trial-license`` in the command above.
-
-.. important:: It looks like the command wants to retrieve your license file from a subdirectory called ``license``. This is a result
-  of docker copying your file before spinning the image. You should **not** create the subdirectory. Just keep the license file in the root
-  of your working directory.
+If your license file has a different name, use that name instead of ``firelyserver-license`` on the left side of the `-v` parameter in the command above. E.g. ``-v ${PWD}/my-fancy-license.json:/app/firelyserver-license.json``
 
 This will spin up a Firely Server container. It maps the host port 8080 to the container port 4080 with the switch ``-p 8080:4080``. It will give the
 container the name vonk.server with the switch ``--name vonk.server``.
-Furthermore it mounts the current directory (where the license file resides) from the host to the container. Also it passes an environment
-variable ``VONK_License:LicenseFile`` to the container with the switch ``-e``.
-In this example the license file is called firelyserver-trial-license.json. At last it will run the container in background mode with the switch ``-d``.
+Furthermore it mounts the local licensefile into the ``/app`` directory, which is the directory where Firely Server resides in the container. Finally it will run the container in background mode with the switch ``-d``.
 
 To test whether the container is running correctly, type the command:|br|
 ``> docker ps``
@@ -70,6 +64,80 @@ To stop the container just type:|br|
 ``> docker start vonk.server``
 |br| To completely remove the container:|br|
 ``> docker rm vonk.server``
+
+Adjust settings when running in a Docker container
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the paragraph above we showed how to use ``-v`` to mount the license file into the app directory. We can use the same technique to mount a custom settings file or logsettings file. Or a directory to host the SQLite database outside of the container. Or have the logfile written to your working directory. Below is a full example using PowerShell. For creating ``appsettings.instance.json`` refer to :ref:`configure_appsettings`. For creating ``logsettings.instance.json`` refer to :ref:`configure_log`.
+
+appsettings.instance.json
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: JSON
+
+   {
+      "SQLiteDbOptions": {
+         "ConnectionString": "Data Source=./resourcedata/vonkdata.db;Cache=Shared",
+         "AutoUpdateDatabase": true
+      }
+   }
+
+logsettings.instance.json
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Settings for console and levels not included for brevity.
+
+.. code-block:: JSON
+
+   {
+      "Serilog": {
+         "WriteTo": [
+            {
+               "Name": "Async",
+               "Args": {
+                  "configure": [
+                     {
+                        "Name": "File",
+                        "Args": {
+                            "path": "./log/vonk.log",
+                            "rollingInterval": "Day",
+                            "fileSizeLimitBytes": "",
+                            "retainedFileCountLimit": "7",
+                            "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {UserId} {Username} [{Application}] [{Level}] [Machine: {MachineName}] [ReqId: {RequestId}] {Message}{NewLine}{Exception}",
+                            "restrictedToMinimumLevel": "Information"
+                      }
+                   }
+                ]
+              }
+            },
+         ],
+         "Enrich": [ "FromLogContext", "WithMachineName", "WithThreadId" ],
+         "Properties": {
+            "Application": "Firely Server",
+            "Environment": "Default"
+         }
+      }
+   }
+
+Powershell
+~~~~~~~~~~
+
+.. code-block::
+   
+   mkdir logs
+   mkdir resourcedata //do not use 'data' - the administration database is already in that folder in the container
+   //create the appsettings.instance.json above
+   //create the logsettings.instance.json above
+   
+   docker run -d -p 8080:4080 --name firely.server `
+   -v ${PWD}/firelyserver-license.json:/app/firelyserver-license.json `
+   -v ${PWD}/appsettings.instance.json:/app/appsettings.instance.json `
+   -v ${PWD}/logsettings.instance.json:/app/logsettings.instance.json `
+   -v ${PWD}/resourcedata:/app/resourcedata `
+   -v ${PWD}/log:/app/log `
+   simplifier/vonk:4.0.0
+
+You should see a ``vonkdata.db`` appear in the ``./resourcedata`` folder, and a log file in the ``./log`` folder. From here you can experiment with other settings. You can also easily keep different settings files side-by-side, mapping the one you want to test into the container, e.g. ``-v ${PWD}/some-weird-settings.json:/app/appsettings.instance.json``.
 
 Spinning up with a docker-compose file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
