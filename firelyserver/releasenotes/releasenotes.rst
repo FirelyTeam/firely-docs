@@ -58,6 +58,7 @@ Fixes
 Plugin and Facade
 ^^^^^^^^^^^^^^^^^
 
+#. The mapping plugin is upgraded to the Mapping Engine 0.6.0, see its :ref:`releasenotes <mapping_releasenotes_060>`.
 #. As announced in :ref:`vonk_releasenotes_300` we removed support for creating a Facade as a standalone ASP.Net Core project. You can now only build a Facade as a plugin to Firely Server. See :ref:`vonk_facade` on how to do that.
 #. The order of some plugins has changed. This way it is possible to add a plugin between PreValidation and UrlMapping:
 
