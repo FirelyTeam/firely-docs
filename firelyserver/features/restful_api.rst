@@ -238,7 +238,6 @@ Not supported interactions
 
 These interactions are not yet supported by Firely Server:
 
-#. patch
 #. HEAD
 
 Besides that, Firely Server does not yet return the ``date`` header as specified in `HTTP return values <http://hl7.org/fhir/R4/http.html#return>`_

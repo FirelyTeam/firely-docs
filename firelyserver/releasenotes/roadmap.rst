@@ -7,52 +7,64 @@ This page lists the features and changes we have planned for the foreseeable fut
 
 Disclaimer: No rights can be derived from this roadmap.
 
-2020
+2021
 ----
+
+Q1
+^^
+
+* Full ONC/CMS compliance
+
+* Firely Server: ONC Edition
+
+   * Downloadable version of Firely Server that is fully compliant with the ONC Cures Act Final Rule
+
+* CAR factory/files
+
+   * Greatly reduces start-up time of Firely Server and other services
+
+
+* Firely Validator (CLI)
+
+   * Separate validation service as a CLI tool
+
 
 Q2
 ^^
 
-* FHIR Mapping improvements to support logical models like CDA
-* Better support for Sorting, starting with dates and times
-* Integration with external Terminology services
-* Patch
-* Audit log & Audit events
+* Bulk data export for MongoDB
 
-* R4 search features
+* Bulk data import tool for MS SQL Server
 
-   * Search on reference by identifier
+   * CLI tool for bulk ingestion of data into Firely Server
+
+* Firely Validator for cloud environments
+
+   * Separate validation service optimized for usage in cloud environments
+
+* Firely Server: CMS Edition
+
+   * Downloadable version of Firely Server that is fully compliant with the CMS Final Rule
+
+* Full compliance with MedMij standard
 
 Q3
 ^^
 
-* HIPAA/GDPR compliancy features
-* Extend support for Sorting
-* R4 search features
+* Firely Server: MedMij Edition
 
-   * exponential numbers and quantities
-   * identifier:oftype modifier
+   * Downloadable version of Firely Server that is fully compliant with the MedMij standards
 
-* Async operations
-* Bulk data export
+* Bulk data export as a service
+
+* Bulk data import tool for MongoDB
+
+   * CLI tool for bulk ingestion of data into Firely Server
 
 Q4
 ^^
 
-* Revamp Administration API to ease the management of your Firely Server
+* FHIR transaction support for MongoDB
 
-   * Base it on FHIR packages
-   * Separate service
-   * Provide a UI
+* Enhanced support for subscriptions
 
-* Experimental support for R5 Subscriptions
-
-Further ideas
--------------
-
-* GraphDefinition support
-* GraphQL support
-* PostgreSQL repository implementation
-* Allow for plugins in other languages than .NET Core
-* Configurable XDS Facade
-* Configurable DICOM Facade
