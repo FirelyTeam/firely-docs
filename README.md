@@ -7,7 +7,8 @@ This is the source code for the Firely documentation site, documenting the Firel
 
 ## Building locally
 1. Install dependencies: `pip install -r requirements.txt` 
-2. Run autobuild to have a copy running on localhost that updates when files change: `./autobuild.bat`
+2. Run `./build.bat` for a single build.
+3. For autobuild on localhost that updates when files change, install sphinx-autobuild (`pip install sphinx-autobuild`) and run: `./autobuild.bat`
 
 ## Adding a new RTD subproject
 
@@ -16,7 +17,7 @@ This is the source code for the Firely documentation site, documenting the Firel
 2. Create empty RTD project: `sphinx-quickstart`
 
 3. Copy from another subproject like https://github.com/firelyTeam/firely-docs-firely-terminal, and don't change just for your subproject to avoid diversion:
-  * In root: `build.bat`, `autobuild.bat`, `.gitignore`
+  * In root: `build.bat`, `autobuild.bat`, `.gitignore`, `requirements.txt`
   * In root: `README.md` and update it for your project
   * In `_templates`: `breadcrumbs.html` (to customize top page name), `layout.html` (for Firely layout and logo link), `searchbox.html` (for accessibility label on search field)
   * In _static: `css/style.css`, `images/banner.png`
