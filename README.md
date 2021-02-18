@@ -2,6 +2,13 @@
 
 This is the source code for the Firely documentation site, documenting the Firely FHIR tooling, found at https://docs.fire.ly.
 
+## Subprojects
+Some of the tools are documented in separate repositories:
+* [Firely .NET SDK](https://docs.fire.ly/projects/Firely-NET-SDK/)
+* [Firely Terminal](https://docs.fire.ly/projects/Firely-Terminal/)
+* [Simplifier.net](https://docs.fire.ly/projects/Simplifier/)
+
+## Contributions
 * Contributions most welcome! Just fork the repository, make your changes and send a pull request to our master branch.
 * Spot an issue in the documentation? Feel free to [report it in our Github issues](https://github.com/FirelyTeam/firely-docs/issues).
 
