@@ -29,7 +29,7 @@ import os
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.intersphinx', 'recommonmark'
+    'sphinx.ext.intersphinx',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -287,4 +287,5 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    'firely_terminal_docs': ('https://docs.fire.ly/projects/Firely-Terminal/', None)}
+    'firely_terminal_docs': ('https://docs.fire.ly/projects/Firely-Terminal/', None),
+    'forge_docs': ('https://docs.fire.ly/projects/Forge/', None)}

@@ -1,4 +1,4 @@
-# [Firely Docs](https://docs.fire.ly/) &middot; [![Documentation Status](https://readthedocs.org/projects/simplifier/badge/?version=latest)](https://docs.fire.ly/?badge=latest)
+# [Firely Docs](https://docs.fire.ly/) &middot; [![Documentation Status](https://readthedocs.org/projects/simplifier/badge/?version=latest)](https://docs.fire.ly/)
 
 This is the source code for the Firely documentation site, documenting the Firely FHIR tooling, found at https://docs.fire.ly.
 
