@@ -4,9 +4,9 @@ This is the source code for the Firely documentation site, documenting the Firel
 
 ## Subprojects
 Some of the tools are documented in separate repositories:
-* [Firely .NET SDK](https://docs.fire.ly/projects/Firely-NET-SDK/)
-* [Firely Terminal](https://docs.fire.ly/projects/Firely-Terminal/)
-* [Simplifier.net](https://docs.fire.ly/projects/Simplifier/)
+* [Firely .NET SDK](../firely-docs-firely-net-sdk)
+* [Firely Terminal](/firely-docs-firely-terminal)
+* [Simplifier.net]/firely-docs-simplifier)
 
 ## Contributions
 * Contributions most welcome! Just fork the repository, make your changes and send a pull request to our master branch.
