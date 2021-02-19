@@ -5,7 +5,7 @@ Welcome to the VonkLoader documentation
 
 Installing
 ----------
-VonkLoader is a free, multithreaded tool for Windows / macOS / Linux to upload resources in bulk to any FHIR server. To install, go to `simplifier.net/downloads <https://simplifier.net/downloads>`_ and log in.
+VonkLoader is a free, multithreaded tool for Windows / macOS / Linux to upload resources in bulk to any FHIR STU3 server. To install, go to `simplifier.net/downloads <https://simplifier.net/downloads>`_ and log in.
 
 
 Running
