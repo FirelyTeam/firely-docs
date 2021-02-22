@@ -7,7 +7,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    :maxdepth: 1
    :caption: Firely Products
 
-   Simplifier - FHIR profile registry <simplifier/index>
+   Simplifier - FHIR profile registry <https://docs.fire.ly/projects/Simplifier>
    Forge - FHIR profile editor <https://docs.fire.ly/projects/Forge>
    Firely Server - FHIR server <firelyserver/index>
    Firely .NET SDK - Open Source FHIR library <https://docs.fire.ly/projects/Firely-NET-SDK>
@@ -36,7 +36,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
      - ✔️ 4.0.1
      - ✔️ 3.0.2
      - ✔️ (frozen)
-     - Firely .NET SDK 1.9, Vonk 3.6
+     - Firely .NET SDK 1.9, Firely Server 3.6
    * - Firely Terminal 2.0.0
      - ✔️ 4.5.0 (alpha)
      - ✔️ 4.0.1

@@ -288,4 +288,6 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'firely_terminal_docs': ('https://docs.fire.ly/projects/Firely-Terminal/', None),
-    'forge_docs': ('https://docs.fire.ly/projects/Forge/', None)}
+    'forge_docs': ('https://docs.fire.ly/projects/Forge/', None),
+    'firely_net_sdk_docs': ('https://docs.fire.ly/projects/Firely-NET-SDK/', None),
+    'simplifier_docs': ('https://docs.fire.ly/projects/Simplifier/', None)}
