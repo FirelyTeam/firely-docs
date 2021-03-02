@@ -47,7 +47,7 @@ This is the default value for the setting. As you can see, Practitioner is not i
             "Path": "/",
             "Include": [
                ...
-               "Vonk.Plugin.BulkDataExport.PatientEverything"
+               "Vonk.Plugin.PatientEverything"
             ]
          },
          ...
