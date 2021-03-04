@@ -6,6 +6,7 @@ This is the source code for the Firely documentation site, documenting the Firel
 Some of the tools are documented in separate repositories:
 * [Firely .NET SDK](https://github.com/FirelyTeam/firely-docs-firely-net-sdk)
 * [Firely Terminal](https://github.com/FirelyTeam/firely-docs-firely-terminal)
+* [Forge](https://github.com/FirelyTeam/firely-docs-forge)
 * [Simplifier.net](https://github.com/FirelyTeam/firely-docs-simplifier)
 
 ## Contributions
