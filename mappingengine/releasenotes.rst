@@ -12,6 +12,7 @@ Release 0.6.0 - 2021-01-27
 --------------------------
 
 - Known Issue: The (C)-CDA support is currently disabled due to an issue with accessing the .value element of a complex CDA element. We will publish a hotfix for this as soon as possible.
+- Known Issue: CSV parsing lowercases all identifiers, meaning that CSV headers should be accessed lowercase in the map file.
 
 - Feature: Upgraded to Firely SDK version 2.0.3. This new major release includes improved support for the normative version of FHIRPath. See https://github.com/FirelyTeam/firely-net-sdk/wiki/Breaking-changes-in-2.0#changes-to-the-fhirpath-engine for more details.
 - Feature: ": <type>" (StructureDefinition.group.rule.source.type) can now be used on the source side of a mapping rule
