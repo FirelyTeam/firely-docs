@@ -4,8 +4,8 @@
 
 .. _feature_preload:
 
-Preloading a set of resources
-=============================
+Preloading resources
+====================
 
 .. caution:: Preload in Firely Server (Vonk) 3.0.0 is only available for STU3.
 

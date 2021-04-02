@@ -17,6 +17,64 @@ Upgrading Firely Server
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Firely Server.
 
+.. _vonk_releasenotes_410:
+
+Release 4.1.0
+-------------
+
+Database
+^^^^^^^^
+
+#. SQL Server
+   
+   #. A new index table was added. The upgrade procedure will try to fill this table based on existing data. If your database is large, this may take too long and time out. Then you need to run the upgrade script found in ``data/20210303100326_AddCompartmentComponentTable.sql`` manually. 
+   #. A new SQL Server index was added to improve query times when searching with date parameters. The upgrade procedure will try to build this index. If your database is large, this may take too long and time out. Then you need to run the upgrade script found in ``data/20210226200007_UpdateIndexesTokenAndDatetime_Up.sql`` manually.
+   #. In both cases you may also run the script manually beforehand. 
+   #. As always: make sure you have a backup of your database that is tested for restore as well.
+
+DevOps
+^^^^^^
+
+.. attention::
+
+   Because of a change in the devops pipeline there is no longer a ``Firely.Server.exe`` (formerly ``Vonk.Server.exe``) in the distribution zip file. You can run the server as always with ``dotnet ./Firely.Server.dll``
+
+Features
+^^^^^^^^
+
+#. Inferno, The ONC test tool: Firely Server now passes all the tests in this suite! With version 4.1.0 we specifically added features to pass the 'Multi-patient API' tests.
+
+   #. To test this for yourself we have set up a special instance of Firely Server together with Identity Server, working with a SQL Server repository and with Bulk Data Export enabled. You can access it at https://sql.server.fire.ly. 
+   #. ?? Mention the Postman collection with Inferno required data (https://www.getpostman.com/collections/766d29f0721556997e37)?
+
+#. Terminology support has been revamped. Previously you needed to choose between using the terminology services internal to Firely Server *or* external terminology services like from OntoServer or Loinc. With this version you can use both, and based on the codesystem or valueset involved the preferred terminology service is selected and queried. 
+
+   #. This works for terminology operations like ``$validate-code`` and ``$lookup``
+   #. It also works for validation, both explicitly with ``$validate`` and implicitly, when validating resources sent to Firely Server. 
+   #. The CodeSystem, ValueSet and ConceptMap resources involved are conformance resources and therefore always retrieved from the Administration database.
+   #. Responses may differ on details from previous versions of Firely Server, but still conform to the specification.
+   #. See :ref:`feature_terminology` for further details.
+
+#. ``$everything``: We now support the :ref:`feature_patienteverything` operation for single Patients. (For multiple patients, there is the Bulk Data Export feature.)
+#. Performance of $everything, Bulk Data Export and authorization on compartments improved. We added a special index to the database that keeps track which resource belongs to which compartment. First in SQL Server, MongoDB has less need for it. 
+#. SMART on FHIR: Support for token revocation. Reference tokens can be revoked, and Firely Server can check for the revocation.
+
+Fixes
+^^^^^
+
+#. SMART on FHIR: We have found ourselves that the authorization restrictions were bypassed when using _include or _revinclude in a FHIR Search. We solved this security issue immediately. 
+#. Firely Server transparently translates absolute urls to relative urls (for internal storage) and back. There was a performance gain to be made in this part, which we did. This is mostly notable on large transaction or batch bundles.
+#. Batch bundles are not allowed to have links between the resources in the entries. Firely Server will now reject batch bundles that have these links. If you need links, use a transaction bundle instead.
+
+Plugin and Facade
+^^^^^^^^^^^^^^^^^
+
+#. We upgraded the Firely .NET SDK to version `3.0.0 <https://github.com/FirelyTeam/firely-net-sdk/releases/tag/v3.0.0-stu3>`_. This SDK version is almost fully compatible with 2.9, but it brings significant simplifications to its use because the Parameters and OperationOutcome resource POCOs are no longer FHIR-version specific. 
+
+   .. note::
+
+      Every new version of the SDK brings new versions of the ``specification.zip`` files. So upon upgrade these new files will be read into the Administration database. See :ref:`conformance` for more background.
+
 .. _vonk_releasenotes_400:
 
 Release 4.0.0

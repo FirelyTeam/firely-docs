@@ -21,4 +21,3 @@ Please have a look at the :ref:`vonk_overview` to see how plugins fit in the Fir
    Example: $document <example_documentoperation>
    Featured plugin: Binary wrapper <featured/binarywrapper>
    Featured plugin: Convert <featured/convertoperation>
-   Featured plugin: Patient $everything operation <featured/patienteverything>

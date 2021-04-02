@@ -1,7 +1,7 @@
 .. _feature_multiversion:
 
-Running multiple versions of FHIR
-=================================
+Multiple versions of FHIR
+=========================
 
 Since version 3.0.0 Firely Server can run multiple versions of FHIR side-by-side in the same server. This page explains how this works and what the consequences are.
 
