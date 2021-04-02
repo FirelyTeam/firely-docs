@@ -57,14 +57,11 @@ Limited access
     * ``reindex`` (see :ref:`feature_customsp_reindex`)
     * ``reset`` (see :ref:`feature_resetdb`)
     * ``preload`` (see :ref:`feature_preload`)
-    * Read / write on the Conformance resources of type:
-
-      * ``StructureDefinition``
-      * ``SearchParameter``
-      * ``ValueSet``
-      * ``CodeSystem``
-      * ``CompartmentDefinition``
-
-    * ``Subscription``: all the read and write on /Subscription (see :ref:`feature_subscription`)
+    * ``StructureDefinition`` (restrict both read and write)
+    * ``SearchParameter`` (restrict both read and write)
+    * ``ValueSet`` (restrict both read and write)
+    * ``CodeSystem`` (restrict both read and write)
+    * ``CompartmentDefinition`` (restrict both read and write)
+    * ``Subscription``: (restrict both read and write, see :ref:`feature_subscription`)
 
   * The ``AllowedNetworks`` have to be valid IP addresses, either IPv4 or IPv6, and masks are allowed.

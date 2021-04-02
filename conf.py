@@ -48,7 +48,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Firely Docs'
-copyright = u'2012-2020, Firely'
+copyright = u'2021, Firely'
 author = u'Firely'
 
 # The version info for the project you're documenting, acts as replacement for

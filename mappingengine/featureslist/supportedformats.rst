@@ -42,7 +42,7 @@ The following StructureDefinition would be produced in the background while exec
     <iframe src=https://simplifier.net/embed/render?id=fhirmapperr4/csvtransport height="345px" width="100%"></iframe>
   </embed>
   
-The .hasHeader child element indicates if the CSV mapping adapter was configured to interpret the first row of the CSV file as a header record. This behaviour can be indicated according to `RFC 4180 <https://tools.ietf.org/html/rfc4180>`_ by using the ``header`` parameter in the Content-Type header.
+The .hasHeader child element indicates if the CSV mapping adapter was configured to interpret the first row of the CSV file as a header record. This behaviour can be indicated according to `RFC 4180 <https://tools.ietf.org/html/rfc4180>`_ by using the ``header`` parameter in the Content-Type header, ie: ``text/csv; header=present``.
 
 All other column identifiers are exposed as child elements of the .record BackboneElement. They can directly be used in a mapping rule: ::
 

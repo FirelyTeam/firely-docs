@@ -14,13 +14,13 @@ Firely Server is not just a FHIR Server, it is a processing pipeline for handlin
 Firely Server comes in several editions:
 
 * Sandbox: try it right now on https://server.fire.ly
-* Evaluation: get an evaluation license from `Simplifier.net <https://simplifier.net/vonk>`_, allowing you to explore all functionality for free during a week (renewable)
+* Evaluation: get an evaluation license from `Simplifier.net <https://simplifier.net/firely-server>`_, allowing you to explore all functionality for free during a week (renewable)
 * Community: use Firely Server for free, but only on SQLite
 * Commercial use with professional support in different scales: Startup, Growth, Scale and Enterprise 
 
 .. TODO: license link to Simplifier for Community 
 
-For more information and pricing visit the `product site <https://fire.ly/products/vonk/>`_.
+For more information and pricing visit the `product site <https://fire.ly/products/firely-server/>`_.
 
 .. _vonk_overview_server:
 
