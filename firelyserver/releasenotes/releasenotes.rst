@@ -22,6 +22,21 @@ See :ref:`upgrade` for information on how to upgrade to a new version of Firely 
 Release 4.1.0
 -------------
 
+.. attention:
+
+   We have found an issue with SMART on FHIR and searching with _(rev)include. And fixed it right away, see Fix nr 1 below.
+   Your Firely Server might be affected if:
+
+   * you enabled SMART on FHIR
+   * and used patient/read.* scopes together with a patient compartment
+
+   What happens? Patient A searches Firely Server with a patient launch scope that limits him to his own compartment. If any of the resources in his compartment links to *another* patient (let's say for Observation X, the performer is Patient B), Patient A could get to Patient B with ``<base>/Observation?_include=Observation.performer``. If you host Group or List resources on your server, a _revinclude on those might give access to other Patient resources within the same Group or List.  
+   
+   If you think you might be affected you can:
+
+   * upgrade to version 4.1.0
+   * or if that is not possible, :ref:`vonk_contact`.
+   
 Database
 ^^^^^^^^
 
@@ -42,10 +57,7 @@ DevOps
 Features
 ^^^^^^^^
 
-#. Inferno, The ONC test tool: Firely Server now passes all the tests in this suite! With version 4.1.0 we specifically added features to pass the 'Multi-patient API' tests.
-
-   #. To test this for yourself we have set up a special instance of Firely Server together with Identity Server, working with a SQL Server repository and with Bulk Data Export enabled. You can access it at https://sql.server.fire.ly. 
-   #. ?? Mention the Postman collection with Inferno required data (https://www.getpostman.com/collections/766d29f0721556997e37)?
+#. Inferno, The ONC test tool: Firely Server now passes all the tests in this suite! With version 4.1.0 we specifically added features to pass the 'Multi-patient API' tests. Do you want a demo of this? :ref:`vonk_contact`!. 
 
 #. Terminology support has been revamped. Previously you needed to choose between using the terminology services internal to Firely Server *or* external terminology services like from OntoServer or Loinc. With this version you can use both, and based on the codesystem or valueset involved the preferred terminology service is selected and queried. 
 
