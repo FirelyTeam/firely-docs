@@ -22,7 +22,7 @@ See :ref:`upgrade` for information on how to upgrade to a new version of Firely 
 Release 4.1.0
 -------------
 
-.. attention:
+.. attention::
 
    We have found an issue with SMART on FHIR and searching with _(rev)include. And fixed it right away, see Fix nr 1 below.
    Your Firely Server might be affected if:
@@ -35,7 +35,7 @@ Release 4.1.0
    If you think you might be affected you can:
 
    * upgrade to version 4.1.0
-   * or if that is not possible, :ref:`vonk_contact`.
+   * or if that is not possible, :ref:`vonk-contact`.
    
 Database
 ^^^^^^^^
@@ -57,7 +57,7 @@ DevOps
 Features
 ^^^^^^^^
 
-#. Inferno, The ONC test tool: Firely Server now passes all the tests in this suite! With version 4.1.0 we specifically added features to pass the 'Multi-patient API' tests. Do you want a demo of this? :ref:`vonk_contact`!. 
+#. Inferno, The ONC test tool: Firely Server now passes all the tests in this suite! With version 4.1.0 we specifically added features to pass the 'Multi-patient API' tests. Do you want a demo of this? :ref:`vonk-contact`!. 
 
 #. Terminology support has been revamped. Previously you needed to choose between using the terminology services internal to Firely Server *or* external terminology services like from OntoServer or Loinc. With this version you can use both, and based on the codesystem or valueset involved the preferred terminology service is selected and queried. 
 
