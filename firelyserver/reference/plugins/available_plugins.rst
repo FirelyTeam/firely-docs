@@ -402,57 +402,61 @@ FHIR RESTful interactions
 Terminology
 -----------
 
-The Terminology plugins are currently only implemented for FHIR STU3.
-
 .. _vonk_plugins_codesystem_lookup:
 
 :Name: CodeSystem Lookup
-:Configuration: ``Vonk.Plugins.Terminology.CodeSystemLookupConfiguration``
+:Configuration: ``Vonk.Plugins.Terminology.[R3|R4|R5].CodeSystemLookupConfiguration``
 :License token: http://fire.ly/vonk/plugins/terminology
 :Order: 5110
-:Description: Implements FHIR `$lookup <http://hl7.org/fhir/STU3/codesystem-operation-lookup.html>`_ on type level requests: ``POST <base>/administration/CodeSystem/$lookup`` or ``GET <base>/administration/CodeSystem/$lookup?...``
+:Description: Implements FHIR `$lookup <http://hl7.org/fhir/codesystem-operation-lookup.html>`_ on type level requests: ``POST <base>/administration/CodeSystem/$lookup`` or ``GET <base>/administration/CodeSystem/$lookup?...``
 
 .. _vonk_plugins_codesystem_compose:
 
-:Name: CodeSystem Compose on Type
-:Configuration: ``Vonk.Plugins.Terminology.CodeSystemComposeTypeConfiguration``
+:Name: CodeSystem FindMatches / Compose
+:Configuration: ``Vonk.Plugins.Terminology.CodeSystemFindMatchesConfiguration``
 :License token: http://fire.ly/vonk/plugins/terminology
-:Order: 5170
-:Description: Implements FHIR `$compose <http://hl7.org/fhir/STU3/codesystem-operation-compose.html>`_ on type level requests: ``POST <base>/administration/CodeSystem/$compose``
-
-:Name: CodeSystem Compose on Instance
-:Configuration: ``Vonk.Plugins.Terminology.CodeSystemComposeInstanceConfiguration``
-:License token: http://fire.ly/vonk/plugins/terminology
-:Order: 5160
-:Description: Implements FHIR `$compose <http://hl7.org/fhir/STU3/codesystem-operation-compose.html>`_ on instance level requests: ``POST <base>/administration/CodeSystem/[id]/$compose`` or ``GET <base>/administration/CodeSystem/[id]/$compose?...``
+:Order: 5220
+:Description: Implements FHIR `$compose <http://hl7.org/fhir/codesystem-operation-find-matches.html>`_ on type level requests: ``POST <base>/administration/CodeSystem/$find-matches``and on instance level requests: ``POST <base>/administration/CodeSystem/[id]/$find-matches`` or ``GET <base>/administration/CodeSystem/[id]/$find-matches?...``
 
 .. _vonk_plugins_valueset_validatecode:
 
-:Name: ValueSet Validate Code on Type
-:Configuration: ``Vonk.Plugins.Terminology.ValueSetValidateCodeTypeConfiguration``
-:License token: http://fire.ly/vonk/plugins/terminology
-:Order: 5130
-:Description: Implements FHIR `$validate-code <http://hl7.org/fhir/STU3/codesystem-operation-validate-code.html>`_ on type level requests: ``POST <base>/administration/ValueSet/$validate-code``
-
-:Name: ValueSet Validate Code on Instance
-:Configuration: ``Vonk.Plugins.Terminology.ValueSetValidateCodeInstanceConfiguration``
+:Name: ValueSet Validate Code
+:Configuration: ``Vonk.Plugins.Terminology.ValueSetValidateCodeConfiguration``
 :License token: http://fire.ly/vonk/plugins/terminology
 :Order: 5120
-:Description: Implements FHIR `$validate-code <http://hl7.org/fhir/STU3/codesystem-operation-validate-code.html>`_ on instance level requests: ``GET <base>/administration/ValueSet/[id]/$validate-code?...`` and ``POST <base>/administration/ValueSet/[id]/$validate-code``
+:Description: Implements FHIR `$validate-code <http://hl7.org/fhir/codesystem-operation-validate-code.html>`_ on type level requests: ``POST <base>/administration/ValueSet/$validate-code`` and instance level requests: ``GET <base>/administration/ValueSet/[id]/$validate-code?...`` and ``POST <base>/administration/ValueSet/[id]/$validate-code``
 
 .. _vonk_plugins_valueset_expand:
 
-:Name: ValueSet Expand on Instance
-:Configuration: ``Vonk.Plugins.Terminology.ValueSetExpandCodeInstanceConfiguration``
+:Name: ValueSet Expand
+:Configuration: ``Vonk.Plugins.Terminology.ValueSetExpandConfiguration``
 :License token: http://fire.ly/vonk/plugins/terminology
 :Order: 5140
-:Description: Implements FHIR `$expand <http://hl7.org/fhir/STU3/codesystem-operation-expand.html>`_ on instance level requests: ``GET <base>/administration/ValueSet/[id]/$expand?...`` and ``POST <base>/administration/ValueSet/[id]/$expand``
+:Description: Implements FHIR `$expand <http://hl7.org/fhir/codesystem-operation-expand.html>`_ on instance level requests: ``GET <base>/administration/ValueSet/[id]/$expand?...`` and ``POST <base>/administration/ValueSet/[id]/$expand`` and on type level requests: ``POST <base>/administration/ValueSet/$expand``.
 
-:Name: ValueSet Expand on Type
-:Configuration: ``Vonk.Plugins.Terminology.ValueSetExpandCodeTypeConfiguration``
+.. _vonk_plugins_conceptmap_translate:
+
+:Name: ConceptMap Translate
+:Configuration: ``Vonk.Plugins.Terminology.ConceptMapTranslateConfiguration``
 :License token: http://fire.ly/vonk/plugins/terminology
-:Order: 5150
-:Description: Implements FHIR `$expand <http://hl7.org/fhir/STU3/codesystem-operation-expand.html>`_ on type level requests: ``POST <base>/administration/ValueSet/$expand``
+:Order: 5260
+:Description: Implements FHIR `$translate <http://hl7.org/fhir/conceptmap-operation-translate.html>`_ on instance level requests: ``GET <base>/administration/ConceptMap/[id]/$translate?...`` and ``POST <base>/administration/ValueSet/[id]/$translate`` and on type level requests: ``POST <base>/administration/ConceptMap/$translate``.
+
+.. _vonk_plugins_codesystem_subsumes:
+
+:Name: CodeSystem Subsumes
+:Configuration: ``Vonk.Plugins.Terminology.CodeSystemSubsumesConfiguration``
+:License token: http://fire.ly/vonk/plugins/terminology
+:Order: 5280
+:Description: Implements FHIR `$subsumes <http://hl7.org/fhir/codesystem-operation-subsumes.html>`_ on instance level requests: ``GET <base>/administration/CodeSystem/[id]/$subsumes?...`` and on type level requests: ``POST <base>/administration/CodeSystem/$subsumes`` or ``GET <base>/administration/CodeSystem/$subsumes?...``
+
+.. _vonk_plugins_codesystem_closure:
+
+:Name: CodeSystem Closure
+:Configuration: ``Vonk.Plugins.Terminology.CodeSystemClosureConfiguration``
+:License token: http://fire.ly/vonk/plugins/terminology
+:Order: 5300
+:Description: Implements FHIR `$closure <http://hl7.org/fhir/codesystem-operation-closure.html>`_ on system level requests: ``POST <base>/administration/$closure``
 
 .. _vonk_plugins_smart:
 
@@ -680,3 +684,18 @@ Administration API
 :license token: http://fire.ly/vonk/plugins/administration/fhirr4
 :Order: 4310
 :Description: Implements support services to work with FHIR R4 conformance resources in the Administration API.
+
+Bulk Data
+---------
+
+:Name: Bulk Data Export
+:Configuration: ``Vonk.Plugin.BulkDataExport``
+:license token: ``http://fire.ly/vonk/plugins/bulk-data-export``
+:Order: 5005
+:Description: Request an export of bulk data sets. See :ref:`feature_bulkdataexport`.
+
+:Name: Patient everything
+:Configuration: ``Vonk.Plugin.PatientEverything``
+:license token: ``http://fire.ly/vonk/plugins/patient-everything``
+:Order: 5006
+:Description: Request a Patient record. See :ref:`feature_patienteverything`.
