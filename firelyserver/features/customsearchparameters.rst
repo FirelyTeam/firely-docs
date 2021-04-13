@@ -5,8 +5,8 @@
 
 .. _feature_customsp:
 
-Using Custom Search Parameters
-==============================
+Custom Search Parameters
+========================
 
 .. _feature_customsp_configure:
 

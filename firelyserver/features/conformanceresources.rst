@@ -1,7 +1,7 @@
 .. _conformance:
 
-Controlling the Conformance Resources
-=====================================
+Conformance Resources
+=====================
 
 Firely Server uses `Conformance Resources <http://www.hl7.org/implement/standards/fhir/conformance-module.html>`_ along with some `Terminology Resources <http://www.hl7.org/implement/standards/fhir/terminology-module.html>`_ for various operations:
 

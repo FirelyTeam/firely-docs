@@ -53,12 +53,15 @@ BDE introduces two new parts to the appsettings, namely TaskFileManagement and B
       "StoragePath": "./taskfiles"
     },
   "BulkDataExport": {
-      "RepeatPeriod" : 60000 //ms
+      "RepeatPeriod" : 60000, //ms
+      "AdditionalResources": [ "Organization", "Location", "Substance", "Device", "BodyStructure", "Medication", "Coverage" ] 
     },
     
 In StoragePath you can configure the folder where the exported files will be saved to. Make sure the server has write access to this folder.
 
 In RepeatPeriod you can configure the polling interval (in milliseconds) for checking the Task queue for a new export task.
+
+A patient-based or group-based Bulk Data Export returns resources based on the Patient compartment definition (https://www.hl7.org/fhir/compartmentdefinition-patient.html). These resources may reference resources outside the compartment as well, such as a Practitioner who is the performer of a Procedure. Using the `AdditionalResources`-setting, you can determine which types of referenced resources are exported in addition to the compartment resources.
 
 $export
 -------
