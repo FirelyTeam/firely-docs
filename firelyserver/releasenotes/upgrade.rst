@@ -93,12 +93,19 @@ Upgrading Plugins
 Since a Plugin runs in the context of a Firely Server we advise you to start by upgrading your Firely Server, without loading your Plugin.
 Check the section on :ref:`settings_pipeline` to see how you can exclude your plugin from the pipeline.
 
+.. attention::
+
+   We do not guarantee that a plugin built against version x.y.z of Firely Server can be run within a newer or older version as-is.
+   Between minor versions recompilation is usually enough to update your plugin. Between major versions you should prepare for breaking changes in the public programming API.
+   Sometimes we choose to apply such changes even on a minor version update, if we are fairly sure that you will not or only slightly be affected by it.
+
 Upgrade the references in your plugin:
 
 #. Open the source code of your plugin, and open the project file (``yourplugin.csproj``).
 #. Change the references to the Firely Server.* packages to the version that you want to upgrade to.
 #. Build and check the errors.
 #. Check the list of breaking changes for the new Firely Server version in the :ref:`vonk_releasenotes`. Applying the changes should fix the errors.
+#. With some releases Firely Server is also upgraded to a newer version of the Firely .NET SDK. That is then mentioned in the release notes. If this is the case, also check the `SDK release notes`_ for breaking changes.
 #. Still errors? Maybe we have overlooked a change. Please report it to us, see :ref:`vonk-contact`. And if it is easy to fix - do so :-)
 #. Build and publish your plugin. 
 #. Put the resulting dll's in the plugin directory of the new installation of Firely Server.
@@ -115,3 +122,4 @@ So start with upgrading the references right away.
 
 Especially for Facades to relational databases: match the version of EntityFrameworkCore that the new version of Firely Server is using. Check the list of changes to see whether we upgraded.
 
+.. _SDK release notes: https://github.com/FirelyTeam/firely-net-sdk/releases

@@ -7,4 +7,6 @@ _build/
 /.vs/firely-docs/config/applicationhost.config
 /.vs/VSWorkspaceState.json
 venv
+#output from previewer in VSCode
+/output
 *.code-workspace
