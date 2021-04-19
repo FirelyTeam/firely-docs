@@ -18,7 +18,7 @@ The FHIR Mapper operates on a StructureMap resource, so let's convert the mappin
 
 2. ``POST http(s)://<firely-server-endpoint>/administration/StructureMap`` with the resulting ``StructureMap``, or ``PUT`` to a unique ID. Make sure you don't make duplicates of the StructureMap on the server - so always use ``PUT`` to update the existing one afterwards. Note down logical ID of your map.
 
-  2.1. In our example, add ``"id": "tutorial",`` to the StructureMap received in step 1 and upload it to ``http://localhost:4080/administration/StructureMap/tutorial``. Thus ``tutorial`` is the logical ID we're working with.
+  2.1. In our example, add ``"id": "tutorial",`` to the StructureMap received in step 1 and upload it to ``http://localhost:4080/administration/StructureMap/FHIRMapperTutorial``. Thus ``FHIRMapperTutorial`` is the logical ID we're working with.
   
 .. note::
 
