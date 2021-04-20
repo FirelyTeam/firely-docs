@@ -96,7 +96,7 @@ Now you can test if reverse chaining works: ``http://localhost:4080/Patient?_has
 
 Get the goodies
 ---------------
-At this point you get out of the box support for ``_include``, ``_revinclude`` and combinations of search parameters.
+At this point you get out of the box support for ``_include`` and  ``_revinclude`` (``:iterate`` as well), and combinations of search parameters.
 You can test the following scenarios:
 
 #. ``_include``: ``http://localhost:4080/Observation?_include=Observation:subject``
