@@ -24,7 +24,7 @@ Release 4.1.1 hotfix
 
 Feature
 ^^^^^^^
-#. SMART configuration: Some identity providers use multiple endpoints with different base addresses for its authorization operations. Added an extra configuration option ``AdditionalEndpointBaseAddresses`` to define additional authorization base endpoints addresses next to the main authorization endpoint to accomodate this. See :ref:`feature_accesscontrol_config` for further details.
+#. SMART configuration: Some identity providers use multiple endpoints with different base addresses for its authorization operations. Added an extra configuration option ``AdditionalEndpointBaseAddresses`` to define additional base endpoints addresses next to the main authority endpoint to accommodate this. See :ref:`feature_accesscontrol_config` for further details.
 
 Fix
 ^^^
