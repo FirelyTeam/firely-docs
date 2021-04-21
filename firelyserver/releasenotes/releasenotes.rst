@@ -17,6 +17,19 @@ Upgrading Firely Server
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Firely Server.
 
+.. _vonk_releasenotes_411:
+
+Release 4.1.1 hotfix
+--------------------
+
+Feature
+^^^^^^^
+#. SMART configuration: Some identity providers use multiple endpoints with different base addresses for its authorization operations. Added an extra configuration option ``AdditionalEndpointBaseAddresses`` to define additional base endpoints addresses next to the main authority endpoint to accommodate this. See :ref:`feature_accesscontrol_config` for further details.
+
+Fix
+^^^
+#. Fixed an error in SQL script ``data/20210226200007_UpdateIndexesTokenAndDatetime_Up.sql`` that is used when manually updating the database to v4.1.0. We alse made the script more robust by checking if the current version the database is suitable for the manual upgrade.
+
 .. _vonk_releasenotes_410:
 
 Release 4.1.0
