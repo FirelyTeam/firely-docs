@@ -84,7 +84,7 @@ To re-index all resources for certain search parameters, use:
 		POST http(s)://<firely-server-endpoint>administration/reindex/searchparameters
 		Accept=application/fhir+json (or xml); fhirVersion=3.0 (or 4.0)
 
-In the body of the POST, you put the parameters to actually re-index as form parameters:
+In the body of the POST, you put the name of the search parameters to actually re-index as form parameters:
 
 	::
 	
