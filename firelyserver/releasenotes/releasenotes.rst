@@ -17,6 +17,15 @@ Upgrading Firely Server
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Firely Server.
 
+.. _vonk_releasenotes_412:
+
+Release 4.1.2 hotfix
+--------------------
+
+Fix
+^^^
+#. Fixed a bug when trying to delete multiple resources at once (bulk delete, see :ref:`_restful_crud_configuration` for configuration options). The operation would take a while and eventually return a ``204 No Content`` without actually deleting any resources. This is fixed, the bulk delete operation now deletes the resources.
+
 .. _vonk_releasenotes_411:
 
 Release 4.1.1 hotfix
