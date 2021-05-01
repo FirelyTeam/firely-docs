@@ -172,6 +172,7 @@ For each terminology service you can set the following options:
     :Endpoint: The endpoint url where Firely Server can redirect the requests to.
     :Username: If the terminology service uses Basic Authentication, you can set the required username here. 
     :Password: If the terminology service uses Basic Authentication, you can set the required password here.
+    :MediaType: Default Media-Type that should be used for serialization of the Parameters resources forwarded to the external terminology servie
 
 Notes:
 
