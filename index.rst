@@ -21,7 +21,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
    * - Product
      - FHIR R5 (preview)
-     - FHIR R4B
+     - FHIR R4B (experimental)
      - FHIR R4
      - FHIR STU3
      - Firely tools used
