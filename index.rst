@@ -63,7 +63,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
      - 
    * - Firely .NET SDK 3.2.0
      - ✔️ 4.5.0 (alpha)
-     - ✔️ 4.1.0 (alpha
+     - ✔️ 4.1.0 (alpha)
      - ️️️️✔️ 4.0.1
      - ✔️ 3.0.2
      -
