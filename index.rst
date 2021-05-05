@@ -21,45 +21,53 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
    * - Product
      - FHIR R5 (preview)
+     - FHIR R4B (experimental)
      - FHIR R4
      - FHIR STU3
-     - FHIR DSTU2
      - Firely tools used
+     - FHIR DSTU2
    * - Forge 26.1
      - ✔️ 4.5.0 (alpha)
+     -
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     - ✔️ (frozen)
      - Firely .NET SDK 2.0.1
+     - ✔️ (frozen)
    * - Simplifier 26.3
      -
+     -
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     - ✔️ (frozen)
      - Firely .NET SDK 1.9, Firely Server 3.6
+     - ✔️ (frozen)
    * - Firely Terminal 2.0.0
      - ✔️ 4.5.0 (alpha)
+     -
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     -
      - Firely .NET SDK 2.0.0-beta2
+     - 
    * - Firely Server 4.0.0
      - ✔️ 4.5.0 (alpha)
+     -
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     -
      - Firely .NET SDK 2.0.1
+     - 
    * - FHIR Mapper 0.5.0
      -
+     -
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     -
      - Firely .NET SDK 1.9, Vonk 3.8
-   * - Firely .NET SDK 2.0
+     - 
+   * - Firely .NET SDK 3.2.0
      - ✔️ 4.5.0 (alpha)
+     - ✔️ 4.1.0 (alpha)
      - ️️️️✔️ 4.0.1
      - ✔️ 3.0.2
-     - ✔️ (frozen)
      -
+     - ✔️ (frozen)
+     
 
 See `all released FHIR versions <https://www.hl7.org/fhir/history.html>`_.
