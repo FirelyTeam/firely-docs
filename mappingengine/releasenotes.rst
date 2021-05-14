@@ -14,7 +14,7 @@ Release 0.7.1 - 2021-05-12
 
 Release 0.7.0 - 2021-04-09
 --------------------------
-- Feature: Added an overload to the uuid() mapping function. It allows to select uuids in version 3 and version 5.  See :ref:`fhirmapper_supportedfeatures`.
+- Feature: Added an overload to the uuid() mapping function. It allows to create uuids in version 3 and version 5.  See :ref:`fhirmapper_supportedfeatures`.
 - Fix: Re-enabled support for (C)-CDA Transformations
 - Fix: CSV parser preservers the casing of the CSV headers, uppercase headers don't need to be written as lowercase anymore
 - Fix: Segment location is reported in OperationOutcome error message if segment contains too many components
