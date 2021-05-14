@@ -57,7 +57,7 @@ Additional parameters are supported:
 - ``dateOp('<input>', '<inputFormat>', '<date | dateTime>')``
 - ``dateOp('<input>', '<inputFormat>', '<outputFormat>', '<outputType>')``. Custom types for other information models then FHIR are supported as the outputType. See `Custom date and time format strings <https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings>`_ for available format strings.
 
-3. ``uuid()`` - create a random UUID: ::
+3. ``uuid()`` / ``uuid('<name>', '<3 | 5>')`` - create a random UUID. See `RFC4122 <https://tools.ietf.org/html/rfc4122#section-4.3>`_ for more information. ::
 
     src -> tgt.id = uuid();
 
