@@ -8,6 +8,17 @@ This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
 .. _mapping_releasenotes_060:
 
+Release 0.7.1 - 2021-05-12
+--------------------------
+- Fix: CSV entries that are enclosed with a double-qoute (e.g. values that contain a delimiter sign in the value itself) do not contain the surrounding quotes as part of their value anymore when mapped to FHIR
+
+Release 0.7.0 - 2021-04-09
+--------------------------
+- Feature: Added an overload to the uuid() mapping function. It allows to create uuids in version 3 and version 5.  See :ref:`fhirmapper_supportedfeatures`.
+- Fix: Re-enabled support for (C)-CDA Transformations
+- Fix: CSV parser preserves the casing of the CSV headers, uppercase headers don't need to be written as lowercase anymore
+- Fix: Segment location is reported in OperationOutcome error message if segment contains too many components
+
 Release 0.6.0 - 2021-01-27
 --------------------------
 
