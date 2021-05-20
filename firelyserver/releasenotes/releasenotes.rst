@@ -17,6 +17,16 @@ Upgrading Firely Server
 
 See :ref:`upgrade` for information on how to upgrade to a new version of Firely Server.
 
+.. _vonk_releasenotes_413:
+
+Release 4.1.3 hotfix
+--------------------
+
+Fix
+^^^
+#. Fixed a bug where a number of concurrent $transform requests on a freshly started Firely Server could lead to Internal Server Error responses.
+#. Upgraded the Mapping plugin to :ref:`mapping_releasenotes_071`.
+
 .. _vonk_releasenotes_412:
 
 Release 4.1.2 hotfix
