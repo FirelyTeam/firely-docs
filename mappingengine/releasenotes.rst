@@ -6,11 +6,13 @@ Release notes
 All notable changes to this project will be documented in this file.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
-.. _mapping_releasenotes_060:
+.. _mapping_releasenotes_071:
 
 Release 0.7.1 - 2021-05-12
 --------------------------
 - Fix: CSV entries that are enclosed with a double-qoute (e.g. values that contain a delimiter sign in the value itself) do not contain the surrounding quotes as part of their value anymore when mapped to FHIR
+
+.. _mapping_releasenotes_070:
 
 Release 0.7.0 - 2021-04-09
 --------------------------
@@ -18,6 +20,8 @@ Release 0.7.0 - 2021-04-09
 - Fix: Re-enabled support for (C)-CDA Transformations
 - Fix: CSV parser preserves the casing of the CSV headers, uppercase headers don't need to be written as lowercase anymore
 - Fix: Segment location is reported in OperationOutcome error message if segment contains too many components
+
+.. _mapping_releasenotes_060:
 
 Release 0.6.0 - 2021-01-27
 --------------------------
