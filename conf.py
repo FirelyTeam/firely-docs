@@ -290,4 +290,6 @@ intersphinx_mapping = {
     'firely_terminal_docs': ('https://docs.fire.ly/projects/Firely-Terminal/', None),
     'forge_docs': ('https://docs.fire.ly/projects/Forge/', None),
     'firely_net_sdk_docs': ('https://docs.fire.ly/projects/Firely-NET-SDK/', None),
-    'simplifier_docs': ('https://docs.fire.ly/projects/Simplifier/', None)}
+    'simplifier_docs': ('https://docs.fire.ly/projects/Simplifier/', None),
+    'fhir_mapper_docs': ('https://docs.fire.ly/projects/FHIR-Mapper/', None)
+}
