@@ -47,7 +47,6 @@ Fix
 #. The Patient-everything (`$everything`) operation was not mentioned in the CapabilityStatement.
 #. License expired one day too early.
 #. Dependencies have been upgraded to the latest versions compatible with .NET Core 3.1.
-#. POSTing an empty (Patient) resource returned an error.
 #. PATCH did not allow adding to a repeating element.
 #. If your license does not allow usage of SMART on FHIR, authorization was disabled, emitting a warning in the log. Possibly causing unauthorized access without the administrator noticing it. This specific case will now block the startup of Firely Server. 
 
