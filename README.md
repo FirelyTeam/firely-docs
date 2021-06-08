@@ -9,6 +9,7 @@ Some of the tools are documented in separate repositories:
 * [Forge](https://github.com/FirelyTeam/firely-docs-forge)
 * [Simplifier.net](https://github.com/FirelyTeam/firely-docs-simplifier)
 * [FHIR Mapper](https://github.com/FirelyTeam/firely-docs-fhir-mapper)
+* [Firely Server](https://github.com/FirelyTeam/firely-docs-firely-server)
 
 ## Contributions
 * Contributions most welcome! Just fork the repository, make your changes and send a pull request to our master branch.
