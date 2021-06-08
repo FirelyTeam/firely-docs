@@ -9,7 +9,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
    Simplifier - FHIR profile registry <https://docs.fire.ly/projects/Simplifier>
    Forge - FHIR profile editor <https://docs.fire.ly/projects/Forge>
-   Firely Server - FHIR server <firelyserver/index>
+   Firely Server - FHIR server <https://docs.fire.ly/projects/Firely-Server>
    Firely .NET SDK - Open Source FHIR library <https://docs.fire.ly/projects/Firely-NET-SDK>
    Firely Terminal (Torinox) - Command-line FHIR tool <https://docs.fire.ly/projects/Firely-Terminal>
    FHIR Mapper - Engine for the FHIR Mapping Language <https://docs.fire.ly/projects/FHIR-Mapper/>
