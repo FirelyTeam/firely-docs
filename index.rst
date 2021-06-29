@@ -30,14 +30,14 @@ On this site you will find the documentation for various FHIR tools and SDKs.
      - FHIR STU3
      - Firely tools used
      - FHIR DSTU2
-   * - Forge 26.1
+   * - Forge 27.1
      - ✔️ 4.5.0 
       
        *alpha*
      -
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     - Firely .NET SDK 2.0.1
+     - Firely .NET SDK 3.2.0
      - ✔️ (frozen)
    * - Simplifier 26.3
      -
@@ -48,14 +48,14 @@ On this site you will find the documentation for various FHIR tools and SDKs.
       
        Firely Server 3.6
      - ✔️ (frozen)
-   * - Firely Terminal 2.0.0
+   * - Firely Terminal 2.2.0
      - ✔️ 4.5.0 
       
        *alpha*
      -
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     - Firely .NET SDK 2.0.0-beta2
+     - Firely .NET SDK 3.2.0
      - 
    * - Firely Server 4.1.0
      - ✔️ 4.5.0 
@@ -75,11 +75,11 @@ On this site you will find the documentation for various FHIR tools and SDKs.
       
        Vonk 4.1.0
      - 
-   * - Firely .NET SDK 3.2.0
-     - ✔️ 4.5.0 
+   * - Firely .NET SDK 3.3.0
+     - ✔️ 4.6.0
       
        *alpha*
-     - ✔️ 4.1.0 
+     - ✔️ 4.1.0
       
        *alpha*
      - ️️️️✔️ 4.0.1
