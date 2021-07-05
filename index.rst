@@ -75,7 +75,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
       
        Vonk 4.1.0
      - 
-   * - Firely .NET SDK 3.3.0
+   * - Firely .NET SDK 3.4.0
      - ✔️ 4.6.0
       
        *alpha*
