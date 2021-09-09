@@ -12,7 +12,6 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    Firely Server - FHIR server <https://docs.fire.ly/projects/Firely-Server>
    Firely .NET SDK - Open Source FHIR library <https://docs.fire.ly/projects/Firely-NET-SDK>
    Firely Terminal (Torinox) - Command-line FHIR tool <https://docs.fire.ly/projects/Firely-Terminal>
-   FHIR Mapper - Engine for the FHIR Mapping Language <https://docs.fire.ly/projects/FHIR-Mapper/>
    VonkLoader - Bulk upload resources to any FHIR server <vonkloader/index>
 
 .. list-table:: Product and FHIR Versions Overview
@@ -65,15 +64,6 @@ On this site you will find the documentation for various FHIR tools and SDKs.
      - ✔️ 4.0.1
      - ✔️ 3.0.2
      - Firely .NET SDK 3.0
-     - 
-   * - FHIR Mapper 0.7.0
-     -
-     -
-     - ✔️ 4.0.1
-     - ✔️ 3.0.2
-     - Firely .NET SDK 3.0, 
-      
-       Vonk 4.1.0
      - 
    * - Firely .NET SDK 3.4.0
      - ✔️ 4.6.0
