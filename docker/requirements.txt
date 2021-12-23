@@ -1,0 +1,2 @@
+###### Requirements for firely docs without Version Specifiers ######
+sphinx-rtd-theme
