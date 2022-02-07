@@ -61,7 +61,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
    * - Firely Server 4.7.0
 
-     - ⚠️ **R5** - 4.6No.0
+     - ⚠️ **R5** - 4.6.0
              
        ✔️ **R4** - 4.0.1
        
