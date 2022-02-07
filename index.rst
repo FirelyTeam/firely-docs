@@ -38,26 +38,17 @@ On this site you will find the documentation for various FHIR tools and SDKs.
      - ✔️ 3.0.2
      - Firely .NET SDK 3.4.0
      - ✔️ (frozen)
-   * - Simplifier 26.3
+   * - Simplifier 28.4
      -
      -
      - ✔️ 4.0.1
      - ✔️ 3.0.2
-     - Firely .NET SDK 1.9, 
+     - Firely .NET SDK 3.6.0, 
       
-       Firely Server 3.6
+       Firely Server 4.6.2
      - ✔️ (frozen)
-   * - Firely Terminal 2.2.0
-     - ✔️ 4.5.0 
-      
-       *alpha*
-     -
-     - ✔️ 4.0.1
-     - ✔️ 3.0.2
-     - Firely .NET SDK 3.2.0
-     - 
-   * - Firely Server 4.6.0
-     - ✔️ 4.5.0 
+   * - Firely Terminal 2.4.2
+     - ✔️ 4.6.0 
       
        *alpha*
      -
@@ -65,11 +56,20 @@ On this site you will find the documentation for various FHIR tools and SDKs.
      - ✔️ 3.0.2
      - Firely .NET SDK 3.6.0
      - 
-   * - Firely .NET SDK 3.6.0
-     - ✔️ 4.6.0
+   * - Firely Server 4.7.0
+     - ✔️ 4.6.0 
       
        *alpha*
-     - ✔️ 4.1.0
+     -
+     - ✔️ 4.0.1
+     - ✔️ 3.0.2
+     - Firely .NET SDK 3.7.0
+     - 
+   * - Firely .NET SDK 3.8.0
+     - ✔️ 5.0.0-snapshot1
+      
+       *alpha*
+     - ✔️ 4.3.0-snapshot1
       
        *alpha*
      - ️️️️✔️ 4.0.1
