@@ -59,7 +59,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
      - Firely .NET SDK 3.6.0
 
-   * - Firely Server 4.8.0
+   * - Firely Server 4.8.1
 
      - ⚠️ **R5** - 5.0.0-snapshot1
              
@@ -67,9 +67,9 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        ✔️ **STU3** - 3.0.2 
 
-     - Firely .NET SDK 3.8.0
+     - Firely .NET SDK 3.8.2
 
-   * - Firely .NET SDK 3.8.1
+   * - Firely .NET SDK 3.8.2
 
      - ⚠️ **R5** - 5.0.0-snapshot1
        
