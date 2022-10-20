@@ -13,3 +13,4 @@ venv
 #output from previewer in VSCode
 /output
 *.code-workspace
+/.vs/firely-docs/v17/.wsuo
