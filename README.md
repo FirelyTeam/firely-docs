@@ -8,7 +8,6 @@ Some of the tools are documented in separate repositories:
 * [Firely Terminal](https://github.com/FirelyTeam/firely-docs-firely-terminal)
 * [Forge](https://github.com/FirelyTeam/firely-docs-forge)
 * [Simplifier.net](https://github.com/FirelyTeam/firely-docs-simplifier)
-* [FHIR Mapper](https://github.com/FirelyTeam/firely-docs-fhir-mapper)
 * [Firely Server](https://github.com/FirelyTeam/firely-docs-firely-server)
 
 ## Contributions
