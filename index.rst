@@ -24,7 +24,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
      - ⚠️ **R5** - 5.0.0-snapshot1
        
-       ⚠️ **R4B** - 4.3.0
+       ✔️ **R4B** - 4.3.0
       
        ✔️ **R4** - 4.0.1
        
