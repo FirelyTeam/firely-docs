@@ -13,6 +13,9 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    Firely .NET SDK - Open Source FHIR library <https://docs.fire.ly/projects/Firely-NET-SDK>
    Firely Terminal (Torinox) - Command-line FHIR tool <https://docs.fire.ly/projects/Firely-Terminal>
 
+.. |nbsp| unicode:: 0xA0 
+   :trim:
+
 .. list-table:: Product and FHIR Versions Overview
    :widths: 10, 10, 10
    :header-rows: 1
@@ -20,7 +23,17 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    * - Product
      - FHIR Version
      - Firely tools used
-   * - Forge 30.0
+   * - Forge 30.1
+
+       |nbsp|
+
+       |nbsp|
+
+       |nbsp|
+
+       |nbsp|
+
+       Forge 18.2
 
      - ⚠️ **R5** - 5.0.0-snapshot1
        
@@ -30,15 +43,35 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        ✔️ **STU3** - 3.0.2 
        
+       |nbsp|
+
        🧊 **DSTU2**
        
      - Firely .NET SDK 4.3.0
 
+       |nbsp|
+
+       |nbsp|
+
+       |nbsp|
+
+       |nbsp|
+
+       Firely .NET SDK 0.94
+
    * - Simplifier 29.5
+
+       |nbsp|
+
+       |nbsp|
+
+       |nbsp|
 
      - ✔️ **R4** - 4.0.1
        
        ✔️ **STU3** - 3.0.2 
+
+       |nbsp|
        
        🧊 **DSTU2**
    
@@ -46,7 +79,17 @@ On this site you will find the documentation for various FHIR tools and SDKs.
       
        Firely Server 4.6.2
 
+       |nbsp|
+
+       Firely .NET SDK 1.9.1.1
+
    * - Firely Terminal 3.1.0
+       
+       |nbsp|
+
+       |nbsp|
+
+       |nbsp|
 
      - ⚠️ **R5** - 5.0.0-snapshot1
        
@@ -60,7 +103,15 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        FQL 4.0.0 preview 2
 
+       |nbsp|
+
+       |nbsp|
+
    * - Firely Server 4.10.0
+
+       |nbsp|
+
+       |nbsp|
 
      - ⚠️ **R5** - 5.0.0-snapshot1
              
@@ -70,7 +121,21 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
      - Firely .NET SDK 3.8.2
 
+       |nbsp|
+
+       |nbsp|
+
    * - Firely .NET SDK 4.3.0
+
+       |nbsp|
+
+       |nbsp|
+
+       |nbsp|
+
+       |nbsp|
+
+       Firely .NET SDK 1.9.1.1
 
      - ⚠️ **R5** - 5.0.0-snapshot1
        
@@ -79,6 +144,8 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        ✔️ **R4** - 4.0.1
        
        ✔️ **STU3** - 3.0.2
+
+       |nbsp|
        
        🧊 **DSTU2**
      - 
