@@ -11,7 +11,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    Forge - FHIR profile editor <https://docs.fire.ly/projects/Forge>
    Firely Server - FHIR server <https://docs.fire.ly/projects/Firely-Server>
    Firely .NET SDK - Open Source FHIR library <https://docs.fire.ly/projects/Firely-NET-SDK>
-   Firely Terminal (Torinox) - Command-line FHIR tool <https://docs.fire.ly/projects/Firely-Terminal>
+   Firely Terminal - Command-line FHIR tool <https://docs.fire.ly/projects/Firely-Terminal>
 
 .. |nbsp| unicode:: 0xA0 
    :trim:
