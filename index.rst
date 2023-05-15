@@ -11,7 +11,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    Forge - FHIR profile editor <https://docs.fire.ly/projects/Forge>
    Firely Server - FHIR server <https://docs.fire.ly/projects/Firely-Server>
    Firely .NET SDK - Open Source FHIR library <https://docs.fire.ly/projects/Firely-NET-SDK>
-   Firely Terminal (Torinox) - Command-line FHIR tool <https://docs.fire.ly/projects/Firely-Terminal>
+   Firely Terminal - Command-line FHIR tool <https://docs.fire.ly/projects/Firely-Terminal>
 
 .. |nbsp| unicode:: 0xA0 
    :trim:
@@ -59,7 +59,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        Firely .NET SDK 0.94
 
-   * - Simplifier 29.5
+   * - Simplifier 30.4
 
        |nbsp|
 
@@ -67,7 +67,11 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        |nbsp|
 
-     - ✔️ **R4** - 4.0.1
+     - ⚠️ **R5** - 5.0.0-snapshot3
+       
+       ✔️ **R4B** - 4.3.0
+       
+       ✔️ **R4** - 4.0.1
        
        ✔️ **STU3** - 3.0.2 
 
@@ -75,9 +79,9 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        🧊 **DSTU2**
    
-     - Firely .NET SDK 3.8.0, 
+     - Firely .NET SDK 5.0.0, 
       
-       Firely Server 4.6.2
+       Firely Server 5.0.0
 
        |nbsp|
 
