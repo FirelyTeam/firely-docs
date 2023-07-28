@@ -137,7 +137,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        |nbsp|
 
-   * - Firely .NET SDK 5.2.0
+   * - Firely .NET SDK 5.3.0
 
        |nbsp|
 
