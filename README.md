@@ -55,3 +55,36 @@ Some of the tools are documented in separate repositories:
 6. Add the new project as [a Subproject to the main project](https://readthedocs.org/dashboard/simplifier/subprojects/). Note: Choose a pretty Alias/slug (Project-Name) because it will be shown as project name on the search page.
 
 7. Add your project to the `intersphinx_mapping` of the main project and link it in the projects toctree. Note: toctree directive needs full urls and doesn't support intersphinx.
+
+## Best practices
+
+### Making links
+
+The most stable way to refer to (places on) other pages seems to be:
+* Put this above where you want to link to:
+```
+.. _some_unique_tag:
+```
+* Link to it like so: 
+```
+:ref:`my link text <some_unique_tag>`
+```
+* Or, using intersphinx, link to the other repo's page like so:
+```
+:ref:`my link text <main_docs:some_unique_tag>`
+```
+
+This makes sure you can change the file name and location for the source files. It's also easier to search your entire documentation to see if a link is used. (Don't forget to also search all other docs repos to if you're planning to remove an anchor. I put them all in one VS Workspace for this)
+
+### Embedding images
+
+Make sure to give an image a `width` tag. This makes sure it scales nicely and it can be clicked to enlarge.
+
+```
+.. image:: images/ForgeProject.png
+   :alt: Forge
+   :width: 536
+```
+
+
+
