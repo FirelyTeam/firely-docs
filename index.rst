@@ -119,7 +119,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        |nbsp|
 
-   * - Firely Server 5.2.0
+   * - Firely Server 5.5.0
 
        |nbsp|
 
@@ -131,13 +131,13 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        ✔️ **STU3** - 3.0.2 
 
-     - Firely .NET SDK 5.2.0
+     - Firely .NET SDK 5.5.1
 
        |nbsp|
 
        |nbsp|
 
-   * - Firely .NET SDK 5.3.0
+   * - Firely .NET SDK 5.5.1
 
        |nbsp|
 
