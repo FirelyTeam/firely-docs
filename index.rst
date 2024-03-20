@@ -59,7 +59,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        Firely .NET SDK 0.94
 
-   * - Simplifier 30.4
+   * - Simplifier 31.2
 
        |nbsp|
 
@@ -71,7 +71,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        |nbsp|
 
-     - ⚠️ **R5** - 5.0.0-snapshot3
+     - ⚠️ **R5** - 5.0.0
        
        ✔️ **R4B** - 4.3.0
        
@@ -83,7 +83,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        🧊 **DSTU2**
    
-     - Firely .NET SDK 5.0.0, 
+     - Firely .NET SDK 5.1.0, 
       
        Firely Server 5.0.0
 

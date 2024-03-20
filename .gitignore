@@ -1,14 +1,7 @@
 
 _build/
 .vscode/
-/.vs/slnx.sqlite
-/.vs/slnx.sqlite-journal
-/.vs/firely-docs/v16/.suo
-/.vs/firely-docs/config/applicationhost.config
-/.vs/VSWorkspaceState.json
-/.vs/firely-docs/v17/.suo
-/.vs/firely-docs/FileContentIndex
-/.vs/ProjectSettings.json
+/.vs/
 venv
 #output from previewer in VSCode
 /output
