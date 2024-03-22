@@ -48,7 +48,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Firely Docs'
-copyright = u'2023, Firely'
+copyright = u'2024, Firely'
 author = u'Firely'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -289,7 +289,7 @@ texinfo_documents = [
 intersphinx_mapping = {
     'firely_terminal_docs': ('https://docs.fire.ly/projects/Firely-Terminal/', None),
     'forge_docs': ('https://docs.fire.ly/projects/Forge/', None),
-    'firely_net_sdk_docs': ('https://docs.fire.ly/projects/Firely-NET-SDK/', None),
-    'simplifier_docs': ('https://docs.fire.ly/projects/Simplifier/', None),
-    'fhir_mapper_docs': ('https://docs.fire.ly/projects/FHIR-Mapper/', None)
+    'firely_net_sdk_docs': ('https://docs.fire.ly/projects/Firely-NET-SDK/en/latest/', None),
+    'firely_server_docs': ('https://docs.fire.ly/projects/Firely-Server/en/latest/', None),
+    'simplifier_docs': ('https://docs.fire.ly/projects/Simplifier/', None)
 }
