@@ -47,7 +47,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        🧊 **DSTU2**
        
-     - Firely .NET SDK 5.7.0
+     - Firely .NET SDK 5.8.0
 
        |nbsp|
 
