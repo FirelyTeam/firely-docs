@@ -23,7 +23,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    * - Product
      - FHIR Version
      - Firely tools used
-   * - Forge 31.0
+   * - Forge 32.0
 
        |nbsp|
 
@@ -47,7 +47,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        🧊 **DSTU2**
        
-     - Firely .NET SDK 5.3.0
+     - Firely .NET SDK 5.8.1
 
        |nbsp|
 
