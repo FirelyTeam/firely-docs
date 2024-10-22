@@ -138,7 +138,7 @@ html_theme_options = {'navigation_depth': 3}
 html_static_path = ['_static']
 
 html_js_files = [
-    "readthedocs.js",
+    "js/readthedocs.js",
 ]
 
 # Add any extra paths that contain custom files (such as robots.txt or
