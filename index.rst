@@ -23,7 +23,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    * - Product
      - FHIR Version
      - Firely tools used
-   * - Forge 2025.1.0
+   * - Forge 2025.1.3
 
        |nbsp|
 
@@ -47,7 +47,11 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        🧊 **DSTU2**
        
-     - Firely .NET SDK 5.11.7
+     - Firely .NET SDK 5.12.2
+
+       Firely Validator 2.7.1
+
+       Firely Legacy Validator 5.11.0
 
        |nbsp|
 
@@ -59,7 +63,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        Firely .NET SDK 0.94
 
-   * - Simplifier 2024.6.2.3
+   * - Simplifier 2026.1.2
 
        |nbsp|
 
@@ -83,9 +87,13 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        🧊 **DSTU2**
    
-     - Firely .NET SDK 5.10.3, 
+     - Firely .NET SDK 5.13.3, 
       
        Firely Server 5.6.0
+
+       Firely Validator 2.7.1
+
+       Firely Legacy Validator 5.11.0
 
        |nbsp|
 
@@ -95,7 +103,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        Firely .NET SDK 1.9.1.1
 
-   * - Firely Terminal 3.4.0
+   * - Firely Terminal 3.5.0
        
        |nbsp|
 
@@ -111,15 +119,19 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        ✔️ **STU3** - 3.0.2 
 
-     - Firely .NET SDK 5.11.1,
+     - Firely .NET SDK 5.13.2,
        
-       FQL 5.0.0-alpha-02
+       FQL 5.0.0-alpha-05
+
+       Firely Validator 2.7.1
+
+       Firely Legacy Validator 5.11.0
 
        |nbsp|
 
        |nbsp|
 
-   * - Firely Server 6.5.1
+   * - Firely Server 6.7.0
 
        |nbsp|
 
@@ -131,13 +143,15 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        ✔️ **STU3** - 3.0.2 
 
-     - Firely .NET SDK 6.0.4
+     - Firely .NET SDK 6.1.1
+
+       Firely Validator 3.1.0
 
        |nbsp|
 
        |nbsp|
 
-   * - Firely .NET SDK 6.0.1
+   * - Firely .NET SDK 6.1.1
 
        |nbsp|
 
@@ -149,7 +163,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        |nbsp|
        
-       Firely .NET SDK 5.13.2
+       Firely .NET SDK 5.13.3
 
        |nbsp|
 
