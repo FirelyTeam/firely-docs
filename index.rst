@@ -119,7 +119,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        Firely Legacy Validator 5.11.0
 
-   * - Firely Server 6.7.0
+   * - Firely Server 6.9.1
 
        |nbsp|
 
@@ -131,9 +131,9 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        ✔️ **STU3** - 3.0.2 
 
-     - Firely .NET SDK 6.1.1
+     - Firely .NET SDK 6.3.0
 
-       Firely Validator 3.1.0
+       Firely Validator 3.3.0
 
        |nbsp|
 
