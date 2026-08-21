@@ -23,7 +23,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
    * - Product
      - FHIR Version
      - Firely tools used
-   * - Forge 2026.1.0
+   * - Forge 2026.2.0
 
        |nbsp|
 
@@ -47,11 +47,11 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        🧊 **DSTU2**
        
-     - Firely .NET SDK 5.13.3
+     - Firely .NET SDK 6.2.1
 
-       Firely Validator 2.7.3
+       Firely Validator 3.2.0
 
-       Firely Legacy Validator 5.11.0
+       |nbsp|
 
        |nbsp|
 
@@ -59,7 +59,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        Firely .NET SDK 0.94
 
-   * - Simplifier 2026.1.2
+   * - Simplifier 2026.4.0
 
        |nbsp|
 
@@ -83,13 +83,13 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        🧊 **DSTU2**
    
-     - Firely .NET SDK 5.13.3, 
+     - Firely .NET SDK 6.4.0,
       
-       Firely Server 5.6.0
+       Firely Server 6.9.1
 
-       Firely Validator 2.7.1
+       Firely Validator 3.3.1
 
-       Firely Legacy Validator 5.11.0
+       |nbsp|
 
        |nbsp|
 
