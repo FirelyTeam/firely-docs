@@ -59,7 +59,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        Firely .NET SDK 0.94
 
-   * - Simplifier 2026.4.0
+   * - Simplifier 2026.5.0
 
        |nbsp|
 
