@@ -5,7 +5,8 @@ Should the firely docs need more dependencies, add them to requirements.txt and 
 
 Then login to our private container registry on Azure. For login credentials ask Marco or Christiaan. If you have access to our Azure portal already, you can find it yourself. Look for the 'firely' Container Registry, and then its 'Access keys'.
 
-`docker login firely.azurecr.io`
+`docker login firely.azurecr.io`, 
+or (more modern) `az acr login --name firely` (see [az acr](https://learn.microsoft.com/en-us/cli/azure/acr)).
 
 Then push the new image:
 

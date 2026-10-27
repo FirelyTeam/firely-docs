@@ -1,3 +1,6 @@
 ###### Requirements for firely docs without Version Specifiers ######
 sphinx-rtd-theme
 sphinxcontrib-spelling
+myst-parser
+sphinx-design
+sphinxcontrib-mermaid
