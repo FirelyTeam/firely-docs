@@ -95,7 +95,7 @@ On this site you will find the documentation for various FHIR tools and SDKs.
 
        Firely .NET SDK 1.9.1.1
 
-   * - Firely Terminal 3.5.0
+   * - Firely Terminal 4.0.0
        
        |nbsp|
 
@@ -111,13 +111,11 @@ On this site you will find the documentation for various FHIR tools and SDKs.
        
        ✔️ **STU3** - 3.0.2 
 
-     - Firely .NET SDK 5.13.2,
+     - Firely .NET SDK 6.8.0,
        
-       FQL 5.0.0-alpha-05
+       FQL 6.0.1
 
-       Firely Validator 2.7.1
-
-       Firely Legacy Validator 5.11.0
+       Firely Validator 3.6.0
 
    * - Firely Server 6.9.1
 
